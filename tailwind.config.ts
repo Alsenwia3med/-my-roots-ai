@@ -9,33 +9,24 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // ROOTS-AI Design System Colors
-        ink: "#15171a",
-        muted: "#626971",
-        line: "#d8dce1",
-        soft: "#f4f5f6",
-        paper: "#ffffff",
-        accent: "#2258d5",
-        "accent-ink": "#ffffff",
-        focus: "#ff9d00",
-        danger: "#a42b27",
-      },
-      spacing: {
-        content: "1180px",
-      },
-      borderRadius: {
-        roots: "14px",
-      },
-      boxShadow: {
-        roots: "0 18px 44px rgba(18, 25, 38, .10)",
+        // ROOTS-AI Dark Blue Theme
+        'roots-dark': '#0a1628',
+        'roots-blue': '#1e3a5f',
+        'roots-blue-light': '#2d5a87',
+        'roots-accent': '#3b82f6',
+        'roots-gold': '#f59e0b',
+        'roots-gold-light': '#fbbf24',
+        'roots-white': '#ffffff',
+        'roots-gray': '#e5e7eb',
+        'roots-text': '#1f2937',
+        'roots-text-light': '#6b7280',
       },
       fontFamily: {
-        sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Arial", "sans-serif"],
+        sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Arial', 'sans-serif'],
       },
       fontSize: {
-        hero: ["clamp(42px, 6.2vw, 82px)", { lineHeight: "0.98", letterSpacing: "-0.055em" }],
-        h2: ["clamp(30px, 3.8vw, 50px)", { lineHeight: "1.05", letterSpacing: "-0.045em" }],
-        lead: ["clamp(18px, 2vw, 22px)", { lineHeight: "1.55" }],
+        'hero': ['clamp(48px, 5vw, 72px)', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'section-title': ['clamp(32px, 4vw, 48px)', { lineHeight: '1.2', letterSpacing: '-0.01em' }],
       },
     },
   },

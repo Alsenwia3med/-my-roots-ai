@@ -2,37 +2,37 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 
-export default function Research() {
+export default function About() {
   return (
     <>
       <Header />
 
       <main className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-section-title font-bold text-roots-dark mb-6">Research & Development</h1>
+          <h1 className="text-section-title font-bold text-roots-dark mb-6">About ROOTS-AI</h1>
           <p className="text-lg text-roots-text-light mb-8">
-            ROOTS-AI™ is built on governed canonical requirements and validated through golden test cases.
+            ROOTS-AI™ is a biological intelligence platform designed to help individuals understand patterns in their biology related to weight management and metabolic health.
           </p>
 
           <div className="space-y-6">
             <div className="bg-roots-gray rounded-lg p-6">
-              <h2 className="text-xl font-bold text-roots-dark mb-4">Canonical Requirements</h2>
+              <h2 className="text-xl font-bold text-roots-dark mb-4">Our Mission</h2>
               <p className="text-roots-text-light">
-                Our platform is built from controlled documents including C-01 Canonical Question Bank v1.0.1 and C-02 Canonical Scoring Rules v1.0.1.
+                To provide governed, educational biological intelligence that helps people understand the patterns behind their health struggles and make informed decisions.
               </p>
             </div>
 
             <div className="bg-roots-gray rounded-lg p-6">
-              <h2 className="text-xl font-bold text-roots-dark mb-4">Golden Tests</h2>
+              <h2 className="text-xl font-bold text-roots-dark mb-4">Our Approach</h2>
               <p className="text-roots-text-light">
-                Our scoring engine has been validated against 30 golden test cases to ensure deterministic and accurate scoring across all scenarios.
+                We use deterministic scoring governed by canonical requirements, not AI speculation. Our platform is designed to be educational, not diagnostic.
               </p>
             </div>
 
             <div className="bg-roots-gray rounded-lg p-6">
-              <h2 className="text-xl font-bold text-roots-dark mb-4">Governed AI</h2>
+              <h2 className="text-xl font-bold text-roots-dark mb-4">Privacy First</h2>
               <p className="text-roots-text-light">
-                When AI features are added, they will be read-only with respect to all deterministic outputs, with clear boundaries and fallback mechanisms.
+                Your data is private by design. We implement Row Level Security and never sell your data. You have full control over your information.
               </p>
             </div>
           </div>

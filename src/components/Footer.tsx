@@ -1,65 +1,76 @@
+import Link from 'next/link'
+
 export default function Footer() {
   return (
-    <footer className="site-footer py-[72px_30px] bg-ink text-white">
-      <div className="shell">
-        <div className="footer-top grid grid-cols-4fr 2fr 2fr 2fr gap-9 mb-12">
-          <div className="footer-col">
-            <h3 className="text-[#b9bec4] text-[12px] tracking-[0.1em] uppercase mb-4">
-              ROOTS-AI™
-            </h3>
-            <p className="text-[#cdd1d5] text-sm leading-relaxed">
-              Biological Intelligence Platform. Decode the biology before you fight the weight.
+    <footer className="bg-roots-dark text-white py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <div className="text-2xl font-bold mb-4">ROOTS.AI</div>
+            <p className="text-roots-gray text-sm">
+              Biological Intelligence Platform
             </p>
           </div>
-          <div className="footer-col">
-            <h3 className="text-[#b9bec4] text-[12px] tracking-[0.1em] uppercase mb-4">
-              Platform
-            </h3>
-            <a href="/how-it-works" className="min-h-[44px] flex items-center text-white no-underline hover:underline">
-              How It Works
-            </a>
-            <a href="/platform" className="min-h-[44px] flex items-center text-white no-underline hover:underline">
-              Platform
-            </a>
-            <a href="/research" className="min-h-[44px] flex items-center text-white no-underline hover:underline">
-              Research
-            </a>
+
+          <div>
+            <h3 className="font-semibold mb-4">Platform</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/how-it-works" className="text-roots-gray hover:text-roots-gold transition-colors">
+                  How It Works
+                </Link>
+              </li>
+              <li>
+                <Link href="/platform" className="text-roots-gray hover:text-roots-gold transition-colors">
+                  Platform
+                </Link>
+              </li>
+              <li>
+                <Link href="/research" className="text-roots-gray hover:text-roots-gold transition-colors">
+                  Research
+                </Link>
+              </li>
+            </ul>
           </div>
-          <div className="footer-col">
-            <h3 className="text-[#b9bec4] text-[12px] tracking-[0.1em] uppercase mb-4">
-              Legal
-            </h3>
-            <a href="/terms" className="min-h-[44px] flex items-center text-white no-underline hover:underline">
-              Terms of Service
-            </a>
-            <a href="/privacy" className="min-h-[44px] flex items-center text-white no-underline hover:underline">
-              Privacy Policy
-            </a>
-            <a href="/healthcare-professionals" className="min-h-[44px] flex items-center text-white no-underline hover:underline">
-              Healthcare Professionals
-            </a>
+
+          <div>
+            <h3 className="font-semibold mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/terms" className="text-roots-gray hover:text-roots-gold transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy" className="text-roots-gray hover:text-roots-gold transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+            </ul>
           </div>
-          <div className="footer-col">
-            <h3 className="text-[#b9bec4] text-[12px] tracking-[0.1em] uppercase mb-4">
-              Company
-            </h3>
-            <a href="/about" className="min-h-[44px] flex items-center text-white no-underline hover:underline">
-              About
-            </a>
-            <a href="/contact" className="min-h-[44px] flex items-center text-white no-underline hover:underline">
-              Contact
-            </a>
+
+          <div>
+            <h3 className="font-semibold mb-4">Company</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/about" className="text-roots-gray hover:text-roots-gold transition-colors">
+                  About
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-roots-gray hover:text-roots-gold transition-colors">
+                  Contact
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
-        <div className="footer-boundary max-w-[460px] text-[#cdd1d5] text-sm mb-8">
-          <p className="mb-4">
-            This assessment is for informational purposes only and does not constitute medical advice. Please consult with a qualified healthcare professional for any health concerns.
+        <div className="border-t border-roots-blue pt-8 text-center text-roots-gray text-sm">
+          <p>© {new Date().getFullYear()} ROOTS.AI. All rights reserved.</p>
+          <p className="mt-2 text-xs">
+            This assessment is for informational purposes only and does not constitute medical advice.
           </p>
-        </div>
-
-        <div className="footer-bottom mt-12 pt-[22px] border-t border-[#3b3f44] text-[#cdd1d5] text-[13px]">
-          <p>© {new Date().getFullYear()} ROOTS-AI™. All rights reserved.</p>
         </div>
       </div>
     </footer>
