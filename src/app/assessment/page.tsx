@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import questionBank from '@/lib/assessment/c01-question-bank.json'
 import { validateAnswer, canProceedToNext } from '@/lib/assessment/validation'
 import { calculateProgress, getModuleStateLabel } from '@/lib/assessment/progress'
@@ -26,7 +28,6 @@ export default function AssessmentPage() {
   const handleAnswerChange = (questionId: string, value: any) => {
     setAnswers(prev => ({ ...prev, [questionId]: value }))
 
-    // Validate on change
     const error = validateAnswer(questionId, value, false)
     if (error) {
       setErrors(prev => ({ ...prev, [questionId]: error.error }))
@@ -45,7 +46,6 @@ export default function AssessmentPage() {
         setCurrentModule(prev => prev + 1)
       }
     } else {
-      // Show errors for incomplete required questions
       const moduleQuestions = currentQuestions.filter((q: any) => q.required === true)
       const newErrors: Record<string, string> = {}
       for (const q of moduleQuestions) {
@@ -68,29 +68,29 @@ export default function AssessmentPage() {
     const error = errors[question.question_id]
 
     return (
-      <div key={question.question_id} className="mb-6 p-4 bg-white rounded-lg shadow">
-        <div className="mb-2">
-          <span className="text-sm font-medium text-indigo-600">
+      <div key={question.question_id} className="card mb-6">
+        <div className="mb-4">
+          <span className="text-accent text-sm font-bold tracking-wider uppercase">
             {question.question_id}
           </span>
           {question.required && (
-            <span className="text-red-500 ml-1">*</span>
+            <span className="text-danger ml-1">*</span>
           )}
           {question.allow_na && (
-            <span className="text-gray-400 ml-1">(Optional)</span>
+            <span className="text-muted ml-1">(Optional)</span>
           )}
         </div>
-        <h3 className="text-lg font-medium text-gray-900 mb-2">
+        <h3 className="text-xl font-bold mb-2">
           {question.question_text}
         </h3>
         {question.help_text && (
-          <p className="text-sm text-gray-600 mb-4">{question.help_text}</p>
+          <p className="text-muted text-sm mb-4">{question.help_text}</p>
         )}
 
         {renderInput(question, value)}
 
         {error && (
-          <p className="text-red-500 text-sm mt-2">{error}</p>
+          <p className="text-danger text-sm mt-2">{error}</p>
         )}
       </div>
     )
@@ -107,7 +107,7 @@ export default function AssessmentPage() {
             type="number"
             value={value || ''}
             onChange={(e) => handleAnswerChange(question.question_id, e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            className="w-full p-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
             step={question.question_type === 'decimal' ? '0.1' : '1'}
           />
         )
@@ -116,7 +116,7 @@ export default function AssessmentPage() {
         return (
           <div className="space-y-2">
             {optionSet?.map((opt: any) => (
-              <label key={opt.option_id} className="flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <label key={opt.option_id} className="flex items-center p-3 border border-line rounded-lg hover:bg-soft cursor-pointer">
                 <input
                   type="radio"
                   name={question.question_id}
@@ -125,7 +125,7 @@ export default function AssessmentPage() {
                   onChange={(e) => handleAnswerChange(question.question_id, e.target.value)}
                   className="mr-3"
                 />
-                <span>{opt.option_text}</span>
+                <span>{opt.display_label || opt.option_id}</span>
               </label>
             ))}
           </div>
@@ -135,7 +135,7 @@ export default function AssessmentPage() {
         return (
           <div className="space-y-2">
             {optionSet?.map((opt: any) => (
-              <label key={opt.option_id} className="flex items-center p-3 border rounded-lg hover:bg-gray-50 cursor-pointer">
+              <label key={opt.option_id} className="flex items-center p-3 border border-line rounded-lg hover:bg-soft cursor-pointer">
                 <input
                   type="checkbox"
                   value={opt.option_id}
@@ -150,7 +150,7 @@ export default function AssessmentPage() {
                   }}
                   className="mr-3"
                 />
-                <span>{opt.option_text}</span>
+                <span>{opt.display_label || opt.option_id}</span>
               </label>
             ))}
           </div>
@@ -158,14 +158,14 @@ export default function AssessmentPage() {
 
       case 'likert':
         return (
-          <div className="flex space-x-2">
+          <div className="flex gap-2">
             {[0, 1, 2, 3, 4].map((val) => (
               <button
                 key={val}
                 type="button"
                 onClick={() => handleAnswerChange(question.question_id, val)}
-                className={`flex-1 p-3 border rounded-lg ${
-                  value === val ? 'bg-indigo-600 text-white' : 'bg-white hover:bg-gray-50'
+                className={`flex-1 p-3 border border-line rounded-lg ${
+                  value === val ? 'bg-accent text-white' : 'bg-white hover:bg-soft'
                 }`}
               >
                 {val}
@@ -176,7 +176,7 @@ export default function AssessmentPage() {
 
       case 'decimal_with_unit':
         return (
-          <div className="flex space-x-2">
+          <div className="flex gap-2">
             <input
               type="number"
               value={value?.value || ''}
@@ -184,7 +184,7 @@ export default function AssessmentPage() {
                 ...value,
                 value: e.target.value
               })}
-              className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+              className="flex-1 p-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
               step="0.1"
             />
             <select
@@ -193,7 +193,7 @@ export default function AssessmentPage() {
                 ...value,
                 unit: e.target.value
               })}
-              className="p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500"
+              className="p-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
             >
               <option value="cm">cm</option>
               <option value="in">in</option>
@@ -206,54 +206,51 @@ export default function AssessmentPage() {
           <textarea
             value={value || ''}
             onChange={(e) => handleAnswerChange(question.question_id, e.target.value)}
-            className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+            className="w-full p-3 border border-line rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
             rows={4}
             maxLength={question.question_id === 'Q73' ? 1000 : undefined}
           />
         )
 
       default:
-        return <div className="text-gray-500">Unknown question type</div>
+        return <div className="text-muted">Unknown question type</div>
     }
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto">
-          {/* Header */}
+    <>
+      <Header />
+
+      <main className="section-pad">
+        <div className="shell max-w-4xl">
           <div className="mb-8">
-            <Link href="/" className="text-indigo-600 hover:text-indigo-800 mb-4 inline-block">
+            <Link href="/" className="text-accent hover:underline mb-4 inline-block">
               ← Back to Home
             </Link>
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              {currentModuleData.module_title}
-            </h1>
-            <div className="flex items-center space-x-4 text-sm text-gray-600">
+            <h1 className="mb-2">{currentModuleData.module_title}</h1>
+            <div className="flex items-center gap-4 text-sm text-muted">
               <span>Module {currentModule + 1} of {modules.length}</span>
               {progress && (
                 <span>Overall Progress: {Math.round(progress.percent)}%</span>
               )}
             </div>
-            {/* Progress bar */}
-            <div className="mt-4 bg-gray-200 rounded-full h-2">
+            <div className="mt-4 bg-line rounded-full h-2">
               <div
-                className="bg-indigo-600 h-2 rounded-full transition-all"
+                className="bg-accent h-2 rounded-full transition-all"
                 style={{ width: `${progress?.percent || 0}%` }}
               />
             </div>
           </div>
 
-          {/* Module Progress */}
           {progress && (
-            <div className="mb-6 grid grid-cols-13 gap-2">
+            <div className="mb-6 grid grid-cols-13 gap-1">
               {progress.modules.map((mod: any, idx: number) => (
                 <div
                   key={mod.module_id}
                   className={`h-2 rounded-full ${
                     mod.state === 'complete' ? 'bg-green-500' :
                     mod.state === 'needs_attention' ? 'bg-yellow-500' :
-                    'bg-gray-300'
+                    'bg-line'
                   }`}
                   title={`${mod.module_id}: ${getModuleStateLabel(mod.state)}`}
                 />
@@ -261,17 +258,15 @@ export default function AssessmentPage() {
             </div>
           )}
 
-          {/* Questions */}
           <div className="space-y-4 mb-8">
             {currentQuestions.map(renderQuestion)}
           </div>
 
-          {/* Navigation */}
           <div className="flex justify-between items-center">
             <button
               onClick={handlePrevious}
               disabled={currentModule === 0}
-              className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-6 py-3 bg-soft text-ink rounded-lg hover:bg-line disabled:opacity-50 disabled:cursor-not-allowed"
             >
               Previous
             </button>
@@ -279,7 +274,7 @@ export default function AssessmentPage() {
             {currentModule < modules.length - 1 ? (
               <button
                 onClick={handleNext}
-                className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+                className="px-6 py-3 bg-accent text-white rounded-lg hover:bg-accent/90"
               >
                 Next
               </button>
@@ -293,7 +288,9 @@ export default function AssessmentPage() {
             )}
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+
+      <Footer />
+    </>
   )
 }

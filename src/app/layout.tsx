@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "ROOTS-AI - Health Assessment Platform",
-  description: "Comprehensive health assessment with 7-domain scoring system",
+  title: "ROOTS-AI™ - Biological Intelligence Platform",
+  description: "Decode the biology before you fight the weight. Comprehensive health assessment with 7-domain scoring system.",
 };
 
 export default function RootLayout({

@@ -2,15 +2,15 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { calculateScores, getClassification } from '@/lib/scoring/engine'
-import { validateSubmission } from '@/lib/assessment/validation'
 
 export default function ReportPage() {
   const [results, setResults] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // Mock data for demonstration - in real app, this would come from server
     const mockInput = {
       age: 40,
       diseaseCount: 0,
@@ -70,99 +70,98 @@ export default function ReportPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-indigo-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Generating your report...</p>
-        </div>
-      </div>
+      <>
+        <Header />
+        <main className="section-pad">
+          <div className="shell text-center">
+            <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-accent mx-auto mb-4"></div>
+            <p className="text-muted">Generating your report...</p>
+          </div>
+        </main>
+        <Footer />
+      </>
     )
   }
 
   const domainLabels: Record<string, string> = {
     MR: 'Metabolic Resistance',
-    HS: 'Hunger & Satiety Signals',
-    SR: 'Sleep Recovery Index',
-    CH: 'Circadian Health Score',
+    HS: 'Hunger & Satiety',
+    SR: 'Sleep Recovery',
+    CH: 'Circadian Health',
     SL: 'Stress Load',
-    IB: 'Inflammation & Burden',
-    BS: 'Biological Safety Signals'
+    IB: 'Inflammation',
+    BS: 'Biological Safety'
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="container mx-auto px-4 py-8">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
+    <>
+      <Header />
+
+      <main className="section-pad">
+        <div className="shell max-w-6xl">
           <div className="mb-8">
-            <Link href="/" className="text-indigo-600 hover:text-indigo-800 mb-4 inline-block">
+            <Link href="/" className="text-accent hover:underline mb-4 inline-block">
               ← Back to Home
             </Link>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
-              Your Health Assessment Report
-            </h1>
-            <p className="text-gray-600">
+            <h1 className="mb-2">Your Biological Intelligence Report</h1>
+            <p className="text-muted">
               Based on your responses across 7 health domains
             </p>
           </div>
 
-          {/* Key Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="text-sm text-gray-600 mb-2">Biological State</div>
-              <div className="text-3xl font-bold text-indigo-600">
+          <div className="grid grid-cols-4 gap-6 mb-8">
+            <div className="card">
+              <div className="text-sm text-muted mb-2">Biological State</div>
+              <div className="text-[54px] font-[850] leading-none tracking-[-0.05em]">
                 {results.biological_state !== null ? results.biological_state : 'N/A'}
               </div>
-              <div className="text-sm text-gray-500 mt-1">
+              <div className="text-sm text-muted mt-1">
                 {results.biological_state !== null ? getClassification(results.biological_state, 'DOMAIN') : 'Insufficient Data'}
               </div>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="text-sm text-gray-600 mb-2">Opportunity</div>
-              <div className="text-3xl font-bold text-green-600">
+            <div className="card">
+              <div className="text-sm text-muted mb-2">Opportunity</div>
+              <div className="text-[54px] font-[850] leading-none tracking-[-0.05em]">
                 {results.opportunity}
               </div>
-              <div className="text-sm text-gray-500 mt-1">Potential for improvement</div>
+              <div className="text-sm text-muted mt-1">Potential for improvement</div>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="text-sm text-gray-600 mb-2">Recovery Potential</div>
-              <div className="text-3xl font-bold text-purple-600">
+            <div className="card">
+              <div className="text-sm text-muted mb-2">Recovery Potential</div>
+              <div className="text-[54px] font-[850] leading-none tracking-[-0.05em]">
                 {results.recovery_potential}
               </div>
-              <div className="text-sm text-gray-500 mt-1">Overall outlook</div>
+              <div className="text-sm text-muted mt-1">Overall outlook</div>
             </div>
 
-            <div className="bg-white rounded-lg shadow p-6">
-              <div className="text-sm text-gray-600 mb-2">Confidence</div>
-              <div className="text-3xl font-bold text-blue-600">
+            <div className="card">
+              <div className="text-sm text-muted mb-2">Confidence</div>
+              <div className="text-[54px] font-[850] leading-none tracking-[-0.05em]">
                 {results.confidence}
               </div>
-              <div className="text-sm text-gray-500 mt-1">
+              <div className="text-sm text-muted mt-1">
                 {getClassification(results.confidence, 'CONFIDENCE')}
               </div>
             </div>
           </div>
 
-          {/* Domain Scores */}
-          <div className="bg-white rounded-lg shadow p-6 mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Domain Scores</h2>
+          <div className="card mb-8">
+            <h2 className="text-2xl font-bold mb-6">Domain Scores</h2>
             <div className="space-y-4">
               {Object.entries(results.domains).map(([domain, score]) => (
                 <div key={domain}>
                   <div className="flex justify-between items-center mb-2">
-                    <span className="font-medium text-gray-700">
-                      {domainLabels[domain] || domain}
-                    </span>
-                    <span className="text-sm text-gray-500">
+                    <span className="font-medium">{domainLabels[domain] || domain}</span>
+                    <span className="text-sm text-muted">
                       {score as number} - {getClassification(score as number, 'DOMAIN')}
                     </span>
                   </div>
-                  <div className="w-full bg-gray-200 rounded-full h-3">
+                  <div className="h-2 mt-1 overflow-hidden rounded-full bg-[#e5e7e9]">
                     <div
                       className={`h-3 rounded-full ${
-                        (score as number) >= 75 ? 'bg-red-500' :
+                        (score as number) >= 75 ? 'bg-danger' :
                         (score as number) >= 50 ? 'bg-orange-500' :
                         (score as number) >= 25 ? 'bg-yellow-500' :
                         'bg-green-500'
@@ -175,60 +174,57 @@ export default function ReportPage() {
             </div>
           </div>
 
-          {/* Drivers */}
           {results.drivers.length > 0 && (
-            <div className="bg-white rounded-lg shadow p-6 mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Primary Drivers</h2>
+            <div className="card mb-8">
+              <h2 className="text-2xl font-bold mb-4">Primary Drivers</h2>
               <div className="space-y-2">
                 {results.drivers.map((driver: string, idx: number) => (
-                  <div key={idx} className="flex items-center p-3 bg-indigo-50 rounded-lg">
-                    <div className="w-8 h-8 bg-indigo-600 text-white rounded-full flex items-center justify-center mr-3">
+                  <div key={idx} className="flex items-center p-3 bg-soft rounded-lg">
+                    <div className="w-8 h-8 bg-accent text-white rounded-full flex items-center justify-center mr-3 font-bold">
                       {idx + 1}
                     </div>
-                    <span className="font-medium text-gray-700">{driver}</span>
+                    <span className="font-medium">{driver}</span>
                   </div>
                 ))}
               </div>
             </div>
           )}
 
-          {/* Protective Factors */}
-          <div className="bg-white rounded-lg shadow p-6 mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Protective Factors</h2>
-            <div className="text-3xl font-bold text-green-600 mb-2">
+          <div className="card mb-8">
+            <h2 className="text-2xl font-bold mb-4">Protective Factors</h2>
+            <div className="text-[54px] font-[850] leading-none tracking-[-0.05em] text-green-600 mb-2">
               {results.protective_count} / 5
             </div>
-            <p className="text-gray-600">
+            <p className="text-muted">
               You have {results.protective_count} protective factors working in your favor.
             </p>
           </div>
 
-          {/* Disclaimer */}
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-6 mb-8">
+          <div className="card mb-8 bg-yellow-50 border-yellow-200">
             <h3 className="font-bold text-yellow-800 mb-2">Important Disclaimer</h3>
             <p className="text-yellow-700 text-sm">
-              This assessment is for informational purposes only and does not constitute medical advice.
-              Please consult with a qualified healthcare professional for any health concerns.
+              This assessment is for informational purposes only and does not constitute medical advice. Please consult with a qualified healthcare professional for any health concerns.
             </p>
           </div>
 
-          {/* Actions */}
-          <div className="flex space-x-4">
+          <div className="flex gap-4">
             <Link
               href="/assessment"
-              className="px-6 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
+              className="button"
             >
               Retake Assessment
             </Link>
             <button
               onClick={() => window.print()}
-              className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300"
+              className="button secondary"
             >
               Print Report
             </button>
           </div>
         </div>
-      </div>
-    </div>
+      </main>
+
+      <Footer />
+    </>
   )
 }
