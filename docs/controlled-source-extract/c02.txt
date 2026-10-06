@@ -1,0 +1,630 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ C-02 Canonical Scoring Rules & Golden Tests v1.0.1 - CORRECTED
+Controlled human-readable companion to the authoritative executable XLSX. Deterministic scoring only; LLM has no calculation authority.
+v1.0.1 closes driver-ranking/tie inconsistencies across the 30 Golden Tests, reserves BS exclusively for Biological Safety Signals™, defines BIO_STATE for Biological State™, unifies integer rounding as half-away-from-zero, and treats classification hex values as semantic references rather than final UI tokens.
+
+===== PAGE 2 =====
+README
+Field Value Control Implementation note Owner Status
+Dataset ID ROOTS-C02-SCORING-001 Immutable Link every score/report to v1.0.1 ROOTS Approved
+scoring_version 1.0.1 Immutable Server-side configuration only ROOTS Approved
+Scored questions 40 Exact All other C-01 questions are contextual-only ROOTS Approved
+Raw burden scale 0-4 Exact 0=lowest burden; 4=highest burden ROOTS Approved
+Domain coverage threshold 50% Exact Below threshold returns null ROOTS Approved
+Biological State minimum 5 of 7 domains Exact Otherwise null ROOTS Approved
+Rounding Half away from zero to integer Exact Opportunity/Recovery retain one decimal ROOTS Approved
+LLM role None in calculation Mandatory LLM cannot change any score, class or driver ROOTS Approved
+
+===== PAGE 3 =====
+Domains
+domain_id display_name meaning formula
+MR Metabolic Resistance™ Self-reported weight-change resistance and activity context ROUND(SUM(answer_points)/SUM(max_points)*100)
+HS Hunger & Satiety Signals™ Hunger, cravings, fullness and meal response ROUND(SUM(answer_points)/SUM(max_points)*100)
+SR Sleep Recovery Index™ Sleep duration, continuity and restoration ROUND(SUM(answer_points)/SUM(max_points)*100)
+CH Circadian Health Score™ Timing of light, screens, meals and sleep ROUND(SUM(answer_points)/SUM(max_points)*100)
+SL Stress Load™ Perceived tension, stress-eating and cognitive activation ROUND(SUM(answer_points)/SUM(max_points)*100)
+IB Inflammation Burden Index™ Non-specific self-reported symptom burden; not a biomarker ROUND(SUM(answer_points)/SUM(max_points)*100)
+BS Biological Safety Signals™ Perceived resistance, appetite drive and low energy ROUND(SUM(answer_points)/SUM(max_points)*100)
+
+===== PAGE 4 =====
+Question_Mapping
+question_id domain_id weight reverse_scored points_map question_reference normalized_range status
+Q9 MR 1 False GAIN_PATTERN How did the weight
+change that concerns
+you begin?
+0-4 burden points APPROVED
+Q10 MR 1 False FREQ How often have
+well-planned diet or
+activity efforts produced
+less change than you
+expected?
+0-4 burden points APPROVED
+Q11 MR 1 False FREQ After an intentional
+weight loss, how often
+has some or all of the
+weight returned?
+0-4 burden points APPROVED
+Q12 MR 1 False WEIGHT_CYCLE
+S
+How many meaningful
+cycles of weight loss and
+regain have you
+experienced?
+0-4 burden points APPROVED
+Q46 MR 1 False ACTIVITY_DAYS On how many days per
+week do you complete
+intentional physical
+activity?
+0-4 burden points APPROVED
+Q47 MR 1 False ACTIVITY_DURA
+TION
+On active days, what is
+the usual duration of
+your intentional activity?
+0-4 burden points APPROVED
+Q48 MR 1 False ACTIVITY_TYPE Which option best
+describes your usual
+physical activity pattern?
+0-4 burden points APPROVED
+Q16 SR 1 False SLEEP_HOURS How many hours of
+sleep do you typically get
+in a 24-hour period?
+0-4 burden points APPROVED
+Q17 SR 1 False FREQ How often do you feel
+tired even after what
+seemed like enough time
+in bed?
+0-4 burden points APPROVED
+Q18 SR 1 False FREQ How often do you wake
+during the night and
+struggle to return to
+sleep?
+0-4 burden points APPROVED
+Q19 SR 1 False FREQ How often is your
+bedtime after midnight?
+0-4 burden points APPROVED
+Q20 SR 1 False FREQ How often do you remain
+awake until 2:00 AM or
+later because you cannot
+settle to sleep?
+0-4 burden points APPROVED
+Q21 SR 1 False FREQ How often do you snore
+loudly, wake gasping, or
+receive feedback that
+your breathing pauses
+during sleep?
+0-4 burden points APPROVED
+Q22 SR 1 False FREQ How often do you
+experience a marked
+afternoon energy crash?
+0-4 burden points APPROVED
+Q23 HS 1 False FREQ How often do you feel
+physically hungry within
+two hours after a full
+meal?
+0-4 burden points APPROVED
+Q24 HS 1 False FREQ How often do you
+experience food cravings
+when you are not
+physically hungry?
+0-4 burden points APPROVED
+Q25 HS 1 False FREQ How often do you eat
+enough but still fail to
+feel comfortably full?
+0-4 burden points APPROVED
+Q26 HS 1 True FREQ How often do you feel
+comfortably full after a
+normal meal?
+0-4 burden points APPROVED
+Q27 HS 1 False FREQ How often are you
+hungry again three to
+four hours after a
+protein-rich meal?
+0-4 burden points APPROVED
+
+===== PAGE 5 =====
+question_id domain_id weight reverse_scored points_map question_reference normalized_range status
+Q28 HS 1 True FREQ How often does a
+protein-rich meal keep
+you satisfied for four
+hours or longer?
+0-4 burden points APPROVED
+Q29 HS 1 False FREQ How often do you feel
+sleepy, foggy or low in
+energy after a main
+meal?
+0-4 burden points APPROVED
+Q30 HS 1 False FREQ When you start eating
+sweets or snack foods,
+how often is it difficult to
+stop at the amount you
+intended?
+0-4 burden points APPROVED
+Q31 SL 1 False FREQ How often do you feel
+persistent physical
+tension or stress?
+0-4 burden points APPROVED
+Q32 SL 1 False FREQ How often does stress
+increase your desire to
+eat?
+0-4 burden points APPROVED
+Q33 SL 1 False FREQ How often does your
+mind race when you are
+trying to sleep?
+0-4 burden points APPROVED
+Q34 SL 1 False FREQ How often are cravings
+noticeably stronger in the
+evening?
+0-4 burden points APPROVED
+Q35 IB 1 False FREQ How often do you
+experience bloating, gas
+or digestive discomfort?
+0-4 burden points APPROVED
+Q36 IB 1 False FREQ How often do you
+experience brain fog
+after meals?
+0-4 burden points APPROVED
+Q37 IB 1 False FREQ How often do you
+experience unexplained
+joint pain or stiffness?
+0-4 burden points APPROVED
+Q38 IB 1 False FREQ How often does fat
+around your waist seem
+resistant to your usual
+efforts?
+0-4 burden points APPROVED
+Q39 IB 1 False FREQ How often do you
+experience unusual thirst
+or a dry mouth?
+0-4 burden points APPROVED
+Q40 IB 1 False FREQ How often have reducing
+calories and increasing
+activity produced little
+sustained change?
+0-4 burden points APPROVED
+Q41 CH 1 False FREQ How often do you spend
+the first hour after waking
+indoors without natural
+daylight exposure?
+0-4 burden points APPROVED
+Q42 CH 1 False FREQ How often do you use a
+phone, tablet or
+computer during the final
+hour before sleep?
+0-4 burden points APPROVED
+Q43 CH 1 False FREQ How often do you eat
+within three hours of
+bedtime?
+0-4 burden points APPROVED
+Q44 CH 1 False FREQ How often does your
+sleep schedule vary by
+more than two hours
+across the week?
+0-4 burden points APPROVED
+Q45 CH 1 False FREQ How often do you feel
+more alert late at night
+than during the morning?
+0-4 burden points APPROVED
+Q49 BS 1 False FREQ How often does your
+body seem to resist
+weight loss despite
+consistent effort?
+0-4 burden points APPROVED
+Q50 BS 1 False FREQ How often does hunger
+feel stronger than your
+ability to regulate it?
+0-4 burden points APPROVED
+
+===== PAGE 6 =====
+question_id domain_id weight reverse_scored points_map question_reference normalized_range status
+Q51 BS 1 False FREQ How often are your
+energy levels lower than
+you believe they should
+be?
+0-4 burden points APPROVED
+
+===== PAGE 7 =====
+Option_Points
+question_id domain_id option_set_id option_id display_label burden_points excluded_as_na
+Q9 MR GAIN_PATTERN STABLE No concerning change
+or mostly stable
+0 False
+Q9 MR GAIN_PATTERN IDENTIFIABLE After an identifiable life
+period or event
+1 False
+Q9 MR GAIN_PATTERN GRADUAL Gradually with no
+single clear reason
+2 False
+Q9 MR GAIN_PATTERN CYCLING In repeated cycles of
+loss and regain
+3 False
+Q9 MR GAIN_PATTERN RAPID Rapidly or
+unexpectedly
+4 False
+Q9 MR GAIN_PATTERN NA Not applicable True
+Q10 MR FREQ NVR Never 0 False
+Q10 MR FREQ RLY Rarely 1 False
+Q10 MR FREQ SMT Sometimes 2 False
+Q10 MR FREQ OFT Often 3 False
+Q10 MR FREQ ALW Almost always 4 False
+Q10 MR FREQ NA Not applicable True
+Q11 MR FREQ NVR Never 0 False
+Q11 MR FREQ RLY Rarely 1 False
+Q11 MR FREQ SMT Sometimes 2 False
+Q11 MR FREQ OFT Often 3 False
+Q11 MR FREQ ALW Almost always 4 False
+Q11 MR FREQ NA Not applicable True
+Q12 MR WEIGHT_CYCLES NONE None 0 False
+Q12 MR WEIGHT_CYCLES ONE One 1 False
+Q12 MR WEIGHT_CYCLES TWO Two 2 False
+Q12 MR WEIGHT_CYCLES THREE_FOUR Three or four 3 False
+Q12 MR WEIGHT_CYCLES FIVE_PLUS Five or more 4 False
+Q12 MR WEIGHT_CYCLES NA Not applicable True
+Q46 MR ACTIVITY_DAYS D0 0 days 4 False
+Q46 MR ACTIVITY_DAYS D1_2 1-2 days 3 False
+Q46 MR ACTIVITY_DAYS D3_4 3-4 days 1 False
+Q46 MR ACTIVITY_DAYS D5_7 5-7 days 0 False
+Q46 MR ACTIVITY_DAYS NA Not applicable True
+Q47 MR ACTIVITY_DURATIO
+N
+LT10 Less than 10 minutes 4 False
+Q47 MR ACTIVITY_DURATIO
+N
+M10_29 10-29 minutes 3 False
+Q47 MR ACTIVITY_DURATIO
+N
+M30_59 30-59 minutes 1 False
+Q47 MR ACTIVITY_DURATIO
+N
+M60_PLUS 60 minutes or more 0 False
+Q47 MR ACTIVITY_DURATIO
+N
+NA Not applicable True
+Q48 MR ACTIVITY_TYPE NONE No intentional activity 4 False
+Q48 MR ACTIVITY_TYPE LIGHT Light movement or
+daily activities
+3 False
+Q48 MR ACTIVITY_TYPE AEROBIC Mostly aerobic activity 2 False
+Q48 MR ACTIVITY_TYPE RESISTANCE Mostly resistance
+training
+1 False
+Q48 MR ACTIVITY_TYPE MIXED A mix of aerobic and
+resistance activity
+0 False
+
+===== PAGE 8 =====
+question_id domain_id option_set_id option_id display_label burden_points excluded_as_na
+Q48 MR ACTIVITY_TYPE NA Not applicable True
+Q16 SR SLEEP_HOURS LT5 Less than 5 hours 4 False
+Q16 SR SLEEP_HOURS H5_6 5 to less than 6 hours 3 False
+Q16 SR SLEEP_HOURS H6_7 6 to less than 7 hours 1 False
+Q16 SR SLEEP_HOURS H7_9 7 to 9 hours 0 False
+Q16 SR SLEEP_HOURS GT9 More than 9 hours 2 False
+Q16 SR SLEEP_HOURS NA Not applicable True
+Q17 SR FREQ NVR Never 0 False
+Q17 SR FREQ RLY Rarely 1 False
+Q17 SR FREQ SMT Sometimes 2 False
+Q17 SR FREQ OFT Often 3 False
+Q17 SR FREQ ALW Almost always 4 False
+Q17 SR FREQ NA Not applicable True
+Q18 SR FREQ NVR Never 0 False
+Q18 SR FREQ RLY Rarely 1 False
+Q18 SR FREQ SMT Sometimes 2 False
+Q18 SR FREQ OFT Often 3 False
+Q18 SR FREQ ALW Almost always 4 False
+Q18 SR FREQ NA Not applicable True
+Q19 SR FREQ NVR Never 0 False
+Q19 SR FREQ RLY Rarely 1 False
+Q19 SR FREQ SMT Sometimes 2 False
+Q19 SR FREQ OFT Often 3 False
+Q19 SR FREQ ALW Almost always 4 False
+Q19 SR FREQ NA Not applicable True
+Q20 SR FREQ NVR Never 0 False
+Q20 SR FREQ RLY Rarely 1 False
+Q20 SR FREQ SMT Sometimes 2 False
+Q20 SR FREQ OFT Often 3 False
+Q20 SR FREQ ALW Almost always 4 False
+Q20 SR FREQ NA Not applicable True
+Q21 SR FREQ NVR Never 0 False
+Q21 SR FREQ RLY Rarely 1 False
+Q21 SR FREQ SMT Sometimes 2 False
+Q21 SR FREQ OFT Often 3 False
+Q21 SR FREQ ALW Almost always 4 False
+Q21 SR FREQ NA Not applicable True
+Q22 SR FREQ NVR Never 0 False
+Q22 SR FREQ RLY Rarely 1 False
+Q22 SR FREQ SMT Sometimes 2 False
+Q22 SR FREQ OFT Often 3 False
+Q22 SR FREQ ALW Almost always 4 False
+Q22 SR FREQ NA Not applicable True
+Q23 HS FREQ NVR Never 0 False
+Q23 HS FREQ RLY Rarely 1 False
+Q23 HS FREQ SMT Sometimes 2 False
+Q23 HS FREQ OFT Often 3 False
+Q23 HS FREQ ALW Almost always 4 False
+
+===== PAGE 9 =====
+question_id domain_id option_set_id option_id display_label burden_points excluded_as_na
+Q23 HS FREQ NA Not applicable True
+Q24 HS FREQ NVR Never 0 False
+Q24 HS FREQ RLY Rarely 1 False
+Q24 HS FREQ SMT Sometimes 2 False
+Q24 HS FREQ OFT Often 3 False
+Q24 HS FREQ ALW Almost always 4 False
+Q24 HS FREQ NA Not applicable True
+Q25 HS FREQ NVR Never 0 False
+Q25 HS FREQ RLY Rarely 1 False
+Q25 HS FREQ SMT Sometimes 2 False
+Q25 HS FREQ OFT Often 3 False
+Q25 HS FREQ ALW Almost always 4 False
+Q25 HS FREQ NA Not applicable True
+Q26 HS FREQ NVR Never 4 False
+Q26 HS FREQ RLY Rarely 3 False
+Q26 HS FREQ SMT Sometimes 2 False
+Q26 HS FREQ OFT Often 1 False
+Q26 HS FREQ ALW Almost always 0 False
+Q26 HS FREQ NA Not applicable True
+Q27 HS FREQ NVR Never 0 False
+Q27 HS FREQ RLY Rarely 1 False
+Q27 HS FREQ SMT Sometimes 2 False
+Q27 HS FREQ OFT Often 3 False
+Q27 HS FREQ ALW Almost always 4 False
+Q27 HS FREQ NA Not applicable True
+Q28 HS FREQ NVR Never 4 False
+Q28 HS FREQ RLY Rarely 3 False
+Q28 HS FREQ SMT Sometimes 2 False
+Q28 HS FREQ OFT Often 1 False
+Q28 HS FREQ ALW Almost always 0 False
+Q28 HS FREQ NA Not applicable True
+Q29 HS FREQ NVR Never 0 False
+Q29 HS FREQ RLY Rarely 1 False
+Q29 HS FREQ SMT Sometimes 2 False
+Q29 HS FREQ OFT Often 3 False
+Q29 HS FREQ ALW Almost always 4 False
+Q29 HS FREQ NA Not applicable True
+Q30 HS FREQ NVR Never 0 False
+Q30 HS FREQ RLY Rarely 1 False
+Q30 HS FREQ SMT Sometimes 2 False
+Q30 HS FREQ OFT Often 3 False
+Q30 HS FREQ ALW Almost always 4 False
+Q30 HS FREQ NA Not applicable True
+Q31 SL FREQ NVR Never 0 False
+Q31 SL FREQ RLY Rarely 1 False
+Q31 SL FREQ SMT Sometimes 2 False
+Q31 SL FREQ OFT Often 3 False
+Q31 SL FREQ ALW Almost always 4 False
+
+===== PAGE 10 =====
+question_id domain_id option_set_id option_id display_label burden_points excluded_as_na
+Q31 SL FREQ NA Not applicable True
+Q32 SL FREQ NVR Never 0 False
+Q32 SL FREQ RLY Rarely 1 False
+Q32 SL FREQ SMT Sometimes 2 False
+Q32 SL FREQ OFT Often 3 False
+Q32 SL FREQ ALW Almost always 4 False
+Q32 SL FREQ NA Not applicable True
+Q33 SL FREQ NVR Never 0 False
+Q33 SL FREQ RLY Rarely 1 False
+Q33 SL FREQ SMT Sometimes 2 False
+Q33 SL FREQ OFT Often 3 False
+Q33 SL FREQ ALW Almost always 4 False
+Q33 SL FREQ NA Not applicable True
+Q34 SL FREQ NVR Never 0 False
+Q34 SL FREQ RLY Rarely 1 False
+Q34 SL FREQ SMT Sometimes 2 False
+Q34 SL FREQ OFT Often 3 False
+Q34 SL FREQ ALW Almost always 4 False
+Q34 SL FREQ NA Not applicable True
+Q35 IB FREQ NVR Never 0 False
+Q35 IB FREQ RLY Rarely 1 False
+Q35 IB FREQ SMT Sometimes 2 False
+Q35 IB FREQ OFT Often 3 False
+Q35 IB FREQ ALW Almost always 4 False
+Q35 IB FREQ NA Not applicable True
+Q36 IB FREQ NVR Never 0 False
+Q36 IB FREQ RLY Rarely 1 False
+Q36 IB FREQ SMT Sometimes 2 False
+Q36 IB FREQ OFT Often 3 False
+Q36 IB FREQ ALW Almost always 4 False
+Q36 IB FREQ NA Not applicable True
+Q37 IB FREQ NVR Never 0 False
+Q37 IB FREQ RLY Rarely 1 False
+Q37 IB FREQ SMT Sometimes 2 False
+Q37 IB FREQ OFT Often 3 False
+Q37 IB FREQ ALW Almost always 4 False
+Q37 IB FREQ NA Not applicable True
+Q38 IB FREQ NVR Never 0 False
+Q38 IB FREQ RLY Rarely 1 False
+Q38 IB FREQ SMT Sometimes 2 False
+Q38 IB FREQ OFT Often 3 False
+Q38 IB FREQ ALW Almost always 4 False
+Q38 IB FREQ NA Not applicable True
+Q39 IB FREQ NVR Never 0 False
+Q39 IB FREQ RLY Rarely 1 False
+Q39 IB FREQ SMT Sometimes 2 False
+Q39 IB FREQ OFT Often 3 False
+Q39 IB FREQ ALW Almost always 4 False
+
+===== PAGE 11 =====
+question_id domain_id option_set_id option_id display_label burden_points excluded_as_na
+Q39 IB FREQ NA Not applicable True
+Q40 IB FREQ NVR Never 0 False
+Q40 IB FREQ RLY Rarely 1 False
+Q40 IB FREQ SMT Sometimes 2 False
+Q40 IB FREQ OFT Often 3 False
+Q40 IB FREQ ALW Almost always 4 False
+Q40 IB FREQ NA Not applicable True
+Q41 CH FREQ NVR Never 0 False
+Q41 CH FREQ RLY Rarely 1 False
+Q41 CH FREQ SMT Sometimes 2 False
+Q41 CH FREQ OFT Often 3 False
+Q41 CH FREQ ALW Almost always 4 False
+Q41 CH FREQ NA Not applicable True
+Q42 CH FREQ NVR Never 0 False
+Q42 CH FREQ RLY Rarely 1 False
+Q42 CH FREQ SMT Sometimes 2 False
+Q42 CH FREQ OFT Often 3 False
+Q42 CH FREQ ALW Almost always 4 False
+Q42 CH FREQ NA Not applicable True
+Q43 CH FREQ NVR Never 0 False
+Q43 CH FREQ RLY Rarely 1 False
+Q43 CH FREQ SMT Sometimes 2 False
+Q43 CH FREQ OFT Often 3 False
+Q43 CH FREQ ALW Almost always 4 False
+Q43 CH FREQ NA Not applicable True
+Q44 CH FREQ NVR Never 0 False
+Q44 CH FREQ RLY Rarely 1 False
+Q44 CH FREQ SMT Sometimes 2 False
+Q44 CH FREQ OFT Often 3 False
+Q44 CH FREQ ALW Almost always 4 False
+Q44 CH FREQ NA Not applicable True
+Q45 CH FREQ NVR Never 0 False
+Q45 CH FREQ RLY Rarely 1 False
+Q45 CH FREQ SMT Sometimes 2 False
+Q45 CH FREQ OFT Often 3 False
+Q45 CH FREQ ALW Almost always 4 False
+Q45 CH FREQ NA Not applicable True
+Q49 BS FREQ NVR Never 0 False
+Q49 BS FREQ RLY Rarely 1 False
+Q49 BS FREQ SMT Sometimes 2 False
+Q49 BS FREQ OFT Often 3 False
+Q49 BS FREQ ALW Almost always 4 False
+Q49 BS FREQ NA Not applicable True
+Q50 BS FREQ NVR Never 0 False
+Q50 BS FREQ RLY Rarely 1 False
+Q50 BS FREQ SMT Sometimes 2 False
+Q50 BS FREQ OFT Often 3 False
+Q50 BS FREQ ALW Almost always 4 False
+
+===== PAGE 12 =====
+question_id domain_id option_set_id option_id display_label burden_points excluded_as_na
+Q50 BS FREQ NA Not applicable True
+Q51 BS FREQ NVR Never 0 False
+Q51 BS FREQ RLY Rarely 1 False
+Q51 BS FREQ SMT Sometimes 2 False
+Q51 BS FREQ OFT Often 3 False
+Q51 BS FREQ ALW Almost always 4 False
+Q51 BS FREQ NA Not applicable True
+
+===== PAGE 13 =====
+Formulas
+rule_id output normative_formula null_or_boundary_rule rounding audit_fields
+SC-001 Domain score 100 × Σ(points × weight) ÷ Σ(4 × weight), answered eligible items only N/A/missing excluded; null if answered/eligible < 0.50 Half away from zero to integer question IDs, raw option IDs, points, weights, numerator,
+denominator
+SC-002 Biological State™ Mean of available seven domain scores Null if fewer than 5 domains available Half away from zero to integer available/null domains and mean
+SC-003 Opportunity Score™ 100 - (Biological State × 0.5) Null when Biological State is null; clamp 0-100 One decimal Biological State and constant 0.5
+SC-004 Protective Factor Score 20 × count of active P1-P5 Count 0-5; no imputation Half away from zero to integer factor IDs and booleans
+SC-005 Recovery Potential™ 0.30×(100-BIO_STATE)+0.25×Protective+0.20×Age+0.15×Condition+0.10×Medication Null when Biological State is null; clamp 0-100 One decimal BIO_STATE, all factor values and contributions
+SC-006 Coverage Answered scored items ÷ eligible scored items × 100 N/A and missing count as not answered for confidence coverage Half away from zero to integer answered/eligible counts
+SC-007 Consistency by domain max(0,1-populationSD(points)/2) × 100 Null when domain is null Half away from zero to integer points, mean, SD
+SC-008 ROOTS Confidence™ 0.50×overall coverage + 0.30×Q72 value + 0.20×mean available-domain consistency 0 when no consistency; never changes scores Half away from zero to integer three components
+
+===== PAGE 14 =====
+Protective_Factors
+factor_id source activation/value rule output_value purpose notes
+P1 Q46/Q47 Activity ≥3 days/week AND usual duration ≥30 minutes 20 Protective score Use option IDs D3_4/D5_7
+and M30_59/M60_PLUS
+P2 Q64 Often or Almost always 20 Protective score Meal timing consistency
+P3 Q65 Supportive or Very supportive 20 Protective score Home environment
+P4 Q61 Never or Former use 20 Protective score Nicotine context
+P5 Q69 Readiness 7-10 20 Protective score Readiness
+AGE Q1 16-30=100; 31-45=80; 46-60=60; 61-75=40; 76-110=20 Band value Recovery Potential 16-17 uses 18-30 band if
+participation is enabled
+CONDITION Q13 None=100; one category=75; two=50; three or more=25 Band value Recovery Potential PREFER_NOT/NA treated as
+unavailable and sets
+Recovery Potential limitation
+flag
+MEDICATION Q14 None=100; one category=75; two or more=50 Band value Recovery Potential UNSURE/PREFER_NOT/NA
+sets limitation flag; no
+medication advice
+
+===== PAGE 15 =====
+Classifications
+scale minimum maximum label color_hex approved_interpretation
+DOMAIN 0 24 Optimized #27AE60 Lower reported burden
+DOMAIN 25 49 Compensating #F39C12 Signals present; compensation appears active
+DOMAIN 50 74 Strained #E67E22 Multiple or frequent signals
+DOMAIN 75 100 Dysregulated #C0392B High reported burden; educational prompt to seek appropriate support
+CONFIDENCE 80 100 High #27AE60 Strong data completeness and consistency
+CONFIDENCE 60 79 Moderate-High #F39C12 Good data with some limitations
+CONFIDENCE 40 59 Moderate #E67E22 Interpret cautiously
+CONFIDENCE 0 39 Low #C0392B Substantial limitations
+RECOVERY 75 100 High #27AE60 Many modifiable/protective features
+RECOVERY 50 74 Moderate #F39C12 Meaningful recovery opportunities
+RECOVERY 25 49 Limited #E67E22 Progress may require more support
+RECOVERY 0 24 Low #C0392B Educational prompt for professional support
+
+===== PAGE 16 =====
+Drivers_Evidence
+rule_id subject deterministic rule output tie_or_fallback audit requirement
+DRV-001 Driver eligibility Available domain score ≥25 Eligible Scores <25 are not drivers Record all candidates
+DRV-002 Ranking Sort eligible domains by score descending; exact ties use fixed order MR,HS,SR,CH,SL,IB,BS Primary/secondary/tertiary No LLM selection; null/<25 domains excluded Record ordered list
+DRV-003 Co-primary If top two eligible scores differ by ≤3, report them once as one co-primary pair Co-primary pair, then next highest-ranked distinct eligible domain if
+one exists
+No duplication; no ineligible fallback; preserve canonical tie order Record tie delta
+DRV-004 No dominant burden No domain ≥25 No primary driver Display strengths-focused copy Record reason
+EVD-001 Evidence score 0.45×domain coverage + 0.35×domain consistency + 0.20×high-signal proportion 0-100 High-signal means points ≥3 Trace components
+EVD-002 Evidence label 80-100 Strong; 60-79 Moderate; 40-59 Limited; 0-39 Weak Label Not clinical evidence grade Record boundary
+CNF-001 Confidence Formula SC-008 High/Moderate-High/Moderate/Low Never modifies scores Trace components
+
+===== PAGE 17 =====
+Golden_Tests
+test_id purpose normalized_input_json expected_output_json
+GT-001 All scored items at minimum burden {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":0,"HS":0,"SL":0,"IB":0,"CH":0,"BS":0},"coverage":{"MR...
+GT-002 All scored items at maximum burden {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":100,"SR":100,"HS":100,"SL":100,"IB":100,"CH":100,"BS":100},"...
+GT-003 All scored items at midpoint {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-004 MR only at maximum {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":100,"SR":0,"HS":0,"SL":0,"IB":0,"CH":0,"BS":0},"coverage":{"...
+GT-005 SR only at maximum {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":100,"HS":0,"SL":0,"IB":0,"CH":0,"BS":0},"coverage":{"...
+GT-006 HS only at maximum {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":0,"HS":100,"SL":0,"IB":0,"CH":0,"BS":0},"coverage":{"...
+GT-007 SL only at maximum {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":0,"HS":0,"SL":100,"IB":0,"CH":0,"BS":0},"coverage":{"...
+GT-008 IB only at maximum {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":0,"HS":0,"SL":0,"IB":100,"CH":0,"BS":0},"coverage":{"...
+GT-009 CH only at maximum {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":0,"HS":0,"SL":0,"IB":0,"CH":100,"BS":0},"coverage":{"...
+GT-010 BS only at maximum {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":0,"HS":0,"SL":0,"IB":0,"CH":0,"BS":100},"coverage":{"...
+GT-011 Domain classification boundary 25 {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":25,"IB":50,"CH":50,"BS":50},"coverag...
+GT-012 Domain classification boundary 50 {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-013 Domain classification boundary 75 {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":75,"IB":50,"CH":50,"BS":50},"coverag...
+GT-014 Reverse-scored Q26 raw Always becomes zero
+burden
+{"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":44,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-015 Reverse-scored Q28 raw Never becomes maximum
+burden
+{"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":56,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-016 Exactly 50% coverage for four-item SL domain
+remains calculable
+{"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-017 Below 50% coverage makes SL null {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":null,"IB":50,"CH":50,"BS":50},"cover...
+GT-018 N/A excluded from numerator and denominator {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-019 Five available domains permit Biological State {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":null,"SR":null,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"cov...
+GT-020 Four available domains make Biological State null {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":null,"SR":null,"HS":null,"SL":50,"IB":50,"CH":50,"BS":50},"c...
+GT-021 Co-primary driver tie within three points {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":100,"HS":0,"SL":100,"IB":0,"CH":0,"BS":0},"coverage":...
+GT-022 No driver when every domain is below 25 {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":0,"SR":0,"HS":0,"SL":0,"IB":0,"CH":0,"BS":0},"coverage":{"MR...
+GT-023 Low answer confidence reduces ROOTS
+Confidence
+{"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-024 High answer confidence and consistent responses {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":25,"SR":25,"HS":25,"SL":25,"IB":25,"CH":25,"BS":25},"coverag...
+GT-025 Young age, no conditions, no medicines, five
+protective factors
+{"age":25,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-026 Older age, multiple conditions and medicines, no
+protective factors
+{"age":80,"diseaseCount":3,"medicationCount":2,"P1":false,"P2":false,"P3":fal... {"domains":{"MR":50,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-027 Activity minimum burden mapping {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":29,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-028 Activity maximum burden mapping {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":71,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-029 One missing item in every domain {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":50,"SR":50,"HS":50,"SL":50,"IB":50,"CH":50,"BS":50},"coverag...
+GT-030 Mixed high-burden profile with complete data {"age":40,"diseaseCount":0,"medicationCount":0,"P1":true,"P2":true,"P3":true,... {"domains":{"MR":75,"SR":25,"HS":100,"SL":100,"IB":75,"CH":50,"BS":100},"cove...
+
+===== PAGE 18 =====
+QA_Checks
+Check Formula Expected Result
+Domain count 7 7 PASS
+Mapping count 40 40 PASS
+Reverse-scored count 2 2 PASS
+Golden tests 30 30 PASS
+MR items 7 7 PASS
+HS items 8 8 PASS
+Classification rows 12 12 PASS
+Driver outputs conform to DRV-001/002/003 30 30 PASS
+No driver duplicates / ineligible fallback 30 30 PASS
+BIO_STATE identifier unambiguous 1 1 PASS
+Rounding rule unified 1 1 PASS

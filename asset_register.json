@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "assets": [
+    {
+      "id": "wordmark-dark",
+      "filename": "ROOTS-wordmark-dark.svg",
+      "type": "brand",
+      "source": "Phase 0B / brand",
+      "license": "Proprietary - ROOTS AI HEALTH SYSTEMS",
+      "used_by": ["header", "footer"],
+      "editable": true
+    },
+    {
+      "id": "logo-mark",
+      "filename": "logo-mark.svg",
+      "type": "brand",
+      "source": "Project implementation asset",
+      "license": "Project-owned",
+      "used_by": ["mobile-header"],
+      "editable": true
+    },
+    {
+      "id": "font-inter",
+      "filename": "Inter (WOFF2)",
+      "type": "font",
+      "source": "Self-hosted",
+      "license": "SIL Open Font License 1.1",
+      "used_by": ["all-screens"],
+      "editable": false
+    }
+  ],
+  "images": "not_required_for_phase_0B",
+  "illustrations": "not_required_for_phase_0B"
+}

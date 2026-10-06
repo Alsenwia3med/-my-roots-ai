@@ -1,0 +1,1549 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ C-05 UI/UX Screen Implementation
+Specification v1.0.1 — CONTROLLED CORRECTION
+Document ID: ROOTS-C05-UIUX-001 | Controlled correction to v1.0.0
+This correction sheet is integral to the attached v1.0.0 release and supersedes only the clauses identified below. All unaffected screen
+inventory, routes, functional states, role visibility, responsive acceptance, accessibility, security and evidence requirements remain binding.
+1. Authority and conflict rules
+Supersedes Section 1 where visual authority or legacy versions conflict. Master Requirements control scope, security, data behavior,
+delivery and acceptance. C-01 v1.0.1 controls question wording/types/options/validation; C-02 v1.0.1 controls deterministic
+scoring/classifications/drivers; C-03 v1.0.1 controls the 19-section report content/data contract and governed report states; C-04 v1.0.1
+controls website/legal/consent/system/error copy. C-05 controls screen inventory, composition, navigation, functional states,
+responsiveness and role visibility. Final aesthetics, component appearance, final tokens and visual hierarchy are governed by the
+ROOTS-AI Visual Direction and, after written ROOTS-AI approval, the PUB-01 Golden Screen/design system. Functional/content
+authority and visual authority apply together; neither may change the other's controlled requirements.
+2. Existing SVG / wireframe boundary
+Any existing SVG or prior screen reference is authoritative only for approved content, required elements, structure, flow and functional
+intent where applicable. It is FUNCTIONAL AND CONTENT WIREFRAME — NOT A FINAL VISUAL DESIGN. No filename containing
+“FINAL” or prior visual mockup overrides the Visual Direction or a written-approved Golden Screen.
+3. Section 5 — responsive grid and visual tokens
+Breakpoints remain binding: 360–767, 768–1023, 1024–1439 and ≥1440 px, with required evidence at 360/768/1024/1440. Accessibility,
+minimum readable legal text, visible focus, touch-target and reflow requirements remain binding. The listed Inter/Arial choice, fixed heading
+sizes, 8-px spacing scale, navy/soft-navy/warm-white/charcoal/muted/focus/error hex values, grid styling and other aesthetic token values
+in v1.0.0 are legacy/implementation references, not final visual tokens. Final visual tokens are established through the approved
+Golden Screen/design system. Styling must never weaken accessibility, content meaning, state semantics or functional acceptance.
+4. Assessment validation alignment
+All assessment screens shall implement C-01 v1.0.1 exactly. A required multi-select response must contain one or more approved option
+IDs; an empty array is invalid. NONE/N/A is exclusive where provided and cannot be combined with other options. Q73 does not permit
+N/A. No UI behavior may weaken canonical validation.
+5. Report driver and null-state alignment
+All report screens shall render the exact C-02/C-03 v1.0.1 deterministic outputs. Driver rendering supports zero to three output entries; a
+co-primary pair is one output entry. Do not invent, duplicate or back-fill an ineligible/null driver or protective factor for layout symmetry.
+Reduced and Not Available states defined by C-03 must be supported. The domain ID BS remains Biological Safety Signals™ and must
+not be used as the Biological State identifier.
+6. Golden Screen gate before downstream visual finalization
+PUB-01 is the mandatory Golden Screen. The Implementation Partner shall first provide the required direction work and then the selected
+PUB-01 at the controlled responsive sizes in an editable Figma file in a ROOTS-owned workspace, including
+components/tokens/states/responsive notes and editable assets. No remaining screen may be visually finalized in bulk before written
+ROOTS-AI approval of PUB-01. After approval, downstream screens shall inherit that approved visual system while preserving this C-05
+functional specification.
+7. UI-019
+Supersedes UI-019. ROOTS provides written approval of the PUB-01 Golden Screen before downstream visual finalization. During UAT,
+ROOTS additionally approves the complete screen inventory, controlled-breakpoint responsive evidence, accessibility evidence and
+visual-regression baseline/results against the approved Golden Screen/design system.
+8. Section 15 — required handover artifacts
+Supersedes the statement “No separate Figma file is required...” Editable Figma is mandatory for the Golden Screen and resulting
+approved visual system and must reside in or be transferred to a ROOTS-owned workspace. The existing component catalog, route
+inventory, 360/768/1024/1440 screenshots, visual-regression evidence, accessibility evidence, browser/device report, licenses, editable
+assets, content mapping and defect disposition remain required. Figma does not replace or weaken executable code, evidence, C-05
+functionality, or other controlled handover artifacts.
+9. Integrity / no scope expansion
+These corrections do not change the 73-question / 13-module assessment, 19-section report, route inventory, role/security restrictions,
+autosave/resume requirements, offline/error states, WCAG 2.2 AA target, browser compatibility, or the fixed commercial scope/schedule.
+They correct reference authority and implementation sequencing so that functional wireframes cannot be mistaken for final visual design.
+Precedence: where the attached v1.0.0 pages conflict with this sheet on the matters above, v1.0.1 controls.
+
+===== PAGE 2 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 1
+ROOTS-AI™ C-05
+UI/UX Screen Implementation Specification — Version 1.0.0
+Document ID: ROOTS-C05-UIUX-001
+Status: APPROVED EXECUTABLE UI/UX RELEASE
+Effective date: 21 July 2026
+Target: Phase 1 MVP — responsive web application
+IMPLEMENTATION CONTROL. This annex fixes the navigation, page inventory, role visibility, layout
+zones, component behavior, states, responsive rules and UI acceptance evidence for every Phase 1
+screen. It is a build specification, not an illustrative mood board. Exact copy remains controlled by C-03
+and C-04.
+
+===== PAGE 3 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 2
+1. Authority and Conflict Rules
+Priority Authority Controls
+1 Master Requirements v3.3 Scope, security, data behavior, delivery and acceptance
+2 C-01 Question wording, type, options, required/N/A rules and module order
+3 C-02 Scores, calculations, classifications, drivers and deterministic outputs
+4 C-03 Report copy contract, 19 sections, report charts, disclaimers and report visual
+tokens
+5 C-04 Website, legal, consent, system and error copy
+6 This C-05 Screen composition, navigation, components, states, responsiveness and role
+visibility
+ A screen may not omit a mandatory function because a design library lacks a matching component.
+ No implementation may change question order, scoring behavior, legal text or report meaning for visual
+convenience.
+ Where a literal sentence is not repeated here, the exact approved sentence is taken from C-03 or C-04.
+ Any material screen, route, modal, permission, navigation item or user-visible state not specified here requires a
+ROOTS Change Record.
+2. Screen Inventory and Navigation Model
+ID Screen Route Entry / navigation
+PUB-01 Home / Public header → logo; all public CTAs
+PUB-02 How It Works /how-it-works Header Product
+PUB-03 Platform /platform Header Product
+PUB-04 Example Report /example-report Header Product
+PUB-05 Research /research Header Research
+PUB-06 Healthcare Professionals /healthcare-professionals More menu
+PUB-07 Pilot /pilot More menu / assessment CTA
+PUB-08 About /about More menu / footer
+PUB-09 Contact /contact More menu / footer
+PUB-10 Contact Confirmation /contact?status=sent Form success
+PUB-11 Blog Landing /blog More menu / footer
+PUB-12 Blog Article Template /blog/[slug] Blog card
+LEG-01 Privacy /privacy Footer Legal
+LEG-02 Terms /terms Footer Legal
+LEG-03 Cookies /cookies Footer Legal / consent panel
+LEG-04 Medical Disclaimer /medical-disclaimer Footer Legal / report
+LEG-05 AI Disclaimer /ai-disclaimer Footer Legal / report
+ASM-01 Assessment Entry /assessment Primary CTA
+ASM-02 Secure Link Requested /assessment/check-email Entry submission
+ASM-03 Invalid or Expired Link /assessment/link-error Magic-link failure
+ASM-04 Consent /assessment/consent Valid secure link
+ASM-05 Assessment Introduction /assessment/start Consent accepted
+ASM-06 Module Question Shell /assessment/[session]/module/
+[1..13]
+Start/resume
+
+===== PAGE 4 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 3
+ID Screen Route Entry / navigation
+ASM-07 Save and Exit Modal on module shell Save and Exit
+ASM-08 Resume Summary /assessment/[session]/resume Valid saved session
+ASM-09 Review and Submit /assessment/[session]/review Module 13 complete
+ASM-10 Report Generating /assessment/[session]/submitted Successful submission
+ASM-11 Submission Recovery Same route error state Generation failure
+RPT-01 Report Access /report/[id] Secure report link
+RPT-02 Interactive Report /report/[id] Authorized access
+RPT-03 Report Section Navigation Within /report/[id] Desktop sidebar / mobile drawer
+RPT-04 PDF Preparation Download action state Authorized report
+RPT-05 Report Access Error /report/[id] error state Unauthorized/expired/not found
+ADM-01 Admin Sign-in and MFA /admin Admin entry
+ADM-02 Operations Overview /admin/dashboard Admin/Super Admin
+ADM-03 Participants /admin/participants Admin
+ADM-04 Participant Detail /admin/participants/[id] Admin
+ADM-05 Report Operations /admin/reports Admin
+ADM-06 Configuration Releases /admin/configuration Admin/Super Admin
+ADM-07 Configuration Detail /admin/configuration/[version] Admin/Super Admin
+ADM-08 Audit Viewer /admin/audit Super Admin
+ADM-09 Research Export /admin/research-export Research Admin
+ADM-10 Users and Roles /admin/access Super Admin
+SYS-01 Cookie Consent Global public overlay First eligible visit
+SYS-02 404 Any unknown route Router
+SYS-03 500 / Service Error Global boundary Unhandled service failure
+SYS-04 Maintenance /maintenance or service gate Planned outage
+SYS-05 Offline / Reconnect Sensitive workflows Network loss
+3. Global Navigation and Shells
+Shell Desktop Mobile Mandatory behavior
+Public Logo; How It Works; Platform; Example
+Report; Research; About; More; Start
+Assessment
+Logo; Start button; hamburger
+containing every public and legal
+route
+Sticky after 80 px; active route;
+Skip to content; no participant
+identity
+Assessment Logo; encrypted-session status;
+module/progress; Save & Exit
+Compact logo; progress; Save
+icon/menu
+No marketing navigation;
+back/next governed; session-
+expiry warning
+Report Logo; report metadata; Download PDF;
+secure sign-out
+Logo; section menu; Download;
+sign-out
+Sticky action bar; authorized
+session only; disclaimer always
+reachable
+Admin 240 px left rail; top bar; environment
+badge; user menu
+Top bar + slide-over navigation Role-filtered links; MFA state; no
+hidden-route access by URL
+Public header item Destination / contents
+Logo /
+How It Works /how-it-works
+
+===== PAGE 5 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 4
+Public header item Destination / contents
+Platform /platform
+Example Report /example-report
+Research /research
+About /about
+More Healthcare Professionals; Pilot; Blog; Contact
+Start Assessment /assessment
+Footer column Links / content
+Product How It Works; Platform; Example Report; Start Assessment
+Research Research; Pilot; Healthcare Professionals
+Company About; Blog; Contact
+Legal Privacy; Terms; Cookies; Medical Disclaimer; AI Disclaimer
+Footer base ROOTS-AI™ wordmark; copyright; “Educational — Not a Diagnosis”; version/build identifier
+4. Roles and Visible UI
+Role Visible screens/actions Never visible or allowed
+Public visitor Public/legal routes, sample report, contact, assessment
+entry
+Participant report, saved answers, Admin
+Participant Own assessment, own submission status, own
+interactive/PDF report
+Other participants, scoring configuration,
+audit/export
+Admin Dashboard, participant operations, reports, approved
+configuration functions
+Role changes, audit deletion, raw research
+identifiers
+Research Admin Research Export only, plus own account controls Names, emails, full reports, participant operations
+Super Admin Dashboard, configuration, audit, users/roles and
+approved operations
+Audit bypass/deletion, silent published-rule edits
+Implementation Team Only time-bound screens/actions explicitly granted for
+delivery/support
+Production ownership, secondary data use,
+permanent access
+5. Responsive Grid and Visual Tokens
+Token Binding value
+Breakpoints Mobile 360–767 px; Tablet 768–1023 px; Desktop 1024–1439 px; Wide ≥1440 px
+Public content width Maximum 1200 px; reading text maximum 720 px
+Grid Mobile 4 columns / 16 px gutters; Tablet 8 / 24 px; Desktop 12 / 24 px
+Spacing 8 px base: 4, 8, 12, 16, 24, 32, 48, 64, 96
+Typography Inter; Arial fallback. H1 48/56 desktop, 34/42 mobile; body 16/26 web; legal body ≥16 px
+Primary Navy #1A2A4A
+Soft Navy #2A4060
+Warm White #FAFAF8
+Charcoal #1A1A1A
+
+===== PAGE 6 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 5
+Token Binding value
+Muted #6B7280
+Focus #2563EB with visible 3 px outline
+Error #B42318
+Success #16794B
+Cards 12 px radius; 1 px neutral border; shadow only for hierarchy, never as sole affordance
+Touch target Minimum 44×44 px
+Motion 150–250 ms; honor prefers-reduced-motion; no essential information in animation
+6. Component Contract
+Component Required anatomy States and rules
+Button Primary, secondary, tertiary/text, destructive Default, hover, focus, active, disabled, loading; one primary
+per action region
+Text input Label above; hint below; required marker in text Default, focus, filled, disabled, error, success; error tied with
+aria-describedby
+Select/radio/checkbox Visible label and full-row click target Keyboard selection; never rely on placeholder as label
+Question card Question ID hidden from participant; prompt,
+help, control, validation
+One question at a time on mobile; grouped only where
+explicitly compatible
+Progress Module n of 13 plus percentage Text equivalent; no score implication;
+completed/current/future states
+Alert Info, success, warning, error Icon + title + text; announced appropriately; persistent for
+blocking error
+Modal Title, purpose, body, primary/secondary actions Focus trap; Escape only when safe; return focus to trigger
+Toast Non-blocking save/success confirmation Auto-dismiss ≥5 s with pause; never sole display of a
+blocking failure
+Card Heading, body, optional metadata/action Whole-card link only when one destination; visible focus
+Tabs Maximum 5 visible; otherwise use select/drawer URL/state preserved; arrow-key navigation
+Table Caption, headers, sorting/filter controls Horizontal scroll on mobile; stacked cards only if
+relationships remain clear
+Score bar Label, numeric value, classification, bar Text and number always present; color not sole meaning
+Skeleton Structure-matched loading placeholder No false data; replace with retryable error on timeout
+Empty state Reason, safe explanation, permitted next action No fabricated data; role-aware CTA
+7. Public and Legal Screens
+PUB-01 — Home
+Field Binding specification
+Route / entry /
+Access Public
+Purpose Explain the product and start assessment
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+
+===== PAGE 7 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 6
+Order Screen zone Required content and behavior
+1 Header Public shell
+2 Hero Approved headline, supporting copy, Start Assessment primary CTA, View Example secondary
+CTA
+3 Trust strip Educational/non-diagnostic language; privacy and deterministic scoring signals
+4 Six features Six report-feature cards from C-04
+5 Seven domains Seven compact domain cards in canonical order
+6 How it works Four-step horizontal/stacked process
+7 Example report teaser Approved report preview with anonymized data
+8 Pilot CTA Eligibility and free beta message
+9 Footer Global public footer
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-02 — How It Works
+Field Binding specification
+Route / entry /how-it-works
+Access Public
+Purpose Explain assessment-to-report workflow
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Intro Title and boundary statement
+2 Four-step process Assessment; deterministic analysis; governed explanation; report/action
+3 What AI does Language assistance only
+4 What AI does not do No diagnosis or score changes
+5 Privacy block Secure access and data controls
+6 CTA Start Assessment + Example Report
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+
+===== PAGE 8 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 7
+PUB-03 — Platform
+Field Binding specification
+Route / entry /platform
+Access Public
+Purpose Show Phase 1 and future modules without false availability
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Hero Platform proposition
+2 Available now Assessment and AI Engine cards only
+3 Coming soon Labs, DNA, Microbiome, Wearables, Biological Twin, each visibly labelled Coming Soon
+4 Architecture principle Connected system overview without operational claims
+5 CTA Start Assessment
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-04 — Example Report
+Field Binding specification
+Route / entry /example-report
+Access Public
+Purpose Show approved anonymized 19-section reference
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Intro Example-only badge and disclaimer
+2 Report viewer All 19 sections using approved sample data
+3 Sticky contents Section links
+4 CTA Start Your Assessment
+5 Footer disclaimer Full educational boundary
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+
+===== PAGE 9 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 8
+Control Binding behavior
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-05 — Research
+Field Binding specification
+Route / entry /research
+Access Public
+Purpose Present research vision and collaboration channel
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Hero Research vision
+2 Principles Privacy, ethics, consent, transparency
+3 Pilot information Scope and participant protections
+4 Collaboration Approved academic/industry inquiry CTA
+5 Boundary No cohort dashboard or data access
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-06 — Healthcare Professionals
+Field Binding specification
+Route / entry /healthcare-professionals
+Access Public
+Purpose Explain professional relevance without clinician portal claim
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Hero Professional informational positioning
+2 Use cases Conversation support, structured self-report, education
+3 Evidence boundary Not diagnosis, treatment or medical device claim
+4 Report overview What professionals may see only when participant shares it
+5 CTA Contact / Research collaboration
+
+===== PAGE 10 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 9
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-07 — Pilot
+Field Binding specification
+Route / entry /pilot
+Access Public
+Purpose Explain beta eligibility and consent-aware join flow
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Hero Free Beta/Pilot proposition
+2 Eligibility Approved inclusion and exclusion statements
+3 Benefits Assessment and educational report
+4 Timeline What happens after joining
+5 Privacy/consent Links to policies and optional research consent
+6 FAQs Approved accordion
+7 CTA Begin Eligibility / Assessment
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-08 — About
+Field Binding specification
+Route / entry /about
+Access Public
+Purpose Explain mission, framework and company
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Hero Mission
+
+===== PAGE 11 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 10
+Order Screen zone Required content and behavior
+2 Problem Medicine Before Symptoms™ framing
+3 Framework Seven domains and governed intelligence
+4 Company ROOTS AI HEALTH SYSTEMS, Inc. information
+5 Safety Educational boundary
+6 CTA Explore Platform / Contact
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-09 — Contact
+Field Binding specification
+Route / entry /contact
+Access Public
+Purpose Route support, research and business inquiries securely
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Intro Contact purpose
+2 Inquiry type Support, Research, Business radio/select
+3 Form Name, email, subject, message, consent/privacy acknowledgement
+4 Safety note Do not submit emergency or unnecessary health information
+5 Submit Protected, rate-limited action
+6 Alternative Approved business contact if provided
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-10 — Contact Confirmation
+Field Binding specification
+Route / entry /contact?status=sent
+Access Public
+
+===== PAGE 12 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 11
+Field Binding specification
+Purpose Confirm safe receipt without exposing message data
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Success Reference ID, neutral confirmation
+2 Next steps Expected response channel, no guaranteed time unless approved
+3 Actions Return Home; send another inquiry
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+PUB-11 — Blog Landing
+Field Binding specification
+Route / entry /blog
+Access Public
+Purpose Display approved articles or professional launch state
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Hero Blog title and editorial boundary
+2 Featured One featured approved article
+3 Grid Article cards: title, excerpt, date, category
+4 Filters Category only if populated
+5 Empty launch Approved launch-state copy; no broken placeholders
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+
+===== PAGE 13 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 12
+PUB-12 — Blog Article Template
+Field Binding specification
+Route / entry /blog/[slug]
+Access Public
+Purpose Render one approved article accessibly
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Breadcrumb Blog / category / title
+2 Article header Title, subtitle, author, date, reading time
+3 Body Readable 720 px column; semantic headings; citations/links
+4 Share Copy link only unless approved
+5 Related Up to three approved articles
+6 Disclaimer Educational boundary
+7 CTA Assessment or platform, context appropriate
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+LEG-01 — Privacy
+Field Binding specification
+Route / entry /privacy
+Access Public
+Purpose Publish current privacy notice
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Title/meta Effective date, version, print link
+2 Contents Sticky/inline contents
+3 Body Exact C-04 Privacy copy
+4 Rights CTA Contact/data-rights request channel
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+
+===== PAGE 14 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 13
+Control Binding behavior
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+LEG-02 — Terms
+Field Binding specification
+Route / entry /terms
+Access Public
+Purpose Publish Terms of Service
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Title/meta Effective date and version
+2 Contents Anchor navigation
+3 Body Exact C-04 Terms copy
+4 Related Privacy, Medical, AI disclaimer links
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+LEG-03 — Cookies
+Field Binding specification
+Route / entry /cookies
+Access Public
+Purpose Explain cookies and open preferences
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Title/meta Effective date/version
+2 Body Exact C-04 cookie copy
+3 Preferences Open consent panel
+4 Table Category, purpose, provider, duration where used
+
+===== PAGE 15 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 14
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+LEG-04 — Medical Disclaimer
+Field Binding specification
+Route / entry /medical-disclaimer
+Access Public
+Purpose Display complete medical limitation
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Title/meta Effective date/version
+2 Callout Not diagnosis or medical service
+3 Body Exact C-04 medical disclaimer
+4 Emergency Fixed local-emergency direction
+5 Related Terms and AI Disclaimer
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+LEG-05 — AI Disclaimer
+Field Binding specification
+Route / entry /ai-disclaimer
+Access Public
+Purpose Explain deterministic scoring and governed AI language
+Content authority C-04 controls website/legal copy; C-03 controls example report content.
+Responsive rule Desktop follows 12-column grid; mobile zones stack in listed order; no horizontal body scrolling.
+Order Screen zone Required content and behavior
+1 Title/meta Effective date/version
+2 Summary AI does not calculate or change scores
+3 Body Exact C-04 AI disclaimer
+
+===== PAGE 16 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 15
+Order Screen zone Required content and behavior
+4 Versioning Current disclaimer/version identifier
+5 Related Medical Disclaimer, Privacy
+Control Binding behavior
+Primary actions Links and CTAs exactly as listed; external links open with clear indication.
+Loading / empty / error
+states
+Skeleton only for remote content; approved empty state; inline form errors; global retry for service
+failure.
+Screen acceptance All zones present; header/footer links work; keyboard order matches visual order;
+360/768/1024/1440 px screenshots pass.
+8. Assessment Screens and Module Behavior
+Module Participant label Questions
+1 Body Foundations Q1–Q8
+2 Weight & Metabolic History Q9–Q15
+3 Sleep Recovery Index Q16–Q22
+4 Hunger & Satiety Signals Q23–Q30
+5 Stress Load & Inflammation Signals Q31–Q40
+6 Circadian Health Score Q41–Q45
+7 Activity Context Q46–Q48
+8 Biological Safety Signals Q49–Q51
+9 Root Cause Discovery Q52–Q55
+10 Hormonal/Reproductive Context Q56–Q60
+11 Lifestyle & Environment Q61–Q66
+12 Goals & Readiness Q67–Q71
+13 Confidence & Context Q72–Q73
+ASM-01 — Assessment Entry
+Field Binding specification
+Route / entry /assessment
+Access Public
+Purpose Request a secure assessment session
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Header Minimal brand header
+2 Intro Assessment purpose, estimated time, educational boundary
+3 Email Email field and privacy note
+
+===== PAGE 17 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 16
+Order Screen zone Required content and behavior
+4 Eligibility/age Required launch eligibility acknowledgement if configured
+5 CTA Send Secure Link
+6 Links Privacy, Terms, Medical and AI disclaimers
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-02 — Secure Link Requested
+Field Binding specification
+Route / entry /assessment/check-email
+Access Public after submission
+Purpose Confirm link request without revealing account existence
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Status Neutral email-sent message
+2 Instructions Check inbox/spam; link expiry
+3 Resend Rate-limited after timer
+4 Change email Return safely
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-03 — Invalid or Expired Link
+Field Binding specification
+Route / entry /assessment/link-error
+Access Public with invalid token
+Purpose Recover without exposing token details
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+
+===== PAGE 18 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 17
+Order Screen zone Required content and behavior
+1 Error Expired/invalid generic explanation
+2 Action Request new secure link
+3 Support Contact link
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-04 — Consent
+Field Binding specification
+Route / entry /assessment/consent
+Access Authorized participant
+Purpose Capture mandatory service consent and optional research consent separately
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Identity Masked email/session status
+2 Service consent Unchecked required checkbox; links to Terms, Privacy, Medical, AI
+3 Research consent Separate unchecked optional checkbox with no service penalty
+4 Records Version/effective date displayed
+5 CTA Agree and Continue; Decline/Exit
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-05 — Assessment Introduction
+Field Binding specification
+Route / entry /assessment/start
+Access Consented participant
+Purpose Prepare participant and explain controls
+
+===== PAGE 19 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 18
+Field Binding specification
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Welcome What the assessment covers
+2 Instructions Answer current experience; use N/A only where offered
+3 Privacy Save/resume and session security
+4 Progress preview 13 modules, no scores
+5 CTA Start Module 1
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-06 — Module Question Shell
+Field Binding specification
+Route / entry /assessment/[session]/module/[1..13]
+Access Authorized participant
+Purpose Capture C-01 answers exactly and safely
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Top bar Module n of 13, percentage, Save & Exit
+2 Module intro Module title and one-sentence purpose
+3 Question region Prompt, help/units, approved control, N/A only when C-01 allows
+4 Validation Inline after blur/Next; summary at region start
+5 Navigation Back and Next; Submit only after Review
+6 Autosave Debounced save status: Saving/Saved/Failed
+7 Session warning Expiry countdown with extend action
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+
+===== PAGE 20 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 19
+Control Binding behavior
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-07 — Save and Exit
+Field Binding specification
+Route / entry Modal
+Access Authorized participant
+Purpose Confirm save state and safe exit
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Status Last saved timestamp
+2 Body Explain secure-link resume
+3 Actions Save & Exit primary; Continue Assessment secondary
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-08 — Resume Summary
+Field Binding specification
+Route / entry /assessment/[session]/resume
+Access Authorized participant
+Purpose Show safe progress and resume point
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Welcome back No health-answer preview on shared screen
+2 Progress Completed modules and current module
+3 Save metadata Last saved time and questionnaire version
+4 CTA Resume Assessment
+5 Secondary Restart requires explicit destructive confirmation
+
+===== PAGE 21 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 20
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-09 — Review and Submit
+Field Binding specification
+Route / entry /assessment/[session]/review
+Access Authorized participant
+Purpose Validate completeness and obtain submission confirmation
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Summary 13 modules with Complete/Needs attention
+2 Issues Links to unanswered required questions
+3 Optional omissions Clearly allowed; Q57/Q59 N/A supported
+4 Confirmation Answers become submitted snapshot; educational boundary
+5 Actions Submit Assessment primary; Back to Answers
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-10 — Report Generating
+Field Binding specification
+Route / entry /assessment/[session]/submitted
+Access Authorized participant
+Purpose Confirm submission and show deterministic/report pipeline status
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Success Submission reference and timestamp
+2 Progress Answers received → scores calculated → report prepared
+
+===== PAGE 22 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 21
+Order Screen zone Required content and behavior
+3 Safety Do not close claim only if true; email/report access expectations
+4 Action Open report when ready; secure sign-out
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+ASM-11 — Submission Recovery
+Field Binding specification
+Route / entry Same route error state
+Access Authorized participant
+Purpose Recover from report-generation failure without duplicate submission
+Content authority C-01 controls every question/control/option; C-04 controls consent and system copy.
+Responsive rule Mobile shows one primary question region at a time; desktop question column max 760 px;
+progress and navigation remain reachable.
+Order Screen zone Required content and behavior
+1 Status Answers submitted safely; report not completed
+2 Reference Submission ID and retry state
+3 Actions Retry report preparation; Contact support
+4 Boundary Never ask participant to re-enter answers unless data integrity check fails
+Control Binding behavior
+Primary actions Only the actions listed for the screen; destructive actions require confirmation.
+Loading / empty / error
+states
+Autosave, offline, validation, expired session, duplicate-submit and service-failure states use C-04
+copy and preserve submitted data.
+Screen acceptance Question IDs/order match C-01; 71 required and 2 optional rules pass; all 13 modules, keyboard
+flow, save/resume and recovery pass E2E.
+9. Report Screens
+Order Section
+1 Cover Page
+2 Executive Summary
+3 ROOTS Biological State™
+4 ROOTS Opportunity Score™
+5 ROOTS Confidence™
+6 Key Drivers
+
+===== PAGE 23 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 22
+Order Section
+7 Seven-Domain Score Breakdown
+8 Biological Triad™
+9 Future Projection
+10 90-Day Roadmap
+11 Nutrition Priorities
+12 Action Priorities
+13 What Is Going Well
+14 Specific Concerns
+15 Suggested Laboratory Discussion
+16 Participant Answers
+17 Biological Card
+18 Final Word
+19 Medical and AI Disclaimer
+RPT-01 — Report Access
+Field Binding specification
+Route / entry /report/[id]
+Access Secure link holder
+Purpose Authorize report access without exposing report existence
+Content authority C-02 controls data; C-03 controls all 19 sections, charts and report copy; C-04 controls
+access/system copy.
+Responsive rule Desktop report body 800 px plus 240 px contents; mobile single column; score cards stack; charts
+retain labels and values.
+Order Screen zone Required content and behavior
+1 Verification Session/token validation
+2 Loading Neutral secure loading
+3 Expired Request new link/contact support
+4 Success Redirect to interactive report
+Control Binding behavior
+Primary actions Section navigation, Download PDF, sign-out and approved contextual links only.
+Loading / empty / error
+states
+Null domain, missing content, narrative fallback, PDF failure and access error use approved
+deterministic/fixed copy.
+Screen acceptance Web/PDF values and versions match canonical JSON; all 19 sections exist; nulls are not imputed;
+360/768/1024/1440 visual regression passes.
+
+===== PAGE 24 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 23
+RPT-02 — Interactive Report
+Field Binding specification
+Route / entry /report/[id]
+Access Authorized participant
+Purpose Render the canonical 19-section report
+Content authority C-02 controls data; C-03 controls all 19 sections, charts and report copy; C-04 controls
+access/system copy.
+Responsive rule Desktop report body 800 px plus 240 px contents; mobile single column; score cards stack; charts
+retain labels and values.
+Order Screen zone Required content and behavior
+1 Header Report ID/version/date; Download PDF; sign-out
+2 Cover Participant display name or Participant; educational badge
+3 Summary metrics Biological State, Opportunity, Recovery Potential, Confidence
+4 Section body All 19 sections in fixed order
+5 Footer Version set, audit reference, disclaimer link
+Control Binding behavior
+Primary actions Section navigation, Download PDF, sign-out and approved contextual links only.
+Loading / empty / error
+states
+Null domain, missing content, narrative fallback, PDF failure and access error use approved
+deterministic/fixed copy.
+Screen acceptance Web/PDF values and versions match canonical JSON; all 19 sections exist; nulls are not imputed;
+360/768/1024/1440 visual regression passes.
+RPT-03 — Report Section Navigation
+Field Binding specification
+Route / entry Within /report/[id]
+Access Authorized participant
+Purpose Move across long report without changing meaning
+Content authority C-02 controls data; C-03 controls all 19 sections, charts and report copy; C-04 controls
+access/system copy.
+Responsive rule Desktop report body 800 px plus 240 px contents; mobile single column; score cards stack; charts
+retain labels and values.
+Order Screen zone Required content and behavior
+1 Desktop Sticky left contents with 19 numbered links
+2 Mobile Current section button opens full-height section drawer
+3 Active state Intersection observer plus URL hash
+4 Return top Accessible action after section 3
+Control Binding behavior
+Primary actions Section navigation, Download PDF, sign-out and approved contextual links only.
+
+===== PAGE 25 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 24
+Control Binding behavior
+Loading / empty / error
+states
+Null domain, missing content, narrative fallback, PDF failure and access error use approved
+deterministic/fixed copy.
+Screen acceptance Web/PDF values and versions match canonical JSON; all 19 sections exist; nulls are not imputed;
+360/768/1024/1440 visual regression passes.
+RPT-04 — PDF Preparation
+Field Binding specification
+Route / entry Download action state
+Access Authorized participant
+Purpose Generate/download byte-authorized PDF from same canonical report JSON
+Content authority C-02 controls data; C-03 controls all 19 sections, charts and report copy; C-04 controls
+access/system copy.
+Responsive rule Desktop report body 800 px plus 240 px contents; mobile single column; score cards stack; charts
+retain labels and values.
+Order Screen zone Required content and behavior
+1 Trigger Download PDF
+2 Preparing Progress/spinner and cancel UI only if supported
+3 Ready Download starts and confirmation shown
+4 Failure Retry without regenerating scores; support reference
+Control Binding behavior
+Primary actions Section navigation, Download PDF, sign-out and approved contextual links only.
+Loading / empty / error
+states
+Null domain, missing content, narrative fallback, PDF failure and access error use approved
+deterministic/fixed copy.
+Screen acceptance Web/PDF values and versions match canonical JSON; all 19 sections exist; nulls are not imputed;
+360/768/1024/1440 visual regression passes.
+RPT-05 — Report Access Error
+Field Binding specification
+Route / entry /report/[id] error state
+Access Public/unauthorized
+Purpose Handle not found, expired and forbidden safely
+Content authority C-02 controls data; C-03 controls all 19 sections, charts and report copy; C-04 controls
+access/system copy.
+Responsive rule Desktop report body 800 px plus 240 px contents; mobile single column; score cards stack; charts
+retain labels and values.
+Order Screen zone Required content and behavior
+1 Message Generic secure-access failure
+2 Actions Request new secure link; Contact support; Home
+
+===== PAGE 26 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 25
+Order Screen zone Required content and behavior
+3 Security No participant name, report ID detail, score or existence confirmation
+Control Binding behavior
+Primary actions Section navigation, Download PDF, sign-out and approved contextual links only.
+Loading / empty / error
+states
+Null domain, missing content, narrative fallback, PDF failure and access error use approved
+deterministic/fixed copy.
+Screen acceptance Web/PDF values and versions match canonical JSON; all 19 sections exist; nulls are not imputed;
+360/768/1024/1440 visual regression passes.
+10. Admin Screens
+ADM-01 — Admin Sign-in and MFA
+Field Binding specification
+Route / entry /admin
+Access Privileged users
+Purpose Authenticate privileged users
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Brand Admin-only identity
+2 Credentials/link Approved provider authentication
+3 MFA Required challenge
+4 Recovery Controlled recovery; no security-question fallback
+5 Environment Visible Staging/Production badge after auth
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+ADM-02 — Operations Overview
+Field Binding specification
+Route / entry /admin/dashboard
+Access Admin/Super Admin
+Purpose Show operational state without exposing unnecessary health detail
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+
+===== PAGE 27 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 26
+Field Binding specification
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Top metrics Assessments in progress/submitted; reports ready/failed; open incidents
+2 Queues Recent report failures and support actions
+3 Release status Questionnaire/scoring/report template versions
+4 System health Services, backups, last restore test
+5 Audit preview Recent privileged events for Super Admin only
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+ADM-03 — Participants
+Field Binding specification
+Route / entry /admin/participants
+Access Admin
+Purpose Find and operate participant records
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Filters Status, date range, report state; no free-text health-answer search
+2 Table Pseudonymous ID/display name, masked email, status, dates
+3 Actions Open detail; resend approved link; no bulk export
+4 Pagination Server-side; URL-persisted filters
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+
+===== PAGE 28 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 27
+ADM-04 — Participant Detail
+Field Binding specification
+Route / entry /admin/participants/[id]
+Access Admin
+Purpose Review participant lifecycle and authorized actions
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Identity Minimum necessary profile/contact
+2 Timeline Invite, consent, save, submit, report events
+3 Assessment Completion and version; raw answers only when role/purpose permits
+4 Report Status, version, secure open/resend
+5 Requests Deletion/access request state
+6 Audit Actions logged; no edit of submitted answers
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+ADM-05 — Report Operations
+Field Binding specification
+Route / entry /admin/reports
+Access Admin
+Purpose Monitor generation and recover approved failures
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Filters Ready/generating/failed; date; version
+2 Table Report ID, participant pseudonym, versions, status, timestamps
+3 Detail drawer Failure code and safe trace reference
+4 Actions Retry governed narrative/PDF only; never edit scores
+5 Evidence Link to audit events
+
+===== PAGE 29 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 28
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+ADM-06 — Configuration Releases
+Field Binding specification
+Route / entry /admin/configuration
+Access Admin/Super Admin
+Purpose List immutable questionnaire/scoring/template releases
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Version cards/table Type, version, state, effective date, publisher, checksum
+2 Filters Draft/published/retired; type
+3 Actions View/compare; publish/rollback Super Admin only
+4 Warning Published releases immutable
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+ADM-07 — Configuration Detail
+Field Binding specification
+Route / entry /admin/configuration/[version]
+Access Admin/Super Admin
+Purpose Inspect and approve controlled release
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Header Type/version/state/checksum
+
+===== PAGE 30 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 29
+Order Screen zone Required content and behavior
+2 Diff Current vs candidate field-level comparison
+3 Validation Schema checks and Golden Test result
+4 Evidence Publisher, approval, timestamps
+5 Actions Publish/rollback with reason and MFA re-auth; no silent edit
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+ADM-08 — Audit Viewer
+Field Binding specification
+Route / entry /admin/audit
+Access Super Admin
+Purpose Review append-only privileged and security events
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Filters Actor, action, object, result, date, environment
+2 Table Timestamp, actor, action, object reference, result
+3 Detail Structured metadata with secrets/PHI redacted
+4 Export Approved audit export only
+5 Rule No delete/edit control
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+ADM-09 — Research Export
+Field Binding specification
+Route / entry /admin/research-export
+Access Research Admin
+
+===== PAGE 31 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 30
+Field Binding specification
+Purpose Create approved de-identified export
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Purpose Required project/purpose reference
+2 Filters Approved cohort/date/consent criteria only
+3 Field preview Allow-listed pseudonymized fields
+4 Risk check Cell-size/direct-identifier validation
+5 Action Generate expiring encrypted export
+6 History Requester, purpose, checksum, expiry, audit event
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+ADM-10 — Users and Roles
+Field Binding specification
+Route / entry /admin/access
+Access Super Admin
+Purpose Manage named privileged access
+Content authority Master Requirements controls roles, data and audit; C-04 controls system/error copy.
+Responsive rule Desktop optimized; tablet functional; mobile supports urgent review/actions but wide tables may
+use labeled horizontal scroll.
+Order Screen zone Required content and behavior
+1 Users Name, email, role, MFA, status, last access
+2 Invite Named account and role
+3 Change role Reason + MFA re-auth + audit
+4 Revoke Immediate access revocation
+5 Implementation access Expiry mandatory; no permanent default
+Control Binding behavior
+Primary actions Only role-authorized actions listed; every write action requires confirmation, reason where stated
+and audit event.
+Loading / empty / error
+states
+Loading skeleton; permission-denied; filtered empty; safe service error; stale-data refresh; session-
+expiry re-auth.
+
+===== PAGE 32 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 31
+Control Binding behavior
+Screen acceptance Positive and negative RBAC tests pass; URL guessing cannot reveal data; every privileged write
+produces immutable audit evidence.
+11. Global System Screens and States
+SYS-01 — Cookie Consent
+Field Binding specification
+Route / entry Global public overlay
+Access Eligible public visitors
+Purpose Obtain and manage optional analytics consent
+Content authority C-04 controls exact system and error copy.
+Responsive rule Full viewport; usable at 320 px minimum without clipped primary action.
+Order Screen zone Required content and behavior
+1 Banner Essential-only default; Accept optional; Reject optional; Preferences
+2 Preferences Categories, purpose, provider; unticked optional default
+3 Persistence Consent version/time
+4 Reopen Footer Cookies link
+Control Binding behavior
+Primary actions Only safe recovery actions listed.
+Loading / empty / error
+states
+Every state has visible title, explanation, action and support path where relevant.
+Screen acceptance State can be forced in test environment; keyboard/screen reader behavior and recovery action
+pass.
+SYS-02 — 404
+Field Binding specification
+Route / entry Unknown route
+Access Any
+Purpose Recover from unknown route
+Content authority C-04 controls exact system and error copy.
+Responsive rule Full viewport; usable at 320 px minimum without clipped primary action.
+Order Screen zone Required content and behavior
+1 Message Page not found
+2 Actions Home; Start Assessment; Contact
+3 Security No route diagnostics
+
+===== PAGE 33 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 32
+Control Binding behavior
+Primary actions Only safe recovery actions listed.
+Loading / empty / error
+states
+Every state has visible title, explanation, action and support path where relevant.
+Screen acceptance State can be forced in test environment; keyboard/screen reader behavior and recovery action
+pass.
+SYS-03 — 500 / Service Error
+Field Binding specification
+Route / entry Global boundary
+Access Any
+Purpose Recover safely from unexpected failure
+Content authority C-04 controls exact system and error copy.
+Responsive rule Full viewport; usable at 320 px minimum without clipped primary action.
+Order Screen zone Required content and behavior
+1 Message Unable to complete request
+2 Reference Non-sensitive incident/reference ID
+3 Actions Retry; Home; Contact
+4 Logging Client/server correlation without secrets or health content
+Control Binding behavior
+Primary actions Only safe recovery actions listed.
+Loading / empty / error
+states
+Every state has visible title, explanation, action and support path where relevant.
+Screen acceptance State can be forced in test environment; keyboard/screen reader behavior and recovery action
+pass.
+SYS-04 — Maintenance
+Field Binding specification
+Route / entry Maintenance gate
+Access Any
+Purpose Communicate planned unavailability
+Content authority C-04 controls exact system and error copy.
+Responsive rule Full viewport; usable at 320 px minimum without clipped primary action.
+Order Screen zone Required content and behavior
+1 Status Maintenance message
+2 Timing Expected return only when approved
+3 Actions Refresh; public status/contact if configured
+4 Security Admin bypass never public
+
+===== PAGE 34 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 33
+Control Binding behavior
+Primary actions Only safe recovery actions listed.
+Loading / empty / error
+states
+Every state has visible title, explanation, action and support path where relevant.
+Screen acceptance State can be forced in test environment; keyboard/screen reader behavior and recovery action
+pass.
+SYS-05 — Offline / Reconnect
+Field Binding specification
+Route / entry Assessment/report/admin overlays
+Access Authorized user
+Purpose Protect work during network loss
+Content authority C-04 controls exact system and error copy.
+Responsive rule Full viewport; usable at 320 px minimum without clipped primary action.
+Order Screen zone Required content and behavior
+1 Banner Offline status
+2 Assessment Keep unsent current input locally in memory only; retry save; warn before exit
+3 Submitted/report Never fabricate success; retry status
+4 Admin Disable writes until fresh authorization/state
+5 Recovery Reconcile and confirm saved timestamp
+Control Binding behavior
+Primary actions Only safe recovery actions listed.
+Loading / empty / error
+states
+Every state has visible title, explanation, action and support path where relevant.
+Screen acceptance State can be forced in test environment; keyboard/screen reader behavior and recovery action
+pass.
+12. Interaction, Validation and Persistence Rules
+Area Binding rule
+Navigation Browser Back/Forward preserves public state and safe filters; assessment Back uses saved
+session state; no accidental resubmission.
+Autosave Save after stable answer change and before Next; show Saving/Saved/Failed; never show
+Saved without server acknowledgement.
+Validation Validate against C-01; show inline error and top summary on submit; focus first invalid control;
+preserve all valid values.
+Submission Idempotency key prevents duplicate answer/report records; disable repeated submit while
+pending; recovery checks server status.
+Sessions Warn before expiry; successful extension preserves state; expired sessions clear sensitive view
+and require secure re-entry.
+Modals Focus trap, labelled dialog, safe Escape behavior and focus return.
+
+===== PAGE 35 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 34
+Area Binding rule
+Destructive actions Explain effect; require explicit confirmation; typed confirmation only for irreversible high-risk
+actions.
+URLs No Personal Data, answers, score values or secrets in query strings, hashes or analytics events.
+Analytics Disabled on assessment, report and Admin; public optional analytics load only after applicable
+consent.
+Printing Legal pages printable; report printing routes to approved PDF; Admin tables do not expose
+hidden columns.
+13. Accessibility and Content Quality
+ Meet WCAG 2.2 AA for all public, participant and Admin screens.
+ One H1 per screen; semantic heading order; landmark regions; Skip to content on every shell.
+ All functions operable by keyboard; no keyboard trap; logical focus order; visible focus on every interactive
+element.
+ Form labels, errors and help text are programmatically associated; required state is communicated in text and
+code.
+ Charts include label, numeric value, classification and text explanation; color is never the sole carrier of meaning.
+ Contrast: normal text ≥4.5:1, large text ≥3:1, non-text UI/focus ≥3:1.
+ Zoom to 200% and reflow at 320 CSS px without loss of function or two-dimensional scroll except approved data
+tables.
+ Announcements use restrained live regions; saving and loading do not cause focus jumps.
+ Plain-language copy and exact legal/medical wording must not be shortened by responsive design.
+14. Screen Evidence and Acceptance
+ID Acceptance criterion
+UI-001 Every screen ID in Section 2 has a working Staging route/state and test evidence.
+UI-002 Public header, mobile menu and footer reach every listed route with correct active state.
+UI-003 Role-based navigation and direct URL access pass positive and negative tests.
+UI-004 All 73 questions render from C-01 in exact order across 13 modules.
+UI-005 Save/resume, expiry, offline and failed-save recovery preserve confirmed answers.
+UI-006 Review/submit blocks missing required answers and accepts the two optional records.
+UI-007 Duplicate submission is prevented and report-generation recovery does not duplicate scores.
+UI-008 Interactive report contains exactly 19 sections and matches PDF/canonical JSON.
+UI-009 Null/missing states use approved language and never impute a value.
+UI-010 Admin tables, actions and data fields match role permissions and audit requirements.
+UI-011 Published configuration cannot be silently edited; publish/rollback produces evidence.
+UI-012 Analytics requests are absent on assessment, report and Admin routes.
+UI-013 360, 768, 1024 and 1440 px reference screenshots are delivered for every screen/state family.
+UI-014 Keyboard-only, screen-reader smoke, contrast, zoom/reflow and automated accessibility reports pass.
+UI-015 Chrome, Edge, Firefox, Safari and current mobile Safari/Chrome compatibility passes.
+UI-016 No placeholder, lorem ipsum, broken route, unlabeled Coming Soon control or unapproved copy remains.
+UI-017 Loading, empty, error, success, unauthorized and offline states are force-tested where applicable.
+UI-018 Performance targets in the Master Requirements pass on agreed test conditions.
+
+===== PAGE 36 =====
+ROOTS-AI™ | C-05 UI/UX Screen Implementation Specification v1.0.0
+CONFIDENTIAL — C-05 | 35
+ID Acceptance criterion
+UI-019 ROOTS approves the screen inventory, responsive evidence and visual-regression baseline during UAT.
+15. Required UI/UX Handover Artifacts
+# Artifact
+1 Implemented responsive component library and documented tokens
+2 Storybook or equivalent component/state catalog accessible in ROOTS-controlled environment
+3 Route-to-screen-ID inventory and role matrix
+4 Reference screenshots at 360, 768, 1024 and 1440 px for every screen/state family
+5 Visual-regression test baseline and results
+6 Accessibility audit, keyboard test and screen-reader smoke evidence
+7 Browser/device compatibility report
+8 All icons, illustrations, fonts and licenses used
+9 Editable source assets and export settings
+10 Content mapping showing C-03/C-04 source for every user-visible block
+11 Known Medium/Low visual defects and approved disposition
+No separate Figma file is required when the implemented component catalog, screen evidence and
+editable source assets fully satisfy this annex. If the Implementation Partner uses Figma, the editable file
+must be transferred to a ROOTS-owned workspace and may not replace or weaken this binding
+specification.

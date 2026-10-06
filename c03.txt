@@ -1,0 +1,375 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ C-03 Report Content & Visual Reference
+Pack v1.0.1 - CONTROLLED CORRECTION
+Document ID: ROOTS-C03-REPORT-001 | Controlled correction to v1.0.0
+This correction sheet is an integral part of the attached v1.0.0 human-readable release and supersedes only the clauses expressly
+identified below. All other approved report-content, safety, deterministic-data, privacy, accessibility and 19-section requirements remain in
+force.
+1. Linked dataset versions
+Supersedes Section 1 - Linked datasets. The report implementation shall use C-01 v1.0.1 and C-02 v1.0.1. The canonical report JSON
+shall store the actual questionnaire_version and scoring_version used for each report. No report may claim v1.0.0 when generated from
+v1.0.1.
+2. Visual authority and semantic colors
+Supersedes Section 2 wherever fixed palette, typeface, spacing or component styling could be interpreted as final visual
+authority. Classification labels, thresholds, accessibility requirements, numeric/text equivalents, page-size consistency, footer metadata
+and non-stigmatizing imagery rules remain binding. Existing hex values, Inter/Arial references and the 8-point grid are semantic/legacy
+implementation references only, not final UI tokens. Final colors, typography treatment, spacing, chart appearance, components and
+visual hierarchy are governed by the approved ROOTS-AI Visual Direction and, after written ROOTS-AI approval, the PUB-01 Golden
+Screen/design system. Visual styling must never alter score meaning, thresholds, content, accessibility or report parity.
+3. Biological State identifier
+Supersedes Section 4.3 placeholder. Use {biological_state_classification} for the Biological State label. The domain ID BS remains
+exclusively Biological Safety Signals™. Implementations must not reuse BS as an identifier for Biological State™.
+4. Driver cardinality and rendering
+Supersedes Sections 4.2 and 4.6 wherever three drivers are assumed. The report shall render exactly the deterministic driver outputs
+returned by C-02 v1.0.1: zero to three output entries. A co-primary pair is one output entry containing two domain IDs. Do not duplicate
+a domain, invent a secondary/tertiary driver, or insert an ineligible/null/<25 domain to fill layout space. If no eligible driver exists, use the
+approved no-dominant-burden copy. Executive Summary wording must adapt to the number of available driver outputs.
+5. Biological Triad™ fallback
+Supersedes Section 4.8 fixed three-item assumption. The Biological Triad™ may render only verified deterministic inputs. Preferred
+inputs are available driver output(s) plus an actually present protective factor. If fewer than three eligible elements exist, use a reduced
+two-element/one-element state or the approved Not Available state. No AI or template may invent a missing driver or protective factor.
+Relationship language remains possible/potential, never causal.
+6. Reference sample and version display
+Supersedes Section 8 version references only. The sample remains illustrative and retains the shown numerical example unless
+separately revised. Any displayed questionnaire/scoring/rules version must reflect C-01 v1.0.1 / C-02 v1.0.1 as applicable.
+Report-template version is C-03 v1.0.1. Version metadata must be taken from canonical stored report JSON, not hard-coded.
+7. Acceptance check RPT-04
+Supersedes RPT-04. Every chart has a text and numeric equivalent, never relies on color alone, meets accessibility
+requirements, and conforms to the written-approved ROOTS-AI Golden Screen/design system for final visual presentation. C-03
+semantic colors do not override the approved final visual system.
+8. Canonical JSON / null-state clarification
+Clarifies Sections 9 and 10 without changing their intent. Drivers must be represented as the exact C-02 v1.0.1 deterministic output,
+including zero-length arrays and co-primary structure. Missing driver/protective-factor data must remain explicit and must trigger governed
+reduced/Not Available states; no imputation is permitted. Web and PDF continue to render from the same stored canonical JSON hash.
+Integrity statement. This v1.0.1 correction does not change the 19-section report architecture, domain names, classification thresholds,
+scoring mathematics, safety boundary, fixed medical/AI disclaimer, governed narrative limits, micro-action library, laboratory-discussion
+boundary, web/PDF same-JSON requirement, or prohibition on diagnosis/treatment/medication advice.
+Precedence. If the attached v1.0.0 pages conflict with this correction on the matters above, this v1.0.1 correction controls.
+
+===== PAGE 2 =====
+ROOTS-AI™ | C-03 Report Content & Visual Reference Pack v1.0.0
+CONFIDENTIAL — C-03 | 1
+ROOTS-AI™ C-03
+Report Content & Visual Reference Pack — Version 1.0.0
+Document ID: ROOTS-C03-REPORT-001
+Status: APPROVED EXECUTABLE CONTENT RELEASE
+Effective date: 21 July 2026
+This pack fixes the content contract, layout system, fallback language and reference rendering for all 19
+report sections. It does not authorize diagnosis, prognosis, treatment or medication advice.
+
+===== PAGE 3 =====
+ROOTS-AI™ | C-03 Report Content & Visual Reference Pack v1.0.0
+CONFIDENTIAL — C-03 | 2
+1. Release Control and Use
+Field Binding value
+Owner ROOTS AI HEALTH SYSTEMS, Inc.
+Version 1.0.0
+Linked datasets C-01 v1.0.0 and C-02 v1.0.0
+Language English
+Report title ROOTS Biological Intelligence Report™
+Product boundary Educational wellness assessment; non-diagnostic
+Canonical data source Immutable report JSON created after deterministic scoring
+Required formats Authorized interactive web report and pixel-consistent PDF
+Minimum sections Exactly 19; unavailable sections display the approved Not Available state
+2. Visual System
+Token Value Use
+Primary Navy #1A2A4A Cover, headings, principal score accents
+Soft Navy #2A4060 Secondary cards and diagrams
+Warm White #FAFAF8 Page background
+Charcoal #1A1A1A Body copy
+Optimized #27AE60 Domain 0-24
+Compensating #F39C12 Domain 25-49
+Strained #E67E22 Domain 50-74
+Dysregulated #C0392B Domain 75-100
+Muted #6B7280 Metadata and disclaimers
+Typeface Inter; Arial fallback Web and PDF
+Grid 8-point spacing system All components
+Page A4 or Letter selected once
+per deployment
+No mixed page sizes
+ Minimum 16 px body text on web and 10 pt in PDF.
+ All charts require a text label and numeric value; color alone never conveys state.
+ No stock imagery implying diagnosis, shame, fear or guaranteed transformation.
+ Charts and copy use the same canonical report JSON.
+ PDF footer includes report ID, generated timestamp, version and “Educational — Not a Diagnosis”.
+3. Score Labels and Domain Definitions
+ID Approved label Approved meaning
+MR Metabolic Resistance™ Self-reported resistance to expected weight change and activity-related
+metabolic context.
+HS Hunger & Satiety Signals™ Hunger, craving, fullness and post-meal response patterns.
+SR Sleep Recovery Index™ Sleep duration, continuity and perceived restoration.
+
+===== PAGE 4 =====
+ROOTS-AI™ | C-03 Report Content & Visual Reference Pack v1.0.0
+CONFIDENTIAL — C-03 | 3
+ID Approved label Approved meaning
+CH Circadian Health Score™ Alignment of light, screen, meal and sleep timing.
+SL Stress Load™ Perceived tension, cognitive activation and stress-linked eating.
+IB Inflammation Burden Index™ Non-specific symptom burden; not a laboratory or clinical inflammation
+measure.
+BS Biological Safety Signals™ Perceived energy, appetite drive and resistance signals.
+Range Label Participant-facing explanation
+0-24 Optimized Few burden signals were reported in this area.
+25-49 Compensating Some signals are present, while current routines may still be helping your system
+compensate.
+50-74 Strained Several signals may be placing consistent pressure on this area.
+75-100 Dysregulated A high burden of signals was reported. This is not a diagnosis; consider discussing
+persistent or concerning symptoms with a qualified professional.
+4. Nineteen-Section Content Contract
+1. Cover Page
+Element Approved content
+Source Template
+Required/fallback copy ROOTS Biological Intelligence Report™
+Rendering and governance Display ROOTS-AI™ wordmark, participant display name or Participant, report ID, generation
+date, report version and “Educational — Not a Diagnosis”.
+2. Executive Summary
+Element Approved content
+Source Governed narrative + deterministic fallback
+Required/fallback copy Your current pattern reflects a combination of reported biological signals. The strongest areas in
+this assessment are {primary_driver}, {secondary_driver} and {tertiary_driver}. These results are
+educational and describe your answers; they do not diagnose a condition.
+Rendering and governance Two short paragraphs, 90-160 words. Mention Biological State, main drivers, one strength and
+confidence limitation.
+3. ROOTS Biological State™
+Element Approved content
+Source Deterministic
+Required/fallback copy Your ROOTS Biological State™ is {biological_state}/100 — {domain_classification}.
+Rendering and governance Show score, label and: “This summarizes the available seven-domain questionnaire pattern; it is
+not a medical risk probability.”
+
+===== PAGE 5 =====
+ROOTS-AI™ | C-03 Report Content & Visual Reference Pack v1.0.0
+CONFIDENTIAL — C-03 | 4
+4. ROOTS Opportunity Score™
+Element Approved content
+Source Deterministic
+Required/fallback copy Your ROOTS Opportunity Score™ is {opportunity_score}/100.
+Rendering and governance Add: “This proprietary educational indicator reflects the amount of modifiable capacity suggested
+by the current questionnaire pattern. It is not a forecast or clinical outcome probability.”
+5. ROOTS Confidence™
+Element Approved content
+Source Deterministic
+Required/fallback copy Confidence in this interpretation is {confidence_label} ({confidence_score}/100).
+Rendering and governance List overall coverage, answer confidence and consistency. Never conceal missing/null domains.
+6. Key Drivers
+Element Approved content
+Source Deterministic ranking + governed explanation
+Required/fallback copy Primary: {primary_driver}. Secondary: {secondary_driver}. Tertiary: {tertiary_driver}.
+Rendering and governance If co-primary, label both. If no domain ≥25, show: “No dominant burden signal was identified in the
+available answers.”
+7. Seven-Domain Score Breakdown
+Element Approved content
+Source Deterministic
+Required/fallback copy {domain_label}: {domain_score}/100 — {domain_classification}.
+Rendering and governance Seven horizontal bars in fixed order MR, HS, SR, CH, SL, IB, BS. A null score displays “Not
+enough information”.
+8. Biological Triad™
+Element Approved content
+Source Template + rules
+Required/fallback copy Your current triad connects {primary_driver}, {secondary_driver} and {top_protective_factor}.
+Rendering and governance Three labelled circles. Diagram describes relationships as possible, not causal.
+9. Future Projection
+Element Approved content
+Source Rules + governed narrative
+Required/fallback copy If the current pattern continues, the same signals may remain influential. Small consistent
+changes may alter the pattern over time.
+
+===== PAGE 6 =====
+ROOTS-AI™ | C-03 Report Content & Visual Reference Pack v1.0.0
+CONFIDENTIAL — C-03 | 5
+Element Approved content
+Rendering and governance Never predict disease, lifespan, deterioration or guaranteed improvement. Use 3-4 conditional
+bullets.
+10. 90-Day Roadmap
+Element Approved content
+Source Rules library
+Required/fallback copy Month 1 — Stabilize signals. Month 2 — Build flexibility. Month 3 — Reinforce recovery.
+Rendering and governance Select only eligible micro-actions. No more than three actions per month.
+11. Nutrition Priorities
+Element Approved content
+Source Rules library
+Required/fallback copy Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match
+your circumstances.
+Rendering and governance No calorie prescription, supplement dosage, therapeutic diet or disease claim.
+12. Action Priorities
+Element Approved content
+Source Rules library + governed explanation
+Required/fallback copy Start with the smallest action you can repeat consistently.
+Rendering and governance Rank 3-5 micro-actions; each includes action, reason, frequency and safety note where
+applicable.
+13. What Is Going Well
+Element Approved content
+Source Deterministic protective factors
+Required/fallback copy Your answers also show strengths that may support change.
+Rendering and governance Display only protective factors actually present. If none: “No protective factor was confirmed from
+the available answers; this may reflect missing data rather than absence.”
+14. Specific Concerns
+Element Approved content
+Source Rules + governed explanation
+Required/fallback copy Some reported signals may deserve additional attention, especially if they are persistent,
+worsening or affecting daily function.
+Rendering and governance Reference question IDs internally; do not display alarming medical labels.
+
+===== PAGE 7 =====
+ROOTS-AI™ | C-03 Report Content & Visual Reference Pack v1.0.0
+CONFIDENTIAL — C-03 | 6
+15. Suggested Laboratory Discussion
+Element Approved content
+Source Approved eligibility rules
+Required/fallback copy You may wish to discuss whether any tests are appropriate with a qualified healthcare
+professional.
+Rendering and governance Tests are optional discussion prompts only; never order, require or interpret a test.
+16. Participant Answers
+Element Approved content
+Source Canonical response snapshot
+Required/fallback copy Your answers are shown exactly as submitted.
+Rendering and governance Organize by 13 modules. Show display label, N/A, units and questionnaire version; omit hidden
+technical values.
+17. Biological Card
+Element Approved content
+Source Deterministic
+Required/fallback copy Biological State {biological_state}; Opportunity {opportunity_score}; Recovery Potential
+{recovery_potential}; Confidence {confidence_label}.
+Rendering and governance Compact summary with driver list and all content/rules versions.
+18. Final Word
+Element Approved content
+Source Governed narrative + fallback
+Required/fallback copy Your answers are a starting point, not a verdict. Choose one realistic action, observe how you
+respond, and seek professional support when symptoms are persistent or concerning.
+Rendering and governance 50-100 words; may acknowledge Q73 without quoting sensitive free text verbatim.
+19. Medical and AI Disclaimer
+Element Approved content
+Source Fixed template
+Required/fallback copy ROOTS-AI™ provides educational wellness information based on self-reported answers. It is not
+a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified
+healthcare professional. It does not provide medical treatment or medication instructions. Scores
+are proprietary questionnaire indicators and are not validated probabilities of disease or future
+outcomes. AI may assist with wording, but all scores and classifications are calculated by
+deterministic rules. If you have severe, sudden or worsening symptoms, or believe you may be in
+immediate danger, contact local emergency services or a qualified healthcare professional.
+Rendering and governance Display in full in web and PDF; no truncation.
+
+===== PAGE 8 =====
+ROOTS-AI™ | C-03 Report Content & Visual Reference Pack v1.0.0
+CONFIDENTIAL — C-03 | 7
+5. Approved Micro-Action Library
+Domain Approved action Rationale Safety qualifier
+MR Schedule three 10-minute walks after
+meals this week.
+Supports routine movement without
+promising weight loss.
+If exercise is unsafe or painful,
+obtain professional guidance.
+HS Include a protein source and fibre-rich food
+in one regular meal daily.
+May support meal satisfaction. Adapt for allergies, kidney disease or
+clinician-directed diets.
+SR Keep wake time within a one-hour window
+for seven days.
+Supports a consistent recovery
+schedule.
+Persistent snoring/gasping warrants
+professional assessment.
+CH Seek 10-20 minutes of outdoor morning
+light when safe.
+Supports time-of-day cues. Avoid direct sun exposure beyond
+safe local guidance.
+SL Use a two-minute slow-breathing or pause
+routine once daily.
+Creates a repeatable recovery cue. Not a substitute for mental-health
+care.
+IB Track one recurring symptom, meal context
+and timing for seven days.
+May help identify patterns for
+discussion.
+Do not use the log to self-diagnose
+food intolerance.
+BS Choose one action small enough to repeat
+for two weeks.
+Builds consistency while respecting
+perceived resistance.
+Seek care for persistent, severe or
+unexplained symptoms.
+6. Laboratory Discussion Library
+Eligibility signal Optional clinician discussion Mandatory wording
+Self-reported metabolic concern or
+Q13 metabolic context
+Whether glucose regulation testing, such as
+fasting glucose or HbA1c, is appropriate
+Only a clinician can decide whether
+testing is appropriate and interpret the
+result.
+Persistent fatigue, weight change or
+thyroid context
+Whether thyroid evaluation is appropriate Questionnaire answers cannot determine
+thyroid function.
+Cardiometabolic context Whether a lipid profile and blood-pressure
+review are appropriate
+No test is required by ROOTS-AI™.
+Persistent non-specific symptoms Whether targeted clinical evaluation is
+appropriate before broad testing
+Do not recommend hs-CRP or other tests
+automatically.
+Snoring/gasping signal Whether sleep assessment is appropriate Do not label sleep apnoea from the
+questionnaire.
+7. Governed Narrative Contract
+ Input is an allow-listed explanation object containing pre-calculated values, classifications, driver IDs, eligible
+content IDs and version identifiers.
+ Q73 free text is sanitized, separately classified and never inserted into system instructions. It may be summarized
+only when safe and relevant.
+ Output is JSON matching the approved section schema; every section has a length limit and deterministic fallback.
+ Required framing includes may, suggests, appears consistent with, possible or potential where causality is
+uncertain.
+ Prohibited: “you have”, “this proves”, diagnosis, cure, treatment, medication change, guaranteed outcome,
+invented test result, invented fact or emergency triage beyond fixed approved text.
+ One governed retry is permitted after validation failure; then the fixed fallback copy is used.
+8. Reference Sample — All 19 Sections
+# Section Reference sample content
+1 Cover Sample Participant • Report RPT-SAMPLE-001 • 21 July 2026 • v1.0.0 • Educational — Not a Diagnosis
+
+===== PAGE 9 =====
+ROOTS-AI™ | C-03 Report Content & Visual Reference Pack v1.0.0
+CONFIDENTIAL — C-03 | 8
+# Section Reference sample content
+2 Executive Summary Your answers suggest a multi-factor pattern led by Stress Load, Sleep Recovery and Metabolic Resistance.
+Current strengths include readiness for one small change and a supportive environment. Confidence is High
+because the assessment was complete and internally consistent.
+3 Biological State 61/100 — Strained. This is a questionnaire summary, not a medical risk probability.
+4 Opportunity Score 69.5/100 — a proprietary indicator of modifiable capacity suggested by the current pattern.
+5 Confidence 84/100 — High; complete answers, high self-confidence and consistent domain responses.
+6 Drivers Stress Load 75; Sleep Recovery 68; Metabolic Resistance 62.
+7 Domains MR 62; HS 48; SR 68; CH 55; SL 75; IB 58; BS 61.
+8 Biological Triad Stress Load + Sleep Recovery + consistent meal timing as the top protective factor.
+9 Future Projection If unchanged, stress and sleep signals may continue to influence energy and eating patterns; this is not a
+prognosis.
+10 90-Day Roadmap Month 1: consistent wake time. Month 2: three post-meal walks weekly. Month 3: reinforce the most
+sustainable routine.
+11 Nutrition Priorities Use regular meals; include protein and fibre in one main meal; keep hydration consistent.
+12 Action Priorities 1) fixed wake-time window; 2) ten-minute walks; 3) two-minute daily pause; 4) plan one balanced meal.
+13 What Is Going Well High readiness, supportive home environment and some regular meal timing.
+14 Specific Concerns Persistent fatigue, sleep disruption or unusual thirst should be discussed with a qualified professional.
+15 Laboratory Discussion Ask whether glucose regulation, thyroid or other evaluation is appropriate for your history; ROOTS-AI™ does
+not order or interpret tests.
+16 Participant Answers Display the immutable 13-module response snapshot.
+17 Biological Card State 61 • Opportunity 69.5 • Recovery 63.0 • Confidence High • Rules v1.0.0.
+18 Final Word Your answers are a starting point, not a verdict. Begin with one realistic action and observe what changes.
+19 Disclaimer Display the full fixed disclaimer from Section 4.19.
+9. Canonical Report JSON Contract
+Required top-level keys: report_id, participant_display, generated_at, questionnaire_version, scoring_version,
+report_template_version, narrative_template_version, domain_scores, biological_state, opportunity_score,
+recovery_potential, confidence, drivers, protective_factors, limitations, sections[1..19], disclaimer_version and
+audit_trace_reference.
+ No field may contain NaN, Infinity or an undeclared enum.
+ Null domain values require an explicit limitation object and approved Not Available copy.
+ Section order is fixed 1-19.
+ Web and PDF must render from the same stored JSON hash.
+10. Acceptance Checks
+ID Pass condition
+RPT-01 All 19 sections exist in web and PDF, and scores, drivers and versions match canonical JSON exactly.
+RPT-02 Null and missing states display approved copy and never use imputation.
+RPT-03 No prohibited diagnostic or prescriptive claim appears.
+RPT-04 Every chart has a text equivalent and meets the approved visual tokens.
+RPT-05 PDF passes minimum/maximum-content visual regression with correct page breaks.
+RPT-06 Report access is private, authorized and audited.
+RPT-07 Narrative failure uses deterministic fallback; footer metadata and the full disclaimer are present.

@@ -1,0 +1,441 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ C-01 Canonical Question Bank v1.0.1 —
+FINAL CONTROL SHEET
+This sheet replaces the prior v1.0.1 correction cover. The attached legacy human-readable pages are retained only for source
+provenance. Where they display v1.0.0 metadata or superseded fields, this sheet and the matching v1.0.1 executable XLSX control.
+1. Canonical version metadata
+questionnaire_version is 1.0.1 for all 73 question records. README title/version, Modules version statement and implementation
+publication sequence are v1.0.1. Scoring source is C-02 v1.0.1.
+2. Required multi-select validation
+Q13, Q14, Q52, Q53 and Q54 require one or more approved option IDs. An empty array is invalid. NONE/N/A is exclusive where
+such an option is provided.
+3. Q73
+Q73 remains optional free text and allow_na = FALSE. A blank optional Q73 remains blank; the system must not invent an N/A
+response.
+4. Required-response rule
+Required = valid response or explicit approved N/A where the canonical question permits N/A. Optional questions may remain blank.
+Missing is not inferred as N/A.
+5. Executable authority
+The matching file 02_ROOTS_AI_C01_Canonical_Question_Bank_v1.0.1_CORRECTED.xlsx is the authoritative executable
+dataset. Exact package SHA-256 is controlled by the final reference register and SHA256SUMS.txt.
+6. Precedence
+This v1.0.1 final control sheet supersedes all v1.0.0 version labels and the specifically corrected validation fields in the attached
+legacy pages. It does not alter the approved 73-question wording/order, 13-module structure, scoring eligibility or other unaffected
+canonical content.
+
+===== PAGE 2 =====
+ROOTS-AI™ C-01 Canonical Question Bank v1.0.0
+Field Value Control Implementation note Owner Status
+Dataset ID ROOTS-C01-QBANK-001 Immutable Load verbatim; do not renumber ROOTS Approved
+questionnaire_version 1.0.0 Immutable Persist with every response and report ROOTS Approved
+Question count 73 Exact Automated schema test must equal 73 ROOTS Approved
+Module count 13 Exact Module order 1-13 ROOTS Approved
+Language English Phase 1 All UI strings stored in i18n resources ROOTS Approved
+Scoring source C-02 v1.0.0 Separate control Only questions marked scoring_eligible may score ROOTS Approved
+N/A behavior Explicit only No inference N/A excluded; missing is not N/A ROOTS Approved
+Clinical boundary Educational wellness Mandatory No diagnosis, prognosis or treatment decision ROOTS Approved
+APPROVED EXECUTABLE DATASET • Exactly 73 questions across exactly 13 ordered modules. Participant-facing English copy is authoritative. This proprietary beta wellness
+assessment is educational and non-diagnostic; it is not represented as a clinically validated diagnostic instrument.
+Implementation sequence: validate workbook checksum → import Modules → import Option_Sets → import Questions → apply Validation → run QA_Checks → publish
+version 1.0.0.
+
+===== PAGE 3 =====
+13 Ordered Assessment Modules
+Module IDs, titles and question ranges are immutable for questionnaire version 1.0.0.
+module_id module_order module_title purpose question_range
+M01 1 Body Foundations Profile and physical measurements Q1-Q8
+M02 2 Weight & Metabolic History Weight trajectory and metabolic context Q9-Q15
+M03 3 Sleep Recovery Index Sleep duration, continuity and restoration Q16-Q22
+M04 4 Hunger & Satiety Signals Hunger, fullness, cravings and meal response Q23-Q30
+M05 5 Stress Load & Inflammation Signals Stress activation and self-reported symptom burden Q31-Q40
+M06 6 Circadian Health Light, screen, meal and sleep timing Q41-Q45
+M07 7 Physical Activity Mapping Frequency, duration and activity pattern Q46-Q48
+M08 8 Biological Safety Signals Perceived resistance, appetite control and energy Q49-Q51
+M09 9 Root Cause Discovery Participant-perceived drivers and caffeine context Q52-Q55
+M10 10 Hormonal & Reproductive Context Optional hormonal and reproductive context Q56-Q60
+M11 11 Lifestyle & Environment Tobacco, alcohol, eating environment and support Q61-Q66
+M12 12 Goals & Readiness Goals, priorities and readiness for change Q67-Q71
+M13 13 Confidence & Additional Context Response confidence and optional participant context Q72-Q73
+
+===== PAGE 4 =====
+Canonical Questions — 73 Records
+Required/allow_na are explicit booleans. option_set_id refers to Option_Sets. conditional_logic is explicitly NONE because Phase 1 presents all 73 questions; Q57/Q59 allow N/A instead of being hidden.
+module_id question_id question_text question_type option_set_id required allow_na validation scoring_eligible conditional_logic help_text status
+1.0.0 M01 1 Q1 1 What is your age? integer TRUE FALSE 16-110 years; launch eligibility defaults to 18+ FALSE NONE Enter your age in completed years. APPROVED
+1.0.0 M01 1 Q2 2 What sex were you assigned at birth? single_select SEX TRUE FALSE Approved option ID only FALSE NONE Used for context only; it does not change scores. APPROVED
+1.0.0 M01 1 Q3 3 What is your height? decimal TRUE FALSE 100-250 cm FALSE NONE Enter height in centimetres. APPROVED
+1.0.0 M01 1 Q4 4 What is your current weight? decimal TRUE FALSE 25-350 kg FALSE NONE Enter weight in kilograms. APPROVED
+1.0.0 M01 1 Q5 5 What is your target weight, if you have one? decimal FALSE TRUE 25-350 kg or N/A FALSE NONE Optional; this does not affect scoring. APPROVED
+1.0.0 M01 1 Q6 6 What is your waist circumference? decimal_with_unit WAIST_UNIT TRUE FALSE 40-200 cm after conversion; inches x 2.54 FALSE NONE APPROVED
+1.0.0 M01 1 Q7 7 How long have you been near your current weight? single_select WEIGHT_DURATION TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M01 1 Q8 8 How would you describe your weight pattern over the last five years? single_select WEIGHT_PATTERN TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M02 2 Q9 9 How did the weight change that concerns you begin? single_select GAIN_PATTERN TRUE TRUE Approved option ID only TRUE NONE APPROVED
+1.0.0 M02 2 Q10 10 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M02 2 Q11 11 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M02 2 Q12 12 single_select WEIGHT_CYCLES TRUE TRUE Approved option ID only TRUE NONE APPROVED
+1.0.0 M02 2 Q13 13 Have you been told by a clinician that you have any of the following? multi_select CONDITIONS TRUE TRUE Zero or more approved option IDs FALSE NONE APPROVED
+1.0.0 M02 2 Q14 14 multi_select TRUE TRUE Zero or more approved option IDs FALSE NONE Select categories only; do not enter doses here. APPROVED
+1.0.0 M02 2 Q15 15 single_select YES_NO_UNSURE TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M03 3 Q16 16 How many hours of sleep do you typically get in a 24-hour period? single_select SLEEP_HOURS TRUE TRUE Approved option ID only TRUE NONE APPROVED
+1.0.0 M03 3 Q17 17 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M03 3 Q18 18 How often do you wake during the night and struggle to return to sleep? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M03 3 Q19 19 How often is your bedtime after midnight? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M03 3 Q20 20 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M03 3 Q21 21 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M03 3 Q22 22 How often do you experience a marked afternoon energy crash? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M04 4 Q23 23 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M04 4 Q24 24 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M04 4 Q25 25 How often do you eat enough but still fail to feel comfortably full? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M04 4 Q26 26 How often do you feel comfortably full after a normal meal? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE Protective wording; reverse-scored. APPROVED
+1.0.0 M04 4 Q27 27 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M04 4 Q28 28 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE Protective wording; reverse-scored. APPROVED
+1.0.0 M04 4 Q29 29 How often do you feel sleepy, foggy or low in energy after a main meal? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M04 4 Q30 30 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q31 31 How often do you feel persistent physical tension or stress? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q32 32 How often does stress increase your desire to eat? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q33 33 How often does your mind race when you are trying to sleep? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q34 34 How often are cravings noticeably stronger in the evening? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q35 35 How often do you experience bloating, gas or digestive discomfort? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q36 36 How often do you experience brain fog after meals? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q37 37 How often do you experience unexplained joint pain or stiffness? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q38 38 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q39 39 How often do you experience unusual thirst or a dry mouth? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M05 5 Q40 40 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M06 6 Q41 41 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M06 6 Q42 42 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M06 6 Q43 43 How often do you eat within three hours of bedtime? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M06 6 Q44 44 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M06 6 Q45 45 How often do you feel more alert late at night than during the morning? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M07 7 Q46 46 single_select ACTIVITY_DAYS TRUE TRUE Approved option ID only TRUE NONE APPROVED
+1.0.0 M07 7 Q47 47 On active days, what is the usual duration of your intentional activity? single_select ACTIVITY_DURATION TRUE TRUE Approved option ID only TRUE NONE APPROVED
+1.0.0 M07 7 Q48 48 Which option best describes your usual physical activity pattern? single_select ACTIVITY_TYPE TRUE TRUE Approved option ID only TRUE NONE APPROVED
+1.0.0 M08 8 Q49 49 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M08 8 Q50 50 How often does hunger feel stronger than your ability to regulate it? likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M08 8 Q51 51 likert FREQ TRUE TRUE 0-4 or N/A TRUE NONE APPROVED
+1.0.0 M09 9 Q52 52 When stressed, what responses are most typical for you? multi_select STRESS_RESPONSE TRUE TRUE Zero or more approved option IDs FALSE NONE APPROVED
+1.0.0 M09 9 Q53 53 What do you believe most often contributes to your hunger or cravings? multi_select HUNGER_CAUSE TRUE TRUE Zero or more approved option IDs FALSE NONE APPROVED
+1.0.0 M09 9 Q54 54 What do you believe most often contributes to low energy? multi_select ENERGY_CAUSE TRUE TRUE Zero or more approved option IDs FALSE NONE APPROVED
+1.0.0 M09 9 Q55 55 How many caffeinated drinks do you usually consume per day? single_select CAFFEINE TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M10 10 Q56 56 single_select HORMONAL_STAGE TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M10 10 Q57 57 likert FREQ TRUE TRUE 0-4 or N/A FALSE NONE APPROVED
+1.0.0 M10 10 Q58 58 single_select YES_NO_UNSURE TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M10 10 Q59 59 likert FREQ TRUE TRUE 0-4 or N/A FALSE NONE APPROVED
+questionnaire_versi
+on
+module_orde
+r
+question_ord
+er
+Measure around the midpoint between the lowest rib and
+top of the hip bone.
+How often have well-planned diet or activity efforts produced less
+change than you expected?
+After an intentional weight loss, how often has some or all of the weight
+returned?
+How many meaningful cycles of weight loss and regain have you
+experienced?
+Select all that apply. This is contextual and does not
+diagnose or score a condition.
+Are you currently using medicines that may relate to metabolism,
+appetite, weight or hormones?
+MEDICATION_CONTE
+XT
+Does a first-degree relative have a history of type 2 diabetes or
+substantial weight-related metabolic difficulty?
+How often do you feel tired even after what seemed like enough time in
+bed?
+How often do you remain awake until 2:00 AM or later because you
+cannot settle to sleep?
+How often do you snore loudly, wake gasping, or receive feedback that
+your breathing pauses during sleep?
+This is not a diagnosis. Seek professional assessment if
+this occurs often.
+How often do you feel physically hungry within two hours after a full
+meal?
+How often do you experience food cravings when you are not physically
+hungry?
+How often are you hungry again three to four hours after a protein-rich
+meal?
+How often does a protein-rich meal keep you satisfied for four hours or
+longer?
+When you start eating sweets or snack foods, how often is it difficult to
+stop at the amount you intended?
+How often does fat around your waist seem resistant to your usual
+efforts?
+Persistent excessive thirst should be discussed with a
+clinician.
+How often have reducing calories and increasing activity produced little
+sustained change?
+How often do you spend the first hour after waking indoors without
+natural daylight exposure?
+How often do you use a phone, tablet or computer during the final hour
+before sleep?
+How often does your sleep schedule vary by more than two hours
+across the week?
+On how many days per week do you complete intentional physical
+activity?
+How often does your body seem to resist weight loss despite consistent
+effort?
+How often are your energy levels lower than you believe they should
+be?
+Which hormonal or reproductive stage best describes your current
+situation?
+How often have hormonal or reproductive changes affected sleep,
+appetite, energy or weight?
+Are you currently using hormonal medication, contraception or hormone
+therapy?
+How often do appetite or weight patterns change alongside hormonal or
+reproductive symptoms?
+
+===== PAGE 5 =====
+1.0.0 M10 10 Q60 60 single_select YES_NO_UNSURE TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M11 11 Q61 61 How often do you smoke, vape or use nicotine? single_select TOBACCO TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M11 11 Q62 62 How often do you consume alcohol? single_select ALCOHOL TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M11 11 Q63 63 Which description best matches your usual eating pattern? single_select EATING_PATTERN TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M11 11 Q64 64 likert FREQ TRUE TRUE 0-4 or N/A FALSE NONE Used only as a protective factor. APPROVED
+1.0.0 M11 11 Q65 65 single_select SUPPORT_LEVEL TRUE TRUE Approved option ID only FALSE NONE Used only as a protective factor. APPROVED
+1.0.0 M11 11 Q66 66 single_select SUPPORT_LEVEL TRUE TRUE Approved option ID only FALSE NONE APPROVED
+1.0.0 M12 12 Q67 67 What is your primary goal for completing this assessment? single_select PRIMARY_GOAL TRUE FALSE Approved option ID only FALSE NONE APPROVED
+1.0.0 M12 12 Q68 68 Which area would you most like to understand first? single_select PRIORITY_AREA TRUE FALSE Approved option ID only FALSE NONE APPROVED
+1.0.0 M12 12 Q69 69 integer_scale TRUE FALSE 0-10 inclusive FALSE NONE Used only as a protective factor. APPROVED
+1.0.0 M12 12 Q70 70 integer_scale TRUE FALSE 0-10 inclusive FALSE NONE APPROVED
+1.0.0 M12 12 Q71 71 What pace of change feels most realistic for you? single_select CHANGE_PACE TRUE FALSE Approved option ID only FALSE NONE APPROVED
+1.0.0 M13 13 Q72 72 single_select TRUE FALSE Approved option ID only FALSE NONE APPROVED
+1.0.0 M13 13 Q73 73 Is there anything else you would like the report to acknowledge? free_text FALSE TRUE FALSE NONE APPROVED
+Have you been told by a clinician that you have a thyroid, reproductive
+or other hormonal concern?
+How often are your meals reasonably consistent in timing from day to
+day?
+How supportive is your home food environment of the choices you want
+to make?
+How much practical or emotional support do you have for making
+health-related changes?
+How ready do you feel to try one small, realistic change during the next
+two weeks?
+How confident are you that you can maintain one small change for two
+weeks?
+How confident are you that your answers reflect your usual experience
+during the last four weeks?
+ANSWER_CONFIDENC
+E
+0-1000 characters; sanitize; never concatenate
+directly into model instructions
+Optional. Do not enter urgent or emergency information
+here.
+
+===== PAGE 6 =====
+Approved Option Sets
+Logic uses option_id and stored_value, never the display label. A blank stored_value means contextual-only or N/A.
+option_set_id option_order option_id display_label stored_value_or_points is_na
+FREQ 1 NVR Never 0 FALSE
+FREQ 2 RLY Rarely 1 FALSE
+FREQ 3 SMT Sometimes 2 FALSE
+FREQ 4 OFT Often 3 FALSE
+FREQ 5 ALW Almost always 4 FALSE
+FREQ 6 NA Not applicable TRUE
+YES_NO_UNSURE 1 NO No 0 FALSE
+YES_NO_UNSURE 2 YES Yes 4 FALSE
+YES_NO_UNSURE 3 UNSURE Not sure FALSE
+YES_NO_UNSURE 4 NA Not applicable TRUE
+SEX 1 FEMALE Female FALSE
+SEX 2 MALE Male FALSE
+SEX 3 INTERSEX Intersex FALSE
+SEX 4 PREFER_NOT Prefer not to say FALSE
+WAIST_UNIT 1 CM Centimetres FALSE
+WAIST_UNIT 2 IN Inches FALSE
+WEIGHT_DURATION 1 LT6M Less than 6 months FALSE
+WEIGHT_DURATION 2 6_12M 6-12 months FALSE
+WEIGHT_DURATION 3 1_3Y 1-3 years FALSE
+WEIGHT_DURATION 4 3_5Y 3-5 years FALSE
+WEIGHT_DURATION 5 GT5Y More than 5 years FALSE
+WEIGHT_DURATION 6 NA Not applicable TRUE
+WEIGHT_PATTERN 1 STABLE Mostly stable FALSE
+WEIGHT_PATTERN 2 GRADUAL Gradual increase FALSE
+WEIGHT_PATTERN 3 CYCLING Repeated loss and regain FALSE
+WEIGHT_PATTERN 4 RECENT Recent marked change FALSE
+WEIGHT_PATTERN 5 OTHER Other or unsure FALSE
+WEIGHT_PATTERN 6 NA Not applicable TRUE
+GAIN_PATTERN 1 STABLE No concerning change or mostly stable 0 FALSE
+GAIN_PATTERN 2 IDENTIFIABLE After an identifiable life period or event 1 FALSE
+
+===== PAGE 7 =====
+GAIN_PATTERN 3 GRADUAL Gradually with no single clear reason 2 FALSE
+GAIN_PATTERN 4 CYCLING In repeated cycles of loss and regain 3 FALSE
+GAIN_PATTERN 5 RAPID Rapidly or unexpectedly 4 FALSE
+GAIN_PATTERN 6 NA Not applicable TRUE
+WEIGHT_CYCLES 1 NONE None 0 FALSE
+WEIGHT_CYCLES 2 ONE One 1 FALSE
+WEIGHT_CYCLES 3 TWO Two 2 FALSE
+WEIGHT_CYCLES 4 THREE_FOUR Three or four 3 FALSE
+WEIGHT_CYCLES 5 FIVE_PLUS Five or more 4 FALSE
+WEIGHT_CYCLES 6 NA Not applicable TRUE
+CONDITIONS 1 NONE None of these FALSE
+CONDITIONS 2 T2D Type 2 diabetes FALSE
+CONDITIONS 3 PREDIABETES Prediabetes FALSE
+CONDITIONS 4 HTN High blood pressure FALSE
+CONDITIONS 5 DYSLIPID High cholesterol or triglycerides FALSE
+CONDITIONS 6 THYROID Thyroid condition FALSE
+CONDITIONS 7 PCOS Polycystic ovary syndrome FALSE
+CONDITIONS 8 SLEEP_APNEA Sleep apnoea FALSE
+CONDITIONS 9 OTHER Other FALSE
+CONDITIONS 10 PREFER_NOT Prefer not to say FALSE
+CONDITIONS 11 NA Not applicable TRUE
+MEDICATION_CONTEXT 1 NONE No FALSE
+MEDICATION_CONTEXT 2 GLUCOSE Glucose-lowering medicine FALSE
+MEDICATION_CONTEXT 3 WEIGHT Weight-management medicine FALSE
+MEDICATION_CONTEXT 4 STEROID Long-term corticosteroid FALSE
+MEDICATION_CONTEXT 5 HORMONAL Hormonal medicine FALSE
+MEDICATION_CONTEXT 6 OTHER Other relevant medicine FALSE
+MEDICATION_CONTEXT 7 UNSURE Not sure FALSE
+MEDICATION_CONTEXT 8 PREFER_NOT Prefer not to say FALSE
+MEDICATION_CONTEXT 9 NA Not applicable TRUE
+SLEEP_HOURS 1 LT5 Less than 5 hours 4 FALSE
+SLEEP_HOURS 2 H5_6 5 to less than 6 hours 3 FALSE
+SLEEP_HOURS 3 H6_7 6 to less than 7 hours 1 FALSE
+SLEEP_HOURS 4 H7_9 7 to 9 hours 0 FALSE
+SLEEP_HOURS 5 GT9 More than 9 hours 2 FALSE
+SLEEP_HOURS 6 NA Not applicable TRUE
+
+===== PAGE 8 =====
+ACTIVITY_DAYS 1 D0 0 days 4 FALSE
+ACTIVITY_DAYS 2 D1_2 1-2 days 3 FALSE
+ACTIVITY_DAYS 3 D3_4 3-4 days 1 FALSE
+ACTIVITY_DAYS 4 D5_7 5-7 days 0 FALSE
+ACTIVITY_DAYS 5 NA Not applicable TRUE
+ACTIVITY_DURATION 1 LT10 Less than 10 minutes 4 FALSE
+ACTIVITY_DURATION 2 M10_29 10-29 minutes 3 FALSE
+ACTIVITY_DURATION 3 M30_59 30-59 minutes 1 FALSE
+ACTIVITY_DURATION 4 M60_PLUS 60 minutes or more 0 FALSE
+ACTIVITY_DURATION 5 NA Not applicable TRUE
+ACTIVITY_TYPE 1 NONE No intentional activity 4 FALSE
+ACTIVITY_TYPE 2 LIGHT Light movement or daily activities 3 FALSE
+ACTIVITY_TYPE 3 AEROBIC Mostly aerobic activity 2 FALSE
+ACTIVITY_TYPE 4 RESISTANCE Mostly resistance training 1 FALSE
+ACTIVITY_TYPE 5 MIXED A mix of aerobic and resistance activity 0 FALSE
+ACTIVITY_TYPE 6 NA Not applicable TRUE
+STRESS_RESPONSE 1 EAT Eat or seek snack foods FALSE
+STRESS_RESPONSE 2 WITHDRAW Withdraw or avoid people FALSE
+STRESS_RESPONSE 3 WALK Walk or move FALSE
+STRESS_RESPONSE 4 BREATHE Use breathing or relaxation FALSE
+STRESS_RESPONSE 5 TALK Talk with someone FALSE
+STRESS_RESPONSE 6 WORK_MORE Work more or stay busy FALSE
+STRESS_RESPONSE 7 OTHER Other FALSE
+STRESS_RESPONSE 8 UNSURE Not sure FALSE
+STRESS_RESPONSE 9 NA Not applicable TRUE
+HUNGER_CAUSE 1 MEAL_COMPOSITION Low protein, fibre or meal size FALSE
+HUNGER_CAUSE 2 STRESS Stress or emotion FALSE
+HUNGER_CAUSE 3 SLEEP Poor sleep FALSE
+HUNGER_CAUSE 4 HABIT Habit or availability FALSE
+HUNGER_CAUSE 5 MEDICATION Medicine-related FALSE
+HUNGER_CAUSE 6 UNSURE Not sure FALSE
+HUNGER_CAUSE 7 OTHER Other FALSE
+HUNGER_CAUSE 8 NA Not applicable TRUE
+ENERGY_CAUSE 1 SLEEP Sleep or recovery FALSE
+ENERGY_CAUSE 2 STRESS Stress FALSE
+ENERGY_CAUSE 3 INACTIVITY Low activity FALSE
+
+===== PAGE 9 =====
+ENERGY_CAUSE 4 MEALS Meal pattern FALSE
+ENERGY_CAUSE 5 MEDICATION Medicine-related FALSE
+ENERGY_CAUSE 6 HEALTH A known health concern FALSE
+ENERGY_CAUSE 7 UNSURE Not sure FALSE
+ENERGY_CAUSE 8 OTHER Other FALSE
+ENERGY_CAUSE 9 NA Not applicable TRUE
+CAFFEINE 1 ZERO 0 drinks FALSE
+CAFFEINE 2 ONE 1 drink FALSE
+CAFFEINE 3 TWO 2 drinks FALSE
+CAFFEINE 4 THREE 3 drinks FALSE
+CAFFEINE 5 FOUR_PLUS 4 or more drinks FALSE
+CAFFEINE 6 NA Not applicable TRUE
+HORMONAL_STAGE 1 NOT_APPLICABLE Not applicable to me FALSE
+HORMONAL_STAGE 2 REGULAR_CYCLES Regular menstrual cycles FALSE
+HORMONAL_STAGE 3 IRREGULAR_CYCLES Irregular menstrual cycles FALSE
+HORMONAL_STAGE 4 PERIMENOPAUSE Perimenopause FALSE
+HORMONAL_STAGE 5 POSTMENOPAUSE Postmenopause FALSE
+HORMONAL_STAGE 6 Pregnant or within one year after birth FALSE
+HORMONAL_STAGE 7 MALE_CONTEXT Male hormonal context FALSE
+HORMONAL_STAGE 8 OTHER_UNSURE Other or unsure FALSE
+HORMONAL_STAGE 9 PREFER_NOT Prefer not to say FALSE
+TOBACCO 1 NEVER Never FALSE
+TOBACCO 2 FORMER Former use FALSE
+TOBACCO 3 OCCASIONAL Occasional FALSE
+TOBACCO 4 DAILY Daily FALSE
+TOBACCO 5 PREFER_NOT Prefer not to say FALSE
+TOBACCO 6 NA Not applicable TRUE
+ALCOHOL 1 NEVER Never FALSE
+ALCOHOL 2 MONTHLY Monthly or less FALSE
+ALCOHOL 3 WEEKLY 1-2 days per week FALSE
+ALCOHOL 4 FREQUENT 3 or more days per week FALSE
+ALCOHOL 5 PREFER_NOT Prefer not to say FALSE
+ALCOHOL 6 NA Not applicable TRUE
+EATING_PATTERN 1 REGULAR_BALANCED Regular meals with varied foods FALSE
+EATING_PATTERN 2 IRREGULAR Irregular meals FALSE
+PREGNANT_POSTPAR
+TUM
+
+===== PAGE 10 =====
+EATING_PATTERN 3 Frequent grazing or snacking FALSE
+EATING_PATTERN 4 RESTRICT_BINGE Alternating restriction and overeating FALSE
+EATING_PATTERN 5 SPECIAL_DIET A specific dietary pattern FALSE
+EATING_PATTERN 6 OTHER Other FALSE
+EATING_PATTERN 7 NA Not applicable TRUE
+SUPPORT_LEVEL 1 NONE Not at all supportive FALSE
+SUPPORT_LEVEL 2 LOW A little supportive FALSE
+SUPPORT_LEVEL 3 MIXED Mixed or inconsistent FALSE
+SUPPORT_LEVEL 4 GOOD Supportive FALSE
+SUPPORT_LEVEL 5 STRONG Very supportive FALSE
+SUPPORT_LEVEL 6 NA Not applicable TRUE
+PRIMARY_GOAL 1 WEIGHT Understand weight resistance FALSE
+PRIMARY_GOAL 2 ENERGY Improve energy FALSE
+PRIMARY_GOAL 3 SLEEP Improve sleep and recovery FALSE
+PRIMARY_GOAL 4 CRAVINGS Understand hunger or cravings FALSE
+PRIMARY_GOAL 5 STRESS Understand stress patterns FALSE
+PRIMARY_GOAL 6 PREVENTION Support long-term prevention and healthy ageing FALSE
+PRIMARY_GOAL 7 OTHER Other FALSE
+PRIORITY_AREA 1 MR Metabolic resistance FALSE
+PRIORITY_AREA 2 HS Hunger and satiety FALSE
+PRIORITY_AREA 3 SR Sleep recovery FALSE
+PRIORITY_AREA 4 CH Circadian health FALSE
+PRIORITY_AREA 5 SL Stress load FALSE
+PRIORITY_AREA 6 IB Inflammation burden FALSE
+PRIORITY_AREA 7 BS Biological safety FALSE
+PRIORITY_AREA 8 UNSURE Not sure FALSE
+CHANGE_PACE 1 ONE_STEP One small step at a time FALSE
+CHANGE_PACE 2 TWO_THREE Two or three coordinated changes FALSE
+CHANGE_PACE 3 STRUCTURED A structured 90-day plan FALSE
+CHANGE_PACE 4 UNDERSTAND_FIRST I want to understand first FALSE
+ANSWER_CONFIDENCE 1 LOW Not very confident 25 FALSE
+ANSWER_CONFIDENCE 2 MODERATE Moderately confident 50 FALSE
+ANSWER_CONFIDENCE 3 HIGH Confident 75 FALSE
+ANSWER_CONFIDENCE 4 VERY_HIGH Very confident 100 FALSE
+FREQUENT_SNACKIN
+G
+
+===== PAGE 11 =====
+Validation & Submission Rules
+Server-side validation is authoritative; the browser repeats the same rules for immediate feedback.
+rule_id applies_to rule approved_error_or_behavior severity
+VAL-001 Q1 Integer 16-110 Enter an age between 16 and 110. Block
+VAL-002 Q3 Decimal 100-250 cm Enter a height between 100 and 250 cm. Block
+VAL-003 Q4/Q5 Decimal 25-350 kg; Q5 may be N/A Enter a weight between 25 and 350 kg. Block
+VAL-004 Q6 40-200 cm after inch conversion Please verify the waist measurement. Block
+VAL-005 Likert Approved option ID only Select one of the available answers. Block
+VAL-006 Multi-select Only approved option IDs; NONE/NA exclusive Choose valid options; None/Not applicable cannot be combined. Block
+VAL-007 Q69/Q70 Integer 0-10 Select a number from 0 to 10. Block
+VAL-008 Q73 0-1000 characters; sanitized Keep the response within 1,000 characters. Block
+VAL-009 Submission All required questions answered or explicit N/A where allowed Complete the highlighted questions before submitting. Block
+VAL-010 Age eligibility Launch defaults to 18+ This version is currently available to adults aged 18 or older. Block
+VAL-011 Emergency text Do not treat Q73 as monitored emergency channel If you may be in immediate danger, contact local emergency services now. Safety
+
+===== PAGE 12 =====
+Dataset Quality Controls
+All PASS results are required before publication. Formula cells are auditable and reference the executable tables.
+Check Formula Expected Result
+Question records 73 73 PASS
+Module records 13 13 PASS
+First question Q1 Q1 PASS
+Last question Q73 Q73 PASS
+Scoring eligible count 40 40 PASS
+Required question count 71 71 PASS
+Optional question count 2 2 PASS

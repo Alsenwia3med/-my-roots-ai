@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 126 30" width="126" height="30" role="img" aria-labelledby="title desc">
+  <title id="title">ROOTS-AI Wordmark Dark</title>
+  <desc id="desc">ROOTS-AI vector wordmark for dark backgrounds</desc>
+  <defs><style>.wordmark{fill:#FFFFFF}.tm-vector{fill:#D8DEE8}</style></defs>
+  <g id="wordmark" transform="translate(0 5)">
+    <path class="wordmark" d="M0 20V0h10c3 0 6 2 6 6 0 3-2 5-5 6l5 8h-4l-4-7H4v7H0Zm4-16v6h5c2 0 3-1 3-3s-1-3-3-3H4Z"/>
+    <path class="wordmark" d="M20 10c0-6 2-10 7-10s7 4 7 10-2 10-7 10-7-4-7-10Zm4 0c0 4 1 7 3 7s3-3 3-7-1-7-3-7-3 3-3 7Z"/>
+    <path class="wordmark" d="M38 10c0-6 2-10 7-10s7 4 7 10-2 10-7 10-7-4-7-10Zm4 0c0 4 1 7 3 7s3-3 3-7-1-7-3-7-3 3-3 7Z"/>
+    <path class="wordmark" d="M56 0v4h3v16h4V4h3V0H56Z"/>
+    <path class="wordmark" d="M75 0h-6v4h4v3l-4 1v7c0 3 1 5 4 5h4v-4h-4v-3l4-1V5c0-3-1-5-4-5h2Z"/>
+    <path class="wordmark" d="M80 9h6v2h-6Z"/>
+    <path class="wordmark" d="M90 20 94 0h5l4 20h-4l-2-7h-3l-2 7h-2Zm5-16v6h1l-1-6Z"/>
+    <path class="wordmark" d="M105 0h4v20h-4Z"/>
+  </g>
+  <g transform="translate(113 6) scale(.55)" class="tm-vector">
+    <path d="M0 0H7V1.6H4.3V8H2.7V1.6H0Z"/>
+    <path d="M8.5 0H10.5L12.7 4.8L14.9 0H16.9V8H15.3V2.7L13.4 6.7H12L10.1 2.7V8H8.5Z"/>
+  </g>
+</svg>

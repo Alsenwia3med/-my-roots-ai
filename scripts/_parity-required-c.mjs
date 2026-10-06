@@ -1,0 +1,65 @@
+import { TM, MD, ND } from "./_parity-data.mjs";
+
+/** Continued: blog, contact, legal and assessment routes. */
+export const REQUIRED_C = {
+  "/blog": [
+    "ROOTS / INSIGHTS",
+    `Medicine Before Symptoms${TM} ${MD} Insights`,
+    "Every article displays author, review date, sources and educational disclaimer.",
+    "No article is personalized medical advice.",
+    "Our first evidence-informed insights are being prepared. Please return soon.",
+  ],
+  "/contact": [
+    "ROOTS / CONTACT",
+    "Start the Right Conversation",
+    "Use the secure form for product support, privacy requests, research collaboration or business enquiries. Do not send urgent medical information.",
+    "Enquiry type",
+    "Product support",
+    "Research collaboration",
+    "Business",
+    "Name", "Email", "Message",
+    "characters remaining",
+    "Website",
+    "This form is not monitored for emergencies. Contact local emergency services if you may be in immediate danger.",
+    "Send Enquiry",
+  ],
+  "/cookies": [
+    "ROOTS / LEGAL",
+    "Cookie Notice",
+    "Your choices",
+    "How each category is treated in Phase 1",
+    "Strictly necessary",
+    "Public-site analytics",
+    "Advertising",
+    "Session replay",
+    "Health data",
+  ],
+  "/medical-disclaimer": [
+    "ROOTS / LEGAL",
+    "Medical Disclaimer",
+    "It is not a medical device, doctor, healthcare provider, diagnostic test, clinical risk assessment, prognosis or treatment service.",
+    "In an emergency",
+    "If you believe you may be in immediate danger, contact local emergency services.",
+  ],
+  "/ai-disclaimer": [
+    "ROOTS / LEGAL",
+    "AI Disclaimer",
+    "The model is not permitted to calculate or change scores, classifications, drivers or null states; diagnose disease; prescribe treatment; interpret laboratory results; or invent participant facts.",
+    "C-02 v1.0.1",
+    "C-03 v1.0.1",
+  ],
+  "/assessment": [
+    `Answer 73 questions across 13 short modules. Most people finish in about 10${ND}12 minutes. You can save, pause and resume securely.`,
+    "Use your usual experience during the last four weeks unless a question says otherwise.",
+    "There are no",
+    "N/A is available only where approved and is never treated as zero.",
+    "Your answers generate educational wellness indicators, not a diagnosis.",
+  ],
+  "/example-report": [
+    "RPT-SAMPLE-001",
+    `Educational ${MD} Not a Diagnosis`,
+    "61", "69.5", "84",
+    "Stress Load", "Sleep Recovery", "Metabolic Resistance",
+    "All 19 governed sections",
+  ],
+};

@@ -1,0 +1,3202 @@
+{
+  "README": [
+    [
+      "ROOTS-AI™ C-01 Canonical Question Bank v1.0.1",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "APPROVED EXECUTABLE DATASET • Exactly 73 questions across exactly 13 ordered modules. Participant-facing English copy is authoritative. This proprietary beta wellness assessment is educational and non-diagnostic; it is not represented as a clinically validated diagnostic instrument.",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "Field",
+      "Value",
+      "Control",
+      "Implementation note",
+      "Owner",
+      "Status"
+    ],
+    [
+      "Dataset ID",
+      "ROOTS-C01-QBANK-001",
+      "Immutable",
+      "Load verbatim; do not renumber",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "questionnaire_version",
+      "1.0.1",
+      "Immutable",
+      "Persist with every response and report",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "Question count",
+      73,
+      "Exact",
+      "Automated schema test must equal 73",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "Module count",
+      13,
+      "Exact",
+      "Module order 1-13",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "Language",
+      "English",
+      "Phase 1",
+      "All UI strings stored in i18n resources",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "Scoring source",
+      "C-02 v1.0.1",
+      "Separate control",
+      "Only questions marked scoring_eligible may score",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "N/A behavior",
+      "Explicit only",
+      "No inference",
+      "N/A excluded; missing is not N/A",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "Clinical boundary",
+      "Educational wellness",
+      "Mandatory",
+      "No diagnosis, prognosis or treatment decision",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "Required-response rule",
+      "Required = valid response or explicit approved N/A",
+      "Mandatory",
+      "Optional questions may remain blank. Required multi-select questions must not accept an empty array.",
+      "ROOTS",
+      "Approved"
+    ],
+    [
+      "Implementation sequence: validate workbook checksum → import Modules → import Option_Sets → import Questions → apply Validation → run QA_Checks → publish version 1.0.1.",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ]
+  ],
+  "Modules": [
+    [
+      "13 Ordered Assessment Modules",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "Module IDs, titles and question ranges are immutable for questionnaire version 1.0.1.",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "module_id",
+      "module_order",
+      "module_title",
+      "purpose",
+      "question_range"
+    ],
+    [
+      "M01",
+      1,
+      "Body Foundations",
+      "Profile and physical measurements",
+      "Q1-Q8"
+    ],
+    [
+      "M02",
+      2,
+      "Weight & Metabolic History",
+      "Weight trajectory and metabolic context",
+      "Q9-Q15"
+    ],
+    [
+      "M03",
+      3,
+      "Sleep Recovery Index",
+      "Sleep duration, continuity and restoration",
+      "Q16-Q22"
+    ],
+    [
+      "M04",
+      4,
+      "Hunger & Satiety Signals",
+      "Hunger, fullness, cravings and meal response",
+      "Q23-Q30"
+    ],
+    [
+      "M05",
+      5,
+      "Stress Load & Inflammation Signals",
+      "Stress activation and self-reported symptom burden",
+      "Q31-Q40"
+    ],
+    [
+      "M06",
+      6,
+      "Circadian Health",
+      "Light, screen, meal and sleep timing",
+      "Q41-Q45"
+    ],
+    [
+      "M07",
+      7,
+      "Physical Activity Mapping",
+      "Frequency, duration and activity pattern",
+      "Q46-Q48"
+    ],
+    [
+      "M08",
+      8,
+      "Biological Safety Signals",
+      "Perceived resistance, appetite control and energy",
+      "Q49-Q51"
+    ],
+    [
+      "M09",
+      9,
+      "Root Cause Discovery",
+      "Participant-perceived drivers and caffeine context",
+      "Q52-Q55"
+    ],
+    [
+      "M10",
+      10,
+      "Hormonal & Reproductive Context",
+      "Optional hormonal and reproductive context",
+      "Q56-Q60"
+    ],
+    [
+      "M11",
+      11,
+      "Lifestyle & Environment",
+      "Tobacco, alcohol, eating environment and support",
+      "Q61-Q66"
+    ],
+    [
+      "M12",
+      12,
+      "Goals & Readiness",
+      "Goals, priorities and readiness for change",
+      "Q67-Q71"
+    ],
+    [
+      "M13",
+      13,
+      "Confidence & Additional Context",
+      "Response confidence and optional participant context",
+      "Q72-Q73"
+    ]
+  ],
+  "Questions": [
+    [
+      "Canonical Questions — 73 Records",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "Required/allow_na are explicit booleans. option_set_id refers to Option_Sets. conditional_logic is explicitly NONE because Phase 1 presents all 73 questions; Q57/Q59 allow N/A instead of being hidden.",
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "questionnaire_version",
+      "module_id",
+      "module_order",
+      "question_id",
+      "question_order",
+      "question_text",
+      "question_type",
+      "option_set_id",
+      "required",
+      "allow_na",
+      "validation",
+      "scoring_eligible",
+      "conditional_logic",
+      "help_text",
+      "status"
+    ],
+    [
+      "1.0.1",
+      "M01",
+      1,
+      "Q1",
+      1,
+      "What is your age?",
+      "integer",
+      "",
+      true,
+      false,
+      "16-110 years; launch eligibility defaults to 18+",
+      false,
+      "NONE",
+      "Enter your age in completed years.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M01",
+      1,
+      "Q2",
+      2,
+      "What sex were you assigned at birth?",
+      "single_select",
+      "SEX",
+      true,
+      false,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "Used for context only; it does not change scores.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M01",
+      1,
+      "Q3",
+      3,
+      "What is your height?",
+      "decimal",
+      "",
+      true,
+      false,
+      "100-250 cm",
+      false,
+      "NONE",
+      "Enter height in centimetres.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M01",
+      1,
+      "Q4",
+      4,
+      "What is your current weight?",
+      "decimal",
+      "",
+      true,
+      false,
+      "25-350 kg",
+      false,
+      "NONE",
+      "Enter weight in kilograms.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M01",
+      1,
+      "Q5",
+      5,
+      "What is your target weight, if you have one?",
+      "decimal",
+      "",
+      false,
+      true,
+      "25-350 kg or N/A",
+      false,
+      "NONE",
+      "Optional; this does not affect scoring.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M01",
+      1,
+      "Q6",
+      6,
+      "What is your waist circumference?",
+      "decimal_with_unit",
+      "WAIST_UNIT",
+      true,
+      false,
+      "40-200 cm after conversion; inches x 2.54",
+      false,
+      "NONE",
+      "Measure around the midpoint between the lowest rib and top of the hip bone.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M01",
+      1,
+      "Q7",
+      7,
+      "How long have you been near your current weight?",
+      "single_select",
+      "WEIGHT_DURATION",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M01",
+      1,
+      "Q8",
+      8,
+      "How would you describe your weight pattern over the last five years?",
+      "single_select",
+      "WEIGHT_PATTERN",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M02",
+      2,
+      "Q9",
+      9,
+      "How did the weight change that concerns you begin?",
+      "single_select",
+      "GAIN_PATTERN",
+      true,
+      true,
+      "Approved option ID only",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M02",
+      2,
+      "Q10",
+      10,
+      "How often have well-planned diet or activity efforts produced less change than you expected?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M02",
+      2,
+      "Q11",
+      11,
+      "After an intentional weight loss, how often has some or all of the weight returned?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M02",
+      2,
+      "Q12",
+      12,
+      "How many meaningful cycles of weight loss and regain have you experienced?",
+      "single_select",
+      "WEIGHT_CYCLES",
+      true,
+      true,
+      "Approved option ID only",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M02",
+      2,
+      "Q13",
+      13,
+      "Have you been told by a clinician that you have any of the following?",
+      "multi_select",
+      "CONDITIONS",
+      true,
+      true,
+      "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      false,
+      "NONE",
+      "Select all that apply. This is contextual and does not diagnose or score a condition.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M02",
+      2,
+      "Q14",
+      14,
+      "Are you currently using medicines that may relate to metabolism, appetite, weight or hormones?",
+      "multi_select",
+      "MEDICATION_CONTEXT",
+      true,
+      true,
+      "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      false,
+      "NONE",
+      "Select categories only; do not enter doses here.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M02",
+      2,
+      "Q15",
+      15,
+      "Does a first-degree relative have a history of type 2 diabetes or substantial weight-related metabolic difficulty?",
+      "single_select",
+      "YES_NO_UNSURE",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M03",
+      3,
+      "Q16",
+      16,
+      "How many hours of sleep do you typically get in a 24-hour period?",
+      "single_select",
+      "SLEEP_HOURS",
+      true,
+      true,
+      "Approved option ID only",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M03",
+      3,
+      "Q17",
+      17,
+      "How often do you feel tired even after what seemed like enough time in bed?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M03",
+      3,
+      "Q18",
+      18,
+      "How often do you wake during the night and struggle to return to sleep?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M03",
+      3,
+      "Q19",
+      19,
+      "How often is your bedtime after midnight?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M03",
+      3,
+      "Q20",
+      20,
+      "How often do you remain awake until 2:00 AM or later because you cannot settle to sleep?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M03",
+      3,
+      "Q21",
+      21,
+      "How often do you snore loudly, wake gasping, or receive feedback that your breathing pauses during sleep?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "This is not a diagnosis. Seek professional assessment if this occurs often.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M03",
+      3,
+      "Q22",
+      22,
+      "How often do you experience a marked afternoon energy crash?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M04",
+      4,
+      "Q23",
+      23,
+      "How often do you feel physically hungry within two hours after a full meal?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M04",
+      4,
+      "Q24",
+      24,
+      "How often do you experience food cravings when you are not physically hungry?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M04",
+      4,
+      "Q25",
+      25,
+      "How often do you eat enough but still fail to feel comfortably full?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M04",
+      4,
+      "Q26",
+      26,
+      "How often do you feel comfortably full after a normal meal?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "Protective wording; reverse-scored.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M04",
+      4,
+      "Q27",
+      27,
+      "How often are you hungry again three to four hours after a protein-rich meal?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M04",
+      4,
+      "Q28",
+      28,
+      "How often does a protein-rich meal keep you satisfied for four hours or longer?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "Protective wording; reverse-scored.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M04",
+      4,
+      "Q29",
+      29,
+      "How often do you feel sleepy, foggy or low in energy after a main meal?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M04",
+      4,
+      "Q30",
+      30,
+      "When you start eating sweets or snack foods, how often is it difficult to stop at the amount you intended?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q31",
+      31,
+      "How often do you feel persistent physical tension or stress?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q32",
+      32,
+      "How often does stress increase your desire to eat?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q33",
+      33,
+      "How often does your mind race when you are trying to sleep?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q34",
+      34,
+      "How often are cravings noticeably stronger in the evening?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q35",
+      35,
+      "How often do you experience bloating, gas or digestive discomfort?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q36",
+      36,
+      "How often do you experience brain fog after meals?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q37",
+      37,
+      "How often do you experience unexplained joint pain or stiffness?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q38",
+      38,
+      "How often does fat around your waist seem resistant to your usual efforts?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q39",
+      39,
+      "How often do you experience unusual thirst or a dry mouth?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "Persistent excessive thirst should be discussed with a clinician.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M05",
+      5,
+      "Q40",
+      40,
+      "How often have reducing calories and increasing activity produced little sustained change?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M06",
+      6,
+      "Q41",
+      41,
+      "How often do you spend the first hour after waking indoors without natural daylight exposure?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M06",
+      6,
+      "Q42",
+      42,
+      "How often do you use a phone, tablet or computer during the final hour before sleep?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M06",
+      6,
+      "Q43",
+      43,
+      "How often do you eat within three hours of bedtime?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M06",
+      6,
+      "Q44",
+      44,
+      "How often does your sleep schedule vary by more than two hours across the week?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M06",
+      6,
+      "Q45",
+      45,
+      "How often do you feel more alert late at night than during the morning?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M07",
+      7,
+      "Q46",
+      46,
+      "On how many days per week do you complete intentional physical activity?",
+      "single_select",
+      "ACTIVITY_DAYS",
+      true,
+      true,
+      "Approved option ID only",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M07",
+      7,
+      "Q47",
+      47,
+      "On active days, what is the usual duration of your intentional activity?",
+      "single_select",
+      "ACTIVITY_DURATION",
+      true,
+      true,
+      "Approved option ID only",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M07",
+      7,
+      "Q48",
+      48,
+      "Which option best describes your usual physical activity pattern?",
+      "single_select",
+      "ACTIVITY_TYPE",
+      true,
+      true,
+      "Approved option ID only",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M08",
+      8,
+      "Q49",
+      49,
+      "How often does your body seem to resist weight loss despite consistent effort?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M08",
+      8,
+      "Q50",
+      50,
+      "How often does hunger feel stronger than your ability to regulate it?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M08",
+      8,
+      "Q51",
+      51,
+      "How often are your energy levels lower than you believe they should be?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      true,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M09",
+      9,
+      "Q52",
+      52,
+      "When stressed, what responses are most typical for you?",
+      "multi_select",
+      "STRESS_RESPONSE",
+      true,
+      true,
+      "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M09",
+      9,
+      "Q53",
+      53,
+      "What do you believe most often contributes to your hunger or cravings?",
+      "multi_select",
+      "HUNGER_CAUSE",
+      true,
+      true,
+      "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M09",
+      9,
+      "Q54",
+      54,
+      "What do you believe most often contributes to low energy?",
+      "multi_select",
+      "ENERGY_CAUSE",
+      true,
+      true,
+      "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M09",
+      9,
+      "Q55",
+      55,
+      "How many caffeinated drinks do you usually consume per day?",
+      "single_select",
+      "CAFFEINE",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M10",
+      10,
+      "Q56",
+      56,
+      "Which hormonal or reproductive stage best describes your current situation?",
+      "single_select",
+      "HORMONAL_STAGE",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M10",
+      10,
+      "Q57",
+      57,
+      "How often have hormonal or reproductive changes affected sleep, appetite, energy or weight?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M10",
+      10,
+      "Q58",
+      58,
+      "Are you currently using hormonal medication, contraception or hormone therapy?",
+      "single_select",
+      "YES_NO_UNSURE",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M10",
+      10,
+      "Q59",
+      59,
+      "How often do appetite or weight patterns change alongside hormonal or reproductive symptoms?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M10",
+      10,
+      "Q60",
+      60,
+      "Have you been told by a clinician that you have a thyroid, reproductive or other hormonal concern?",
+      "single_select",
+      "YES_NO_UNSURE",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M11",
+      11,
+      "Q61",
+      61,
+      "How often do you smoke, vape or use nicotine?",
+      "single_select",
+      "TOBACCO",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M11",
+      11,
+      "Q62",
+      62,
+      "How often do you consume alcohol?",
+      "single_select",
+      "ALCOHOL",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M11",
+      11,
+      "Q63",
+      63,
+      "Which description best matches your usual eating pattern?",
+      "single_select",
+      "EATING_PATTERN",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M11",
+      11,
+      "Q64",
+      64,
+      "How often are your meals reasonably consistent in timing from day to day?",
+      "likert",
+      "FREQ",
+      true,
+      true,
+      "0-4 or N/A",
+      false,
+      "NONE",
+      "Used only as a protective factor.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M11",
+      11,
+      "Q65",
+      65,
+      "How supportive is your home food environment of the choices you want to make?",
+      "single_select",
+      "SUPPORT_LEVEL",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "Used only as a protective factor.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M11",
+      11,
+      "Q66",
+      66,
+      "How much practical or emotional support do you have for making health-related changes?",
+      "single_select",
+      "SUPPORT_LEVEL",
+      true,
+      true,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M12",
+      12,
+      "Q67",
+      67,
+      "What is your primary goal for completing this assessment?",
+      "single_select",
+      "PRIMARY_GOAL",
+      true,
+      false,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M12",
+      12,
+      "Q68",
+      68,
+      "Which area would you most like to understand first?",
+      "single_select",
+      "PRIORITY_AREA",
+      true,
+      false,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M12",
+      12,
+      "Q69",
+      69,
+      "How ready do you feel to try one small, realistic change during the next two weeks?",
+      "integer_scale",
+      "",
+      true,
+      false,
+      "0-10 inclusive",
+      false,
+      "NONE",
+      "Used only as a protective factor.",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M12",
+      12,
+      "Q70",
+      70,
+      "How confident are you that you can maintain one small change for two weeks?",
+      "integer_scale",
+      "",
+      true,
+      false,
+      "0-10 inclusive",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M12",
+      12,
+      "Q71",
+      71,
+      "What pace of change feels most realistic for you?",
+      "single_select",
+      "CHANGE_PACE",
+      true,
+      false,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M13",
+      13,
+      "Q72",
+      72,
+      "How confident are you that your answers reflect your usual experience during the last four weeks?",
+      "single_select",
+      "ANSWER_CONFIDENCE",
+      true,
+      false,
+      "Approved option ID only",
+      false,
+      "NONE",
+      "",
+      "APPROVED"
+    ],
+    [
+      "1.0.1",
+      "M13",
+      13,
+      "Q73",
+      73,
+      "Is there anything else you would like the report to acknowledge?",
+      "free_text",
+      "",
+      false,
+      false,
+      "0-1000 characters; sanitize; never concatenate directly into model instructions",
+      false,
+      "NONE",
+      "Optional. Do not enter urgent or emergency information here.",
+      "APPROVED"
+    ]
+  ],
+  "Option_Sets": [
+    [
+      "Approved Option Sets",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "Logic uses option_id and stored_value, never the display label. A blank stored_value means contextual-only or N/A.",
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "option_set_id",
+      "option_order",
+      "option_id",
+      "display_label",
+      "stored_value_or_points",
+      "is_na"
+    ],
+    [
+      "FREQ",
+      1,
+      "NVR",
+      "Never",
+      0,
+      false
+    ],
+    [
+      "FREQ",
+      2,
+      "RLY",
+      "Rarely",
+      1,
+      false
+    ],
+    [
+      "FREQ",
+      3,
+      "SMT",
+      "Sometimes",
+      2,
+      false
+    ],
+    [
+      "FREQ",
+      4,
+      "OFT",
+      "Often",
+      3,
+      false
+    ],
+    [
+      "FREQ",
+      5,
+      "ALW",
+      "Almost always",
+      4,
+      false
+    ],
+    [
+      "FREQ",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "YES_NO_UNSURE",
+      1,
+      "NO",
+      "No",
+      0,
+      false
+    ],
+    [
+      "YES_NO_UNSURE",
+      2,
+      "YES",
+      "Yes",
+      4,
+      false
+    ],
+    [
+      "YES_NO_UNSURE",
+      3,
+      "UNSURE",
+      "Not sure",
+      null,
+      false
+    ],
+    [
+      "YES_NO_UNSURE",
+      4,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "SEX",
+      1,
+      "FEMALE",
+      "Female",
+      null,
+      false
+    ],
+    [
+      "SEX",
+      2,
+      "MALE",
+      "Male",
+      null,
+      false
+    ],
+    [
+      "SEX",
+      3,
+      "INTERSEX",
+      "Intersex",
+      null,
+      false
+    ],
+    [
+      "SEX",
+      4,
+      "PREFER_NOT",
+      "Prefer not to say",
+      null,
+      false
+    ],
+    [
+      "WAIST_UNIT",
+      1,
+      "CM",
+      "Centimetres",
+      null,
+      false
+    ],
+    [
+      "WAIST_UNIT",
+      2,
+      "IN",
+      "Inches",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_DURATION",
+      1,
+      "LT6M",
+      "Less than 6 months",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_DURATION",
+      2,
+      "6_12M",
+      "6-12 months",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_DURATION",
+      3,
+      "1_3Y",
+      "1-3 years",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_DURATION",
+      4,
+      "3_5Y",
+      "3-5 years",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_DURATION",
+      5,
+      "GT5Y",
+      "More than 5 years",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_DURATION",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "WEIGHT_PATTERN",
+      1,
+      "STABLE",
+      "Mostly stable",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_PATTERN",
+      2,
+      "GRADUAL",
+      "Gradual increase",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_PATTERN",
+      3,
+      "CYCLING",
+      "Repeated loss and regain",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_PATTERN",
+      4,
+      "RECENT",
+      "Recent marked change",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_PATTERN",
+      5,
+      "OTHER",
+      "Other or unsure",
+      null,
+      false
+    ],
+    [
+      "WEIGHT_PATTERN",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "GAIN_PATTERN",
+      1,
+      "STABLE",
+      "No concerning change or mostly stable",
+      0,
+      false
+    ],
+    [
+      "GAIN_PATTERN",
+      2,
+      "IDENTIFIABLE",
+      "After an identifiable life period or event",
+      1,
+      false
+    ],
+    [
+      "GAIN_PATTERN",
+      3,
+      "GRADUAL",
+      "Gradually with no single clear reason",
+      2,
+      false
+    ],
+    [
+      "GAIN_PATTERN",
+      4,
+      "CYCLING",
+      "In repeated cycles of loss and regain",
+      3,
+      false
+    ],
+    [
+      "GAIN_PATTERN",
+      5,
+      "RAPID",
+      "Rapidly or unexpectedly",
+      4,
+      false
+    ],
+    [
+      "GAIN_PATTERN",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "WEIGHT_CYCLES",
+      1,
+      "NONE",
+      "None",
+      0,
+      false
+    ],
+    [
+      "WEIGHT_CYCLES",
+      2,
+      "ONE",
+      "One",
+      1,
+      false
+    ],
+    [
+      "WEIGHT_CYCLES",
+      3,
+      "TWO",
+      "Two",
+      2,
+      false
+    ],
+    [
+      "WEIGHT_CYCLES",
+      4,
+      "THREE_FOUR",
+      "Three or four",
+      3,
+      false
+    ],
+    [
+      "WEIGHT_CYCLES",
+      5,
+      "FIVE_PLUS",
+      "Five or more",
+      4,
+      false
+    ],
+    [
+      "WEIGHT_CYCLES",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "CONDITIONS",
+      1,
+      "NONE",
+      "None of these",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      2,
+      "T2D",
+      "Type 2 diabetes",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      3,
+      "PREDIABETES",
+      "Prediabetes",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      4,
+      "HTN",
+      "High blood pressure",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      5,
+      "DYSLIPID",
+      "High cholesterol or triglycerides",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      6,
+      "THYROID",
+      "Thyroid condition",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      7,
+      "PCOS",
+      "Polycystic ovary syndrome",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      8,
+      "SLEEP_APNEA",
+      "Sleep apnoea",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      9,
+      "OTHER",
+      "Other",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      10,
+      "PREFER_NOT",
+      "Prefer not to say",
+      null,
+      false
+    ],
+    [
+      "CONDITIONS",
+      11,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      1,
+      "NONE",
+      "No",
+      null,
+      false
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      2,
+      "GLUCOSE",
+      "Glucose-lowering medicine",
+      null,
+      false
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      3,
+      "WEIGHT",
+      "Weight-management medicine",
+      null,
+      false
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      4,
+      "STEROID",
+      "Long-term corticosteroid",
+      null,
+      false
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      5,
+      "HORMONAL",
+      "Hormonal medicine",
+      null,
+      false
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      6,
+      "OTHER",
+      "Other relevant medicine",
+      null,
+      false
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      7,
+      "UNSURE",
+      "Not sure",
+      null,
+      false
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      8,
+      "PREFER_NOT",
+      "Prefer not to say",
+      null,
+      false
+    ],
+    [
+      "MEDICATION_CONTEXT",
+      9,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "SLEEP_HOURS",
+      1,
+      "LT5",
+      "Less than 5 hours",
+      4,
+      false
+    ],
+    [
+      "SLEEP_HOURS",
+      2,
+      "H5_6",
+      "5 to less than 6 hours",
+      3,
+      false
+    ],
+    [
+      "SLEEP_HOURS",
+      3,
+      "H6_7",
+      "6 to less than 7 hours",
+      1,
+      false
+    ],
+    [
+      "SLEEP_HOURS",
+      4,
+      "H7_9",
+      "7 to 9 hours",
+      0,
+      false
+    ],
+    [
+      "SLEEP_HOURS",
+      5,
+      "GT9",
+      "More than 9 hours",
+      2,
+      false
+    ],
+    [
+      "SLEEP_HOURS",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "ACTIVITY_DAYS",
+      1,
+      "D0",
+      "0 days",
+      4,
+      false
+    ],
+    [
+      "ACTIVITY_DAYS",
+      2,
+      "D1_2",
+      "1-2 days",
+      3,
+      false
+    ],
+    [
+      "ACTIVITY_DAYS",
+      3,
+      "D3_4",
+      "3-4 days",
+      1,
+      false
+    ],
+    [
+      "ACTIVITY_DAYS",
+      4,
+      "D5_7",
+      "5-7 days",
+      0,
+      false
+    ],
+    [
+      "ACTIVITY_DAYS",
+      5,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "ACTIVITY_DURATION",
+      1,
+      "LT10",
+      "Less than 10 minutes",
+      4,
+      false
+    ],
+    [
+      "ACTIVITY_DURATION",
+      2,
+      "M10_29",
+      "10-29 minutes",
+      3,
+      false
+    ],
+    [
+      "ACTIVITY_DURATION",
+      3,
+      "M30_59",
+      "30-59 minutes",
+      1,
+      false
+    ],
+    [
+      "ACTIVITY_DURATION",
+      4,
+      "M60_PLUS",
+      "60 minutes or more",
+      0,
+      false
+    ],
+    [
+      "ACTIVITY_DURATION",
+      5,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "ACTIVITY_TYPE",
+      1,
+      "NONE",
+      "No intentional activity",
+      4,
+      false
+    ],
+    [
+      "ACTIVITY_TYPE",
+      2,
+      "LIGHT",
+      "Light movement or daily activities",
+      3,
+      false
+    ],
+    [
+      "ACTIVITY_TYPE",
+      3,
+      "AEROBIC",
+      "Mostly aerobic activity",
+      2,
+      false
+    ],
+    [
+      "ACTIVITY_TYPE",
+      4,
+      "RESISTANCE",
+      "Mostly resistance training",
+      1,
+      false
+    ],
+    [
+      "ACTIVITY_TYPE",
+      5,
+      "MIXED",
+      "A mix of aerobic and resistance activity",
+      0,
+      false
+    ],
+    [
+      "ACTIVITY_TYPE",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "STRESS_RESPONSE",
+      1,
+      "EAT",
+      "Eat or seek snack foods",
+      null,
+      false
+    ],
+    [
+      "STRESS_RESPONSE",
+      2,
+      "WITHDRAW",
+      "Withdraw or avoid people",
+      null,
+      false
+    ],
+    [
+      "STRESS_RESPONSE",
+      3,
+      "WALK",
+      "Walk or move",
+      null,
+      false
+    ],
+    [
+      "STRESS_RESPONSE",
+      4,
+      "BREATHE",
+      "Use breathing or relaxation",
+      null,
+      false
+    ],
+    [
+      "STRESS_RESPONSE",
+      5,
+      "TALK",
+      "Talk with someone",
+      null,
+      false
+    ],
+    [
+      "STRESS_RESPONSE",
+      6,
+      "WORK_MORE",
+      "Work more or stay busy",
+      null,
+      false
+    ],
+    [
+      "STRESS_RESPONSE",
+      7,
+      "OTHER",
+      "Other",
+      null,
+      false
+    ],
+    [
+      "STRESS_RESPONSE",
+      8,
+      "UNSURE",
+      "Not sure",
+      null,
+      false
+    ],
+    [
+      "STRESS_RESPONSE",
+      9,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "HUNGER_CAUSE",
+      1,
+      "MEAL_COMPOSITION",
+      "Low protein, fibre or meal size",
+      null,
+      false
+    ],
+    [
+      "HUNGER_CAUSE",
+      2,
+      "STRESS",
+      "Stress or emotion",
+      null,
+      false
+    ],
+    [
+      "HUNGER_CAUSE",
+      3,
+      "SLEEP",
+      "Poor sleep",
+      null,
+      false
+    ],
+    [
+      "HUNGER_CAUSE",
+      4,
+      "HABIT",
+      "Habit or availability",
+      null,
+      false
+    ],
+    [
+      "HUNGER_CAUSE",
+      5,
+      "MEDICATION",
+      "Medicine-related",
+      null,
+      false
+    ],
+    [
+      "HUNGER_CAUSE",
+      6,
+      "UNSURE",
+      "Not sure",
+      null,
+      false
+    ],
+    [
+      "HUNGER_CAUSE",
+      7,
+      "OTHER",
+      "Other",
+      null,
+      false
+    ],
+    [
+      "HUNGER_CAUSE",
+      8,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "ENERGY_CAUSE",
+      1,
+      "SLEEP",
+      "Sleep or recovery",
+      null,
+      false
+    ],
+    [
+      "ENERGY_CAUSE",
+      2,
+      "STRESS",
+      "Stress",
+      null,
+      false
+    ],
+    [
+      "ENERGY_CAUSE",
+      3,
+      "INACTIVITY",
+      "Low activity",
+      null,
+      false
+    ],
+    [
+      "ENERGY_CAUSE",
+      4,
+      "MEALS",
+      "Meal pattern",
+      null,
+      false
+    ],
+    [
+      "ENERGY_CAUSE",
+      5,
+      "MEDICATION",
+      "Medicine-related",
+      null,
+      false
+    ],
+    [
+      "ENERGY_CAUSE",
+      6,
+      "HEALTH",
+      "A known health concern",
+      null,
+      false
+    ],
+    [
+      "ENERGY_CAUSE",
+      7,
+      "UNSURE",
+      "Not sure",
+      null,
+      false
+    ],
+    [
+      "ENERGY_CAUSE",
+      8,
+      "OTHER",
+      "Other",
+      null,
+      false
+    ],
+    [
+      "ENERGY_CAUSE",
+      9,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "CAFFEINE",
+      1,
+      "ZERO",
+      "0 drinks",
+      null,
+      false
+    ],
+    [
+      "CAFFEINE",
+      2,
+      "ONE",
+      "1 drink",
+      null,
+      false
+    ],
+    [
+      "CAFFEINE",
+      3,
+      "TWO",
+      "2 drinks",
+      null,
+      false
+    ],
+    [
+      "CAFFEINE",
+      4,
+      "THREE",
+      "3 drinks",
+      null,
+      false
+    ],
+    [
+      "CAFFEINE",
+      5,
+      "FOUR_PLUS",
+      "4 or more drinks",
+      null,
+      false
+    ],
+    [
+      "CAFFEINE",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "HORMONAL_STAGE",
+      1,
+      "NOT_APPLICABLE",
+      "Not applicable to me",
+      null,
+      false
+    ],
+    [
+      "HORMONAL_STAGE",
+      2,
+      "REGULAR_CYCLES",
+      "Regular menstrual cycles",
+      null,
+      false
+    ],
+    [
+      "HORMONAL_STAGE",
+      3,
+      "IRREGULAR_CYCLES",
+      "Irregular menstrual cycles",
+      null,
+      false
+    ],
+    [
+      "HORMONAL_STAGE",
+      4,
+      "PERIMENOPAUSE",
+      "Perimenopause",
+      null,
+      false
+    ],
+    [
+      "HORMONAL_STAGE",
+      5,
+      "POSTMENOPAUSE",
+      "Postmenopause",
+      null,
+      false
+    ],
+    [
+      "HORMONAL_STAGE",
+      6,
+      "PREGNANT_POSTPARTUM",
+      "Pregnant or within one year after birth",
+      null,
+      false
+    ],
+    [
+      "HORMONAL_STAGE",
+      7,
+      "MALE_CONTEXT",
+      "Male hormonal context",
+      null,
+      false
+    ],
+    [
+      "HORMONAL_STAGE",
+      8,
+      "OTHER_UNSURE",
+      "Other or unsure",
+      null,
+      false
+    ],
+    [
+      "HORMONAL_STAGE",
+      9,
+      "PREFER_NOT",
+      "Prefer not to say",
+      null,
+      false
+    ],
+    [
+      "TOBACCO",
+      1,
+      "NEVER",
+      "Never",
+      null,
+      false
+    ],
+    [
+      "TOBACCO",
+      2,
+      "FORMER",
+      "Former use",
+      null,
+      false
+    ],
+    [
+      "TOBACCO",
+      3,
+      "OCCASIONAL",
+      "Occasional",
+      null,
+      false
+    ],
+    [
+      "TOBACCO",
+      4,
+      "DAILY",
+      "Daily",
+      null,
+      false
+    ],
+    [
+      "TOBACCO",
+      5,
+      "PREFER_NOT",
+      "Prefer not to say",
+      null,
+      false
+    ],
+    [
+      "TOBACCO",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "ALCOHOL",
+      1,
+      "NEVER",
+      "Never",
+      null,
+      false
+    ],
+    [
+      "ALCOHOL",
+      2,
+      "MONTHLY",
+      "Monthly or less",
+      null,
+      false
+    ],
+    [
+      "ALCOHOL",
+      3,
+      "WEEKLY",
+      "1-2 days per week",
+      null,
+      false
+    ],
+    [
+      "ALCOHOL",
+      4,
+      "FREQUENT",
+      "3 or more days per week",
+      null,
+      false
+    ],
+    [
+      "ALCOHOL",
+      5,
+      "PREFER_NOT",
+      "Prefer not to say",
+      null,
+      false
+    ],
+    [
+      "ALCOHOL",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "EATING_PATTERN",
+      1,
+      "REGULAR_BALANCED",
+      "Regular meals with varied foods",
+      null,
+      false
+    ],
+    [
+      "EATING_PATTERN",
+      2,
+      "IRREGULAR",
+      "Irregular meals",
+      null,
+      false
+    ],
+    [
+      "EATING_PATTERN",
+      3,
+      "FREQUENT_SNACKING",
+      "Frequent grazing or snacking",
+      null,
+      false
+    ],
+    [
+      "EATING_PATTERN",
+      4,
+      "RESTRICT_BINGE",
+      "Alternating restriction and overeating",
+      null,
+      false
+    ],
+    [
+      "EATING_PATTERN",
+      5,
+      "SPECIAL_DIET",
+      "A specific dietary pattern",
+      null,
+      false
+    ],
+    [
+      "EATING_PATTERN",
+      6,
+      "OTHER",
+      "Other",
+      null,
+      false
+    ],
+    [
+      "EATING_PATTERN",
+      7,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "SUPPORT_LEVEL",
+      1,
+      "NONE",
+      "Not at all supportive",
+      null,
+      false
+    ],
+    [
+      "SUPPORT_LEVEL",
+      2,
+      "LOW",
+      "A little supportive",
+      null,
+      false
+    ],
+    [
+      "SUPPORT_LEVEL",
+      3,
+      "MIXED",
+      "Mixed or inconsistent",
+      null,
+      false
+    ],
+    [
+      "SUPPORT_LEVEL",
+      4,
+      "GOOD",
+      "Supportive",
+      null,
+      false
+    ],
+    [
+      "SUPPORT_LEVEL",
+      5,
+      "STRONG",
+      "Very supportive",
+      null,
+      false
+    ],
+    [
+      "SUPPORT_LEVEL",
+      6,
+      "NA",
+      "Not applicable",
+      null,
+      true
+    ],
+    [
+      "PRIMARY_GOAL",
+      1,
+      "WEIGHT",
+      "Understand weight resistance",
+      null,
+      false
+    ],
+    [
+      "PRIMARY_GOAL",
+      2,
+      "ENERGY",
+      "Improve energy",
+      null,
+      false
+    ],
+    [
+      "PRIMARY_GOAL",
+      3,
+      "SLEEP",
+      "Improve sleep and recovery",
+      null,
+      false
+    ],
+    [
+      "PRIMARY_GOAL",
+      4,
+      "CRAVINGS",
+      "Understand hunger or cravings",
+      null,
+      false
+    ],
+    [
+      "PRIMARY_GOAL",
+      5,
+      "STRESS",
+      "Understand stress patterns",
+      null,
+      false
+    ],
+    [
+      "PRIMARY_GOAL",
+      6,
+      "PREVENTION",
+      "Support long-term prevention and healthy ageing",
+      null,
+      false
+    ],
+    [
+      "PRIMARY_GOAL",
+      7,
+      "OTHER",
+      "Other",
+      null,
+      false
+    ],
+    [
+      "PRIORITY_AREA",
+      1,
+      "MR",
+      "Metabolic resistance",
+      null,
+      false
+    ],
+    [
+      "PRIORITY_AREA",
+      2,
+      "HS",
+      "Hunger and satiety",
+      null,
+      false
+    ],
+    [
+      "PRIORITY_AREA",
+      3,
+      "SR",
+      "Sleep recovery",
+      null,
+      false
+    ],
+    [
+      "PRIORITY_AREA",
+      4,
+      "CH",
+      "Circadian health",
+      null,
+      false
+    ],
+    [
+      "PRIORITY_AREA",
+      5,
+      "SL",
+      "Stress load",
+      null,
+      false
+    ],
+    [
+      "PRIORITY_AREA",
+      6,
+      "IB",
+      "Inflammation burden",
+      null,
+      false
+    ],
+    [
+      "PRIORITY_AREA",
+      7,
+      "BS",
+      "Biological safety",
+      null,
+      false
+    ],
+    [
+      "PRIORITY_AREA",
+      8,
+      "UNSURE",
+      "Not sure",
+      null,
+      false
+    ],
+    [
+      "CHANGE_PACE",
+      1,
+      "ONE_STEP",
+      "One small step at a time",
+      null,
+      false
+    ],
+    [
+      "CHANGE_PACE",
+      2,
+      "TWO_THREE",
+      "Two or three coordinated changes",
+      null,
+      false
+    ],
+    [
+      "CHANGE_PACE",
+      3,
+      "STRUCTURED",
+      "A structured 90-day plan",
+      null,
+      false
+    ],
+    [
+      "CHANGE_PACE",
+      4,
+      "UNDERSTAND_FIRST",
+      "I want to understand first",
+      null,
+      false
+    ],
+    [
+      "ANSWER_CONFIDENCE",
+      1,
+      "LOW",
+      "Not very confident",
+      25,
+      false
+    ],
+    [
+      "ANSWER_CONFIDENCE",
+      2,
+      "MODERATE",
+      "Moderately confident",
+      50,
+      false
+    ],
+    [
+      "ANSWER_CONFIDENCE",
+      3,
+      "HIGH",
+      "Confident",
+      75,
+      false
+    ],
+    [
+      "ANSWER_CONFIDENCE",
+      4,
+      "VERY_HIGH",
+      "Very confident",
+      100,
+      false
+    ]
+  ],
+  "Validation": [
+    [
+      "Validation & Submission Rules",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "Server-side validation is authoritative; the browser repeats the same rules for immediate feedback.",
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "rule_id",
+      "applies_to",
+      "rule",
+      "approved_error_or_behavior",
+      "severity"
+    ],
+    [
+      "VAL-001",
+      "Q1",
+      "Integer 16-110",
+      "Enter an age between 16 and 110.",
+      "Block"
+    ],
+    [
+      "VAL-002",
+      "Q3",
+      "Decimal 100-250 cm",
+      "Enter a height between 100 and 250 cm.",
+      "Block"
+    ],
+    [
+      "VAL-003",
+      "Q4/Q5",
+      "Decimal 25-350 kg; Q5 may be N/A",
+      "Enter a weight between 25 and 350 kg.",
+      "Block"
+    ],
+    [
+      "VAL-004",
+      "Q6",
+      "40-200 cm after inch conversion",
+      "Please verify the waist measurement.",
+      "Block"
+    ],
+    [
+      "VAL-005",
+      "Likert",
+      "Approved option ID only",
+      "Select one of the available answers.",
+      "Block"
+    ],
+    [
+      "VAL-006",
+      "Multi-select",
+      "One or more approved option IDs for required multi-select; empty array invalid; NONE/NA exclusive where provided",
+      "Choose at least one valid option; None/Not applicable cannot be combined with other options.",
+      "Block"
+    ],
+    [
+      "VAL-007",
+      "Q69/Q70",
+      "Integer 0-10",
+      "Select a number from 0 to 10.",
+      "Block"
+    ],
+    [
+      "VAL-008",
+      "Q73",
+      "0-1000 characters; sanitized",
+      "Keep the response within 1,000 characters.",
+      "Block"
+    ],
+    [
+      "VAL-009",
+      "Submission",
+      "All required questions answered or explicit N/A where allowed",
+      "Complete the highlighted questions before submitting.",
+      "Block"
+    ],
+    [
+      "VAL-010",
+      "Age eligibility",
+      "Launch defaults to 18+",
+      "This version is currently available to adults aged 18 or older.",
+      "Block"
+    ],
+    [
+      "VAL-011",
+      "Emergency text",
+      "Do not treat Q73 as monitored emergency channel",
+      "If you may be in immediate danger, contact local emergency services now.",
+      "Safety"
+    ]
+  ],
+  "QA_Checks": [
+    [
+      "Dataset Quality Controls",
+      null,
+      null,
+      null
+    ],
+    [
+      "All PASS results are required before publication. Formula cells are auditable and reference the executable tables.",
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      null,
+      null,
+      null,
+      null
+    ],
+    [
+      "Check",
+      "Formula",
+      "Expected",
+      "Result"
+    ],
+    [
+      "Question records",
+      73,
+      73,
+      "PASS"
+    ],
+    [
+      "Module records",
+      13,
+      13,
+      "PASS"
+    ],
+    [
+      "First question",
+      "Q1",
+      "Q1",
+      "PASS"
+    ],
+    [
+      "Last question",
+      "Q73",
+      "Q73",
+      "PASS"
+    ],
+    [
+      "Scoring eligible count",
+      40,
+      40,
+      "PASS"
+    ],
+    [
+      "Required question count",
+      71,
+      71,
+      "PASS"
+    ],
+    [
+      "Optional question count",
+      2,
+      2,
+      "PASS"
+    ]
+  ]
+}

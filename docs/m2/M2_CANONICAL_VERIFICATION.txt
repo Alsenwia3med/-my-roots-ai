@@ -1,0 +1,40 @@
+﻿
+> roots-ai-learning@0.1.0 test:canonical
+> tsx scripts/verify-canonical.ts
+
+=== Canonical Structure + Provenance Verification ===
+
+Check    | Expected | Actual | Result | Description
+----------------------------------------------------------------------------------------------------
+C-01-A   | 73                           | 73                   | PASS | Total canonical questions
+C-01-B   | 13                           | 13                   | PASS | Ordered modules
+C-01-C   | 71                           | 71                   | PASS | Required questions
+C-01-D   | 2                            | 2                    | PASS | Optional questions
+C-01-E   | 40                           | 40                   | PASS | Scoring-eligible questions
+C-01-F   | [1,2,3,4,5,6,7,8,9,10,11,12, | [1,2,3,4,5,6,7,8,9,1 | PASS | Module order is 1..13
+C-01-G   | ["Q13","Q14","Q52","Q53","Q5 | ["Q13","Q14","Q52"," | PASS | Required multi-select set
+C-01-H   | ["Q1","Q2","Q3","Q4","Q5","Q | ["Q1","Q2","Q3","Q4" | PASS | Question ids are Q1..Q73
+C-01-I   | true                         | true                 | PASS | Module questions are contiguous and ordered
+C-01-J   | true                         | true                 | PASS | Scoring questions map to a canonical domain
+C-02-A   | "C-01 v1.0.1 CORRECTED"      | "C-01 v1.0.1 CORRECT | PASS | Questionnaire version
+C-02-B   | "C-02 v1.0.1 CORRECTED"      | "C-02 v1.0.1 CORRECT | PASS | Scoring version
+GEN-01   | {"questionnaire":"C-01 v1.0. | {"questionnaire":"C- | PASS | Declared versions reproduced from sheets
+GEN-02   | true                         | true                 | PASS | Scoring flag agrees across C-01 and C-02 sheets
+GEN-03   | 73                           | 73                   | PASS | Sheet question count = implemented
+GEN-04   | 13                           | 13                   | PASS | Sheet module count = implemented
+GEN-05   | 71                           | 71                   | PASS | Sheet required count = implemented
+GEN-06   | 2                            | 2                    | PASS | Sheet optional count = implemented
+GEN-07   | 40                           | 40                   | PASS | Sheet scoring count = implemented
+GEN-08   | 30                           | 30                   | PASS | Sheet golden test count
+GEN-09   | true                         | true                 | PASS | All controlled workbook QA_Checks PASS
+GEN-10   | ["MR","HS","SR","CH","SL","I | ["MR","HS","SR","CH" | PASS | Sheet domain tie order = implemented
+GEN-11   | "Null if fewer than 5 domain | "Null if fewer than  | PASS | SC-002: Biological State null below 5 domains
+GEN-12   | "N/A/missing excluded; null  | "N/A/missing exclude | PASS | SC-001: 50% coverage floor
+GEN-13   | "If top two eligible scores  | "If top two eligible | PASS | DRV-003: co-primary within gap
+PROV-01  | []                           | []                   | PASS | Option sets reproduced from sheets (ids, order, labels, points, N/A)
+PROV-02  | []                           | []                   | PASS | Questions reproduced from sheets (text, type, required, N/A, scoring, domain, reverse)
+PROV-03  | []                           | []                   | PASS | Modules reproduced from sheets (id, order, title, range)
+PROV-04  | true                         | true                 | PASS | Every C-02 scored item resolves to a C-01 option set
+PROV-05  | >0                           | 171 options, 73 ques | PASS | Fields compared against the controlled sheets
+----------------------------------------------------------------------------------------------------
+Passed: 30  Failed: 0

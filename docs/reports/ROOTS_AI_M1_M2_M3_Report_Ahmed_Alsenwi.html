@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>تقرير العمل الفني لمشروع ROOTS-AI — M1 وM2 وM3</title>
+  <style>
+    @page { size: A4; margin: 16mm 15mm 18mm; }
+    :root { --navy:#1a2a4a; --teal:#176c69; --gold:#d4a849; --ink:#24364f; --muted:#5c6d82; --line:#d8e0e9; --pale:#f2f6f8; --green:#236649; --amber:#855b13; --red:#8c3636; }
+    * { box-sizing:border-box; }
+    html { direction:rtl; }
+    body { margin:0; color:var(--ink); font-family:Tahoma, Arial, "Segoe UI", sans-serif; font-size:10.3pt; line-height:1.65; }
+    h1,h2,h3,p,ul,ol { margin-top:0; }
+    h1,h2,h3 { color:var(--navy); line-height:1.35; }
+    h1 { font-size:29pt; margin-bottom:10px; }
+    h2 { font-size:18pt; margin:0 0 12px; padding-bottom:7px; border-bottom:2px solid var(--gold); }
+    h3 { font-size:12.4pt; margin:16px 0 6px; }
+    p { margin-bottom:9px; }
+    ul,ol { padding-right:22px; margin-bottom:11px; }
+    li { margin-bottom:4px; }
+    .cover { min-height:255mm; display:flex; flex-direction:column; justify-content:center; page-break-after:always; padding:15mm 4mm; }
+    .brand { color:var(--teal); font-size:12pt; font-weight:bold; letter-spacing:.08em; margin-bottom:34px; }
+    .cover h1 { max-width:165mm; font-size:31pt; }
+    .subtitle { max-width:155mm; color:var(--muted); font-size:15pt; margin:5px 0 28px; }
+    .cover-rule { width:42mm; height:5px; background:var(--gold); margin:7px 0 27px; }
+    .cover-meta { display:grid; grid-template-columns:1fr 1fr; gap:9px 22px; max-width:150mm; margin-top:16px; }
+    .cover-meta div { padding:8px 0; border-bottom:1px solid var(--line); }
+    .label { color:var(--muted); display:block; font-size:8.5pt; }
+    .value { color:var(--navy); font-weight:bold; }
+    .cover-note { margin-top:30px; color:var(--muted); font-size:9pt; max-width:160mm; }
+    .section { margin:0 0 22px; }
+    .page-break { page-break-before:always; }
+    .lead { color:var(--navy); font-size:12pt; }
+    .callout { margin:12px 0; padding:11px 14px; border-right:4px solid var(--teal); background:var(--pale); }
+    .warning { border-right-color:var(--gold); background:#fff9ed; }
+    .danger { border-right-color:#b65353; background:#fff4f3; }
+    .success { border-right-color:#39815f; background:#f1f8f3; }
+    .cards { display:grid; grid-template-columns:repeat(3,1fr); gap:9px; margin:13px 0 18px; }
+    .card { border:1px solid var(--line); border-radius:8px; padding:11px; background:#fff; }
+    .card strong { display:block; color:var(--navy); font-size:13pt; }
+    .card span { color:var(--muted); font-size:8.5pt; }
+    table { width:100%; border-collapse:collapse; margin:10px 0 14px; font-size:9pt; line-height:1.5; }
+    th { background:var(--navy); color:white; font-weight:bold; text-align:right; }
+    th,td { border:1px solid var(--line); padding:7px 8px; vertical-align:top; }
+    tr { break-inside:avoid; }
+    tbody tr:nth-child(even) { background:#f7f9fb; }
+    .status { white-space:nowrap; font-weight:bold; }
+    .pass { color:var(--green); }
+    .pending { color:var(--amber); }
+    .gap { color:var(--red); }
+    .ltr { direction:ltr; unicode-bidi:embed; display:inline-block; }
+    .flow { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin:14px 0; }
+    .flow div { border:1px solid var(--line); background:var(--pale); border-radius:8px; padding:10px; min-height:70px; }
+    .flow b { color:var(--teal); display:block; margin-bottom:3px; }
+    .small { font-size:8.7pt; color:var(--muted); }
+    .source-list li { overflow-wrap:anywhere; }
+    .signature { margin-top:35px; padding-top:15px; border-top:2px solid var(--line); color:var(--navy); font-weight:bold; font-size:13pt; }
+    footer { position:fixed; bottom:-11mm; right:0; left:0; border-top:1px solid var(--line); padding-top:4px; color:var(--muted); font-size:8pt; display:flex; justify-content:space-between; }
+    .page-no:after { content:counter(page); }
+    @media print { a { color:inherit; text-decoration:none; } }
+  </style>
+</head>
+<body>
+  <footer><span>ROOTS-AI™ | تقرير العمل الفني — M1 · M2 · M3</span><span>صفحة <span class="page-no"></span></span></footer>
+
+  <section class="cover">
+    <div class="brand">ROOTS-AI™ · BIOLOGICAL INTELLIGENCE PLATFORM</div>
+    <h1>تقرير العمل الفني<br>للمراحل M1 وM2 وM3</h1>
+    <p class="subtitle">من تأسيس التقييم والجلسات، إلى المحرك الحتمي للتقييم، ثم بناء التقرير وحدود استخدام الذكاء الاصطناعي.</p>
+    <div class="cover-rule"></div>
+    <div class="cover-meta">
+      <div><span class="label">إعداد</span><span class="value">Ahmed Alsenwi</span></div>
+      <div><span class="label">تاريخ التقرير</span><span class="value">3 أكتوبر 2026</span></div>
+      <div><span class="label">المشروع</span><span class="value">ROOTS-AI Learning Platform</span></div>
+      <div><span class="label">النطاق</span><span class="value">M1 · M2 · M3</span></div>
+    </div>
+    <p class="cover-note">أعددت هذا التقرير بصيغة عرض عملي لما يقدمه المشروع وما تثبته الشيفرة والاختبارات والوثائق المتاحة. وهو تقرير حالة فني، وليس شهادة قبول إنتاجي أو اعتمادًا طبيًا أو قانونيًا.</p>
+  </section>
+
+  <section class="section">
+    <h2>1. الملخص التنفيذي</h2>
+    <p class="lead">عملت على بناء منصة ويب تقود المستخدم من إجابات منظمة إلى نتيجة محسوبة بقواعد ثابتة، ثم إلى تقرير قابل للعرض والتنزيل، مع فصل الحسابات الحاكمة عن أي نص مولّد بالذكاء الاصطناعي.</p>
+    <p>يمتد العمل التقني عبر ثلاث مراحل. في <b>M1</b> أُنشئت البنية الأساسية للتقييم والجلسات والحفظ والاستئناف. في <b>M2</b> ثُبّتت بيانات الاستبيان وقواعد التحقق والتقييم الحتمي واختباراتها. وفي <b>M3</b> أضيفت بنية التقرير ذي الأقسام المنظمة، والتحقق من سلامة محتواه، وإخراج PDF، وحدود صارمة للنص المساعد بالذكاء الاصطناعي.</p>
+    <div class="cards">
+      <div class="card"><strong>73 سؤالًا · 13 وحدة</strong><span>الاستبيان المرجعي الذي تحققت منه الاختبارات الحالية.</span></div>
+      <div class="card"><strong>7 مجالات</strong><span>درجات حتمية مع تغطية وتصنيفات وقواعد للمحركات.</span></div>
+      <div class="card"><strong>19 قسمًا</strong><span>هيكل التقرير الثابت الموجود في محرك التقرير الحالي.</span></div>
+    </div>
+    <div class="callout warning"><b>حالة القبول باختصار:</b> اجتازت الاختبارات المحلية المعاد تشغيلها في هذا التدقيق، لكن ذلك لا يثبت وحده جاهزية التشغيل الدائم. مخزن البيانات الفعلي في النسخة الحالية هو Maps داخل ذاكرة العملية؛ ولذلك تضيع البيانات عند إعادة تشغيل الخادم، كما أن تطبيق Supabase وRLS وإثبات ملكية بيئة staging ما زالت نقاط قبول منفصلة.</div>
+    <p>كما وجدت أن حزمة توثيق M3 تتحدث عن إصدار ومستودع مختلفين عن المستودع المفتوح الآن. لذلك أعرض نتائج تلك الحزمة بوصفها ادعاءات موثقة داخلها، ولا أساويها تلقائيًا بإثبات على النسخة الحالية.</p>
+  </section>
+
+  <section class="section">
+    <h2>2. منهج المراجعة وحدود التقرير</h2>
+    <p>راجعت متطلبات المشروع ووثائق إغلاق المراحل، وملفات التطبيق والمنطق الأساسي، وواجهات API، ومخططات SQL، وسكربتات الاختبارات، وحزمة أدلة M3. ثم أعدت تشغيل مجموعة اختبارات محلية على نسخة التطوير التي كانت متاحة أثناء الإعداد.</p>
+    <table>
+      <thead><tr><th>مرجع النسخة التي فُحصت</th><th>ما يثبته</th><th>تنبيه التفسير</th></tr></thead>
+      <tbody>
+        <tr><td>آخر commit ظاهر محليًا: <span class="ltr">01fe4c320c934212911a7c812483abf132b45f37</span> بتاريخ 2 أكتوبر 2026</td><td>هو أساس فحص الشيفرة واختبارات هذا التقرير.</td><td>شجرة العمل تحتوي تعديلات محلية غير ملتزمة؛ لذلك لا تمثل كل التغييرات commit منشورًا.</td></tr>
+        <tr><td>وثائق M1 وM2 داخل المستودع الحالي</td><td>تشرح النطاق، النتائج السابقة، والاعتماديات المعروفة.</td><td>بعض صفحات الحالة أقدم من الشيفرة الحالية وتتضمن أوصافًا متعارضة للتخزين ومدة الجلسة.</td></tr>
+        <tr><td>حزمة M3 المسماة <span class="ltr">M3-RC3</span></td><td>تصف سجل قبول وأدلة إصدار لتقرير/بوابة مختلفة.</td><td>تذكر مستودع <span class="ltr">ROOTS-AI-Health-Systems/rootai</span> وcommit <span class="ltr">32e1c9c</span>، بينما المستودع الحالي هو <span class="ltr">souhail555/roots-ai-learning</span>. لذا تحتاج مطابقة رسمية قبل اعتمادها كدليل لهذا الإصدار.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout"><b>حدّ النطاق:</b> المقصود مراجعة متطلبات M1–M3 ومصادر التنفيذ والاختبار المرتبطة بها، وليس تدقيق كل ملف طرف ثالث داخل <span class="ltr">node_modules</span> أو كل ملف ناتج داخل <span class="ltr">.next</span> أو إعادة تنفيذ مراجعة امتثال مستقلة.</div>
+  </section>
+
+  <section class="section page-break">
+    <h2>3. ماذا بنيت؟ نظرة معمارية</h2>
+    <p>بنيت التطبيق كتطبيق ويب كامل في مستودع واحد. الواجهة والمسارات العامة في Next.js App Router، وتُرسل الواجهة الطلبات إلى مسارات API على الخادم. توجد طبقة بيانات مركزية في <span class="ltr">lib/db.ts</span> حتى لا تتعامل الواجهة مباشرة مع مخزن الجلسات، وتوجد طبقات منفصلة للمرجع القانوني والأسئلة والحساب والتقرير.</p>
+    <div class="flow">
+      <div><b>1 · إدخال التقييم</b>المتصفح يعرض الوحدات والأسئلة ويجمع الإجابات.</div>
+      <div><b>2 · واجهات API</b>إنشاء الجلسة، حفظ الإجابات، قراءة التقدم والتحقق من الصلاحية.</div>
+      <div><b>3 · منطق النطاق</b>مصدر الأسئلة والخيارات والتحقق والحساب الحتمي.</div>
+      <div><b>4 · مخرجات النتيجة</b>كائن تقرير ثابت، واجهة ويب وPDF، ونص سردي محدود.</div>
+    </div>
+    <h3>لغات وتقنيات البرمجة</h3>
+    <table>
+      <thead><tr><th>اللغة / التقنية</th><th>موضع الاستخدام</th></tr></thead>
+      <tbody>
+        <tr><td>TypeScript</td><td>منطق الأسئلة والدرجات والتقارير، تعريف الأنواع، سكربتات التشغيل والاختبار.</td></tr>
+        <tr><td>TSX / React</td><td>صفحات Next.js، مكونات الواجهة، ونماذج HTML التفاعلية.</td></tr>
+        <tr><td>JavaScript / MJS</td><td>سكربتات اختبارات HTTP، التدقيق البنيوي، والتقاط الأدلة.</td></tr>
+        <tr><td>CSS</td><td>تنسيق الواجهة والاستجابة للأحجام المختلفة والألوان والمكوّنات.</td></tr>
+        <tr><td>SQL</td><td>مخططات مقترحة لـPostgreSQL وRLS واختبارات عزل؛ وجودها لا يعني تطبيقها على قاعدة حية.</td></tr>
+        <tr><td>JSON وPowerShell</td><td>إعدادات وبيانات مرجعية مولّدة، وعمليات مساعدة/أدلة في Windows.</td></tr>
+      </tbody>
+    </table>
+    <p>تعتمد النسخة الحالية على Next.js <span class="ltr">16.3.4</span> وReact <span class="ltr">19.2.8</span> وTypeScript، مع إعداد Tailwind CSS 4، و<span class="ltr">@react-pdf/renderer</span> لتوليد PDF، وأدوات Node/npm للاختبارات والتحقق من ملفات Excel المرجعية.</p>
+  </section>
+
+  <section class="section">
+    <h2>4. كيف ربطت البيانات؟</h2>
+    <ol>
+      <li><b>مصادر الأسئلة:</b> يُعرّف الاستبيان في <span class="ltr">lib/canonicalAssessment.ts</span> ومجموعات الخيارات في <span class="ltr">lib/canonical/optionSets.ts</span>. المرجعان المعلنان هما <span class="ltr">C-01 v1.0.1 CORRECTED</span> للأسئلة و<span class="ltr">C-02 v1.0.1 CORRECTED</span> للحساب. أداة <span class="ltr">scripts/ingest-canonical.ts</span> تقرأ ملفات المصدر المضبوطة وتنتج JSON مرجعيًا، ثم يتحقق سكربت canonical من تطابق الحقول.</li>
+      <li><b>إنشاء جلسة:</b> يبدأ المستخدم التقييم؛ ينشئ مسار API معرّف جلسة، ويضبط ملف تعريف ارتباط <span class="ltr">HttpOnly</span> من نوع <span class="ltr">roots_session_id</span>. تتطلب المسارات المحمية تطابق معرّف الجلسة المطلوب مع قيمة ملف الارتباط.</li>
+      <li><b>حفظ الإجابات:</b> ترسل الواجهة إجابات الوحدة الحالية للحفظ. قبل قبولها تتحقق طبقة التقييم من رقم السؤال ونوع الإجابة وحدود القيم والمعرّفات المعتمدة للخيارات، وتمنع خلط سؤال من وحدة أخرى أو تركيبات NONE/N-A المخالفة.</li>
+      <li><b>حساب التقدم:</b> يُشتق عدد الأسئلة المجابة والوحدات المكتملة والنسبة من الإجابات المحفوظة. لا يُعامل النقص كأنه إجابة N/A.</li>
+      <li><b>إنشاء النتيجة:</b> لا ينتج التقرير حتى يكتمل المطلوب؛ ينفذ <span class="ltr">calculateScores</span> حسابًا حتميًا على الخادم، ويحفظ إصدار السؤال وإصدار قواعد التقييم.</li>
+      <li><b>بناء التقرير:</b> يُنشأ كائن تقرير معياري مع بصمة محتوى؛ ثم تُقرأ السجلات نفسها لعرض الويب وإخراج PDF. يتأكد فحص السلامة من أن تغيّر قيمة مرجعية يكسر تحقق البصمة.</li>
+      <li><b>السرد المساعد:</b> يمرر النظام إسقاطًا محدودًا لطبقة النص، لا إجابات المستخدم الخام ولا منفذًا لكتابة الدرجات. يرفض مفاتيح الدرجات واللغة التشخيصية أو الموصوفة كقرار، ويستخدم نصًا احتياطيًا مضبوطًا عند التعذر.</li>
+    </ol>
+    <div class="callout danger"><b>حد تخزين جوهري:</b> حسب <span class="ltr">lib/db.ts</span> الحالية، الجلسات والنتائج والتقارير تحفظ في Maps داخل ذاكرة عملية Node. ليست قاعدة بيانات دائمة أو موزعة؛ قد تضيع عند إعادة التشغيل، ولا تصلح وحدها لإثبات استمرارية بيانات الإنتاج أو التوسع بين عدة خوادم.</div>
+  </section>
+
+  <section class="section page-break">
+    <h2>5. المرحلة M1 — تأسيس المنصة والتقييم</h2>
+    <h3>الهدف وما أُنجز</h3>
+    <p>ركزت المرحلة على نقل التجربة من صفحة تعريفية إلى مسار تقييم متكامل: دخول إلى التقييم، فتح جلسة، عرض وحدات، إدخال الإجابات، حفظ تلقائي، متابعة التقدم، والعودة إلى الجلسة. كما عرّفت طبقة وصول بيانات خادمية وحدود تحقق تمنع تبديل الجلسة بين مستخدم وآخر بالاعتماد على معرّف الجلسة وملف الارتباط.</p>
+    <ul>
+      <li>هيكل أسئلة موزع على 13 وحدة وواجهات ديناميكية للوحدة والجلسة.</li>
+      <li>الحفظ التلقائي يظهر للمستخدم حالة الحفظ، وتذكر وثائق المشروع مهلة debounce قدرها 700ms.</li>
+      <li>استئناف الجلسة واشتقاق الوحدة الحالية والتقدم من الحالة المحفوظة.</li>
+      <li>مسارات API لإنشاء جلسة وقراءة تفاصيلها وحفظ الإجابات وقراءة التقدم والنتيجة.</li>
+      <li>ملفات توثيق للمعمارية، مصفوفة التتبع، اختبارات المرحلة، ومخاطر البيئة.</li>
+    </ul>
+    <h3>المشكلة والحل</h3>
+    <table>
+      <thead><tr><th>المشكلة</th><th>الحل المنفذ</th><th>الحالة المثبتة</th></tr></thead>
+      <tbody>
+        <tr><td>إمكانية فقد إجابات المستخدم عند التنقل أو تحديث الصفحة.</td><td>حفظ مرحلي للإجابات مع إظهار حالة الحفظ واستعادة الجلسة.</td><td>السلوك موصوف ومختبر وظيفيًا؛ يلزم إثباته على staging مع فشل الشبكة وإعادة المحاولة.</td></tr>
+        <tr><td>إمكانية الوصول إلى جلسة أخرى بتغيير المعرّف في الطلب.</td><td>مقارنة معرّف المسار بملف الارتباط ورفض الوصول غير المصرح.</td><td>اختبارات API الحالية تعيد 403 أو 404 في الحالات المحمية.</td></tr>
+        <tr><td>لا توجد في بيئة التطوير قاعدة دائمة معتمدة.</td><td>استخدام طبقة وصول داخلية للتجربة، وإعداد مخططات SQL كمسار لاحق.</td><td>الطبقة الحالية ما زالت in-memory؛ لم أعتبر وجود SQL إثبات ترحيل مطبق.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warning"><b>ما بقي لقبول M1 رسميًا:</b> مستند الإغلاق <span class="ltr">docs/M1-CLOSURE-EVIDENCE.md</span> يصرح بأن التنفيذ المحلي لا يمثل قبولًا إنتاجيًا. ما زالت هناك حاجة إلى إثبات بيئة staging مملوكة للجهة، مزود مصادقة معتمد، قاعدة دائمة ومخططات مطبقة، سياسة RLS منفذة، وسلسلة عرض واختبار من بيئة staging.</div>
+    <p>وجدت أيضًا اختلافًا وثائقيًا في مدة الجلسة: بعض وثائق M1 الأقدم تذكر 15 دقيقة، بينما الدليل البرمجي الحالي في <span class="ltr">lib/db.ts</span> يحدد 60 دقيقة (<span class="ltr">SESSION_TTL_SECONDS = 3600</span>). يجب توحيد قيمة المتطلب وملفات السياسة ومدة ملف الارتباط قبل اعتمادها.</p>
+  </section>
+
+  <section class="section">
+    <h2>6. المرحلة M2 — المرجع الحتمي والتقييم</h2>
+    <h3>المحتوى والقواعد</h3>
+    <p>حوّلت قواعد السؤال والتقييم إلى بيانات قابلة للتحقق بدل الاعتماد على نصوص واجهة فقط. تتضمن النسخة المرجعية 73 سؤالًا من Q1 إلى Q73 موزعة بالتتابع على 13 وحدة؛ 71 سؤالًا إلزاميًا وسؤالين اختياريين، منها 40 سؤالًا مؤهلًا للحساب، وخمسة أسئلة متعددة الاختيارات إلزامية.</p>
+    <ul>
+      <li>تُستخدم معرفات الخيارات المعتمدة لا نص العرض لتحديد الدرجة؛ وتُرفض الخيارات غير المعروفة.</li>
+      <li>الإجابة N/A لا تُخترع لتعويض السؤال الناقص، وحقول NONE/N-A الحصرية لا تجتمع مع خيارات أخرى.</li>
+      <li>لا تصدر نتيجة قبل اكتمال الإجابات الإلزامية والتحقق من صلاحيتها.</li>
+      <li>تُسجل نسخة C-01 ونسخة C-02 مع الجلسة والنتيجة حتى يمكن معرفة القواعد المستخدمة.</li>
+    </ul>
+    <h3>الحساب الحتمي</h3>
+    <p>نفذت محركًا حتميًا نقيًا في <span class="ltr">lib/scoring.ts</span>. يحسب الدرجات السبعة (<span class="ltr">MR, HS, SR, CH, SL, IB, BS</span>) ويطبق نطاق عبء 0–4، وحد تغطية 50% لكل مجال، وعدم إدخال الأسئلة غير المجابة أو N/A في البسط أو المقام. تتطلب الحالة البيولوجية خمس درجات متاحة على الأقل من سبع. كما تثبت قواعد كسر التعادل والترتيب، وتُعامل درجات متقاربة ضمن فارق ثلاث نقاط كمحرك مشترك وفق القاعدة المعلنة.</p>
+    <div class="callout success"><b>مبدأ أساسي:</b> الذكاء الاصطناعي لا يحسب ولا يصنف ولا يختار المحركات. النتيجة الحتمية هي المرجع، والنص المساعد محصور في الشرح بعد إنهاء الحساب.</div>
+    <h3>الاختبارات والمخرجات</h3>
+    <table>
+      <thead><tr><th>الاختبار</th><th>نتيجة تشغيل هذه المراجعة</th><th>ما يغطيه</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ltr">npm run test:canonical</span></td><td class="status pass">30/30 PASS</td><td>تعداد الأسئلة والوحدات والخيارات، الإصدارات، وتتبع المصدر المرجعي.</td></tr>
+        <tr><td><span class="ltr">npm run test:golden</span></td><td class="status pass">30/30 PASS</td><td>الحساب المرجعي، التغطية، التصنيف، التعادل، والتكرارية.</td></tr>
+        <tr><td><span class="ltr">npm run test:security -- http://localhost:3001</span></td><td class="status pass">31/31 PASS</td><td>رفض الطلبات غير المصرح بها والإجابات غير الصحيحة واختبارات العزل عبر API المحلي.</td></tr>
+        <tr><td><span class="ltr">npm run test:e2e -- http://localhost:3001</span></td><td class="status pass">20/20 PASS</td><td>مسار جلسة كاملة خلال الوحدات الـ13 ثم التقدم والنتيجة وإصداراتها.</td></tr>
+      </tbody>
+    </table>
+    <p>تظهر الوثائق التاريخية أحيانًا 34 اختبار Golden و20 اختبار E2E على الإنتاج؛ أما الأعداد أعلاه فهي ما أعادته أوامر النسخة الحالية خلال إعداد التقرير، وقد فصلت بين النوعين بدل دمجهما.</p>
+    <div class="callout warning"><b>نقطة تحتاج قرارًا من مالك المتطلبات:</b> حزمة M2 تسجل تعارضًا بين صيغة SC-003 (Opportunity) وقيمة GT-003، كما تشير إلى ثابت غير مفسر في SC-005 (Recovery Potential). يجب الحصول على قرار مكتوب من مالك C-02، ثم تعديل المصدر المركزي فقط وإعادة Golden Tests إذا تطلب القرار ذلك.</div>
+  </section>
+
+  <section class="section page-break">
+    <h2>7. المرحلة M3 — التقرير وحدود الذكاء الاصطناعي</h2>
+    <h3>الموجود في نسخة الشيفرة الحالية</h3>
+    <ul>
+      <li>تعريف كائن تقرير معياري يحتوي ترتيبًا ثابتًا من 19 قسمًا في <span class="ltr">lib/canonical/report.ts</span> ومحتوى التقرير في ملفات canonical المرتبطة.</li>
+      <li>خط معالجة يحسب الدرجة أولًا، ويبني كائن التقرير من لقطة الدرجة، ثم يحاول توليد السرد من إسقاط محدود في <span class="ltr">lib/report/pipeline.ts</span>.</li>
+      <li>فحص بصمة المحتوى وسلامة التقرير قبل التخزين أو العرض؛ ويمنع اعتماد تقرير إذا تغيرت قيمة مرجعية بعد إنشاء البصمة.</li>
+      <li>مسارات لقراءة التقرير وPDF، ومكوّن PDF مبني على <span class="ltr">@react-pdf/renderer</span>.</li>
+      <li>اختبارات محلية حالية: <span class="ltr">npm run test:report</span> أعاد 20/20 PASS، و<span class="ltr">npm run test:ai</span> أعاد 20/20 PASS.</li>
+    </ul>
+    <h3>حدود السرد المولد</h3>
+    <p>بنيت حواجز تحقق على مستوى الكود: قائمة مفاتيح مخرجات مسموح بها للسرد فقط؛ رفض أي قيمة أو مفتاح يوحي بتغيير درجة أو تصنيف؛ منع عبارات تشخيصية أو علاجية أو قطعية؛ رفض أرقام غير موجودة في الإسقاط؛ وتوفير fallback مضبوط عند غياب النقل أو المهلة أو فشل التحقق. بذلك لا يتوقف التقرير الحتمي على نجاح مزود خارجي.</p>
+    <h3>نتائج حزمة M3 وشرط عدم الخلط</h3>
+    <p>تتضمن الملفات المودعة في <span class="ltr">docs/m3/m3/</span> حزمة باسم M3-RC3 تصف أدلة للعرض وPDF، والاستجابة، وإمكانية الوصول، والأمن والأداء. ويسجل إغلاقها 23 بندًا: 11 مغلقًا، و6 بانتظار قرار ROOTS، و6 أُنجزت أعمالها بقدر اعتماديات خارجية لكن تنفيذها لا يزال مطلوبًا. كما تصرح الحزمة نفسها بأن اختبار الاستعادة والنسخ الاحتياطي، والأداء المشروط، ومصفوفة المتصفحات، وفحص قارئ الشاشة، وتوافر 99.9% لا تملك دليلًا مكتملًا فيها.</p>
+    <div class="callout danger"><b>قيد إثبات رئيسي:</b> تسجل ملفات M3 المرجع إلى مستودع <span class="ltr">ROOTS-AI-Health-Systems/rootai.git</span> وفرع <span class="ltr">main</span> وcommit يبدأ بـ<span class="ltr">32e1c9c</span>؛ أما المشروع الذي فُحص هنا فهو <span class="ltr">souhail555/roots-ai-learning</span>، وسجل Git المحلي يبين أن وثائق وأدلة M3 أضيفت من حزمة مستخرجة. لذلك لا أصف كل اختبارات أو نشر M3 الواردة بتلك الحزمة بأنها نُفذت على commit هذا المشروع، قبل مطابقة hashes والملفات وخط الإصدار.</div>
+    <p>النتيجة الدقيقة: توجد في هذا المستودع بنية تقرير وPDF وحدود AI واختبارات ذات صلة؛ لكن قبول M3 النهائي يتطلب توحيد مصدر الوثائق، ربط الأدلة بالنسخة الحالية، استكمال القرارات والاعتماديات المفتوحة، وإجراء الاختبارات الخارجية التي تتطلب بيئة أو أجهزة أو صلاحيات.</p>
+  </section>
+
+  <section class="section">
+    <h2>8. الأمن والخصوصية والعزل</h2>
+    <table>
+      <thead><tr><th>الضابط</th><th>ما ينفذه النظام</th><th>حد الإثبات</th></tr></thead>
+      <tbody>
+        <tr><td>جلسات الويب</td><td>ملف ارتباط HttpOnly وSameSite وتحقق من ربطه بمعرف الجلسة المطلوب.</td><td>لا يعادل وحده نظام دخول إنتاجي متكاملًا أو مزود Magic Link.</td></tr>
+        <tr><td>تحقق المدخلات</td><td>تحقق نوعي من الأسئلة والأرقام والمدى والخيارات والاكتمال.</td><td>اختبارات التكامل الحالية محلية؛ يجب تكرارها على نسخة الإصدار.</td></tr>
+        <tr><td>عزل السجلات</td><td>31 اختبار API سلبيًا أعاد النجاح محليًا، ومن ضمنها محاولات عبور جلسات المستخدمين.</td><td>لا توجد في هذا الفحص مصادقة على تشغيل RLS في قاعدة ROOTS الحية.</td></tr>
+        <tr><td>RLS وقاعدة PostgreSQL</td><td>توجد ملفات migrations وسيناريوهات SQL سلبية.</td><td>سجل M2 يصرح أن تشغيل suite ذات 25 حالة ينتظر بيانات اعتماد ROOTS؛ لا تُعتبر سياسات مخطط فقط مطبقة.</td></tr>
+        <tr><td>بيانات التقييم</td><td>المحرك لا يرسل الإجابات الخام إلى طبقة السرد؛ وتمنع اختبارات AI تعديل النتيجة.</td><td>يلزم ربط سياسة الاحتفاظ والوصول والنسخ الاحتياطي بقاعدة دائمة وإعدادات إنتاج معتمدة.</td></tr>
+      </tbody>
+    </table>
+    <p>لا يتضمن هذا التقرير أسرارًا أو قيمًا من ملفات البيئة. كما أن الاختبارات المحلية تستخدم قيماً اصطناعية، ولا ينبغي استخدامها على بيانات أشخاص حقيقية دون بيئة وسياسات مصرح بها.</p>
+  </section>
+
+  <section class="section page-break">
+    <h2>9. المشكلات التي ظهرت وكيف تعاملت معها</h2>
+    <table>
+      <thead><tr><th>المشكلة / الخطر</th><th>المعالجة</th><th>النتيجة أو ما يلزم لاحقًا</th></tr></thead>
+      <tbody>
+        <tr><td>تضارب محتمل في قواعد المصدر المرجعي وتفسير الاختبارات.</td><td>فصلت بيانات المصدر في وحدات canonical، وأضفت تحقق provenance واختبارات Golden قابلة للتكرار.</td><td>الاختبارات الحالية ناجحة؛ التعارض الموثق في Opportunity/Recovery يحتاج قرار الجهة المالكة.</td></tr>
+        <tr><td>إدخال N/A أو خيار غير معتمد قد يغيّر النتيجة أو يخفي نقص البيانات.</td><td>رفض الخيارات المجهولة وN/A غير المسموح والإجابات متعددة الخيارات الفارغة وطلب النتيجة غير المكتمل.</td><td>31/31 اختبارًا سلبيًا عبر API المحلي ناجحة.</td></tr>
+        <tr><td>إمكانية تأثير AI في الدرجات أو التصنيفات.</td><td>عزل الحساب الحتمي أولًا، وإرسال إسقاط قراءة فقط، وقصر الاستجابة على النصوص، والتحقق من اللغة والأرقام والبنية.</td><td>20/20 اختبار حدود AI ناجحة في النسخة الحالية.</td></tr>
+        <tr><td>التقرير قد يتغير بين العرض والملف أو يتعرض لتعديل غير مقصود.</td><td>كائن تقرير مشترك، بصمة محتوى وفحص سلامة، واختبار تكافؤ مصدر مخرجات PDF والويب.</td><td>20/20 اختبار تقرير ناجحة محليًا؛ اختبار قبول بصري/تشغيلي ما زال منفصلًا.</td></tr>
+        <tr><td>لوحة موافقة ملفات الارتباط بدت كبيرة، ولم تختفِ عند الضغط حسب تجربة المستخدم.</td><td>صغرت اللوحة، ثم جعلت حالة الاختيار تتحدث فورًا قبل محاولة تخزينها، مع تسجيل القبول أو الرفض في localStorage.</td><td>اختُبر الزران في المتصفح على localhost؛ اختفت اللوحة في الحالتين وسُجل القرار. لا يثبت ذلك وحده اختبارًا شاملًا لكل متصفح أو جهاز.</td></tr>
+        <tr><td>التصميم احتاج أن يطابق توجيه المستخدم بدل تعميم تغيير غير مطلوب.</td><td>أبقيت رسم المدارات في الهيرو، ووضعت صورة الهولوغرام في مخطط المجالات، وخصصت CTA الذهبي وقسم How It Works دون تعميم الألوان على كل الأزرار.</td><td>تحققت القياسات في المتصفح على سطح المكتب والهاتف، دون تجاوز أفقي في الاختبار الذي أجري.</td></tr>
+        <tr><td>حزمة M3 لا تتطابق هويتها المعلنة مع المستودع الحالي.</td><td>سجلت اختلاف المستودع والـcommit بدل نقل نتائج RC3 إلى التقرير الحالي على أنها متحققة.</td><td>يلزم تسليم/اعتماد package manifest مطابق للنسخة النهائية الفعلية.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="section">
+    <h2>10. نتيجة الفحوص التي أُعيد تشغيلها للتقرير</h2>
+    <table>
+      <thead><tr><th>الأمر / الفحص</th><th>النتيجة</th><th>نطاق الدليل</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ltr">npx tsc --noEmit</span></td><td class="status pass">اكتمل دون أخطاء</td><td>فحص أنواع TypeScript في المشروع.</td></tr>
+        <tr><td><span class="ltr">npx eslint components/layout/CookieBanner.tsx app/page.tsx</span></td><td class="status pass">اكتمل دون أخطاء</td><td>الملفات التي تغيرت مؤخرًا في الواجهة.</td></tr>
+        <tr><td><span class="ltr">npm run test:canonical</span></td><td class="status pass">30/30 PASS</td><td>المرجع والأسئلة والخيارات وإصداراتها.</td></tr>
+        <tr><td><span class="ltr">npm run test:golden</span></td><td class="status pass">30/30 PASS</td><td>الحساب الحتمي.</td></tr>
+        <tr><td><span class="ltr">npm run test:security -- http://localhost:3001</span></td><td class="status pass">31/31 PASS</td><td>حماية API محلية ضمن خادم التطوير المتاح.</td></tr>
+        <tr><td><span class="ltr">npm run test:e2e -- http://localhost:3001</span></td><td class="status pass">20/20 PASS</td><td>تدفق إكمال الوحدات وطلب النتيجة عبر API.</td></tr>
+        <tr><td><span class="ltr">npm run test:report</span></td><td class="status pass">20/20 PASS</td><td>سلامة كائن التقرير وثباته وعلاقته بـPDF والويب.</td></tr>
+        <tr><td><span class="ltr">npm run test:ai</span></td><td class="status pass">20/20 PASS</td><td>حدود السرد، fallback، منع التعديل والتشخيص.</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warning"><b>لم أعد تشغيله في هذا الفحص:</b> أمر production build الكامل، اختبارات نشر Vercel، تشغيل SQL على قاعدة ROOTS، فحص قارئ شاشة على جهاز حقيقي، أو اختبار أداء إنتاجي بملف حمل متفق عليه. لذلك لا أقدم نتيجة نجاح لها في هذا التقرير. كما أن نجاح lint للملفين المذكورين لا يعني اجتياز كل ملفات المشروع للفحص الشامل.</div>
+  </section>
+
+  <section class="section page-break">
+    <h2>11. الحالة الحالية والفجوات ذات الأولوية</h2>
+    <table>
+      <thead><tr><th>الأولوية</th><th>العمل التالي</th><th>سبب الأهمية</th><th>حالة التحقق</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>استبدال مخزن Maps بقاعدة دائمة معتمدة، وتطبيق migrations على staging موثقة.</td><td>منع فقد بيانات الجلسات والتقارير عند إعادة التشغيل أو تعدد النسخ.</td><td class="status gap">غير منجز في طبقة البيانات الحالية</td></tr>
+        <tr><td>2</td><td>توحيد المصادقة ومدة انتهاء الجلسة وملفات السياسات والوثائق.</td><td>وثائق M1 تذكر مدة مختلفة، ولا يثبت الكود مزود دخول إنتاجي كاملًا.</td><td class="status pending">يحتاج قرارًا وإثباتًا خارجيًا</td></tr>
+        <tr><td>3</td><td>تشغيل واستخراج دليل RLS السلبي على مشروع Supabase مصرح به.</td><td>وجود migrations و25 حالة اختبار لا يثبت أن قاعدة فعلية طُبقت عليها السياسات.</td><td class="status pending">بانتظار بيانات اعتماد/إذن الجهة</td></tr>
+        <tr><td>4</td><td>حل أسئلة SC-003 وSC-005 واعتماد قاعدة الحساب النهائية.</td><td>منع اختلاف التفسير في مؤشرات مشتقة قبل التسليم.</td><td class="status pending">قرار مالك المتطلب مطلوب</td></tr>
+        <tr><td>5</td><td>مطابقة ملف M3-RC3 مع المستودع الحالي وإنتاج manifest جديد مرتبط بالـcommit الصحيح.</td><td>حفظ سلسلة تدقيق صحيحة وعدم نسب أدلة مشروع/بناء إلى نسخة أخرى.</td><td class="status gap">هوية الأدلة غير متطابقة حاليًا</td></tr>
+        <tr><td>6</td><td>تنفيذ تجربة القبول على staging: بدء، حفظ، خروج، استئناف، إكمال، تقرير/PDF، عزل.</td><td>تحويل اختبارات التطوير إلى إثبات من بيئة تسليم حقيقية.</td><td class="status pending">مطلوب قبل قبول الإنتاج</td></tr>
+        <tr><td>7</td><td>استكمال فحوص M3 الخارجية: استعادة النسخ الاحتياطي، مصفوفة المتصفحات، قارئ الشاشة، شروط الأداء والتوافر.</td><td>هذه تعتمد على أجهزة وبيئة وأذونات ومدة قياس، لا على الشيفرة فقط.</td><td class="status pending">غير مثبتة في هذه المراجعة</td></tr>
+      </tbody>
+    </table>
+    <h3>ملخص النتيجة</h3>
+    <p>المشروع يملك أساسًا برمجيًا قابلًا للاختبار في التقييم والتحقق والحساب والتقرير. نتائج الاختبارات المحلية التي أعدت تشغيلها قوية في نطاقها: 171 فحصًا موزعًا على canonical وgolden وsecurity وE2E وreport وAI، إضافة إلى TypeScript وESLint. لكن هذا المجموع لا يُفسر على أنه اختبار قبول شامل أو برهان تشغيل إنتاجي؛ لأن مجموعة من شروط القبول تعتمد على قاعدة وبيئة وقرارات خارجية.</p>
+    <div class="callout success"><b>ما أستطيع قوله بثقة:</b> طبقات التقييم والحساب والتقرير المعياري واجتياز اختبارات محلية محددة مثبتة في نسخة الفحص. <b>ما لا أدعيه:</b> أن M1–M3 مقبولة رسميًا بالكامل، أو أن قاعدة الإنتاج/RLS أو متطلبات الأداء والاستعادة قد اختبرت على بيئة ROOTS الحالية.</div>
+  </section>
+
+  <section class="section">
+    <h2>12. المراجع الأساسية داخل المشروع</h2>
+    <ul class="source-list small">
+      <li><span class="ltr">README.md</span> — نظرة عامة، التقنيات، البنية، والأوامر المتاحة.</li>
+      <li><span class="ltr">docs/m1/M1_FINAL_UNIFIED_PACKAGE.md</span> و<span class="ltr">docs/m1/M1_TEST_RESULTS_SUMMARY.md</span> — نطاق M1 وسجل نتائجها التاريخية.</li>
+      <li><span class="ltr">docs/M1-ARCHITECTURE-EVIDENCE.md</span> و<span class="ltr">docs/M1-CLOSURE-EVIDENCE.md</span> — وصف المسارات وحدود القبول الحالي.</li>
+      <li><span class="ltr">docs/m2/M2_COMPLETION_PACKAGE.md</span> و<span class="ltr">docs/m2/M2_CANONICAL_VERIFICATION.txt</span> — مواصفات M2 والمرجع canonical.</li>
+      <li><span class="ltr">docs/m2/M2_GOLDEN_TEST_EVIDENCE.txt</span> و<span class="ltr">docs/m2/M2_SECURITY_TESTS_PRODUCTION.txt</span> و<span class="ltr">docs/m2/M2_E2E_FLOW_PRODUCTION.txt</span> — أدلة M2 المسجلة سابقًا.</li>
+      <li><span class="ltr">docs/m2/M2_RLS_NEGATIVE_SUITE.txt</span> — يصرح بانتظار بيانات اعتماد ROOTS لتشغيل suite على قاعدة فعلية.</li>
+      <li><span class="ltr">docs/m3/m3/ROOTS-AI_M3_Submission_Index.md</span> و<span class="ltr">ROOTS-AI_M3_Release_Manifest.md</span> و<span class="ltr">ROOTS-AI_M3_Closure_Register.md</span> — حزمة M3 وحدودها وهوية إصدارها كما وثقتها.</li>
+      <li><span class="ltr">lib/db.ts</span> و<span class="ltr">lib/scoring.ts</span> و<span class="ltr">lib/canonicalAssessment.ts</span> — تخزين الجلسة، التقييم الحتمي، وبنية الأسئلة.</li>
+      <li><span class="ltr">lib/report/pipeline.ts</span> و<span class="ltr">lib/ai/boundary.ts</span> و<span class="ltr">lib/report/pdf.tsx</span> — خط التقرير وحدود السرد ومخرجات PDF.</li>
+      <li><span class="ltr">migrations/</span> و<span class="ltr">scripts/</span> — مخططات SQL، اختبار العزل، والاستيراد والفحوص القابلة لإعادة التشغيل.</li>
+    </ul>
+    <p class="signature">إعداد التقرير:<br><span class="ltr">Ahmed Alsenwi</span></p>
+  </section>
+</body>
+</html>

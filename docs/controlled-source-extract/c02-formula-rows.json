@@ -1,0 +1,322 @@
+{
+  "Formulas": [
+    [
+      "rule_id",
+      "output",
+      "normative_formula",
+      "null_or_boundary_rule",
+      "rounding",
+      "audit_fields"
+    ],
+    [
+      "SC-001",
+      "Domain score",
+      "100 × Σ(points × weight) ÷ Σ(4 × weight), answered eligible items only",
+      "N/A/missing excluded; null if answered/eligible < 0.50",
+      "Half away from zero to integer",
+      "question IDs, raw option IDs, points, weights, numerator, denominator"
+    ],
+    [
+      "SC-002",
+      "Biological State™",
+      "Mean of available seven domain scores",
+      "Null if fewer than 5 domains available",
+      "Half away from zero to integer",
+      "available/null domains and mean"
+    ],
+    [
+      "SC-003",
+      "Opportunity Score™",
+      "100 - (Biological State × 0.5)",
+      "Null when Biological State is null; clamp 0-100",
+      "One decimal",
+      "Biological State and constant 0.5"
+    ],
+    [
+      "SC-004",
+      "Protective Factor Score",
+      "20 × count of active P1-P5",
+      "Count 0-5; no imputation",
+      "Half away from zero to integer",
+      "factor IDs and booleans"
+    ],
+    [
+      "SC-005",
+      "Recovery Potential™",
+      "0.30×(100-BIO_STATE)+0.25×Protective+0.20×Age+0.15×Condition+0.10×Medication",
+      "Null when Biological State is null; clamp 0-100",
+      "One decimal",
+      "BIO_STATE, all factor values and contributions"
+    ],
+    [
+      "SC-006",
+      "Coverage",
+      "Answered scored items ÷ eligible scored items × 100",
+      "N/A and missing count as not answered for confidence coverage",
+      "Half away from zero to integer",
+      "answered/eligible counts"
+    ],
+    [
+      "SC-007",
+      "Consistency by domain",
+      "max(0,1-populationSD(points)/2) × 100",
+      "Null when domain is null",
+      "Half away from zero to integer",
+      "points, mean, SD"
+    ],
+    [
+      "SC-008",
+      "ROOTS Confidence™",
+      "0.50×overall coverage + 0.30×Q72 value + 0.20×mean available-domain consistency",
+      "0 when no consistency; never changes scores",
+      "Half away from zero to integer",
+      "three components"
+    ]
+  ],
+  "Protective_Factors": [
+    [
+      "factor_id",
+      "source",
+      "activation/value rule",
+      "output_value",
+      "purpose",
+      "notes"
+    ],
+    [
+      "P1",
+      "Q46/Q47",
+      "Activity ≥3 days/week AND usual duration ≥30 minutes",
+      20,
+      "Protective score",
+      "Use option IDs D3_4/D5_7 and M30_59/M60_PLUS"
+    ],
+    [
+      "P2",
+      "Q64",
+      "Often or Almost always",
+      20,
+      "Protective score",
+      "Meal timing consistency"
+    ],
+    [
+      "P3",
+      "Q65",
+      "Supportive or Very supportive",
+      20,
+      "Protective score",
+      "Home environment"
+    ],
+    [
+      "P4",
+      "Q61",
+      "Never or Former use",
+      20,
+      "Protective score",
+      "Nicotine context"
+    ],
+    [
+      "P5",
+      "Q69",
+      "Readiness 7-10",
+      20,
+      "Protective score",
+      "Readiness"
+    ],
+    [
+      "AGE",
+      "Q1",
+      "16-30=100; 31-45=80; 46-60=60; 61-75=40; 76-110=20",
+      "Band value",
+      "Recovery Potential",
+      "16-17 uses 18-30 band if participation is enabled"
+    ],
+    [
+      "CONDITION",
+      "Q13",
+      "None=100; one category=75; two=50; three or more=25",
+      "Band value",
+      "Recovery Potential",
+      "PREFER_NOT/NA treated as unavailable and sets Recovery Potential limitation flag"
+    ],
+    [
+      "MEDICATION",
+      "Q14",
+      "None=100; one category=75; two or more=50",
+      "Band value",
+      "Recovery Potential",
+      "UNSURE/PREFER_NOT/NA sets limitation flag; no medication advice"
+    ]
+  ],
+  "Classifications": [
+    [
+      "scale",
+      "minimum",
+      "maximum",
+      "label",
+      "color_hex",
+      "approved_interpretation"
+    ],
+    [
+      "DOMAIN",
+      0,
+      24,
+      "Optimized",
+      "#27AE60",
+      "Lower reported burden"
+    ],
+    [
+      "DOMAIN",
+      25,
+      49,
+      "Compensating",
+      "#F39C12",
+      "Signals present; compensation appears active"
+    ],
+    [
+      "DOMAIN",
+      50,
+      74,
+      "Strained",
+      "#E67E22",
+      "Multiple or frequent signals"
+    ],
+    [
+      "DOMAIN",
+      75,
+      100,
+      "Dysregulated",
+      "#C0392B",
+      "High reported burden; educational prompt to seek appropriate support"
+    ],
+    [
+      "CONFIDENCE",
+      80,
+      100,
+      "High",
+      "#27AE60",
+      "Strong data completeness and consistency"
+    ],
+    [
+      "CONFIDENCE",
+      60,
+      79,
+      "Moderate-High",
+      "#F39C12",
+      "Good data with some limitations"
+    ],
+    [
+      "CONFIDENCE",
+      40,
+      59,
+      "Moderate",
+      "#E67E22",
+      "Interpret cautiously"
+    ],
+    [
+      "CONFIDENCE",
+      0,
+      39,
+      "Low",
+      "#C0392B",
+      "Substantial limitations"
+    ],
+    [
+      "RECOVERY",
+      75,
+      100,
+      "High",
+      "#27AE60",
+      "Many modifiable/protective features"
+    ],
+    [
+      "RECOVERY",
+      50,
+      74,
+      "Moderate",
+      "#F39C12",
+      "Meaningful recovery opportunities"
+    ],
+    [
+      "RECOVERY",
+      25,
+      49,
+      "Limited",
+      "#E67E22",
+      "Progress may require more support"
+    ],
+    [
+      "RECOVERY",
+      0,
+      24,
+      "Low",
+      "#C0392B",
+      "Educational prompt for professional support"
+    ]
+  ],
+  "Drivers_Evidence": [
+    [
+      "rule_id",
+      "subject",
+      "deterministic rule",
+      "output",
+      "tie_or_fallback",
+      "audit requirement"
+    ],
+    [
+      "DRV-001",
+      "Driver eligibility",
+      "Available domain score ≥25",
+      "Eligible",
+      "Scores <25 are not drivers",
+      "Record all candidates"
+    ],
+    [
+      "DRV-002",
+      "Ranking",
+      "Sort eligible domains by score descending; exact ties use fixed order MR,HS,SR,CH,SL,IB,BS",
+      "Primary/secondary/tertiary",
+      "No LLM selection; null/<25 domains excluded",
+      "Record ordered list"
+    ],
+    [
+      "DRV-003",
+      "Co-primary",
+      "If top two eligible scores differ by ≤3, report them once as one co-primary pair",
+      "Co-primary pair, then next highest-ranked distinct eligible domain if one exists",
+      "No duplication; no ineligible fallback; preserve canonical tie order",
+      "Record tie delta"
+    ],
+    [
+      "DRV-004",
+      "No dominant burden",
+      "No domain ≥25",
+      "No primary driver",
+      "Display strengths-focused copy",
+      "Record reason"
+    ],
+    [
+      "EVD-001",
+      "Evidence score",
+      "0.45×domain coverage + 0.35×domain consistency + 0.20×high-signal proportion",
+      "0-100",
+      "High-signal means points ≥3",
+      "Trace components"
+    ],
+    [
+      "EVD-002",
+      "Evidence label",
+      "80-100 Strong; 60-79 Moderate; 40-59 Limited; 0-39 Weak",
+      "Label",
+      "Not clinical evidence grade",
+      "Record boundary"
+    ],
+    [
+      "CNF-001",
+      "Confidence",
+      "Formula SC-008",
+      "High/Moderate-High/Moderate/Low",
+      "Never modifies scores",
+      "Trace components"
+    ]
+  ]
+}

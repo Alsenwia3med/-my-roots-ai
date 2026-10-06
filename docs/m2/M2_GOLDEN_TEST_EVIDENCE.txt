@@ -1,0 +1,220 @@
+﻿
+> roots-ai-learning@0.1.0 test:golden
+> tsx scripts/run-golden-tests.ts
+
+ROOTS-AI(TM) M2 - C-02 Canonical Golden Tests
+Questionnaire: C-01 v1.0.1 CORRECTED
+Scoring:       C-02 v1.0.1 CORRECTED
+Total tests:   34
+
+=== Golden Test Evidence (Test ID -> Input -> Expected -> Actual -> PASS/FAIL) ===
+
+[GT01] All scored questions at burden 0
+  INPUT    : {"Q9":"STABLE","Q10":"NVR","Q11":"NVR","Q12":"NONE","Q46":"D5_7","Q47":"M60_PLUS","Q48":"MIXED","Q23":"NVR","Q24":"NVR","Q25":"NVR","Q26":"ALW","Q27":"NVR","Q28":"ALW","Q29":"NVR","Q30":"NVR","Q16":"H7_9","Q17":"NVR","Q18":"NVR","Q19":"NVR","Q20":"NVR","Q21":"NVR","Q22":"NVR","Q41":"NVR","Q42":"NVR","Q43":"NVR","Q44":"NVR","Q45":"NVR","Q31":"NVR","Q32":"NVR","Q33":"NVR","Q34":"NVR","Q35":"NVR","Q36":"NVR","Q37":"NVR","Q38":"NVR","Q39":"NVR","Q40":"NVR","Q49":"NVR","Q50":"NVR","Q51":"NVR"}
+  EXPECTED : {"domains":{"MR":0,"HS":0,"SR":0,"CH":0,"SL":0,"IB":0,"BS":0},"biologicalState":0,"scoredDomainCount":7,"coPrimary":false,"drivers":[],"band":"Optimized"}
+  ACTUAL   : {"domains":{"MR":0,"HS":0,"SR":0,"CH":0,"SL":0,"IB":0,"BS":0},"biologicalState":0,"band":"Optimized","opportunity":100,"recoveryPotential":100,"drivers":[],"coPrimary":false,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT02] All scored questions at burden 1
+  INPUT    : {"Q9":"IDENTIFIABLE","Q10":"RLY","Q11":"RLY","Q12":"ONE","Q46":"D3_4","Q47":"M30_59","Q48":"RESISTANCE","Q23":"RLY","Q24":"RLY","Q25":"RLY","Q26":"OFT","Q27":"RLY","Q28":"OFT","Q29":"RLY","Q30":"RLY","Q16":"H6_7","Q17":"RLY","Q18":"RLY","Q19":"RLY","Q20":"RLY","Q21":"RLY","Q22":"RLY","Q41":"RLY","Q42":"RLY","Q43":"RLY","Q44":"RLY","Q45":"RLY","Q31":"RLY","Q32":"RLY","Q33":"RLY","Q34":"RLY","Q35":"RLY","Q36":"RLY","Q37":"RLY","Q38":"RLY","Q39":"RLY","Q40":"RLY","Q49":"RLY","Q50":"RLY","Q51":"RLY"}
+  EXPECTED : {"domains":{"MR":25,"HS":25,"SR":25,"CH":25,"SL":25,"IB":25,"BS":25},"biologicalState":25,"scoredDomainCount":7}
+  ACTUAL   : {"domains":{"MR":25,"HS":25,"SR":25,"CH":25,"SL":25,"IB":25,"BS":25},"biologicalState":25,"band":"Compensating","opportunity":75,"recoveryPotential":87.5,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT03] All contiguous domains at burden 2
+  INPUT    : {"Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT","Q41":"SMT","Q42":"SMT","Q43":"SMT","Q44":"SMT","Q45":"SMT","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT","Q35":"SMT","Q36":"SMT","Q37":"SMT","Q38":"SMT","Q39":"SMT","Q40":"SMT","Q49":"SMT","Q50":"SMT","Q51":"SMT"}
+  EXPECTED : {"domains":{"MR":null,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":50},"biologicalState":50,"scoredDomainCount":6}
+  ACTUAL   : {"domains":{"MR":null,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":50},"biologicalState":50,"band":"Strained","opportunity":50,"recoveryPotential":75,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":6}
+  RESULT   : PASS
+
+[GT03B] MR normalisation with skipped option burdens
+  INPUT    : {"Q9":"GRADUAL","Q10":"SMT","Q11":"SMT","Q12":"TWO","Q46":"D3_4","Q47":"M30_59","Q48":"AEROBIC"}
+  EXPECTED : {"domains":{"MR":43}}
+  ACTUAL   : {"domains":{"MR":43,"HS":null,"SR":null,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":["MR"],"coPrimary":false,"scoredDomainCount":1}
+  RESULT   : PASS
+
+[GT04] All scored questions at burden 3
+  INPUT    : {"Q9":"CYCLING","Q10":"OFT","Q11":"OFT","Q12":"THREE_FOUR","Q46":"D1_2","Q47":"M10_29","Q48":"LIGHT","Q23":"OFT","Q24":"OFT","Q25":"OFT","Q26":"RLY","Q27":"OFT","Q28":"RLY","Q29":"OFT","Q30":"OFT","Q16":"H5_6","Q17":"OFT","Q18":"OFT","Q19":"OFT","Q20":"OFT","Q21":"OFT","Q22":"OFT","Q41":"OFT","Q42":"OFT","Q43":"OFT","Q44":"OFT","Q45":"OFT","Q31":"OFT","Q32":"OFT","Q33":"OFT","Q34":"OFT","Q35":"OFT","Q36":"OFT","Q37":"OFT","Q38":"OFT","Q39":"OFT","Q40":"OFT","Q49":"OFT","Q50":"OFT","Q51":"OFT"}
+  EXPECTED : {"domains":{"MR":75,"HS":75,"SR":75,"CH":75,"SL":75,"IB":75,"BS":75},"biologicalState":75,"scoredDomainCount":7}
+  ACTUAL   : {"domains":{"MR":75,"HS":75,"SR":75,"CH":75,"SL":75,"IB":75,"BS":75},"biologicalState":75,"band":"Dysregulated","opportunity":25,"recoveryPotential":62.5,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT05] All scored questions at burden 4
+  INPUT    : {"Q9":"RAPID","Q10":"ALW","Q11":"ALW","Q12":"FIVE_PLUS","Q46":"D0","Q47":"LT10","Q48":"NONE","Q23":"ALW","Q24":"ALW","Q25":"ALW","Q26":"NVR","Q27":"ALW","Q28":"NVR","Q29":"ALW","Q30":"ALW","Q16":"LT5","Q17":"ALW","Q18":"ALW","Q19":"ALW","Q20":"ALW","Q21":"ALW","Q22":"ALW","Q41":"ALW","Q42":"ALW","Q43":"ALW","Q44":"ALW","Q45":"ALW","Q31":"ALW","Q32":"ALW","Q33":"ALW","Q34":"ALW","Q35":"ALW","Q36":"ALW","Q37":"ALW","Q38":"ALW","Q39":"ALW","Q40":"ALW","Q49":"ALW","Q50":"ALW","Q51":"ALW"}
+  EXPECTED : {"domains":{"MR":100,"HS":100,"SR":100,"CH":100,"SL":100,"IB":100,"BS":100},"biologicalState":100,"scoredDomainCount":7}
+  ACTUAL   : {"domains":{"MR":100,"HS":100,"SR":100,"CH":100,"SL":100,"IB":100,"BS":100},"biologicalState":100,"band":"Dysregulated","opportunity":0,"recoveryPotential":50,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT06] Empty answers
+  INPUT    : {}
+  EXPECTED : {"domains":{"MR":null,"HS":null,"SR":null,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"opportunity":null,"recoveryPotential":null,"scoredDomainCount":0,"drivers":[]}
+  ACTUAL   : {"domains":{"MR":null,"HS":null,"SR":null,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":[],"coPrimary":false,"scoredDomainCount":0}
+  RESULT   : PASS
+
+[GT07] Biological State requires 5 of 7 domains (exactly 5 available)
+  INPUT    : {"Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT","Q41":"SMT","Q42":"SMT","Q43":"SMT","Q44":"SMT","Q45":"SMT","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT","Q35":"SMT","Q36":"SMT","Q37":"SMT","Q38":"SMT","Q39":"SMT","Q40":"SMT"}
+  EXPECTED : {"domains":{"MR":null,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":null},"biologicalState":50,"scoredDomainCount":5}
+  ACTUAL   : {"domains":{"MR":null,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":null},"biologicalState":50,"band":"Strained","opportunity":50,"recoveryPotential":75,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":5}
+  RESULT   : PASS
+
+[GT08] Biological State null at 4 of 7 domains
+  INPUT    : {"Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT","Q41":"SMT","Q42":"SMT","Q43":"SMT","Q44":"SMT","Q45":"SMT","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT"}
+  EXPECTED : {"domains":{"MR":null,"HS":50,"SR":50,"CH":50,"SL":50,"IB":null,"BS":null},"biologicalState":null,"opportunity":null,"recoveryPotential":null,"scoredDomainCount":4,"coPrimary":true,"drivers":["HS+SR","CH"]}
+  ACTUAL   : {"domains":{"MR":null,"HS":50,"SR":50,"CH":50,"SL":50,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":4}
+  RESULT   : PASS
+
+[GT09] Single domain available
+  INPUT    : {"Q9":"CYCLING","Q10":"OFT","Q11":"OFT","Q12":"THREE_FOUR","Q46":"D1_2","Q47":"M10_29","Q48":"LIGHT"}
+  EXPECTED : {"domains":{"MR":75,"HS":null,"SR":null,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"drivers":["MR"],"scoredDomainCount":1}
+  ACTUAL   : {"domains":{"MR":75,"HS":null,"SR":null,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":["MR"],"coPrimary":false,"scoredDomainCount":1}
+  RESULT   : PASS
+
+[GT10] Domain coverage at exactly 50% threshold
+  INPUT    : {"Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT"}
+  EXPECTED : {"coverage":{"HS":0.5},"domains":{"HS":50}}
+  ACTUAL   : {"domains":{"MR":null,"HS":50,"SR":null,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":["HS"],"coPrimary":false,"scoredDomainCount":1}
+  RESULT   : PASS
+
+[GT11] Domain below 50% coverage returns null
+  INPUT    : {"Q9":"GRADUAL","Q10":"SMT"}
+  EXPECTED : {"domains":{"MR":null}}
+  ACTUAL   : {"domains":{"MR":null,"HS":null,"SR":null,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":[],"coPrimary":false,"scoredDomainCount":0}
+  RESULT   : PASS
+
+[GT12] N/A excluded from numerator and denominator
+  INPUT    : {"Q16":"H7_9","Q17":"NVR","Q18":"NVR","Q19":"NVR","Q20":"NVR","Q21":"NVR","Q22":"NA"}
+  EXPECTED : {"domains":{"SR":0}}
+  ACTUAL   : {"domains":{"MR":null,"HS":null,"SR":0,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":[],"coPrimary":false,"scoredDomainCount":1}
+  RESULT   : PASS
+
+[GT13] Reverse-scored questions invert burden
+  INPUT    : {"Q26":"NVR"}
+  EXPECTED : {"coverage":{"HS":1}}
+  ACTUAL   : {"domains":{"MR":null,"HS":null,"SR":null,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":[],"coPrimary":false,"scoredDomainCount":0}
+  RESULT   : PASS
+
+[GT14] Driver ranking: descending order, no ties
+  INPUT    : {"Q9":"RAPID","Q10":"ALW","Q11":"ALW","Q12":"FIVE_PLUS","Q46":"D0","Q47":"LT10","Q48":"NONE","Q23":"NVR","Q24":"NVR","Q25":"NVR","Q26":"ALW","Q27":"NVR","Q28":"ALW","Q29":"NVR","Q30":"NVR","Q16":"H7_9","Q17":"NVR","Q18":"NVR","Q19":"NVR","Q20":"NVR","Q21":"NVR","Q22":"NVR","Q41":"NVR","Q42":"NVR","Q43":"NVR","Q44":"NVR","Q45":"NVR","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT","Q35":"NVR","Q36":"NVR","Q37":"NVR","Q38":"NVR","Q39":"NVR","Q40":"NVR","Q49":"NVR","Q50":"NVR","Q51":"NVR"}
+  EXPECTED : {"drivers":["MR","SL"],"coPrimary":false}
+  ACTUAL   : {"domains":{"MR":100,"HS":0,"SR":0,"CH":0,"SL":50,"IB":0,"BS":0},"biologicalState":21,"band":"Optimized","opportunity":79,"recoveryPotential":89.5,"drivers":["MR","SL"],"coPrimary":false,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT15] Fixed tie order applied when scores equal
+  INPUT    : {"Q9":"GRADUAL","Q10":"SMT","Q11":"SMT","Q12":"TWO","Q46":"D3_4","Q47":"M30_59","Q48":"AEROBIC","Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT","Q41":"SMT","Q42":"SMT","Q43":"SMT","Q44":"SMT","Q45":"SMT","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT","Q35":"SMT","Q36":"SMT","Q37":"SMT","Q38":"SMT","Q39":"SMT","Q40":"SMT","Q49":"SMT","Q50":"SMT","Q51":"SMT"}
+  EXPECTED : {"coPrimary":true,"drivers":["HS+SR","CH"]}
+  ACTUAL   : {"domains":{"MR":43,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":50},"biologicalState":49,"band":"Compensating","opportunity":51,"recoveryPotential":75.5,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT15B] Fixed tie order with all seven domains equal
+  INPUT    : {"Q9":"CYCLING","Q10":"OFT","Q11":"OFT","Q12":"THREE_FOUR","Q46":"D1_2","Q47":"M10_29","Q48":"LIGHT","Q23":"OFT","Q24":"OFT","Q25":"OFT","Q26":"RLY","Q27":"OFT","Q28":"RLY","Q29":"OFT","Q30":"OFT","Q16":"H5_6","Q17":"OFT","Q18":"OFT","Q19":"OFT","Q20":"OFT","Q21":"OFT","Q22":"OFT","Q41":"OFT","Q42":"OFT","Q43":"OFT","Q44":"OFT","Q45":"OFT","Q31":"OFT","Q32":"OFT","Q33":"OFT","Q34":"OFT","Q35":"OFT","Q36":"OFT","Q37":"OFT","Q38":"OFT","Q39":"OFT","Q40":"OFT","Q49":"OFT","Q50":"OFT","Q51":"OFT"}
+  EXPECTED : {"coPrimary":true,"drivers":["MR+HS","SR"]}
+  ACTUAL   : {"domains":{"MR":75,"HS":75,"SR":75,"CH":75,"SL":75,"IB":75,"BS":75},"biologicalState":75,"band":"Dysregulated","opportunity":25,"recoveryPotential":62.5,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT16] Co-primary when top two differ by exactly 3
+  INPUT    : {"Q9":"CYCLING","Q10":"OFT","Q11":"OFT","Q12":"THREE_FOUR","Q46":"D1_2","Q47":"M10_29","Q48":"LIGHT","Q23":"OFT","Q24":"OFT","Q25":"OFT","Q26":"RLY","Q27":"OFT","Q28":"RLY","Q29":"OFT","Q30":"OFT","Q16":"H5_6","Q17":"OFT","Q18":"OFT","Q19":"OFT","Q20":"OFT","Q21":"OFT","Q22":"OFT","Q41":"OFT","Q42":"OFT","Q43":"OFT","Q44":"OFT","Q45":"OFT","Q31":"OFT","Q32":"OFT","Q33":"OFT","Q34":"OFT","Q35":"OFT","Q36":"OFT","Q37":"OFT","Q38":"OFT","Q39":"OFT","Q40":"OFT","Q49":"OFT","Q50":"OFT","Q51":"OFT"}
+  EXPECTED : {"coPrimary":true,"drivers":["MR+HS","SR"]}
+  ACTUAL   : {"domains":{"MR":75,"HS":75,"SR":75,"CH":75,"SL":75,"IB":75,"BS":75},"biologicalState":75,"band":"Dysregulated","opportunity":25,"recoveryPotential":62.5,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT16B] Co-primary boundary: reachable 3-point gap (HS 75 vs SR 72)
+  INPUT    : {"Q23":"OFT","Q24":"OFT","Q25":"OFT","Q26":"RLY","Q27":"OFT","Q28":"RLY","Q29":"OFT","Q30":"OFT","Q16":"H5_6","Q17":"OFT","Q18":"OFT","Q19":"OFT","Q20":"OFT","Q21":"OFT","Q22":"OFT"}
+  EXPECTED : {"coPrimary":true,"drivers":["HS+SR"]}
+  ACTUAL   : {"domains":{"MR":null,"HS":75,"SR":75,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":["HS+SR"],"coPrimary":true,"scoredDomainCount":2}
+  RESULT   : PASS
+
+[GT16C] Co-primary boundary: closest reachable positive gap (4) is NOT co-primary
+  INPUT    : {"Q23":"OFT","Q24":"OFT","Q25":"OFT","Q26":"RLY","Q27":"OFT","Q28":"RLY","Q29":"OFT","Q30":"OFT","Q16":"H7_9","Q17":"OFT","Q18":"OFT","Q19":"OFT","Q20":"OFT","Q21":"OFT","Q22":"OFT"}
+  EXPECTED : {"coPrimary":false,"drivers":["HS","SR"]}
+  ACTUAL   : {"domains":{"MR":null,"HS":75,"SR":64,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":["HS","SR"],"coPrimary":false,"scoredDomainCount":2}
+  RESULT   : PASS
+
+[GT17] No co-primary when top two differ by 4
+  INPUT    : {"Q9":"RAPID","Q10":"ALW","Q11":"ALW","Q12":"FIVE_PLUS","Q46":"D0","Q47":"LT10","Q48":"NONE","Q23":"NVR","Q24":"NVR","Q25":"NVR","Q26":"ALW","Q27":"NVR","Q28":"ALW","Q29":"NVR","Q30":"NVR","Q16":"H7_9","Q17":"NVR","Q18":"NVR","Q19":"NVR","Q20":"NVR","Q21":"NVR","Q22":"NVR","Q41":"NVR","Q42":"NVR","Q43":"NVR","Q44":"NVR","Q45":"NVR","Q31":"NVR","Q32":"NVR","Q33":"NVR","Q34":"NVR","Q35":"NVR","Q36":"NVR","Q37":"NVR","Q38":"NVR","Q39":"NVR","Q40":"NVR","Q49":"NVR","Q50":"NVR","Q51":"NVR"}
+  EXPECTED : {"coPrimary":false,"drivers":["MR"]}
+  ACTUAL   : {"domains":{"MR":100,"HS":0,"SR":0,"CH":0,"SL":0,"IB":0,"BS":0},"biologicalState":14,"band":"Optimized","opportunity":86,"recoveryPotential":93,"drivers":["MR"],"coPrimary":false,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT18] Co-primary rendered once, no duplication
+  INPUT    : {"Q9":"CYCLING","Q10":"OFT","Q11":"OFT","Q12":"THREE_FOUR","Q46":"D1_2","Q47":"M10_29","Q48":"LIGHT","Q23":"OFT","Q24":"OFT","Q25":"OFT","Q26":"RLY","Q27":"OFT","Q28":"RLY","Q29":"OFT","Q30":"OFT","Q16":"H5_6","Q17":"OFT","Q18":"OFT","Q19":"OFT","Q20":"OFT","Q21":"OFT","Q22":"OFT","Q41":"OFT","Q42":"OFT","Q43":"OFT","Q44":"OFT","Q45":"OFT","Q31":"OFT","Q32":"OFT","Q33":"OFT","Q34":"OFT","Q35":"OFT","Q36":"OFT","Q37":"OFT","Q38":"OFT","Q39":"OFT","Q40":"OFT","Q49":"OFT","Q50":"OFT","Q51":"OFT"}
+  EXPECTED : {"coPrimary":true,"drivers":["MR+HS","SR"]}
+  ACTUAL   : {"domains":{"MR":75,"HS":75,"SR":75,"CH":75,"SL":75,"IB":75,"BS":75},"biologicalState":75,"band":"Dysregulated","opportunity":25,"recoveryPotential":62.5,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT19] Co-primary with only two eligible domains
+  INPUT    : {"Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT"}
+  EXPECTED : {"coPrimary":true,"drivers":["HS+SR"]}
+  ACTUAL   : {"domains":{"MR":null,"HS":50,"SR":50,"CH":null,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":["HS+SR"],"coPrimary":true,"scoredDomainCount":2}
+  RESULT   : PASS
+
+[GT20] Null domains never appear as drivers
+  INPUT    : {"Q23":"RLY","Q24":"RLY","Q25":"RLY","Q26":"OFT","Q27":"RLY","Q28":"OFT","Q29":"RLY","Q30":"RLY","Q16":"H6_7","Q17":"RLY","Q18":"RLY","Q19":"RLY","Q20":"RLY","Q21":"RLY","Q22":"RLY","Q41":"RLY","Q42":"RLY","Q43":"RLY","Q44":"RLY","Q45":"RLY"}
+  EXPECTED : {"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":3}
+  ACTUAL   : {"domains":{"MR":null,"HS":25,"SR":25,"CH":25,"SL":null,"IB":null,"BS":null},"biologicalState":null,"band":null,"opportunity":null,"recoveryPotential":null,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":3}
+  RESULT   : PASS
+
+[GT21] Opportunity = 100 - Biological State (1 decimal)
+  INPUT    : {"Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT","Q41":"SMT","Q42":"SMT","Q43":"SMT","Q44":"SMT","Q45":"SMT","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT","Q35":"SMT","Q36":"SMT","Q37":"SMT","Q38":"SMT","Q39":"SMT","Q40":"SMT","Q49":"SMT","Q50":"SMT","Q51":"SMT"}
+  EXPECTED : {"biologicalState":50,"opportunity":50}
+  ACTUAL   : {"domains":{"MR":null,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":50},"biologicalState":50,"band":"Strained","opportunity":50,"recoveryPotential":75,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":6}
+  RESULT   : PASS
+
+[GT22] Recovery Potential derived from Biological State (1 decimal)
+  INPUT    : {"Q9":"RAPID","Q10":"ALW","Q11":"ALW","Q12":"FIVE_PLUS","Q46":"D0","Q47":"LT10","Q48":"NONE","Q23":"ALW","Q24":"ALW","Q25":"ALW","Q26":"NVR","Q27":"ALW","Q28":"NVR","Q29":"ALW","Q30":"ALW","Q16":"LT5","Q17":"ALW","Q18":"ALW","Q19":"ALW","Q20":"ALW","Q21":"ALW","Q22":"ALW","Q41":"ALW","Q42":"ALW","Q43":"ALW","Q44":"ALW","Q45":"ALW","Q31":"ALW","Q32":"ALW","Q33":"ALW","Q34":"ALW","Q35":"ALW","Q36":"ALW","Q37":"ALW","Q38":"ALW","Q39":"ALW","Q40":"ALW","Q49":"ALW","Q50":"ALW","Q51":"ALW"}
+  EXPECTED : {"recoveryPotential":50}
+  ACTUAL   : {"domains":{"MR":100,"HS":100,"SR":100,"CH":100,"SL":100,"IB":100,"BS":100},"biologicalState":100,"band":"Dysregulated","opportunity":0,"recoveryPotential":50,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT23] Rounding half away from zero (0.5 up)
+  INPUT    : {"Q9":"IDENTIFIABLE","Q10":"RLY","Q11":"NVR","Q12":"NONE","Q46":"D5_7","Q47":"M60_PLUS","Q48":"MIXED","Q23":"NVR","Q24":"NVR","Q25":"NVR","Q26":"ALW","Q27":"NVR","Q28":"ALW","Q29":"NVR","Q30":"NVR","Q16":"H7_9","Q17":"NVR","Q18":"NVR","Q19":"NVR","Q20":"NVR","Q21":"NVR","Q22":"NVR","Q41":"NVR","Q42":"NVR","Q43":"NVR","Q44":"NVR","Q45":"NVR","Q31":"NVR","Q32":"NVR","Q33":"NVR","Q34":"NVR","Q35":"NVR","Q36":"NVR","Q37":"NVR","Q38":"NVR","Q39":"NVR","Q40":"NVR","Q49":"NVR","Q50":"NVR","Q51":"NVR"}
+  EXPECTED : {}
+  ACTUAL   : {"domains":{"MR":7,"HS":0,"SR":0,"CH":0,"SL":0,"IB":0,"BS":0},"biologicalState":1,"band":"Optimized","opportunity":99,"recoveryPotential":99.5,"drivers":[],"coPrimary":false,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT24] Classification band: Optimized
+  INPUT    : {"Q9":"STABLE","Q10":"NVR","Q11":"NVR","Q12":"NONE","Q46":"D5_7","Q47":"M60_PLUS","Q48":"MIXED","Q23":"NVR","Q24":"NVR","Q25":"NVR","Q26":"ALW","Q27":"NVR","Q28":"ALW","Q29":"NVR","Q30":"NVR","Q16":"H7_9","Q17":"NVR","Q18":"NVR","Q19":"NVR","Q20":"NVR","Q21":"NVR","Q22":"NVR","Q41":"NVR","Q42":"NVR","Q43":"NVR","Q44":"NVR","Q45":"NVR","Q31":"NVR","Q32":"NVR","Q33":"NVR","Q34":"NVR","Q35":"NVR","Q36":"NVR","Q37":"NVR","Q38":"NVR","Q39":"NVR","Q40":"NVR","Q49":"NVR","Q50":"NVR","Q51":"NVR"}
+  EXPECTED : {"band":"Optimized"}
+  ACTUAL   : {"domains":{"MR":0,"HS":0,"SR":0,"CH":0,"SL":0,"IB":0,"BS":0},"biologicalState":0,"band":"Optimized","opportunity":100,"recoveryPotential":100,"drivers":[],"coPrimary":false,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT25] Classification band: Compensating
+  INPUT    : {"Q9":"GRADUAL","Q10":"SMT","Q11":"SMT","Q12":"TWO","Q46":"D3_4","Q47":"M30_59","Q48":"AEROBIC","Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT","Q41":"SMT","Q42":"SMT","Q43":"SMT","Q44":"SMT","Q45":"SMT","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT","Q35":"SMT","Q36":"SMT","Q37":"SMT","Q38":"SMT","Q39":"SMT","Q40":"SMT","Q49":"SMT","Q50":"SMT","Q51":"SMT"}
+  EXPECTED : {"band":"Compensating"}
+  ACTUAL   : {"domains":{"MR":43,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":50},"biologicalState":49,"band":"Compensating","opportunity":51,"recoveryPotential":75.5,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT26] Classification band: Strained
+  INPUT    : {"Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT","Q41":"SMT","Q42":"SMT","Q43":"SMT","Q44":"SMT","Q45":"SMT","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT","Q35":"SMT","Q36":"SMT","Q37":"SMT","Q38":"SMT","Q39":"SMT","Q40":"SMT","Q49":"SMT","Q50":"SMT","Q51":"SMT"}
+  EXPECTED : {"band":"Strained"}
+  ACTUAL   : {"domains":{"MR":null,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":50},"biologicalState":50,"band":"Strained","opportunity":50,"recoveryPotential":75,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":6}
+  RESULT   : PASS
+
+[GT27] Classification band: Dysregulated
+  INPUT    : {"Q9":"RAPID","Q10":"ALW","Q11":"ALW","Q12":"FIVE_PLUS","Q46":"D0","Q47":"LT10","Q48":"NONE","Q23":"ALW","Q24":"ALW","Q25":"ALW","Q26":"NVR","Q27":"ALW","Q28":"NVR","Q29":"ALW","Q30":"ALW","Q16":"LT5","Q17":"ALW","Q18":"ALW","Q19":"ALW","Q20":"ALW","Q21":"ALW","Q22":"ALW","Q41":"ALW","Q42":"ALW","Q43":"ALW","Q44":"ALW","Q45":"ALW","Q31":"ALW","Q32":"ALW","Q33":"ALW","Q34":"ALW","Q35":"ALW","Q36":"ALW","Q37":"ALW","Q38":"ALW","Q39":"ALW","Q40":"ALW","Q49":"ALW","Q50":"ALW","Q51":"ALW"}
+  EXPECTED : {"band":"Dysregulated"}
+  ACTUAL   : {"domains":{"MR":100,"HS":100,"SR":100,"CH":100,"SL":100,"IB":100,"BS":100},"biologicalState":100,"band":"Dysregulated","opportunity":0,"recoveryPotential":50,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT28] Results carry canonical version identity
+  INPUT    : {"Q9":"GRADUAL","Q10":"SMT","Q11":"SMT","Q12":"TWO","Q46":"D3_4","Q47":"M30_59","Q48":"AEROBIC","Q23":"SMT","Q24":"SMT","Q25":"SMT","Q26":"SMT","Q27":"SMT","Q28":"SMT","Q29":"SMT","Q30":"SMT","Q16":"GT9","Q17":"SMT","Q18":"SMT","Q19":"SMT","Q20":"SMT","Q21":"SMT","Q22":"SMT","Q41":"SMT","Q42":"SMT","Q43":"SMT","Q44":"SMT","Q45":"SMT","Q31":"SMT","Q32":"SMT","Q33":"SMT","Q34":"SMT","Q35":"SMT","Q36":"SMT","Q37":"SMT","Q38":"SMT","Q39":"SMT","Q40":"SMT","Q49":"SMT","Q50":"SMT","Q51":"SMT"}
+  EXPECTED : {}
+  ACTUAL   : {"domains":{"MR":43,"HS":50,"SR":50,"CH":50,"SL":50,"IB":50,"BS":50},"biologicalState":49,"band":"Compensating","opportunity":51,"recoveryPotential":75.5,"drivers":["HS+SR","CH"],"coPrimary":true,"scoredDomainCount":7}
+  RESULT   : PASS
+
+[GT29] Determinism: identical inputs produce identical outputs
+  INPUT    : {"Q9":"CYCLING","Q10":"OFT","Q11":"OFT","Q12":"THREE_FOUR","Q46":"D1_2","Q47":"M10_29","Q48":"LIGHT","Q23":"OFT","Q24":"OFT","Q25":"OFT","Q26":"RLY","Q27":"OFT","Q28":"RLY","Q29":"OFT","Q30":"OFT","Q16":"H5_6","Q17":"OFT","Q18":"OFT","Q19":"OFT","Q20":"OFT","Q21":"OFT","Q22":"OFT","Q41":"OFT","Q42":"OFT","Q43":"OFT","Q44":"OFT","Q45":"OFT","Q31":"OFT","Q32":"OFT","Q33":"OFT","Q34":"OFT","Q35":"OFT","Q36":"OFT","Q37":"OFT","Q38":"OFT","Q39":"OFT","Q40":"OFT"}
+  EXPECTED : {"biologicalState":75,"scoredDomainCount":6}
+  ACTUAL   : {"domains":{"MR":75,"HS":75,"SR":75,"CH":75,"SL":75,"IB":75,"BS":null},"biologicalState":75,"band":"Dysregulated","opportunity":25,"recoveryPotential":62.5,"drivers":["MR+HS","SR"],"coPrimary":true,"scoredDomainCount":6}
+  RESULT   : PASS
+
+[GT30] Missing data is not treated as N/A or zero
+  INPUT    : {"Q9":"STABLE","Q10":"NVR","Q11":"NVR","Q12":"NONE","Q46":"D5_7","Q47":"M60_PLUS","Q48":"MIXED","Q23":"NVR","Q24":"NVR","Q25":"NVR","Q26":"ALW","Q27":"NVR","Q28":"ALW","Q29":"NVR","Q30":"NVR","Q16":"H7_9","Q17":"NVR","Q18":"NVR","Q19":"NVR","Q20":"NVR","Q21":"NVR","Q22":"NVR","Q41":"NVR","Q42":"NVR","Q43":"NVR","Q44":"NVR","Q45":"NVR","Q31":"NVR","Q32":"NVR","Q33":"NVR","Q34":"NVR","Q36":"NVR","Q37":"NVR","Q38":"NVR","Q39":"NVR","Q40":"NVR","Q49":"NVR","Q50":"NVR","Q51":"NVR"}
+  EXPECTED : {}
+  ACTUAL   : {"domains":{"MR":0,"HS":0,"SR":0,"CH":0,"SL":0,"IB":0,"BS":0},"biologicalState":0,"band":"Optimized","opportunity":100,"recoveryPotential":100,"drivers":[],"coPrimary":false,"scoredDomainCount":7}
+  RESULT   : PASS
+
+=== Summary ===
+Total : 34
+Passed: 34
+Failed: 0
+Acceptance (all tests PASS, >= 30 canonical): MET

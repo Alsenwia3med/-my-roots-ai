@@ -1,0 +1,351 @@
+{
+  "generated_by": "npm run evidence:point21",
+  "report_template_version": "1.0.1",
+  "bands": [
+    {
+      "label": "Optimized",
+      "range": "0-24",
+      "interpretation": "Lower reported burden"
+    },
+    {
+      "label": "Compensating",
+      "range": "25-49",
+      "interpretation": "Signals present; compensation appears active"
+    },
+    {
+      "label": "Strained",
+      "range": "50-74",
+      "interpretation": "Multiple or frequent signals"
+    },
+    {
+      "label": "Dysregulated",
+      "range": "75-100",
+      "interpretation": "High reported burden; educational prompt to seek appropriate support"
+    }
+  ],
+  "domains": [
+    {
+      "id": "MR",
+      "label": "Metabolic Resistance™",
+      "meaning": "Self-reported resistance to expected weight change and activity-related metabolic context."
+    },
+    {
+      "id": "HS",
+      "label": "Hunger & Satiety Signals™",
+      "meaning": "Hunger, craving, fullness and post-meal response patterns."
+    },
+    {
+      "id": "SR",
+      "label": "Sleep Recovery Index™",
+      "meaning": "Sleep duration, continuity and perceived restoration."
+    },
+    {
+      "id": "CH",
+      "label": "Circadian Health Score™",
+      "meaning": "Alignment of light, screen, meal and sleep timing."
+    },
+    {
+      "id": "SL",
+      "label": "Stress Load™",
+      "meaning": "Perceived tension, cognitive activation and stress-linked eating."
+    },
+    {
+      "id": "IB",
+      "label": "Inflammation Burden Index™",
+      "meaning": "Non-specific symptom burden; not a laboratory or clinical inflammation measure."
+    },
+    {
+      "id": "BS",
+      "label": "Biological Safety Signals™",
+      "meaning": "Perceived energy, appetite drive and resistance signals."
+    }
+  ],
+  "classification_explanations": {
+    "Optimized": "Few burden signals were reported in this area.",
+    "Compensating": "Some signals are present, while current routines may still be helping your system compensate.",
+    "Strained": "Several signals may be placing consistent pressure on this area.",
+    "Dysregulated": "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+  },
+  "rows": [
+    {
+      "n": 1,
+      "domain_id": "MR",
+      "domain_label": "Metabolic Resistance™",
+      "domain_meaning": "Self-reported resistance to expected weight change and activity-related metabolic context.",
+      "classification": "Optimized",
+      "range": "0-24",
+      "classification_explanation": "Few burden signals were reported in this area.",
+      "rendered_text": "Self-reported resistance to expected weight change and activity-related metabolic context. Few burden signals were reported in this area."
+    },
+    {
+      "n": 2,
+      "domain_id": "MR",
+      "domain_label": "Metabolic Resistance™",
+      "domain_meaning": "Self-reported resistance to expected weight change and activity-related metabolic context.",
+      "classification": "Compensating",
+      "range": "25-49",
+      "classification_explanation": "Some signals are present, while current routines may still be helping your system compensate.",
+      "rendered_text": "Self-reported resistance to expected weight change and activity-related metabolic context. Some signals are present, while current routines may still be helping your system compensate."
+    },
+    {
+      "n": 3,
+      "domain_id": "MR",
+      "domain_label": "Metabolic Resistance™",
+      "domain_meaning": "Self-reported resistance to expected weight change and activity-related metabolic context.",
+      "classification": "Strained",
+      "range": "50-74",
+      "classification_explanation": "Several signals may be placing consistent pressure on this area.",
+      "rendered_text": "Self-reported resistance to expected weight change and activity-related metabolic context. Several signals may be placing consistent pressure on this area."
+    },
+    {
+      "n": 4,
+      "domain_id": "MR",
+      "domain_label": "Metabolic Resistance™",
+      "domain_meaning": "Self-reported resistance to expected weight change and activity-related metabolic context.",
+      "classification": "Dysregulated",
+      "range": "75-100",
+      "classification_explanation": "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+      "rendered_text": "Self-reported resistance to expected weight change and activity-related metabolic context. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+    },
+    {
+      "n": 5,
+      "domain_id": "HS",
+      "domain_label": "Hunger & Satiety Signals™",
+      "domain_meaning": "Hunger, craving, fullness and post-meal response patterns.",
+      "classification": "Optimized",
+      "range": "0-24",
+      "classification_explanation": "Few burden signals were reported in this area.",
+      "rendered_text": "Hunger, craving, fullness and post-meal response patterns. Few burden signals were reported in this area."
+    },
+    {
+      "n": 6,
+      "domain_id": "HS",
+      "domain_label": "Hunger & Satiety Signals™",
+      "domain_meaning": "Hunger, craving, fullness and post-meal response patterns.",
+      "classification": "Compensating",
+      "range": "25-49",
+      "classification_explanation": "Some signals are present, while current routines may still be helping your system compensate.",
+      "rendered_text": "Hunger, craving, fullness and post-meal response patterns. Some signals are present, while current routines may still be helping your system compensate."
+    },
+    {
+      "n": 7,
+      "domain_id": "HS",
+      "domain_label": "Hunger & Satiety Signals™",
+      "domain_meaning": "Hunger, craving, fullness and post-meal response patterns.",
+      "classification": "Strained",
+      "range": "50-74",
+      "classification_explanation": "Several signals may be placing consistent pressure on this area.",
+      "rendered_text": "Hunger, craving, fullness and post-meal response patterns. Several signals may be placing consistent pressure on this area."
+    },
+    {
+      "n": 8,
+      "domain_id": "HS",
+      "domain_label": "Hunger & Satiety Signals™",
+      "domain_meaning": "Hunger, craving, fullness and post-meal response patterns.",
+      "classification": "Dysregulated",
+      "range": "75-100",
+      "classification_explanation": "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+      "rendered_text": "Hunger, craving, fullness and post-meal response patterns. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+    },
+    {
+      "n": 9,
+      "domain_id": "SR",
+      "domain_label": "Sleep Recovery Index™",
+      "domain_meaning": "Sleep duration, continuity and perceived restoration.",
+      "classification": "Optimized",
+      "range": "0-24",
+      "classification_explanation": "Few burden signals were reported in this area.",
+      "rendered_text": "Sleep duration, continuity and perceived restoration. Few burden signals were reported in this area."
+    },
+    {
+      "n": 10,
+      "domain_id": "SR",
+      "domain_label": "Sleep Recovery Index™",
+      "domain_meaning": "Sleep duration, continuity and perceived restoration.",
+      "classification": "Compensating",
+      "range": "25-49",
+      "classification_explanation": "Some signals are present, while current routines may still be helping your system compensate.",
+      "rendered_text": "Sleep duration, continuity and perceived restoration. Some signals are present, while current routines may still be helping your system compensate."
+    },
+    {
+      "n": 11,
+      "domain_id": "SR",
+      "domain_label": "Sleep Recovery Index™",
+      "domain_meaning": "Sleep duration, continuity and perceived restoration.",
+      "classification": "Strained",
+      "range": "50-74",
+      "classification_explanation": "Several signals may be placing consistent pressure on this area.",
+      "rendered_text": "Sleep duration, continuity and perceived restoration. Several signals may be placing consistent pressure on this area."
+    },
+    {
+      "n": 12,
+      "domain_id": "SR",
+      "domain_label": "Sleep Recovery Index™",
+      "domain_meaning": "Sleep duration, continuity and perceived restoration.",
+      "classification": "Dysregulated",
+      "range": "75-100",
+      "classification_explanation": "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+      "rendered_text": "Sleep duration, continuity and perceived restoration. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+    },
+    {
+      "n": 13,
+      "domain_id": "CH",
+      "domain_label": "Circadian Health Score™",
+      "domain_meaning": "Alignment of light, screen, meal and sleep timing.",
+      "classification": "Optimized",
+      "range": "0-24",
+      "classification_explanation": "Few burden signals were reported in this area.",
+      "rendered_text": "Alignment of light, screen, meal and sleep timing. Few burden signals were reported in this area."
+    },
+    {
+      "n": 14,
+      "domain_id": "CH",
+      "domain_label": "Circadian Health Score™",
+      "domain_meaning": "Alignment of light, screen, meal and sleep timing.",
+      "classification": "Compensating",
+      "range": "25-49",
+      "classification_explanation": "Some signals are present, while current routines may still be helping your system compensate.",
+      "rendered_text": "Alignment of light, screen, meal and sleep timing. Some signals are present, while current routines may still be helping your system compensate."
+    },
+    {
+      "n": 15,
+      "domain_id": "CH",
+      "domain_label": "Circadian Health Score™",
+      "domain_meaning": "Alignment of light, screen, meal and sleep timing.",
+      "classification": "Strained",
+      "range": "50-74",
+      "classification_explanation": "Several signals may be placing consistent pressure on this area.",
+      "rendered_text": "Alignment of light, screen, meal and sleep timing. Several signals may be placing consistent pressure on this area."
+    },
+    {
+      "n": 16,
+      "domain_id": "CH",
+      "domain_label": "Circadian Health Score™",
+      "domain_meaning": "Alignment of light, screen, meal and sleep timing.",
+      "classification": "Dysregulated",
+      "range": "75-100",
+      "classification_explanation": "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+      "rendered_text": "Alignment of light, screen, meal and sleep timing. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+    },
+    {
+      "n": 17,
+      "domain_id": "SL",
+      "domain_label": "Stress Load™",
+      "domain_meaning": "Perceived tension, cognitive activation and stress-linked eating.",
+      "classification": "Optimized",
+      "range": "0-24",
+      "classification_explanation": "Few burden signals were reported in this area.",
+      "rendered_text": "Perceived tension, cognitive activation and stress-linked eating. Few burden signals were reported in this area."
+    },
+    {
+      "n": 18,
+      "domain_id": "SL",
+      "domain_label": "Stress Load™",
+      "domain_meaning": "Perceived tension, cognitive activation and stress-linked eating.",
+      "classification": "Compensating",
+      "range": "25-49",
+      "classification_explanation": "Some signals are present, while current routines may still be helping your system compensate.",
+      "rendered_text": "Perceived tension, cognitive activation and stress-linked eating. Some signals are present, while current routines may still be helping your system compensate."
+    },
+    {
+      "n": 19,
+      "domain_id": "SL",
+      "domain_label": "Stress Load™",
+      "domain_meaning": "Perceived tension, cognitive activation and stress-linked eating.",
+      "classification": "Strained",
+      "range": "50-74",
+      "classification_explanation": "Several signals may be placing consistent pressure on this area.",
+      "rendered_text": "Perceived tension, cognitive activation and stress-linked eating. Several signals may be placing consistent pressure on this area."
+    },
+    {
+      "n": 20,
+      "domain_id": "SL",
+      "domain_label": "Stress Load™",
+      "domain_meaning": "Perceived tension, cognitive activation and stress-linked eating.",
+      "classification": "Dysregulated",
+      "range": "75-100",
+      "classification_explanation": "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+      "rendered_text": "Perceived tension, cognitive activation and stress-linked eating. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+    },
+    {
+      "n": 21,
+      "domain_id": "IB",
+      "domain_label": "Inflammation Burden Index™",
+      "domain_meaning": "Non-specific symptom burden; not a laboratory or clinical inflammation measure.",
+      "classification": "Optimized",
+      "range": "0-24",
+      "classification_explanation": "Few burden signals were reported in this area.",
+      "rendered_text": "Non-specific symptom burden; not a laboratory or clinical inflammation measure. Few burden signals were reported in this area."
+    },
+    {
+      "n": 22,
+      "domain_id": "IB",
+      "domain_label": "Inflammation Burden Index™",
+      "domain_meaning": "Non-specific symptom burden; not a laboratory or clinical inflammation measure.",
+      "classification": "Compensating",
+      "range": "25-49",
+      "classification_explanation": "Some signals are present, while current routines may still be helping your system compensate.",
+      "rendered_text": "Non-specific symptom burden; not a laboratory or clinical inflammation measure. Some signals are present, while current routines may still be helping your system compensate."
+    },
+    {
+      "n": 23,
+      "domain_id": "IB",
+      "domain_label": "Inflammation Burden Index™",
+      "domain_meaning": "Non-specific symptom burden; not a laboratory or clinical inflammation measure.",
+      "classification": "Strained",
+      "range": "50-74",
+      "classification_explanation": "Several signals may be placing consistent pressure on this area.",
+      "rendered_text": "Non-specific symptom burden; not a laboratory or clinical inflammation measure. Several signals may be placing consistent pressure on this area."
+    },
+    {
+      "n": 24,
+      "domain_id": "IB",
+      "domain_label": "Inflammation Burden Index™",
+      "domain_meaning": "Non-specific symptom burden; not a laboratory or clinical inflammation measure.",
+      "classification": "Dysregulated",
+      "range": "75-100",
+      "classification_explanation": "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+      "rendered_text": "Non-specific symptom burden; not a laboratory or clinical inflammation measure. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+    },
+    {
+      "n": 25,
+      "domain_id": "BS",
+      "domain_label": "Biological Safety Signals™",
+      "domain_meaning": "Perceived energy, appetite drive and resistance signals.",
+      "classification": "Optimized",
+      "range": "0-24",
+      "classification_explanation": "Few burden signals were reported in this area.",
+      "rendered_text": "Perceived energy, appetite drive and resistance signals. Few burden signals were reported in this area."
+    },
+    {
+      "n": 26,
+      "domain_id": "BS",
+      "domain_label": "Biological Safety Signals™",
+      "domain_meaning": "Perceived energy, appetite drive and resistance signals.",
+      "classification": "Compensating",
+      "range": "25-49",
+      "classification_explanation": "Some signals are present, while current routines may still be helping your system compensate.",
+      "rendered_text": "Perceived energy, appetite drive and resistance signals. Some signals are present, while current routines may still be helping your system compensate."
+    },
+    {
+      "n": 27,
+      "domain_id": "BS",
+      "domain_label": "Biological Safety Signals™",
+      "domain_meaning": "Perceived energy, appetite drive and resistance signals.",
+      "classification": "Strained",
+      "range": "50-74",
+      "classification_explanation": "Several signals may be placing consistent pressure on this area.",
+      "rendered_text": "Perceived energy, appetite drive and resistance signals. Several signals may be placing consistent pressure on this area."
+    },
+    {
+      "n": 28,
+      "domain_id": "BS",
+      "domain_label": "Biological Safety Signals™",
+      "domain_meaning": "Perceived energy, appetite drive and resistance signals.",
+      "classification": "Dysregulated",
+      "range": "75-100",
+      "classification_explanation": "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+      "rendered_text": "Perceived energy, appetite drive and resistance signals. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+    }
+  ]
+}

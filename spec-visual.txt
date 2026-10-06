@@ -1,0 +1,378 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ Visual Direction & Golden Screen
+Acceptance Brief v1.0.1 — CONTROLLED INTEGRATION
+CORRECTION
+Controlled correction to v1.0 FINAL
+This correction is integral to the attached v1.0 FINAL Brief and is intentionally limited. It does not change the approved visual direction,
+Golden Screen process, scoring threshold, responsive breakpoints, stage sequence, or the 30-calendar-day Phase 1 delivery
+framework.
+1. Existing SVG authority — explicit final boundary
+Every existing SVG/screen reference supplied before written Golden Screen approval shall be treated as FUNCTIONAL AND
+CONTENT WIREFRAME — NOT A FINAL VISUAL DESIGN. Such references may control approved content, required elements,
+screen/state identity, structure, flow and functional intent where applicable, but they do not control final aesthetics, art direction,
+component appearance, final composition, visual hierarchy, typography, spacing, color or final design quality. A filename containing
+“FINAL”, “MASTER”, “CORRECTED FINAL” or similar wording does not grant visual authority. Final visual authority remains the
+sequence defined by this Brief and the written-approved Golden Screen.
+2. ROOTS ownership of editable Golden Screen and design sources
+The selected PUB-01 Golden Screen, reusable component library, variants/states, final design tokens/styles, responsive rules/notes
+and editable visual source assets required to reproduce the approved UI shall be created in a ROOTS-owned Figma workspace/file or
+transferred to ROOTS with complete editable ownership/control before final handover. Acceptance must not depend on the
+Implementation Partner retaining a private account, inaccessible library, plugin, paid seat or other partner-controlled source
+dependency. Asset licensing/provenance obligations remain governed by the controlled design/asset handoff baseline.
+3. Commercial integration — no additional design fee
+The fixed total Phase 1 MVP implementation price is USD 3,600. The Visual Direction, PUB-01 Golden Screen, editable
+Figma/design-system work and downstream implementation required by the controlled Phase 1 baseline are included within that fixed
+total and do not create an additional design fee, surcharge or separate commercial scope. The 30-calendar-day delivery
+framework remains unchanged. Final milestone allocation/payment mechanics remain governed by the final signed Agreement, which
+shall be aligned to the same USD 3,600 total before final package issuance.
+4. Preserved Golden Screen process and acceptance
+All unaffected requirements of the v1.0 FINAL Brief remain binding, including: directional inspiration without copying; Stage A direction
+board/concepts; Stage B selected PUB-01 at 1440 and 360 with editable design system evidence; written ROOTS-AI approval before
+Stage C/downstream visual finalization; controlled evidence at 360/768/1024/1440; original ROOTS-AI visual signature; and the
+85/100 pass threshold with no blocking defect. This correction does not reduce functional, responsive, accessibility, ownership or
+acceptance obligations.
+Precedence: where the attached v1.0 FINAL Brief conflicts with this correction on SVG authority, editable-design ownership or Phase 1
+fixed-price integration, v1.0.1 controls. All other approved provisions of the v1.0 FINAL Brief remain unchanged.
+
+===== PAGE 2 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 1
+ROOTS-AI™
+VISUAL DIRECTION &
+GOLDEN SCREEN ACCEPTANCE BRIEF
+A controlled world-class design gate for Phase 1 implementation
+Document version 1.0 — Final for Vendor Review and Acceptance
+Applies to ROOTS-AI™ Phase 1 MVP UI/UX implementation
+Initial approval gate PUB-01 Golden Screen
+Issued by Dr. Nour Holly, Founder, ROOTS-AI™
+CONTROLLING INTERPRETATION
+The existing SVG files remain authoritative for approved content, screen structure, required elements
+and user flow only. They are not authoritative for final visual styling, artistic direction, component
+appearance or design quality.
+DECISION
+Do not continue bulk production of the remaining screens until PUB-01 has passed the Golden Screen
+approval gate in writing.
+
+===== PAGE 3 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 2
+01 / MANDATE
+1. Purpose and Required Interpretation
+This brief converts the approved ROOTS-AI™ product requirements into a controlled visual-design process. It
+protects the approved content, structure, functionality and user flow while requiring the vendor to apply its
+strongest professional UI/UX capability to the final visual execution.
+The prior SVG references are functional and content wireframes. They clarify what must appear, how information is
+ordered and how the user moves through the product. They must not be treated as the final aesthetic benchmark
+or reproduced as visually finished screens.
+REQUIRED LABEL FOR ALL EXISTING SVG REFERENCES
+FUNCTIONAL AND CONTENT WIREFRAME — NOT A FINAL VISUAL DESIGN
+2. Authority and Conflict Order
+The following order applies if two sources appear to conflict:
+Priority Controlled source What it governs
+1 Signed agreement and approved commercial
+terms
+Controls contracted scope, ownership, delivery, handover,
+warranty, fixed price and schedule.
+2 Controlled Phase 1 implementation baseline Controls approved product content, functionality, logic, screen
+requirements, states and acceptance obligations.
+3 This Visual Direction Brief Controls the visual-quality target, design process and PUB-01 design
+gate.
+4 Approved PUB-01 Golden Screen in Figma Becomes the visual-system reference after written approval; it
+cannot remove or modify baseline requirements.
+5 Approved downstream screens Must inherit the approved system and remain traceable to the
+controlled baseline.
+No meeting comment, chat message, mock-up or design preference changes the controlled requirements unless
+ROOTS-AI™ approves that change in writing.
+3. Product Positioning
+ROOTS-AI™ is a Biological Intelligence platform. It should not look like a generic wellness site, hospital portal,
+supplement store, questionnaire template or conventional dashboard. The experience must communicate scientific
+credibility, calm confidence, interpretive clarity and premium digital craftsmanship.
+ Premium, but not decorative or luxurious at the expense of clarity.
+ Scientific, but not cold, clinical or visually intimidating.
+ Human, but not casual, childish or lifestyle-influencer oriented.
+ Data-rich, but not crowded or spreadsheet-like.
+ Distinctive, but never experimental at the expense of usability or accessibility.
+
+===== PAGE 4 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 3
+02 / DIRECTION
+4. Inspiration Principles — Learn, Do Not Copy
+Reference Principle to study Boundary
+Oura Visual calm, restraint, premium simplicity and
+elegant pacing.
+Do not copy rings, compositions, gradients,
+illustrations or proprietary interaction patterns.
+Function Health Clear presentation of complex health information
+and progressive disclosure.
+Do not reproduce report structures, terminology,
+visualisations or component arrangements.
+WHOOP Score salience, actionable interpretation and strong
+connection between signals and decisions.
+Do not copy score treatments, colour systems, charts
+or recovery conventions.
+Apple Health Clean hierarchy, accessibility, familiar interaction
+logic and disciplined information density.
+Do not imitate Apple trade dress, iconography, card
+patterns or platform-specific visual identity.
+NON-COPYING RULE
+The submission must be recognisably ROOTS-AI™. Similarity to a reference is acceptable only at the level
+of quality principles, never at the level of copied expression, layout, assets or visual identity.
+5. ROOTS-AI™ Signature Visual Narrative
+The visual system should make the platform’s own intellectual model visible. At minimum, the design language
+must be capable of expressing:
+ Biological State: Optimized, Compensating, Strained and Dysregulated, without presenting a diagnosis.
+ The seven health domains as a connected system, not isolated scores.
+ Drivers, protective factors, confidence and opportunity as distinct information types.
+ The connection between signals, adaptation, interpretation and next actions.
+ A clear separation between deterministic scoring and governed AI-generated narrative.
+ Scientific boundaries, uncertainty and non-diagnostic language without weakening usefulness.
+6. Required Visual Character
+Dimension Required outcome
+Hierarchy Immediate recognition of the primary state, most important insight and next action.
+Rhythm Generous but purposeful whitespace; sections should feel paced, not empty or stretched.
+Depth Subtle layering, elevation and visual grouping; avoid excessive outlined boxes.
+Colour Meaningful semantic use with accessible contrast; avoid arbitrary gradients and decorative colour
+overload.
+Typography Confident editorial hierarchy with highly legible body text, numerals, labels and long-form interpretation.
+Motion Restrained and meaningful; use only to explain change, progress, relationship or system response.
+Imagery Original, licensed and scientifically appropriate; avoid generic stock-wellness clichés.
+
+===== PAGE 5 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 4
+6.1 Signature Impact and Distinctiveness Requirement
+The final ROOTS-AI™ experience must create an immediate and memorable first impression of scientific power,
+Biological Intelligence and technological distinction. It must go beyond clean usability and premium styling to
+establish a recognisable visual identity that could belong only to ROOTS-AI™.
+PUB-01 must contain at least one original signature visual expression of the ROOTS-AI™ biological model—for
+example, a distinctive representation of Biological State, the seven connected health domains, or the relationship
+between signals, adaptation, drivers and protection. The exact expression is the vendor’s design responsibility and
+must not imitate any named reference platform.
+ A powerful and visually commanding hero experience that communicates category leadership within the first five
+seconds.
+ A proprietary visual language for Biological Intelligence that can scale across public, assessment, report and
+administration screens.
+ Memorable data storytelling rather than conventional dashboard charts, decorative graphs or repeated generic
+cards.
+ Deliberate use of contrast, depth, composition, scale and motion to create impact without sacrificing
+comprehension.
+ A coherent emotional balance of scientific authority, human reassurance and technological advancement.
+ A recognisable design system that remains identifiably ROOTS-AI™ even when the logo is temporarily removed
+during review.
+WORLD-CLASS QUALITY TEST
+The selected direction must meet or exceed the named reference platforms in overall craft, hierarchy,
+clarity, responsiveness and perceived product quality while remaining wholly original. A design that is
+merely clean, modern, minimal or technically correct—but visually generic, overly safe, repetitive or
+lacking a memorable signature element—will not pass the Golden Screen approval gate.
+
+===== PAGE 6 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 5
+03 / SYSTEM
+7. Visual-System Requirements
+The selected direction must resolve into an implementable design system, not a collection of attractive isolated
+screens.
+ Colour system. Define primary, neutral and semantic palettes; status colours; surface hierarchy; dark/light behaviour
+if proposed; and accessible combinations.
+ Typography. Define families, licences, weights, optical hierarchy, numeric treatment, line lengths, line heights and
+responsive scaling.
+ Layout and spacing. Define grid, container widths, spacing scale, breakpoints, alignment rules and responsive section
+behaviour.
+ Components. Define cards, navigation, buttons, inputs, progress, tabs, accordions, charts, notices, tooltips, empty
+states, validation and consent patterns.
+ States. Include default, hover, focus, active, selected, disabled, loading, success, warning, error, empty and
+unavailable states where applicable.
+ Iconography and imagery. Use one coherent style with documented licensing and production-ready assets.
+ Data visualisation. Create reusable chart rules, legends, scales, annotations, thresholds and fallback behaviour.
+8. Phase 0B Dependencies and Asset Control
+Before visual production is scaled, the vendor must use or confirm the controlled identity, font, image and HTML-
+reference inputs made available by ROOTS-AI™. If any required source is missing, inconsistent, unlicensed or
+technically unsuitable, the vendor must raise one numbered reservation before implementation rather than
+inventing a silent substitute.
+Input Purpose Vendor obligation
+Brand identity Approved logo variants, usage rules and
+trademark treatment.
+Use supplied approved assets; identify any missing
+production format.
+Fonts Approved font families, weights, licences
+and fallbacks.
+Confirm web and PDF availability before finalising
+typography.
+Images/illustrations Approved source assets and licensing
+status.
+Do not introduce unlicensed or generic placeholder
+imagery into final delivery.
+HTML reference Content/structure reference and
+behavioural clues.
+Treat as functional reference unless expressly marked as
+final visual authority.
+design_tokens.json Machine-readable visual constants. Update only after the selected direction is approved and
+keep it aligned with Figma.
+screen_catalog.json Canonical screen IDs, routes, breakpoints
+and filenames.
+Use as the delivery inventory and do not create
+undocumented IDs.
+
+===== PAGE 7 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 6
+04 / GOLDEN SCREEN
+9. PUB-01 Golden Screen Design Intent
+PUB-01 is the visual-system proof point. The exact approved content, required elements and user flow remain
+controlled by the Phase 1 baseline. The design must demonstrate a coherent experience across the following
+functional zones, without omitting, rewriting or inventing product claims:
+Zone Role Design intent
+01 Header and navigation Immediate orientation, restrained navigation and a clear primary action.
+02 Hero and positioning A distinctive statement of Biological Intelligence with credible visual presence.
+03 Platform explanation Explain the value and process progressively without a dense wall of text.
+04 Seven-domain system Show interconnected domains with clear relationships and accessible labels.
+05 Biological State Make state meaningful, calm and non-diagnostic; avoid fear-based colour coding.
+06 Drivers and protection Differentiate contributors, protective factors, confidence and opportunity.
+07 Report/data preview Demonstrate premium data storytelling, hierarchy and interpretive usefulness.
+08 Trust and governance Communicate scientific boundaries, privacy, governed AI and credibility.
+09 Final action and footer Conclude with one clear action and a complete, balanced footer.
+CONTENT PROTECTION
+The zone labels above describe design intent. They do not replace the canonical PUB-01 content or
+screen specification. Where naming differs, the controlled baseline governs the exact content and
+required elements.
+10. Responsive Behaviour
+The approved system must support the four controlled viewport widths: 360, 768, 1024 and 1440 pixels.
+Responsiveness means deliberate re-composition, not merely shrinking desktop elements.
+ Design the 1440px and 360px extremes first for the Golden Screen gate.
+ After the visual direction is approved, complete and validate the 768px and 1024px versions.
+ Preserve content priority, meaning, navigation, interaction states and accessibility across widths.
+ Avoid excessive mobile page length caused by stacking every desktop card without consolidation or progressive
+disclosure.
+ Document reflow, collapsing, truncation, sticky behaviour, chart adaptation and touch targets in Figma.
+
+===== PAGE 8 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 7
+05 / EXPERIENCE QUALITY
+11. Data Visualisation and Report Preview
+Data visualisation must explain relationships and support decisions. Decorative charts, invented precision and visual
+complexity without interpretive value are not acceptable.
+ Show the value, label, unit, range or reference context whenever the source data requires it.
+ Use semantic colour consistently and never rely on colour alone to communicate status.
+ Differentiate measured data, calculated scores, deterministic interpretations and AI narrative.
+ Represent uncertainty or confidence explicitly where the controlled model requires it.
+ Provide responsive alternatives for charts that cannot remain legible on mobile.
+ Maintain conceptual and visual parity between web and PDF outputs.
+12. Interaction, Accessibility and Technical Readiness
+Area Minimum requirement
+Accessibility Target WCAG 2.2 AA for contrast, keyboard access, focus visibility, labels, errors and meaningful
+alternatives.
+Touch Use practical mobile targets and spacing; controls must not depend on hover.
+Focus Every interactive component requires an intentional, visible focus state.
+Forms Labels, instructions, validation and recovery must be clear and persistent where needed.
+Motion Respect reduced-motion preferences and avoid animation that blocks comprehension or completion.
+Handoff Use editable, named and reusable Figma components, variants, variables/tokens and Auto Layout.
+Implementation The design must remain achievable within the approved technical architecture and schedule.
+
+===== PAGE 9 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 8
+06 / SUBMISSION
+13. Required Submission Sequence
+Stage A — Lightweight Direction Exploration
+Submit one visual direction board and two lightweight PUB-01 visual direction concepts. These are not two
+complete production-ready pages. Each concept must be sufficient to demonstrate:
+ Colour system and surface language.
+ Typography and information hierarchy.
+ Card/component character and depth.
+ Data-visualisation style and report-preview logic.
+ Imagery/illustration approach and licensing direction.
+ A credible interpretation of the mobile experience.
+ A short rationale explaining how the concept is distinctive to ROOTS-AI™.
+Stage B — Selected PUB-01 Golden Screen
+After ROOTS-AI™ selects one direction, develop that direction into a production-ready PUB-01 submission
+containing:
+ Complete 1440px desktop design.
+ Complete 360px mobile design.
+ Linked Figma prototype for the required interactions.
+ Relevant components, variants, tokens and states used on PUB-01.
+ Responsive-behaviour notes and implementation annotations.
+ Asset/licensing list for fonts, imagery, illustrations and icons.
+Stage C — Controlled Expansion
+Only after written approval of Stage B may the vendor complete PUB-01 at 768px and 1024px and then apply the
+approved design system to the remaining screens in the agreed delivery sequence.
+APPROVAL BOUNDARY
+Approval of a visual direction or Golden Screen confirms the visual system only. It does not waive any
+omitted content, requirement, state, interaction, security obligation, traceability item or contractual
+deliverable.
+
+===== PAGE 10 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 9
+07 / QUALITY GATE
+14. Prohibited Outcomes
+ A direct visual reproduction of the existing SVG wireframes.
+ A generic template, dashboard kit or wellness aesthetic with a ROOTS-AI™ logo added.
+ A professionally clean but visually safe or forgettable design that lacks a commanding first impression, proprietary
+visual expression or memorable ROOTS-AI™ signature.
+ Copying identifiable layouts, assets, charts, imagery or trade dress from the named references.
+ Changing approved copy, product meaning, scores, claims, disclosures or flow without written approval.
+ Using unlicensed fonts, images, illustrations, icons or third-party UI assets.
+ Desktop-first screens that become excessively long, unclear or functionally reduced on mobile.
+ Beautiful static frames that omit required states, interactions, validation, accessibility or implementation detail.
+ Flattened, uneditable or poorly structured Figma files that cannot support development and handover.
+15. Golden Screen Acceptance Score
+Criterion Weight Evidence of acceptance
+Visual quality and premium execution 15 Polish, proportion, restraint, consistency and world-class finish.
+Signature impact and distinctive ROOTS-AI™
+identity
+20 Commanding first impression, proprietary visual expression and
+recognisable platform character without copying.
+Hierarchy and comprehension 15 Primary state, value, evidence and action are immediately
+understandable.
+Data storytelling 15 Complex information is meaningful, legible and actionable.
+Baseline fidelity 15 Approved content, required elements and flow are preserved.
+Responsive quality 10 1440px and 360px are deliberately composed and equivalent in
+meaning.
+Accessibility 5 Contrast, focus, labels, targets and non-colour cues are credible.
+Figma and handoff quality 5 Editable components, states, naming, tokens and annotations are
+usable.
+Pass threshold: 85/100, with no blocking defect. A score above the threshold does not override a blocker.
+Blocking Defects
+ Any approved content, required element, route, state or critical interaction is missing or materially altered.
+ The work is materially generic, copied or not recognisably ROOTS-AI™.
+ The design is professionally clean but lacks a powerful first impression, proprietary visual expression or memorable
+ROOTS-AI™ signature.
+ The mobile version is incomplete, materially inferior or inconsistent in meaning.
+ Critical accessibility failure or unreadable data presentation.
+ Unlicensed, inaccessible, non-editable or non-transferable design assets.
+ The Figma source is not structured sufficiently for implementation and handover.
+
+===== PAGE 11 =====
+ROOTS-AI™ | CONTROLLED DESIGN DIRECTION | v1.0
+ROOTS-AI™ — Confidential Vendor Execution Document • 10
+08 / GOVERNANCE
+16. Execution, Change Control and Commercial Position
+ This brief clarifies the required UI/UX quality and approval method within the already contracted Phase 1 scope.
+ The required visual-direction work, Golden Screen design, revisions needed to pass the gate, responsive completion,
+component preparation and design documentation remain included in the fixed price and 30-calendar-day schedule.
+ This process does not authorise an additional fee, schedule extension or reduction of scope.
+ ROOTS-AI™ will provide consolidated written feedback at each defined gate. The vendor must resolve that feedback
+before scaling production.
+ No remaining screen should be visually finalised before PUB-01 receives written approval.
+ All approved source files, components, assets, licences, exports and documentation must be delivered under the
+ownership and handover terms of the signed agreement.
+ Any genuine dependency or reservation must be disclosed once, in one complete numbered list, before acceptance
+of this brief.
+17. Vendor Confirmation
+Please reply with the following declaration, or provide one complete numbered list of reservations:
+REQUIRED DECLARATION
+“We have reviewed the ROOTS-AI™ Visual Direction & Golden Screen Acceptance Brief Version 1.0. We
+confirm that the existing SVG references will be treated as functional and content wireframes rather
+than final visual designs. We will submit the required visual direction board and two lightweight PUB-01
+visual direction concepts before producing the selected production-ready PUB-01 Golden Screen, and
+we will not proceed with the remaining screens until written approval is issued. We confirm that this
+work will preserve the Controlled Baseline and will be completed within the existing fixed price and 30-
+calendar-day schedule, subject only to the numbered reservations below.”
+Vendor legal name ____________________________________________
+Authorised representative ____________________________________________
+Role ____________________________________________
+Date ____________________________________________
+Reservations None / Attached numbered list

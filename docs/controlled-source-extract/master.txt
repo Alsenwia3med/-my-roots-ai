@@ -1,0 +1,1225 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ Phase 1 MVP Master Product & Implementation
+Requirements v3.3.2
+FINAL CONTROLLED INTEGRITY UPDATE — Appendix C replacement
+This v3.3.2 update supersedes the Appendix C filenames/versions/hashes and the prior v3.3.1 correction-sheet Appendix C verification rows only. All
+other v3.3.1 substantive corrections and all unaffected v3.3 requirements remain unchanged. This is a version-control/integrity update; it does not
+alter question wording/order, scoring logic, milestones, commercial scope or acceptance thresholds.
+Annex Final controlled source Version SHA-256
+C-01 02_ROOTS_AI_C01_Canonical_Question_Bank_v1.0.1_CORRECTED.xlsx v1.0.1 b5bb50ded8a21ec957d17f55c9b2b03c4845ad56d850549cb99
+7bff4bfdd354b
+C-02 03_ROOTS_AI_C02_Canonical_Scoring_Rules_and_Golden_Tests_v1.0.1_CORRECTE
+D.xlsx
+v1.0.1 14bf61735d0abe42da7ea87c5dd988dcceecdd648b94a68137b
+18a65f978989e
+C-03 04_ROOTS_AI_C03_Report_Content_and_Visual_Reference_Pack_v1.0.1_CORRECTE
+D.pdf
+v1.0.1 04d9ab36fac863352ccc04580cbf7d225331ea7249cdae02f1ef0
+6b09565e5ef
+C-04 05_ROOTS_AI_C04_Website_Content_and_Legal_Copy_Pack_v1.0.1_CORRECTED.d
+ocx
+v1.0.1 4866c20d12266a42f3325dc5212bbb571ddb91a597d1a72e669
+e438ffbdbb550
+C-05 07_ROOTS_AI_C05_UI_UX_Screen_Implementation_Specification_v1.0.1_CORRECTE
+D.pdf
+v1.0.1 3fbc330a848cb640cdf6f5d703ec3f83297d0f5e6296ddd52e317
+81bfb0c98d0
+Visual authority: the final visual-design process is governed by File 14 v1.0.1 CORRECTED FINAL and the written-approved PUB-01 Golden
+Screen in ROOTS-owned editable Figma. File 15 v1.0.1 controls PUB-01 functional/content/interaction requirements. File 16 v1.3.3 contains
+functional/content wireframes only. Legacy G02/V01 or SVG filenames do not override this authority.
+Precedence: if any attached legacy Appendix C row or prior correction-sheet row shows v1.0.0 or an earlier filename/hash, this v3.3.2 page controls.
+
+===== PAGE 2 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+ROOTS-AI™ Phase 1 MVP
+Master Product, Technical & Acceptance Requirements — Version 3.3
+Document ID: ROOTS-MVP-MASTER-REQ-006
+Status: APPROVED CONTROLLED IMPLEMENTATION BASELINE
+Effective date: upon internal approval by ROOTS AI HEALTH SYSTEMS, Inc.
+Prepared exclusively for: ROOTS AI HEALTH SYSTEMS, Inc.
+MASTER BASELINE. This document consolidates the complete technical, functional, security, delivery,
+evidence and acceptance requirements for the Phase 1 MVP. It is the sole controlled source of truth for
+product planning, procurement, implementation, verification and acceptance. Only requirements
+expressly stated here and in its controlled data annexes form the approved baseline.
+Confidential — Proprietary intellectual property of ROOTS AI HEALTH SYSTEMS, Inc.
+
+===== PAGE 3 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+Document Control
+Field Binding value
+Document owner ROOTS AI HEALTH SYSTEMS, Inc. (Delaware, USA)
+Product ROOTS-AI™ Phase 1 Minimum Viable Product
+Version 3.3
+Classification Confidential — Controlled Implementation Baseline
+Intended use Product planning, supplier selection, implementation, verification, UAT and final acceptance
+Approval authority ROOTS AI HEALTH SYSTEMS, Inc.
+Change authority Formally approved ROOTS change record; no change by implication, silence or oral discussion
+Revision History
+Version Date Status Purpose
+1.0 July 2026 Superseded Initial binding scope-lock review
+2.0 July 2026 Superseded Contract-oriented master specification
+3.0 July 2026 Approved controlled
+implementation
+baseline
+Supplier-neutral consolidated product, technical and
+acceptance requirements
+3.1 21 July 2026 Approved controlled
+release
+Published executable C-01 through C-04 annexes; removed all
+content-release blockers
+3.2 21 July 2026 Approved controlled
+release
+Compressed delivery baseline to 30 calendar days including seven-
+day UAT; aligned commercial execution release
+3.3 21 July 2026 Approved controlled
+release
+Added binding C-05 page-by-page UI/UX, navigation, role, responsive
+and screen-state specification
+Sole-Reference Governance
+This Master Requirements document eliminates parallel technical interpretations. The hierarchy below
+is exhaustive for Phase 1 product and implementation decisions.
+Priority Document Version / status Role
+1 This Master Product & Implementation
+Requirements document and its Controlled
+Data Annexes
+v3.3 — approved
+controlled release
+Sole control of product scope, behavior, delivery,
+evidence and acceptance
+
+===== PAGE 4 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+Priority Document Version / status Role
+2 ROOTS-approved change records Approved after Effective
+Date
+Modify only the expressly identified
+requirements
+3 
+Executed Software
+Development Agreement
+Executed with
+selected
+implementation
+partner
+Commercial and legal terms; must incorporate
+this technical baseline without reducing it
+Conflict and Interpretation Rules
+ For all product scope, functional behavior, content implementation, security, delivery evidence and
+acceptance, this Master Requirements document controls.
+ The Controlled Data Annexes listed in Appendix C are components of this document, not separate
+interpretive specifications. Their recorded version and SHA-256 hash identify the only executable
+data release.
+ No implementation team may infer question mappings, rules, formulas or content from historical
+diagrams, emails, samples or unapproved working papers.
+ A more detailed requirement does not constitute scope expansion when it explains how a required
+function must operate.
+ Any function required for a listed deliverable to operate safely, securely and as specified is included
+even if it is an enabling component rather than a visible screen.
+ Work needed to correct non-conformance is a defect remedy, not a Change Request.
+
+===== PAGE 5 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+1. Purpose, Product Boundary and Binding Scope
+The Phase 1 MVP is a web-based biological assessment and reporting platform. It collects a structured
+73-question assessment across 13 modules, applies deterministic rules to calculate seven domain scores
+and derived measures, identifies probable biological drivers, generates a governed personalized
+narrative, assembles a 19-section report, and supports controlled administration and de-identified
+research export.
+The MVP is an educational biological intelligence and wellness product. It is not a diagnostic device,
+does not replace a licensed healthcare professional, does not diagnose disease, does not prescribe
+treatment, and does not autonomously make clinical decisions.
+1.1 In-Scope Operational Capabilities
+ Responsive public website and legal pages defined in Section 6.
+ Passwordless authentication limited to assessment resume, report access and administration.
+ Versioned 73-question, 13-module assessment with validation, progress, auto-save, resume and
+controlled missing-value behavior.
+ Deterministic seven-domain scoring and approved derived measures.
+ Rules-based driver, confidence and evidence logic.
+ Governed LLM narrative layer restricted to language generation.
+ Interactive web report and pixel-consistent downloadable PDF containing 19 required sections.
+ Admin Dashboard for participant operations, report operations, configuration control, audit review
+and research export.
+ Development, staging and production environments; automated deployment pipeline; logging,
+backup and monitoring baseline.
+ All testing, documentation, source code, credentials and knowledge transfer required for
+independent operation by ROOTS-AI™.
+1.2 Explicitly Out of Scope
+Excluded capability Phase 1 treatment
+Laboratory result ingestion or biomarker
+analysis
+Not built; public content may describe it as Coming Soon
+DNA, epigenetic or nutrigenomic analysis Not built; Coming Soon only
+Microbiome analysis Not built; Coming Soon only
+Wearable API integrations No Apple Health, Garmin, Fitbit, Oura, WHOOP or real-time streaming
+Clinician portal or patient management No operational clinical portal; informational page only
+Longitudinal user dashboard No ongoing health tracking dashboard; resume and report access only
+
+===== PAGE 6 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+Excluded capability Phase 1 treatment
+EHR/FHIR/HL7 integration Deferred
+Conversational AI coach Deferred
+Native iOS or Android application Web application only
+Multilingual interface English only
+Marketplace, billing or subscriptions Deferred
+Enterprise or population-health analytics Deferred
+Formal SOC 2, HITRUST, HIPAA certification
+or penetration-test certification
+Deferred; core architecture and controls remain mandatory
+Full offline application Excluded; transient same-device queueing for connection loss is resilience, not an
+offline product
+1.3 Non-Negotiable Product Boundary
+The implementation team shall not silently add, remove, substitute, rename or materially simplify any
+in-scope capability. Optional enhancements may be proposed, but they shall not displace a required
+deliverable, consume an agreed acceptance milestone, or alter the approved budget or timeline unless
+authorized through a formal ROOTS change record.
+
+===== PAGE 7 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+2. Target Users, Roles and Access Model
+Role Permitted access Prohibited access
+Participant Own assessment draft, own submitted answers,
+own generated report
+Any other participant, scoring configuration, audit
+data or research export
+Admin Participant operations, reports, approved
+configuration functions
+Direct database superuser credentials; silent
+alteration of published scoring rules
+Research Admin Approved de-identified export only Names, emails, direct identifiers, reports or raw
+authentication data
+Super Admin Role assignment, system configuration and audit
+review
+Bypassing audit logging or deleting audit history
+Implementation
+Team
+Time-bound least-privilege access required for
+delivery/support
+Ownership of production accounts; secondary use of
+data; permanent access after handover
+2.1 Age and Consent
+ The technical input range is 16–110 years to preserve the approved questionnaire design.
+ Production launch shall default to age 18+ unless ROOTS-AI™ supplies an approved jurisdiction-
+specific minor-consent workflow.
+ If 16–17-year-old participation is enabled, consent, guardian requirements, privacy notice and
+research eligibility shall be explicitly configured and tested.
+ The Recovery Potential age band for an eligible 16–17-year-old shall use the 18–30 band unless this
+Master Requirements document is changed through a formally approved ROOTS change record.
+2.2 Authentication Boundary
+ Magic Link authentication is required for secure resume and report access; it does not create a full
+user dashboard.
+ Admin and Super Admin accounts require MFA.
+ Links and sessions require configurable expiry, one-time or replay-resistant validation, logout,
+revocation, rate limiting and audit events.
+ Report storage is private. A database identifier or token appearing in a URL shall not itself authorize
+access.
+
+===== PAGE 8 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+3. Locked Technical Architecture
+Layer Required implementation
+Frontend Next.js / React with TypeScript strict mode; Tailwind CSS; mobile-first responsive design
+API Server-side TypeScript REST API with versioned endpoints and OpenAPI/Swagger
+documentation
+Scoring Deterministic configuration-driven service; no LLM involvement in scores, drivers or
+classifications
+Narrative Server-side OpenAI API integration using governed templates, structured minimized inputs and
+validated outputs
+PDF Node.js Puppeteer using approved HTML/CSS templates and visual regression references
+Data/Auth/Storage Supabase PostgreSQL, Supabase Auth and private Supabase Storage
+Hosting Vercel for the web/API baseline; a dedicated approved worker may be used for Puppeteer only
+when documented and approved
+CI/CD GitHub Actions or equivalent in a ROOTS-AI™-owned repository
+Environments Separate Development, Staging and Production with distinct credentials and data
+3.1 Architecture Gate
+No material coding milestone is accepted until the implementation team supplies and ROOTS-AI™
+approves:
+ System architecture and data-flow diagrams.
+ Final service and hosting inventory with expected recurring costs.
+ Database ERD, table list and RLS policy map.
+ API inventory and authentication model.
+ PHI/PII data-flow map showing every processor and external service.
+ Decision record for any deviation from the locked stack.
+3.2 Code Quality
+ Protected main branch, develop integration branch, reviewed pull requests and standardized
+commits.
+ ESLint and Prettier enforced; TypeScript strict mode with no unexplained any types in business logic.
+ Modular, reusable components; business rules are configuration-driven, not scattered through UI
+code.
+ Secrets are stored in environment/secret management and never committed.
+
+===== PAGE 9 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+ All dependencies are maintained, commercially usable, security-reviewed and recorded in the
+SBOM.
+ Copyleft dependencies require prior written approval.
+
+===== PAGE 10 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+4. Binding Data Model
+The MVP shall implement at least the eight logical application tables below. The implementation team
+may normalize further, but may not collapse auditability, consent, versioning or access isolation.
+Supabase-managed auth tables, views and storage buckets are additional.
+Table Minimum purpose and mandatory attributes
+profiles Participant identity/profile, auth mapping, demographic inputs, status, timestamps; direct identifiers
+segregated
+assessments One record per assessment; questionnaire_version, status/state, started/completed times, progress,
+device/browser metadata, retention state
+responses Assessment/question link, raw value, normalized value, is_na, validation state, answer timestamps and source
+version
+scores Seven domain scores, Biological State, Opportunity, Recovery Potential, Confidence, drivers, evidence,
+scoring_version and calculation trace reference
+reports Assessment link, report version, status, private storage reference, generation metadata, prompt/rules/model
+versions and checksum
+scoring_config Versioned questions/mappings/weights/thresholds/templates; draft/published/retired state; effective time;
+publisher; rollback target
+consents Append-only service, privacy and research consent records; document version, purpose, timestamp,
+jurisdiction and withdrawal state
+audit_logs Append-only access, authentication, admin, configuration, export, report, AI governance and security events
+with actor/time/action/object/result
+4.1 Required Views and Storage
+ research_export_v1: de-identified/pseudonymized approved fields only, restricted to Research
+Admin and separately audited.
+ Private report bucket: no public URLs; time-limited signed access only after authorization.
+ No production PHI or participant identifiers in Development or ordinary application logs.
+4.2 RLS and Database Security
+ RLS enabled and tested on every application table and protected view; no table is exempt merely
+because it is not listed in an older example.
+ Participant access is constrained by verified auth identity and assessment ownership.
+ Admin roles are implemented through verified claims/role tables, never by exposing service-role
+credentials to the browser.
+ Every write operation validates authorization on the server and database layers.
+ Negative RLS tests must prove that cross-user reads, writes, exports and report retrieval are
+blocked.
+
+===== PAGE 11 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+4.3 Research Pseudonymization
+The MD5 plus static-salt example in earlier documents is prohibited. Research identifiers shall use
+HMAC-SHA-256 or an approved equivalent with a secret key stored outside source code. Research
+export requires explicit research consent, field minimization, export logging and a documented
+withdrawal process. Pseudonymized data shall not be described as anonymous unless the approved
+methodology supports that claim.
+
+===== PAGE 12 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+5. Assessment Experience — 73 Questions / 13 Modules
+The exact text, answer options, module order, question IDs, conditional logic and scientific mappings
+shall be loaded only from the Canonical Question Bank and Scoring Rules datasets recorded in Appendix
+C. Once their version, SHA-256 hash and internal approval record are entered, those datasets form
+controlled annexes to this Master Requirements document. No historical questionnaire, draft matrix,
+sample report or other document may be used.
+5.0 Canonical Content Freeze
+ The Canonical Question Bank shall contain exactly 73 stable question IDs assigned across exactly 13
+ordered modules.
+ The Scoring Rules dataset shall identify every scored question, domain mapping, weight, reverse-
+scoring flag, threshold, formula constant, protective factor and classification boundary.
+ Both datasets require schema validation, human-readable export, version number, approval date
+and SHA-256 hash recorded in Appendix C.
+ If either dataset is absent, incomplete, internally inconsistent or does not match its recorded hash,
+the implementation team shall stop the affected work and raise a written clarification. Guessing or
+importing an earlier draft is prohibited.
+ A corrected content dataset is not a scope change when it resolves a pre-existing ambiguity before
+the content-freeze gate; after approval, changes follow the formal ROOTS change-control process
+and create a new version.
+5.1 Functional Requirements
+ 73 questions across exactly 13 modules, each with stable IDs and a recorded questionnaire version.
+ One-question or approved grouped-question presentation according to the Assessment
+Specification.
+ Visible module label and percentage progress calculated from eligible questions.
+ Previous/Next navigation without data loss; confirmation before destructive restart.
+ Auto-save on each answer with visible Saving/Saved/Failed state and retry.
+ Resume after browser close using secure authenticated assessment state.
+ Waist cm/in toggle with conversion to canonical cm and preservation of entered unit/value.
+ Keyboard operation and shortcuts; touch targets and focus order compliant with WCAG 2.1 AA.
+ Loading, empty, timeout, session-expired, conflict, offline-transition, submission and report-
+generation states.
+ Transient same-device queueing during a connection interruption, with safe synchronization and
+conflict handling after reconnection; no promise of full offline use.
+
+===== PAGE 13 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+5.2 Validation
+Input Rule Acceptance behavior
+Age 16–110 technical range; launch
+eligibility rule applies
+Block invalid values; display approved error; no silent clamping
+Height 100–250 cm Block invalid values
+Weight 25–350 kg Block invalid values
+Waist 40–200 cm after conversion Block invalid values; conversion precision tested
+Scale answer Only approved option/value pair Reject forged or out-of-range API input
+Conditional question Required only when activation rule
+is true
+Hidden question does not create a zero or stale score
+Free text Only where expressly approved;
+length and content sanitation
+Never directly concatenated into prompts or queries
+5.3 Missing and N/A Rules
+ N/A is excluded from both numerator and denominator; it is never zero and never replaced by a
+default answer.
+ No Answer is missing, not N/A, and is never imputed as 2 or any other value.
+ If fewer than 50% of eligible questions for a domain are answered, that domain score is null and the
+report explains that it could not be calculated.
+ If overall completion is below the completion threshold defined in the Appendix C rules release,
+submission is blocked or explicitly flagged according to this Master Requirements document.
+ All denominator, null-domain and derived-score behavior must be covered by deterministic tests.
+5.4 State Machine
+Not Started → Started/Draft → Paused → Started → Submitted → Scoring → Generating Report →
+Completed → Archived. Error states must be recoverable without duplicate submissions or lost answers.
+
+===== PAGE 14 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+6. Public Website and Page Inventory
+Phase 1 includes the operational and informational pages below. Informational pages about future
+layers do not create those future capabilities. No CMS is required unless separately approved; content
+may be implemented as version-controlled static content.
+Route / page Phase 1 requirement
+/ — Home Hero, value proposition, six report features, trust language and assessment CTA
+/assessment Complete assessment workflow
+/report/[id] Authorized interactive 19-section report and PDF download
+/example-report Anonymized approved sample report
+/how-it-works Assessment → deterministic analysis → governed report → educational action
+/platform Assessment and AI Engine marked Available; Labs, DNA, Microbiome, Wearables and Biological Twin
+marked Coming Soon
+/research Research vision, privacy, ethics, collaboration and pilot information; no operational cohort dashboard
+/healthcare-professionals Informational professional page; no clinician portal or patient list
+/pilot Free Beta/Pilot eligibility, benefits, consent-aware join flow, timeline and FAQs
+/about Mission, science, framework and company information
+/contact Support, research and business inquiries with secure submission/routing
+/blog Blog landing and approved initial content or a professionally designed launch state
+/privacy Privacy notice, data rights, processors, retention and contact channel
+/terms Terms of Service
+/cookies Cookie/analytics notice and consent controls where applicable
+/medical-disclaimer Educational use, non-diagnostic status and emergency limitations
+/ai-disclaimer Role, limitations and governance of AI-generated language
+/admin Protected operational Admin Dashboard
+6.1 Design and Content System
+ Quiet Luxury visual language: Deep Navy #1A2A4A, Soft Navy #2A4060, Warm White #FAFAF8,
+Charcoal #1A1A1A and approved state colors.
+ Inter typography, mobile-first responsive rules, reusable components and consistent spacing tokens.
+ English primary interface; all product names and trademarks use the approved naming conventions.
+ Medical-grade, calm, educational and empathetic language; no fear-based or diagnostic copy.
+ WCAG 2.1 AA target with keyboard access, labels, contrast, focus visibility and screen-reader
+semantics.
+
+===== PAGE 15 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+6.2 Analytics Boundary
+Analytics may measure public marketing funnels only after required consent. GA4, Microsoft Clarity,
+session replay, pixels and equivalent tools are prohibited on assessment, report, authentication and
+admin routes and shall never receive answers, health scores, identifiers, tokens or report content.
+
+===== PAGE 16 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+7. Deterministic Scoring and Intelligence Pipeline
+The approved pipeline is: 73 Answers → Validation/Normalization → Seven Domain Scores → Biological
+State™ → Opportunity Score™ → Recovery Potential™ → Drivers/Evidence/Confidence → Governed
+Narratives → 19-Section Report. Each stage shall be independently testable and versioned.
+7.1 Scientific Source of Truth
+ The Appendix C Canonical Question Bank and Scoring Rules datasets govern all mappings, reverse-
+scored questions, weights, thresholds, protective factors and formula constants.
+ Historical examples, sample reports, code snippets, diagrams and unapproved working papers are
+non-authoritative.
+ The implementation team may not add age, sex/gender or other demographic adjustments unless
+they appear in the Appendix C Scoring Rules dataset.
+ No missing response may be imputed. No rule may be silently invented to make a report complete.
+7.2 Required Outputs
+Output Required properties
+Seven domain scores 0–100 or null; exact inputs, denominator, mappings and scoring version traceable
+Biological State™ Deterministic derived score; null-domain policy explicit and tested
+ROOTS Opportunity Score™ Deterministic formula and interpretation from the Appendix C rules release
+ROOTS Recovery Potential™ Multi-factor deterministic formula with factor contributions visible to the audit trace
+Drivers Primary, secondary, tertiary and co-primary logic from the Appendix C rules release; no LLM
+selection
+Evidence Strength Rules-based evidence category based on approved coverage/consistency logic
+ROOTS Confidence™ Rules-based confidence reflecting consistency, answer confidence and missingness
+Explainability object Per-output source question IDs, normalized values, weights, contributions, rule/version and
+warnings
+7.3 Configuration Lifecycle
+ Draft → Reviewed → Published → Retired states.
+ Only authorized Super Admin users may publish or roll back.
+ Every report is permanently linked to questionnaire, scoring, rules, template, prompt and model
+versions used.
+ Published historical versions are immutable; changes create a new version.
+ A rollback restores configuration for new reports without altering historical outputs.
+
+===== PAGE 17 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+7.4 Golden Test Pack
+Before UAT, the implementation team shall deliver and pass a ROOTS-AI™-approved Golden Test Pack
+containing at least 30 deterministic cases covering:
+ Every domain, every reverse-scored question and every classification boundary.
+ All N/A, partial N/A, below-threshold domain coverage and null-derived-score cases.
+ Minimum/maximum numeric inputs and waist conversion.
+ Driver ties, co-primary cases, evidence/confidence boundaries and protective-factor combinations.
+ Recalculation under a new configuration version without modification of historical results.
+
+===== PAGE 18 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+8. LLM Narrative Layer and AI Governance
+The LLM is a language renderer only. It shall receive structured, minimized, pre-calculated explanation
+objects and shall never calculate, change or override a score, classification, driver, evidence level,
+confidence level, warning or action-rule eligibility.
+8.1 Mandatory Controls
+ Prompts, governance rules and scoring logic are server-side confidential assets.
+ Questionnaire free text is never concatenated directly into system or model-instruction prompts.
+ Inputs are allow-listed structured fields with identifiers removed or minimized.
+ Output must conform to an approved JSON schema, length limits and section-specific template
+contract.
+ Prohibited claims are checked after generation; failure triggers one governed retry and then
+deterministic fallback content.
+ The system shall not diagnose, prescribe, instruct medication cessation, claim certainty, fabricate
+test results or invent participant facts.
+ Conditional language is used where scientifically appropriate; governance shall not rely only on a
+brittle keyword list.
+ Every narrative event records report ID, model/provider, prompt version, rules version, input-object
+hash, outcome, violations, retry/fallback and timestamp.
+ Prompts and outputs are not displayed in ordinary user logs or exposed to participants.
+8.2 Permitted and Prohibited Language
+Permitted framing Prohibited framing
+May, suggests, possible, potential, associated with, appears
+consistent with
+You have, this proves, definitely, diagnosis, cure, treat,
+prescribe
+Educational options and micro-steps from approved rule
+libraries
+Medication changes, individualized medical treatment,
+emergency guidance beyond approved escalation
+Encouragement and explanation of scores already
+calculated
+New causes, conditions, scores or tests invented by the LLM
+8.3 Provider Failure
+ OpenAI timeout or error shall never affect deterministic scores.
+ The MVP fallback is an approved deterministic template library, not an unapproved Llama/Mistral
+deployment.
+ An alternative model/provider requires a formally approved ROOTS change record, privacy/security
+review and regression testing.
+
+===== PAGE 19 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+
+===== PAGE 20 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+9. ROOTS Biological Report™ — 19 Required Sections
+# Section Minimum content
+1 Cover Page Identity, report ID/version, generation date and non-diagnostic label
+2 Executive Summary Governed overview using approved explanation objects
+3 ROOTS Biological State™ Score/badge, classification and concise explanation
+4 ROOTS Opportunity Score™ Score, interpretation and limits
+5 ROOTS Confidence™ Confidence level, contributing data quality and missingness
+6 Key Drivers Primary, secondary, tertiary/co-primary with evidence
+7 Seven-Domain Score Breakdown All available domain scores, classifications and visual bars
+8 Biological Triad™ Approved relationship diagram and explanation
+9 Future Projection Conditional educational projection, never a medical prognosis
+10 90-Day Roadmap Approved phased educational roadmap
+11 Nutrition Priorities Rule-library content; no disease treatment claims
+12 Action Priorities Ranked micro-actions with approved rationale
+13 What Is Going Well Protective factors and strengths
+14 Specific Concerns Signals requiring attention, expressed conditionally
+15 Suggested Laboratory Discussion Optional tests to discuss with a clinician; no result interpretation or requirement
+16 Participant Answers Approved response summary with privacy-conscious layout
+17 Biological Card Compact summary of scores, drivers, versions and confidence
+18 Final Word Governed personalized closing
+19 Medical and AI Disclaimer Mandatory limitations, emergency direction and professional-care statement
+9.1 Report Rules
+ All 19 sections must be present or explicitly show an approved Not Available state; a download
+button is not a report section.
+ Interactive report and PDF use the same canonical report JSON and display the same scores,
+versions and approved narrative.
+ The PDF reference design, page-break rules, fonts, charts, colors and minimum/maximum content
+cases are approved before acceptance.
+ Reports are generated from immutable assessment and scoring snapshots.
+ A report-generation retry shall not silently produce different scores or drivers.
+ Every PDF carries report ID, generation timestamp, report version and disclaimer.
+
+===== PAGE 21 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+10. Admin Dashboard and Research Export
+10.1 Admin Dashboard
+ Participant list with search, filter, status and permitted detail view.
+ Assessment status and failed-job review without silent answer alteration.
+ Report generation/retry/status management and authorized access to generated reports.
+ Scoring configuration draft/review/publish/retire/rollback functions with immutable history.
+ Role and permissions management restricted to Super Admin.
+ Audit and AI governance log viewer with filters and export for authorized users.
+ Research export generation restricted by consent and role.
+ Operational metrics: assessment starts/completions, abandonment, report success/failure and
+downloads, without exposing health data to third-party analytics.
+10.2 Research Export
+ CSV and JSON export from an approved database view.
+ Separate explicit research consent; service consent alone is insufficient.
+ No full name, email, authentication identifier, Magic Link token or report narrative.
+ Field list, generalization/suppression rules and small-cell controls approved before launch.
+ Every export records actor, purpose, query/filter, row count, checksum, time and recipient/project
+reference.
+ Withdrawal process prevents new exports and follows the approved research protocol for existing
+datasets.
+
+===== PAGE 22 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+11. Security, Privacy and Compliance Baseline
+Control Mandatory Phase 1 requirement
+Encryption TLS/HTTPS for all endpoints; provider encryption at rest; private report storage; secrets outside source
+Identity Magic Link protections, MFA for privileged roles, least privilege, session revocation and rate limiting
+RLS Enabled and negatively tested on every application table/view
+Audit Access, auth, admin, config, export, report and AI governance events; minimum 12-month retention
+Backup Daily automated database backups, minimum 30-day retention, PITR where supported, documented
+quarterly restore test
+Vulnerability Dependency scan and OWASP Top 10 application scan before UAT; Critical/High findings resolved
+Data minimization Collect and send only data required for the approved function
+Deletion/retention Documented retention rules and tested user/admin deletion workflow subject to legal/research
+obligations
+Incident notice Implementation team notifies ROOTS-AI™ within 24 hours of suspected unauthorized access, loss or
+security event and preserves evidence
+Subprocessors Complete list approved before production; no unapproved subcontractor or processor
+Cross-border transfer Documented locations, processors and applicable safeguards
+Production data No production participant data in Development; sanitized test fixtures only
+11.1 PHI and External Providers
+ No PHI is stored before ROOTS-AI™ confirms the required Supabase BAA, eligible plan/add-on and
+configuration.
+ If PHI is transmitted to OpenAI or another processor, the appropriate contract/BAA and eligible
+service configuration must be confirmed before use; otherwise inputs must be
+de-identified/minimized so PHI is not transmitted.
+ The implementation team shall produce a data-flow map and processor register covering Supabase,
+OpenAI, hosting, email, monitoring and any analytics service.
+ Formal HIPAA, SOC 2 or HITRUST certification is not promised by the MVP. Marketing and UI shall
+use precise language such as designed to support future compliance, never falsely certified or
+compliant by architecture alone.
+
+===== PAGE 23 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+12. Performance, Reliability and Compatibility
+Metric Binding target and test condition
+Public/assessment page load ≤2 seconds under mutually agreed production-like conditions
+Save response p95 ≤500 ms excluding network conditions outside the service boundary
+Next question interaction ≤300 ms after local validation
+Non-AI API endpoints p95 ≤500 ms under agreed representative load
+Admin queries ≤3 seconds for datasets up to 100,000 records using agreed filters/indexes
+Report generation ≤15 seconds for at least 95% of approved staging test cases; governed fallback used on
+provider timeout
+Report display ≤2 seconds after authorized data retrieval
+Availability objective 99.9% monthly during production warranty/support, excluding agreed provider-wide outages
+and scheduled maintenance
+12.1 Supported Clients
+ Latest two stable versions of Chrome, Edge, Safari and Firefox on desktop.
+ Current and previous major iOS Safari and Android Chrome versions at UAT start.
+ Responsive layouts for agreed mobile, tablet and desktop breakpoints.
+ Accessibility keyboard and screen-reader smoke tests on critical workflows.
+
+===== PAGE 24 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+13. Testing and Acceptance Evidence
+13.1 Required Test Suites
+Suite Minimum acceptance requirement
+Unit ≥80% coverage for business logic and 100% coverage of critical scoring formula branches
+Golden scoring At least 30 approved deterministic cases; exact expected JSON outputs
+Integration Auth, API, database, scoring, narrative, PDF, storage, email and admin integrations
+End-to-end Start/resume/submit/report/download; admin/config/export; error recovery
+Security RLS negative cases, access-control tests, OWASP Top 10 scan, dependency and secret scan
+Performance Evidence against every metric in Section 12
+Accessibility Automated plus manual critical-flow WCAG 2.1 AA checks
+Compatibility Agreed desktop/mobile browser matrix
+PDF visual Reference-based visual regression across short, long, missing-data and boundary cases
+AI governance Adversarial and boundary prompts, prohibited claims, schema failures, retry and fallback
+Backup/restore Backup configuration evidence and one successful pre-launch restore test
+13.2 UAT Rules
+ The seven-calendar-day UAT period must begin no later than Day 24 after all in-scope functions,
+Staging deployment, test reports and user instructions are delivered in writing. The Implementation
+Partner remains responsible for achieving Final Acceptance by Day 30 unless ROOTS approves a
+written extension.
+ ROOTS-AI™ may issue a defect list during UAT. Material remediation pauses the UAT clock; the
+affected functionality receives a reasonable retest period after redelivery.
+ Silence or passage of time is not acceptance.
+ Final acceptance requires zero open Critical or High defects. Medium defects require a ROOTS-
+approved remediation schedule; Low defects require recorded disposition.
+ Signing an interim demo, invoice or milestone receipt does not waive later-discovered non-
+conformance in integrated behavior.
+13.3 Definition of Complete
+A deliverable is complete only when it is implemented, integrated, tested, documented, deployed to
+Staging, demonstrated as working software, supported by the required evidence and accepted under
+UAT. A mockup, slide, isolated code branch, incomplete API, unreviewed document or manual
+workaround is not complete.
+
+===== PAGE 25 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+
+===== PAGE 26 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+14. Required Documentation and Handover
+# Handover item
+1 Source code in ROOTS-AI™-owned repository
+2 README and local setup instructions
+3 Installation and deployment guides
+4 Environment variable register without secret values
+5 OpenAPI/Swagger documentation with examples and error codes
+6 Database schema, ERD and migration files
+7 RLS policy document and negative-test evidence
+8 Role and permissions matrix
+9 Architecture and end-to-end data-flow diagrams
+10 PHI/PII processor and subprocessor data-flow register
+11 Encryption, storage and report-access implementation document
+12 Backup, retention and restore evidence
+13 Audit log specification and samples
+14 Scoring configuration schema, published release and Golden Test Pack
+15 Prompt/template/governance version register
+16 Admin Dashboard user manual
+17 Test reports, coverage, OWASP scan, performance and accessibility evidence
+18 Bug tracker and UAT completion report
+19 SBOM and third-party license register
+20 Recurring service/cost inventory and account ownership list
+21 Privacy, Terms, Cookie, Medical and AI disclaimer source pages
+22 2–4-hour recorded knowledge-transfer session and technical Q&A
+23 All production, hosting, domain, email, Supabase, OpenAI and monitoring access transferred/confirmed
+24 All C-05 UI/UX handover artifacts, editable assets, component catalog and screen evidence
+14.1 Independent Operability
+Handover is sufficient only when a competent replacement team can build, deploy, configure, test and
+operate the MVP without undocumented implementation-team knowledge or a proprietary dependency
+that was not disclosed and licensed.
+
+===== PAGE 27 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+
+===== PAGE 28 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+15. Project Governance, Milestones and Commercial Controls
+15.1 Working Method
+ Weekly working-software demonstrations are mandatory; slides alone do not satisfy a demo.
+ A shared issue tracker and decision log record requirements, defects, decisions, owners and dates.
+ The implementation team identifies dependencies, decisions and blockers early; silence does not
+transfer responsibility to ROOTS.
+ Material subcontracting or production-data access requires prior ROOTS approval and equivalent
+confidentiality, intellectual-property and data obligations.
+15.2 Delivery Schedule
+Gate Target Required outcome
+G0 — Kickoff 
+Day 0 
+Executed documents, ROOTS-AI™ repository, accounts, plan and team
+confirmed
+G1 — Architecture 
+End Day 3 
+Architecture Gate artifacts approved
+G2 — Assessment/Data 
+End Day 7 
+Schema/RLS, auth, 73-question assessment, validation and save/resume on
+Staging
+G3 — Intelligence/Report 
+End Day 14 
+Deterministic engine, governance, 19-section web/PDF report and secure
+delivery
+G4 — Complete MVP 
+End Day 20 
+All pages, Admin, export, monitoring, security and integrated workflows
+G5 — Release Candidate 
+No later than End
+Day 23
+All tests/documents complete; production-like Staging candidate
+UAT 
+Days 24–30 Seven-calendar-day formal UAT after complete delivery
+Final Acceptance 
+No later than Day
+30
+Production deployment, complete handover,
+acceptance record and final payment gate
+15.3 Payment Protection
+Payments are earned by accepted outcomes, not the passage of a week. The Agreement should retain at
+least 25% of the fixed fee until Final Acceptance. Any invoice for a technical milestone requires the
+evidence and Client approval defined for that gate. Third-party subscription, hosting, BAA/add-on and
+API charges must be disclosed in writing before commitment.
+
+===== PAGE 29 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+15.4 Change Requests
+ A Change Request must identify the exact requirement changed, reason, cost, timeline,
+security/scientific impact and affected tests/documents.
+ No changed implementation begins until ROOTS formally approves the change record.
+ Bug fixes, missing enabling work, security corrections and compliance with this Master
+Requirements document are not Change Requests.
+
+===== PAGE 30 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+16. Intellectual Property, Repository and Accounts
+ The Git repository is created under and owned by ROOTS-AI™ from Day 0. The implementation team
+receives revocable role-based access; repository ownership remains with ROOTS-AI™ at all times.
+ All custom code, schemas, UI/UX, prompts, templates, configurations, scoring implementations,
+documentation, tests and related work product transfer under the Agreement upon payment of the
+applicable accepted work.
+ Prompt engineering, scientific mappings, scoring methodology, Recovery Potential logic and all
+Phase 1 modifications are confidential ROOTS-AI™ trade secrets and may not be reused or
+repurposed.
+ All pre-existing third-party or implementation-team materials must be disclosed in an approved
+register before use. Any embedded pre-existing component requires a perpetual, irrevocable,
+worldwide, transferable, sublicensable, royalty-free license sufficient to operate, modify and
+commercialize the Deliverables.
+ All production accounts, domains, certificates, cloud projects, API organizations and billing accounts
+shall be owned or controlled by ROOTS-AI™ wherever the provider permits.
+ No implementation team, contractor or service provider may use ROOTS-AI™ data, prompts,
+outputs or Confidential Information to train, evaluate or improve another product or model.
+
+===== PAGE 31 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+17. Warranty and Complimentary Support
+ The 90-day defect warranty and three-calendar-month complimentary support period commence
+on Final Acceptance and apply concurrently; neither narrows the other.
+ Warranty covers implementation defects, specification non-conformance, regression defects and
+security/configuration errors attributable to delivered work.
+ Complimentary support includes minor bugs, reasonable configuration/deployment adjustment,
+minor non-scope-changing UI refinements and operational technical assistance.
+ Third-party outages are excluded only when all required handling, fallback and monitoring were
+implemented and the outage was not caused or worsened by negligent configuration.
+Severity Acknowledgement target Restoration/remedy target
+Critical 4 business hours Continuous reasonable effort; workaround/restoration within
+1 business day where feasible
+High 1 business day Remedy or accepted workaround within 3 business days
+Medium 2 business days Planned remedy within 10 business days
+Low 3 business days Disposition in the next agreed maintenance cycle
+
+===== PAGE 32 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+18. Acceptance Criteria — Final Binding Checklist
+ID Acceptance criterion
+AC-01 All in-scope pages, workflows and enabling services operate as specified.
+AC-02 The Appendix C canonical 73-question, 13-module dataset is implemented verbatim, hash-verified and versioned.
+AC-03 All deterministic scores and derived measures pass the approved Golden Test Pack.
+AC-04 N/A, missing values, reverse scoring, null domains and boundary behavior pass.
+AC-05 LLM cannot alter scores/drivers and passes governance, schema, retry and fallback tests.
+AC-06 The interactive and PDF reports contain all 19 required sections and pass visual review.
+AC-07 Magic Link, session, report authorization and privileged MFA controls pass.
+AC-08 All eight minimum logical tables, protected views and private storage are implemented and documented.
+AC-09 RLS and role controls pass positive and negative access tests.
+AC-10 Consent, research export, deletion/retention and audit workflows pass.
+AC-11 All performance targets are met under agreed test conditions.
+AC-12 Daily backup, 30-day retention, applicable PITR and a successful restore are evidenced.
+AC-13 OWASP/dependency/security testing has zero open Critical or High findings.
+AC-14 Unit, integration, E2E, accessibility, compatibility, PDF and AI governance reports pass.
+AC-15 All required public, legal and informational pages are published on Staging.
+AC-16 Admin, configuration lifecycle, audit viewer and research export operate under approved roles.
+AC-17 Development, Staging and Production environments and CI/CD are established under ROOTS-controlled accounts.
+AC-18 All documentation, SBOM, license, processor and cost registers are delivered and reviewed.
+AC-19 Repository, credentials, accounts and access are under ROOTS-AI™ control.
+AC-20 Recorded knowledge transfer and technical Q&A are complete.
+AC-21 No Critical or High defects remain; Medium/Low disposition is formally approved and recorded.
+AC-22 Seven-day UAT is completed and the ROOTS Project Acceptance Record is approved.
+AC-23 All intellectual-property, confidentiality, conformance and handover evidence is complete and retained.
+AC-24 Every C-05 screen, navigation path, role state, responsive breakpoint, error/empty/loading state and UI evidence item
+passes.
+
+===== PAGE 33 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+19. Internal Governance and Procurement Use
+This Master Requirements document is maintained by ROOTS AI HEALTH SYSTEMS, Inc. It may be
+issued as a controlled procurement or implementation baseline to any future team without changing
+its ownership, requirement IDs or acceptance criteria.
+Governance rule Internal requirement
+Document ownership ROOTS AI HEALTH SYSTEMS, Inc. retains ownership and change authority
+Controlled issue Every issued copy records the document version, date and file hash
+Supplier comparison Proposals are compared against Appendix A requirement IDs and evidence expectations
+Deviations Any proposed deviation is assessed and approved or rejected by ROOTS before
+implementation
+Scope protection A quotation, estimate, assumption or proposal omission cannot reduce the approved
+baseline
+Historical copies Superseded copies are archived and may not be used for active implementation
+Acceptance authority Only ROOTS may approve UAT results, exceptions and final acceptance
+
+===== PAGE 34 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+Appendix A — Internal Requirements Traceability Matrix
+ROOTS project management and QA shall use this matrix to track procurement coverage,
+implementation status, evidence and acceptance. Any deviation requires a formally approved ROOTS
+change record.
+Area ID Requirement Implementation status Evidence / decision
+reference
+Scope and
+governance
+GOV-001 Apply the sole-reference and conflict rules Not Started / In Progress /
+Evidence Ready / Accepted
+GOV-002 Implement only the approved baseline and ROOTS
+change records
+Not Started / In Progress /
+Evidence Ready / Accepted
+GOV-003 Provide weekly working-software demonstrations Not Started / In Progress /
+Evidence Ready / Accepted
+GOV-004 Maintain issue tracker, decision log and
+requirements traceability
+Not Started / In Progress /
+Evidence Ready / Accepted
+Architecture and
+data
+ARC-001 Complete Architecture Gate before material coding
+acceptance
+Not Started / In Progress /
+Evidence Ready / Accepted
+ARC-002 Use ROOTS-owned repository, accounts and three
+environments
+Not Started / In Progress /
+Evidence Ready / Accepted
+DB-001 Implement eight minimum logical application tables Not Started / In Progress /
+Evidence Ready / Accepted
+DB-002 Enable/test RLS on all protected tables and views Not Started / In Progress /
+Evidence Ready / Accepted
+DB-003 Implement versioning, immutable history, consent
+and audit
+Not Started / In Progress /
+Evidence Ready / Accepted
+DB-004 Use approved HMAC research pseudonymization Not Started / In Progress /
+Evidence Ready / Accepted
+Assessment and
+intelligence
+ASM-001 Implement Appendix C 73-question / 13-module
+dataset verbatim
+Not Started / In Progress /
+Evidence Ready / Accepted
+ASM-002 Implement save, resume, progress, navigation and
+error recovery
+Not Started / In Progress /
+Evidence Ready / Accepted
+ASM-003 Implement exact validation and N/A/missing rules Not Started / In Progress /
+Evidence Ready / Accepted
+SCR-001 Implement Appendix C Scoring Rules dataset only Not Started / In Progress /
+Evidence Ready / Accepted
+SCR-002 Implement seven domains and all approved derived
+outputs
+Not Started / In Progress /
+Evidence Ready / Accepted
+SCR-003 Implement configuration lifecycle and calculation
+trace
+Not Started / In Progress /
+Evidence Ready / Accepted
+SCR-004 Pass at least 30 Golden Test cases Not Started / In Progress /
+Evidence Ready / Accepted
+AI-001 Restrict LLM to governed narrative language Not Started / In Progress /
+Evidence Ready / Accepted
+AI-002 Implement output schema, prohibited-claim checks,
+retry and deterministic fallback
+Not Started / In Progress /
+Evidence Ready / Accepted
+
+===== PAGE 35 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+Area ID Requirement Implementation status Evidence / decision
+reference
+AI-003 Implement complete model/prompt/rules
+governance log
+Not Started / In Progress /
+Evidence Ready / Accepted
+Report and website RPT-001 Deliver interactive and PDF report with all 19
+sections
+Not Started / In Progress /
+Evidence Ready / Accepted
+RPT-002 Use immutable canonical report JSON and approved
+visual reference
+Not Started / In Progress /
+Evidence Ready / Accepted
+WEB-001 Deliver all operational, informational and legal pages
+in Section 6
+Not Started / In Progress /
+Evidence Ready / Accepted
+WEB-002 Enforce analytics exclusion on sensitive routes Not Started / In Progress /
+Evidence Ready / Accepted
+ADM-001 Deliver Admin, configuration, audit and export
+functions
+Not Started / In Progress /
+Evidence Ready / Accepted
+Security and delivery SEC-001 Implement encryption, private storage, MFA, rate
+limits and session controls
+Not Started / In Progress /
+Evidence Ready / Accepted
+SEC-002 Provide processor/PHI data-flow map and required
+provider agreements/configuration
+Not Started / In Progress /
+Evidence Ready / Accepted
+SEC-003 Implement audit retention, incident notice, backups
+and restore
+Not Started / In Progress /
+Evidence Ready / Accepted
+QA-001 Deliver all required test suites and reports Not Started / In Progress /
+Evidence Ready / Accepted
+NFR-001 Meet performance, compatibility and accessibility
+targets
+Not Started / In Progress /
+Evidence Ready / Accepted
+DOC-001 Deliver complete documentation and SBOM Not Started / In Progress /
+Evidence Ready / Accepted
+HND-001 Complete repository/account transfer and recorded
+knowledge transfer
+Not Started / In Progress /
+Evidence Ready / Accepted
+SUP-001 Honor 90-day warranty and three-month
+complimentary support
+Not Started / In Progress /
+Evidence Ready / Accepted
+Report and website UI-001 Implement hash-locked C-05 screen specification
+and deliver responsive/accessibility/visual-
+regression evidence
+Not Started / In
+Progress / Evidence
+Ready / Accepted
+
+===== PAGE 36 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+Appendix B — Final Delivery Evidence Index
+Evidence ID Artifact Location/version ROOTS review
+E-01 Repository and tagged release
+E-02 Staging and Production URLs
+E-03 Architecture/Data Flow/ERD
+E-04 OpenAPI specification
+E-05 Scoring release + Golden Test Pack
+E-06 Report JSON/PDF visual references
+E-07 Security/RLS/OWASP evidence
+E-08 Performance/accessibility/browser reports
+E-09 Backup/restore evidence
+E-10 SBOM/license/processor/cost registers
+E-11 Bug tracker and UAT report
+E-12 Handover recording and access checklist
+E-12 C-05 route inventory, component catalog,
+responsive screenshots, accessibility and visual-
+regression evidence
+
+===== PAGE 37 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+Appendix C — Controlled Data Annex Register
+The five files listed below are released, hash-locked and indivisible components of this Master
+Requirements document. Their exact filenames, versions, approval date and SHA-256 hashes identify
+the only executable content release. C-01 and C-02 are present and approved; assessment and scoring
+implementation may begin after checksum verification. No historical questionnaire, scoring example,
+sample report or website draft is authoritative.
+Annex Controlled dataset Required release Version / date / SHA-256 ROOTS approval
+record
+C-01 Canonical Question Bank Exactly 73 stable IDs across exactly 13 ordered
+modules; exact wording, options, types, validation
+and conditional logic
+v1.0.0 / 21 July 2026
+02_ROOTS_AI_C01_Canonical_
+Question_Bank_v1.0.0.xlsx
+SHA-256:
+36785cc15e0be8a7781d7b4eec
+51eb4be1ca31b712d622e24c07
+1f8f66453802
+ROOTS internal
+approval record:
+ROOTS-CR-2026-
+07-21-C-01
+C-02 Canonical Scoring Rules Every mapping, weight, reverse flag, threshold,
+formula constant, protective factor, driver,
+confidence rule and 30-case Golden Test Pack
+v1.0.0 / 21 July 2026
+03_ROOTS_AI_C02_Canonical_S
+coring_Rules_and_Golden_Tests
+_v1.0.0.xlsx
+SHA-256:
+fe62560a0abc5a4da541516ad2
+e8e20a1a6511f986d0c757f0841
+14de530b226
+ROOTS internal
+approval record:
+ROOTS-CR-2026-
+07-21-C-02
+C-03 Report Content & Visual
+Reference Pack
+Approved 19-section copy contract, templates,
+labels, safety rules and reference rendering
+v1.0.0 / 21 July 2026
+04_ROOTS_AI_C03_Report_Con
+tent_and_Visual_Reference_Pac
+k_v1.0.0.pdf
+SHA-256:
+877d71a7fd815e31a410325edc
+a7b9610216f1a50bab9b6944c3
+5c5b9ce5256f
+ROOTS internal
+approval record:
+ROOTS-CR-2026-
+07-21-C-03
+C-04 Website Content & Legal
+Copy Pack
+Approved content for all Phase 1 routes,
+privacy/terms/cookie/medical/AI notices and
+system messages
+v1.0.0 / 21 July 2026
+05_ROOTS_AI_C04_Website_Co
+ntent_and_Legal_Copy_Pack_v1
+.0.0.docx
+SHA-256:
+b9f5ea308bb8f7b012a1805521f
+722b9db5c6899b26dc18d82b74
+d1498500bac
+ROOTS internal
+approval record:
+ROOTS-CR-2026-
+07-21-C-04
+C-05 UI/UX Screen Implementation
+Specification
+Every Phase 1 screen, route, shell, navigation item,
+role visibility rule, component state, responsive
+behavior and UI acceptance artifact
+v1.0.0 / 21 July 2026
+07_ROOTS_AI_C05_UI_UX_Scre
+en_Implementation_Specificatio
+n_v1.0.0.pdf
+SHA-256:
+450a74f6933dc1c11b18ba7efab
+54e14257b8c190a3cd0d955080
+57ac00cb731
+ROOTS internal
+approval record:
+ROOTS-CR-2026-07-
+21-C-05
+
+===== PAGE 38 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+C.1 Canonical Question Bank Minimum Schema
+Field Mandatory rule
+questionnaire_version Immutable semantic version shared by all 73 records
+module_id / module_order /
+module_title
+Exactly 13 unique ordered modules; no duplicate order
+question_id / question_order Exactly Q1–Q73 or another explicitly approved stable 73-ID sequence; unique and gap-free
+question_text Exact approved participant-facing wording
+question_type Approved enum such as numeric, single select, multi-select, Likert, boolean, date or free text
+answer_options Stable option IDs, labels and stored values; no UI-label-as-logic dependency
+required / allow_na Explicit booleans; N/A is never inferred
+validation Range, length, unit and format rules plus approved error text
+conditional_logic Machine-readable trigger, operator, value and resulting show/hide/require action
+scoring_eligible Explicit boolean separating scored items from contextual items
+C.2 Canonical Scoring Rules Minimum Schema
+Field Mandatory rule
+scoring_version Immutable semantic version linked to every score and report
+question_id / domain_id Exact relationship to one of MR, HS, SR, CH, SL, IB or BS, or explicit contextual-only status
+option_points / normalization Deterministic conversion from stored answer to normalized value
+weight / reverse_scored Explicit numeric weight and boolean reverse flag for every scored question
+N/A / missing behavior Exclude N/A; never impute; domain null below 50% eligible coverage unless changed in this annex
+domain formula Numerator, denominator, scale and rounding rule
+derived formulas Biological State, Opportunity and Recovery Potential formulas and rounding
+classifications Non-overlapping inclusive boundaries, labels and colors
+drivers / evidence / confidence Deterministic thresholds, tie rules, coverage rules and outputs
+test vectors Input and exact expected output for every boundary and reverse-scored branch
+
+===== PAGE 39 =====
+ROOTS-AI™ | Phase 1 MVP Master Product & Implementation Requirements
+CONFIDENTIAL — Controlled Implementation Baseline
+Appendix D — Consolidated Requirements Decisions
+The decisions below are final for Version 3.3 and may be changed only by a formally approved ROOTS
+change record. Historical alternatives are discarded.
+Subject Approved Version 3.3 decision Required evidence
+Technical stack Next.js/React and server-side TypeScript strict mode; Supabase; Vercel;
+Puppeteer; OpenAI only for governed narrative
+Architecture Gate and deployed
+environments
+Database scope At least eight logical application tables plus managed auth, views, buckets
+and optional normalized tables
+ERD, migrations and table inventory
+RLS Enabled and negatively tested on every protected table and view Automated RLS test report
+Assessment Exactly 73 questions across exactly 13 modules from hash-locked Annex
+C-01
+Automated count/schema check and
+UAT
+N/A and missing N/A excluded; missing never imputed; domain null below approved
+coverage threshold
+Golden tests
+Scoring Deterministic only; no demographic adjustment or invented rule outside
+Annex C-02
+Trace output and Golden Test Pack
+Website All 18 operational, informational, legal and admin routes listed in Section
+6
+Route inventory and page UAT
+Report Interactive and PDF report contain all 19 required sections Canonical JSON, reference PDF and
+visual tests
+AI role Language renderer only; cannot calculate or alter scores, drivers,
+confidence or eligibility
+Governance and fallback tests
+Performance Exact measurable budgets in Section 12; not best-effort targets Representative-load performance
+report
+Security/privacy Private storage, MFA for privileged roles, processor controls, audit,
+consent, retention, backup and restore
+Security, processor and restore
+evidence
+Analytics No analytics, replay or pixels on assessment, report, auth or admin routes Network inspection and
+configuration evidence
+Repository/accounts ROOTS-AI™ ownership and control from Day 0 Owner screenshots/access register
+Timeline 
+Thirty calendar days from Effective Date, including
+seven-day UAT; complete Release Candidate by
+Day 23 and Final Acceptance by Day 30; payment
+follows accepted evidence
+Approved milestone certificates
+Warranty/support 90-day defect warranty plus three calendar months complimentary
+support from Final Acceptance
+Support log and SLA evidence
+END OF DOCUMENT
+
+===== PAGE 40 =====
+ROOTS-AI™ — CONTROLLED CORRECTION SHEET
+Master Product & Implementation Requirements v3.3.1
+This sheet is an integral part of v3.3 and supersedes only the clauses expressly identified below. All other
+requirements remain unchanged.
+1. Section 6.1 — Design and Content System
+Superseded text: the fixed “Quiet Luxury” aesthetic prescription and any interpretation that treats the listed palette or
+Inter typography as the final visual benchmark.
+Controlling replacement: Functional, accessibility, responsive, content-governance and approved naming
+requirements in Section 6.1 remain mandatory. Final PUB-01 visual styling, artistic direction, component appearance,
+design quality, typography treatment, visual hierarchy and Golden Screen acceptance are governed by
+ROOTS_AI_Visual_Direction_and_Golden_Screen_Acceptance_Brief_v1.0_FINAL. Existing SVGs remain
+functional/content wireframes and do not constitute the final aesthetic design. A Golden Screen becomes the
+controlling visual-system reference only after written ROOTS-AI approval.
+The approved visual-direction brief studies quality principles from Oura, Function Health, WHOOP and Apple Health
+without copying their layouts, assets, charts, trade dress or proprietary interaction patterns. The final expression must
+remain recognisably ROOTS-AI™.
+2. Section 15.2 — G2 / Milestone Interpretation
+Clarification required to remove the G2/M1–M2 ambiguity: the Day-7 G2 row describes the intended early delivery
+trajectory for the Assessment/Data workstream; it does not override the signed commercial milestone allocation.
+For payment and formal milestone acceptance: M1 requires the assessment shell plus autosave/resume
+foundation, together with the applicable G0–G2 foundation evidence (repository/environment control, architecture,
+schema/migrations, authentication, RLS foundation, traceability/test evidence and Staging demonstration). M2
+requires completion of the canonical 73-question / 13-module assessment, validation/progress, deterministic
+seven-domain scoring, versioning and all 30 Golden Tests. A delay of full 73-question completion beyond Day 7 does
+not by itself convert that M2 deliverable into an M1 payment condition; however, the M1 shell/autosave/resume
+foundation remains mandatory for M1 acceptance.
+3. Appendix C — Controlled Data Annexes
+Appendix C remains authoritative and is not converted from executable source formats to PDF. The final vendor
+package must include the exact hash-locked source files identified by Appendix C wherever an executable/editable
+source is specified.
+Annex Required source Verified SHA-256 status
+C-01 02_ROOTS_AI_C01_Canonical_Question_Bank_v1.0.0.xlsx MATCHES Appendix C
+C-02 03_ROOTS_AI_C02_Canonical_Scoring_Rules_and_Golden_Tests_v1.0.0.xlsx MATCHES Appendix C
+C-04 05_ROOTS_AI_C04_Website_Content_and_Legal_Copy_Pack_v1.0.0.docx MATCHES Appendix C
+4. Precedence
+If the original v3.3 wording conflicts with this correction sheet on the three matters above, this v3.3.1 correction
+controls. Nothing in this correction relaxes scientific, security, privacy, legal, accessibility, deterministic-scoring,
+traceability, testing or handover requirements.

@@ -1,186 +1,218 @@
-# ROOTS-AI Health Assessment Platform
+# ROOTS-AI™ Biological Intelligence Platform
 
-A comprehensive health assessment platform built with Next.js, TypeScript, and Supabase.
+A governed biological intelligence assessment and reporting platform that turns structured assessments into comprehensive biological intelligence reports.
 
-## Features
+## Project Overview
 
-- **73 Questions** across 13 modules covering various health aspects
-- **7-Domain Scoring System**: Metabolic Resistance, Hunger & Satiety Signals, Sleep Recovery Index, Circadian Health Score, Stress Load, Inflammation & Burden, Biological Safety Signals
-- **Deterministic Scoring Engine** based on C-02 v1.0.1 canonical rules
-- **Validation System** based on C-01 v1.0.1 canonical rules
-- **Progress Tracking** with module navigation
-- **Report Generation** with domain scores, drivers, and recommendations
-- **Secure Database** with Row Level Security (RLS) policies
-- **Responsive Design** with Tailwind CSS
+ROOTS-AI™ helps users understand patterns in metabolism, hunger, sleep, circadian timing, stress, inflammation-related signals, and perceived biological resistance through a structured 73-question assessment across 13 biological domains.
+
+### Key Features
+
+- **73 Canonical Questions**: Structured assessment across 13 biological modules
+- **Deterministic Scoring**: AI assists with explanation, not calculation
+- **Secure Session Management**: HTTPOnly cookies with 60-minute server/session expiry
+- **Autosave Functionality**: Automatic progress saving with status indicators
+- **Resume Capability**: Secure session restoration after leaving
+- **Access Isolation**: Cross-user data protection and session validation
+- **WCAG 2.1 AA Compliant**: Accessible design with keyboard navigation support
+
+### Biological Domains
+
+1. **MR** - Metabolic Resistance™
+2. **HS** - Hunger & Satiety Signals™
+3. **SR** - Sleep Recovery Index™
+4. **CH** - Circadian Health Score™
+5. **SL** - Stress Load™
+6. **IB** - Inflammation Burden Index™
+7. **BS** - Biological Safety Signals™
 
 ## Tech Stack
 
-- **Frontend**: Next.js 16, React 19, TypeScript
+- **Framework**: Next.js 16.3.4 with React 19.2.8
 - **Styling**: Tailwind CSS 4
-- **Database**: Supabase (PostgreSQL)
-- **Authentication**: Supabase Auth (to be integrated)
-- **Forms**: React Hook Form, Zod validation
+- **Build Tool**: Turbopack
+- **Language**: TypeScript
+- **Deployment**: Vercel
+- **Database**: In-memory Map storage (Supabase integration planned)
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ installed
-- A Supabase project (create one at https://supabase.com)
-- Python 3 with openpyxl for data generation
+- Node.js 18+ 
+- npm, yarn, pnpm, or bun
 
 ### Installation
 
-1. Clone the repository:
 ```bash
-git clone https://github.com/Alsenwia3med/-my-roots-ai.git
-cd -my-roots-ai
-```
+# Clone the repository
+git clone https://github.com/souhail555/roots-ai-learning.git
+cd roots-ai-learning
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
 ```
 
-3. Set up environment variables:
+### Development
+
 ```bash
-cp .env.local.example .env.local
-```
-
-Edit `.env.local` with your Supabase credentials:
-```
-NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
-NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
-```
-
-4. Generate canonical data from Excel workbooks:
-```bash
-python scripts/canonical/generate.py
-python scripts/canonical/generate_scoring.py
-```
-
-5. Set up the database:
-   - Open your Supabase project
-   - Go to SQL Editor
-   - Run the schema from `supabase/schema.sql`
-
-6. Run the development server:
-```bash
+# Run the development server
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+### Production Build
+
+```bash
+# Build for production
+npm run build
+# or
+yarn build
+# or
+pnpm build
+# or
+bun build
+
+# Start production server
+npm start
+# or
+yarn start
+# or
+pnpm start
+# or
+bun start
+```
 
 ## Project Structure
 
 ```
-my-roots-ai/
-├── src/
-│   ├── app/                    # Next.js app directory
-│   │   ├── page.tsx           # Home page
-│   │   ├── assessment/        # Assessment pages
-│   │   ├── report/            # Report pages
-│   │   └── auth/              # Authentication pages
-│   ├── lib/
-│   │   ├── assessment/        # Assessment logic
-│   │   │   ├── c01-question-bank.json
-│   │   │   ├── validation.ts
-│   │   │   └── progress.ts
-│   │   ├── scoring/           # Scoring engine
-│   │   │   ├── c02-ruleset.json
-│   │   │   └── engine.ts
-│   │   └── db/                # Database utilities
-│   │       └── supabase.ts
-│   └── components/            # Reusable components
-├── scripts/
-│   └── canonical/             # Data generation scripts
-├── supabase/
-│   └── schema.sql            # Database schema
-└── public/                   # Static assets
+roots-ai-learning/
+├── app/                    # Next.js app directory
+│   ├── assessment/         # Assessment routes and pages
+│   ├── api/               # API routes for sessions and answers
+│   ├── layout.tsx         # Root layout with header/footer
+│   ├── page.tsx           # Homepage with biological visualization
+│   └── globals.css        # Global styles and CSS variables
+├── components/            # React components
+│   └── layout/           # Header, Footer, and other layout components
+├── lib/                  # Core business logic
+│   ├── canonicalAssessment.ts  # 73 canonical questions across 13 modules
+│   ├── db.ts             # Session management and data storage
+│   ├── scoring.ts        # Deterministic scoring logic
+│   └── utils.ts          # Utility functions
+├── docs/                 # Documentation
+│   └── m1/              # M1 compliance documentation
+├── public/              # Static assets (logos, images)
+└── package.json         # Dependencies and scripts
 ```
 
-## Canonical Data
+## API Routes
 
-The platform uses canonical data generated from controlled workbooks:
+### Session Management
+- `POST /api/assessment/sessions` - Create new assessment session
+- `GET /api/assessment/sessions/[sessionId]` - Get session details
+- `POST /api/assessment/sessions/[sessionId]/answers` - Save assessment answers
 
-- **C-01 Question Bank**: 73 questions, 27 option sets, 11 validation rules
-- **C-02 Scoring Rules**: 7 domains, 40 question mappings, 30 golden tests
+### Assessment Routes
+- `/assessment` - Assessment start page
+- `/assessment/[sessionId]/module/[moduleId]` - Assessment question pages
+- `/assessment/[sessionId]/resume` - Resume saved assessment
 
-To regenerate the data:
-```bash
-python scripts/canonical/generate.py
-python scripts/canonical/generate_scoring.py
-```
+## M1, M2 and M3 project view
 
-## Scoring System
+Open [`/project-status`](/project-status) in the running application to view the consolidated M1, M2 and M3 implementation status, evidence links and open production gates.
 
-The scoring engine calculates scores across 7 domains:
+The source packages remain available in:
 
-1. **MR** - Metabolic Resistance
-2. **HS** - Hunger & Satiety Signals
-3. **SR** - Sleep Recovery Index
-4. **CH** - Circadian Health Score
-5. **SL** - Stress Load
-6. **IB** - Inflammation & Burden
-7. **BS** - Biological Safety Signals
+- `docs/m1/` — foundation, assessment shell and traceability evidence
+- `docs/m2/` — canonical assessment, deterministic scoring and Golden Tests
+- `docs/m3/` — governed report/PDF/AI boundary, decisions and open gates
 
-Each domain score is calculated as:
-```
-ROUND(SUM(answer_points) / SUM(max_points) * 100)
-```
+The project-status page is an implementation evidence view, not a formal medical, legal or regulatory acceptance certificate.
 
-Additional metrics:
-- **Biological State**: Average of domains (requires ≥5 of 7 domains)
-- **Opportunity**: 100 - Biological State
-- **Recovery Potential**: Based on opportunity, protective factors, and age
-- **Confidence**: Weighted average of answer confidence and coverage
-- **Drivers**: Top scoring domains (≥25) with tie-breaking rules
+## M1 Compliance
 
-## Security
+This project implements all M1 requirements according to the Vendor Package v1.4:
 
-The application implements comprehensive security measures:
+- ✅ **G0–G2 Closure**: Technical foundation established
+- ✅ **ROOTS-Owned Repository**: Code in controlled GitHub repository
+- ✅ **Architecture**: Next.js with proper API structure
+- ✅ **Authentication**: HTTPOnly session cookies with 60-minute server/session expiry
+- ✅ **Canonical Assessment Shell**: 73 questions across 13 modules
+- ✅ **Autosave**: Debounced autosave with status indicators
+- ✅ **Resume**: Secure session restoration
+- ✅ **Access Isolation**: Session-based data protection
+- ✅ **M1 Traceability**: Complete requirement → implementation mapping
 
-- **Row Level Security (RLS)** policies on all database tables
-- **Server-side validation** for all submissions
-- **Integrity constraints** to prevent data tampering
-- **Audit logging** for all critical operations
-- **No AI authority** over scoring (deterministic engine only)
+See `docs/m1/M1_FINAL_UNIFIED_PACKAGE.md` for comprehensive M1 documentation.
 
-## Building for Production
+## Security Features
 
-```bash
-npm run build
-npm start
-```
+- **Session Security**: HTTPOnly, sameSite cookies
+- **XSS Protection**: Input sanitization and React's built-in protections
+- **CSRF Protection**: Session-based validation
+- **Data Isolation**: Session-based data separation
+- **Access Control**: API route validation
+
+## Accessibility
+
+- WCAG 2.1 AA compliant
+- Keyboard navigation support
+- Screen reader compatibility
+- Focus management
+- ARIA labels and roles
+- Skip navigation links
 
 ## Deployment
 
-The application can be deployed to Vercel, Netlify, or any platform that supports Next.js.
-
 ### Vercel Deployment
 
-1. Push your code to GitHub
-2. Import the repository in Vercel
-3. Add environment variables
-4. Deploy
+The project is deployed on Vercel: https://roots-ai-learning.vercel.app/
 
-## Testing
-
-Run the test suite:
 ```bash
-npm test
+# Deploy to Vercel
+vercel deploy
 ```
+
+### Environment Variables
+
+The assessment and deterministic report engine run without environment variables in the current self-hosted implementation.
+
+Optional production integrations:
+
+- `CONTACT_WEBHOOK_URL` — HTTPS endpoint for validated contact enquiries. If it is not configured, the Contact page shows a clear delivery error and does not claim that a message was received.
+- `OPENAI_API_KEY` and `AI_NARRATIVE_MODEL` — optional governed narrative transport. Without them, the deterministic governed fallback is used.
+- `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and `SUPABASE_SERVICE_ROLE_KEY` — reserved for the approved production persistence/authentication integration.
+
+No credentials are stored in this repository.
+
+## Contributing
+
+This is a controlled package following ROOTS-AI development standards. All changes must align with the Vendor Package v1.4 specifications.
 
 ## License
 
-This project is for personal use.
+© 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.
 
-## Disclaimer
+## Support
 
-This assessment is for informational purposes only and does not constitute medical advice. Please consult with a qualified healthcare professional for any health concerns.
+For issues or questions, refer to the M1 documentation in `docs/m1/` or contact the development team.
 
-## Credits
+---
 
-Built by Ahmed Alsenwi
-
-Generated with [Devin](https://devin.ai)
+**Version**: 1.0.0  
+**M1 Status**: Functionally Complete  
+**Production URL**: https://roots-ai-learning.vercel.app/

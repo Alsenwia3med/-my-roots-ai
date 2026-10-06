@@ -1,0 +1,81 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ C-06 Executable Technical Baseline v1.0.1 -
+CONTROLLED CORRECTION
+Document ID: ROOTS-C06-TECH-001 | Controlled correction to v1.0.0
+This correction sheet is integral to the attached v1.0.0 release and supersedes only the source-version, deterministic-export and
+Golden Test authority statements identified below. All unaffected API, schema, database, RLS, ERD/role, security and
+technical-readiness requirements remain binding.
+1. Canonical executable-source versions
+Where the attached release refers generically to C-01 and C-02, the executable data release shall be derived from C-01 Canonical
+Question Bank v1.0.1 and C-02 Canonical Scoring Rules and Golden Tests v1.0.1. Their final approved XLSX files are the
+canonical executable sources. Export metadata shall record the exact source filename/version and final SHA-256 checksum used
+to generate each JSON/CSV artifact.
+2. Question/scoring export integrity
+The question/scoring JSON and CSV exports shall reproduce the approved C-01/C-02 v1.0.1 content and deterministic rules
+without manual reinterpretation. Acceptance retains the canonical counts 73 questions / 13 modules / 40 scoring-eligible
+questions, and the export source hashes must match the final controlled source files.
+3. Golden Test authority
+The executable Golden Test artifact may retain an implementation filename such as golden_tests.v1.0.0.json only if its embedded
+release metadata identifies C-02 v1.0.1 as the canonical source; alternatively it may be versioned to match the controlled release.
+In either case, all 30 tests must match the C-02 v1.0.1 canonical expected outputs exactly.
+4. Deterministic driver requirements within the 30 tests
+Exact Golden Test conformance includes the corrected deterministic driver behavior: eligible domains only, descending score
+ranking, fixed tie order MR, HS, SR, CH, SL, IB, BS, co-primary behavior when the top two eligible scores differ by no more than 3
+points, a co-primary pair rendered as one output entry, no duplication, no ineligible/null fallback and no LLM selection. The
+BIO_STATE identifier represents Biological State; BS remains exclusively Biological Safety Signals™. Canonical rounding rules
+from C-02 v1.0.1 also apply.
+5. No architectural or commercial change
+This correction does not alter the documented OpenAPI 3.1 contract, five JSON Schema 2020-12 files, three ordered SQL
+migrations, eight required logical application tables, role assignments/contact enquiries, RLS on protected relations, 12 negative
+RLS tests, research-consent requirement, HMAC-SHA-256 pseudonymization, Architecture Gate evidence, commercial baseline or
+delivery schedule. It is a controlled source/version-integrity correction only.
+Precedence: where the attached v1.0.0 pages conflict with this correction on the matters above, v1.0.1 controls.
+
+===== PAGE 2 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 1
+ROOTS-AI™ Phase 1 MVP
+C-06 Executable Technical Baseline
+Document ID ROOTS-C06-TECH-001
+Version 1.0.0
+Issue date 23 July 2026
+Owner ROOTS AI HEALTH SYSTEMS, Inc.
+Status APPROVED IMPLEMENTATION INPUT RELEASE
+Commercial baseline RM 15,000 fixed fee • 30 calendar days • 7-day UAT
+This controlled annex completes the approved ROOTS-AI Phase 1 baseline. It does not replace C-01 through C-05;
+it makes their implementation inputs directly importable and testable.
+
+===== PAGE 3 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 2
+1. Binding technical package
+Area Importable files Acceptance
+API api/openapi.v1.yaml OpenAPI 3.1 validation; every route authorized and
+versioned
+Schemas five JSON Schema 2020-12 files Positive/negative validation fixtures pass
+Database three ordered SQL migrations Clean Supabase project migrates without manual edits
+RLS policies + 12 negative tests Cross-user and cross-role access is blocked
+Data question/scoring JSON + CSV exports 73/13/40 counts and source hashes match
+Golden tests golden_tests.v1.0.0.json 30 expected outputs match exactly
+ERD/roles erd.svg + role_permissions_matrix.csv Architecture Gate review
+2. API contract
+• System: GET /health
+• Authentication: POST /auth/magic-link
+• Assessment: create, retrieve, archive, save responses, submit and poll status
+• Reports: authorized JSON retrieval and short-lived PDF access
+• Contact: validated, rate-limited enquiry intake
+• Admin: participants, report jobs/retry, configuration lifecycle, audit and research export
+3. Database and access isolation
+The migrations implement the eight required logical application tables, plus role assignments and contact
+enquiries. RLS is enabled on every protected relation. Browser roles cannot create scores, reports or audit
+records. Research export uses explicit active research consent and HMAC-SHA-256 pseudonymization with the
+secret outside source code.
+4. Deterministic data release
+C-01 and C-02 remain the scientific/product source of truth. The JSON and CSV files are byte-derived exports from
+the approved workbooks. The release metadata records the source SHA-256, approval record and the correct
+limitation: approved for the proprietary educational beta, not represented as a clinically validated diagnostic
+instrument.
+5. Definition of technically ready
+A competent implementation team can import the data, validate payloads, migrate a clean Supabase project,
+implement the documented endpoints and execute all golden and RLS tests without inventing a question, score,
+threshold, role or table. Environment secrets, provider project IDs and production credentials remain secure
+deployment inputs and are never embedded in handoff files.

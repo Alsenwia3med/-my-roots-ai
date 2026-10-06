@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "status": "PHASE 0 — FOR REVIEW",
+  "metadata": {
+    "documentId": "ROOTS-C08-DESIGN-001",
+    "owner": "ROOTS AI HEALTH SYSTEMS, Inc.",
+    "packageIssueDate": "2026-08",
+    "sourceEffectiveDates": { "C-03": "2026-07-21", "C-04": "2026-07-21", "C-05": "2026-07-21" },
+    "sourceVersions": { "C-02": "1.0.0" }
+  },
+  "tokenProvenance": {
+    "canonical": "Directly specified by C-03 or C-05",
+    "implementationDerived": "Derived for interaction states and subject to ROOTS approval"
+  },
+  "brand": { "name": "ROOTS-AI™", "tagline": "Medicine Before Symptoms™" },
+  "colors": {
+    "primary": { "deepNavy": "#1A2A4A", "softNavy": "#2A4060", "charcoal": "#1A1A1A" },
+    "secondary": { "warmWhite": "#FAFAF8", "muted": "#6B7280" },
+    "status": { "optimized": "#27AE60", "compensating": "#F39C12", "strained": "#E67E22", "dysregulated": "#C0392B", "error": "#B42318", "success": "#16794B" },
+    "accent": { "focus": "#2563EB" },
+    "borders": { "decorativeBorder": "#D8DEE8", "interactiveBorder": "#6B7280" }
+  },
+  "typography": {
+    "fontFamily": "Inter, Arial, sans-serif",
+    "sizes": { "h1": { "desktop": "48px", "mobile": "34px" }, "h2": "32px", "h3": "24px", "h4": "20px", "body": "16px", "legalAndConsentBodyMinimum": "16px", "small": "14px", "xsmall": "12px" },
+    "weights": { "regular": 400, "medium": 500, "semiBold": 600, "bold": 700 },
+    "lineHeight": { "h1": { "desktop": "56px", "mobile": "42px" }, "body": "26px" },
+    "usageRestrictions": { "small": "Metadata and supporting labels only", "xsmall": "Technical metadata only", "legalAndConsentBodyMinimum": "16px" }
+  },
+  "breakpoints": { "mobile": { "min": 360, "max": 767 }, "tablet": { "min": 768, "max": 1023 }, "desktop": { "min": 1024, "max": 1439 }, "wide": { "min": 1440 } },
+  "grid": { "columns": { "mobile": 4, "tablet": 8, "desktop": 12, "wide": 12 }, "gutters": { "mobile": "16px", "tablet": "24px", "desktop": "24px", "wide": "24px" }, "maxContentWidth": "1200px", "readingMaxWidth": "720px" },
+  "spacing": { "base": "8px", "values": [4, 8, 12, 16, 24, 32, 48, 64, 96] },
+  "radius": { "card": "12px", "button": "8px", "pill": "999px" },
+  "interaction": { "touchTarget": "44px", "focusRing": "3px", "focusColor": "#2563EB", "focus": { "outline": "3px solid #2563EB", "outlineOffset": "3px", "contrastBuffer": "2px solid #FFFFFF" }, "motion": { "minimumDurationMs": 150, "maximumDurationMs": 250, "reducedMotion": "disable_nonessential_motion" } },
+  "buttons": {
+    "primary": { "background": "#1A2A4A", "text": "#FFFFFF", "border": "none", "radius": "8px", "height": "44px", "minWidth": "120px", "padding": "0 24px", "fontSize": "16px", "fontWeight": 600 },
+    "secondaryOnDark": { "background": "transparent", "text": "#FFFFFF", "border": "2px solid #FFFFFF", "radius": "8px", "height": "44px", "minWidth": "120px", "padding": "0 24px", "fontSize": "16px", "fontWeight": 600 },
+    "secondaryOnLight": { "background": "transparent", "text": "#1A2A4A", "border": "2px solid #1A2A4A", "radius": "8px", "height": "44px", "minWidth": "120px", "padding": "0 24px", "fontSize": "16px", "fontWeight": 600 },
+    "tertiary": { "background": "transparent", "text": "#1A2A4A", "border": "none", "radius": "0", "height": "44px", "padding": "8px 16px", "fontSize": "16px", "fontWeight": 500, "textDecoration": "underline" },
+    "destructive": { "background": "#B42318", "text": "#FFFFFF", "border": "none", "radius": "8px", "height": "44px", "minWidth": "120px", "padding": "0 24px", "fontSize": "16px", "fontWeight": 600 }
+  },
+  "inputs": { "height": "44px", "padding": "0 12px", "borderRadius": "8px", "borderColor": "#6B7280", "borderWidth": "1px", "fontSize": "16px", "labelFontSize": "16px", "labelWeight": 500, "errorColor": "#B42318", "successColor": "#16794B" },
+  "containers": { "maxWidth": "1200px", "padding": "24px", "mobilePadding": "16px" },
+  "accessibility": { "standard": "WCAG 2.2 AA", "contrast": { "normalText": "4.5:1", "largeText": "3:1", "nonTextUI": "3:1" }, "focusVisible": true },
+  "screens": { "total": 48, "files": 192, "categories": ["PUBLIC", "LEGAL", "ASSESSMENT", "REPORT", "ADMIN", "SYSTEM"] }
+}

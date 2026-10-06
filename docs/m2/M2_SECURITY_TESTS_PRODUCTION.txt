@@ -1,0 +1,36 @@
+﻿ROOTS-AI(TM) M2 Security / Negative Tests against https://roots-ai-learning.vercel.app
+
+SEC-01     | PASS | User A session created -> c5854f20-de0c-4c38-8b19-8e4726d904ea
+SEC-02     | PASS | User B session created -> 1d6304ae-cd41-4895-ba20-b33f54edc8c5
+SEC-03     | PASS | No cookie cannot read a session -> status 403
+SEC-04     | PASS | Cross-user session read is rejected -> status 403
+SEC-05     | PASS | Cross-user answer write is rejected -> status 403
+SEC-06     | PASS | Cross-user progress read is rejected -> status 403
+SEC-07     | PASS | Cross-user result read is rejected -> status 403
+SEC-08     | PASS | Unknown module rejected -> status 400
+SEC-09     | PASS | Cross-module question injection rejected -> status 400
+SEC-10     | PASS | Unknown option value rejected -> status 400
+SEC-11     | PASS | Empty required multi-select is flagged -> status 400
+SEC-12     | PASS | NONE combined with another option is flagged -> status 400
+SEC-13     | PASS | Incomplete assessment cannot produce a result -> status 400
+SEC-14     | PASS | Unauthenticated result creation rejected -> status 403
+SEC-15     | PASS | Invalid email rejected at session creation -> status 400
+SEC-16     | PASS | Cookie/session-id mismatch rejected (no id substitution) -> status 403
+SEC-17     | PASS | Unknown question id rejected -> status 400
+SEC-18     | PASS | N/A on a question that does not permit it is rejected -> status 400
+SEC-19     | PASS | Out-of-range numeric response rejected -> status 400
+SEC-20     | PASS | Non-numeric response to a numeric question rejected -> status 400
+SEC-21     | PASS | Invented N/A on optional free text (Q73) rejected -> status 400
+SEC-22     | PASS | Unknown option in a required multi-select rejected -> status 400
+SEC-23     | PASS | NONE combined with another option on Q14 rejected -> status 400
+SEC-24     | PASS | NONE combined with another option on Q52 rejected -> status 400
+SEC-25     | PASS | Empty required multi-select still rejected after a prior valid save -> resubmit 200, recheck 400
+SEC-26     | PASS | Unauthenticated result creation rejected on any session -> status 403
+SEC-27     | PASS | Unauthenticated answer write rejected -> status 403
+SEC-28     | PASS | Malformed answer payload rejected -> status 400
+SEC-29     | PASS | Non-JSON body rejected with a client error (no 5xx) -> status 400
+SEC-30     | PASS | Unknown session id yields no data (403/404) -> status 404
+SEC-31     | PASS | Cross-user result creation rejected -> status 403
+
+=== Summary ===
+Passed: 31  Failed: 0

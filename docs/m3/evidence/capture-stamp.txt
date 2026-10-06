@@ -1,0 +1,3 @@
+Captured (UTC): 2026-09-30T06:23:20Z
+Node: v26.4.0
+Commit: 8c7edeeb58786a37a134482ecbbbaf93dffbe32c

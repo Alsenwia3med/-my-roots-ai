@@ -1,0 +1,1976 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ C-07 Atomic Requirement Traceability &
+Acceptance v1.0.1 — CONTROLLED CORRECTION
+Document ID: ROOTS-C07-TRACE-001 | Controlled correction to v1.0.0
+This sheet is integral to the attached v1.0.0 trace release. The 594 source-record rows remain preserved for provenance. Where a
+historical source statement conflicts with the final controlled implementation baseline, the canonical implementation and acceptance
+interpretation below supersedes that historical wording; the historical wording is not an independent implementation authority.
+1. Controlled-reference versions
+Canonical artifact references shall resolve to the final controlled releases: Master Product Implementation Requirements v3.3.1
+CORRECTED (subject to the final package-integrity update), C-01 v1.0.1, C-02 v1.0.1, C-03 v1.0.1, C-04 v1.0.1, Secure Kickoff v1.0.1,
+C-05 v1.0.1 and C-06 v1.0.1. A legacy version label in an attached source-record row does not override these controlled releases.
+2. SCR-0004 — Driver
+Canonical implementation requirement: Driver output is determined only by C-02 v1.0.1. Eligible domains require a non-null score ≥25;
+rank descending by score with exact-tie order MR, HS, SR, CH, SL, IB, BS. If the top two eligible scores differ by ≤3, they form one
+co-primary output entry. Report zero to three output entries, with no duplication, no ineligible/null fallback and no LLM selection. The
+historical phrase “the highest-scoring domain” is retained only as source provenance and is not sufficient implementation logic.
+3. RPT-0026 / Q73
+Canonical implementation requirement: Q73 remains optional free text, 0–1000 characters, sanitized, and must never be concatenated
+directly into model instructions; allow_na=False. The attached legacy source-record value allow_na=True is superseded by C-01 v1.0.1.
+4. Required multi-select validation
+For every required multi-select question governed by C-01 v1.0.1, one or more approved option IDs are required; an empty array is invalid.
+NONE/N/A is exclusive where provided and cannot be combined with other options. Acceptance tests must verify these negative cases.
+5. UI-0001 — visual authority
+Canonical artifact: C-05 v1.0.1 + ROOTS-AI Visual Direction + written-approved PUB-01 Golden Screen/design system. C-08 governs
+editable asset handoff within its controlled scope. Existing SVGs are functional/content wireframes only and are not final visual authority.
+Evidence remains required at 360/768/1024/1440 and must preserve accessibility and functional behavior.
+6. LEG-0002 and legacy legal/compliance wording
+Historical source phrases such as “HIPAA-ready” are preserved as source records only and do not constitute certification, legal status or a
+universal PHI claim. Canonical implementation follows C-04 v1.0.1 and the controlled security/privacy baseline using PII/personal
+data/health-related data terminology, with PHI/HIPAA treatment only where legally applicable. No implementation or marketing claim may
+be inferred solely from the historical source wording.
+7. Report / driver / Biological State traceability
+Report acceptance shall use C-02/C-03 v1.0.1 exact deterministic outputs, including zero-to-three driver entries, co-primary as one entry,
+reduced/Not Available states, and no invented driver/protective factor. BIO_STATE identifies Biological State; BS remains Biological Safety
+Signals™.
+8. C-06 executable evidence
+Trace acceptance that depends on executable data, API/schema/database or scoring evidence shall use C-06 v1.0.1 and exports
+generated from the final C-01/C-02 v1.0.1 canonical sources. All 30 Golden Tests must match the C-02 v1.0.1 expected outputs exactly,
+including corrected driver, BIO_STATE and rounding behavior.
+9. Coverage-status rule
+A row marked “Covered” is accepted only when its canonical artifact and named test/evidence conform to the current controlled baseline
+and this correction. The status label alone is not acceptance evidence. Historical rows that conflict with a later controlled correction are
+covered only by satisfying the corrected requirement.
+Integrity audit
+Check Result
+Atomic source rows declared by release 594 preserved; no row deletion by this correction
+Correction method Provenance preserved; canonical implementation/acceptance overlay applied
+Material conflicts explicitly closed SCR-0004; RPT-0026/Q73; required multi-select; UI-0001; LEG-0002; report/driver state; C-06 evidence
+Commercial / milestone change None
+Precedence: where an attached v1.0.0 row conflicts with this correction on the matters above, v1.0.1 controls. This correction does not
+alter the commercial agreement, milestone allocation, or unaffected atomic source records.
+
+===== PAGE 2 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 1
+ROOTS-AI™ Phase 1 MVP
+C-07 Atomic Requirement Traceability & Acceptance Matrix
+Document ID ROOTS-C07-TRACE-001
+Version 1.0.0
+Issue date 23 July 2026
+Owner ROOTS AI HEALTH SYSTEMS, Inc.
+Status APPROVED FULL-COVERAGE TRACE RELEASE
+Commercial baseline RM 15,000 fixed fee • 30 calendar days • 7-day UAT
+This controlled annex completes the approved ROOTS-AI Phase 1 baseline. It does not replace C-01 through C-05; it makes their implementation inputs directly importable and
+testable.
+
+===== PAGE 3 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 2
+Coverage summary
+594 atomic source items are mapped to one canonical implementation artifact and one verification test. Headings, constraints, future/out-of-scope statements and measurable
+acceptance criteria are retained so the source record cannot disappear through summarization.
+The supplied questionnaire export mixed form wording with real participant answers and direct identifiers. Those personal values are intentionally excluded because they are not
+product requirements. All 73 approved questions, their types, validation, conditional logic and option sets are traced from the de-identified C-01 canonical release.
+Category Atomic items
+ASM 60
+FUT 36
+GEN 305
+GOV 4
+LEG 11
+QA 33
+RPT 26
+SCR 38
+TEC 29
+UI 11
+WEB 41
+
+===== PAGE 4 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 3
+Detailed matrix
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+QA-0001 SRC-01 / 1 ROOTS-AI™ Master Development Documentation Roadmap v3.0 (FINAL)
+The Official Development Blueprint
+Master §§13-18 + C-07 traceability QA-UAT-0001 Covered
+QA-0002 SRC-01 / 2 Prepared For: ROOTS-AI™ Technology Development Partner Prepared By:
+ROOTS-AI™ Status: Approved Master Development Documentation
+Framework Version: 3.0 Date: July 2026
+Master §§13-18 + C-07 traceability QA-UAT-0002 Covered
+ASM-0001 SRC-01 / 3 Executive Summary ROOTS-AI™ is an AI-powered Biological Intelligence
+Platform designed to identify probable biological drivers before disease
+diagnosis using structured questionnaires, intelligent scoring, and
+personalized biological reports. This roadmap defines all documentation
+required to build the MVP and scale toward a full Biological Intelligence
+ecosystem.
+C-01 + C-05 assessment screens ASM-UAT-0001 Covered
+WEB-0001 SRC-01 / 4 Document Purpose This document defines the complete documentation
+roadmap for the ROOTS-AI™ platform. It serves as the single source of
+truth for all development, design, and compliance documentation required
+to build, launch, and scale the platform.
+C-04 + C-05 public/legal screens WEB-UAT-0001 Covered
+QA-0003 SRC-01 / 5 This roadmap defines the complete documentation framework. Documents
+will be produced progressively according to the approved development
+phases.
+Master §§13-18 + C-07 traceability QA-UAT-0003 Covered
+LEG-0001 SRC-01 / 6 Glossary of Terms Term Definition ROOTS-AI™ The platform name. Always
+hyphenated, always ™.
+C-04 website/legal copy LEG-UAT-0001 Covered
+SCR-0001 SRC-01 / 7 ROOTS Biological State™ The overall biological health score (0-100). C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0001 Covered
+SCR-0002 SRC-01 / 8 Recovery Potential™ A multi-factor algorithm assessing biological recovery
+capacity.
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0002 Covered
+SCR-0003 SRC-01 / 9 Opportunity Score™ A score indicating how much biological resistance
+appears modifiable.
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0003 Covered
+SCR-0004 SRC-01 / 10 Driver The highest-scoring domain that primarily influences biological
+state.
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0004 Covered
+GEN-0001 SRC-01 / 11 Domain One of seven biological areas (Metabolic Resistance, Hunger &
+Satiety, Sleep Recovery, Circadian Health, Inflammation Burden, Stress
+Load, Biological Safety).
+Master Requirements v3.3 GEN-REVIEW-0001 Covered
+FUT-0001 SRC-01 / 12 Biological Twin™ Long-term vision: a continuously evolving digital
+biological profile.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0001 Carried as explicit
+future/out-of-scope
+ASM-0002 SRC-01 / 13 Scoring Matrix™ The complete scoring algorithm mapping questions to
+domains.
+C-01 + C-05 assessment screens ASM-UAT-0002 Covered
+WEB-0002 SRC-01 / 14 MVP Minimum Viable Product – Phase 1 of the platform. C-04 + C-05 public/legal screens WEB-UAT-0002 Covered
+GEN-0002 SRC-01 / 15 PRD Product Requirements Document – defines what to build and why. Master Requirements v3.3 GEN-REVIEW-0002 Covered
+SCR-0005 SRC-01 / 16 AI Engine The AI Decision Engine that interprets scores and generates
+narratives.
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0005 Covered
+
+===== PAGE 5 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 4
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+FUT-0002 SRC-01 / 17 Naming Convention Element Standard Example Platform Name ROOTS-AI™
+Not "Roots AI" or "ROOTSAI" Biological State ROOTS Biological State™ Not
+"Bio State" Opportunity Score ROOTS Opportunity Score™ Not "Opp Score"
+Recovery Potential ROOTS Recovery Potential™ Not "Recovery" Biological
+Twin ROOTS Biological Twin™ Always capitalized Scoring Matrix ROOTS
+Scoring Matrix™ Always capitalized AI Engine ROOTS AI Intelligence
+Engine™ Full name in formal docs Assumptions
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0002 Carried as explicit
+future/out-of-scope
+GEN-0003 SRC-01 / 18 This roadmap assumes: Master Requirements v3.3 GEN-REVIEW-0003 Covered
+WEB-0003 SRC-01 / 19 Language: English is the primary platform language. C-04 + C-05 public/legal screens WEB-UAT-0003 Covered
+UI-0001 SRC-01 / 20 Design: Mobile-first responsive design. C-05 + C-08 editable SVG/tokens UI-VREG-0001 Covered
+TEC-0001 SRC-01 / 21 Infrastructure: Cloud deployment (Supabase + Vercel/Netlify/AWS). Master + C-06 executable technical baseline TEC-INT-0001 Covered
+TEC-0002 SRC-01 / 22 Architecture: REST API architecture. Master + C-06 executable technical baseline TEC-INT-0002 Covered
+GEN-0004 SRC-01 / 23 AI MVP: AI recommendations are rule-based in Phase 1 (MVP). Master Requirements v3.3 GEN-REVIEW-0004 Covered
+LEG-0002 SRC-01 / 24 Compliance: HIPAA-ready architecture (not certified in MVP). C-04 website/legal copy LEG-UAT-0002 Covered
+GEN-0005 SRC-01 / 25 Integration: No live external integrations in MVP. Master Requirements v3.3 GEN-REVIEW-0005 Covered
+FUT-0003 SRC-01 / 26 Constraints Current Constraints (MVP) Constraint Impact No live laboratory
+integrations Laboratory Intelligence™ deferred to Phase 3 No wearable APIs
+Wearable Intelligence™ deferred to Phase 6 No clinician dashboard
+Professional Portal deferred to Phase 2 No multilingual interface English
+only in MVP No real-time data streaming Batch processing only No native
+mobile apps Web application only Technical Constraints Constraint Impact
+Supabase as primary database Restricts choice of database features
+Puppeteer for PDF generation Requires server-side rendering OpenAI API
+dependency Latency and cost considerations No offline support Requires
+internet connection Scope Boundaries Included in MVP Category Items
+Website Home, Assessment, Example Report, How It Works, Platform,
+Research, Blog, Healthcare Professionals, Pilot Program (Free Beta), About,
+Contact Assessment 73 questions, 13 modules, progress bar, auto-save,
+validation, resume, scoring AI Engine 7 domain scores, Opportunity Score,
+Recovery Potential, Confidence, Driver detection Report 19 sections,
+downloadable PDF, interactive preview Pilot Program Free beta registration,
+pilot landing page, join flow Legal Privacy Policy, Terms of Service, Cookie
+Policy, Medical Disclaimer, AI Disclaimer Security Encryption (transit/rest),
+RLS, Audit Logs, MFA for Admin, BAA with Supabase Out of Scope (MVP)
+Category Items Laboratory No lab integration, biomarkers, or blood test
+analysis DNA No genetic analysis or nutrigenomics Microbiome No gut
+microbiome analysis Wearables No Apple Health, Garmin, Fitbit, Oura,
+WHOOP integration AI Coach No conversational AI or daily coaching
+Biological Twin No continuous biological simulation Dashboard No user
+accounts, login, or progress tracking (MVP is assessment-only) Clinical
+Portal No clinician dashboard or patient management Enterprise No
+employer or population health features Multilingual English only Mobile
+Apps No native iOS/Android apps PHASE 0: Foundation Documents These
+documents define the platform before any development begins.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0003 Carried as explicit
+future/out-of-scope
+
+===== PAGE 6 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 5
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+FUT-0004 SRC-01 / 27 # Document Description Status 1 Platform Vision Vision, Mission,
+Philosophy, Scientific Principles, Medicine Before Symptoms™, Biological
+Intelligence Framework™   Pending 2 Product Requirements Document
+(PRD)   MOST IMPORTANT. Answers: What problem? Who is the user? What
+value? What are we building? Why?   Pending 3 Information Architecture
+Complete website structure: Navigation, Pages, Footer, Future platform,
+Dashboard, Legal, Research   Completed 4 MVP Scope v1.0   Defines
+exactly what will be built in Version 1. Includes Included/Deferred items.  
+Pending 5 Product Roadmap Defines future releases: Phase 1 (MVP) →
+Phase 8 (Biological Twin)   Pending 6 Change Management Process How
+changes are requested, assessed, approved, and implemented   Pending 7
+Decision Log   Records every major decision: Why Recovery Potential
+designed this way? Why 73 questions? Why Biological State instead of Risk
+Score?   Pending PHASE 1: User Experience & Requirements These
+documents define user experience, design standards, and all
+functional/non-functional requirements.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0004 Carried as explicit
+future/out-of-scope
+ASM-0003 SRC-01 / 28 # Document Description Status 8 User Flow v1.0 Visitor Journey,
+Assessment Journey, Report Journey, Pilot Journey, Healthcare Professional
+Journey, University Journey, Error/Loading/Success/Recovery Flows  
+Pending 9 Design & Content System™ Brand Voice, Writing Rules,
+Terminology, UI Writing, Design System (Typography, Spacing, Colors,
+Icons, Cards, Buttons, Animations, Responsive Rules)   Pending 10 Content
+Strategy Tone of Voice, Taxonomy, Writing Guide for every section of the
+website   Pending 11 Functional Requirements   Complete list of
+requirements with IDs, Priority, and Acceptance Criteria. Example:
+REQ-001: User can resume assessment. Priority: High. Acceptance: Works
+after browser closes.   Pending 12 Non-Functional Requirements  
+Performance, Availability, Security, Scalability, Localization, Accessibility,
+Browser Support, Mobile Support, Backup, Monitoring, Logging, Disaster
+Recovery   Pending PHASE 2: Functional Specifications Each page follows
+one identical structure: Overview → Layout → Sections → User Interaction →
+States → Technical Requirements → Assets.
+C-01 + C-05 assessment screens ASM-UAT-0003 Covered
+FUT-0005 SRC-01 / 29 # Document Description Status 13 Home Functional Specification Hero,
+What is ROOTS, Why ROOTS, Biological Intelligence Framework, Benefits (8
+Cards), CTA, Footer   Pending 14 Assessment Functional Specification 73
+questions, 13 modules, Progress, Auto Save, Validation, Resume, Scoring,
+Privacy, Submission (Largest document - ~80 pages)   Pending 15 Example
+Report Specification Report Structure, Report Logic, Report UI, PDF
+Rendering, Interactive Report, Future Layers   Pending 16 Platform
+Specification ROOTS Ecosystem™, All Future Layers (DNA, Microbiome,
+Labs, Wearables, Coach, Twin), Professional Platform, Clinical Portal,
+Research Platform, Enterprise, Population Health, Marketplace   Pending
+17 Research Specification Research Vision, Scientific Advisory, University
+Partnerships, Pilot Programs, Collaboration, Data & Privacy, Ethics &
+Governance, Publications   Pending 18 Healthcare Professional Portal
+ROOTS for Clinics, Interpreting the Report, Clinical Resources, Patient
+Referral, Clinical Evidence, Certification, Clinic Solutions   Pending 19 Pilot
+Program Specification What is the Pilot, Who Can Join, What You Get, How
+to Join, Timeline, Partners, Results, FAQs   Pending 20 Dashboard
+Specification My Reports, My Assessments, Progress, Recommendations,
+Notifications, Settings   Pending 21 Admin Panel Specification Participant
+Management, Report Management, Scoring Configuration, User
+Management, Analytics, System Settings   Pending PHASE 3: Intelligence
+Engine These documents define the core intelligence behind ROOTS-AI™.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0005 Carried as explicit
+future/out-of-scope
+
+===== PAGE 7 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 6
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+SCR-0006 SRC-01 / 30 # Document Description Status 22 ROOTS Scoring Matrix™ Domain Scores,
+Opportunity Score, Recovery Potential, Confidence, Drivers   Completed 23
+AI Decision Engine™ How AI interprets scores, How drivers are selected,
+How recommendations appear, How narratives are generated, How
+contradictions are prevented, How Evidence Strength is calculated, How
+Confidence changes, How Future Layers modify interpretation   Pending 24
+Biological Report Engine™ Report Assembly, Section Logic, Personalisation
+Rules, Visual Components, Dynamic Blocks, Language Rules   Pending
+PHASE 4: Technical Architecture These documents define the technical
+foundation of the platform.
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0006 Covered
+ASM-0004 SRC-01 / 31 # Document Description Status 25 Database Specification Tables,
+Relationships, Security, Permissions, Backups   Pending 26 API
+Specification REST APIs, Authentication, Assessment APIs, Report APIs,
+Dashboard APIs   Pending 27 Security Specification Encryption,
+Authentication, Privacy, Backups, Audit Logs, GDPR, PDPA, HIPAA Ready  
+Pending PHASE 5: Quality Assurance These documents ensure the platform
+is tested, secure, and ready for launch.
+C-01 + C-05 assessment screens ASM-UAT-0004 Covered
+FUT-0006 SRC-01 / 32 # Document Description Status 28 Testing Plan Unit Tests, Integration
+Tests, System Tests, UAT, Security Tests, Performance Tests   Pending 29
+Review Cycles Medical Review, AI Review, UX Review, Security Review,
+Performance Review   Pending 30 Risk Register   All identified risks with
+Impact and Mitigation. Examples: Scope creep, Data breach, Timeline
+delays, API failures, University withdrawal, Regulatory changes   Pending
+31 Launch Checklist Website, Assessment, Report, Dashboard, SEO,
+Analytics, Monitoring, Backup   Pending Intellectual Property Map
+Component IP Status ROOTS-AI™ Trademark (Pending) ROOTS Biological
+State™ Trademark (Pending) ROOTS Opportunity Score™ Trademark
+(Pending) ROOTS Recovery Potential™ Trademark (Pending) ROOTS
+Confidence™ Trademark (Pending) ROOTS Biological Twin™ Trademark
+(Pending) AI Decision Engine™ Proprietary Scoring Matrix™ Proprietary
+Recovery Potential Algorithm™ Proprietary ROOTS Biological Report™
+Proprietary Future Integration Roadmap Category Future Integration Target
+Phase Wearables Apple Health Phase 6 Google Fit Phase 6 Garmin Phase 6
+Fitbit Phase 6 WHOOP Phase 6 Oura Phase 6 Laboratories Laboratory
+Intelligence™ Phase 3 Genetics DNA Intelligence™ Phase 4 Microbiome
+Microbiome Intelligence™ Phase 5 Healthcare FHIR Integration Phase 2 HL7
+Integration Phase 2 EHR Integration Phase 2 AI Biological Twin™ Phase 8 AI
+Coach™ Phase 7 Document Matrix (Dependencies) Document Depends On
+Enables PRD Platform Vision MVP Scope, Functional Requirements,
+Non-Functional Requirements MVP Scope PRD, Information Architecture
+Product Roadmap, All Phase 2 Specifications User Flow MVP Scope All
+Functional Specifications Design System User Flow All Functional
+Specifications Functional Requirements MVP Scope, User Flow All
+Functional Specifications Non-Functional Requirements MVP Scope,
+Security Specification All Technical Specifications Functional Specifications
+Design System, Functional Requirements Development AI Decision Engine
+Scoring Matrix, Functional Requirements Report Engine Database
+Specification Non-Functional Requirements, Security Specification API
+Specification API Specification Database Specification, AI Decision Engine
+All Functional Specifications Testing Plan All Functional Specifications
+Launch Risk Register All Documents Launch Definition of Done
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0006 Carried as explicit
+future/out-of-scope
+QA-0004 SRC-01 / 33 Phase 1 (MVP) Done All MVP features implemented and tested Master §§13-18 + C-07 traceability QA-UAT-0004 Covered
+GEN-0006 SRC-01 / 34 All critical and high-severity bugs resolved Master Requirements v3.3 GEN-REVIEW-0006 Covered
+QA-0005 SRC-01 / 35 UAT passed and signed off Master §§13-18 + C-07 traceability QA-UAT-0005 Covered
+
+===== PAGE 8 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 7
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+QA-0006 SRC-01 / 36 All Phase 1 documentation delivered Master §§13-18 + C-07 traceability QA-UAT-0006 Covered
+QA-0007 SRC-01 / 37 Knowledge transfer completed Master §§13-18 + C-07 traceability QA-UAT-0007 Covered
+GEN-0007 SRC-01 / 38 Schedule 2 & 3 signed Master Requirements v3.3 GEN-REVIEW-0007 Covered
+QA-0008 SRC-01 / 39 Phase 2 Done All Phase 2 features implemented and tested Master §§13-18 + C-07 traceability QA-UAT-0008 Covered
+GEN-0008 SRC-01 / 40 Dashboard, Professional Portal live Master Requirements v3.3 GEN-REVIEW-0008 Covered
+GEN-0009 SRC-01 / 41 User accounts functional Master Requirements v3.3 GEN-REVIEW-0009 Covered
+GEN-0010 SRC-01 / 42 No critical or high-severity bugs Master Requirements v3.3 GEN-REVIEW-0010 Covered
+GEN-0011 SRC-01 / 43 Phase 3 Done Laboratory Intelligence™ integrated Master Requirements v3.3 GEN-REVIEW-0011 Covered
+GEN-0012 SRC-01 / 44 All laboratory biomarkers functional Master Requirements v3.3 GEN-REVIEW-0012 Covered
+GEN-0013 SRC-01 / 45 No critical or high-severity bugs Master Requirements v3.3 GEN-REVIEW-0013 Covered
+GEN-0014 SRC-01 / 46 (Continue for Phases 4-8) Master Requirements v3.3 GEN-REVIEW-0014 Covered
+ASM-0005 SRC-01 / 47 Success Criteria Technical KPIs KPI Target Assessment Completion Time
+≤12 minutes Report Generation ≤15 seconds Uptime 99.9% Critical Bugs 0
+High-Severity Bugs 0 Unit Test Coverage ≥80% for business logic Business
+KPIs KPI Target Pilot Users ≥30 completed assessments and reports;
+University Partnerships ≥1 onboarded pilot partner; Assessment
+Completion Rate ≥95%; Report Download Rate ≥70% of completed
+assessments; Referral CTA Rate instrumented and pilot baseline recorded
+(no go-live threshold) Change Management Process Change Request
+submitted in writing
+C-01 + C-05 assessment screens ASM-UAT-0005 Covered
+ASM-0006 SRC-01 / 48 Impact Assessment (cost, timeline, scope) C-01 + C-05 assessment screens ASM-UAT-0006 Covered
+GEN-0015 SRC-01 / 49 Approval by ROOTS-AI™ management Master Requirements v3.3 GEN-REVIEW-0015 Covered
+QA-0009 SRC-01 / 50 Documentation Updated (all affected documents) Master §§13-18 + C-07 traceability QA-UAT-0009 Covered
+GEN-0016 SRC-01 / 51 Implementation begins Master Requirements v3.3 GEN-REVIEW-0016 Covered
+GEN-0017 SRC-01 / 52 Version Control & Revision History Document Versioning Version Change
+v1.0 Initial release v1.1 Minor revisions v1.2 Content updates v2.0 Major
+revisions Revision History Table Date Version Author Changes Master
+Project Structure
+Master Requirements v3.3 GEN-REVIEW-0017 Covered
+GEN-0018 SRC-01 / 53 ROOTS-AI™ Master Requirements v3.3 GEN-REVIEW-0018 Covered
+WEB-0004 SRC-01 / 54 Phase 0: Foundation Executive Summary   Platform Vision PRD  
+Information Architecture   MVP Scope   Out of Scope   Product Roadmap
+Assumptions   Constraints   Glossary   Naming Convention   Future
+Integration Roadmap   Intellectual Property Map   Change Management  
+Decision Log  
+C-04 + C-05 public/legal screens WEB-UAT-0004 Covered
+UI-0002 SRC-01 / 55 Phase 1: UX & Requirements User Flow Design System Content Strategy
+Functional Requirements   Non-Functional Requirements  
+C-05 + C-08 editable SVG/tokens UI-VREG-0002 Covered
+ASM-0007 SRC-01 / 56 Phase 2: Functional Specifications Home Specification Assessment
+Specification Report Specification Platform Specification Research
+Specification Healthcare Specification Pilot Specification Dashboard
+Specification Admin Specification
+C-01 + C-05 assessment screens ASM-UAT-0007 Covered
+SCR-0007 SRC-01 / 57 Phase 3: Intelligence Engine Scoring Matrix   AI Decision Engine Biological
+Report Engine
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0007 Covered
+
+===== PAGE 9 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 8
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+TEC-0003 SRC-01 / 58 Phase 4: Technical Architecture Database Specification API Specification
+Security Specification
+Master + C-06 executable technical baseline TEC-INT-0003 Covered
+QA-0010 SRC-01 / 59 Phase 5: Quality Assurance Testing Plan Review Cycles Risk Register  
+Launch Checklist Development Strategy
+Master §§13-18 + C-07 traceability QA-UAT-0010 Covered
+ASM-0008 SRC-01 / 60 Phase 1 (Launch MVP) Website (Home, Assessment, Report, Pilot) C-01 + C-05 assessment screens ASM-UAT-0008 Covered
+SCR-0008 SRC-01 / 61 AI Scoring Engine C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0008 Covered
+RPT-0001 SRC-01 / 62 Biological Report C-03 + report.schema.json RPT-UAT-0001 Covered
+WEB-0005 SRC-01 / 63 Pilot Program C-04 + C-05 public/legal screens WEB-UAT-0005 Covered
+GEN-0019 SRC-01 / 64 Phase 2 Dashboard Master Requirements v3.3 GEN-REVIEW-0019 Covered
+GEN-0020 SRC-01 / 65 User Accounts Master Requirements v3.3 GEN-REVIEW-0020 Covered
+GEN-0021 SRC-01 / 66 Progress Tracking Master Requirements v3.3 GEN-REVIEW-0021 Covered
+GEN-0022 SRC-01 / 67 Professional Portal Master Requirements v3.3 GEN-REVIEW-0022 Covered
+GEN-0023 SRC-01 / 68 Phase 3 Laboratory Intelligence™ Master Requirements v3.3 GEN-REVIEW-0023 Covered
+FUT-0007 SRC-01 / 69 Phase 4 DNA Intelligence™ Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0007 Carried as explicit
+future/out-of-scope
+FUT-0008 SRC-01 / 70 Phase 5 Microbiome Intelligence™ Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0008 Carried as explicit
+future/out-of-scope
+FUT-0009 SRC-01 / 71 Phase 6 Wearable Intelligence™ Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0009 Carried as explicit
+future/out-of-scope
+FUT-0010 SRC-01 / 72 Phase 7 AI Coach™ Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0010 Carried as explicit
+future/out-of-scope
+FUT-0011 SRC-01 / 73 Phase 8 ROOTS Biological Twin™ Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0011 Carried as explicit
+future/out-of-scope
+GEN-0024 SRC-01 / 74 Signatures Master Requirements v3.3 GEN-REVIEW-0024 Covered
+GEN-0025 SRC-01 / 75 Prepared By: Master Requirements v3.3 GEN-REVIEW-0025 Covered
+GEN-0026 SRC-01 / 76 Dr. Nour Holly CEO, ROOTS-AI™ Master Requirements v3.3 GEN-REVIEW-0026 Covered
+GEN-0027 SRC-01 / 77 Reviewed By (Technology Partner): Master Requirements v3.3 GEN-REVIEW-0027 Covered
+GEN-0028 SRC-01 / 78 [Name] [Title] Master Requirements v3.3 GEN-REVIEW-0028 Covered
+GEN-0029 SRC-01 / 79 Date: Master Requirements v3.3 GEN-REVIEW-0029 Covered
+QA-0011 SRC-01 / 80 END OF DOCUMENT   Summary of All Additions # Addition Section 1
+Executive Summary   First page 2 Out of Scope   After MVP Scope 3
+Assumptions   After Constraints 4 Constraints   After Assumptions 5
+Glossary   Before Phase 0 6 Naming Convention   After Glossary 7 Future
+Integration Roadmap   After IP Map 8 Intellectual Property Map   After
+Future Integration 9 PRD   Phase 0 10 Functional Requirements (with ID,
+Priority, Acceptance Criteria) Phase 1 11 Non-Functional Requirements  
+Phase 1 12 Risk Register   Phase 5 13 Decision Log   Phase 0 14 Definition
+of Done (per Phase) After Phase 5 15 Success Criteria (Technical +
+Business KPIs) After Phase 5 16 Document Matrix (Dependencies) After
+Phase 5 17 Version Control & Revision History After Phase 5 18 Change
+Management Process Phase 0
+Master §§13-18 + C-07 traceability QA-UAT-0011 Covered
+
+===== PAGE 10 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 9
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+WEB-0006 SRC-02 / 1 ROOTS-AI™ Platform Website Architecture v2.0 – FINAL (FULL DOCUMENT)
+Prepared For: ROOTS-AI™ Platform Development Prepared By: ROOTS-AI™
+Version: 2.0 Status: Approved Master Website Information Architecture (IA)
+Date: June 2026
+C-04 + C-05 public/legal screens WEB-UAT-0006 Covered
+GEN-0030 SRC-02 / 2   NAVIGATION (Top Menu – What Visitors See) Master Requirements v3.3 GEN-REVIEW-0030 Covered
+WEB-0007 SRC-02 / 3 HOME C-04 + C-05 public/legal screens WEB-UAT-0007 Covered
+ASM-0009 SRC-02 / 4 ASSESSMENT C-01 + C-05 assessment screens ASM-UAT-0009 Covered
+RPT-0002 SRC-02 / 5 EXAMPLE REPORT C-03 + report.schema.json RPT-UAT-0002 Covered
+GEN-0031 SRC-02 / 6 HOW IT WORKS Master Requirements v3.3 GEN-REVIEW-0031 Covered
+FUT-0012 SRC-02 / 7 PLATFORM Overview Available Today ROOTS Intelligence Ecosystem™
+Intelligence Layers ROOTS AI Intelligence Engine™ Professional Solutions
+Future Vision ROOTS Biological Twin™
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0012 Carried as explicit
+future/out-of-scope
+LEG-0003 SRC-02 / 8 RESEARCH Research Vision Scientific Advisory (Future) University
+Partnerships Pilot Programs Research Collaboration Data & Privacy Ethics &
+Governance Publications Scientific Papers
+C-04 website/legal copy LEG-UAT-0003 Covered
+WEB-0008 SRC-02 / 9 BLOG Biological Intelligence Metabolic Health Sleep Nutrition Stress
+Longevity Women's Health Preventive Medicine AI in Healthcare ROOTS
+Case Studies ROOTS News
+C-04 + C-05 public/legal screens WEB-UAT-0008 Covered
+RPT-0003 SRC-02 / 10 FOR HEALTHCARE PROFESSIONALS ROOTS for Clinics Interpreting the
+Report (Guide) Clinical Resources Patient Referral Pathways Clinical
+Evidence Certification (Future) Clinic Solutions
+C-03 + report.schema.json RPT-UAT-0003 Covered
+WEB-0009 SRC-02 / 11 PILOT PROGRAM (FREE BETA) What is the ROOTS Pilot? C-04 + C-05 public/legal screens WEB-UAT-0009 Covered
+GEN-0032 SRC-02 / 12 Who Can Join? Master Requirements v3.3 GEN-REVIEW-0032 Covered
+WEB-0010 SRC-02 / 13 What You Get How to Join Pilot Timeline Pilot Partners Pilot Results (Future)
+Pilot FAQs Join the Pilot
+C-04 + C-05 public/legal screens WEB-UAT-0010 Covered
+WEB-0011 SRC-02 / 14 ABOUT ROOTS Our Story Our Vision Global Vision Our Mission Our Values
+Our Philosophy Our Milestones Scientific Principles Why ROOTS is Different
+Research & Innovation Leadership Our Road Ahead
+C-04 + C-05 public/legal screens WEB-UAT-0011 Covered
+WEB-0012 SRC-02 / 15 CONTACT Contact Form Universities Healthcare Professionals Business
+Partnerships Government Partnerships Investors Media General Enquiries
+C-04 + C-05 public/legal screens WEB-UAT-0012 Covered
+GEN-0033 SRC-02 / 16   USER ACCOUNTS (Future – Infrastructure Ready) Login (Top Right Corner) Master Requirements v3.3 GEN-REVIEW-0033 Covered
+GEN-0034 SRC-02 / 17 [Login] [Sign Up] My Dashboard (Post-Login) Master Requirements v3.3 GEN-REVIEW-0034 Covered
+ASM-0010 SRC-02 / 18 MY DASHBOARD My Reports My Assessments Progress Recommendations
+Notifications Settings   FOOTER (Supporting & Legal Pages)
+C-01 + C-05 assessment screens ASM-UAT-0010 Covered
+ASM-0011 SRC-02 / 19 FAQ About ROOTS Assessment Reports Privacy Research AI Universities
+Healthcare Professionals Technical Questions
+C-01 + C-05 assessment screens ASM-UAT-0011 Covered
+ASM-0012 SRC-02 / 20 RESOURCES Guides & E-books Video Library Webinars Downloads
+Templates Assessment Guides Glossary Educational Resources
+C-01 + C-05 assessment screens ASM-UAT-0012 Covered
+GEN-0035 SRC-02 / 21 PRICING (Coming Soon) Individual Plans Professional Plans Enterprise Plans
+Pricing will be announced upon commercial launch.
+Master Requirements v3.3 GEN-REVIEW-0035 Covered
+TEC-0004 SRC-02 / 22 SECURITY Encryption Data Security Infrastructure Master + C-06 executable technical baseline TEC-INT-0004 Covered
+GEN-0036 SRC-02 / 23 SITEMAP Full site structure Master Requirements v3.3 GEN-REVIEW-0036 Covered
+
+===== PAGE 11 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 10
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+LEG-0004 SRC-02 / 24 LEGAL Privacy Policy Terms of Service Cookie Policy Research Consent
+Regulatory Compliance GDPR PDPA HIPAA (Future) Intellectual Property
+Copyright Notice Trademark Notice AI Disclaimer Medical Disclaimer
+Accessibility Statement   Page Details
+C-04 website/legal copy LEG-UAT-0004 Covered
+ASM-0013 SRC-02 / 25 1. HOME Element Content Hero "Decode the Biology Before You Fight the
+Weight" – Main headline, CTA button What is ROOTS-AI™ Brief platform
+description Why ROOTS? Difference between ROOTS and traditional
+assessments Biological Intelligence Framework Explanation of the
+biological framework Key Benefits Main benefits for users Featured Insights
+Latest research, blog highlights, or case studies Call to Action "Start Your
+Assessment" button Footer Links to supporting and legal pages
+C-01 + C-05 assessment screens ASM-UAT-0013 Covered
+ASM-0014 SRC-02 / 26 2. ASSESSMENT Element Content ROOTS Biological Assessment™
+Introduction to the questionnaire Questionnaire Complete assessment (73
+questions, 13 modules) Eligibility Who can participate Privacy Notice How
+we protect your data Start Assessment Button to begin
+C-01 + C-05 assessment screens ASM-UAT-0014 Covered
+SCR-0009 SRC-02 / 27 3. EXAMPLE REPORT Element Content Interactive Report Preview Live
+preview of a sample report Report Sections Explanation of report sections
+Scoring Overview Overview of the scoring system Download Sample PDF
+Download a sample PDF report
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0009 Covered
+ASM-0015 SRC-02 / 28 4. HOW IT WORKS Element Content Step 1 Complete Assessment – 10-12
+minutes Step 2 AI Biological Analysis – Intelligent analysis Step 3
+Personalized Report – Custom report Step 4 Biological Action Plan –
+Actionable plan Step 5 Continuous Biological Journey – Ongoing journey
+C-01 + C-05 assessment screens ASM-UAT-0015 Covered
+FUT-0013 SRC-02 / 29 5. PLATFORM Element Content Overview Platform overview Available Today
+What is currently available ROOTS Intelligence Ecosystem™ Visual
+ecosystem: Assessment → AI → Labs → DNA → Microbiome → Wearables →
+Coach → Biological Twin Intelligence Layers Biological intelligence layers
+ROOTS AI Intelligence Engine™ AI engine explanation Professional
+Solutions Solutions for professionals Future Vision Future vision for the
+platform ROOTS Biological Twin™ Biological twin (Future)
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0013 Carried as explicit
+future/out-of-scope
+LEG-0005 SRC-02 / 30 6. RESEARCH Element Content Research Vision Research vision statement
+Scientific Advisory (Future) Scientific advisory board (Future) University
+Partnerships University partnerships Pilot Programs Pilot program
+information Research Collaboration Research collaboration opportunities
+Data & Privacy Data and privacy in research Ethics & Governance Ethics,
+institutional governance, research integrity Publications Scientific
+publications Scientific Papers Research papers archive
+C-04 website/legal copy LEG-UAT-0005 Covered
+WEB-0013 SRC-02 / 31 7. BLOG Categories Biological Intelligence Metabolic Health Sleep Nutrition
+Stress Longevity Women's Health Preventive Medicine AI in Healthcare
+ROOTS Case Studies ROOTS News
+C-04 + C-05 public/legal screens WEB-UAT-0013 Covered
+RPT-0004 SRC-02 / 32 8. FOR HEALTHCARE PROFESSIONALS Element Content ROOTS for Clinics
+How to use ROOTS in clinics Interpreting the Report (Guide) Guide for
+doctors to interpret reports Clinical Resources Clinical resources Patient
+Referral Pathways Patient referral pathways Clinical Evidence Clinical
+evidence and supporting studies Certification (Future) Certified training
+(Future) Clinic Solutions Solutions for clinics and practices
+C-03 + report.schema.json RPT-UAT-0004 Covered
+ASM-0016 SRC-02 / 33 9. PILOT PROGRAM (FREE BETA) Element Content What is the ROOTS Pilot?
+Explanation of the pilot program Who Can Join? Eligibility criteria What You
+Get What participants receive (Free Report) How to Join How to participate
+Pilot Timeline Pilot timeline Pilot Partners Participating universities and
+organizations Pilot Results (Future) Pilot results (Future) Pilot FAQs
+Frequently asked questions Join the Pilot Call to action button
+C-01 + C-05 assessment screens ASM-UAT-0016 Covered
+
+===== PAGE 12 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 11
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+WEB-0014 SRC-02 / 34 10. ABOUT ROOTS Element Content Our Story The ROOTS story Our Vision
+Our vision Global Vision Our global vision Our Mission Our mission Our
+Values Our values Our Philosophy Our philosophy Our Milestones Our
+milestones Scientific Principles Scientific principles Why ROOTS is Different
+What makes ROOTS unique Research & Innovation Research and
+innovation Leadership Leadership team Our Road Ahead Roadmap
+C-04 + C-05 public/legal screens WEB-UAT-0014 Covered
+ASM-0017 SRC-02 / 35 11. CONTACT Element Content Contact Form General contact form
+Universities For universities Healthcare Professionals For healthcare
+professionals Business Partnerships For business partnerships Government
+Partnerships For government and health authorities Investors For investors
+Media For media inquiries General Enquiries General inquiries   FOOTER –
+Page Details FAQ Category Questions About ROOTS What are ROOTS? Who
+can benefit?
+C-01 + C-05 assessment screens ASM-UAT-0017 Covered
+ASM-0018 SRC-02 / 36 Assessment How long does it take? Is it free? C-01 + C-05 assessment screens ASM-UAT-0018 Covered
+RPT-0005 SRC-02 / 37 Reports What's in the report? When is it delivered? C-03 + report.schema.json RPT-UAT-0005 Covered
+LEG-0006 SRC-02 / 38 Privacy How is my data protected? C-04 website/legal copy LEG-UAT-0006 Covered
+WEB-0015 SRC-02 / 39 Research How is my data used in research? C-04 + C-05 public/legal screens WEB-UAT-0015 Covered
+GEN-0037 SRC-02 / 40 AI How does the AI work? Master Requirements v3.3 GEN-REVIEW-0037 Covered
+GEN-0038 SRC-02 / 41 Universities How does ROOTS partner with universities? Master Requirements v3.3 GEN-REVIEW-0038 Covered
+WEB-0016 SRC-02 / 42 Healthcare Professionals How to use ROOTS in your practice? C-04 + C-05 public/legal screens WEB-UAT-0016 Covered
+ASM-0019 SRC-02 / 43 Technical Questions Technical issues, system requirements RESOURCES
+Element Content Guides & E-books Educational guides and e-books Video
+Library Video library Webinars Webinars Downloads Downloadable files
+Templates Templates Assessment Guides Assessment guides Glossary
+Glossary of terms Educational Resources Educational resources PRICING
+(Coming Soon) Element Content Individual Plans Plans for individuals
+Professional Plans Plans for professionals Enterprise Plans Plans for
+enterprises Note Pricing will be announced upon commercial launch.
+C-01 + C-05 assessment screens ASM-UAT-0019 Covered
+SCR-0010 SRC-02 / 44 SECURITY Element Content Encryption Data encryption standards Data
+Security Data security protocols Infrastructure Infrastructure security
+SITEMAP Element Content Full Site Structure Complete sitemap for
+navigation and SEO LEGAL Element Content Privacy Policy Privacy policy
+Terms of Service Terms of service Cookie Policy Cookie policy Research
+Consent Research consent form Regulatory Compliance GDPR, PDPA, HIPAA
+(Future) Intellectual Property Intellectual property rights Copyright Notice
+Copyright notice Trademark Notice Trademark notice for ROOTS™,
+ROOTS-AI™, Biological State™, Opportunity Score™, and other trademarks
+AI Disclaimer AI disclaimer Medical Disclaimer Medical disclaimer
+Accessibility Statement Accessibility statement   USER ACCOUNTS – Future
+Infrastructure Login (Top Right Corner)
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0010 Covered
+GEN-0039 SRC-02 / 45 [Login] [Sign Up] My Dashboard (Post-Login) Master Requirements v3.3 GEN-REVIEW-0039 Covered
+ASM-0020 SRC-02 / 46 MY DASHBOARD My Reports My Assessments Progress Recommendations
+Notifications Settings
+C-01 + C-05 assessment screens ASM-UAT-0020 Covered
+GEN-0040 SRC-02 / 47 Summary Element Count Navigation Pages 11 Footer Categories 6 Scalable
+Architecture 85+ planned content sections
+Master Requirements v3.3 GEN-REVIEW-0040 Covered
+WEB-0017 SRC-02 / 48 ROOTS Platform C-04 + C-05 public/legal screens WEB-UAT-0017 Covered
+GEN-0041 SRC-02 / 49 The Future of Biological Intelligence Master Requirements v3.3 GEN-REVIEW-0041 Covered
+
+===== PAGE 13 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 12
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+WEB-0018 SRC-02 / 50 ROOTS-AI™ Platform Roadmap Building the Future of Biological Intelligence
+ROOTS-AI™ is designed as a progressive Biological Intelligence Platform.
+C-04 + C-05 public/legal screens WEB-UAT-0018 Covered
+ASM-0021 SRC-02 / 51 Rather than relying on a single assessment or isolated health metrics,
+ROOTS continuously expands its understanding of human biology by
+integrating multiple layers of biological information.
+C-01 + C-05 assessment screens ASM-UAT-0021 Covered
+ASM-0022 SRC-02 / 52 Our current assessment represents the first operational layer of the
+platform.
+C-01 + C-05 assessment screens ASM-UAT-0022 Covered
+WEB-0019 SRC-02 / 53 Additional intelligence modules will be introduced progressively as the
+platform evolves.
+C-04 + C-05 public/legal screens WEB-UAT-0019 Covered
+GEN-0042 SRC-02 / 54 Every new layer builds upon the previous one—creating a more complete
+and personalized understanding of biology over time.
+Master Requirements v3.3 GEN-REVIEW-0042 Covered
+ASM-0023 SRC-02 / 55 AVAILABLE NOW ROOTS Biological Assessment™ Our first operational
+intelligence layer.
+C-01 + C-05 assessment screens ASM-UAT-0023 Covered
+GEN-0043 SRC-02 / 56 Currently available: Master Requirements v3.3 GEN-REVIEW-0043 Covered
+ASM-0024 SRC-02 / 57 Comprehensive Biological Assessment C-01 + C-05 assessment screens ASM-UAT-0024 Covered
+GEN-0044 SRC-02 / 58 AI Biological Interpretation Master Requirements v3.3 GEN-REVIEW-0044 Covered
+RPT-0006 SRC-02 / 59 Personalized ROOTS Biological Report™ C-03 + report.schema.json RPT-UAT-0006 Covered
+GEN-0045 SRC-02 / 60 ROOTS Biological State™ Master Requirements v3.3 GEN-REVIEW-0045 Covered
+GEN-0046 SRC-02 / 61 ROOTS Metabolic Resistance Mapping™ Master Requirements v3.3 GEN-REVIEW-0046 Covered
+SCR-0011 SRC-02 / 62 ROOTS Opportunity Score™ C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0011 Covered
+SCR-0012 SRC-02 / 63 ROOTS Recovery Potential™ C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0012 Covered
+GEN-0047 SRC-02 / 64 ROOTS Confidence Level™ Master Requirements v3.3 GEN-REVIEW-0047 Covered
+GEN-0048 SRC-02 / 65 Personalized Action Priorities™ Master Requirements v3.3 GEN-REVIEW-0048 Covered
+RPT-0007 SRC-02 / 66 Downloadable PDF Report C-03 + report.schema.json RPT-UAT-0007 Covered
+ASM-0025 SRC-02 / 67 NEXT INTELLIGENCE LAYERS ROOTS Laboratory Intelligence™ Integrates
+laboratory biomarkers with biological assessment.
+C-01 + C-05 assessment screens ASM-UAT-0025 Covered
+GEN-0049 SRC-02 / 68 Future capabilities include: Master Requirements v3.3 GEN-REVIEW-0049 Covered
+GEN-0050 SRC-02 / 69 Complete Blood Count (CBC) Master Requirements v3.3 GEN-REVIEW-0050 Covered
+GEN-0051 SRC-02 / 70 Glucose & Insulin Master Requirements v3.3 GEN-REVIEW-0051 Covered
+GEN-0052 SRC-02 / 72 Lipid Profile Master Requirements v3.3 GEN-REVIEW-0052 Covered
+GEN-0053 SRC-02 / 73 Liver Function Master Requirements v3.3 GEN-REVIEW-0053 Covered
+GEN-0054 SRC-02 / 74 Kidney Function Master Requirements v3.3 GEN-REVIEW-0054 Covered
+GEN-0055 SRC-02 / 75 Thyroid Function Master Requirements v3.3 GEN-REVIEW-0055 Covered
+GEN-0056 SRC-02 / 76 Hormonal Analysis Master Requirements v3.3 GEN-REVIEW-0056 Covered
+GEN-0057 SRC-02 / 77 Vitamin & Mineral Status Master Requirements v3.3 GEN-REVIEW-0057 Covered
+GEN-0058 SRC-02 / 78 Inflammatory Biomarkers Master Requirements v3.3 GEN-REVIEW-0058 Covered
+
+===== PAGE 14 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 13
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+GEN-0059 SRC-02 / 79 Metabolic Biomarkers Master Requirements v3.3 GEN-REVIEW-0059 Covered
+FUT-0014 SRC-02 / 80 ROOTS DNA Intelligence™ Integrates genetic information to personalize
+biological interpretation.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0014 Carried as explicit
+future/out-of-scope
+GEN-0060 SRC-02 / 81 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0060 Covered
+GEN-0061 SRC-02 / 82 Nutrigenomics Master Requirements v3.3 GEN-REVIEW-0061 Covered
+GEN-0062 SRC-02 / 83 Metabolic Genetics Master Requirements v3.3 GEN-REVIEW-0062 Covered
+GEN-0063 SRC-02 / 84 Obesity Genetics Master Requirements v3.3 GEN-REVIEW-0063 Covered
+GEN-0064 SRC-02 / 85 Hormonal Genetics Master Requirements v3.3 GEN-REVIEW-0064 Covered
+GEN-0065 SRC-02 / 86 Recovery Genetics Master Requirements v3.3 GEN-REVIEW-0065 Covered
+GEN-0066 SRC-02 / 87 Stress Response Genetics Master Requirements v3.3 GEN-REVIEW-0066 Covered
+GEN-0067 SRC-02 / 88 Cardiometabolic Risk Master Requirements v3.3 GEN-REVIEW-0067 Covered
+GEN-0068 SRC-02 / 89 Personalized Genetic Insights Master Requirements v3.3 GEN-REVIEW-0068 Covered
+FUT-0015 SRC-02 / 90 ROOTS Microbiome Intelligence™ Analyzes the biological influence of the
+gut microbiome.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0015 Carried as explicit
+future/out-of-scope
+GEN-0069 SRC-02 / 91 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0069 Covered
+GEN-0070 SRC-02 / 92 Gut Diversity Master Requirements v3.3 GEN-REVIEW-0070 Covered
+GEN-0071 SRC-02 / 93 Dysbiosis Detection Master Requirements v3.3 GEN-REVIEW-0071 Covered
+GEN-0072 SRC-02 / 94 Microbial Balance Master Requirements v3.3 GEN-REVIEW-0072 Covered
+GEN-0073 SRC-02 / 95 Short-Chain Fatty Acid Potential Master Requirements v3.3 GEN-REVIEW-0073 Covered
+GEN-0074 SRC-02 / 96 Gut Barrier Health Master Requirements v3.3 GEN-REVIEW-0074 Covered
+GEN-0075 SRC-02 / 97 Digestive Health Master Requirements v3.3 GEN-REVIEW-0075 Covered
+GEN-0076 SRC-02 / 98 Inflammatory Patterns Master Requirements v3.3 GEN-REVIEW-0076 Covered
+FUT-0016 SRC-02 / 99 Microbiome-Based Biological Insights Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0016 Carried as explicit
+future/out-of-scope
+FUT-0017 SRC-02 / 100 ROOTS Wearable Intelligence™ Continuous integration with wearable
+health devices.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0017 Carried as explicit
+future/out-of-scope
+WEB-0020 SRC-02 / 101 Supported platforms may include: C-04 + C-05 public/legal screens WEB-UAT-0020 Covered
+GEN-0077 SRC-02 / 102 Apple Health Master Requirements v3.3 GEN-REVIEW-0077 Covered
+GEN-0078 SRC-02 / 103 Health Connect Master Requirements v3.3 GEN-REVIEW-0078 Covered
+GEN-0079 SRC-02 / 104 Garmin Master Requirements v3.3 GEN-REVIEW-0079 Covered
+GEN-0080 SRC-02 / 105 Fitbit Master Requirements v3.3 GEN-REVIEW-0080 Covered
+GEN-0081 SRC-02 / 106 WHOOP Master Requirements v3.3 GEN-REVIEW-0081 Covered
+GEN-0082 SRC-02 / 107 Oura Master Requirements v3.3 GEN-REVIEW-0082 Covered
+GEN-0083 SRC-02 / 108 Future monitoring: Master Requirements v3.3 GEN-REVIEW-0083 Covered
+GEN-0084 SRC-02 / 109 Sleep Master Requirements v3.3 GEN-REVIEW-0084 Covered
+GEN-0085 SRC-02 / 110 Heart Rate Master Requirements v3.3 GEN-REVIEW-0085 Covered
+
+===== PAGE 15 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 14
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+GEN-0086 SRC-02 / 111 Heart Rate Variability (HRV) Master Requirements v3.3 GEN-REVIEW-0086 Covered
+GEN-0087 SRC-02 / 112 Daily Activity Master Requirements v3.3 GEN-REVIEW-0087 Covered
+GEN-0088 SRC-02 / 113 Energy Expenditure Master Requirements v3.3 GEN-REVIEW-0088 Covered
+GEN-0089 SRC-02 / 114 Recovery Master Requirements v3.3 GEN-REVIEW-0089 Covered
+GEN-0090 SRC-02 / 115 Stress Patterns Master Requirements v3.3 GEN-REVIEW-0090 Covered
+GEN-0091 SRC-02 / 116 ROOTS Lifestyle Intelligence™ A dynamic layer integrating everyday
+behaviors into biological interpretation.
+Master Requirements v3.3 GEN-REVIEW-0091 Covered
+GEN-0092 SRC-02 / 117 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0092 Covered
+GEN-0093 SRC-02 / 118 Nutrition Patterns Master Requirements v3.3 GEN-REVIEW-0093 Covered
+GEN-0094 SRC-02 / 119 Meal Timing Master Requirements v3.3 GEN-REVIEW-0094 Covered
+GEN-0095 SRC-02 / 120 Physical Activity Master Requirements v3.3 GEN-REVIEW-0095 Covered
+GEN-0096 SRC-02 / 121 Recovery Habits Master Requirements v3.3 GEN-REVIEW-0096 Covered
+GEN-0097 SRC-02 / 122 Sleep Habits Master Requirements v3.3 GEN-REVIEW-0097 Covered
+GEN-0098 SRC-02 / 123 Stress Behaviors Master Requirements v3.3 GEN-REVIEW-0098 Covered
+GEN-0099 SRC-02 / 124 Environmental Exposures Master Requirements v3.3 GEN-REVIEW-0099 Covered
+GEN-0100 SRC-02 / 125 Lifestyle Trend Analysis Master Requirements v3.3 GEN-REVIEW-0100 Covered
+GEN-0101 SRC-02 / 126 ADVANCED INTELLIGENCE ROOTS Continuous Biological Monitoring™
+Biology is dynamic—not static.
+Master Requirements v3.3 GEN-REVIEW-0101 Covered
+GEN-0102 SRC-02 / 127 ROOTS will continuously monitor biological changes over time and update
+insights as new information becomes available.
+Master Requirements v3.3 GEN-REVIEW-0102 Covered
+GEN-0103 SRC-02 / 128 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0103 Covered
+GEN-0104 SRC-02 / 129 Longitudinal Biological Tracking Master Requirements v3.3 GEN-REVIEW-0104 Covered
+GEN-0105 SRC-02 / 130 Trend Analysis Master Requirements v3.3 GEN-REVIEW-0105 Covered
+RPT-0008 SRC-02 / 131 Monthly Progress Reports C-03 + report.schema.json RPT-UAT-0008 Covered
+GEN-0106 SRC-02 / 132 Biological Alerts Master Requirements v3.3 GEN-REVIEW-0106 Covered
+GEN-0107 SRC-02 / 133 Risk Monitoring Master Requirements v3.3 GEN-REVIEW-0107 Covered
+GEN-0108 SRC-02 / 134 Adaptive Recommendations Master Requirements v3.3 GEN-REVIEW-0108 Covered
+FUT-0018 SRC-02 / 135 ROOTS AI Coach™ Your personalized Biological Intelligence Assistant. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0018 Carried as explicit
+future/out-of-scope
+GEN-0109 SRC-02 / 136 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0109 Covered
+GEN-0110 SRC-02 / 137 Daily Guidance Master Requirements v3.3 GEN-REVIEW-0110 Covered
+GEN-0111 SRC-02 / 138 Weekly Biological Reviews Master Requirements v3.3 GEN-REVIEW-0111 Covered
+GEN-0112 SRC-02 / 139 Habit Coaching Master Requirements v3.3 GEN-REVIEW-0112 Covered
+GEN-0113 SRC-02 / 140 Personalized Recommendations Master Requirements v3.3 GEN-REVIEW-0113 Covered
+GEN-0114 SRC-02 / 141 Progress Monitoring Master Requirements v3.3 GEN-REVIEW-0114 Covered
+GEN-0115 SRC-02 / 142 Motivation & Accountability Master Requirements v3.3 GEN-REVIEW-0115 Covered
+
+===== PAGE 16 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 15
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+WEB-0021 SRC-02 / 143 PROFESSIONAL PLATFORM ROOTS Clinical Portal™ Designed for healthcare
+professionals.
+C-04 + C-05 public/legal screens WEB-UAT-0021 Covered
+GEN-0116 SRC-02 / 144 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0116 Covered
+GEN-0117 SRC-02 / 145 Patient Dashboard Master Requirements v3.3 GEN-REVIEW-0117 Covered
+RPT-0009 SRC-02 / 146 Report Review C-03 + report.schema.json RPT-UAT-0009 Covered
+GEN-0118 SRC-02 / 147 Biological Progress Tracking Master Requirements v3.3 GEN-REVIEW-0118 Covered
+GEN-0119 SRC-02 / 148 Laboratory Review Master Requirements v3.3 GEN-REVIEW-0119 Covered
+GEN-0120 SRC-02 / 149 Follow-up Monitoring Master Requirements v3.3 GEN-REVIEW-0120 Covered
+GEN-0121 SRC-02 / 150 Clinical Decision Support Master Requirements v3.3 GEN-REVIEW-0121 Covered
+WEB-0022 SRC-02 / 151 ROOTS Research Platform™ Designed for universities and research
+institutions.
+C-04 + C-05 public/legal screens WEB-UAT-0022 Covered
+GEN-0122 SRC-02 / 152 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0122 Covered
+WEB-0023 SRC-02 / 153 Anonymous Research Datasets C-04 + C-05 public/legal screens WEB-UAT-0023 Covered
+GEN-0123 SRC-02 / 154 Cohort Analysis Master Requirements v3.3 GEN-REVIEW-0123 Covered
+GEN-0124 SRC-02 / 155 Population-Level Analytics Master Requirements v3.3 GEN-REVIEW-0124 Covered
+GEN-0125 SRC-02 / 156 Institutional Dashboards Master Requirements v3.3 GEN-REVIEW-0125 Covered
+WEB-0024 SRC-02 / 157 Research Collaboration C-04 + C-05 public/legal screens WEB-UAT-0024 Covered
+GEN-0126 SRC-02 / 158 Publication Support Master Requirements v3.3 GEN-REVIEW-0126 Covered
+UI-0003 SRC-02 / 159 ROOTS Enterprise Health™ Designed for organizations and employers. C-05 + C-08 editable SVG/tokens UI-VREG-0003 Covered
+GEN-0127 SRC-02 / 160 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0127 Covered
+GEN-0128 SRC-02 / 161 Workforce Health Analytics Master Requirements v3.3 GEN-REVIEW-0128 Covered
+GEN-0129 SRC-02 / 162 Population Dashboards Master Requirements v3.3 GEN-REVIEW-0129 Covered
+GEN-0130 SRC-02 / 163 Wellness Monitoring Master Requirements v3.3 GEN-REVIEW-0130 Covered
+RPT-0010 SRC-02 / 164 Anonymous Organizational Reports C-03 + report.schema.json RPT-UAT-0010 Covered
+GEN-0131 SRC-02 / 165 Preventive Health Programs Master Requirements v3.3 GEN-REVIEW-0131 Covered
+UI-0004 SRC-02 / 166 ROOTS Population Health™ Designed for public health initiatives and
+large-scale preventive programs.
+C-05 + C-08 editable SVG/tokens UI-VREG-0004 Covered
+GEN-0132 SRC-02 / 167 Future capabilities: Master Requirements v3.3 GEN-REVIEW-0132 Covered
+GEN-0133 SRC-02 / 168 Community Health Monitoring Master Requirements v3.3 GEN-REVIEW-0133 Covered
+GEN-0134 SRC-02 / 169 Population Risk Analysis Master Requirements v3.3 GEN-REVIEW-0134 Covered
+GEN-0135 SRC-02 / 170 Preventive Health Analytics Master Requirements v3.3 GEN-REVIEW-0135 Covered
+GEN-0136 SRC-02 / 171 Epidemiological Insights Master Requirements v3.3 GEN-REVIEW-0136 Covered
+GEN-0137 SRC-02 / 172 Public Health Decision Support Master Requirements v3.3 GEN-REVIEW-0137 Covered
+GEN-0138 SRC-02 / 173 ROOTS ECOSYSTEM ROOTS Marketplace™ Future access to trusted
+biological health services.
+Master Requirements v3.3 GEN-REVIEW-0138 Covered
+GEN-0139 SRC-02 / 174 Planned integrations include: Master Requirements v3.3 GEN-REVIEW-0139 Covered
+
+===== PAGE 17 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 16
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+QA-0012 SRC-02 / 175 Laboratory Testing Master §§13-18 + C-07 traceability QA-UAT-0012 Covered
+FUT-0019 SRC-02 / 176 DNA Testing Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0019 Carried as explicit
+future/out-of-scope
+FUT-0020 SRC-02 / 177 Microbiome Testing Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0020 Carried as explicit
+future/out-of-scope
+GEN-0140 SRC-02 / 178 Professional Consultations Master Requirements v3.3 GEN-REVIEW-0140 Covered
+GEN-0141 SRC-02 / 179 Evidence-Based Supplements Master Requirements v3.3 GEN-REVIEW-0141 Covered
+GEN-0142 SRC-02 / 180 Educational Programs Master Requirements v3.3 GEN-REVIEW-0142 Covered
+FUT-0021 SRC-02 / 181 ROOTS Biological Twin™ Our long-term vision. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0021 Carried as explicit
+future/out-of-scope
+FUT-0022 SRC-02 / 182 The ROOTS Biological Twin™ will continuously integrate: Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0022 Carried as explicit
+future/out-of-scope
+ASM-0026 SRC-02 / 183 Biological Assessment C-01 + C-05 assessment screens ASM-UAT-0026 Covered
+GEN-0143 SRC-02 / 184 Laboratory Results Master Requirements v3.3 GEN-REVIEW-0143 Covered
+FUT-0023 SRC-02 / 185 DNA Analysis Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0023 Carried as explicit
+future/out-of-scope
+FUT-0024 SRC-02 / 186 Microbiome Analysis Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0024 Carried as explicit
+future/out-of-scope
+FUT-0025 SRC-02 / 187 Wearable Data Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0025 Carried as explicit
+future/out-of-scope
+GEN-0144 SRC-02 / 188 Lifestyle Information Master Requirements v3.3 GEN-REVIEW-0144 Covered
+GEN-0145 SRC-02 / 189 Clinical History Master Requirements v3.3 GEN-REVIEW-0145 Covered
+GEN-0146 SRC-02 / 190 to create a continuously evolving digital biological profile that becomes
+more accurate over time.
+Master Requirements v3.3 GEN-REVIEW-0146 Covered
+WEB-0025 SRC-02 / 191 OUR VISION ROOTS-AI™ is not designed to replace healthcare
+professionals.
+C-04 + C-05 public/legal screens WEB-UAT-0025 Covered
+UI-0005 SRC-02 / 192 It is designed to organize biological information into meaningful intelligence
+that helps individuals and healthcare providers better understand the
+factors influencing health before disease becomes established.
+C-05 + C-08 editable SVG/tokens UI-VREG-0005 Covered
+WEB-0026 SRC-02 / 193 Our vision is to build one unified Biological Intelligence Platform where
+every new layer adds greater precision, deeper understanding, and more
+personalized guidance.
+C-04 + C-05 public/legal screens WEB-UAT-0026 Covered
+ASM-0027 SRC-02 / 194 The journey begins with one assessment. C-01 + C-05 assessment screens ASM-UAT-0027 Covered
+GEN-0147 SRC-02 / 195 It evolves into a lifelong biological intelligence system. Master Requirements v3.3 GEN-REVIEW-0147 Covered
+GEN-0148 SRC-03 / 1 ROOTS-AI™ MVP – Phase 1 Technical Requirements Version: 6.0 Date: July
+2026 Prepared By: ROOTS-AI™
+Master Requirements v3.3 GEN-REVIEW-0148 Covered
+TEC-0005 SRC-03 / 2 Document Purpose This document defines the Phase 1 deliverables
+required from the Technology Development Partner. Phase 1 focuses on
+building the MVP with core security controls in place while deferring formal
+certifications and advanced compliance documentation to later phases.
+Master + C-06 executable technical baseline TEC-INT-0005 Covered
+GEN-0149 SRC-03 / 3 Part One: Core Principles Master Requirements v3.3 GEN-REVIEW-0149 Covered
+
+===== PAGE 18 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 17
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+UI-0006 SRC-03 / 4 1. Source Code Ownership All source code, UI/UX assets, database schema,
+prompts, configuration files, documentation, and intellectual property
+developed specifically for ROOTS-AI™ during Phase 1 shall become the
+exclusive property of ROOTS-AI™ upon final payment.
+C-05 + C-08 editable SVG/tokens UI-VREG-0006 Covered
+UI-0007 SRC-03 / 5 Clarification: Any pre-existing proprietary frameworks, libraries, or tools
+owned by the Technology Partner shall remain their property unless
+explicitly transferred in writing. Only code, assets, and intellectual property
+developed specifically for ROOTS-AI™ are transferred to ROOTS-AI™.
+C-05 + C-08 editable SVG/tokens UI-VREG-0007 Covered
+SCR-0013 SRC-03 / 6 Confidential IP: Prompt engineering, scoring methodology, Recovery
+Potential algorithms, and all related logic—including future modifications
+made during Phase 1—are confidential trade secrets of ROOTS-AI™ and
+shall not be disclosed, reused, or repurposed by the Technology Partner for
+any other project.
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0013 Covered
+GEN-0150 SRC-03 / 7 No deliverables created specifically for ROOTS-AI™ may be reused, resold,
+or repurposed by the Technology Partner for any other project.
+Master Requirements v3.3 GEN-REVIEW-0150 Covered
+GOV-0001 SRC-03 / 8 2. Git Repository Ownership Development must occur in a Git-based
+repository owned by ROOTS-AI™ (e.g., GitHub).
+Agreement v6.5 + Master governance GOV-AUDIT-0001 Covered
+GOV-0002 SRC-03 / 9 The Technology Partner shall be granted access to this repository during
+the development period. Upon final payment and project acceptance, all
+access shall be transferred exclusively to ROOTS-AI™.
+Agreement v6.5 + Master governance GOV-AUDIT-0002 Covered
+GEN-0151 SRC-03 / 10 3. Version Control Standards Requirement Implementation Main Branch
+Protected main branch Develop Branch develop branch for integration Pull
+Requests All changes via PR with review Code Review Required before
+merging Commit Convention Standardized commit messages
+Master Requirements v3.3 GEN-REVIEW-0151 Covered
+QA-0013 SRC-03 / 11 4. Coding Standards Requirement Implementation Linting ESLint configured
+and enforced Formatting Prettier configured and enforced Code Style
+Consistent style across all files Documentation Inline comments for
+complex logic
+Master §§13-18 + C-07 traceability QA-UAT-0013 Covered
+SCR-0014 SRC-03 / 12 5. Code Quality Requirements Requirement Description Modular
+Architecture Code must be organized into reusable, independent modules
+Clean Code Principles Readable, maintainable, and well-documented code
+TypeScript Strict Mode All frontend/backend code must use TypeScript with
+strict mode enabled Reusable Components UI components must be
+reusable across the application No Hardcoded Logic Business logic must be
+configuration-driven, not hardcoded Configuration-Driven Scoring Scoring
+engine must be configurable via Admin Dashboard Secure Environment
+Variables All secrets, keys, and credentials must use environment variables
+Secrets Management Secrets shall never be stored in source code Code
+Comments Complex logic must be documented within the code
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0014 Covered
+GEN-0152 SRC-03 / 13 6. Third-Party Dependencies All third-party libraries, packages, and
+frameworks must:
+Master Requirements v3.3 GEN-REVIEW-0152 Covered
+GEN-0153 SRC-03 / 14 Use actively maintained versions (not deprecated or end-of-life) Master Requirements v3.3 GEN-REVIEW-0153 Covered
+GEN-0154 SRC-03 / 15 Have licenses that permit commercial use Master Requirements v3.3 GEN-REVIEW-0154 Covered
+QA-0014 SRC-03 / 16 Be documented with version numbers and purpose in the project
+documentation
+Master §§13-18 + C-07 traceability QA-UAT-0014 Covered
+TEC-0006 SRC-03 / 17 Be reviewed for security vulnerabilities before inclusion Master + C-06 executable technical baseline TEC-INT-0006 Covered
+
+===== PAGE 19 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 18
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+GEN-0155 SRC-03 / 18 Software Bill of Materials (SBOM): The Technology Partner shall provide an
+SBOM listing all third-party dependencies and their licenses as part of the
+final deliverables.
+Master Requirements v3.3 GEN-REVIEW-0155 Covered
+TEC-0007 SRC-03 / 19 Rationale: This prevents the use of outdated libraries with security
+vulnerabilities or restrictive licenses that could impact commercial use, and
+ensures full visibility into the project's dependency chain.
+Master + C-06 executable technical baseline TEC-INT-0007 Covered
+GEN-0156 SRC-03 / 20 Part Two: Environment & Deployment Master Requirements v3.3 GEN-REVIEW-0156 Covered
+QA-0015 SRC-03 / 21 7. Environment Structure Environment Purpose Development Active
+development and testing Staging Pre-production validation, UAT, and client
+review Production Live environment for end users Requirement: All
+deployments must pass through Staging before Production.
+Master §§13-18 + C-07 traceability QA-UAT-0015 Covered
+ASM-0028 SRC-03 / 22 8. Performance Benchmarks Component Performance Requirement
+Assessment Pages Load within 2 seconds under normal production
+conditions PDF Generation Complete within ≤15 seconds (excluding
+external API delays) Admin Dashboard Queries Return within 3 seconds for
+datasets up to 100,000 records API Endpoints Average response time
+≤500ms (excluding external AI provider latency) Report Display Render
+within 2 seconds of data retrieval Note: Benchmarks shall be measured on
+Staging or Production using mutually agreed testing conditions.
+C-01 + C-05 assessment screens ASM-UAT-0028 Covered
+GEN-0157 SRC-03 / 23 Rationale: Clear performance benchmarks make acceptance objective and
+measurable.
+Master Requirements v3.3 GEN-REVIEW-0157 Covered
+TEC-0008 SRC-03 / 24 9. Backups & Disaster Recovery Requirement Implementation Database
+Backups Daily automated backups enabled Point-in-Time Recovery Where
+supported by the selected Supabase plan Backup Retention Minimum
+30-day retention Backup Testing Quarterly restore testing (post-launch)
+Rationale: Even in MVP stage, data loss prevention is critical. Automated
+backups ensure participant data can be recovered if needed.
+Master + C-06 executable technical baseline TEC-INT-0008 Covered
+GEN-0158 SRC-03 / 25 Part Three: MVP Development Deliverables Master Requirements v3.3 GEN-REVIEW-0158 Covered
+ASM-0029 SRC-03 / 26 10. Core Platform Components # Component Deliverable 1 Landing Page
+Public-facing marketing page with CTA 2 Assessment Form 73 questions,
+13 modules with validation 3 Progress Tracking Visual progress bar with
+percentage 4 Waist Unit Toggle cm/in with automatic conversion 5
+Auto-Save Real-time saving to Supabase 6 Supabase Database 7 tables
+with RLS enabled 7 Scoring Engine 7 domain scores with configurable
+weights 8 Recovery Potential Multi-factor algorithm implementation 9 LLM
+Integration LLM Provider (OpenAI initially) 10 PDF Generator
+Puppeteer-based pixel-perfect PDF 11 Report Page Display generated
+report with download 12 Admin Dashboard Participant management +
+config panel 13 Research Export De-identified CSV/JSON export 14 Magic
+Link Authentication Passwordless email-based login
+C-01 + C-05 assessment screens ASM-UAT-0029 Covered
+SCR-0015 SRC-03 / 27 11. AI Prompt Security Requirement Implementation Prompt templates
+must not be exposed to end users Store prompts server-side only
+Governance rules must not be exposed to end users Store rules server-side
+only Scoring logic must not be exposed to end users Store logic server-side
+only All prompts are governed templates No dynamic prompt injection from
+user input Rationale: The scoring logic and prompt templates are valuable
+intellectual property that must remain confidential and secure.
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0015 Covered
+ASM-0030 SRC-03 / 28 12. Input Validation Rules Field Validation Rule Height 100-250 cm Weight
+25-350 kg Age 16-110 years Waist 40-200 cm (auto-converted from inches)
+C-01 + C-05 assessment screens ASM-UAT-0030 Covered
+GEN-0159 SRC-03 / 29 13. N/A Handling (Critical Rule) Master Requirements v3.3 GEN-REVIEW-0159 Covered
+
+===== PAGE 20 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 19
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+ASM-0031 SRC-03 / 30 When N/A is selected for any question: C-01 + C-05 assessment screens ASM-UAT-0031 Covered
+ASM-0032 SRC-03 / 31 The question is excluded entirely from the module score calculation C-01 + C-05 assessment screens ASM-UAT-0032 Covered
+GEN-0160 SRC-03 / 32 It is NOT assigned a value of 0 Master Requirements v3.3 GEN-REVIEW-0160 Covered
+ASM-0033 SRC-03 / 33 The module score is calculated based ONLY on answered questions C-01 + C-05 assessment screens ASM-UAT-0033 Covered
+TEC-0009 SRC-03 / 34 Part Four: Source Code Documentation Master + C-06 executable technical baseline TEC-INT-0009 Covered
+TEC-0010 SRC-03 / 35 14. Required Documentation # Document Description 1 README Project
+overview, setup instructions, and key information 2 Installation Guide
+Step-by-step instructions for local development setup 3 Deployment Guide
+Step-by-step instructions for production deployment 4 Environment
+Variables Complete list of all environment variables with descriptions 5 API
+Documentation Swagger/OpenAPI with authentication requirements and
+example requests/responses 6 Database Schema Complete schema
+documentation with relationships 7 Architecture Diagram High-level system
+architecture diagram 8 System Flow Diagram End-to-end data flow diagram
+9 ER Diagram Entity-Relationship diagram showing all tables and
+relationships Rationale: Complete documentation ensures that even if the
+Technology Partner leaves, any other company can take over the project
+seamlessly and within hours.
+Master + C-06 executable technical baseline TEC-INT-0010 Covered
+TEC-0011 SRC-03 / 36 Part Five: Core Security Controls (Must Be Present) Master + C-06 executable technical baseline TEC-INT-0011 Covered
+TEC-0012 SRC-03 / 37 15. Data Encryption Requirement Implementation Data in transit
+TLS/HTTPS enabled for all endpoints Data at rest Supabase encryption
+enabled PHI encryption Any stored PHI or health-related identifiable data
+must be encrypted
+Master + C-06 executable technical baseline TEC-INT-0012 Covered
+SCR-0016 SRC-03 / 38 16. Access Control (RLS) Requirement Implementation Row Level Security
+Enabled on ALL tables Participant policy Self-access only Admin policy Full
+access with role verification MFA for admin Multi-factor authentication for
+all admin accounts RLS Tables: participants, responses, scores, reports,
+scoring_config
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0016 Covered
+TEC-0013 SRC-03 / 39 17. Audit Logs Requirement Implementation Log all access to user data
+Supabase audit logs enabled Log all configuration changes Admin action
+logging Log all login attempts Supabase auth logs Log retention Minimum
+12 months
+Master + C-06 executable technical baseline TEC-INT-0013 Covered
+TEC-0014 SRC-03 / 40 18. BAA with Supabase A Business Associate Agreement (BAA) with
+Supabase must be signed before storing any PHI or health-related
+identifiable data. ROOTS-AI™ will sign the agreement; the Technology
+Partner must provide necessary information to initiate the process.
+Master + C-06 executable technical baseline TEC-INT-0014 Covered
+QA-0016 SRC-03 / 41 Part Six: Phase 1 Documentation Deliverables Master §§13-18 + C-07 traceability QA-UAT-0016 Covered
+LEG-0007 SRC-03 / 42 19. Required Documents # Document Content 1 RLS Policy Document
+Complete list of all RLS policies by table 2 Role & Permissions Matrix Table
+showing each role and permissions 3 Encryption Implementation Document
+describing what is encrypted and how 4 Audit Log Sample Sample logs
+showing format and content 5 BAA with Supabase Signed Business
+Associate Agreement (copy) 6 Privacy Policy Clear policy for users 7 Terms
+of Service Legal terms for platform use 8 API Documentation
+Swagger/OpenAPI with auth requirements and examples 9 Architecture
+Diagram High-level system architecture 10 System Flow Diagram
+End-to-end data flow 11 ER Diagram Entity-Relationship diagram 12 Source
+Code Documentation README, Installation Guide, Deployment Guide,
+Environment Variables 13 Software Bill of Materials (SBOM) List of all
+third-party dependencies and their licenses
+C-04 website/legal copy LEG-UAT-0007 Covered
+
+===== PAGE 21 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 20
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+QA-0017 SRC-03 / 43 Part Seven: Testing Requirements Master §§13-18 + C-07 traceability QA-UAT-0017 Covered
+TEC-0015 SRC-03 / 44 20. Required Testing Test Type Description Status Unit Testing All functions
+and components with minimum 80% coverage for business logic Required
+Integration Testing API and database integration tests Required System
+Testing End-to-end testing of all workflows Required Security Testing
+OWASP Top 10 vulnerability scan Required User Acceptance Testing (UAT)
+7 calendar days after delivery Required
+Master + C-06 executable technical baseline TEC-INT-0015 Covered
+RPT-0011 SRC-03 / 45 21. Test Reports Required Unit Test Report (with coverage metrics) C-03 + report.schema.json RPT-UAT-0011 Covered
+RPT-0012 SRC-03 / 46 Integration Test Report C-03 + report.schema.json RPT-UAT-0012 Covered
+RPT-0013 SRC-03 / 47 System Test Report C-03 + report.schema.json RPT-UAT-0013 Covered
+RPT-0014 SRC-03 / 48 Security Test Report (OWASP Top 10 scan results) C-03 + report.schema.json RPT-UAT-0014 Covered
+GEN-0161 SRC-03 / 49 Bug Tracker (list of all bugs identified with status) Master Requirements v3.3 GEN-REVIEW-0161 Covered
+RPT-0015 SRC-03 / 50 UAT Completion Report C-03 + report.schema.json RPT-UAT-0015 Covered
+GEN-0162 SRC-03 / 51 22. Definition of "Complete" A deliverable shall be considered complete
+only when it is:
+Master Requirements v3.3 GEN-REVIEW-0162 Covered
+GEN-0163 SRC-03 / 52 Implemented Master Requirements v3.3 GEN-REVIEW-0163 Covered
+QA-0018 SRC-03 / 53 Tested Master §§13-18 + C-07 traceability QA-UAT-0018 Covered
+GEN-0164 SRC-03 / 54 Documented Master Requirements v3.3 GEN-REVIEW-0164 Covered
+GEN-0165 SRC-03 / 55 Deployed to the Staging environment Master Requirements v3.3 GEN-REVIEW-0165 Covered
+QA-0019 SRC-03 / 56 Accepted during UAT Master §§13-18 + C-07 traceability QA-UAT-0019 Covered
+WEB-0027 SRC-03 / 57 Rationale: This eliminates any ambiguity about what "complete" means. C-04 + C-05 public/legal screens WEB-UAT-0027 Covered
+GEN-0166 SRC-03 / 58 Part Eight: Defect Severity Classification Master Requirements v3.3 GEN-REVIEW-0166 Covered
+TEC-0016 SRC-03 / 59 23. Severity Levels Severity Definition Critical Prevents system usage OR
+causes data loss OR compromises security High Disables a core
+functionality without a practical workaround Medium Impacts non-critical
+features, but a workaround exists Low Cosmetic issues, minor UI bugs, or
+non-critical improvements Acceptance Criteria: No critical or high-severity
+defects shall remain open at final acceptance.
+Master + C-06 executable technical baseline TEC-INT-0016 Covered
+QA-0020 SRC-03 / 60 Part Nine: Knowledge Transfer & Handover Master §§13-18 + C-07 traceability QA-UAT-0020 Covered
+QA-0021 SRC-03 / 61 24. Knowledge Transfer Session Upon final delivery, the Technology Partner
+shall provide:
+Master §§13-18 + C-07 traceability QA-UAT-0021 Covered
+ASM-0034 SRC-03 / 62 Item Description Structured Handover Session 2–4 hour session covering
+architecture, deployment, configuration, and future maintenance Recorded
+Session Recording of the handover session for future reference Technical
+Q&A Opportunity for ROOTS-AI™ team to ask questions Access Transfer All
+access, credentials, and documentation transferred Rationale: This ensures
+ROOTS-AI™ can maintain, update, or transition the project to another team
+in the future.
+C-01 + C-05 assessment screens ASM-UAT-0034 Covered
+GEN-0167 SRC-03 / 63 Part Ten: Deferred Items (NOT Required in Phase 1) Master Requirements v3.3 GEN-REVIEW-0167 Covered
+
+===== PAGE 22 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 21
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+ASM-0035 SRC-03 / 64 25. Deferred Certifications, Audits & Documentation Item Deferral Reason
+SOC 2 Type I/II Certification Not needed until enterprise clients require it
+HIPAA Compliance Review / Program Not needed until US hospital contracts
+HITRUST Certification Only needed for pharmaceutical clients EU AI Act
+Documentation Not needed until European expansion Model Card Can be
+developed later with more data Bias Assessment Can be performed later
+with more user data Detailed Risk Register Can be developed later Full
+Incident Response Plan Can be developed later Business Continuity Plan
+Can be developed later Disaster Recovery Plan Can be developed later
+Penetration Test Report Can be performed later Advanced Compliance
+Policies Can be developed later Note: The items listed above will be
+addressed post-funding and are NOT required for Phase 1 delivery.
+C-01 + C-05 assessment screens ASM-UAT-0035 Covered
+GEN-0168 SRC-03 / 65 Part Eleven: Project Management Master Requirements v3.3 GEN-REVIEW-0168 Covered
+GEN-0169 SRC-03 / 66 26. Weekly Demos Weekly demonstration of completed milestones is
+mandatory.
+Master Requirements v3.3 GEN-REVIEW-0169 Covered
+GEN-0170 SRC-03 / 67 The Technology Partner must demonstrate progress every week, allowing
+ROOTS-AI™ to provide feedback and ensure alignment.
+Master Requirements v3.3 GEN-REVIEW-0170 Covered
+GEN-0171 SRC-03 / 68 Requirement: Demo must include working software rather than
+presentation slides.
+Master Requirements v3.3 GEN-REVIEW-0171 Covered
+ASM-0036 SRC-03 / 69 27. Milestone Payment Schedule Milestone Deliverable Payment Kickoff
+Project start, repository setup, architecture confirmation X% Week 2
+Database schema, assessment form, validation rules, RLS X% Week 4 AI
+Engine, scoring, PDF generation, report delivery X% Final UAT approval, all
+documentation, handover Remaining Note: Payment percentages to be
+agreed between parties before project commencement.
+C-01 + C-05 assessment screens ASM-UAT-0036 Covered
+RPT-0016 SRC-03 / 70 28. Bug Fix Warranty The Technology Partner shall provide a 90-day
+warranty following final delivery, covering all implementation defects
+attributable to delivered code.
+C-03 + report.schema.json RPT-UAT-0016 Covered
+GEN-0172 SRC-03 / 71 Exclusions: The warranty excludes: Master Requirements v3.3 GEN-REVIEW-0172 Covered
+GEN-0173 SRC-03 / 72 Changes caused by third-party provider outages Master Requirements v3.3 GEN-REVIEW-0173 Covered
+GEN-0174 SRC-03 / 73 New feature requests Master Requirements v3.3 GEN-REVIEW-0174 Covered
+GEN-0175 SRC-03 / 74 Changes outside the agreed scope Master Requirements v3.3 GEN-REVIEW-0175 Covered
+GEN-0176 SRC-03 / 75 Defects discovered during the warranty period shall be fixed at no
+additional cost to ROOTS-AI™.
+Master Requirements v3.3 GEN-REVIEW-0176 Covered
+GEN-0177 SRC-03 / 76 29. Change Requests Any functionality requested outside this document
+shall be treated as a formal Change Request and may affect cost and
+timeline.
+Master Requirements v3.3 GEN-REVIEW-0177 Covered
+GEN-0178 SRC-03 / 77 30. Force Majeure Timelines may be adjusted by mutual agreement in the
+event of force majeure or outages of critical third-party services beyond
+either party's control.
+Master Requirements v3.3 GEN-REVIEW-0178 Covered
+GEN-0179 SRC-03 / 78 31. Deployment Deployment responsibility shall be agreed before project
+commencement.
+Master Requirements v3.3 GEN-REVIEW-0179 Covered
+GEN-0180 SRC-03 / 79 Option Responsibility Technology Partner Perform deployment on behalf of
+ROOTS-AI™ ROOTS-AI™ Perform deployment independently Joint
+Collaborative deployment with handover
+Master Requirements v3.3 GEN-REVIEW-0180 Covered
+ASM-0037 SRC-03 / 80 Part Twelve: Questions for the Technology Partner C-01 + C-05 assessment screens ASM-UAT-0037 Covered
+
+===== PAGE 23 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 22
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+ASM-0038 SRC-03 / 81 32. Questions to Confirm Category Question Cost What is your fixed total
+estimation for Phase 1 deliverables?
+C-01 + C-05 assessment screens ASM-UAT-0038 Covered
+GEN-0181 SRC-03 / 82 Timeline Do you guarantee completion within the defined timeline? Master Requirements v3.3 GEN-REVIEW-0181 Covered
+TEC-0017 SRC-03 / 83 Architecture Do you confirm using Supabase (PostgreSQL) with native RLS? Master + C-06 executable technical baseline TEC-INT-0017 Covered
+TEC-0018 SRC-03 / 84 Admin Access How will admin-level access be implemented in Supabase? Master + C-06 executable technical baseline TEC-INT-0018 Covered
+SCR-0017 SRC-03 / 85 PDF Generation Briefly outline your approach to Puppeteer HTML/CSS
+templating N/A Handling How will N/A responses be excluded from scoring
+calculations?
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0017 Covered
+TEC-0019 SRC-03 / 86 BAA Will you assist in obtaining the BAA with Supabase? Master + C-06 executable technical baseline TEC-INT-0019 Covered
+ASM-0039 SRC-03 / 87 Validation How will input validation be enforced for height, weight, age, and
+waist?
+C-01 + C-05 assessment screens ASM-UAT-0039 Covered
+QA-0022 SRC-03 / 88 Deployment Which deployment option do you recommend? (See Section
+31) Testing What testing frameworks will you use?
+Master §§13-18 + C-07 traceability QA-UAT-0022 Covered
+GEN-0182 SRC-03 / 89 Code Quality How will you ensure code quality requirements (Section 5) are
+met?
+Master Requirements v3.3 GEN-REVIEW-0182 Covered
+GEN-0183 SRC-03 / 90 Repository Do you agree to work from a Git repository owned by
+ROOTS-AI™?
+Master Requirements v3.3 GEN-REVIEW-0183 Covered
+TEC-0020 SRC-03 / 91 Ownership Do you agree that all source code and IP become property of
+ROOTS-AI™?
+Master + C-06 executable technical baseline TEC-INT-0020 Covered
+RPT-0017 SRC-03 / 92 Warranty Do you agree to the 90-day bug fix warranty? C-03 + report.schema.json RPT-UAT-0017 Covered
+QA-0023 SRC-03 / 93 UAT Do you agree to the 7-calendar-day UAT period? Master §§13-18 + C-07 traceability QA-UAT-0023 Covered
+GEN-0184 SRC-03 / 94 Performance Do you agree to the performance benchmarks (Section 8)? Master Requirements v3.3 GEN-REVIEW-0184 Covered
+TEC-0021 SRC-03 / 95 Backups Do you confirm daily automated backups will be enabled? Master + C-06 executable technical baseline TEC-INT-0021 Covered
+GEN-0185 SRC-03 / 96 Dependencies Do you confirm all third-party libraries have commercial-use
+licenses?
+Master Requirements v3.3 GEN-REVIEW-0185 Covered
+QA-0024 SRC-03 / 97 Handover Do you agree to the knowledge transfer session (Section 24)? Master §§13-18 + C-07 traceability QA-UAT-0024 Covered
+GEN-0186 SRC-03 / 98 Environments Do you confirm Development, Staging, and Production
+environments will be set up?
+Master Requirements v3.3 GEN-REVIEW-0186 Covered
+GEN-0187 SRC-03 / 99 Coding Standards Do you agree to ESLint, Prettier, and commit
+conventions?
+Master Requirements v3.3 GEN-REVIEW-0187 Covered
+GEN-0188 SRC-03 / 100 Version Control Do you agree to the branch strategy and PR review
+process?
+Master Requirements v3.3 GEN-REVIEW-0188 Covered
+GEN-0189 SRC-03 / 101 SBOM Will you provide a Software Bill of Materials with all dependencies? Master Requirements v3.3 GEN-REVIEW-0189 Covered
+GEN-0190 SRC-03 / 102 Part Thirteen: Acceptance Criteria – Phase 1 The Phase 1 MVP will be
+considered complete and accepted only when:
+Master Requirements v3.3 GEN-REVIEW-0190 Covered
+
+===== PAGE 24 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 23
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+RPT-0018 SRC-03 / 103 # Criteria 1 All functional components are working correctly (Section 10) 2
+All performance benchmarks are met (Section 8) 3 All core security controls
+are implemented and verified (Sections 15-17) 4 Daily automated backups
+are confirmed (Section 9) 5 BAA with Supabase is signed and documented
+6 Privacy Policy and Terms of Service are provided 7 All Phase 1
+documentation is submitted and reviewed (Section 19) 8 All test reports
+are submitted and show passing results (Section 21) 9 No critical or
+high-severity defects shall remain open at final acceptance 10
+7-calendar-day User Acceptance Testing (UAT) period is successfully
+completed 11 90-day warranty period begins upon final acceptance 12
+Source code is delivered via Git repository owned by ROOTS-AI™ 13
+Intellectual property ownership is acknowledged in writing 14 Knowledge
+transfer session is completed (Section 24) 15 All third-party dependencies
+are documented with licenses 16 Development, Staging, and Production
+environments are set up 17 Version control standards are followed (Section
+3) 18 Software Bill of Materials (SBOM) is provided 19 Definition of
+"complete" is met (Section 22) Final acceptance occurs only after
+successful completion of UAT and verification of all deliverables.
+C-03 + report.schema.json RPT-UAT-0018 Covered
+GEN-0191 SRC-03 / 104 Part Fourteen: Exclusions – Phase 1 Master Requirements v3.3 GEN-REVIEW-0191 Covered
+ASM-0040 SRC-03 / 105 33. Items Explicitly Excluded from Phase 1 Item Reason SOC 2 Type I/II
+Certification Deferred post-funding HIPAA Compliance Review / Program
+Deferred post-funding HITRUST Certification Deferred post-funding EU AI
+Act Documentation Deferred post-funding Model Card Deferred
+post-funding Bias Assessment Deferred post-funding Detailed Risk Register
+Deferred post-funding Full Incident Response Plan Deferred post-funding
+Business Continuity Plan Deferred post-funding Disaster Recovery Plan
+Deferred post-funding Penetration Test Report Deferred post-funding
+Advanced Compliance Policies Deferred post-funding
+C-01 + C-05 assessment screens ASM-UAT-0040 Covered
+GEN-0192 SRC-03 / 106 Part Fifteen: Signatures Master Requirements v3.3 GEN-REVIEW-0192 Covered
+GEN-0193 SRC-03 / 107 Prepared By: Master Requirements v3.3 GEN-REVIEW-0193 Covered
+GEN-0194 SRC-03 / 108 Dr. Nour Holly CEO, ROOTS-AI™ Master Requirements v3.3 GEN-REVIEW-0194 Covered
+GEN-0195 SRC-03 / 109 Reviewed & Agreed By (Technology Partner): Master Requirements v3.3 GEN-REVIEW-0195 Covered
+GEN-0196 SRC-03 / 110 [Name] [Title] Master Requirements v3.3 GEN-REVIEW-0196 Covered
+GEN-0197 SRC-03 / 111 Date: Master Requirements v3.3 GEN-REVIEW-0197 Covered
+WEB-0028 SRC-04 / 1 ROOTS-AI™ Website & Platform Master Breakdown v1.0 Master Functional
+Documentation Checklist Prepared For: ROOTS-AI™ Technology
+Development Partner Prepared By: ROOTS-AI™ Version: 1.0 - Master
+Planning Document Status: Approved for Functional Specification
+Development
+C-04 + C-05 public/legal screens WEB-UAT-0028 Covered
+GEN-0198 SRC-04 / 2 Phase 0 - Foundation Documents (Write First) Master Requirements v3.3 GEN-REVIEW-0198 Covered
+GEN-0199 SRC-04 / 3 MVP Scope v1.0 - Required Master Requirements v3.3 GEN-REVIEW-0199 Covered
+GEN-0200 SRC-04 / 4 User Flow v1.0 - Required Master Requirements v3.3 GEN-REVIEW-0200 Covered
+GEN-0201 SRC-04 / 5 Product Roadmap - Required Master Requirements v3.3 GEN-REVIEW-0201 Covered
+UI-0008 SRC-04 / 6 Design & Content System™ - Required C-05 + C-08 editable SVG/tokens UI-VREG-0008 Covered
+GOV-0003 SRC-04 / 7 Change Management Process - Required Agreement v6.5 + Master governance GOV-AUDIT-0003 Covered
+GOV-0004 SRC-04 / 8 Decision Log - Required Agreement v6.5 + Master governance GOV-AUDIT-0004 Covered
+
+===== PAGE 25 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 24
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+QA-0025 SRC-04 / 9 MVP Definition of Done Master §§13-18 + C-07 traceability QA-UAT-0025 Covered
+GEN-0202 SRC-04 / 10 All MVP pages are implemented. Master Requirements v3.3 GEN-REVIEW-0202 Covered
+ASM-0041 SRC-04 / 11 Assessment functions exactly as specified. C-01 + C-05 assessment screens ASM-UAT-0041 Covered
+RPT-0019 SRC-04 / 12 Report generation is operational. C-03 + report.schema.json RPT-UAT-0019 Covered
+QA-0026 SRC-04 / 13 UAT is approved. Master §§13-18 + C-07 traceability QA-UAT-0026 Covered
+GEN-0203 SRC-04 / 14 Critical and High severity bugs are resolved. Master Requirements v3.3 GEN-REVIEW-0203 Covered
+QA-0027 SRC-04 / 15 Documentation is delivered. Master §§13-18 + C-07 traceability QA-UAT-0027 Covered
+QA-0028 SRC-04 / 16 Knowledge transfer is completed. Master §§13-18 + C-07 traceability QA-UAT-0028 Covered
+QA-0029 SRC-04 / 17 MVP Success Criteria - Technical Master §§13-18 + C-07 traceability QA-UAT-0029 Covered
+ASM-0042 SRC-04 / 18 Assessment completion rate greater than 95%. C-01 + C-05 assessment screens ASM-UAT-0042 Covered
+RPT-0020 SRC-04 / 19 Report generation in 15 seconds or less. C-03 + report.schema.json RPT-UAT-0020 Covered
+TEC-0022 SRC-04 / 20 Zero Critical Security Issues. Master + C-06 executable technical baseline TEC-INT-0022 Covered
+UI-0009 SRC-04 / 21 Mobile responsive. C-05 + C-08 editable SVG/tokens UI-VREG-0009 Covered
+GEN-0204 SRC-04 / 22 Cross-browser compatible. Master Requirements v3.3 GEN-REVIEW-0204 Covered
+QA-0030 SRC-04 / 23 Business logic test coverage at least 80%. Master §§13-18 + C-07 traceability QA-UAT-0030 Covered
+QA-0031 SRC-04 / 24 MVP Success Criteria - Business Master §§13-18 + C-07 traceability QA-UAT-0031 Covered
+WEB-0029 SRC-04 / 25 Pilot successfully launched. C-04 + C-05 public/legal screens WEB-UAT-0029 Covered
+GEN-0205 SRC-04 / 26 University onboarding completed. Master Requirements v3.3 GEN-REVIEW-0205 Covered
+RPT-0021 SRC-04 / 27 Sample report downloadable. C-03 + report.schema.json RPT-UAT-0021 Covered
+GEN-0206 SRC-04 / 28 User completion rate monitored. Master Requirements v3.3 GEN-REVIEW-0206 Covered
+GEN-0207 SRC-04 / 29 Analytics operational. Master Requirements v3.3 GEN-REVIEW-0207 Covered
+GEN-0208 SRC-04 / 30 Out of Scope (MVP) Master Requirements v3.3 GEN-REVIEW-0208 Covered
+FUT-0026 SRC-04 / 31 DNA Analysis. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0026 Carried as explicit
+future/out-of-scope
+FUT-0027 SRC-04 / 32 Microbiome Analysis. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0027 Carried as explicit
+future/out-of-scope
+FUT-0028 SRC-04 / 33 Laboratory Integration. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0028 Carried as explicit
+future/out-of-scope
+FUT-0029 SRC-04 / 34 Wearables. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0029 Carried as explicit
+future/out-of-scope
+FUT-0030 SRC-04 / 35 AI Coach. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0030 Carried as explicit
+future/out-of-scope
+FUT-0031 SRC-04 / 36 Biological Twin. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0031 Carried as explicit
+future/out-of-scope
+GEN-0209 SRC-04 / 37 Clinical Portal. Master Requirements v3.3 GEN-REVIEW-0209 Covered
+GEN-0210 SRC-04 / 38 Enterprise Dashboard. Master Requirements v3.3 GEN-REVIEW-0210 Covered
+GEN-0211 SRC-04 / 39 Assumptions Master Requirements v3.3 GEN-REVIEW-0211 Covered
+
+===== PAGE 26 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 25
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+WEB-0030 SRC-04 / 40 English-first platform. C-04 + C-05 public/legal screens WEB-UAT-0030 Covered
+UI-0010 SRC-04 / 41 Mobile-first responsive design. C-05 + C-08 editable SVG/tokens UI-VREG-0010 Covered
+TEC-0023 SRC-04 / 42 Cloud deployment. Master + C-06 executable technical baseline TEC-INT-0023 Covered
+TEC-0024 SRC-04 / 43 REST APIs. Master + C-06 executable technical baseline TEC-INT-0024 Covered
+GEN-0212 SRC-04 / 44 Rule-based AI interpretation. Master Requirements v3.3 GEN-REVIEW-0212 Covered
+ASM-0043 SRC-04 / 45 Questionnaire-driven biological analysis. C-01 + C-05 assessment screens ASM-UAT-0043 Covered
+GEN-0213 SRC-04 / 46 Current Constraints Master Requirements v3.3 GEN-REVIEW-0213 Covered
+TEC-0025 SRC-04 / 47 No laboratory APIs. Master + C-06 executable technical baseline TEC-INT-0025 Covered
+FUT-0032 SRC-04 / 48 No wearable integrations. Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0032 Carried as explicit
+future/out-of-scope
+GEN-0214 SRC-04 / 49 No clinician dashboard. Master Requirements v3.3 GEN-REVIEW-0214 Covered
+GEN-0215 SRC-04 / 50 No multilingual interface. Master Requirements v3.3 GEN-REVIEW-0215 Covered
+GEN-0216 SRC-04 / 51 No real-time biological monitoring. Master Requirements v3.3 GEN-REVIEW-0216 Covered
+WEB-0031 SRC-04 / 52 Functional Specification Template Every document contains: Overview
+(purpose, user goal, business goal); Layout (desktop, tablet, mobile);
+Sections (purpose, content, visual design, icons, animation, responsive
+behaviour, API integration); User Interaction (click, hover, scroll, forms,
+validation, navigation); States (loading, empty, error, success, offline);
+Technical Requirements (API, performance, security, SEO, accessibility,
+analytics); Assets (images, icons, illustrations, videos, charts, Lottie
+animations).
+C-04 + C-05 public/legal screens WEB-UAT-0031 Covered
+WEB-0032 SRC-04 / 53 Website Master Checklist C-04 + C-05 public/legal screens WEB-UAT-0032 Covered
+WEB-0033 SRC-04 / 54 1. Home - Hero; What is ROOTS-AI™; Why ROOTS?; Biological Intelligence
+Framework; Key Benefits; Featured Insights; Call to Action; Footer.
+C-04 + C-05 public/legal screens WEB-UAT-0033 Covered
+ASM-0044 SRC-04 / 55 2. Assessment - Introduction; Eligibility; Privacy; Progress Bar;
+Questionnaire;
+C-01 + C-05 assessment screens ASM-UAT-0044 Covered
+ASM-0045 SRC-04 / 56 Auto Save; Validation; Resume; Scoring Logic; Submission. C-01 + C-05 assessment screens ASM-UAT-0045 Covered
+SCR-0018 SRC-04 / 57 3. Example Report - Interactive Preview; Report Sections; Scoring
+Overview;
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0018 Covered
+RPT-0022 SRC-04 / 58 Download PDF. C-03 + report.schema.json RPT-UAT-0022 Covered
+ASM-0046 SRC-04 / 59 4. How It Works - Complete Assessment; AI Analysis; Personalized Report; C-01 + C-05 assessment screens ASM-UAT-0046 Covered
+GEN-0217 SRC-04 / 60 Biological Action Plan; Continuous Journey. Master Requirements v3.3 GEN-REVIEW-0217 Covered
+WEB-0034 SRC-04 / 61 5. Pilot Program - What is ROOTS Pilot; Who Can Join; What You Get; How
+To Join;
+C-04 + C-05 public/legal screens WEB-UAT-0034 Covered
+GEN-0218 SRC-04 / 62 Timeline; Partners; FAQs; Join. Master Requirements v3.3 GEN-REVIEW-0218 Covered
+WEB-0035 SRC-04 / 63 6. Contact - Contact Form; Universities; Healthcare Professionals; Business
+Partnerships; Government Partnerships; Investors; Media; General
+Enquiries.
+C-04 + C-05 public/legal screens WEB-UAT-0035 Covered
+LEG-0008 SRC-04 / 64 7. Legal - Privacy Policy; Terms; Cookies; Research Consent; GDPR; PDPA;
+HIPAA (Future); Intellectual Property; Copyright; Trademark; AI Disclaimer;
+Medical Disclaimer; Accessibility.
+C-04 website/legal copy LEG-UAT-0008 Covered
+
+===== PAGE 27 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 26
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+WEB-0036 SRC-04 / 65 8. Platform - Overview; Available Today; ROOTS Intelligence Ecosystem™; C-04 + C-05 public/legal screens WEB-UAT-0036 Covered
+FUT-0033 SRC-04 / 66 Intelligence Layers; AI Intelligence Engine™; Professional Solutions; Future
+Vision; Biological Twin™.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0033 Carried as explicit
+future/out-of-scope
+LEG-0009 SRC-04 / 67 9. Research - Research Vision; Advisory Board; University Partnerships;
+Pilot Programs; Collaboration; Data & Privacy; Ethics; Publications; Papers.
+C-04 website/legal copy LEG-UAT-0009 Covered
+WEB-0037 SRC-04 / 68 10. Blog - Biological Intelligence; Metabolic Health; Sleep; Nutrition; Stress; C-04 + C-05 public/legal screens WEB-UAT-0037 Covered
+GEN-0219 SRC-04 / 69 Longevity; Women's Health; Preventive Medicine; AI; Case Studies; ROOTS
+News;
+Master Requirements v3.3 GEN-REVIEW-0219 Covered
+GEN-0220 SRC-04 / 70 Article Detail. Master Requirements v3.3 GEN-REVIEW-0220 Covered
+RPT-0023 SRC-04 / 71 11. Healthcare Professionals - ROOTS Clinics; Report Interpretation; Clinical
+Resources; Referral Pathways; Clinical Evidence; Certification; Clinic
+Solutions.
+C-03 + report.schema.json RPT-UAT-0023 Covered
+WEB-0038 SRC-04 / 72 12. About ROOTS - Story; Vision; Global Vision; Mission; Values; Philosophy; C-04 + C-05 public/legal screens WEB-UAT-0038 Covered
+WEB-0039 SRC-04 / 73 Milestones; Scientific Principles; Why ROOTS; Research; Leadership; Road
+Ahead.
+C-04 + C-05 public/legal screens WEB-UAT-0039 Covered
+GEN-0221 SRC-04 / 74 13. User Accounts - infrastructure-ready but not public in MVP: Login; Sign
+Up;
+Master Requirements v3.3 GEN-REVIEW-0221 Covered
+ASM-0047 SRC-04 / 75 Dashboard; Reports; Assessments; Progress; Recommendations;
+Notifications;
+C-01 + C-05 assessment screens ASM-UAT-0047 Covered
+GEN-0222 SRC-04 / 76 Settings. Master Requirements v3.3 GEN-REVIEW-0222 Covered
+FUT-0034 SRC-04 / 77 14. Future Intelligence Layers - Laboratory Intelligence™; DNA
+Intelligence™;
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0034 Carried as explicit
+future/out-of-scope
+FUT-0035 SRC-04 / 78 Microbiome Intelligence™; Wearable Intelligence™; Lifestyle Intelligence™; Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0035 Carried as explicit
+future/out-of-scope
+FUT-0036 SRC-04 / 79 Continuous Biological Monitoring™; AI Coach™; Clinical Portal™; Research
+Platform™; Enterprise Health™; Population Health™; Marketplace™;
+Biological Twin™.
+Master §1.2 / public Coming Soon content FUT-OUT-OF-SCOPE-0036 Carried as explicit
+future/out-of-scope
+QA-0032 SRC-04 / 80 Documentation Dependencies Master §§13-18 + C-07 traceability QA-UAT-0032 Covered
+GEN-0223 SRC-04 / 81 MVP Scope depends on Vision and enables User Flow. Master Requirements v3.3 GEN-REVIEW-0223 Covered
+GEN-0224 SRC-04 / 82 User Flow depends on MVP Scope and enables Functional Specifications. Master Requirements v3.3 GEN-REVIEW-0224 Covered
+UI-0011 SRC-04 / 83 Design & Content System depends on MVP Scope and enables UI/UX and
+Content.
+C-05 + C-08 editable SVG/tokens UI-VREG-0011 Covered
+ASM-0048 SRC-04 / 84 Assessment Specification depends on User Flow and enables AI Engine. C-01 + C-05 assessment screens ASM-UAT-0048 Covered
+ASM-0049 SRC-04 / 85 Report Specification depends on Assessment and enables Report Engine. C-01 + C-05 assessment screens ASM-UAT-0049 Covered
+ASM-0050 SRC-04 / 86 Database depends on Assessment and enables APIs. C-01 + C-05 assessment screens ASM-UAT-0050 Covered
+TEC-0026 SRC-04 / 87 APIs depend on Database and enable Frontend. Master + C-06 executable technical baseline TEC-INT-0026 Covered
+TEC-0027 SRC-04 / 88 Dashboard depends on APIs and enables User Portal. Master + C-06 executable technical baseline TEC-INT-0027 Covered
+TEC-0028 SRC-04 / 89 Review Cycle Product Review; UX/UI Review; Technical Review; AI Logic
+Review; Clinical Review where applicable; Security Review; Final Approval.
+Master + C-06 executable technical baseline TEC-INT-0028 Covered
+GEN-0225 SRC-04 / 90 Writing Priority Master Requirements v3.3 GEN-REVIEW-0225 Covered
+
+===== PAGE 28 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 27
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+ASM-0051 SRC-04 / 91 Phase 1 immediate: MVP Scope; User Flow; Design & Content System;
+Assessment Functional Specification; Example Report Functional
+Specification; Home;
+C-01 + C-05 assessment screens ASM-UAT-0051 Covered
+LEG-0010 SRC-04 / 92 Pilot Program; Contact; Legal; How It Works. C-04 website/legal copy LEG-UAT-0010 Covered
+WEB-0040 SRC-04 / 93 Phase 2: Platform; Research; Blog; Healthcare Professionals; About ROOTS. C-04 + C-05 public/legal screens WEB-UAT-0040 Covered
+GEN-0226 SRC-04 / 94 Phase 3: User Accounts; Future Intelligence Layers. Master Requirements v3.3 GEN-REVIEW-0226 Covered
+SCR-0019 SRC-05 / 1 ROOTS Metabolic Resistance Mapping™ Decode the Biology Before You
+Fight the Weight™ Powered by ROOTS-AI™ Biological Intelligence
+Framework
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0019 Covered
+ASM-0052 SRC-05 / 2 Most weight-loss assessments focus on calories. C-01 + C-05 assessment screens ASM-UAT-0052 Covered
+GEN-0227 SRC-05 / 3 ROOTS focuses on biology. Master Requirements v3.3 GEN-REVIEW-0227 Covered
+GEN-0228 SRC-05 / 4 Because the body does not resist change without reason. Master Requirements v3.3 GEN-REVIEW-0228 Covered
+ASM-0053 SRC-05 / 5 This assessment identifies hidden biological signals that may contribute to: C-01 + C-05 assessment screens ASM-UAT-0053 Covered
+SCR-0020 SRC-05 / 6 Persistent weight gain C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0020 Covered
+GEN-0229 SRC-05 / 7 Constant hunger Master Requirements v3.3 GEN-REVIEW-0229 Covered
+GEN-0230 SRC-05 / 8 Persistent low energy Master Requirements v3.3 GEN-REVIEW-0230 Covered
+GEN-0231 SRC-05 / 9 Poor recovery Master Requirements v3.3 GEN-REVIEW-0231 Covered
+GEN-0232 SRC-05 / 10 Resistance to metabolic change Master Requirements v3.3 GEN-REVIEW-0232 Covered
+ASM-0054 SRC-05 / 11 Estimated Time: 10–12 minutes Questions: Approximately 50 biological
+indicators
+C-01 + C-05 assessment screens ASM-UAT-0054 Covered
+GEN-0233 SRC-05 / 12 No calorie counting. Master Requirements v3.3 GEN-REVIEW-0233 Covered
+GEN-0234 SRC-05 / 13 No food diary. Master Requirements v3.3 GEN-REVIEW-0234 Covered
+GEN-0235 SRC-05 / 14 No judgment. Master Requirements v3.3 GEN-REVIEW-0235 Covered
+RPT-0024 SRC-05 / 15 Your personalized ROOTS report includes: C-03 + report.schema.json RPT-UAT-0024 Covered
+SCR-0021 SRC-05 / 16 ROOTS Metabolic Resistance Score™ C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0021 Covered
+SCR-0022 SRC-05 / 17 ROOTS Hunger & Satiety Score™ C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0022 Covered
+GEN-0236 SRC-05 / 18 ROOTS Sleep Recovery Index™ Master Requirements v3.3 GEN-REVIEW-0236 Covered
+SCR-0023 SRC-05 / 19 ROOTS Circadian Health Score™ C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0023 Covered
+GEN-0237 SRC-05 / 20 ROOTS Inflammation Burden Index™ Master Requirements v3.3 GEN-REVIEW-0237 Covered
+SCR-0024 SRC-05 / 21 ROOTS Stress Load Score™ C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0024 Covered
+SCR-0025 SRC-05 / 22 ROOTS Biological Safety Score™ C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0025 Covered
+GEN-0238 SRC-05 / 23 Root Cause Priority Analysis™ Master Requirements v3.3 GEN-REVIEW-0238 Covered
+GEN-0239 SRC-05 / 24 Personalized Action Priorities™ Master Requirements v3.3 GEN-REVIEW-0239 Covered
+
+===== PAGE 29 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 28
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+LEG-0011 SRC-05 / 25 Disclaimer: C-04 website/legal copy LEG-UAT-0011 Covered
+ASM-0055 SRC-05 / 26 This assessment is an educational and interpretive tool. It is not a medical
+diagnosis and does not replace professional medical advice.
+C-01 + C-05 assessment screens ASM-UAT-0055 Covered
+GEN-0240 SRC-05 / 27 Answer Guide: Master Requirements v3.3 GEN-REVIEW-0240 Covered
+GEN-0241 SRC-05 / 28 Value Meaning 1 Never 2 Rarely 3 Sometimes 4 Often 5 Almost Always N/A
+Not Applicable / I rarely consume these foods
+Master Requirements v3.3 GEN-REVIEW-0241 Covered
+ASM-0056 SRC-05 / 29 * Indicates required question C-01 + C-05 assessment screens ASM-UAT-0056 Covered
+GEN-0242 SRC-05 / 30 M01 module: Body Foundations Master Requirements v3.3 GEN-REVIEW-0242 Covered
+SCR-0026 SRC-05 / 31 M02 module: Weight & Metabolic History C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0026 Covered
+GEN-0243 SRC-05 / 32 M03 module: Sleep Recovery Index Master Requirements v3.3 GEN-REVIEW-0243 Covered
+GEN-0244 SRC-05 / 33 M04 module: Hunger & Satiety Signals Master Requirements v3.3 GEN-REVIEW-0244 Covered
+GEN-0245 SRC-05 / 34 M05 module: Stress Load & Inflammation Signals Master Requirements v3.3 GEN-REVIEW-0245 Covered
+GEN-0246 SRC-05 / 35 M06 module: Circadian Health Master Requirements v3.3 GEN-REVIEW-0246 Covered
+GEN-0247 SRC-05 / 36 M07 module: Physical Activity Mapping Master Requirements v3.3 GEN-REVIEW-0247 Covered
+GEN-0248 SRC-05 / 37 M08 module: Biological Safety Signals Master Requirements v3.3 GEN-REVIEW-0248 Covered
+GEN-0249 SRC-05 / 38 M09 module: Root Cause Discovery Master Requirements v3.3 GEN-REVIEW-0249 Covered
+GEN-0250 SRC-05 / 39 M10 module: Hormonal & Reproductive Context Master Requirements v3.3 GEN-REVIEW-0250 Covered
+GEN-0251 SRC-05 / 40 M11 module: Lifestyle & Environment Master Requirements v3.3 GEN-REVIEW-0251 Covered
+GEN-0252 SRC-05 / 41 M12 module: Goals & Readiness Master Requirements v3.3 GEN-REVIEW-0252 Covered
+GEN-0253 SRC-05 / 42 M13 module: Confidence & Additional Context Master Requirements v3.3 GEN-REVIEW-0253 Covered
+ASM-0057 SRC-05 / 43 Q1: What is your age? [type=integer; required=True; allow_na=False;
+validation=16-110 years; launch eligibility defaults to 18+;
+conditional_logic=NONE]
+C-01 + C-05 assessment screens ASM-UAT-0057 Covered
+GEN-0254 SRC-05 / 44 Q2: What sex were you assigned at birth? [type=single_select;
+required=True; allow_na=False; validation=Approved option ID only;
+conditional_logic=NONE] Options: FEMALE=Female; MALE=Male;
+INTERSEX=Intersex; PREFER_NOT=Prefer not to say
+Master Requirements v3.3 GEN-REVIEW-0254 Covered
+GEN-0255 SRC-05 / 45 Q3: What is your height? [type=decimal; required=True; allow_na=False;
+validation=100-250 cm; conditional_logic=NONE]
+Master Requirements v3.3 GEN-REVIEW-0255 Covered
+SCR-0027 SRC-05 / 46 Q4: What is your current weight? [type=decimal; required=True;
+allow_na=False; validation=25-350 kg; conditional_logic=NONE]
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0027 Covered
+SCR-0028 SRC-05 / 47 Q5: What is your target weight, if you have one? [type=decimal;
+required=False; allow_na=True; validation=25-350 kg or N/A;
+conditional_logic=NONE]
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0028 Covered
+ASM-0058 SRC-05 / 48 Q6: What is your waist circumference? [type=decimal_with_unit;
+required=True; allow_na=False; validation=40-200 cm after conversion;
+inches x 2.54; conditional_logic=NONE] Options: CM=Centimetres;
+IN=Inches
+C-01 + C-05 assessment screens ASM-UAT-0058 Covered
+
+===== PAGE 30 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 29
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+SCR-0029 SRC-05 / 49 Q7: How long have you been near your current weight?
+[type=single_select; required=True; allow_na=True; validation=Approved
+option ID only; conditional_logic=NONE] Options: LT6M=Less than 6
+months; 6_12M=6-12 months; 1_3Y=1-3 years; 3_5Y=3-5 years;
+GT5Y=More than 5 years; NA=Not applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0029 Covered
+SCR-0030 SRC-05 / 50 Q8: How would you describe your weight pattern over the last five years?
+[type=single_select; required=True; allow_na=True; validation=Approved
+option ID only; conditional_logic=NONE] Options: STABLE=Mostly stable;
+GRADUAL=Gradual increase; CYCLING=Repeated loss and regain;
+RECENT=Recent marked change; OTHER=Other or unsure; NA=Not
+applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0030 Covered
+SCR-0031 SRC-05 / 51 Q9: How did the weight change that concerns you begin?
+[type=single_select; required=True; allow_na=True; validation=Approved
+option ID only; conditional_logic=NONE] Options: STABLE=No concerning
+change or mostly stable; IDENTIFIABLE=After an identifiable life period or
+event; GRADUAL=Gradually with no single clear reason; CYCLING=In
+repeated cycles of loss and regain; RAPID=Rapidly or unexpectedly;
+NA=Not applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0031 Covered
+GEN-0256 SRC-05 / 52 Q10: How often have well-planned diet or activity efforts produced less
+change than you expected? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0256 Covered
+SCR-0032 SRC-05 / 53 Q11: After an intentional weight loss, how often has some or all of the
+weight returned? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0032 Covered
+SCR-0033 SRC-05 / 54 Q12: How many meaningful cycles of weight loss and regain have you
+experienced? [type=single_select; required=True; allow_na=True;
+validation=Approved option ID only; conditional_logic=NONE] Options:
+NONE=None; ONE=One; TWO=Two; THREE_FOUR=Three or four;
+FIVE_PLUS=Five or more; NA=Not applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0033 Covered
+GEN-0257 SRC-05 / 55 Q13: Have you been told by a clinician that you have any of the following?
+[type=multi_select; required=True; allow_na=True; validation=Zero or
+more approved option IDs; conditional_logic=NONE] Options: NONE=None
+of these; T2D=Type 2 diabetes; PREDIABETES=Prediabetes; HTN=High
+blood pressure; DYSLIPID=High cholesterol or triglycerides;
+THYROID=Thyroid condition; PCOS=Polycystic ovary syndrome;
+SLEEP_APNEA=Sleep apnoea; OTHER=Other; PREFER_NOT=Prefer not to
+say; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0257 Covered
+SCR-0034 SRC-05 / 56 Q14: Are you currently using medicines that may relate to metabolism,
+appetite, weight or hormones? [type=multi_select; required=True;
+allow_na=True; validation=Zero or more approved option IDs;
+conditional_logic=NONE] Options: NONE=No; GLUCOSE=Glucose-lowering
+medicine; WEIGHT=Weight-management medicine; STEROID=Long-term
+corticosteroid; HORMONAL=Hormonal medicine; OTHER=Other relevant
+medicine; UNSURE=Not sure; PREFER_NOT=Prefer not to say; NA=Not
+applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0034 Covered
+
+===== PAGE 31 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 30
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+SCR-0035 SRC-05 / 57 Q15: Does a first-degree relative have a history of type 2 diabetes or
+substantial weight-related metabolic difficulty? [type=single_select;
+required=True; allow_na=True; validation=Approved option ID only;
+conditional_logic=NONE] Options: NO=No; YES=Yes; UNSURE=Not sure;
+NA=Not applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0035 Covered
+GEN-0258 SRC-05 / 58 Q16: How many hours of sleep do you typically get in a 24-hour period?
+[type=single_select; required=True; allow_na=True; validation=Approved
+option ID only; conditional_logic=NONE] Options: LT5=Less than 5 hours;
+H5_6=5 to less than 6 hours; H6_7=6 to less than 7 hours; H7_9=7 to 9
+hours; GT9=More than 9 hours; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0258 Covered
+GEN-0259 SRC-05 / 59 Q17: How often do you feel tired even after what seemed like enough time
+in bed? [type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0259 Covered
+GEN-0260 SRC-05 / 60 Q18: How often do you wake during the night and struggle to return to
+sleep? [type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0260 Covered
+GEN-0261 SRC-05 / 61 Q19: How often is your bedtime after midnight? [type=likert;
+required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0261 Covered
+GEN-0262 SRC-05 / 62 Q20: How often do you remain awake until 2:00 AM or later because you
+cannot settle to sleep? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0262 Covered
+GEN-0263 SRC-05 / 63 Q21: How often do you snore loudly, wake gasping, or receive feedback
+that your breathing pauses during sleep? [type=likert; required=True;
+allow_na=True; validation=0-4 or N/A; conditional_logic=NONE] Options:
+NVR=Never; RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost
+always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0263 Covered
+GEN-0264 SRC-05 / 64 Q22: How often do you experience a marked afternoon energy crash?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0264 Covered
+GEN-0265 SRC-05 / 65 Q23: How often do you feel physically hungry within two hours after a full
+meal? [type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0265 Covered
+GEN-0266 SRC-05 / 66 Q24: How often do you experience food cravings when you are not
+physically hungry? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0266 Covered
+GEN-0267 SRC-05 / 67 Q25: How often do you eat enough but still fail to feel comfortably full?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0267 Covered
+
+===== PAGE 32 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 31
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+GEN-0268 SRC-05 / 68 Q26: How often do you feel comfortably full after a normal meal?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0268 Covered
+GEN-0269 SRC-05 / 69 Q27: How often are you hungry again three to four hours after a
+protein-rich meal? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0269 Covered
+GEN-0270 SRC-05 / 70 Q28: How often does a protein-rich meal keep you satisfied for four hours
+or longer? [type=likert; required=True; allow_na=True; validation=0-4 or
+N/A; conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0270 Covered
+GEN-0271 SRC-05 / 71 Q29: How often do you feel sleepy, foggy or low in energy after a main
+meal? [type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0271 Covered
+GEN-0272 SRC-05 / 72 Q30: When you start eating sweets or snack foods, how often is it difficult
+to stop at the amount you intended? [type=likert; required=True;
+allow_na=True; validation=0-4 or N/A; conditional_logic=NONE] Options:
+NVR=Never; RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost
+always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0272 Covered
+GEN-0273 SRC-05 / 73 Q31: How often do you feel persistent physical tension or stress?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0273 Covered
+GEN-0274 SRC-05 / 74 Q32: How often does stress increase your desire to eat? [type=likert;
+required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0274 Covered
+GEN-0275 SRC-05 / 75 Q33: How often does your mind race when you are trying to sleep?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0275 Covered
+GEN-0276 SRC-05 / 76 Q34: How often are cravings noticeably stronger in the evening?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0276 Covered
+GEN-0277 SRC-05 / 77 Q35: How often do you experience bloating, gas or digestive discomfort?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0277 Covered
+GEN-0278 SRC-05 / 78 Q36: How often do you experience brain fog after meals? [type=likert;
+required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0278 Covered
+GEN-0279 SRC-05 / 79 Q37: How often do you experience unexplained joint pain or stiffness?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0279 Covered
+
+===== PAGE 33 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 32
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+ASM-0059 SRC-05 / 80 Q38: How often does fat around your waist seem resistant to your usual
+efforts? [type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+C-01 + C-05 assessment screens ASM-UAT-0059 Covered
+GEN-0280 SRC-05 / 81 Q39: How often do you experience unusual thirst or a dry mouth?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0280 Covered
+GEN-0281 SRC-05 / 82 Q40: How often have reducing calories and increasing activity produced
+little sustained change? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0281 Covered
+GEN-0282 SRC-05 / 83 Q41: How often do you spend the first hour after waking indoors without
+natural daylight exposure? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0282 Covered
+GEN-0283 SRC-05 / 84 Q42: How often do you use a phone, tablet or computer during the final
+hour before sleep? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0283 Covered
+GEN-0284 SRC-05 / 85 Q43: How often do you eat within three hours of bedtime? [type=likert;
+required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0284 Covered
+GEN-0285 SRC-05 / 86 Q44: How often does your sleep schedule vary by more than two hours
+across the week? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0285 Covered
+GEN-0286 SRC-05 / 87 Q45: How often do you feel more alert late at night than during the
+morning? [type=likert; required=True; allow_na=True; validation=0-4 or
+N/A; conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0286 Covered
+GEN-0287 SRC-05 / 88 Q46: On how many days per week do you complete intentional physical
+activity? [type=single_select; required=True; allow_na=True;
+validation=Approved option ID only; conditional_logic=NONE] Options:
+D0=0 days; D1_2=1-2 days; D3_4=3-4 days; D5_7=5-7 days; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0287 Covered
+GEN-0288 SRC-05 / 89 Q47: On active days, what is the usual duration of your intentional activity?
+[type=single_select; required=True; allow_na=True; validation=Approved
+option ID only; conditional_logic=NONE] Options: LT10=Less than 10
+minutes; M10_29=10-29 minutes; M30_59=30-59 minutes; M60_PLUS=60
+minutes or more; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0288 Covered
+
+===== PAGE 34 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 33
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+GEN-0289 SRC-05 / 90 Q48: Which option best describes your usual physical activity pattern?
+[type=single_select; required=True; allow_na=True; validation=Approved
+option ID only; conditional_logic=NONE] Options: NONE=No intentional
+activity; LIGHT=Light movement or daily activities; AEROBIC=Mostly
+aerobic activity; RESISTANCE=Mostly resistance training; MIXED=A mix of
+aerobic and resistance activity; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0289 Covered
+SCR-0036 SRC-05 / 91 Q49: How often does your body seem to resist weight loss despite
+consistent effort? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0036 Covered
+GEN-0290 SRC-05 / 92 Q50: How often does hunger feel stronger than your ability to regulate it?
+[type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0290 Covered
+GEN-0291 SRC-05 / 93 Q51: How often are your energy levels lower than you believe they should
+be? [type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0291 Covered
+GEN-0292 SRC-05 / 94 Q52: When stressed, what responses are most typical for you?
+[type=multi_select; required=True; allow_na=True; validation=Zero or
+more approved option IDs; conditional_logic=NONE] Options: EAT=Eat or
+seek snack foods; WITHDRAW=Withdraw or avoid people; WALK=Walk or
+move; BREATHE=Use breathing or relaxation; TALK=Talk with someone;
+WORK_MORE=Work more or stay busy; OTHER=Other; UNSURE=Not sure;
+NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0292 Covered
+GEN-0293 SRC-05 / 95 Q53: What do you believe most often contributes to your hunger or
+cravings? [type=multi_select; required=True; allow_na=True;
+validation=Zero or more approved option IDs; conditional_logic=NONE]
+Options: MEAL_COMPOSITION=Low protein, fibre or meal size;
+STRESS=Stress or emotion; SLEEP=Poor sleep; HABIT=Habit or availability;
+MEDICATION=Medicine-related; UNSURE=Not sure; OTHER=Other; NA=Not
+applicable
+Master Requirements v3.3 GEN-REVIEW-0293 Covered
+GEN-0294 SRC-05 / 96 Q54: What do you believe most often contributes to low energy?
+[type=multi_select; required=True; allow_na=True; validation=Zero or
+more approved option IDs; conditional_logic=NONE] Options: SLEEP=Sleep
+or recovery; STRESS=Stress; INACTIVITY=Low activity; MEALS=Meal
+pattern; MEDICATION=Medicine-related; HEALTH=A known health concern;
+UNSURE=Not sure; OTHER=Other; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0294 Covered
+GEN-0295 SRC-05 / 97 Q55: How many caffeinated drinks do you usually consume per day?
+[type=single_select; required=True; allow_na=True; validation=Approved
+option ID only; conditional_logic=NONE] Options: ZERO=0 drinks; ONE=1
+drink; TWO=2 drinks; THREE=3 drinks; FOUR_PLUS=4 or more drinks;
+NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0295 Covered
+QA-0033 SRC-05 / 98 Q56: Which hormonal or reproductive stage best describes your current
+situation? [type=single_select; required=True; allow_na=True;
+validation=Approved option ID only; conditional_logic=NONE] Options:
+NOT_APPLICABLE=Not applicable to me; REGULAR_CYCLES=Regular
+menstrual cycles; IRREGULAR_CYCLES=Irregular menstrual cycles;
+PERIMENOPAUSE=Perimenopause; POSTMENOPAUSE=Postmenopause;
+PREGNANT_POSTPARTUM=Pregnant or within one year after birth;
+MALE_CONTEXT=Male hormonal context; OTHER_UNSURE=Other or
+unsure; PREFER_NOT=Prefer not to say
+Master §§13-18 + C-07 traceability QA-UAT-0033 Covered
+
+===== PAGE 35 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 34
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+SCR-0037 SRC-05 / 99 Q57: How often have hormonal or reproductive changes affected sleep,
+appetite, energy or weight? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0037 Covered
+GEN-0296 SRC-05 / 100 Q58: Are you currently using hormonal medication, contraception or
+hormone therapy? [type=single_select; required=True; allow_na=True;
+validation=Approved option ID only; conditional_logic=NONE] Options:
+NO=No; YES=Yes; UNSURE=Not sure; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0296 Covered
+SCR-0038 SRC-05 / 101 Q59: How often do appetite or weight patterns change alongside hormonal
+or reproductive symptoms? [type=likert; required=True; allow_na=True;
+validation=0-4 or N/A; conditional_logic=NONE] Options: NVR=Never;
+RLY=Rarely; SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not
+applicable
+C-02 +
+machine_readable/data/scoring_config
+SCR-GOLDEN-0038 Covered
+GEN-0297 SRC-05 / 102 Q60: Have you been told by a clinician that you have a thyroid,
+reproductive or other hormonal concern? [type=single_select;
+required=True; allow_na=True; validation=Approved option ID only;
+conditional_logic=NONE] Options: NO=No; YES=Yes; UNSURE=Not sure;
+NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0297 Covered
+GEN-0298 SRC-05 / 103 Q61: How often do you smoke, vape or use nicotine? [type=single_select;
+required=True; allow_na=True; validation=Approved option ID only;
+conditional_logic=NONE] Options: NEVER=Never; FORMER=Former use;
+OCCASIONAL=Occasional; DAILY=Daily; PREFER_NOT=Prefer not to say;
+NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0298 Covered
+GEN-0299 SRC-05 / 104 Q62: How often do you consume alcohol? [type=single_select;
+required=True; allow_na=True; validation=Approved option ID only;
+conditional_logic=NONE] Options: NEVER=Never; MONTHLY=Monthly or
+less; WEEKLY=1-2 days per week; FREQUENT=3 or more days per week;
+PREFER_NOT=Prefer not to say; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0299 Covered
+TEC-0029 SRC-05 / 105 Q63: Which description best matches your usual eating pattern?
+[type=single_select; required=True; allow_na=True; validation=Approved
+option ID only; conditional_logic=NONE] Options:
+REGULAR_BALANCED=Regular meals with varied foods;
+IRREGULAR=Irregular meals; FREQUENT_SNACKING=Frequent grazing or
+snacking; RESTRICT_BINGE=Alternating restriction and overeating;
+SPECIAL_DIET=A specific dietary pattern; OTHER=Other; NA=Not
+applicable
+Master + C-06 executable technical baseline TEC-INT-0029 Covered
+GEN-0300 SRC-05 / 106 Q64: How often are your meals reasonably consistent in timing from day to
+day? [type=likert; required=True; allow_na=True; validation=0-4 or N/A;
+conditional_logic=NONE] Options: NVR=Never; RLY=Rarely;
+SMT=Sometimes; OFT=Often; ALW=Almost always; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0300 Covered
+WEB-0041 SRC-05 / 107 Q65: How supportive is your home food environment of the choices you
+want to make? [type=single_select; required=True; allow_na=True;
+validation=Approved option ID only; conditional_logic=NONE] Options:
+NONE=Not at all supportive; LOW=A little supportive; MIXED=Mixed or
+inconsistent; GOOD=Supportive; STRONG=Very supportive; NA=Not
+applicable
+C-04 + C-05 public/legal screens WEB-UAT-0041 Covered
+
+===== PAGE 36 =====
+ROOTS-AI™ • Confidential Controlled Implementation Release Page 35
+Req ID Source / itemAtomic requirement Canonical artifact Test Status
+GEN-0301 SRC-05 / 108 Q66: How much practical or emotional support do you have for making
+health-related changes? [type=single_select; required=True;
+allow_na=True; validation=Approved option ID only;
+conditional_logic=NONE] Options: NONE=Not at all supportive; LOW=A
+little supportive; MIXED=Mixed or inconsistent; GOOD=Supportive;
+STRONG=Very supportive; NA=Not applicable
+Master Requirements v3.3 GEN-REVIEW-0301 Covered
+ASM-0060 SRC-05 / 109 Q67: What is your primary goal for completing this assessment?
+[type=single_select; required=True; allow_na=False; validation=Approved
+option ID only; conditional_logic=NONE] Options: WEIGHT=Understand
+weight resistance; ENERGY=Improve energy; SLEEP=Improve sleep and
+recovery; CRAVINGS=Understand hunger or cravings; STRESS=Understand
+stress patterns; PREVENTION=Support long-term prevention and healthy
+ageing; OTHER=Other
+C-01 + C-05 assessment screens ASM-UAT-0060 Covered
+GEN-0302 SRC-05 / 110 Q68: Which area would you most like to understand first?
+[type=single_select; required=True; allow_na=False; validation=Approved
+option ID only; conditional_logic=NONE] Options: MR=Metabolic resistance;
+HS=Hunger and satiety; SR=Sleep recovery; CH=Circadian health;
+SL=Stress load; IB=Inflammation burden; BS=Biological safety;
+UNSURE=Not sure
+Master Requirements v3.3 GEN-REVIEW-0302 Covered
+GEN-0303 SRC-05 / 111 Q69: How ready do you feel to try one small, realistic change during the
+next two weeks? [type=integer_scale; required=True; allow_na=False;
+validation=0-10 inclusive; conditional_logic=NONE]
+Master Requirements v3.3 GEN-REVIEW-0303 Covered
+GEN-0304 SRC-05 / 112 Q70: How confident are you that you can maintain one small change for
+two weeks? [type=integer_scale; required=True; allow_na=False;
+validation=0-10 inclusive; conditional_logic=NONE]
+Master Requirements v3.3 GEN-REVIEW-0304 Covered
+RPT-0025 SRC-05 / 113 Q71: What pace of change feels most realistic for you? [type=single_select;
+required=True; allow_na=False; validation=Approved option ID only;
+conditional_logic=NONE] Options: ONE_STEP=One small step at a time;
+TWO_THREE=Two or three coordinated changes; STRUCTURED=A
+structured 90-day plan; UNDERSTAND_FIRST=I want to understand first
+C-03 + report.schema.json RPT-UAT-0025 Covered
+GEN-0305 SRC-05 / 114 Q72: How confident are you that your answers reflect your usual
+experience during the last four weeks? [type=single_select; required=True;
+allow_na=False; validation=Approved option ID only;
+conditional_logic=NONE] Options: LOW=Not very confident;
+MODERATE=Moderately confident; HIGH=Confident; VERY_HIGH=Very
+confident
+Master Requirements v3.3 GEN-REVIEW-0305 Covered
+RPT-0026 SRC-05 / 115 Q73: Is there anything else you would like the report to acknowledge?
+[type=free_text; required=False; allow_na=True; validation=0-1000
+characters; sanitize; never concatenate directly into model instructions;
+conditional_logic=NONE]
+C-03 + report.schema.json RPT-UAT-0026 Covered

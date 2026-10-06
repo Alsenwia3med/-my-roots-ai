@@ -1,0 +1,1753 @@
+[
+  {
+    "caseId": "GT-001",
+    "why": "no eligible driver",
+    "reportId": "RPT-PARITY-GT-001",
+    "pdf": "D:\\SahilThakur\\Drholly\\gitdrholly\\rootai\\docs\\m3\\evidence\\parity-GT-001.pdf",
+    "versions": {
+      "questionnaire": "1.0.1",
+      "scoring": "1.0.1",
+      "report": "1.0.1",
+      "narrative": "1.0.0-deterministic-fallback",
+      "disclaimer": "1.0.0"
+    },
+    "sections": [
+      {
+        "number": 1,
+        "title": "Cover Page",
+        "source": "template",
+        "expected": [
+          "ROOTS Biological Intelligence Report™",
+          "Participant",
+          "Participant",
+          "Report ID",
+          "RPT-PARITY-GT-001",
+          "Generated",
+          "28 September 2026 at 12:00 UTC",
+          "Report version",
+          "1.0.1",
+          "Boundary",
+          "Educational — Not a Diagnosis"
+        ],
+        "webText": "01 Cover Page ROOTS Biological Intelligence Report™ Participant Participant Report ID RPT-PARITY-GT-001 Generated 28 September 2026 at 12:00 UTC Report version 1.0.1 Boundary Educational — Not a Diagnosis"
+      },
+      {
+        "number": 2,
+        "title": "Executive Summary",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your current pattern reflects a combination of reported biological signals. No dominant burden signal was identified in the available answers. These results are educational and describe your answers; they do not diagnose a condition."
+        ],
+        "webText": "02 Executive Summary Your current pattern reflects a combination of reported biological signals. No dominant burden signal was identified in the available answers. These results are educational and describe your answers; they do not diagnose a condition."
+      },
+      {
+        "number": 3,
+        "title": "ROOTS Biological State™",
+        "source": "deterministic",
+        "expected": [
+          "Your ROOTS Biological State™ is 0/100 — Optimized.",
+          "This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability.",
+          "This value summarizes the seven-domain scores available in your answers (Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™). It is a composite of those domain scores, not a separate measurement."
+        ],
+        "webText": "03 ROOTS Biological State™ Your ROOTS Biological State™ is 0/100 — Optimized. This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability. Why this appeared This value summarizes the seven-domain scores available in your answers (Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™). It is a composite of those domain scores, not a separate measurement."
+      },
+      {
+        "number": 4,
+        "title": "ROOTS Opportunity Score™",
+        "source": "deterministic",
+        "expected": [
+          "Your ROOTS Opportunity Score™ is 100.0/100.",
+          "This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability.",
+          "This value is derived from your ROOTS Biological State™ score. It uses no answers beyond those already summarized there."
+        ],
+        "webText": "04 ROOTS Opportunity Score™ Your ROOTS Opportunity Score™ is 100.0/100. This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability. Why this appeared This value is derived from your ROOTS Biological State™ score. It uses no answers beyond those already summarized there."
+      },
+      {
+        "number": 5,
+        "title": "ROOTS Confidence™",
+        "source": "deterministic",
+        "expected": [
+          "Confidence in this interpretation is High (93/100).",
+          "Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty.",
+          "The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above.",
+          "This value comes from three recorded inputs: how much of the questionnaire you answered (100% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain.",
+          "Overall coverage",
+          "100%",
+          "Answer confidence",
+          "75/100",
+          "Consistency",
+          "100/100",
+          "Areas without enough information",
+          "None"
+        ],
+        "webText": "05 ROOTS Confidence™ Confidence in this interpretation is High (93/100). Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty. Overall coverage 100% Answer confidence 75/100 Consistency 100/100 Areas without enough information None The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above. Why this appeared This value comes from three recorded inputs: how much of the questionnaire you answered (100% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain."
+      },
+      {
+        "number": 6,
+        "title": "Key Drivers",
+        "source": "deterministic",
+        "expected": [
+          "No dominant burden signal was identified in the available answers.",
+          "Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation.",
+          "No domain met the eligibility rule in the available answers, so no driver is ranked. This may reflect missing answers rather than an absence of signals."
+        ],
+        "webText": "06 Key Drivers No dominant burden signal was identified in the available answers. Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation. Why this appeared No domain met the eligibility rule in the available answers, so no driver is ranked. This may reflect missing answers rather than an absence of signals."
+      },
+      {
+        "number": 7,
+        "title": "Seven-Domain Score Breakdown",
+        "source": "deterministic",
+        "expected": [
+          "Higher scores indicate greater reported burden within this assessment.",
+          "Metabolic Resistance™",
+          "Self-reported resistance to expected weight change and activity-related metabolic context. Few burden signals were reported in this area.",
+          "Hunger & Satiety Signals™",
+          "Hunger, craving, fullness and post-meal response patterns. Few burden signals were reported in this area.",
+          "Sleep Recovery Index™",
+          "Sleep duration, continuity and perceived restoration. Few burden signals were reported in this area.",
+          "Circadian Health Score™",
+          "Alignment of light, screen, meal and sleep timing. Few burden signals were reported in this area.",
+          "Stress Load™",
+          "Perceived tension, cognitive activation and stress-linked eating. Few burden signals were reported in this area.",
+          "Inflammation Burden Index™",
+          "Non-specific symptom burden; not a laboratory or clinical inflammation measure. Few burden signals were reported in this area.",
+          "Biological Safety Signals™",
+          "Perceived energy, appetite drive and resistance signals. Few burden signals were reported in this area.",
+          "Metabolic Resistance™",
+          "0/100",
+          "Optimized",
+          "Hunger & Satiety Signals™",
+          "0/100",
+          "Optimized",
+          "Sleep Recovery Index™",
+          "0/100",
+          "Optimized",
+          "Circadian Health Score™",
+          "0/100",
+          "Optimized",
+          "Stress Load™",
+          "0/100",
+          "Optimized",
+          "Inflammation Burden Index™",
+          "0/100",
+          "Optimized",
+          "Biological Safety Signals™",
+          "0/100",
+          "Optimized"
+        ],
+        "webText": "07 Seven-Domain Score Breakdown Higher scores indicate greater reported burden within this assessment. Metabolic Resistance™ 0/100 — Optimized Hunger & Satiety Signals™ 0/100 — Optimized Sleep Recovery Index™ 0/100 — Optimized Circadian Health Score™ 0/100 — Optimized Stress Load™ 0/100 — Optimized Inflammation Burden Index™ 0/100 — Optimized Biological Safety Signals™ 0/100 — Optimized Metabolic Resistance™ Self-reported resistance to expected weight change and activity-related metabolic context. Few burden signals were reported in this area. Hunger & Satiety Signals™ Hunger, craving, fullness and post-meal response patterns. Few burden signals were reported in this area. Sleep Recovery Index™ Sleep duration, continuity and perceived restoration. Few burden signals were reported in this area. Circadian Health Score™ Alignment of light, screen, meal and sleep timing. Few burden signals were reported in this area. Stress Load™ Perceived tension, cognitive activation and stress-linked eating. Few burden signals were reported in this area. Inflammation Burden Index™ Non-specific symptom burden; not a laboratory or clinical inflammation measure. Few burden signals were reported in this area. Biological Safety Signals™ Perceived energy, appetite drive and resistance signals. Few burden signals were reported in this area."
+      },
+      {
+        "number": 8,
+        "title": "Biological Triad™",
+        "source": "rules",
+        "expected": [
+          "Only regular physical activity is available for this view.",
+          "The diagram shows possible relationships between these areas, not causes.",
+          "regular physical activity",
+          "Protective factor"
+        ],
+        "webText": "08 Biological Triad™ Only regular physical activity is available for this view. The diagram shows possible relationships between these areas, not causes. regular physical activity Protective factor"
+      },
+      {
+        "number": 9,
+        "title": "Future Projection",
+        "source": "deterministic_fallback",
+        "expected": [
+          "If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+        ],
+        "webText": "09 Future Projection If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+      },
+      {
+        "number": 10,
+        "title": "90-Day Roadmap",
+        "source": "rules",
+        "expected": [
+          "Month 1 — Stabilize signals.",
+          "Start with the smallest action you can repeat consistently.",
+          "Month 2 — Build flexibility.",
+          "Start with the smallest action you can repeat consistently.",
+          "Month 3 — Reinforce recovery.",
+          "Continue the routine from Months 1-2 that has been easiest to repeat."
+        ],
+        "webText": "10 90-Day Roadmap Month 1 — Stabilize signals. Start with the smallest action you can repeat consistently. Month 2 — Build flexibility. Start with the smallest action you can repeat consistently. Month 3 — Reinforce recovery. Continue the routine from Months 1-2 that has been easiest to repeat."
+      },
+      {
+        "number": 11,
+        "title": "Nutrition Priorities",
+        "source": "rules",
+        "expected": [
+          "Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances.",
+          "Safety",
+          "Adapt for allergies, kidney disease or clinician-directed diets."
+        ],
+        "webText": "11 Nutrition Priorities Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances. Safety Adapt for allergies, kidney disease or clinician-directed diets."
+      },
+      {
+        "number": 12,
+        "title": "Action Priorities",
+        "source": "rules",
+        "expected": [
+          "Start with the smallest action you can repeat consistently."
+        ],
+        "webText": "12 Action Priorities Start with the smallest action you can repeat consistently."
+      },
+      {
+        "number": 13,
+        "title": "What Is Going Well",
+        "source": "deterministic",
+        "expected": [
+          "Your answers also show strengths that may support change.",
+          "Regular physical activity",
+          "Consistent meal timing",
+          "Readiness to try one small change"
+        ],
+        "webText": "13 What Is Going Well Your answers also show strengths that may support change. Regular physical activity Consistent meal timing Readiness to try one small change"
+      },
+      {
+        "number": 14,
+        "title": "Specific Concerns",
+        "source": "rules",
+        "expected": [
+          "Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function."
+        ],
+        "webText": "14 Specific Concerns Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function."
+      },
+      {
+        "number": 15,
+        "title": "Suggested Laboratory Discussion",
+        "source": "rules",
+        "expected": [
+          "You may wish to discuss whether any tests are appropriate with a qualified healthcare professional."
+        ],
+        "webText": "15 Suggested Laboratory Discussion You may wish to discuss whether any tests are appropriate with a qualified healthcare professional."
+      },
+      {
+        "number": 16,
+        "title": "Participant Answers",
+        "source": "snapshot",
+        "expected": [
+          "Your answers are shown exactly as submitted.",
+          "Questionnaire version 1.0.1.",
+          "Body Foundations",
+          "What is your age?",
+          "Not answered",
+          "Context only",
+          "Weight & Metabolic History",
+          "How did the weight change that concerns you begin?",
+          "Not answered",
+          "Scoring input",
+          "Sleep Recovery Index",
+          "How many hours of sleep do you typically get in a 24-hour period?",
+          "Not answered",
+          "Scoring input",
+          "Hunger & Satiety Signals",
+          "How often do you feel physically hungry within two hours after a full meal?",
+          "Not answered",
+          "Scoring input",
+          "Stress Load & Inflammation Signals",
+          "How often do you feel persistent physical tension or stress?",
+          "Not answered",
+          "Scoring input",
+          "Circadian Health",
+          "How often do you spend the first hour after waking indoors without natural daylight exposure?",
+          "Not answered",
+          "Scoring input",
+          "Physical Activity Mapping",
+          "On how many days per week do you complete intentional physical activity?",
+          "Not answered",
+          "Scoring input",
+          "Biological Safety Signals",
+          "How often does your body seem to resist weight loss despite consistent effort?",
+          "Not answered",
+          "Scoring input",
+          "Root Cause Discovery",
+          "When stressed, what responses are most typical for you?",
+          "Not answered",
+          "Context only",
+          "Hormonal & Reproductive Context",
+          "Which hormonal or reproductive stage best describes your current situation?",
+          "Not answered",
+          "Context only",
+          "Lifestyle & Environment",
+          "How often do you smoke, vape or use nicotine?",
+          "Not answered",
+          "Context only",
+          "Goals & Readiness",
+          "What is your primary goal for completing this assessment?",
+          "Not answered",
+          "Context only",
+          "Confidence & Additional Context",
+          "How confident are you that your answers reflect your usual experience during the last four weeks?",
+          "Not answered",
+          "Context only",
+          "Is there anything else you would like the report to acknowledge?",
+          "i dont sleep well and its been worse since march, teh tiredness",
+          "Context only",
+          "Participant response"
+        ],
+        "webText": "16 Participant Answers Your answers are shown exactly as submitted. Questionnaire version 1.0.1. Body Foundations Q1. What is your age? Context only Not answered Q2. What sex were you assigned at birth? Context only Not answered Q3. What is your height? Context only Not answered Q4. What is your current weight? Context only Not answered Q5. What is your target weight, if you have one? Context only Not answered Q6. What is your waist circumference? Context only Not answered Q7. How long have you been near your current weight? Context only Not answered Q8. How would you describe your weight pattern over the last five years? Context only Not answered Weight & Metabolic History Q9. How did the weight change that concerns you begin? Scoring input Not answered Q10. How often have well-planned diet or activity efforts produced less change than you expected? Scoring input Not answered Q11. After an intentional weight loss, how often has some or all of the weight returned? Scoring input Not answered Q12. How many meaningful cycles of weight loss and regain have you experienced? Scoring input Not answered Q13. Have you been told by a clinician that you have any of the following? Context only Not answered Q14. Are you currently using medicines that may relate to metabolism, appetite, weight or hormones? Context only Not answered Q15. Does a first-degree relative have a history of type 2 diabetes or substantial weight-related metabolic difficulty? Context only Not answered Sleep Recovery Index Q16. How many hours of sleep do you typically get in a 24-hour period? Scoring input Not answered Q17. How often do you feel tired even after what seemed like enough time in bed? Scoring input Not answered Q18. How often do you wake during the night and struggle to return to sleep? Scoring input Not answered Q19. How often is your bedtime after midnight? Scoring input Not answered Q20. How often do you remain awake until 2:00 AM or later because you cannot settle to sleep? Scoring input Not answered Q21. How often do you snore loudly, wake gasping, or receive feedback that your breathing pauses during sleep? Scoring input Not answered Q22. How often do you experience a marked afternoon energy crash? Scoring input Not answered Hunger & Satiety Signals Q23. How often do you feel physically hungry within two hours after a full meal? Scoring input Not answered Q24. How often do you experience food cravings when you are not physically hungry? Scoring input Not answered Q25. How often do you eat enough but still fail to feel comfortably full? Scoring input Not answered Q26. How often do you feel comfortably full after a normal meal? Scoring input Not answered Q27. How often are you hungry again three to four hours after a protein-rich meal? Scoring input Not answered Q28. How often does a protein-rich meal keep you satisfied for four hours or longer? Scoring input Not answered Q29. How often do you feel sleepy, foggy or low in energy after a main meal? Scoring input Not answered Q30. When you start eating sweets or snack foods, how often is it difficult to stop at the amount you intended? Scoring input Not answered Stress Load & Inflammation Signals Q31. How often do you feel persistent physical tension or stress? Scoring input Not answered Q32. How often does stress increase your desire to eat? Scoring input Not answered Q33. How often does your mind race when you are trying to sleep? Scoring input Not answered Q34. How often are cravings noticeably stronger in the evening? Scoring input Not answered Q35. How often do you experience bloating, gas or digestive discomfort? Scoring input Not answered Q36. How often do you experience brain fog after meals? Scoring input Not answered Q37. How often do you experience unexplained joint pain or stiffness? Scoring input Not answered Q38. How often does fat around your waist seem resistant to your usual efforts? Scoring input Not answered Q39. How often do you experience unusual thirst or a dry mouth? Scoring input Not answered Q40. How often have reducing calories and increasing activity produced little sustained change? Scoring input Not answered Circadian Health Q41. How often do you spend the first hour after waking indoors without natural daylight exposure? Scoring input Not answered Q42. How often do you use a phone, tablet or computer during the final hour before sleep? Scoring input Not answered Q43. How often do you eat within three hours of bedtime? Scoring input Not answered Q44. How often does your sleep schedule vary by more than two hours across the week? Scoring input Not answered Q45. How often do you feel more alert late at night than during the morning? Scoring input Not answered Physical Activity Mapping Q46. On how many days per week do you complete intentional physical activity? Scoring input Not answered Q47. On active days, what is the usual duration of your intentional activity? Scoring input Not answered Q48. Which option best describes your usual physical activity pattern? Scoring input Not answered Biological Safety Signals Q49. How often does your body seem to resist weight loss despite consistent effort? Scoring input Not answered Q50. How often does hunger feel stronger than your ability to regulate it? Scoring input Not answered Q51. How often are your energy levels lower than you believe they should be? Scoring input Not answered Root Cause Discovery Q52. When stressed, what responses are most typical for you? Context only Not answered Q53. What do you believe most often contributes to your hunger or cravings? Context only Not answered Q54. What do you believe most often contributes to low energy? Context only Not answered Q55. How many caffeinated drinks do you usually consume per day? Context only Not answered Hormonal & Reproductive Context Q56. Which hormonal or reproductive stage best describes your current situation? Context only Not answered Q57. How often have hormonal or reproductive changes affected sleep, appetite, energy or weight? Context only Not answered Q58. Are you currently using hormonal medication, contraception or hormone therapy? Context only Not answered Q59. How often do appetite or weight patterns change alongside hormonal or reproductive symptoms? Context only Not answered Q60. Have you been told by a clinician that you have a thyroid, reproductive or other hormonal concern? Context only Not answered Lifestyle & Environment Q61. How often do you smoke, vape or use nicotine? Context only Not answered Q62. How often do you consume alcohol? Context only Not answered Q63. Which description best matches your usual eating pattern? Context only Not answered Q64. How often are your meals reasonably consistent in timing from day to day? Context only Not answered Q65. How supportive is your home food environment of the choices you want to make? Context only Not answered Q66. How much practical or emotional support do you have for making health-related changes? Context only Not answered Goals & Readiness Q67. What is your primary goal for completing this assessment? Context only Not answered Q68. Which area would you most like to understand first? Context only Not answered Q69. How ready do you feel to try one small, realistic change during the next two weeks? Context only Not answered Q70. How confident are you that you can maintain one small change for two weeks? Context only Not answered Q71. What pace of change feels most realistic for you? Context only Not answered Confidence & Additional Context Q72. How confident are you that your answers reflect your usual experience during the last four weeks? Context only Not answered Q73. Is there anything else you would like the report to acknowledge? Context only Participant response i dont sleep well and its been worse since march, teh tiredness"
+      },
+      {
+        "number": 17,
+        "title": "Biological Card",
+        "source": "deterministic",
+        "expected": [
+          "Biological State 0; Opportunity 100.0; Recovery Potential 96.0; Confidence High.",
+          "Drivers",
+          "No dominant burden signal was identified in the available answers.",
+          "Versions",
+          "Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+        ],
+        "webText": "17 Biological Card Biological State 0; Opportunity 100.0; Recovery Potential 96.0; Confidence High. Drivers No dominant burden signal was identified in the available answers. Versions Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+      },
+      {
+        "number": 18,
+        "title": "Final Word",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+        ],
+        "webText": "18 Final Word Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+      },
+      {
+        "number": 19,
+        "title": "Medical and AI Disclaimer",
+        "source": "fixed",
+        "expected": [
+          "What this report is",
+          "ROOTS-AI™ provides educational wellness information based on self-reported answers.",
+          "What this report is not",
+          "It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes.",
+          "How AI is used",
+          "AI may assist with wording, but all scores and classifications are calculated by deterministic rules.",
+          "When professional or urgent care is appropriate",
+          "If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+        ],
+        "webText": "19 Medical and AI Disclaimer What this report is ROOTS-AI™ provides educational wellness information based on self-reported answers. What this report is not It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes. How AI is used AI may assist with wording, but all scores and classifications are calculated by deterministic rules. When professional or urgent care is appropriate If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+      }
+    ]
+  },
+  {
+    "caseId": "GT-002",
+    "why": "co-primary pair",
+    "reportId": "RPT-PARITY-GT-002",
+    "pdf": "D:\\SahilThakur\\Drholly\\gitdrholly\\rootai\\docs\\m3\\evidence\\parity-GT-002.pdf",
+    "versions": {
+      "questionnaire": "1.0.1",
+      "scoring": "1.0.1",
+      "report": "1.0.1",
+      "narrative": "1.0.0-deterministic-fallback",
+      "disclaimer": "1.0.0"
+    },
+    "sections": [
+      {
+        "number": 1,
+        "title": "Cover Page",
+        "source": "template",
+        "expected": [
+          "ROOTS Biological Intelligence Report™",
+          "Participant",
+          "Participant",
+          "Report ID",
+          "RPT-PARITY-GT-002",
+          "Generated",
+          "28 September 2026 at 12:00 UTC",
+          "Report version",
+          "1.0.1",
+          "Boundary",
+          "Educational — Not a Diagnosis"
+        ],
+        "webText": "01 Cover Page ROOTS Biological Intelligence Report™ Participant Participant Report ID RPT-PARITY-GT-002 Generated 28 September 2026 at 12:00 UTC Report version 1.0.1 Boundary Educational — Not a Diagnosis"
+      },
+      {
+        "number": 2,
+        "title": "Executive Summary",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your current pattern reflects a combination of reported biological signals. The highest-ranked drivers in this assessment are Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary) and Sleep Recovery Index™. These results are educational and describe your answers; they do not diagnose a condition."
+        ],
+        "webText": "02 Executive Summary Your current pattern reflects a combination of reported biological signals. The highest-ranked drivers in this assessment are Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary) and Sleep Recovery Index™. These results are educational and describe your answers; they do not diagnose a condition."
+      },
+      {
+        "number": 3,
+        "title": "ROOTS Biological State™",
+        "source": "deterministic",
+        "expected": [
+          "Your ROOTS Biological State™ is 100/100 — Dysregulated.",
+          "This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability.",
+          "This value summarizes the seven-domain scores available in your answers (Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™). It is a composite of those domain scores, not a separate measurement."
+        ],
+        "webText": "03 ROOTS Biological State™ Your ROOTS Biological State™ is 100/100 — Dysregulated. This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability. Why this appeared This value summarizes the seven-domain scores available in your answers (Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™). It is a composite of those domain scores, not a separate measurement."
+      },
+      {
+        "number": 4,
+        "title": "ROOTS Opportunity Score™",
+        "source": "deterministic",
+        "expected": [
+          "Your ROOTS Opportunity Score™ is 50.0/100.",
+          "This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability.",
+          "This value is derived from your ROOTS Biological State™ score. It uses no answers beyond those already summarized there."
+        ],
+        "webText": "04 ROOTS Opportunity Score™ Your ROOTS Opportunity Score™ is 50.0/100. This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability. Why this appeared This value is derived from your ROOTS Biological State™ score. It uses no answers beyond those already summarized there."
+      },
+      {
+        "number": 5,
+        "title": "ROOTS Confidence™",
+        "source": "deterministic",
+        "expected": [
+          "Confidence in this interpretation is High (93/100).",
+          "Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty.",
+          "The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above.",
+          "This value comes from three recorded inputs: how much of the questionnaire you answered (100% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain.",
+          "Overall coverage",
+          "100%",
+          "Answer confidence",
+          "75/100",
+          "Consistency",
+          "100/100",
+          "Areas without enough information",
+          "None"
+        ],
+        "webText": "05 ROOTS Confidence™ Confidence in this interpretation is High (93/100). Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty. Overall coverage 100% Answer confidence 75/100 Consistency 100/100 Areas without enough information None The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above. Why this appeared This value comes from three recorded inputs: how much of the questionnaire you answered (100% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain."
+      },
+      {
+        "number": 6,
+        "title": "Key Drivers",
+        "source": "deterministic",
+        "expected": [
+          "Primary: Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary). Secondary: Sleep Recovery Index™.",
+          "Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation.",
+          "The domains named above were the highest-ranked of the domains that met the eligibility rule in your answers. The domains that met it, in rank order, were: Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™. Ranking reflects the level of burden reported in those domains; it does not identify a cause."
+        ],
+        "webText": "06 Key Drivers Primary: Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary). Secondary: Sleep Recovery Index™. Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation. Why this appeared The domains named above were the highest-ranked of the domains that met the eligibility rule in your answers. The domains that met it, in rank order, were: Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™. Ranking reflects the level of burden reported in those domains; it does not identify a cause."
+      },
+      {
+        "number": 7,
+        "title": "Seven-Domain Score Breakdown",
+        "source": "deterministic",
+        "expected": [
+          "Higher scores indicate greater reported burden within this assessment.",
+          "Metabolic Resistance™",
+          "Self-reported resistance to expected weight change and activity-related metabolic context. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Hunger & Satiety Signals™",
+          "Hunger, craving, fullness and post-meal response patterns. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Sleep Recovery Index™",
+          "Sleep duration, continuity and perceived restoration. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Circadian Health Score™",
+          "Alignment of light, screen, meal and sleep timing. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Stress Load™",
+          "Perceived tension, cognitive activation and stress-linked eating. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Inflammation Burden Index™",
+          "Non-specific symptom burden; not a laboratory or clinical inflammation measure. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Biological Safety Signals™",
+          "Perceived energy, appetite drive and resistance signals. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Metabolic Resistance™",
+          "100/100",
+          "Dysregulated",
+          "Hunger & Satiety Signals™",
+          "100/100",
+          "Dysregulated",
+          "Sleep Recovery Index™",
+          "100/100",
+          "Dysregulated",
+          "Circadian Health Score™",
+          "100/100",
+          "Dysregulated",
+          "Stress Load™",
+          "100/100",
+          "Dysregulated",
+          "Inflammation Burden Index™",
+          "100/100",
+          "Dysregulated",
+          "Biological Safety Signals™",
+          "100/100",
+          "Dysregulated"
+        ],
+        "webText": "07 Seven-Domain Score Breakdown Higher scores indicate greater reported burden within this assessment. Metabolic Resistance™ 100/100 — Dysregulated Hunger & Satiety Signals™ 100/100 — Dysregulated Sleep Recovery Index™ 100/100 — Dysregulated Circadian Health Score™ 100/100 — Dysregulated Stress Load™ 100/100 — Dysregulated Inflammation Burden Index™ 100/100 — Dysregulated Biological Safety Signals™ 100/100 — Dysregulated Metabolic Resistance™ Self-reported resistance to expected weight change and activity-related metabolic context. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Hunger & Satiety Signals™ Hunger, craving, fullness and post-meal response patterns. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Sleep Recovery Index™ Sleep duration, continuity and perceived restoration. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Circadian Health Score™ Alignment of light, screen, meal and sleep timing. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Stress Load™ Perceived tension, cognitive activation and stress-linked eating. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Inflammation Burden Index™ Non-specific symptom burden; not a laboratory or clinical inflammation measure. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Biological Safety Signals™ Perceived energy, appetite drive and resistance signals. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+      },
+      {
+        "number": 8,
+        "title": "Biological Triad™",
+        "source": "rules",
+        "expected": [
+          "Your current triad connects Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary), Sleep Recovery Index™ and regular physical activity.",
+          "The diagram shows possible relationships between these areas, not causes.",
+          "Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary)",
+          "Driver",
+          "Sleep Recovery Index™",
+          "Driver",
+          "regular physical activity",
+          "Protective factor"
+        ],
+        "webText": "08 Biological Triad™ Your current triad connects Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary), Sleep Recovery Index™ and regular physical activity. The diagram shows possible relationships between these areas, not causes. Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary) Driver Sleep Recovery Index™ Driver regular physical activity Protective factor"
+      },
+      {
+        "number": 9,
+        "title": "Future Projection",
+        "source": "deterministic_fallback",
+        "expected": [
+          "If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+        ],
+        "webText": "09 Future Projection If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+      },
+      {
+        "number": 10,
+        "title": "90-Day Roadmap",
+        "source": "rules",
+        "expected": [
+          "Month 1 — Stabilize signals.",
+          "Schedule three 10-minute walks after meals this week.",
+          "If exercise is unsafe or painful, obtain professional guidance.",
+          "Month 2 — Build flexibility.",
+          "Include a protein source and fibre-rich food in one regular meal daily.",
+          "Adapt for allergies, kidney disease or clinician-directed diets.",
+          "Month 3 — Reinforce recovery.",
+          "Continue the routine from Months 1-2 that has been easiest to repeat."
+        ],
+        "webText": "10 90-Day Roadmap Month 1 — Stabilize signals. Schedule three 10-minute walks after meals this week. If exercise is unsafe or painful, obtain professional guidance. Month 2 — Build flexibility. Include a protein source and fibre-rich food in one regular meal daily. Adapt for allergies, kidney disease or clinician-directed diets. Month 3 — Reinforce recovery. Continue the routine from Months 1-2 that has been easiest to repeat."
+      },
+      {
+        "number": 11,
+        "title": "Nutrition Priorities",
+        "source": "rules",
+        "expected": [
+          "Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances.",
+          "Safety",
+          "Adapt for allergies, kidney disease or clinician-directed diets."
+        ],
+        "webText": "11 Nutrition Priorities Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances. Safety Adapt for allergies, kidney disease or clinician-directed diets."
+      },
+      {
+        "number": 12,
+        "title": "Action Priorities",
+        "source": "rules",
+        "expected": [
+          "Start with the smallest action you can repeat consistently.",
+          "1. Schedule three 10-minute walks after meals this week.",
+          "Supports routine movement without promising weight loss.",
+          "If exercise is unsafe or painful, obtain professional guidance.",
+          "2. Include a protein source and fibre-rich food in one regular meal daily.",
+          "May support meal satisfaction.",
+          "Adapt for allergies, kidney disease or clinician-directed diets.",
+          "3. Keep wake time within a one-hour window for seven days.",
+          "Supports a consistent recovery schedule.",
+          "Persistent snoring/gasping warrants professional assessment.",
+          "4. Seek 10-20 minutes of outdoor morning light when safe.",
+          "Supports time-of-day cues.",
+          "Avoid direct sun exposure beyond safe local guidance.",
+          "5. Use a two-minute slow-breathing or pause routine once daily.",
+          "Creates a repeatable recovery cue.",
+          "Not a substitute for mental-health care."
+        ],
+        "webText": "12 Action Priorities Start with the smallest action you can repeat consistently. 1. Schedule three 10-minute walks after meals this week. Supports routine movement without promising weight loss. If exercise is unsafe or painful, obtain professional guidance. 2. Include a protein source and fibre-rich food in one regular meal daily. May support meal satisfaction. Adapt for allergies, kidney disease or clinician-directed diets. 3. Keep wake time within a one-hour window for seven days. Supports a consistent recovery schedule. Persistent snoring/gasping warrants professional assessment. 4. Seek 10-20 minutes of outdoor morning light when safe. Supports time-of-day cues. Avoid direct sun exposure beyond safe local guidance. 5. Use a two-minute slow-breathing or pause routine once daily. Creates a repeatable recovery cue. Not a substitute for mental-health care."
+      },
+      {
+        "number": 13,
+        "title": "What Is Going Well",
+        "source": "deterministic",
+        "expected": [
+          "Your answers also show strengths that may support change.",
+          "Regular physical activity",
+          "Consistent meal timing",
+          "Readiness to try one small change"
+        ],
+        "webText": "13 What Is Going Well Your answers also show strengths that may support change. Regular physical activity Consistent meal timing Readiness to try one small change"
+      },
+      {
+        "number": 14,
+        "title": "Specific Concerns",
+        "source": "rules",
+        "expected": [
+          "Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function.",
+          "Metabolic Resistance™",
+          "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Hunger & Satiety Signals™",
+          "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Sleep Recovery Index™",
+          "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Circadian Health Score™",
+          "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Stress Load™",
+          "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Inflammation Burden Index™",
+          "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Biological Safety Signals™",
+          "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+        ],
+        "webText": "14 Specific Concerns Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function. Metabolic Resistance™ A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Hunger & Satiety Signals™ A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Sleep Recovery Index™ A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Circadian Health Score™ A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Stress Load™ A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Inflammation Burden Index™ A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Biological Safety Signals™ A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+      },
+      {
+        "number": 15,
+        "title": "Suggested Laboratory Discussion",
+        "source": "rules",
+        "expected": [
+          "You may wish to discuss whether any tests are appropriate with a qualified healthcare professional.",
+          "Whether glucose regulation testing, such as fasting glucose or HbA1c, is appropriate",
+          "Only a clinician can decide whether testing is appropriate and interpret the result.",
+          "Whether thyroid evaluation is appropriate",
+          "Questionnaire answers cannot determine thyroid function.",
+          "Whether targeted clinical evaluation is appropriate before broad testing",
+          "Whether sleep assessment is appropriate"
+        ],
+        "webText": "15 Suggested Laboratory Discussion You may wish to discuss whether any tests are appropriate with a qualified healthcare professional. Whether glucose regulation testing, such as fasting glucose or HbA1c, is appropriate Only a clinician can decide whether testing is appropriate and interpret the result. Whether thyroid evaluation is appropriate Questionnaire answers cannot determine thyroid function. Whether targeted clinical evaluation is appropriate before broad testing Whether sleep assessment is appropriate"
+      },
+      {
+        "number": 16,
+        "title": "Participant Answers",
+        "source": "snapshot",
+        "expected": [
+          "Your answers are shown exactly as submitted.",
+          "Questionnaire version 1.0.1.",
+          "Body Foundations",
+          "What is your age?",
+          "Not answered",
+          "Context only",
+          "Weight & Metabolic History",
+          "How did the weight change that concerns you begin?",
+          "Not answered",
+          "Scoring input",
+          "Sleep Recovery Index",
+          "How many hours of sleep do you typically get in a 24-hour period?",
+          "Not answered",
+          "Scoring input",
+          "Hunger & Satiety Signals",
+          "How often do you feel physically hungry within two hours after a full meal?",
+          "Not answered",
+          "Scoring input",
+          "Stress Load & Inflammation Signals",
+          "How often do you feel persistent physical tension or stress?",
+          "Not answered",
+          "Scoring input",
+          "Circadian Health",
+          "How often do you spend the first hour after waking indoors without natural daylight exposure?",
+          "Not answered",
+          "Scoring input",
+          "Physical Activity Mapping",
+          "On how many days per week do you complete intentional physical activity?",
+          "Not answered",
+          "Scoring input",
+          "Biological Safety Signals",
+          "How often does your body seem to resist weight loss despite consistent effort?",
+          "Not answered",
+          "Scoring input",
+          "Root Cause Discovery",
+          "When stressed, what responses are most typical for you?",
+          "Not answered",
+          "Context only",
+          "Hormonal & Reproductive Context",
+          "Which hormonal or reproductive stage best describes your current situation?",
+          "Not answered",
+          "Context only",
+          "Lifestyle & Environment",
+          "How often do you smoke, vape or use nicotine?",
+          "Not answered",
+          "Context only",
+          "Goals & Readiness",
+          "What is your primary goal for completing this assessment?",
+          "Not answered",
+          "Context only",
+          "Confidence & Additional Context",
+          "How confident are you that your answers reflect your usual experience during the last four weeks?",
+          "Not answered",
+          "Context only",
+          "Is there anything else you would like the report to acknowledge?",
+          "i dont sleep well and its been worse since march, teh tiredness",
+          "Context only",
+          "Participant response"
+        ],
+        "webText": "16 Participant Answers Your answers are shown exactly as submitted. Questionnaire version 1.0.1. Body Foundations Q1. What is your age? Context only Not answered Q2. What sex were you assigned at birth? Context only Not answered Q3. What is your height? Context only Not answered Q4. What is your current weight? Context only Not answered Q5. What is your target weight, if you have one? Context only Not answered Q6. What is your waist circumference? Context only Not answered Q7. How long have you been near your current weight? Context only Not answered Q8. How would you describe your weight pattern over the last five years? Context only Not answered Weight & Metabolic History Q9. How did the weight change that concerns you begin? Scoring input Not answered Q10. How often have well-planned diet or activity efforts produced less change than you expected? Scoring input Not answered Q11. After an intentional weight loss, how often has some or all of the weight returned? Scoring input Not answered Q12. How many meaningful cycles of weight loss and regain have you experienced? Scoring input Not answered Q13. Have you been told by a clinician that you have any of the following? Context only Not answered Q14. Are you currently using medicines that may relate to metabolism, appetite, weight or hormones? Context only Not answered Q15. Does a first-degree relative have a history of type 2 diabetes or substantial weight-related metabolic difficulty? Context only Not answered Sleep Recovery Index Q16. How many hours of sleep do you typically get in a 24-hour period? Scoring input Not answered Q17. How often do you feel tired even after what seemed like enough time in bed? Scoring input Not answered Q18. How often do you wake during the night and struggle to return to sleep? Scoring input Not answered Q19. How often is your bedtime after midnight? Scoring input Not answered Q20. How often do you remain awake until 2:00 AM or later because you cannot settle to sleep? Scoring input Not answered Q21. How often do you snore loudly, wake gasping, or receive feedback that your breathing pauses during sleep? Scoring input Not answered Q22. How often do you experience a marked afternoon energy crash? Scoring input Not answered Hunger & Satiety Signals Q23. How often do you feel physically hungry within two hours after a full meal? Scoring input Not answered Q24. How often do you experience food cravings when you are not physically hungry? Scoring input Not answered Q25. How often do you eat enough but still fail to feel comfortably full? Scoring input Not answered Q26. How often do you feel comfortably full after a normal meal? Scoring input Not answered Q27. How often are you hungry again three to four hours after a protein-rich meal? Scoring input Not answered Q28. How often does a protein-rich meal keep you satisfied for four hours or longer? Scoring input Not answered Q29. How often do you feel sleepy, foggy or low in energy after a main meal? Scoring input Not answered Q30. When you start eating sweets or snack foods, how often is it difficult to stop at the amount you intended? Scoring input Not answered Stress Load & Inflammation Signals Q31. How often do you feel persistent physical tension or stress? Scoring input Not answered Q32. How often does stress increase your desire to eat? Scoring input Not answered Q33. How often does your mind race when you are trying to sleep? Scoring input Not answered Q34. How often are cravings noticeably stronger in the evening? Scoring input Not answered Q35. How often do you experience bloating, gas or digestive discomfort? Scoring input Not answered Q36. How often do you experience brain fog after meals? Scoring input Not answered Q37. How often do you experience unexplained joint pain or stiffness? Scoring input Not answered Q38. How often does fat around your waist seem resistant to your usual efforts? Scoring input Not answered Q39. How often do you experience unusual thirst or a dry mouth? Scoring input Not answered Q40. How often have reducing calories and increasing activity produced little sustained change? Scoring input Not answered Circadian Health Q41. How often do you spend the first hour after waking indoors without natural daylight exposure? Scoring input Not answered Q42. How often do you use a phone, tablet or computer during the final hour before sleep? Scoring input Not answered Q43. How often do you eat within three hours of bedtime? Scoring input Not answered Q44. How often does your sleep schedule vary by more than two hours across the week? Scoring input Not answered Q45. How often do you feel more alert late at night than during the morning? Scoring input Not answered Physical Activity Mapping Q46. On how many days per week do you complete intentional physical activity? Scoring input Not answered Q47. On active days, what is the usual duration of your intentional activity? Scoring input Not answered Q48. Which option best describes your usual physical activity pattern? Scoring input Not answered Biological Safety Signals Q49. How often does your body seem to resist weight loss despite consistent effort? Scoring input Not answered Q50. How often does hunger feel stronger than your ability to regulate it? Scoring input Not answered Q51. How often are your energy levels lower than you believe they should be? Scoring input Not answered Root Cause Discovery Q52. When stressed, what responses are most typical for you? Context only Not answered Q53. What do you believe most often contributes to your hunger or cravings? Context only Not answered Q54. What do you believe most often contributes to low energy? Context only Not answered Q55. How many caffeinated drinks do you usually consume per day? Context only Not answered Hormonal & Reproductive Context Q56. Which hormonal or reproductive stage best describes your current situation? Context only Not answered Q57. How often have hormonal or reproductive changes affected sleep, appetite, energy or weight? Context only Not answered Q58. Are you currently using hormonal medication, contraception or hormone therapy? Context only Not answered Q59. How often do appetite or weight patterns change alongside hormonal or reproductive symptoms? Context only Not answered Q60. Have you been told by a clinician that you have a thyroid, reproductive or other hormonal concern? Context only Not answered Lifestyle & Environment Q61. How often do you smoke, vape or use nicotine? Context only Not answered Q62. How often do you consume alcohol? Context only Not answered Q63. Which description best matches your usual eating pattern? Context only Not answered Q64. How often are your meals reasonably consistent in timing from day to day? Context only Not answered Q65. How supportive is your home food environment of the choices you want to make? Context only Not answered Q66. How much practical or emotional support do you have for making health-related changes? Context only Not answered Goals & Readiness Q67. What is your primary goal for completing this assessment? Context only Not answered Q68. Which area would you most like to understand first? Context only Not answered Q69. How ready do you feel to try one small, realistic change during the next two weeks? Context only Not answered Q70. How confident are you that you can maintain one small change for two weeks? Context only Not answered Q71. What pace of change feels most realistic for you? Context only Not answered Confidence & Additional Context Q72. How confident are you that your answers reflect your usual experience during the last four weeks? Context only Not answered Q73. Is there anything else you would like the report to acknowledge? Context only Participant response i dont sleep well and its been worse since march, teh tiredness"
+      },
+      {
+        "number": 17,
+        "title": "Biological Card",
+        "source": "deterministic",
+        "expected": [
+          "Biological State 100; Opportunity 50.0; Recovery Potential 66.0; Confidence High.",
+          "Drivers",
+          "Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary); Sleep Recovery Index™",
+          "Versions",
+          "Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+        ],
+        "webText": "17 Biological Card Biological State 100; Opportunity 50.0; Recovery Potential 66.0; Confidence High. Drivers Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary); Sleep Recovery Index™ Versions Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+      },
+      {
+        "number": 18,
+        "title": "Final Word",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+        ],
+        "webText": "18 Final Word Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+      },
+      {
+        "number": 19,
+        "title": "Medical and AI Disclaimer",
+        "source": "fixed",
+        "expected": [
+          "What this report is",
+          "ROOTS-AI™ provides educational wellness information based on self-reported answers.",
+          "What this report is not",
+          "It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes.",
+          "How AI is used",
+          "AI may assist with wording, but all scores and classifications are calculated by deterministic rules.",
+          "When professional or urgent care is appropriate",
+          "If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+        ],
+        "webText": "19 Medical and AI Disclaimer What this report is ROOTS-AI™ provides educational wellness information based on self-reported answers. What this report is not It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes. How AI is used AI may assist with wording, but all scores and classifications are calculated by deterministic rules. When professional or urgent care is appropriate If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+      }
+    ]
+  },
+  {
+    "caseId": "GT-013",
+    "why": "three driver entries",
+    "reportId": "RPT-PARITY-GT-013",
+    "pdf": "D:\\SahilThakur\\Drholly\\gitdrholly\\rootai\\docs\\m3\\evidence\\parity-GT-013.pdf",
+    "versions": {
+      "questionnaire": "1.0.1",
+      "scoring": "1.0.1",
+      "report": "1.0.1",
+      "narrative": "1.0.0-deterministic-fallback",
+      "disclaimer": "1.0.0"
+    },
+    "sections": [
+      {
+        "number": 1,
+        "title": "Cover Page",
+        "source": "template",
+        "expected": [
+          "ROOTS Biological Intelligence Report™",
+          "Participant",
+          "Participant",
+          "Report ID",
+          "RPT-PARITY-GT-013",
+          "Generated",
+          "28 September 2026 at 12:00 UTC",
+          "Report version",
+          "1.0.1",
+          "Boundary",
+          "Educational — Not a Diagnosis"
+        ],
+        "webText": "01 Cover Page ROOTS Biological Intelligence Report™ Participant Participant Report ID RPT-PARITY-GT-013 Generated 28 September 2026 at 12:00 UTC Report version 1.0.1 Boundary Educational — Not a Diagnosis"
+      },
+      {
+        "number": 2,
+        "title": "Executive Summary",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your current pattern reflects a combination of reported biological signals. The highest-ranked drivers in this assessment are Stress Load™, Metabolic Resistance™ and Hunger & Satiety Signals™. These results are educational and describe your answers; they do not diagnose a condition."
+        ],
+        "webText": "02 Executive Summary Your current pattern reflects a combination of reported biological signals. The highest-ranked drivers in this assessment are Stress Load™, Metabolic Resistance™ and Hunger & Satiety Signals™. These results are educational and describe your answers; they do not diagnose a condition."
+      },
+      {
+        "number": 3,
+        "title": "ROOTS Biological State™",
+        "source": "deterministic",
+        "expected": [
+          "Your ROOTS Biological State™ is 54/100 — Strained.",
+          "This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability.",
+          "This value summarizes the seven-domain scores available in your answers (Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™). It is a composite of those domain scores, not a separate measurement."
+        ],
+        "webText": "03 ROOTS Biological State™ Your ROOTS Biological State™ is 54/100 — Strained. This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability. Why this appeared This value summarizes the seven-domain scores available in your answers (Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™). It is a composite of those domain scores, not a separate measurement."
+      },
+      {
+        "number": 4,
+        "title": "ROOTS Opportunity Score™",
+        "source": "deterministic",
+        "expected": [
+          "Your ROOTS Opportunity Score™ is 73.0/100.",
+          "This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability.",
+          "This value is derived from your ROOTS Biological State™ score. It uses no answers beyond those already summarized there."
+        ],
+        "webText": "04 ROOTS Opportunity Score™ Your ROOTS Opportunity Score™ is 73.0/100. This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability. Why this appeared This value is derived from your ROOTS Biological State™ score. It uses no answers beyond those already summarized there."
+      },
+      {
+        "number": 5,
+        "title": "ROOTS Confidence™",
+        "source": "deterministic",
+        "expected": [
+          "Confidence in this interpretation is High (93/100).",
+          "Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty.",
+          "The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above.",
+          "This value comes from three recorded inputs: how much of the questionnaire you answered (100% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain.",
+          "Overall coverage",
+          "100%",
+          "Answer confidence",
+          "75/100",
+          "Consistency",
+          "100/100",
+          "Areas without enough information",
+          "None"
+        ],
+        "webText": "05 ROOTS Confidence™ Confidence in this interpretation is High (93/100). Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty. Overall coverage 100% Answer confidence 75/100 Consistency 100/100 Areas without enough information None The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above. Why this appeared This value comes from three recorded inputs: how much of the questionnaire you answered (100% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain."
+      },
+      {
+        "number": 6,
+        "title": "Key Drivers",
+        "source": "deterministic",
+        "expected": [
+          "Primary: Stress Load™. Secondary: Metabolic Resistance™. Tertiary: Hunger & Satiety Signals™.",
+          "Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation.",
+          "The domains named above were the highest-ranked of the domains that met the eligibility rule in your answers. The domains that met it, in rank order, were: Stress Load™, Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Inflammation Burden Index™, Biological Safety Signals™. Ranking reflects the level of burden reported in those domains; it does not identify a cause."
+        ],
+        "webText": "06 Key Drivers Primary: Stress Load™. Secondary: Metabolic Resistance™. Tertiary: Hunger & Satiety Signals™. Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation. Why this appeared The domains named above were the highest-ranked of the domains that met the eligibility rule in your answers. The domains that met it, in rank order, were: Stress Load™, Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Inflammation Burden Index™, Biological Safety Signals™. Ranking reflects the level of burden reported in those domains; it does not identify a cause."
+      },
+      {
+        "number": 7,
+        "title": "Seven-Domain Score Breakdown",
+        "source": "deterministic",
+        "expected": [
+          "Higher scores indicate greater reported burden within this assessment.",
+          "Metabolic Resistance™",
+          "Self-reported resistance to expected weight change and activity-related metabolic context. Several signals may be placing consistent pressure on this area.",
+          "Hunger & Satiety Signals™",
+          "Hunger, craving, fullness and post-meal response patterns. Several signals may be placing consistent pressure on this area.",
+          "Sleep Recovery Index™",
+          "Sleep duration, continuity and perceived restoration. Several signals may be placing consistent pressure on this area.",
+          "Circadian Health Score™",
+          "Alignment of light, screen, meal and sleep timing. Several signals may be placing consistent pressure on this area.",
+          "Stress Load™",
+          "Perceived tension, cognitive activation and stress-linked eating. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional.",
+          "Inflammation Burden Index™",
+          "Non-specific symptom burden; not a laboratory or clinical inflammation measure. Several signals may be placing consistent pressure on this area.",
+          "Biological Safety Signals™",
+          "Perceived energy, appetite drive and resistance signals. Several signals may be placing consistent pressure on this area.",
+          "Metabolic Resistance™",
+          "50/100",
+          "Strained",
+          "Hunger & Satiety Signals™",
+          "50/100",
+          "Strained",
+          "Sleep Recovery Index™",
+          "50/100",
+          "Strained",
+          "Circadian Health Score™",
+          "50/100",
+          "Strained",
+          "Stress Load™",
+          "75/100",
+          "Dysregulated",
+          "Inflammation Burden Index™",
+          "50/100",
+          "Strained",
+          "Biological Safety Signals™",
+          "50/100",
+          "Strained"
+        ],
+        "webText": "07 Seven-Domain Score Breakdown Higher scores indicate greater reported burden within this assessment. Metabolic Resistance™ 50/100 — Strained Hunger & Satiety Signals™ 50/100 — Strained Sleep Recovery Index™ 50/100 — Strained Circadian Health Score™ 50/100 — Strained Stress Load™ 75/100 — Dysregulated Inflammation Burden Index™ 50/100 — Strained Biological Safety Signals™ 50/100 — Strained Metabolic Resistance™ Self-reported resistance to expected weight change and activity-related metabolic context. Several signals may be placing consistent pressure on this area. Hunger & Satiety Signals™ Hunger, craving, fullness and post-meal response patterns. Several signals may be placing consistent pressure on this area. Sleep Recovery Index™ Sleep duration, continuity and perceived restoration. Several signals may be placing consistent pressure on this area. Circadian Health Score™ Alignment of light, screen, meal and sleep timing. Several signals may be placing consistent pressure on this area. Stress Load™ Perceived tension, cognitive activation and stress-linked eating. A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional. Inflammation Burden Index™ Non-specific symptom burden; not a laboratory or clinical inflammation measure. Several signals may be placing consistent pressure on this area. Biological Safety Signals™ Perceived energy, appetite drive and resistance signals. Several signals may be placing consistent pressure on this area."
+      },
+      {
+        "number": 8,
+        "title": "Biological Triad™",
+        "source": "rules",
+        "expected": [
+          "Your current triad connects Stress Load™, Metabolic Resistance™ and regular physical activity.",
+          "The diagram shows possible relationships between these areas, not causes.",
+          "Stress Load™",
+          "Driver",
+          "Metabolic Resistance™",
+          "Driver",
+          "regular physical activity",
+          "Protective factor"
+        ],
+        "webText": "08 Biological Triad™ Your current triad connects Stress Load™, Metabolic Resistance™ and regular physical activity. The diagram shows possible relationships between these areas, not causes. Stress Load™ Driver Metabolic Resistance™ Driver regular physical activity Protective factor"
+      },
+      {
+        "number": 9,
+        "title": "Future Projection",
+        "source": "deterministic_fallback",
+        "expected": [
+          "If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+        ],
+        "webText": "09 Future Projection If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+      },
+      {
+        "number": 10,
+        "title": "90-Day Roadmap",
+        "source": "rules",
+        "expected": [
+          "Month 1 — Stabilize signals.",
+          "Use a two-minute slow-breathing or pause routine once daily.",
+          "Not a substitute for mental-health care.",
+          "Month 2 — Build flexibility.",
+          "Schedule three 10-minute walks after meals this week.",
+          "If exercise is unsafe or painful, obtain professional guidance.",
+          "Month 3 — Reinforce recovery.",
+          "Continue the routine from Months 1-2 that has been easiest to repeat."
+        ],
+        "webText": "10 90-Day Roadmap Month 1 — Stabilize signals. Use a two-minute slow-breathing or pause routine once daily. Not a substitute for mental-health care. Month 2 — Build flexibility. Schedule three 10-minute walks after meals this week. If exercise is unsafe or painful, obtain professional guidance. Month 3 — Reinforce recovery. Continue the routine from Months 1-2 that has been easiest to repeat."
+      },
+      {
+        "number": 11,
+        "title": "Nutrition Priorities",
+        "source": "rules",
+        "expected": [
+          "Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances.",
+          "Safety",
+          "Adapt for allergies, kidney disease or clinician-directed diets."
+        ],
+        "webText": "11 Nutrition Priorities Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances. Safety Adapt for allergies, kidney disease or clinician-directed diets."
+      },
+      {
+        "number": 12,
+        "title": "Action Priorities",
+        "source": "rules",
+        "expected": [
+          "Start with the smallest action you can repeat consistently.",
+          "1. Use a two-minute slow-breathing or pause routine once daily.",
+          "Creates a repeatable recovery cue.",
+          "Not a substitute for mental-health care.",
+          "2. Schedule three 10-minute walks after meals this week.",
+          "Supports routine movement without promising weight loss.",
+          "If exercise is unsafe or painful, obtain professional guidance.",
+          "3. Include a protein source and fibre-rich food in one regular meal daily.",
+          "May support meal satisfaction.",
+          "Adapt for allergies, kidney disease or clinician-directed diets.",
+          "4. Keep wake time within a one-hour window for seven days.",
+          "Supports a consistent recovery schedule.",
+          "Persistent snoring/gasping warrants professional assessment.",
+          "5. Seek 10-20 minutes of outdoor morning light when safe.",
+          "Supports time-of-day cues.",
+          "Avoid direct sun exposure beyond safe local guidance."
+        ],
+        "webText": "12 Action Priorities Start with the smallest action you can repeat consistently. 1. Use a two-minute slow-breathing or pause routine once daily. Creates a repeatable recovery cue. Not a substitute for mental-health care. 2. Schedule three 10-minute walks after meals this week. Supports routine movement without promising weight loss. If exercise is unsafe or painful, obtain professional guidance. 3. Include a protein source and fibre-rich food in one regular meal daily. May support meal satisfaction. Adapt for allergies, kidney disease or clinician-directed diets. 4. Keep wake time within a one-hour window for seven days. Supports a consistent recovery schedule. Persistent snoring/gasping warrants professional assessment. 5. Seek 10-20 minutes of outdoor morning light when safe. Supports time-of-day cues. Avoid direct sun exposure beyond safe local guidance."
+      },
+      {
+        "number": 13,
+        "title": "What Is Going Well",
+        "source": "deterministic",
+        "expected": [
+          "Your answers also show strengths that may support change.",
+          "Regular physical activity",
+          "Consistent meal timing",
+          "Readiness to try one small change"
+        ],
+        "webText": "13 What Is Going Well Your answers also show strengths that may support change. Regular physical activity Consistent meal timing Readiness to try one small change"
+      },
+      {
+        "number": 14,
+        "title": "Specific Concerns",
+        "source": "rules",
+        "expected": [
+          "Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function.",
+          "Stress Load™",
+          "A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+        ],
+        "webText": "14 Specific Concerns Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function. Stress Load™ A high burden of signals was reported. This is not a diagnosis; consider discussing persistent or concerning symptoms with a qualified professional."
+      },
+      {
+        "number": 15,
+        "title": "Suggested Laboratory Discussion",
+        "source": "rules",
+        "expected": [
+          "You may wish to discuss whether any tests are appropriate with a qualified healthcare professional.",
+          "Whether glucose regulation testing, such as fasting glucose or HbA1c, is appropriate",
+          "Only a clinician can decide whether testing is appropriate and interpret the result.",
+          "Whether targeted clinical evaluation is appropriate before broad testing"
+        ],
+        "webText": "15 Suggested Laboratory Discussion You may wish to discuss whether any tests are appropriate with a qualified healthcare professional. Whether glucose regulation testing, such as fasting glucose or HbA1c, is appropriate Only a clinician can decide whether testing is appropriate and interpret the result. Whether targeted clinical evaluation is appropriate before broad testing"
+      },
+      {
+        "number": 16,
+        "title": "Participant Answers",
+        "source": "snapshot",
+        "expected": [
+          "Your answers are shown exactly as submitted.",
+          "Questionnaire version 1.0.1.",
+          "Body Foundations",
+          "What is your age?",
+          "Not answered",
+          "Context only",
+          "Weight & Metabolic History",
+          "How did the weight change that concerns you begin?",
+          "Not answered",
+          "Scoring input",
+          "Sleep Recovery Index",
+          "How many hours of sleep do you typically get in a 24-hour period?",
+          "Not answered",
+          "Scoring input",
+          "Hunger & Satiety Signals",
+          "How often do you feel physically hungry within two hours after a full meal?",
+          "Not answered",
+          "Scoring input",
+          "Stress Load & Inflammation Signals",
+          "How often do you feel persistent physical tension or stress?",
+          "Not answered",
+          "Scoring input",
+          "Circadian Health",
+          "How often do you spend the first hour after waking indoors without natural daylight exposure?",
+          "Not answered",
+          "Scoring input",
+          "Physical Activity Mapping",
+          "On how many days per week do you complete intentional physical activity?",
+          "Not answered",
+          "Scoring input",
+          "Biological Safety Signals",
+          "How often does your body seem to resist weight loss despite consistent effort?",
+          "Not answered",
+          "Scoring input",
+          "Root Cause Discovery",
+          "When stressed, what responses are most typical for you?",
+          "Not answered",
+          "Context only",
+          "Hormonal & Reproductive Context",
+          "Which hormonal or reproductive stage best describes your current situation?",
+          "Not answered",
+          "Context only",
+          "Lifestyle & Environment",
+          "How often do you smoke, vape or use nicotine?",
+          "Not answered",
+          "Context only",
+          "Goals & Readiness",
+          "What is your primary goal for completing this assessment?",
+          "Not answered",
+          "Context only",
+          "Confidence & Additional Context",
+          "How confident are you that your answers reflect your usual experience during the last four weeks?",
+          "Not answered",
+          "Context only",
+          "Is there anything else you would like the report to acknowledge?",
+          "i dont sleep well and its been worse since march, teh tiredness",
+          "Context only",
+          "Participant response"
+        ],
+        "webText": "16 Participant Answers Your answers are shown exactly as submitted. Questionnaire version 1.0.1. Body Foundations Q1. What is your age? Context only Not answered Q2. What sex were you assigned at birth? Context only Not answered Q3. What is your height? Context only Not answered Q4. What is your current weight? Context only Not answered Q5. What is your target weight, if you have one? Context only Not answered Q6. What is your waist circumference? Context only Not answered Q7. How long have you been near your current weight? Context only Not answered Q8. How would you describe your weight pattern over the last five years? Context only Not answered Weight & Metabolic History Q9. How did the weight change that concerns you begin? Scoring input Not answered Q10. How often have well-planned diet or activity efforts produced less change than you expected? Scoring input Not answered Q11. After an intentional weight loss, how often has some or all of the weight returned? Scoring input Not answered Q12. How many meaningful cycles of weight loss and regain have you experienced? Scoring input Not answered Q13. Have you been told by a clinician that you have any of the following? Context only Not answered Q14. Are you currently using medicines that may relate to metabolism, appetite, weight or hormones? Context only Not answered Q15. Does a first-degree relative have a history of type 2 diabetes or substantial weight-related metabolic difficulty? Context only Not answered Sleep Recovery Index Q16. How many hours of sleep do you typically get in a 24-hour period? Scoring input Not answered Q17. How often do you feel tired even after what seemed like enough time in bed? Scoring input Not answered Q18. How often do you wake during the night and struggle to return to sleep? Scoring input Not answered Q19. How often is your bedtime after midnight? Scoring input Not answered Q20. How often do you remain awake until 2:00 AM or later because you cannot settle to sleep? Scoring input Not answered Q21. How often do you snore loudly, wake gasping, or receive feedback that your breathing pauses during sleep? Scoring input Not answered Q22. How often do you experience a marked afternoon energy crash? Scoring input Not answered Hunger & Satiety Signals Q23. How often do you feel physically hungry within two hours after a full meal? Scoring input Not answered Q24. How often do you experience food cravings when you are not physically hungry? Scoring input Not answered Q25. How often do you eat enough but still fail to feel comfortably full? Scoring input Not answered Q26. How often do you feel comfortably full after a normal meal? Scoring input Not answered Q27. How often are you hungry again three to four hours after a protein-rich meal? Scoring input Not answered Q28. How often does a protein-rich meal keep you satisfied for four hours or longer? Scoring input Not answered Q29. How often do you feel sleepy, foggy or low in energy after a main meal? Scoring input Not answered Q30. When you start eating sweets or snack foods, how often is it difficult to stop at the amount you intended? Scoring input Not answered Stress Load & Inflammation Signals Q31. How often do you feel persistent physical tension or stress? Scoring input Not answered Q32. How often does stress increase your desire to eat? Scoring input Not answered Q33. How often does your mind race when you are trying to sleep? Scoring input Not answered Q34. How often are cravings noticeably stronger in the evening? Scoring input Not answered Q35. How often do you experience bloating, gas or digestive discomfort? Scoring input Not answered Q36. How often do you experience brain fog after meals? Scoring input Not answered Q37. How often do you experience unexplained joint pain or stiffness? Scoring input Not answered Q38. How often does fat around your waist seem resistant to your usual efforts? Scoring input Not answered Q39. How often do you experience unusual thirst or a dry mouth? Scoring input Not answered Q40. How often have reducing calories and increasing activity produced little sustained change? Scoring input Not answered Circadian Health Q41. How often do you spend the first hour after waking indoors without natural daylight exposure? Scoring input Not answered Q42. How often do you use a phone, tablet or computer during the final hour before sleep? Scoring input Not answered Q43. How often do you eat within three hours of bedtime? Scoring input Not answered Q44. How often does your sleep schedule vary by more than two hours across the week? Scoring input Not answered Q45. How often do you feel more alert late at night than during the morning? Scoring input Not answered Physical Activity Mapping Q46. On how many days per week do you complete intentional physical activity? Scoring input Not answered Q47. On active days, what is the usual duration of your intentional activity? Scoring input Not answered Q48. Which option best describes your usual physical activity pattern? Scoring input Not answered Biological Safety Signals Q49. How often does your body seem to resist weight loss despite consistent effort? Scoring input Not answered Q50. How often does hunger feel stronger than your ability to regulate it? Scoring input Not answered Q51. How often are your energy levels lower than you believe they should be? Scoring input Not answered Root Cause Discovery Q52. When stressed, what responses are most typical for you? Context only Not answered Q53. What do you believe most often contributes to your hunger or cravings? Context only Not answered Q54. What do you believe most often contributes to low energy? Context only Not answered Q55. How many caffeinated drinks do you usually consume per day? Context only Not answered Hormonal & Reproductive Context Q56. Which hormonal or reproductive stage best describes your current situation? Context only Not answered Q57. How often have hormonal or reproductive changes affected sleep, appetite, energy or weight? Context only Not answered Q58. Are you currently using hormonal medication, contraception or hormone therapy? Context only Not answered Q59. How often do appetite or weight patterns change alongside hormonal or reproductive symptoms? Context only Not answered Q60. Have you been told by a clinician that you have a thyroid, reproductive or other hormonal concern? Context only Not answered Lifestyle & Environment Q61. How often do you smoke, vape or use nicotine? Context only Not answered Q62. How often do you consume alcohol? Context only Not answered Q63. Which description best matches your usual eating pattern? Context only Not answered Q64. How often are your meals reasonably consistent in timing from day to day? Context only Not answered Q65. How supportive is your home food environment of the choices you want to make? Context only Not answered Q66. How much practical or emotional support do you have for making health-related changes? Context only Not answered Goals & Readiness Q67. What is your primary goal for completing this assessment? Context only Not answered Q68. Which area would you most like to understand first? Context only Not answered Q69. How ready do you feel to try one small, realistic change during the next two weeks? Context only Not answered Q70. How confident are you that you can maintain one small change for two weeks? Context only Not answered Q71. What pace of change feels most realistic for you? Context only Not answered Confidence & Additional Context Q72. How confident are you that your answers reflect your usual experience during the last four weeks? Context only Not answered Q73. Is there anything else you would like the report to acknowledge? Context only Participant response i dont sleep well and its been worse since march, teh tiredness"
+      },
+      {
+        "number": 17,
+        "title": "Biological Card",
+        "source": "deterministic",
+        "expected": [
+          "Biological State 54; Opportunity 73.0; Recovery Potential 79.8; Confidence High.",
+          "Drivers",
+          "Stress Load™; Metabolic Resistance™; Hunger & Satiety Signals™",
+          "Versions",
+          "Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+        ],
+        "webText": "17 Biological Card Biological State 54; Opportunity 73.0; Recovery Potential 79.8; Confidence High. Drivers Stress Load™; Metabolic Resistance™; Hunger & Satiety Signals™ Versions Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+      },
+      {
+        "number": 18,
+        "title": "Final Word",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+        ],
+        "webText": "18 Final Word Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+      },
+      {
+        "number": 19,
+        "title": "Medical and AI Disclaimer",
+        "source": "fixed",
+        "expected": [
+          "What this report is",
+          "ROOTS-AI™ provides educational wellness information based on self-reported answers.",
+          "What this report is not",
+          "It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes.",
+          "How AI is used",
+          "AI may assist with wording, but all scores and classifications are calculated by deterministic rules.",
+          "When professional or urgent care is appropriate",
+          "If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+        ],
+        "webText": "19 Medical and AI Disclaimer What this report is ROOTS-AI™ provides educational wellness information based on self-reported answers. What this report is not It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes. How AI is used AI may assist with wording, but all scores and classifications are calculated by deterministic rules. When professional or urgent care is appropriate If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+      }
+    ]
+  },
+  {
+    "caseId": "GT-017",
+    "why": "null domain scores",
+    "reportId": "RPT-PARITY-GT-017",
+    "pdf": "D:\\SahilThakur\\Drholly\\gitdrholly\\rootai\\docs\\m3\\evidence\\parity-GT-017.pdf",
+    "versions": {
+      "questionnaire": "1.0.1",
+      "scoring": "1.0.1",
+      "report": "1.0.1",
+      "narrative": "1.0.0-deterministic-fallback",
+      "disclaimer": "1.0.0"
+    },
+    "sections": [
+      {
+        "number": 1,
+        "title": "Cover Page",
+        "source": "template",
+        "expected": [
+          "ROOTS Biological Intelligence Report™",
+          "Participant",
+          "Participant",
+          "Report ID",
+          "RPT-PARITY-GT-017",
+          "Generated",
+          "28 September 2026 at 12:00 UTC",
+          "Report version",
+          "1.0.1",
+          "Boundary",
+          "Educational — Not a Diagnosis"
+        ],
+        "webText": "01 Cover Page ROOTS Biological Intelligence Report™ Participant Participant Report ID RPT-PARITY-GT-017 Generated 28 September 2026 at 12:00 UTC Report version 1.0.1 Boundary Educational — Not a Diagnosis"
+      },
+      {
+        "number": 2,
+        "title": "Executive Summary",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your current pattern reflects a combination of reported biological signals. The highest-ranked drivers in this assessment are Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary) and Sleep Recovery Index™. These results are educational and describe your answers; they do not diagnose a condition."
+        ],
+        "webText": "02 Executive Summary Your current pattern reflects a combination of reported biological signals. The highest-ranked drivers in this assessment are Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary) and Sleep Recovery Index™. These results are educational and describe your answers; they do not diagnose a condition."
+      },
+      {
+        "number": 3,
+        "title": "ROOTS Biological State™",
+        "source": "deterministic",
+        "expected": [
+          "Your ROOTS Biological State™ is 50/100 — Strained.",
+          "This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability.",
+          "This value summarizes the seven-domain scores available in your answers (Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Inflammation Burden Index™, Biological Safety Signals™). It is a composite of those domain scores, not a separate measurement."
+        ],
+        "webText": "03 ROOTS Biological State™ Your ROOTS Biological State™ is 50/100 — Strained. This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability. Why this appeared This value summarizes the seven-domain scores available in your answers (Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Inflammation Burden Index™, Biological Safety Signals™). It is a composite of those domain scores, not a separate measurement."
+      },
+      {
+        "number": 4,
+        "title": "ROOTS Opportunity Score™",
+        "source": "deterministic",
+        "expected": [
+          "Your ROOTS Opportunity Score™ is 75.0/100.",
+          "This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability.",
+          "This value is derived from your ROOTS Biological State™ score. It uses no answers beyond those already summarized there."
+        ],
+        "webText": "04 ROOTS Opportunity Score™ Your ROOTS Opportunity Score™ is 75.0/100. This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability. Why this appeared This value is derived from your ROOTS Biological State™ score. It uses no answers beyond those already summarized there."
+      },
+      {
+        "number": 5,
+        "title": "ROOTS Confidence™",
+        "source": "deterministic",
+        "expected": [
+          "Confidence in this interpretation is High (89/100).",
+          "Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty.",
+          "The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above.",
+          "This value comes from three recorded inputs: how much of the questionnaire you answered (93% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain.",
+          "Overall coverage",
+          "93%",
+          "Answer confidence",
+          "75/100",
+          "Consistency",
+          "100/100",
+          "Areas without enough information",
+          "Stress Load™"
+        ],
+        "webText": "05 ROOTS Confidence™ Confidence in this interpretation is High (89/100). Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty. Overall coverage 93% Answer confidence 75/100 Consistency 100/100 Areas without enough information Stress Load™ The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above. Why this appeared This value comes from three recorded inputs: how much of the questionnaire you answered (93% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain."
+      },
+      {
+        "number": 6,
+        "title": "Key Drivers",
+        "source": "deterministic",
+        "expected": [
+          "Primary: Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary). Secondary: Sleep Recovery Index™.",
+          "Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation.",
+          "The domains named above were the highest-ranked of the domains that met the eligibility rule in your answers. The domains that met it, in rank order, were: Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Inflammation Burden Index™, Biological Safety Signals™. Ranking reflects the level of burden reported in those domains; it does not identify a cause."
+        ],
+        "webText": "06 Key Drivers Primary: Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary). Secondary: Sleep Recovery Index™. Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation. Why this appeared The domains named above were the highest-ranked of the domains that met the eligibility rule in your answers. The domains that met it, in rank order, were: Metabolic Resistance™, Hunger & Satiety Signals™, Sleep Recovery Index™, Circadian Health Score™, Inflammation Burden Index™, Biological Safety Signals™. Ranking reflects the level of burden reported in those domains; it does not identify a cause."
+      },
+      {
+        "number": 7,
+        "title": "Seven-Domain Score Breakdown",
+        "source": "deterministic",
+        "expected": [
+          "Higher scores indicate greater reported burden within this assessment.",
+          "Metabolic Resistance™",
+          "Self-reported resistance to expected weight change and activity-related metabolic context. Several signals may be placing consistent pressure on this area.",
+          "Hunger & Satiety Signals™",
+          "Hunger, craving, fullness and post-meal response patterns. Several signals may be placing consistent pressure on this area.",
+          "Sleep Recovery Index™",
+          "Sleep duration, continuity and perceived restoration. Several signals may be placing consistent pressure on this area.",
+          "Circadian Health Score™",
+          "Alignment of light, screen, meal and sleep timing. Several signals may be placing consistent pressure on this area.",
+          "Stress Load™",
+          "Perceived tension, cognitive activation and stress-linked eating.",
+          "Inflammation Burden Index™",
+          "Non-specific symptom burden; not a laboratory or clinical inflammation measure. Several signals may be placing consistent pressure on this area.",
+          "Biological Safety Signals™",
+          "Perceived energy, appetite drive and resistance signals. Several signals may be placing consistent pressure on this area.",
+          "Metabolic Resistance™",
+          "50/100",
+          "Strained",
+          "Hunger & Satiety Signals™",
+          "50/100",
+          "Strained",
+          "Sleep Recovery Index™",
+          "50/100",
+          "Strained",
+          "Circadian Health Score™",
+          "50/100",
+          "Strained",
+          "Stress Load™",
+          "Not enough information",
+          "Inflammation Burden Index™",
+          "50/100",
+          "Strained",
+          "Biological Safety Signals™",
+          "50/100",
+          "Strained"
+        ],
+        "webText": "07 Seven-Domain Score Breakdown Higher scores indicate greater reported burden within this assessment. Metabolic Resistance™ 50/100 — Strained Hunger & Satiety Signals™ 50/100 — Strained Sleep Recovery Index™ 50/100 — Strained Circadian Health Score™ 50/100 — Strained Stress Load™ Not enough information Inflammation Burden Index™ 50/100 — Strained Biological Safety Signals™ 50/100 — Strained Metabolic Resistance™ Self-reported resistance to expected weight change and activity-related metabolic context. Several signals may be placing consistent pressure on this area. Hunger & Satiety Signals™ Hunger, craving, fullness and post-meal response patterns. Several signals may be placing consistent pressure on this area. Sleep Recovery Index™ Sleep duration, continuity and perceived restoration. Several signals may be placing consistent pressure on this area. Circadian Health Score™ Alignment of light, screen, meal and sleep timing. Several signals may be placing consistent pressure on this area. Stress Load™ Perceived tension, cognitive activation and stress-linked eating. Inflammation Burden Index™ Non-specific symptom burden; not a laboratory or clinical inflammation measure. Several signals may be placing consistent pressure on this area. Biological Safety Signals™ Perceived energy, appetite drive and resistance signals. Several signals may be placing consistent pressure on this area."
+      },
+      {
+        "number": 8,
+        "title": "Biological Triad™",
+        "source": "rules",
+        "expected": [
+          "Your current triad connects Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary), Sleep Recovery Index™ and regular physical activity.",
+          "The diagram shows possible relationships between these areas, not causes.",
+          "Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary)",
+          "Driver",
+          "Sleep Recovery Index™",
+          "Driver",
+          "regular physical activity",
+          "Protective factor"
+        ],
+        "webText": "08 Biological Triad™ Your current triad connects Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary), Sleep Recovery Index™ and regular physical activity. The diagram shows possible relationships between these areas, not causes. Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary) Driver Sleep Recovery Index™ Driver regular physical activity Protective factor"
+      },
+      {
+        "number": 9,
+        "title": "Future Projection",
+        "source": "deterministic_fallback",
+        "expected": [
+          "If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+        ],
+        "webText": "09 Future Projection If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+      },
+      {
+        "number": 10,
+        "title": "90-Day Roadmap",
+        "source": "rules",
+        "expected": [
+          "Month 1 — Stabilize signals.",
+          "Schedule three 10-minute walks after meals this week.",
+          "If exercise is unsafe or painful, obtain professional guidance.",
+          "Month 2 — Build flexibility.",
+          "Include a protein source and fibre-rich food in one regular meal daily.",
+          "Adapt for allergies, kidney disease or clinician-directed diets.",
+          "Month 3 — Reinforce recovery.",
+          "Continue the routine from Months 1-2 that has been easiest to repeat."
+        ],
+        "webText": "10 90-Day Roadmap Month 1 — Stabilize signals. Schedule three 10-minute walks after meals this week. If exercise is unsafe or painful, obtain professional guidance. Month 2 — Build flexibility. Include a protein source and fibre-rich food in one regular meal daily. Adapt for allergies, kidney disease or clinician-directed diets. Month 3 — Reinforce recovery. Continue the routine from Months 1-2 that has been easiest to repeat."
+      },
+      {
+        "number": 11,
+        "title": "Nutrition Priorities",
+        "source": "rules",
+        "expected": [
+          "Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances.",
+          "Safety",
+          "Adapt for allergies, kidney disease or clinician-directed diets."
+        ],
+        "webText": "11 Nutrition Priorities Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances. Safety Adapt for allergies, kidney disease or clinician-directed diets."
+      },
+      {
+        "number": 12,
+        "title": "Action Priorities",
+        "source": "rules",
+        "expected": [
+          "Start with the smallest action you can repeat consistently.",
+          "1. Schedule three 10-minute walks after meals this week.",
+          "Supports routine movement without promising weight loss.",
+          "If exercise is unsafe or painful, obtain professional guidance.",
+          "2. Include a protein source and fibre-rich food in one regular meal daily.",
+          "May support meal satisfaction.",
+          "Adapt for allergies, kidney disease or clinician-directed diets.",
+          "3. Keep wake time within a one-hour window for seven days.",
+          "Supports a consistent recovery schedule.",
+          "Persistent snoring/gasping warrants professional assessment.",
+          "4. Seek 10-20 minutes of outdoor morning light when safe.",
+          "Supports time-of-day cues.",
+          "Avoid direct sun exposure beyond safe local guidance.",
+          "5. Track one recurring symptom, meal context and timing for seven days.",
+          "May help identify patterns for discussion.",
+          "Do not use the log to self-diagnose food intolerance."
+        ],
+        "webText": "12 Action Priorities Start with the smallest action you can repeat consistently. 1. Schedule three 10-minute walks after meals this week. Supports routine movement without promising weight loss. If exercise is unsafe or painful, obtain professional guidance. 2. Include a protein source and fibre-rich food in one regular meal daily. May support meal satisfaction. Adapt for allergies, kidney disease or clinician-directed diets. 3. Keep wake time within a one-hour window for seven days. Supports a consistent recovery schedule. Persistent snoring/gasping warrants professional assessment. 4. Seek 10-20 minutes of outdoor morning light when safe. Supports time-of-day cues. Avoid direct sun exposure beyond safe local guidance. 5. Track one recurring symptom, meal context and timing for seven days. May help identify patterns for discussion. Do not use the log to self-diagnose food intolerance."
+      },
+      {
+        "number": 13,
+        "title": "What Is Going Well",
+        "source": "deterministic",
+        "expected": [
+          "Your answers also show strengths that may support change.",
+          "Regular physical activity",
+          "Consistent meal timing",
+          "Readiness to try one small change"
+        ],
+        "webText": "13 What Is Going Well Your answers also show strengths that may support change. Regular physical activity Consistent meal timing Readiness to try one small change"
+      },
+      {
+        "number": 14,
+        "title": "Specific Concerns",
+        "source": "rules",
+        "expected": [
+          "Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function."
+        ],
+        "webText": "14 Specific Concerns Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function."
+      },
+      {
+        "number": 15,
+        "title": "Suggested Laboratory Discussion",
+        "source": "rules",
+        "expected": [
+          "You may wish to discuss whether any tests are appropriate with a qualified healthcare professional.",
+          "Whether glucose regulation testing, such as fasting glucose or HbA1c, is appropriate",
+          "Only a clinician can decide whether testing is appropriate and interpret the result.",
+          "Whether targeted clinical evaluation is appropriate before broad testing"
+        ],
+        "webText": "15 Suggested Laboratory Discussion You may wish to discuss whether any tests are appropriate with a qualified healthcare professional. Whether glucose regulation testing, such as fasting glucose or HbA1c, is appropriate Only a clinician can decide whether testing is appropriate and interpret the result. Whether targeted clinical evaluation is appropriate before broad testing"
+      },
+      {
+        "number": 16,
+        "title": "Participant Answers",
+        "source": "snapshot",
+        "expected": [
+          "Your answers are shown exactly as submitted.",
+          "Questionnaire version 1.0.1.",
+          "Body Foundations",
+          "What is your age?",
+          "Not answered",
+          "Context only",
+          "Weight & Metabolic History",
+          "How did the weight change that concerns you begin?",
+          "Not answered",
+          "Scoring input",
+          "Sleep Recovery Index",
+          "How many hours of sleep do you typically get in a 24-hour period?",
+          "Not answered",
+          "Scoring input",
+          "Hunger & Satiety Signals",
+          "How often do you feel physically hungry within two hours after a full meal?",
+          "Not answered",
+          "Scoring input",
+          "Stress Load & Inflammation Signals",
+          "How often do you feel persistent physical tension or stress?",
+          "Not answered",
+          "Scoring input",
+          "Circadian Health",
+          "How often do you spend the first hour after waking indoors without natural daylight exposure?",
+          "Not answered",
+          "Scoring input",
+          "Physical Activity Mapping",
+          "On how many days per week do you complete intentional physical activity?",
+          "Not answered",
+          "Scoring input",
+          "Biological Safety Signals",
+          "How often does your body seem to resist weight loss despite consistent effort?",
+          "Not answered",
+          "Scoring input",
+          "Root Cause Discovery",
+          "When stressed, what responses are most typical for you?",
+          "Not answered",
+          "Context only",
+          "Hormonal & Reproductive Context",
+          "Which hormonal or reproductive stage best describes your current situation?",
+          "Not answered",
+          "Context only",
+          "Lifestyle & Environment",
+          "How often do you smoke, vape or use nicotine?",
+          "Not answered",
+          "Context only",
+          "Goals & Readiness",
+          "What is your primary goal for completing this assessment?",
+          "Not answered",
+          "Context only",
+          "Confidence & Additional Context",
+          "How confident are you that your answers reflect your usual experience during the last four weeks?",
+          "Not answered",
+          "Context only",
+          "Is there anything else you would like the report to acknowledge?",
+          "i dont sleep well and its been worse since march, teh tiredness",
+          "Context only",
+          "Participant response"
+        ],
+        "webText": "16 Participant Answers Your answers are shown exactly as submitted. Questionnaire version 1.0.1. Body Foundations Q1. What is your age? Context only Not answered Q2. What sex were you assigned at birth? Context only Not answered Q3. What is your height? Context only Not answered Q4. What is your current weight? Context only Not answered Q5. What is your target weight, if you have one? Context only Not answered Q6. What is your waist circumference? Context only Not answered Q7. How long have you been near your current weight? Context only Not answered Q8. How would you describe your weight pattern over the last five years? Context only Not answered Weight & Metabolic History Q9. How did the weight change that concerns you begin? Scoring input Not answered Q10. How often have well-planned diet or activity efforts produced less change than you expected? Scoring input Not answered Q11. After an intentional weight loss, how often has some or all of the weight returned? Scoring input Not answered Q12. How many meaningful cycles of weight loss and regain have you experienced? Scoring input Not answered Q13. Have you been told by a clinician that you have any of the following? Context only Not answered Q14. Are you currently using medicines that may relate to metabolism, appetite, weight or hormones? Context only Not answered Q15. Does a first-degree relative have a history of type 2 diabetes or substantial weight-related metabolic difficulty? Context only Not answered Sleep Recovery Index Q16. How many hours of sleep do you typically get in a 24-hour period? Scoring input Not answered Q17. How often do you feel tired even after what seemed like enough time in bed? Scoring input Not answered Q18. How often do you wake during the night and struggle to return to sleep? Scoring input Not answered Q19. How often is your bedtime after midnight? Scoring input Not answered Q20. How often do you remain awake until 2:00 AM or later because you cannot settle to sleep? Scoring input Not answered Q21. How often do you snore loudly, wake gasping, or receive feedback that your breathing pauses during sleep? Scoring input Not answered Q22. How often do you experience a marked afternoon energy crash? Scoring input Not answered Hunger & Satiety Signals Q23. How often do you feel physically hungry within two hours after a full meal? Scoring input Not answered Q24. How often do you experience food cravings when you are not physically hungry? Scoring input Not answered Q25. How often do you eat enough but still fail to feel comfortably full? Scoring input Not answered Q26. How often do you feel comfortably full after a normal meal? Scoring input Not answered Q27. How often are you hungry again three to four hours after a protein-rich meal? Scoring input Not answered Q28. How often does a protein-rich meal keep you satisfied for four hours or longer? Scoring input Not answered Q29. How often do you feel sleepy, foggy or low in energy after a main meal? Scoring input Not answered Q30. When you start eating sweets or snack foods, how often is it difficult to stop at the amount you intended? Scoring input Not answered Stress Load & Inflammation Signals Q31. How often do you feel persistent physical tension or stress? Scoring input Not answered Q32. How often does stress increase your desire to eat? Scoring input Not answered Q33. How often does your mind race when you are trying to sleep? Scoring input Not answered Q34. How often are cravings noticeably stronger in the evening? Scoring input Not answered Q35. How often do you experience bloating, gas or digestive discomfort? Scoring input Not answered Q36. How often do you experience brain fog after meals? Scoring input Not answered Q37. How often do you experience unexplained joint pain or stiffness? Scoring input Not answered Q38. How often does fat around your waist seem resistant to your usual efforts? Scoring input Not answered Q39. How often do you experience unusual thirst or a dry mouth? Scoring input Not answered Q40. How often have reducing calories and increasing activity produced little sustained change? Scoring input Not answered Circadian Health Q41. How often do you spend the first hour after waking indoors without natural daylight exposure? Scoring input Not answered Q42. How often do you use a phone, tablet or computer during the final hour before sleep? Scoring input Not answered Q43. How often do you eat within three hours of bedtime? Scoring input Not answered Q44. How often does your sleep schedule vary by more than two hours across the week? Scoring input Not answered Q45. How often do you feel more alert late at night than during the morning? Scoring input Not answered Physical Activity Mapping Q46. On how many days per week do you complete intentional physical activity? Scoring input Not answered Q47. On active days, what is the usual duration of your intentional activity? Scoring input Not answered Q48. Which option best describes your usual physical activity pattern? Scoring input Not answered Biological Safety Signals Q49. How often does your body seem to resist weight loss despite consistent effort? Scoring input Not answered Q50. How often does hunger feel stronger than your ability to regulate it? Scoring input Not answered Q51. How often are your energy levels lower than you believe they should be? Scoring input Not answered Root Cause Discovery Q52. When stressed, what responses are most typical for you? Context only Not answered Q53. What do you believe most often contributes to your hunger or cravings? Context only Not answered Q54. What do you believe most often contributes to low energy? Context only Not answered Q55. How many caffeinated drinks do you usually consume per day? Context only Not answered Hormonal & Reproductive Context Q56. Which hormonal or reproductive stage best describes your current situation? Context only Not answered Q57. How often have hormonal or reproductive changes affected sleep, appetite, energy or weight? Context only Not answered Q58. Are you currently using hormonal medication, contraception or hormone therapy? Context only Not answered Q59. How often do appetite or weight patterns change alongside hormonal or reproductive symptoms? Context only Not answered Q60. Have you been told by a clinician that you have a thyroid, reproductive or other hormonal concern? Context only Not answered Lifestyle & Environment Q61. How often do you smoke, vape or use nicotine? Context only Not answered Q62. How often do you consume alcohol? Context only Not answered Q63. Which description best matches your usual eating pattern? Context only Not answered Q64. How often are your meals reasonably consistent in timing from day to day? Context only Not answered Q65. How supportive is your home food environment of the choices you want to make? Context only Not answered Q66. How much practical or emotional support do you have for making health-related changes? Context only Not answered Goals & Readiness Q67. What is your primary goal for completing this assessment? Context only Not answered Q68. Which area would you most like to understand first? Context only Not answered Q69. How ready do you feel to try one small, realistic change during the next two weeks? Context only Not answered Q70. How confident are you that you can maintain one small change for two weeks? Context only Not answered Q71. What pace of change feels most realistic for you? Context only Not answered Confidence & Additional Context Q72. How confident are you that your answers reflect your usual experience during the last four weeks? Context only Not answered Q73. Is there anything else you would like the report to acknowledge? Context only Participant response i dont sleep well and its been worse since march, teh tiredness"
+      },
+      {
+        "number": 17,
+        "title": "Biological Card",
+        "source": "deterministic",
+        "expected": [
+          "Biological State 50; Opportunity 75.0; Recovery Potential 81.0; Confidence High.",
+          "Drivers",
+          "Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary); Sleep Recovery Index™",
+          "Versions",
+          "Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+        ],
+        "webText": "17 Biological Card Biological State 50; Opportunity 75.0; Recovery Potential 81.0; Confidence High. Drivers Metabolic Resistance™ and Hunger & Satiety Signals™ (co-primary); Sleep Recovery Index™ Versions Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+      },
+      {
+        "number": 18,
+        "title": "Final Word",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+        ],
+        "webText": "18 Final Word Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+      },
+      {
+        "number": 19,
+        "title": "Medical and AI Disclaimer",
+        "source": "fixed",
+        "expected": [
+          "What this report is",
+          "ROOTS-AI™ provides educational wellness information based on self-reported answers.",
+          "What this report is not",
+          "It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes.",
+          "How AI is used",
+          "AI may assist with wording, but all scores and classifications are calculated by deterministic rules.",
+          "When professional or urgent care is appropriate",
+          "If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+        ],
+        "webText": "19 Medical and AI Disclaimer What this report is ROOTS-AI™ provides educational wellness information based on self-reported answers. What this report is not It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes. How AI is used AI may assist with wording, but all scores and classifications are calculated by deterministic rules. When professional or urgent care is appropriate If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+      }
+    ]
+  },
+  {
+    "caseId": "GT-020",
+    "why": "null Biological State",
+    "reportId": "RPT-PARITY-GT-020",
+    "pdf": "D:\\SahilThakur\\Drholly\\gitdrholly\\rootai\\docs\\m3\\evidence\\parity-GT-020.pdf",
+    "versions": {
+      "questionnaire": "1.0.1",
+      "scoring": "1.0.1",
+      "report": "1.0.1",
+      "narrative": "1.0.0-deterministic-fallback",
+      "disclaimer": "1.0.0"
+    },
+    "sections": [
+      {
+        "number": 1,
+        "title": "Cover Page",
+        "source": "template",
+        "expected": [
+          "ROOTS Biological Intelligence Report™",
+          "Participant",
+          "Participant",
+          "Report ID",
+          "RPT-PARITY-GT-020",
+          "Generated",
+          "28 September 2026 at 12:00 UTC",
+          "Report version",
+          "1.0.1",
+          "Boundary",
+          "Educational — Not a Diagnosis"
+        ],
+        "webText": "01 Cover Page ROOTS Biological Intelligence Report™ Participant Participant Report ID RPT-PARITY-GT-020 Generated 28 September 2026 at 12:00 UTC Report version 1.0.1 Boundary Educational — Not a Diagnosis"
+      },
+      {
+        "number": 2,
+        "title": "Executive Summary",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your current pattern reflects a combination of reported biological signals. The highest-ranked drivers in this assessment are Circadian Health Score™ and Stress Load™ (co-primary) and Inflammation Burden Index™. These results are educational and describe your answers; they do not diagnose a condition."
+        ],
+        "webText": "02 Executive Summary Your current pattern reflects a combination of reported biological signals. The highest-ranked drivers in this assessment are Circadian Health Score™ and Stress Load™ (co-primary) and Inflammation Burden Index™. These results are educational and describe your answers; they do not diagnose a condition."
+      },
+      {
+        "number": 3,
+        "title": "ROOTS Biological State™",
+        "source": "deterministic",
+        "expected": [
+          "ROOTS Biological State™: Not enough information.",
+          "This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability.",
+          "Too few of the seven domains had enough answers for this composite to be produced, so no value is shown."
+        ],
+        "webText": "03 ROOTS Biological State™ ROOTS Biological State™: Not enough information. This summarizes the available seven-domain questionnaire pattern; it is not a medical risk probability. Why this appeared Too few of the seven domains had enough answers for this composite to be produced, so no value is shown."
+      },
+      {
+        "number": 4,
+        "title": "ROOTS Opportunity Score™",
+        "source": "deterministic",
+        "expected": [
+          "ROOTS Opportunity Score™: Not enough information.",
+          "This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability.",
+          "This value is derived from your ROOTS Biological State™ score, which is not available for this assessment."
+        ],
+        "webText": "04 ROOTS Opportunity Score™ ROOTS Opportunity Score™: Not enough information. This proprietary educational indicator reflects the amount of modifiable capacity suggested by the current questionnaire pattern. It is not a forecast or clinical outcome probability. Why this appeared This value is derived from your ROOTS Biological State™ score, which is not available for this assessment."
+      },
+      {
+        "number": 5,
+        "title": "ROOTS Confidence™",
+        "source": "deterministic",
+        "expected": [
+          "Confidence in this interpretation is Moderate-High (65/100).",
+          "Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty.",
+          "The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above.",
+          "This value comes from three recorded inputs: how much of the questionnaire you answered (45% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain.",
+          "Overall coverage",
+          "45%",
+          "Answer confidence",
+          "75/100",
+          "Consistency",
+          "100/100",
+          "Areas without enough information",
+          "Metabolic Resistance™; Hunger & Satiety Signals™; Sleep Recovery Index™"
+        ],
+        "webText": "05 ROOTS Confidence™ Confidence in this interpretation is Moderate-High (65/100). Confidence reflects data completeness, self-reported answer confidence and internal response consistency—not diagnostic certainty. Overall coverage 45% Answer confidence 75/100 Consistency 100/100 Areas without enough information Metabolic Resistance™; Hunger & Satiety Signals™; Sleep Recovery Index™ The composite Confidence score is produced by the controlled confidence model, which combines these components with fixed weightings. It is not a simple average of the values above. Why this appeared This value comes from three recorded inputs: how much of the questionnaire you answered (45% of scored questions), the answer confidence you reported yourself (75/100), and how consistent your responses were within each available domain."
+      },
+      {
+        "number": 6,
+        "title": "Key Drivers",
+        "source": "deterministic",
+        "expected": [
+          "Primary: Circadian Health Score™ and Stress Load™ (co-primary). Secondary: Inflammation Burden Index™.",
+          "Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation.",
+          "The domains named above were the highest-ranked of the domains that met the eligibility rule in your answers. The domains that met it, in rank order, were: Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™. Ranking reflects the level of burden reported in those domains; it does not identify a cause."
+        ],
+        "webText": "06 Key Drivers Primary: Circadian Health Score™ and Stress Load™ (co-primary). Secondary: Inflammation Burden Index™. Drivers identify the highest-ranked eligible questionnaire domains; they do not establish biological causation. Why this appeared The domains named above were the highest-ranked of the domains that met the eligibility rule in your answers. The domains that met it, in rank order, were: Circadian Health Score™, Stress Load™, Inflammation Burden Index™, Biological Safety Signals™. Ranking reflects the level of burden reported in those domains; it does not identify a cause."
+      },
+      {
+        "number": 7,
+        "title": "Seven-Domain Score Breakdown",
+        "source": "deterministic",
+        "expected": [
+          "Higher scores indicate greater reported burden within this assessment.",
+          "Metabolic Resistance™",
+          "Self-reported resistance to expected weight change and activity-related metabolic context.",
+          "Hunger & Satiety Signals™",
+          "Hunger, craving, fullness and post-meal response patterns.",
+          "Sleep Recovery Index™",
+          "Sleep duration, continuity and perceived restoration.",
+          "Circadian Health Score™",
+          "Alignment of light, screen, meal and sleep timing. Several signals may be placing consistent pressure on this area.",
+          "Stress Load™",
+          "Perceived tension, cognitive activation and stress-linked eating. Several signals may be placing consistent pressure on this area.",
+          "Inflammation Burden Index™",
+          "Non-specific symptom burden; not a laboratory or clinical inflammation measure. Several signals may be placing consistent pressure on this area.",
+          "Biological Safety Signals™",
+          "Perceived energy, appetite drive and resistance signals. Several signals may be placing consistent pressure on this area.",
+          "Metabolic Resistance™",
+          "Not enough information",
+          "Hunger & Satiety Signals™",
+          "Not enough information",
+          "Sleep Recovery Index™",
+          "Not enough information",
+          "Circadian Health Score™",
+          "50/100",
+          "Strained",
+          "Stress Load™",
+          "50/100",
+          "Strained",
+          "Inflammation Burden Index™",
+          "50/100",
+          "Strained",
+          "Biological Safety Signals™",
+          "50/100",
+          "Strained"
+        ],
+        "webText": "07 Seven-Domain Score Breakdown Higher scores indicate greater reported burden within this assessment. Metabolic Resistance™ Not enough information Hunger & Satiety Signals™ Not enough information Sleep Recovery Index™ Not enough information Circadian Health Score™ 50/100 — Strained Stress Load™ 50/100 — Strained Inflammation Burden Index™ 50/100 — Strained Biological Safety Signals™ 50/100 — Strained Metabolic Resistance™ Self-reported resistance to expected weight change and activity-related metabolic context. Hunger & Satiety Signals™ Hunger, craving, fullness and post-meal response patterns. Sleep Recovery Index™ Sleep duration, continuity and perceived restoration. Circadian Health Score™ Alignment of light, screen, meal and sleep timing. Several signals may be placing consistent pressure on this area. Stress Load™ Perceived tension, cognitive activation and stress-linked eating. Several signals may be placing consistent pressure on this area. Inflammation Burden Index™ Non-specific symptom burden; not a laboratory or clinical inflammation measure. Several signals may be placing consistent pressure on this area. Biological Safety Signals™ Perceived energy, appetite drive and resistance signals. Several signals may be placing consistent pressure on this area."
+      },
+      {
+        "number": 8,
+        "title": "Biological Triad™",
+        "source": "rules",
+        "expected": [
+          "Your current triad connects Circadian Health Score™ and Stress Load™ (co-primary), Inflammation Burden Index™ and regular physical activity.",
+          "The diagram shows possible relationships between these areas, not causes.",
+          "Circadian Health Score™ and Stress Load™ (co-primary)",
+          "Driver",
+          "Inflammation Burden Index™",
+          "Driver",
+          "regular physical activity",
+          "Protective factor"
+        ],
+        "webText": "08 Biological Triad™ Your current triad connects Circadian Health Score™ and Stress Load™ (co-primary), Inflammation Burden Index™ and regular physical activity. The diagram shows possible relationships between these areas, not causes. Circadian Health Score™ and Stress Load™ (co-primary) Driver Inflammation Burden Index™ Driver regular physical activity Protective factor"
+      },
+      {
+        "number": 9,
+        "title": "Future Projection",
+        "source": "deterministic_fallback",
+        "expected": [
+          "If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+        ],
+        "webText": "09 Future Projection If the current pattern continues, the same signals may remain influential. Small consistent changes may alter the pattern over time."
+      },
+      {
+        "number": 10,
+        "title": "90-Day Roadmap",
+        "source": "rules",
+        "expected": [
+          "Month 1 — Stabilize signals.",
+          "Seek 10-20 minutes of outdoor morning light when safe.",
+          "Avoid direct sun exposure beyond safe local guidance.",
+          "Month 2 — Build flexibility.",
+          "Use a two-minute slow-breathing or pause routine once daily.",
+          "Not a substitute for mental-health care.",
+          "Month 3 — Reinforce recovery.",
+          "Continue the routine from Months 1-2 that has been easiest to repeat."
+        ],
+        "webText": "10 90-Day Roadmap Month 1 — Stabilize signals. Seek 10-20 minutes of outdoor morning light when safe. Avoid direct sun exposure beyond safe local guidance. Month 2 — Build flexibility. Use a two-minute slow-breathing or pause routine once daily. Not a substitute for mental-health care. Month 3 — Reinforce recovery. Continue the routine from Months 1-2 that has been easiest to repeat."
+      },
+      {
+        "number": 11,
+        "title": "Nutrition Priorities",
+        "source": "rules",
+        "expected": [
+          "Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances.",
+          "Safety",
+          "Adapt for allergies, kidney disease or clinician-directed diets."
+        ],
+        "webText": "11 Nutrition Priorities Focus on meal structure, adequate protein and fibre, hydration, and timing patterns that match your circumstances. Safety Adapt for allergies, kidney disease or clinician-directed diets."
+      },
+      {
+        "number": 12,
+        "title": "Action Priorities",
+        "source": "rules",
+        "expected": [
+          "Start with the smallest action you can repeat consistently.",
+          "1. Seek 10-20 minutes of outdoor morning light when safe.",
+          "Supports time-of-day cues.",
+          "Avoid direct sun exposure beyond safe local guidance.",
+          "2. Use a two-minute slow-breathing or pause routine once daily.",
+          "Creates a repeatable recovery cue.",
+          "Not a substitute for mental-health care.",
+          "3. Track one recurring symptom, meal context and timing for seven days.",
+          "May help identify patterns for discussion.",
+          "Do not use the log to self-diagnose food intolerance.",
+          "4. Choose one action small enough to repeat for two weeks.",
+          "Builds consistency while respecting perceived resistance.",
+          "Seek care for persistent, severe or unexplained symptoms."
+        ],
+        "webText": "12 Action Priorities Start with the smallest action you can repeat consistently. 1. Seek 10-20 minutes of outdoor morning light when safe. Supports time-of-day cues. Avoid direct sun exposure beyond safe local guidance. 2. Use a two-minute slow-breathing or pause routine once daily. Creates a repeatable recovery cue. Not a substitute for mental-health care. 3. Track one recurring symptom, meal context and timing for seven days. May help identify patterns for discussion. Do not use the log to self-diagnose food intolerance. 4. Choose one action small enough to repeat for two weeks. Builds consistency while respecting perceived resistance. Seek care for persistent, severe or unexplained symptoms."
+      },
+      {
+        "number": 13,
+        "title": "What Is Going Well",
+        "source": "deterministic",
+        "expected": [
+          "Your answers also show strengths that may support change.",
+          "Regular physical activity",
+          "Consistent meal timing",
+          "Readiness to try one small change"
+        ],
+        "webText": "13 What Is Going Well Your answers also show strengths that may support change. Regular physical activity Consistent meal timing Readiness to try one small change"
+      },
+      {
+        "number": 14,
+        "title": "Specific Concerns",
+        "source": "rules",
+        "expected": [
+          "Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function."
+        ],
+        "webText": "14 Specific Concerns Some reported signals may deserve additional attention, especially if they are persistent, worsening or affecting daily function."
+      },
+      {
+        "number": 15,
+        "title": "Suggested Laboratory Discussion",
+        "source": "rules",
+        "expected": [
+          "You may wish to discuss whether any tests are appropriate with a qualified healthcare professional.",
+          "Whether targeted clinical evaluation is appropriate before broad testing"
+        ],
+        "webText": "15 Suggested Laboratory Discussion You may wish to discuss whether any tests are appropriate with a qualified healthcare professional. Whether targeted clinical evaluation is appropriate before broad testing"
+      },
+      {
+        "number": 16,
+        "title": "Participant Answers",
+        "source": "snapshot",
+        "expected": [
+          "Your answers are shown exactly as submitted.",
+          "Questionnaire version 1.0.1.",
+          "Body Foundations",
+          "What is your age?",
+          "Not answered",
+          "Context only",
+          "Weight & Metabolic History",
+          "How did the weight change that concerns you begin?",
+          "Not answered",
+          "Scoring input",
+          "Sleep Recovery Index",
+          "How many hours of sleep do you typically get in a 24-hour period?",
+          "Not answered",
+          "Scoring input",
+          "Hunger & Satiety Signals",
+          "How often do you feel physically hungry within two hours after a full meal?",
+          "Not answered",
+          "Scoring input",
+          "Stress Load & Inflammation Signals",
+          "How often do you feel persistent physical tension or stress?",
+          "Not answered",
+          "Scoring input",
+          "Circadian Health",
+          "How often do you spend the first hour after waking indoors without natural daylight exposure?",
+          "Not answered",
+          "Scoring input",
+          "Physical Activity Mapping",
+          "On how many days per week do you complete intentional physical activity?",
+          "Not answered",
+          "Scoring input",
+          "Biological Safety Signals",
+          "How often does your body seem to resist weight loss despite consistent effort?",
+          "Not answered",
+          "Scoring input",
+          "Root Cause Discovery",
+          "When stressed, what responses are most typical for you?",
+          "Not answered",
+          "Context only",
+          "Hormonal & Reproductive Context",
+          "Which hormonal or reproductive stage best describes your current situation?",
+          "Not answered",
+          "Context only",
+          "Lifestyle & Environment",
+          "How often do you smoke, vape or use nicotine?",
+          "Not answered",
+          "Context only",
+          "Goals & Readiness",
+          "What is your primary goal for completing this assessment?",
+          "Not answered",
+          "Context only",
+          "Confidence & Additional Context",
+          "How confident are you that your answers reflect your usual experience during the last four weeks?",
+          "Not answered",
+          "Context only",
+          "Is there anything else you would like the report to acknowledge?",
+          "i dont sleep well and its been worse since march, teh tiredness",
+          "Context only",
+          "Participant response"
+        ],
+        "webText": "16 Participant Answers Your answers are shown exactly as submitted. Questionnaire version 1.0.1. Body Foundations Q1. What is your age? Context only Not answered Q2. What sex were you assigned at birth? Context only Not answered Q3. What is your height? Context only Not answered Q4. What is your current weight? Context only Not answered Q5. What is your target weight, if you have one? Context only Not answered Q6. What is your waist circumference? Context only Not answered Q7. How long have you been near your current weight? Context only Not answered Q8. How would you describe your weight pattern over the last five years? Context only Not answered Weight & Metabolic History Q9. How did the weight change that concerns you begin? Scoring input Not answered Q10. How often have well-planned diet or activity efforts produced less change than you expected? Scoring input Not answered Q11. After an intentional weight loss, how often has some or all of the weight returned? Scoring input Not answered Q12. How many meaningful cycles of weight loss and regain have you experienced? Scoring input Not answered Q13. Have you been told by a clinician that you have any of the following? Context only Not answered Q14. Are you currently using medicines that may relate to metabolism, appetite, weight or hormones? Context only Not answered Q15. Does a first-degree relative have a history of type 2 diabetes or substantial weight-related metabolic difficulty? Context only Not answered Sleep Recovery Index Q16. How many hours of sleep do you typically get in a 24-hour period? Scoring input Not answered Q17. How often do you feel tired even after what seemed like enough time in bed? Scoring input Not answered Q18. How often do you wake during the night and struggle to return to sleep? Scoring input Not answered Q19. How often is your bedtime after midnight? Scoring input Not answered Q20. How often do you remain awake until 2:00 AM or later because you cannot settle to sleep? Scoring input Not answered Q21. How often do you snore loudly, wake gasping, or receive feedback that your breathing pauses during sleep? Scoring input Not answered Q22. How often do you experience a marked afternoon energy crash? Scoring input Not answered Hunger & Satiety Signals Q23. How often do you feel physically hungry within two hours after a full meal? Scoring input Not answered Q24. How often do you experience food cravings when you are not physically hungry? Scoring input Not answered Q25. How often do you eat enough but still fail to feel comfortably full? Scoring input Not answered Q26. How often do you feel comfortably full after a normal meal? Scoring input Not answered Q27. How often are you hungry again three to four hours after a protein-rich meal? Scoring input Not answered Q28. How often does a protein-rich meal keep you satisfied for four hours or longer? Scoring input Not answered Q29. How often do you feel sleepy, foggy or low in energy after a main meal? Scoring input Not answered Q30. When you start eating sweets or snack foods, how often is it difficult to stop at the amount you intended? Scoring input Not answered Stress Load & Inflammation Signals Q31. How often do you feel persistent physical tension or stress? Scoring input Not answered Q32. How often does stress increase your desire to eat? Scoring input Not answered Q33. How often does your mind race when you are trying to sleep? Scoring input Not answered Q34. How often are cravings noticeably stronger in the evening? Scoring input Not answered Q35. How often do you experience bloating, gas or digestive discomfort? Scoring input Not answered Q36. How often do you experience brain fog after meals? Scoring input Not answered Q37. How often do you experience unexplained joint pain or stiffness? Scoring input Not answered Q38. How often does fat around your waist seem resistant to your usual efforts? Scoring input Not answered Q39. How often do you experience unusual thirst or a dry mouth? Scoring input Not answered Q40. How often have reducing calories and increasing activity produced little sustained change? Scoring input Not answered Circadian Health Q41. How often do you spend the first hour after waking indoors without natural daylight exposure? Scoring input Not answered Q42. How often do you use a phone, tablet or computer during the final hour before sleep? Scoring input Not answered Q43. How often do you eat within three hours of bedtime? Scoring input Not answered Q44. How often does your sleep schedule vary by more than two hours across the week? Scoring input Not answered Q45. How often do you feel more alert late at night than during the morning? Scoring input Not answered Physical Activity Mapping Q46. On how many days per week do you complete intentional physical activity? Scoring input Not answered Q47. On active days, what is the usual duration of your intentional activity? Scoring input Not answered Q48. Which option best describes your usual physical activity pattern? Scoring input Not answered Biological Safety Signals Q49. How often does your body seem to resist weight loss despite consistent effort? Scoring input Not answered Q50. How often does hunger feel stronger than your ability to regulate it? Scoring input Not answered Q51. How often are your energy levels lower than you believe they should be? Scoring input Not answered Root Cause Discovery Q52. When stressed, what responses are most typical for you? Context only Not answered Q53. What do you believe most often contributes to your hunger or cravings? Context only Not answered Q54. What do you believe most often contributes to low energy? Context only Not answered Q55. How many caffeinated drinks do you usually consume per day? Context only Not answered Hormonal & Reproductive Context Q56. Which hormonal or reproductive stage best describes your current situation? Context only Not answered Q57. How often have hormonal or reproductive changes affected sleep, appetite, energy or weight? Context only Not answered Q58. Are you currently using hormonal medication, contraception or hormone therapy? Context only Not answered Q59. How often do appetite or weight patterns change alongside hormonal or reproductive symptoms? Context only Not answered Q60. Have you been told by a clinician that you have a thyroid, reproductive or other hormonal concern? Context only Not answered Lifestyle & Environment Q61. How often do you smoke, vape or use nicotine? Context only Not answered Q62. How often do you consume alcohol? Context only Not answered Q63. Which description best matches your usual eating pattern? Context only Not answered Q64. How often are your meals reasonably consistent in timing from day to day? Context only Not answered Q65. How supportive is your home food environment of the choices you want to make? Context only Not answered Q66. How much practical or emotional support do you have for making health-related changes? Context only Not answered Goals & Readiness Q67. What is your primary goal for completing this assessment? Context only Not answered Q68. Which area would you most like to understand first? Context only Not answered Q69. How ready do you feel to try one small, realistic change during the next two weeks? Context only Not answered Q70. How confident are you that you can maintain one small change for two weeks? Context only Not answered Q71. What pace of change feels most realistic for you? Context only Not answered Confidence & Additional Context Q72. How confident are you that your answers reflect your usual experience during the last four weeks? Context only Not answered Q73. Is there anything else you would like the report to acknowledge? Context only Participant response i dont sleep well and its been worse since march, teh tiredness"
+      },
+      {
+        "number": 17,
+        "title": "Biological Card",
+        "source": "deterministic",
+        "expected": [
+          "Biological State Not enough information; Opportunity Not enough information; Recovery Potential Not enough information; Confidence Moderate-High.",
+          "Drivers",
+          "Circadian Health Score™ and Stress Load™ (co-primary); Inflammation Burden Index™",
+          "Versions",
+          "Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+        ],
+        "webText": "17 Biological Card Biological State Not enough information; Opportunity Not enough information; Recovery Potential Not enough information; Confidence Moderate-High. Drivers Circadian Health Score™ and Stress Load™ (co-primary); Inflammation Burden Index™ Versions Questionnaire 1.0.1 · Scoring 1.0.1 · Report 1.0.1 · Narrative 1.0.0-deterministic-fallback · Disclaimer 1.0.0"
+      },
+      {
+        "number": 18,
+        "title": "Final Word",
+        "source": "deterministic_fallback",
+        "expected": [
+          "Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+        ],
+        "webText": "18 Final Word Your answers are a starting point, not a verdict. Choose one realistic action, observe how you respond, and seek professional support when symptoms are persistent or concerning."
+      },
+      {
+        "number": 19,
+        "title": "Medical and AI Disclaimer",
+        "source": "fixed",
+        "expected": [
+          "What this report is",
+          "ROOTS-AI™ provides educational wellness information based on self-reported answers.",
+          "What this report is not",
+          "It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes.",
+          "How AI is used",
+          "AI may assist with wording, but all scores and classifications are calculated by deterministic rules.",
+          "When professional or urgent care is appropriate",
+          "If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+        ],
+        "webText": "19 Medical and AI Disclaimer What this report is ROOTS-AI™ provides educational wellness information based on self-reported answers. What this report is not It is not a medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional. It does not provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities of disease or future outcomes. How AI is used AI may assist with wording, but all scores and classifications are calculated by deterministic rules. When professional or urgent care is appropriate If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional."
+      }
+    ]
+  }
+]

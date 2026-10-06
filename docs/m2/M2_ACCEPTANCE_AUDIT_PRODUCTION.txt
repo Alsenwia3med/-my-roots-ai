@@ -1,0 +1,25 @@
+﻿M2 ACCEPTANCE AUDIT against https://roots-ai-learning.vercel.app
+
+ID       | RESULT | ITEM
+------------------------------------------------------------------------------------------
+A1-a     | PASS   | Session can be created (assessment entry works)  [status 201]
+A7-a     | PASS   | Session persists canonical versions  [{"questionnaire":"C-01 v1.0.1 CORRECTED","scoring":"C-02 v1.0.1 CORRECTED"}]
+A2-a     | PASS   | Empty required multi-select (Q13) hard-rejected (400)  [status 400]
+A2-b     | PASS   | NONE/N-A mutually exclusive hard-rejected (400)  [status 400]
+A2-c     | PASS   | Unknown option value rejected  [status 400]
+A2-d     | PASS   | Q73 invented N/A is rejected  [status 400]
+A3-a     | PASS   | All 13 modules accepted and saved  [13/13]
+A3-b     | PASS   | Progress endpoint reflects completion  [complete=true modules=13 100%]
+A3-c     | PASS   | Progress denominator = 71 required (item 1)  [totalRequired=71 totalQuestions=73]
+A4-a     | PASS   | Deterministic result produced by server  [status 201 BS=52]
+A4-b     | PASS   | Seven domains present  [["MR","HS","SR","CH","SL","IB","BS"]]
+A5-a     | PASS   | Drivers use fixed tie-order vocabulary  [["SL+CH","BS"]]
+A6-a     | PASS   | Result is deterministic (re-POST identical)  [identical on repeat]
+A7-b     | PASS   | Result carries C-01 & C-02 v1.0.1  [C-01 v1.0.1 CORRECTED | C-02 v1.0.1 CORRECTED]
+A7-c     | PASS   | Result exposes version identity string  [C-01 v1.0.1 CORRECTED | C-02 v1.0.1 CORRECTED]
+A2-e     | PASS   | Incomplete assessment cannot produce a result  [status 400]
+A12-/    | PASS   | Page / renders (200)  [status 200]
+A12-/assessment | PASS   | Page /assessment renders (200)  [status 200]
+------------------------------------------------------------------------------------------
+Total 18 | Passed 18 | Failed 0
+AUDIT: ALL CONTRACTUAL M2 CHECKS PRESENT

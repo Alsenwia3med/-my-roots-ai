@@ -39,3 +39,26 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+.vercel
+
+# database
+/data
+
+# local dev server log
+dev.log
+.git-commit-msg.txt
+# local dev server logs
+dev.log
+dev-preview.log
+dev-preview.stdout.log
+dev-preview.stderr.log
+.git-commit-msg.txt
+
+# audit scratch output
+/tmp-shots
+/build-out.log
+/server.log
+/parity.log
+/structural.log
+/visual*.log

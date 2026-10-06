@@ -1,0 +1,188 @@
+[
+  [
+    "test_id",
+    "purpose",
+    "normalized_input_json",
+    "expected_output_json"
+  ],
+  [
+    "GT-001",
+    "All scored items at minimum burden",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":0,\"Q17\":0,\"Q18\":0,\"Q19\":0,\"Q20\":0,\"Q21\":0,\"Q22\":0,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":0,\"Q32\":0,\"Q33\":0,\"Q34\":0,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":0,\"SR\":0,\"HS\":0,\"SL\":0,\"IB\":0,\"CH\":0,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":0,\"opportunity\":100,\"recovery_potential\":96,\"protective_count\":5,\"confidence\":93,\"drivers\":[]}"
+  ],
+  [
+    "GT-002",
+    "All scored items at maximum burden",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":4,\"Q10\":4,\"Q11\":4,\"Q12\":4,\"Q46\":4,\"Q47\":4,\"Q48\":4,\"Q16\":4,\"Q17\":4,\"Q18\":4,\"Q19\":4,\"Q20\":4,\"Q21\":4,\"Q22\":4,\"Q23\":4,\"Q24\":4,\"Q25\":4,\"Q26\":4,\"Q27\":4,\"Q28\":4,\"Q29\":4,\"Q30\":4,\"Q31\":4,\"Q32\":4,\"Q33\":4,\"Q34\":4,\"Q35\":4,\"Q36\":4,\"Q37\":4,\"Q38\":4,\"Q39\":4,\"Q40\":4,\"Q41\":4,\"Q42\":4,\"Q43\":4,\"Q44\":4,\"Q45\":4,\"Q49\":4,\"Q50\":4,\"Q51\":4}",
+    "{\"domains\":{\"MR\":100,\"SR\":100,\"HS\":100,\"SL\":100,\"IB\":100,\"CH\":100,\"BS\":100},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":100,\"opportunity\":50,\"recovery_potential\":66,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-003",
+    "All scored items at midpoint",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":81,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-004",
+    "MR only at maximum",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":4,\"Q10\":4,\"Q11\":4,\"Q12\":4,\"Q46\":4,\"Q47\":4,\"Q48\":4,\"Q16\":0,\"Q17\":0,\"Q18\":0,\"Q19\":0,\"Q20\":0,\"Q21\":0,\"Q22\":0,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":0,\"Q32\":0,\"Q33\":0,\"Q34\":0,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":100,\"SR\":0,\"HS\":0,\"SL\":0,\"IB\":0,\"CH\":0,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":14,\"opportunity\":93,\"recovery_potential\":91.8,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"MR\"]}"
+  ],
+  [
+    "GT-005",
+    "SR only at maximum",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":4,\"Q17\":4,\"Q18\":4,\"Q19\":4,\"Q20\":4,\"Q21\":4,\"Q22\":4,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":0,\"Q32\":0,\"Q33\":0,\"Q34\":0,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":0,\"SR\":100,\"HS\":0,\"SL\":0,\"IB\":0,\"CH\":0,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":14,\"opportunity\":93,\"recovery_potential\":91.8,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"SR\"]}"
+  ],
+  [
+    "GT-006",
+    "HS only at maximum",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":0,\"Q17\":0,\"Q18\":0,\"Q19\":0,\"Q20\":0,\"Q21\":0,\"Q22\":0,\"Q23\":4,\"Q24\":4,\"Q25\":4,\"Q26\":4,\"Q27\":4,\"Q28\":4,\"Q29\":4,\"Q30\":4,\"Q31\":0,\"Q32\":0,\"Q33\":0,\"Q34\":0,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":0,\"SR\":0,\"HS\":100,\"SL\":0,\"IB\":0,\"CH\":0,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":14,\"opportunity\":93,\"recovery_potential\":91.8,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"HS\"]}"
+  ],
+  [
+    "GT-007",
+    "SL only at maximum",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":0,\"Q17\":0,\"Q18\":0,\"Q19\":0,\"Q20\":0,\"Q21\":0,\"Q22\":0,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":4,\"Q32\":4,\"Q33\":4,\"Q34\":4,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":0,\"SR\":0,\"HS\":0,\"SL\":100,\"IB\":0,\"CH\":0,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":14,\"opportunity\":93,\"recovery_potential\":91.8,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"SL\"]}"
+  ],
+  [
+    "GT-008",
+    "IB only at maximum",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":0,\"Q17\":0,\"Q18\":0,\"Q19\":0,\"Q20\":0,\"Q21\":0,\"Q22\":0,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":0,\"Q32\":0,\"Q33\":0,\"Q34\":0,\"Q35\":4,\"Q36\":4,\"Q37\":4,\"Q38\":4,\"Q39\":4,\"Q40\":4,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":0,\"SR\":0,\"HS\":0,\"SL\":0,\"IB\":100,\"CH\":0,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":14,\"opportunity\":93,\"recovery_potential\":91.8,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"IB\"]}"
+  ],
+  [
+    "GT-009",
+    "CH only at maximum",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":0,\"Q17\":0,\"Q18\":0,\"Q19\":0,\"Q20\":0,\"Q21\":0,\"Q22\":0,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":0,\"Q32\":0,\"Q33\":0,\"Q34\":0,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":4,\"Q42\":4,\"Q43\":4,\"Q44\":4,\"Q45\":4,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":0,\"SR\":0,\"HS\":0,\"SL\":0,\"IB\":0,\"CH\":100,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":14,\"opportunity\":93,\"recovery_potential\":91.8,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"CH\"]}"
+  ],
+  [
+    "GT-010",
+    "BS only at maximum",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":0,\"Q17\":0,\"Q18\":0,\"Q19\":0,\"Q20\":0,\"Q21\":0,\"Q22\":0,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":0,\"Q32\":0,\"Q33\":0,\"Q34\":0,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":4,\"Q50\":4,\"Q51\":4}",
+    "{\"domains\":{\"MR\":0,\"SR\":0,\"HS\":0,\"SL\":0,\"IB\":0,\"CH\":0,\"BS\":100},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":14,\"opportunity\":93,\"recovery_potential\":91.8,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"BS\"]}"
+  ],
+  [
+    "GT-011",
+    "Domain classification boundary 25",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":1,\"Q32\":1,\"Q33\":1,\"Q34\":1,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":25,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":46,\"opportunity\":77,\"recovery_potential\":82.2,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-012",
+    "Domain classification boundary 50",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":81,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-013",
+    "Domain classification boundary 75",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":3,\"Q32\":3,\"Q33\":3,\"Q34\":3,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":75,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":54,\"opportunity\":73,\"recovery_potential\":79.8,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"SL\",\"MR\",\"HS\"]}"
+  ],
+  [
+    "GT-014",
+    "Reverse-scored Q26 raw Always becomes zero burden",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":0,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":44,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":49,\"opportunity\":75.5,\"recovery_potential\":81.3,\"protective_count\":5,\"confidence\":92,\"drivers\":[\"MR+SR co-primary\",\"CH\"]}"
+  ],
+  [
+    "GT-015",
+    "Reverse-scored Q28 raw Never becomes maximum burden",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":4,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":56,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":51,\"opportunity\":74.5,\"recovery_potential\":80.7,\"protective_count\":5,\"confidence\":92,\"drivers\":[\"HS\",\"MR\",\"SR\"]}"
+  ],
+  [
+    "GT-016",
+    "Exactly 50% coverage for four-item SL domain remains calculable",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":null,\"Q34\":null,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":0.5,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":81,\"protective_count\":5,\"confidence\":90,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-017",
+    "Below 50% coverage makes SL null",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":null,\"Q33\":null,\"Q34\":null,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":null,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":0.25,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":81,\"protective_count\":5,\"confidence\":89,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-018",
+    "N/A excluded from numerator and denominator",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":null,\"Q18\":null,\"Q19\":null,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":0.5714285714285714,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":81,\"protective_count\":5,\"confidence\":89,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-019",
+    "Five available domains permit Biological State",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":null,\"Q10\":null,\"Q11\":null,\"Q12\":null,\"Q46\":null,\"Q47\":null,\"Q48\":null,\"Q16\":null,\"Q17\":null,\"Q18\":null,\"Q19\":null,\"Q20\":null,\"Q21\":null,\"Q22\":null,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":null,\"SR\":null,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":0,\"SR\":0,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":81,\"protective_count\":5,\"confidence\":75,\"drivers\":[\"HS+CH co-primary\",\"SL\"]}"
+  ],
+  [
+    "GT-020",
+    "Four available domains make Biological State null",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":null,\"Q10\":null,\"Q11\":null,\"Q12\":null,\"Q46\":null,\"Q47\":null,\"Q48\":null,\"Q16\":null,\"Q17\":null,\"Q18\":null,\"Q19\":null,\"Q20\":null,\"Q21\":null,\"Q22\":null,\"Q23\":null,\"Q24\":null,\"Q25\":null,\"Q26\":null,\"Q27\":null,\"Q28\":null,\"Q29\":null,\"Q30\":null,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":null,\"SR\":null,\"HS\":null,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":0,\"SR\":0,\"HS\":0,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":null,\"opportunity\":null,\"recovery_potential\":null,\"protective_count\":5,\"confidence\":65,\"drivers\":[\"CH+SL co-primary\",\"IB\"]}"
+  ],
+  [
+    "GT-021",
+    "Co-primary driver tie within three points",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":4,\"Q17\":4,\"Q18\":4,\"Q19\":4,\"Q20\":4,\"Q21\":4,\"Q22\":4,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":4,\"Q32\":4,\"Q33\":4,\"Q34\":4,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":0,\"SR\":100,\"HS\":0,\"SL\":100,\"IB\":0,\"CH\":0,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":29,\"opportunity\":85.5,\"recovery_potential\":87.3,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"SR+SL co-primary\"]}"
+  ],
+  [
+    "GT-022",
+    "No driver when every domain is below 25",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":0,\"Q10\":0,\"Q11\":0,\"Q12\":0,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":0,\"Q17\":0,\"Q18\":0,\"Q19\":0,\"Q20\":0,\"Q21\":0,\"Q22\":0,\"Q23\":0,\"Q24\":0,\"Q25\":0,\"Q26\":0,\"Q27\":0,\"Q28\":0,\"Q29\":0,\"Q30\":0,\"Q31\":0,\"Q32\":0,\"Q33\":0,\"Q34\":0,\"Q35\":0,\"Q36\":0,\"Q37\":0,\"Q38\":0,\"Q39\":0,\"Q40\":0,\"Q41\":0,\"Q42\":0,\"Q43\":0,\"Q44\":0,\"Q45\":0,\"Q49\":0,\"Q50\":0,\"Q51\":0}",
+    "{\"domains\":{\"MR\":0,\"SR\":0,\"HS\":0,\"SL\":0,\"IB\":0,\"CH\":0,\"BS\":0},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":0,\"opportunity\":100,\"recovery_potential\":96,\"protective_count\":5,\"confidence\":93,\"drivers\":[]}"
+  ],
+  [
+    "GT-023",
+    "Low answer confidence reduces ROOTS Confidence",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":25,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":81,\"protective_count\":5,\"confidence\":78,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-024",
+    "High answer confidence and consistent responses",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":100,\"Q9\":1,\"Q10\":1,\"Q11\":1,\"Q12\":1,\"Q46\":1,\"Q47\":1,\"Q48\":1,\"Q16\":1,\"Q17\":1,\"Q18\":1,\"Q19\":1,\"Q20\":1,\"Q21\":1,\"Q22\":1,\"Q23\":1,\"Q24\":1,\"Q25\":1,\"Q26\":1,\"Q27\":1,\"Q28\":1,\"Q29\":1,\"Q30\":1,\"Q31\":1,\"Q32\":1,\"Q33\":1,\"Q34\":1,\"Q35\":1,\"Q36\":1,\"Q37\":1,\"Q38\":1,\"Q39\":1,\"Q40\":1,\"Q41\":1,\"Q42\":1,\"Q43\":1,\"Q44\":1,\"Q45\":1,\"Q49\":1,\"Q50\":1,\"Q51\":1}",
+    "{\"domains\":{\"MR\":25,\"SR\":25,\"HS\":25,\"SL\":25,\"IB\":25,\"CH\":25,\"BS\":25},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":25,\"opportunity\":87.5,\"recovery_potential\":88.5,\"protective_count\":5,\"confidence\":100,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-025",
+    "Young age, no conditions, no medicines, five protective factors",
+    "{\"age\":25,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":85,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-026",
+    "Older age, multiple conditions and medicines, no protective factors",
+    "{\"age\":80,\"diseaseCount\":3,\"medicationCount\":2,\"P1\":false,\"P2\":false,\"P3\":false,\"P4\":false,\"P5\":false,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":27.8,\"protective_count\":0,\"confidence\":93,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-027",
+    "Activity minimum burden mapping",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":0,\"Q47\":0,\"Q48\":0,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":29,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":47,\"opportunity\":76.5,\"recovery_potential\":81.9,\"protective_count\":5,\"confidence\":91,\"drivers\":[\"HS+SR co-primary\",\"CH\"]}"
+  ],
+  [
+    "GT-028",
+    "Activity maximum burden mapping",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":2,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":4,\"Q47\":4,\"Q48\":4,\"Q16\":2,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":2,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":2,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":2,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":2,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":71,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":53,\"opportunity\":73.5,\"recovery_potential\":80.1,\"protective_count\":5,\"confidence\":91,\"drivers\":[\"MR\",\"HS\",\"SR\"]}"
+  ],
+  [
+    "GT-029",
+    "One missing item in every domain",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":null,\"Q10\":2,\"Q11\":2,\"Q12\":2,\"Q46\":2,\"Q47\":2,\"Q48\":2,\"Q16\":null,\"Q17\":2,\"Q18\":2,\"Q19\":2,\"Q20\":2,\"Q21\":2,\"Q22\":2,\"Q23\":null,\"Q24\":2,\"Q25\":2,\"Q26\":2,\"Q27\":2,\"Q28\":2,\"Q29\":2,\"Q30\":2,\"Q31\":null,\"Q32\":2,\"Q33\":2,\"Q34\":2,\"Q35\":null,\"Q36\":2,\"Q37\":2,\"Q38\":2,\"Q39\":2,\"Q40\":2,\"Q41\":null,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":null,\"Q50\":2,\"Q51\":2}",
+    "{\"domains\":{\"MR\":50,\"SR\":50,\"HS\":50,\"SL\":50,\"IB\":50,\"CH\":50,\"BS\":50},\"coverage\":{\"MR\":0.8571428571428571,\"SR\":0.8571428571428571,\"HS\":0.875,\"SL\":0.75,\"IB\":0.8333333333333334,\"CH\":0.8,\"BS\":0.6666666666666666},\"biological_state\":50,\"opportunity\":75,\"recovery_potential\":81,\"protective_count\":5,\"confidence\":84,\"drivers\":[\"MR+HS co-primary\",\"SR\"]}"
+  ],
+  [
+    "GT-030",
+    "Mixed high-burden profile with complete data",
+    "{\"age\":40,\"diseaseCount\":0,\"medicationCount\":0,\"P1\":true,\"P2\":true,\"P3\":true,\"P4\":true,\"P5\":true,\"answerConfidence\":75,\"Q9\":3,\"Q10\":3,\"Q11\":3,\"Q12\":3,\"Q46\":3,\"Q47\":3,\"Q48\":3,\"Q16\":1,\"Q17\":1,\"Q18\":1,\"Q19\":1,\"Q20\":1,\"Q21\":1,\"Q22\":1,\"Q23\":4,\"Q24\":4,\"Q25\":4,\"Q26\":4,\"Q27\":4,\"Q28\":4,\"Q29\":4,\"Q30\":4,\"Q31\":4,\"Q32\":4,\"Q33\":4,\"Q34\":4,\"Q35\":3,\"Q36\":3,\"Q37\":3,\"Q38\":3,\"Q39\":3,\"Q40\":3,\"Q41\":2,\"Q42\":2,\"Q43\":2,\"Q44\":2,\"Q45\":2,\"Q49\":4,\"Q50\":4,\"Q51\":4}",
+    "{\"domains\":{\"MR\":75,\"SR\":25,\"HS\":100,\"SL\":100,\"IB\":75,\"CH\":50,\"BS\":100},\"coverage\":{\"MR\":1,\"SR\":1,\"HS\":1,\"SL\":1,\"IB\":1,\"CH\":1,\"BS\":1},\"biological_state\":75,\"opportunity\":62.5,\"recovery_potential\":73.5,\"protective_count\":5,\"confidence\":93,\"drivers\":[\"HS+SL co-primary\",\"BS\"]}"
+  ]
+]

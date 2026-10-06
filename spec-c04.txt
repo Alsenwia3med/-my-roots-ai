@@ -1,0 +1,410 @@
+
+===== PAGE 1 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 1
+ROOTS-AI™ C-04
+Website Content & Legal Copy Pack — Version 1.0.1 CORRECTED
+Document ID: ROOTS-C04-WEB-001
+Status: APPROVED EXECUTABLE CONTENT RELEASE — CONTROLLED CORRECTION
+Effective date: 21 July 2026
+Controlled dependencies: C-01 Canonical Question Bank v1.0.1; C-02 Canonical Scoring Rules & Golden
+Tests v1.0.1; C-03 Report Content & Visual Reference Pack v1.0.1. These controlled sources govern
+assessment validation, deterministic scoring/driver outputs, and report structure respectively.
+This document supplies production-ready English copy for every Phase 1 public, legal, assessment,
+report and admin route. Dynamic system values are identified by braces and are not editorial
+placeholders.
+
+===== PAGE 2 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 2
+1. Global Content Rules
+ Brand: ROOTS-AI™. Product statement: “Medicine Before Symptoms™.”
+ Primary CTA: “Start Your Assessment”. Secondary CTA: “View Example Report”.
+ Never claim diagnosis, disease prevention, cure, guaranteed weight loss, clinical validation or medical-device
+status.
+ Public future capabilities are labelled “Coming Soon”; they are not represented as available.
+ Protected routes contain no marketing analytics, session replay or advertising pixels.
+ Dynamic variables such as {report_id} and {participant_name} are populated by the application and escaped
+before rendering.
+2. Navigation and Footer
+Area Approved labels/copy
+Primary navigation Home • How It Works • Platform • Research • Healthcare Professionals • Example Report •
+About
+Primary action Start Your Assessment
+Footer product Assessment • Example Report • How It Works • Platform
+Footer company About • Research • Healthcare Professionals • Pilot Program • Contact • Blog
+Footer legal Privacy • Terms • Cookies • Medical Disclaimer • AI Disclaimer
+Footer line © 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.
+Footer boundary ROOTS-AI™ provides educational wellness information and does not diagnose or treat
+medical conditions.
+3. Production Page Copy
+/ — Home
+Element Approved copy
+Headline Decode the Biology Before You Fight the Weight
+Intro ROOTS-AI™ turns a structured assessment into a governed biological intelligence report—helping you
+understand patterns in metabolism, hunger, sleep, circadian timing, stress, inflammation-related signals
+and perceived biological resistance.
+CTA Start Your Assessment • View Example Report
+ Beyond a number on the scale — see the pattern behind the struggle.
+ Seven biological domains — one connected view.
+ Deterministic scores — AI assists with explanation, not calculation.
+ Your report — 19 transparent sections with your answers and limitations.
+ Private by design — controlled access, versioning and audit.
+ Educational, not diagnostic — designed to support informed conversations and realistic next steps.
+/assessment — Assessment
+Element Approved copy
+Headline Your ROOTS Biological Assessment
+Intro Answer 73 questions across 13 short modules. Most people finish in about 10–12 minutes. You can
+save, pause and resume securely.
+CTA Begin Assessment
+
+===== PAGE 3 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 3
+ Use your usual experience during the last four weeks unless a question says otherwise.
+ There are no “good” answers. Choose what best reflects your experience.
+ N/A is available only where approved and is never treated as zero. Required multi-select questions must contain
+one or more approved option IDs; an empty array is invalid. None/N/A options are exclusive where provided and
+must not be combined with other options.
+ Your answers generate educational wellness indicators, not a diagnosis.
+ If you may be in immediate danger, contact local emergency services; this form is not monitored for emergencies.
+/report/[id] — Authorized Report
+Element Approved copy
+Headline Your ROOTS Biological Intelligence Report™
+Intro This report summarizes your submitted answers using deterministic scoring rules and governed
+explanatory language.
+CTA Download PDF
+ Show generated date, report ID and version.
+ Display all 19 sections from the canonical report JSON.
+ Show “Not enough information” for null domains.
+ Display the full Medical and AI Disclaimer.
+/example-report — Example Report
+Element Approved copy
+Headline See What Your Biological Report Looks Like
+Intro Explore the full 19-section structure using fictional sample data. The example does not represent a real
+person or a clinical result.
+CTA View Example • Start Your Assessment
+ Seven-domain breakdown.
+ Deterministic driver outputs and available protective factors. The interface must support zero to three driver
+outputs, including a co-primary pair as one output entry, without inventing missing drivers or protective factors.
+ 90-day educational roadmap.
+ Transparent answers, limitations and disclaimer.
+/how-it-works — How It Works
+Element Approved copy
+Headline From Answers to Biological Intelligence
+Intro ROOTS-AI™ follows a controlled sequence so that interpretation never replaces the underlying data.
+CTA Start Your Assessment
+ 1. Complete the 73-question assessment.
+ 2. Validation normalizes approved responses and preserves N/A.
+ 3. Deterministic rules calculate seven domains and derived indicators.
+ 4. C-02 v1.0.1 deterministic rules select driver outputs, confidence and eligible content; no website or AI layer may
+independently recalculate or replace them.
+ 5. Governed AI may express only C-02/C-03-approved explanation objects in clear language; it cannot change
+scores, classifications, drivers, null states or report structure.
+ 6. The web and PDF reports render from the same immutable report record.
+
+===== PAGE 4 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 4
+/platform — Platform
+Element Approved copy
+Headline One Foundation. Deeper Layers Over Time.
+Intro Phase 1 delivers the assessment and governed report engine. Future layers will expand biological
+context only after separate validation, governance and implementation.
+CTA Explore the Assessment
+ Available: Assessment and governed report engine.
+ Coming Soon: Laboratory data integration.
+ Coming Soon: DNA and epigenetic insights.
+ Coming Soon: Microbiome analysis.
+ Coming Soon: Wearable integrations.
+ Coming Soon: ROOTS Biological Twin™.
+/research — Research
+Element Approved copy
+Headline Building Biological Intelligence Responsibly
+Intro ROOTS-AI™ is designed to support ethical pilot studies and de-identified research under separate
+consent, data minimization and documented governance.
+CTA Research Enquiries
+ Service consent and research consent are separate.
+ Research export excludes direct identifiers and report narratives.
+ Pseudonymized data is not described as anonymous unless the methodology supports that claim.
+ Pilot findings will be reported with limitations; questionnaire scores are not clinical endpoints unless separately
+validated.
+/healthcare-professionals — Healthcare Professionals
+Element Approved copy
+Headline A Transparent Educational Report for Better Conversations
+Intro ROOTS-AI™ helps participants organize self-reported patterns before discussing persistent concerns
+with a qualified professional. It does not replace clinical history, examination, diagnosis or care.
+CTA View Example Report
+ See the exact answers behind each score.
+ Review data completeness and confidence.
+ Distinguish deterministic calculation from AI-assisted wording.
+ Use suggested laboratory discussions only as optional conversation prompts.
+/pilot — Free Beta/Pilot
+Element Approved copy
+Headline Join the ROOTS-AI™ Free Beta
+Intro The beta explores whether a structured, non-diagnostic assessment can help people understand self-
+reported patterns involving weight resistance, energy, sleep, stress and appetite.
+CTA Check Eligibility
+ Eligibility: adults aged 18 or older unless a separately approved local workflow applies.
+
+===== PAGE 5 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 5
+ Participation is voluntary and may be withdrawn according to the Privacy Notice.
+ The report is educational and is not medical care.
+ Beta feedback may be used to improve usability; research use requires separate explicit consent.
+ No payment is required for the approved beta cohort.
+/about — About
+Element Approved copy
+Headline Medicine Before Symptoms™
+Intro ROOTS-AI™ was created around a simple idea: biology often adapts long before a diagnosis is made.
+Our role is not to label disease, but to help people see patterns earlier, ask better questions and choose
+realistic next steps.
+CTA How It Works
+ Mission: make complex biological patterns understandable without turning an educational tool into a diagnosis.
+ Method: structured data, deterministic rules, governed language and visible limitations.
+ Company: ROOTS AI HEALTH SYSTEMS, Inc., Delaware, USA.
+/contact — Contact
+Element Approved copy
+Headline Start the Right Conversation
+Intro Use the secure form for product support, privacy requests, research collaboration or business enquiries.
+Do not send urgent medical information.
+CTA Send Enquiry
+ Fields: enquiry type, name, email, message, consent checkbox.
+ Message limit: 2,000 characters.
+ Confirmation: “Thank you. Your enquiry has been received. We will respond through the contact details you
+provided.”
+ Emergency notice: “This form is not monitored for emergencies. Contact local emergency services if you may be in
+immediate danger.”
+/blog — Insights
+Element Approved copy
+Headline Medicine Before Symptoms™ — Insights
+Intro Educational articles about metabolism, hunger, sleep, circadian biology, stress, behaviour and
+responsible health technology.
+CTA Explore Insights
+ Every article displays author, review date, sources and educational disclaimer.
+ No article is personalized medical advice.
+ Launch empty state: “Our first evidence-informed insights are being prepared. Please return soon.”
+/admin — Protected Administration
+Element Approved copy
+Headline ROOTS-AI™ Administration
+Intro Authorized operations only. All access and material actions are logged.
+CTA Sign In
+
+===== PAGE 6 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 6
+ Navigation: Participants • Assessments • Reports • Configuration • Audit • Research Exports • System Status.
+ Configuration states: Draft • Reviewed • Published • Retired.
+ Publish warning: “Publishing creates an immutable version for new reports. Historical reports will not be
+recalculated.”
+ Export warning: “Research export requires an approved purpose, role and separate research consent.”
+4. Privacy Notice — /privacy
+Who we are
+ROOTS AI HEALTH SYSTEMS, Inc. (“ROOTS-AI™”, “we”, “us”) provides an educational biological assessment and
+reporting service. This notice explains how we handle personal data when you use the Phase 1 web platform.
+Data we collect
+Account and contact information; assessment answers; physical measurements you provide; consent records;
+generated scores and reports; device, security and audit information; support enquiries; and limited public-site
+analytics where consent is required. We do not intentionally collect emergency information through the assessment.
+Why we use it
+To provide, secure and improve the service; save and resume assessments; generate and deliver reports; respond to
+enquiries; meet legal and security obligations; and conduct separately consented research or pilot analysis.
+Sensitive data
+Assessment answers and identifiable wellness information may be sensitive personal data. We process them only for
+stated purposes and with appropriate consent or other lawful authority required by applicable law.
+Research
+Research participation is optional and requires separate explicit consent. Service access is not conditioned on
+research consent. Approved research exports are minimized and pseudonymized or de-identified; direct identifiers,
+authentication data and report narratives are excluded.
+Providers and transfers
+We may use approved hosting, authentication, email, AI-language and security providers under written safeguards.
+Identifiable assessment data is not sent to an AI provider unless the approved configuration, agreements and
+minimization controls permit it. Cross-border transfers are assessed and governed under applicable transfer
+requirements, including documented review of the destination, recipient safeguards and other legally required transfer
+conditions before deployment.
+AI use
+Deterministic rules calculate scores and classifications. AI may assist with approved explanatory wording using
+minimized structured inputs. AI does not diagnose, prescribe or change scores.
+Retention
+Assessment, report, consent, audit and security records are retained according to the approved retention schedule and
+legal needs. Data is deleted or de-identified when no longer required, subject to security backups and legal obligations.
+Security
+We use access controls, MFA for privileged roles, encryption in transit and at rest where supported, private report
+storage, audit logging, backups and security testing. ROOTS-AI™ maintains a documented personal-data-breach
+response process and, where applicable, will notify the Personal Data Protection Commissioner and affected data
+
+===== PAGE 7 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 7
+subjects in the manner and time required by law. Where applicable, a Data Protection Officer is appointed and notified
+to the Commissioner in accordance with current requirements. No system can guarantee absolute security.
+Your choices and rights
+Depending on applicable law, you may request access, correction, deletion, restriction, withdrawal of consent,
+information about processing or a copy of relevant data. Withdrawal does not affect earlier lawful processing and may
+limit service functions that require the data.
+Cookies and analytics
+Essential technologies support authentication and security. Optional public-site analytics are used only where
+permitted and consented. Assessment, report, authentication and admin routes do not use advertising pixels, session
+replay or behavioural advertising.
+Children
+Production launch is intended for adults aged 18 or older. Participation below 18 is not enabled unless ROOTS-AI™
+approves and implements a jurisdiction-specific consent and guardian workflow.
+Contact
+Submit privacy questions or rights requests through the secure Contact page and choose “Privacy”. We may verify
+identity before fulfilling a request.
+Updates
+We may update this notice when the service or law changes. The page displays the effective date and version;
+material changes are communicated where required.
+Effective date: 21 July 2026 • Version: 1.0.1. This notice is designed with reference to Malaysia’s Personal
+Data Protection Act 2010, the Personal Data Protection (Amendment) Act 2024, applicable commencement
+instruments, and current official guidance and circulars, including data-breach notification, Data
+Protection Officer and cross-border transfer requirements. It does not represent certification of
+compliance.
+5. Terms of Service — /terms
+Agreement and eligibility
+By accessing ROOTS-AI™, you agree to these Terms and the Privacy Notice. You must be at least 18 years old for
+the production launch unless a separately approved minor workflow applies. Do not use the service if you cannot
+lawfully agree.
+Educational service
+ROOTS-AI™ provides educational wellness information from self-reported answers. It is not a medical device,
+healthcare provider, diagnostic service, clinical assessment, prognosis or emergency service.
+No medical reliance
+Do not use ROOTS-AI™ to diagnose, treat or prevent disease, make medication decisions, delay professional care or
+respond to an emergency. Seek qualified professional advice for medical concerns.
+Your information
+Provide information you are authorized to submit and that reasonably reflects your experience. You are responsible for
+reviewing your submitted answers and protecting access to your email and Magic Link.
+
+===== PAGE 8 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 8
+Reports and scores
+Scores are proprietary questionnaire indicators. They are not clinically validated probabilities of disease, future
+outcomes or treatment response. Reports may contain AI-assisted wording governed by deterministic outputs and
+fixed safety rules.
+Acceptable use
+Do not bypass security, access another person’s data, scrape the service, introduce malware, reverse engineer
+confidential scoring logic, misuse reports for employment or insurance decisions, or represent output as a diagnosis.
+Intellectual property
+ROOTS-AI™ software, content, scoring methods, prompts, designs and trademarks belong to ROOTS AI HEALTH
+SYSTEMS, Inc. or its licensors. Personal use of your own report is permitted; no other licence is granted.
+Availability and beta
+The service may change, pause or contain beta limitations. We may correct errors, suspend unsafe activity and
+preserve historical report versions. Future capabilities marked Coming Soon are not part of the current service.
+Disclaimers
+To the extent permitted by law, the service is provided without a guarantee of uninterrupted availability, fitness for a
+clinical purpose or a particular health or weight outcome. Nothing excludes rights that cannot lawfully be excluded.
+Limitation
+To the extent permitted by law, ROOTS-AI™ is not liable for decisions made by treating educational output as medical
+advice, indirect loss or loss caused by unauthorized account access outside our reasonable control. Applicable
+consumer rights remain unaffected.
+Suspension and termination
+You may stop using the service. We may suspend access for security, unlawful use or material breach. Data handling
+after termination follows the Privacy Notice and retention schedule.
+Governing framework
+The governing-law and forum text for production is a jurisdiction-controlled deployment variable and must be legally
+approved for each launch market before that market is enabled. Until that approved jurisdiction-specific text is
+configured, this clause must not be presented as a final governing-law selection. Mandatory consumer and data-
+protection rights continue to apply.
+Contact and changes
+Questions may be submitted through the Contact page. The current version and effective date appear on this page.
+Continued use after a notified change constitutes acceptance where permitted by law.
+Effective date: 21 July 2026 • Version: 1.0.1. Final production deployment requires jurisdiction-specific
+legal review and approval, including the governing-law/forum block, before each launch market is enabled.
+6. Cookie Notice — /cookies
+Category Phase 1 treatment Consent/control
+Strictly necessary Authentication, secure sessions, CSRF protection, load
+balancing and preference storage
+Always active where necessary for
+service delivery and security.
+Public-site analytics Aggregate page and conversion measurement on public
+pages only
+Disabled until required consent; withdraw
+through cookie controls.
+
+===== PAGE 9 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 9
+Category Phase 1 treatment Consent/control
+Advertising No behavioural advertising or retargeting in Phase 1 Not used.
+Session replay Prohibited on assessment, report, authentication and
+admin routes
+Not used on protected routes.
+Health data Never placed in analytics, advertising or replay payloads Mandatory technical control.
+Cookie banner copy: “We use essential technologies to keep ROOTS-AI™ secure. With your permission, we may use
+limited analytics on public pages. We do not use advertising pixels or session replay on assessment, report, sign-in or
+admin pages.” Buttons: “Accept optional analytics” • “Reject optional analytics” • “Manage choices”.
+7. Medical Disclaimer — /medical-disclaimer
+ROOTS-AI™ provides educational wellness information based primarily on self-reported answers. It is not a medical
+device, doctor, healthcare provider, diagnostic test, clinical risk assessment, prognosis or treatment service. It does not
+establish a clinician-patient relationship and does not replace medical history, examination, laboratory testing or
+professional judgment. Do not start, stop or change medication, supplements, diet, exercise or treatment because of a
+ROOTS-AI™ report without appropriate professional advice. Questionnaire scores are proprietary indicators and are
+not validated probabilities of disease or future outcomes. Persistent, severe, sudden or worsening symptoms require
+appropriate professional evaluation. If you believe you may be in immediate danger, contact local emergency services.
+8. AI Disclaimer — /ai-disclaimer
+ROOTS-AI™ uses the approved C-02 v1.0.1 deterministic rules to calculate questionnaire scores, classifications,
+driver outputs, data-quality indicators and eligible content. C-03 v1.0.1 governs report structure, null states and
+approved explanation objects. An AI language model may assist only in expressing approved information clearly. The
+model is not permitted to calculate or change scores, classifications, drivers or null states; diagnose disease; prescribe
+treatment; interpret laboratory results; or invent participant facts. AI-assisted text can be incomplete or imperfect; fixed
+validation, logging and fallback rules are applied. Review the underlying answers and limitations, and consult a
+qualified professional for medical decisions.
+9. Consent and System Messages
+ID Approved production copy
+CONSENT-SERVICE I agree to the Terms of Service and acknowledge the Privacy Notice and Medical and AI Disclaimers. I
+understand that ROOTS-AI™ is educational and not a diagnosis or medical service.
+CONSENT-
+RESEARCH
+Optional: I consent to the use of approved, minimized and pseudonymized assessment data for the
+research purpose described in the Pilot Information Sheet. I understand that I may decline without
+losing service access and may withdraw according to the Privacy Notice.
+SAVE Saved
+SAVE-FAIL We could not save this answer. Check your connection and try again. Your current entry remains on
+this device until you leave or refresh.
+SESSION-EXPIRED For your security, this session has expired. Request a new secure link to continue.
+REPORT-
+GENERATING
+Your report is being prepared. Scores are calculated first; governed explanatory content follows.
+REPORT-FAIL Your answers were submitted safely, but the report could not be completed. Try again later or contact
+support through the Contact page.
+NULL-DOMAIN Not enough information was available to calculate this domain. No missing answer was replaced or
+guessed.
+DELETE-CONFIRM This request may permanently remove eligible service data after identity verification and applicable
+retention checks. Historical audit records may be retained where legally required.
+
+===== PAGE 10 =====
+ROOTS-AI™ | C-04 Website Content & Legal Copy Pack v1.0.0
+CONFIDENTIAL — C-04 | 10
+10. SEO and Metadata
+Route Title Description
+/ ROOTS-AI™ — Decode the Biology
+Before You Fight the Weight
+A governed biological assessment and educational report
+across seven connected domains.
+/assessment ROOTS Biological Assessment™ Complete 73 questions across 13 modules and receive a
+transparent educational report.
+/example-report ROOTS-AI™ Example Biological
+Report
+Explore the 19-section structure using fictional sample data.
+/how-it-works How ROOTS-AI™ Works See how deterministic scoring and governed AI-assisted
+explanations create your report.
+/platform ROOTS-AI™ Platform Assessment and governed reporting now; deeper biological
+layers coming later.
+/research ROOTS-AI™ Research Learn about ethical pilots, separate research consent and
+minimized data use.
+/about About ROOTS-AI™ Medicine Before Symptoms™ — structured biological
+intelligence with visible limitations.
+11. Official Legal Reference Links
+ Malaysia Personal Data Protection Act 2010: https://www.pdp.gov.my/ppdpv1/en/akta/pdp-act-2010-en/
+ Personal Data Protection (Amendment) Act 2024: https://www.pdp.gov.my/ppdpv1/en/akta/personal-data-
+protection-amendment-act-2024/
+ Data Breach Notification Guideline:
+https://www.pdp.gov.my/ppdpv1/wp-content/uploads/2025/08/GP_DBN_ENG.pdf
+ Cross-Border Personal Data Transfer Guideline:
+https://www.pdp.gov.my/ppdpv1/wp-content/uploads/2025/08/GP_CBPDT_EN-1.pdf
+ Data Protection Officer Guideline/Circular: official Personal Data Protection Commissioner guidance and circulars
+current at deployment.
+ Data Protection Impact Assessment, Data Protection by Design and Automated Decision-Making/Profiling
+guidance: official Personal Data Protection Commissioner guidance current at deployment.

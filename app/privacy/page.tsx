@@ -1,0 +1,26 @@
+import type { Metadata } from "next";
+import LegalPage, { type LegalSection } from "@/components/layout/LegalPage";
+
+export const metadata: Metadata = { title: "Privacy Notice" };
+
+const sections: LegalSection[] = [
+  { title: "Who we are", text: "ROOTS AI HEALTH SYSTEMS, Inc. (“ROOTS-AI™”, “we”, “us”) provides an educational biological assessment and reporting service. This notice explains how we handle personal data when you use the Phase 1 web platform." },
+  { title: "Data we collect", text: "Account and contact information; assessment answers; physical measurements you provide; consent records; generated scores and reports; device, security and audit information; support enquiries; and limited public-site analytics where consent is required. We do not intentionally collect emergency information through the assessment." },
+  { title: "Why we use it", text: "To provide, secure and improve the service; save and resume assessments; generate and deliver reports; respond to enquiries; meet legal and security obligations; and conduct separately consented research or pilot analysis." },
+  { title: "Sensitive data", text: "Assessment answers and identifiable wellness information may be sensitive personal data. We process them only for stated purposes and with appropriate consent or other lawful authority required by applicable law." },
+  { title: "Research", text: "Research participation is optional and requires separate explicit consent. Service access is not conditioned on research consent. Approved research exports are minimized and pseudonymized or de-identified; direct identifiers, authentication data and report narratives are excluded." },
+  { title: "Providers and transfers", text: "We may use approved hosting, authentication, email, AI-language and security providers under written safeguards. Identifiable assessment data is not sent to an AI provider unless the approved configuration, agreements and minimization controls permit it. Cross-border transfers are assessed and governed under applicable transfer requirements, including documented review of the destination, recipient safeguards and other legally required transfer conditions before deployment." },
+  { title: "AI use", text: "Deterministic rules calculate scores and classifications. AI may assist with approved explanatory wording using minimized structured inputs. AI does not diagnose, prescribe or change scores." },
+  { title: "Retention", text: "Assessment, report, consent, audit and security records are retained according to the approved retention schedule and legal needs. Data is deleted or de-identified when no longer required, subject to security backups and legal obligations." },
+  { title: "Security", text: "We use access controls, MFA for privileged roles, encryption in transit and at rest where supported, private report storage, audit logging, backups and security testing. ROOTS-AI™ maintains a documented personal-data-breach response process and, where applicable, will notify the Personal Data Protection Commissioner and affected data subjects in the manner and time required by law. Where applicable, a Data Protection Officer is appointed and notified to the Commissioner in accordance with current requirements. No system can guarantee absolute security." },
+  { title: "Your choices and rights", text: "Depending on applicable law, you may request access, correction, deletion, restriction, withdrawal of consent, information about processing or a copy of relevant data. Withdrawal does not affect earlier lawful processing and may limit service functions that require the data." },
+  { title: "Cookies and analytics", text: "Essential technologies support authentication and security. Optional public-site analytics are used only where permitted and consented. Assessment, report, authentication and admin routes do not use advertising pixels, session replay or behavioural advertising." },
+  { title: "Children", text: "Production launch is intended for adults aged 18 or older. Participation below 18 is not enabled unless ROOTS-AI™ approves and implements a jurisdiction-specific consent and guardian workflow." },
+  { title: "Contact", text: "Submit privacy questions or rights requests through the secure Contact page and choose “Privacy”. We may verify identity before fulfilling a request." },
+  { title: "Updates", text: "We may update this notice when the service or law changes. The page displays the effective date and version; material changes are communicated where required." },
+  { title: "Legal basis and approval", text: "This notice is designed with reference to Malaysia’s Personal Data Protection Act 2010, the Personal Data Protection (Amendment) Act 2024, applicable commencement instruments, and current official guidance and circulars, including data-breach notification, Data Protection Officer and cross-border transfer requirements. It does not represent certification of compliance." },
+];
+
+export default function PrivacyPage() {
+  return <LegalPage eyebrow="ROOTS / PRIVACY" title="Privacy Notice" intro="This notice explains how ROOTS AI HEALTH SYSTEMS, Inc. handles personal data when you use the Phase 1 web platform." sections={sections} relatedLinks={[{ label: "Contact", href: "/contact" }, { label: "Cookie Notice", href: "/cookies" }]} />;
+}

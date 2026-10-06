@@ -1,26 +1,31 @@
 {
-  "name": "my-roots-ai",
+  "name": "roots-ai-learning",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:golden": "tsx scripts/run-golden-tests.ts",
+    "test:canonical": "tsx scripts/verify-canonical.ts",
+    "test:security": "node scripts/security-tests.mjs",
+    "test:rls": "node scripts/run-rls-suite.mjs",
+    "ingest:canonical": "tsx scripts/ingest-canonical.ts",
+    "test:e2e": "node scripts/e2e-flow.mjs",
+    "test:ai": "tsx scripts/run-ai-boundary-tests.ts",
+    "test:report": "tsx scripts/run-report-integrity-tests.ts",
+    "test:encoding": "node scripts/_encoding-audit.mjs",
+    "test:parity": "node scripts/_parity-audit.mjs",
+    "test:structure": "node scripts/_structural-audit.mjs",
+    "test:visual": "node scripts/_visual-audit.mjs"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.9.1",
-    "@supabase/auth-helpers-nextjs": "^0.15.0",
-    "@supabase/ssr": "^0.12.7",
-    "@supabase/supabase-js": "^2.117.2",
-    "date-fns": "^4.4.0",
-    "next": "16.3.8",
+    "@react-pdf/renderer": "^4.9.0",
+    "next": "16.3.4",
+    "puppeteer": "^25.10.0",
     "react": "19.2.8",
-    "react-dom": "19.2.8",
-    "react-hook-form": "^7.89.0",
-    "xlsx": "^0.18.5",
-    "zod": "^4.6.5",
-    "zustand": "^5.0.15"
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -28,8 +33,16 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
-    "eslint-config-next": "16.3.8",
+    "eslint-config-next": "16.3.4",
+    "globals": "^15",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "tsx": "^4.20.3",
+    "typescript": "^5",
+    "xlsx": "^0.18.5"
+  },
+  "allowScripts": {
+    "puppeteer@25.10.0": true,
+    "unrs-resolver@1.12.2": true,
+    "esbuild@0.28.2": true
   }
 }
