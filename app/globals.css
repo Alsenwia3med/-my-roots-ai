@@ -739,3 +739,38 @@ body:has(.cookie-banner) { padding-bottom: 110px; }
     .process-section .step-card h3 { margin-top: 12px; font-size: 22px; }
     .process-section .step-card p { font-size: 16px; }
   }
+
+/* Hero + orbital: strict Teal (#0F5C6A) / White / Black palette */
+.pub-page .pub-hero { background: #0F5C6A; color: #fff; }
+.pub-page .pub-hero .pub-kicker,
+.pub-page .pub-hero .hero-copy h1,
+.pub-page .pub-hero .hero-copy h1 span { color: #fff; }
+.pub-page .pub-hero .hero-lede { color: rgba(255, 255, 255, .8); }
+.pub-page .pub-hero .hero-proof { color: #fff; }
+.pub-page .pub-hero .hero-proof span::before { background: #fff; }
+.pub-page .pub-hero .hero-actions .primary-button { border: 2px solid #fff; background: #fff; color: #000; }
+.pub-page .pub-hero .hero-actions .primary-button:hover { background: rgba(255, 255, 255, .88); color: #000; }
+.pub-page .pub-hero .hero-actions .secondary-button { border: 1px solid #fff; background: transparent; color: #fff; }
+.pub-page .pub-hero .hero-actions .secondary-button:hover { background: rgba(255, 255, 255, .12); color: #fff; }
+.pub-page .pub-hero .hero-actions a:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.pub-page .pub-hero .orbit-hero-visual,
+.pub-page .pub-hero .company-hero-visual { border: 1px solid rgba(255, 255, 255, .3); background: transparent; }
+.pub-page .pub-hero .company-hero-visual::before,
+.pub-page .pub-hero .company-hero-visual::after { border-color: rgba(255, 255, 255, .4); }
+.pub-page .pub-hero .orbit-plane,
+.pub-page .pub-hero .orbit-plane-two,
+.pub-page .pub-hero .orbit-plane-three { border-color: rgba(255, 255, 255, .45); }
+.pub-page .pub-hero .orbit-grid { background-image: linear-gradient(rgba(255, 255, 255, .45) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .45) 1px, transparent 1px); }
+.pub-page .pub-hero .orbit-hero-visual .company-hero-state { border: 2px solid #fff; background: #0F5C6A; color: #fff; box-shadow: 0 0 0 11px rgba(255, 255, 255, .1); }
+.pub-page .pub-hero .company-hero-state small,
+.pub-page .pub-hero .company-hero-state strong,
+.pub-page .pub-hero .orbit-hero-visual .company-hero-state em,
+.pub-page .pub-hero .company-hero-state b { color: #fff; }
+.pub-page .pub-hero .orbit-domain-node,
+.pub-page .pub-hero .orbit-domain-node.node-top,
+.pub-page .pub-hero .orbit-domain-node.node-sr,
+.pub-page .pub-hero .orbit-domain-node.node-ch,
+.pub-page .pub-hero .orbit-domain-node.node-sl,
+.pub-page .pub-hero .orbit-domain-node.node-sa,
+.pub-page .pub-hero .orbit-domain-node.node-in { border-color: #fff; background: #fff; color: #0F5C6A; box-shadow: 0 0 0 5px rgba(255, 255, 255, .15); }
+.pub-page .pub-hero .orbit-domain-node span { color: #fff; }
