@@ -1,0 +1,693 @@
+/*
+ * RPT-01..05 participant report. Layout follows the RPT-02/03 handoff frames; colours are the
+ * site tokens, which are also C-03 §2's visual system (navy, soft navy, warm white, charcoal
+ * and the four classification colours). Body text is at least 16px on web; the print styles
+ * produce the PDF from the same page, and so from the same canonical JSON.
+ */
+
+.wrap {
+  width: 100%;
+  max-width: calc(1100px + 2 * var(--zd-space-6));
+  margin: 0 auto;
+  padding: var(--zd-space-6) var(--zd-space-4) var(--zd-space-16);
+  color: var(--zd-charcoal);
+  font-family: var(--zd-font);
+}
+
+@media (min-width: 768px) {
+  .wrap {
+    padding-inline: var(--zd-space-6);
+  }
+}
+
+/* ---------------------------------------------------------------- toolbar */
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--zd-space-3);
+  padding: var(--zd-space-3) var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+}
+
+.toolbarId {
+  color: var(--zd-navy);
+  font-weight: var(--zd-w-bold);
+}
+
+.meta {
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+.toolbarActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--zd-control-height);
+  padding: 0 var(--zd-space-4);
+  border: 1px solid var(--zd-navy);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-navy);
+  color: var(--zd-white);
+  font: inherit;
+  font-weight: var(--zd-w-semibold);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--zd-soft-navy);
+}
+
+.btnSecondary {
+  border-color: var(--zd-border);
+  background: var(--zd-white);
+  color: var(--zd-navy);
+}
+
+.btnSecondary:hover {
+  background: var(--zd-gray-100);
+}
+
+.btn:focus-visible,
+.tocLink:focus-visible,
+.link:focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+/* ---------------------------------------------------------------- layout */
+.layout {
+  display: grid;
+  gap: var(--zd-space-6);
+  margin-top: var(--zd-space-6);
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 240px minmax(0, 800px);
+    justify-content: center;
+    gap: var(--zd-space-8);
+  }
+}
+
+/* RPT-03: sticky contents on desktop; on mobile a current-section control opens a drawer. */
+.toc {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .toc {
+    position: sticky;
+    top: calc(var(--zd-header-height) + var(--zd-space-4));
+    display: block;
+    align-self: start;
+    max-height: calc(100vh - var(--zd-header-height) - var(--zd-space-8));
+    overflow-y: auto;
+    padding: var(--zd-space-4);
+    border: 1px solid var(--zd-border);
+    border-radius: var(--zd-radius-card);
+    background: var(--zd-white);
+  }
+}
+
+.tocTitle {
+  margin-bottom: var(--zd-space-2);
+  color: #000;
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-bold);
+}
+
+.tocList {
+  display: grid;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tocLink {
+  display: block;
+  padding: 6px var(--zd-space-2);
+  border-radius: var(--zd-radius-button);
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  text-decoration: none;
+}
+
+.tocLink:hover {
+  background: var(--zd-gray-100);
+  color: var(--zd-navy);
+}
+
+.tocLink[aria-current='location'] {
+  background: var(--zd-gray-100);
+  color: var(--zd-navy);
+  font-weight: var(--zd-w-semibold);
+}
+
+.mobileNav {
+  position: sticky;
+  top: calc(var(--zd-header-height) + var(--zd-space-2));
+  z-index: 5;
+}
+
+@media (min-width: 1024px) {
+  .mobileNav {
+    display: none;
+  }
+}
+
+.drawer {
+  width: min(420px, 100vw);
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0 0 0 auto;
+  padding: var(--zd-space-6) var(--zd-space-4);
+  border: 0;
+  background: var(--zd-white);
+}
+
+.drawer::backdrop {
+  background: rgba(10, 122, 144, 0.6);
+}
+
+.returnTop {
+  position: fixed;
+  right: var(--zd-space-4);
+  bottom: var(--zd-space-4);
+  z-index: 5;
+  box-shadow: var(--zd-shadow-dropdown);
+}
+
+/* ---------------------------------------------------------------- cover and metrics */
+.cover {
+  padding: var(--zd-space-8) var(--zd-space-6);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-navy);
+  color: var(--zd-white);
+}
+
+.badge {
+  color: var(--zd-gold);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-bold);
+  text-transform: uppercase;
+}
+
+.coverTitle {
+  margin-top: var(--zd-space-2);
+  font-size: 30px;
+  line-height: 38px;
+  font-weight: var(--zd-w-bold);
+}
+
+@media (min-width: 768px) {
+  .coverTitle {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+.coverName {
+  margin-top: var(--zd-space-3);
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.coverMeta {
+  margin-top: var(--zd-space-2);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+.metrics {
+  display: grid;
+  gap: var(--zd-space-3);
+  margin-top: var(--zd-space-4);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .metrics {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.metric {
+  padding: var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+}
+
+.metricLabel {
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-semibold);
+}
+
+.metricValue {
+  margin-top: var(--zd-space-1);
+  color: var(--zd-navy);
+  font-size: 26px;
+  line-height: 34px;
+  font-weight: var(--zd-w-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+/* A label value such as "Moderate-High": smaller, and never broken at its hyphen. */
+.metricText {
+  font-size: 20px;
+  line-height: 34px;
+  white-space: nowrap;
+}
+
+.metricNote {
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+}
+
+/* ---------------------------------------------------------------- sections */
+.section {
+  margin-top: var(--zd-space-4);
+  padding: var(--zd-space-6);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+  scroll-margin-top: calc(var(--zd-header-height) + var(--zd-space-16));
+}
+
+.sectionHead {
+  display: flex;
+  align-items: baseline;
+  gap: var(--zd-space-3);
+}
+
+.sectionNumber {
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.sectionTitle {
+  color: #000;
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+  font-weight: var(--zd-w-bold);
+}
+
+.para {
+  margin-top: var(--zd-space-3);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.items {
+  display: grid;
+  gap: var(--zd-space-3);
+  margin: var(--zd-space-4) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  padding-left: var(--zd-space-3);
+  border-left: 3px solid var(--zd-border);
+}
+
+.itemLabel {
+  color: var(--zd-navy);
+  font-weight: var(--zd-w-semibold);
+}
+
+.itemValue {
+  margin-top: 2px;
+}
+
+.itemNote {
+  margin-top: 2px;
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+/* Section 7 bars: each has text label, number and classification — colour never alone. */
+.bars {
+  display: grid;
+  gap: var(--zd-space-4);
+  margin-top: var(--zd-space-4);
+}
+
+.barHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--zd-space-2);
+  font-size: var(--zd-body-size);
+}
+
+.barTrack {
+  height: 12px;
+  margin-top: var(--zd-space-1);
+  overflow: hidden;
+  border-radius: var(--zd-radius-pill);
+  background: var(--zd-gray-100);
+}
+
+.barFill {
+  height: 100%;
+  border-radius: var(--zd-radius-pill);
+}
+
+/* Section 8 triad: three labelled circles. */
+.triad {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--zd-space-4);
+  margin-top: var(--zd-space-4);
+  padding: 0;
+  list-style: none;
+}
+
+/* Each element captions its own kind, so the ring colour repeats meaning instead of carrying it. */
+.triadItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--zd-space-2);
+}
+
+.triadKind {
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.triadCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  padding: var(--zd-space-3);
+  border: 2px solid var(--zd-navy);
+  border-radius: 50%;
+  color: var(--zd-navy);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  font-weight: var(--zd-w-semibold);
+  text-align: center;
+}
+
+.triadProtective {
+  border-color: var(--zd-teal);
+  background: rgba(14, 144, 147, 0.08);
+}
+
+.triadUnavailable {
+  border-style: dashed;
+  border-color: var(--zd-gray-300);
+  color: var(--zd-muted);
+}
+
+/* Section 16 answers by module. */
+.module {
+  margin-top: var(--zd-space-3);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+}
+
+.module summary {
+  padding: var(--zd-space-3) var(--zd-space-4);
+  color: var(--zd-navy);
+  font-weight: var(--zd-w-semibold);
+  cursor: pointer;
+}
+
+.answers {
+  display: grid;
+  gap: var(--zd-space-3);
+  margin: 0;
+  padding: 0 var(--zd-space-4) var(--zd-space-4);
+  list-style: none;
+}
+
+.question {
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+.answer {
+  font-weight: var(--zd-w-medium);
+  white-space: pre-wrap;
+}
+
+.footer {
+  margin-top: var(--zd-space-8);
+  padding-top: var(--zd-space-4);
+  border-top: 1px solid var(--zd-border);
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+.link {
+  color: var(--zd-navy);
+  font-weight: var(--zd-w-semibold);
+  text-decoration: underline;
+}
+
+/* PDF running footer (C-03 §2): only printed. */
+.printFooter {
+  display: none;
+}
+
+/* ---------------------------------------------------------------- report history */
+.historyTitle {
+  color: #000;
+  font-size: var(--zd-h3-size);
+  line-height: var(--zd-h3-line);
+  font-weight: var(--zd-w-bold);
+}
+
+.historyList {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.historyRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--zd-space-3);
+}
+
+/* ---------------------------------------------------------------- RPT-05 */
+.errorCard {
+  max-width: 560px;
+  margin: var(--zd-space-8) auto;
+  padding: var(--zd-space-8) var(--zd-space-6);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+  text-align: center;
+}
+
+.errorTitle {
+  color: var(--zd-navy);
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: var(--zd-w-bold);
+}
+
+.errorActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--zd-space-3);
+  margin-top: var(--zd-space-6);
+}
+
+/* ---------------------------------------------------------------- PDF (print) */
+@media print {
+  @page {
+    size: A4;
+    margin: 16mm 14mm 20mm;
+  }
+
+  :global(body) {
+    background: #fff;
+  }
+
+  /* Site chrome, navigation and controls are not part of the report document. */
+  :global(body > header),
+  :global(body footer:not([data-report-footer])),
+  :global(.skip-link),
+  .toolbarActions,
+  .toc,
+  .mobileNav,
+  .returnTop {
+    display: none !important;
+  }
+
+  .wrap {
+    max-width: none;
+    padding: 0;
+  }
+
+  .layout {
+    display: block;
+  }
+
+  /* 10pt minimum body text in PDF (C-03 §2). */
+  .para,
+  .itemValue,
+  .answer,
+  .barHead {
+    font-size: 10.5pt;
+  }
+
+  .section,
+  .metric,
+  .cover {
+    break-inside: avoid;
+  }
+
+  .section {
+    border-color: #d8dee8;
+  }
+
+  .module {
+    break-inside: auto;
+  }
+
+  .module > .answers {
+    display: grid !important;
+  }
+
+  .barFill,
+  .cover,
+  .triadProtective {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .printFooter {
+    position: fixed;
+    right: 0;
+    bottom: -12mm;
+    left: 0;
+    display: block;
+    color: #6b7280;
+    font-size: 8.5pt;
+    text-align: center;
+  }
+}
+
+/* ---------------------------------------------------------- final report review additions */
+
+/*
+ * Point 4 — the score-direction statement sits above the values it governs and must not read
+ * as incidental small print, so it carries the body size and a teal rule.
+ */
+.lede {
+  margin-top: var(--zd-space-3);
+  padding-left: var(--zd-space-3);
+  border-left: 3px solid var(--zd-teal);
+  color: var(--zd-navy);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+/* Point 3 — qualifies the component values listed directly above it. */
+.footnote {
+  margin-top: var(--zd-space-3);
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+/* Point 23 — explainability, set apart from the finding it explains without boxing it in. */
+.why {
+  margin-top: var(--zd-space-4);
+  padding-top: var(--zd-space-3);
+  border-top: 1px solid var(--zd-border);
+}
+
+.whyHeading {
+  margin: 0 0 var(--zd-space-1);
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.whyText {
+  margin: 0;
+  max-width: var(--zd-reading-max);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-body-line);
+}
+
+/* Point 20 — every answer states whether it was scored; free text is marked as the participant's. */
+.answerMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2);
+  margin: var(--zd-space-1) 0;
+}
+
+.answerTag {
+  padding: 1px var(--zd-space-2);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-pill);
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.answerTag[data-kind='scoring'] {
+  border-color: var(--zd-soft-navy);
+  color: var(--zd-navy);
+}
+
+.answerTag[data-kind='free-text'] {
+  /* Teal marks the border only: #0E9093 on white is ~3.6:1, below AA for text this size. */
+  border-color: var(--zd-teal);
+  color: var(--zd-navy);
+}
+
+/* Shown exactly as submitted: never corrected, never re-wrapped into prose. */
+.answerVerbatim {
+  padding-left: var(--zd-space-3);
+  border-left: 3px solid var(--zd-teal);
+  font-weight: var(--zd-w-regular);
+}

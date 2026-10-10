@@ -1,0 +1,279 @@
+/* app/platform/page.module.css */
+.main {
+  background-color: var(--background);
+}
+
+.sectionContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .sectionContainer {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionContainer {
+    padding: 0 40px;
+  }
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
+
+.sectionSubtitle {
+  font-size: 14px;
+  color: #5F6B7A;
+  margin-bottom: 24px;
+}
+
+/* Hero */
+.hero {
+  background: #F6FAFB;
+  padding: 40px 16px 48px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 48px 24px 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 56px 40px 64px;
+  }
+}
+
+.heroInner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #075464;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.heroTitle {
+  font-size: 28px;
+  font-weight: 750;
+  color: #000;
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: 48px;
+  }
+}
+
+.heroDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 700px;
+}
+
+/* Buttons */
+.btnPrimary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+  text-align: center;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+/* Available Now */
+.availableSection {
+  padding: 48px 0;
+}
+
+.availableGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1024px;
+}
+
+@media (min-width: 640px) {
+  .availableGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.availableCard {
+  padding: 24px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.availableCard .cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.statusAvailable {
+  display: inline-block;
+  color: #245D42;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.cardDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.5;
+}
+
+/* Coming Soon */
+.comingSoonSection {
+  padding: 16px 0 48px;
+}
+
+.comingSoonGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1024px;
+}
+
+@media (min-width: 640px) {
+  .comingSoonGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .comingSoonGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.comingSoonCard {
+  padding: 24px;
+  background: #FAFDFD;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.comingSoonCard .cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.statusSoon {
+  display: inline-block;
+  color: #5F6B7A;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.comingSoonCard .cardDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.5;
+}
+
+/* Architecture */
+.architectureSection {
+  padding: 48px 0;
+  background: #EAF3F5;
+}
+
+.architectureDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  max-width: 700px;
+}
+
+.architectureNote {
+  font-size: 14px;
+  color: #5F6B7A;
+  max-width: 700px;
+}
+
+/* CTA */
+.ctaSection {
+  padding: 48px 0 64px;
+  background: var(--background);
+  text-align: center;
+}
+
+.ctaSection .sectionTitle {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.ctaSection .btnPrimary {
+  margin: 0 auto;
+}
+
+/* Mobile adjustments */
+@media (max-width: 639px) {
+  .comingSoonCard .cardTitle {
+    font-size: 16px;
+  }
+
+  .availableCard .cardTitle {
+    font-size: 16px;
+  }
+
+  .heroTitle {
+    font-size: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  .btnPrimary {
+    width: 100%;
+    text-align: center;
+  }
+}

@@ -1,0 +1,415 @@
+/* app/pilot/page.module.css */
+.main {
+  background-color: #F6FAFB;
+}
+
+.sectionContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .sectionContainer {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionContainer {
+    padding: 0 40px;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #075464;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionTitle {
+    font-size: 30px;
+  }
+}
+
+/* Buttons */
+.btnPrimary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #055564;
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+  text-align: center;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+/* Hero */
+.hero {
+  background: #F6FAFB;
+  padding: 48px 16px 56px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 56px 24px 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 64px 40px 72px;
+  }
+}
+
+.heroInner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 28px;
+  font-weight: 750;
+  color: #000;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: 48px;
+  }
+}
+
+.heroDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 800px;
+}
+
+/* Eligibility */
+.eligibility {
+  padding: 48px 0;
+  background: #F6FAFB;
+}
+
+.eligibilityDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Benefits */
+.benefits {
+  padding: 48px 0;
+  background: #EAF3F5;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1024px;
+}
+
+@media (min-width: 640px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .benefitsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.benefitCard {
+  padding: 24px;
+  background: #FFFFFF;
+  border: 1px solid #D8DEE8;
+  border-radius: 14px;
+}
+
+.benefitTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 8px;
+}
+
+.benefitDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.5;
+}
+
+/* Timeline */
+.timeline {
+  padding: 48px 0;
+  background: #F6FAFB;
+}
+
+.timelineGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1024px;
+}
+
+@media (min-width: 640px) {
+  .timelineGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .timelineGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.timelineCard {
+  padding: 20px 16px;
+  background: #FFFFFF;
+  border: 1px solid #D8DEE8;
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.stepCircle {
+  width: 40px;
+  height: 40px;
+  background: #055564;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.stepNumber {
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.timelineTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* Privacy/Consent */
+.privacyConsent {
+  padding: 48px 0;
+  background: #F7F5F0;
+}
+
+.privacyContent {
+  max-width: 1024px;
+}
+
+.privacyContent p {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.privacyContent p:last-of-type {
+  margin-bottom: 24px;
+}
+
+.privacyLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.textLink {
+  font-size: 15px;
+  font-weight: 700;
+  color: #055564;
+  text-decoration: underline;
+  transition: opacity 0.2s;
+}
+
+.textLink:hover {
+  opacity: 0.8;
+}
+
+/* FAQs */
+.faqs {
+  padding: 48px 0;
+  background: #F6FAFB;
+}
+
+.faqList {
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.faqItem {
+  background: #FFFFFF;
+  border: 1px solid #D8DEE8;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.faqItem:hover {
+  border-color: #055564;
+}
+
+.faqHeader {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.faqQuestion {
+  font-size: 15px;
+  font-weight: 600;
+  color: #1A1A1A;
+  flex: 1;
+}
+
+.faqIcon {
+  font-size: 22px;
+  font-weight: 700;
+  color: #055564;
+  flex-shrink: 0;
+}
+
+.faqAnswer {
+  padding: 0 20px 16px;
+}
+
+.faqAnswer p {
+  font-size: 15px;
+  color: #1A1A1A;
+  line-height: 1.6;
+}
+
+.faqOpen {
+  border-color: #055564;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 48px 0;
+  background: #EAF3F5;
+}
+
+/* Mobile adjustments */
+@media (max-width: 639px) {
+  .heroTitle {
+    font-size: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 22px;
+  }
+
+  .benefitCard {
+    padding: 16px;
+  }
+
+  .benefitTitle {
+    font-size: 16px;
+  }
+
+  .timelineCard {
+    padding: 16px;
+  }
+
+  .stepCircle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .stepNumber {
+    font-size: 14px;
+  }
+
+  .timelineTitle {
+    font-size: 14px;
+  }
+
+  .faqHeader {
+    padding: 14px 16px;
+  }
+
+  .faqQuestion {
+    font-size: 14px;
+  }
+
+  .btnPrimary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .privacyLinks {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .privacyContent p {
+    font-size: 15px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .timelineGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .benefitCard:last-child {
+    grid-column: 1 / -1;
+  }
+}

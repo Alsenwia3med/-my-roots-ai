@@ -1,0 +1,2965 @@
+{
+  "dataset_id": "ROOTS-C02-SCORING-001",
+  "scoring_version": "1.0.1",
+  "source": {
+    "document": "03_ROOTS_AI_C02_Canonical_Scoring_Rules_and_Golden_Tests_v1.0.1_CORRECTED.xlsx",
+    "document_version": "1.0.1 CORRECTED",
+    "sha256": "14bf61735d0abe42da7ea87c5dd988dcceecdd648b94a68137b18a65f978989e"
+  },
+  "readme": {
+    "Dataset ID": "ROOTS-C02-SCORING-001",
+    "scoring_version": "1.0.1",
+    "Scored questions": 40,
+    "Raw burden scale": "0-4",
+    "Domain coverage threshold": "50%",
+    "Biological State minimum": "5 of 7 domains",
+    "Rounding": "Half away from zero to integer",
+    "LLM role": "None in calculation"
+  },
+  "domains": [
+    {
+      "domain_id": "MR",
+      "display_name": "Metabolic Resistance™",
+      "meaning": "Self-reported weight-change resistance and activity context",
+      "formula": "ROUND(SUM(answer_points)/SUM(max_points)*100)"
+    },
+    {
+      "domain_id": "HS",
+      "display_name": "Hunger & Satiety Signals™",
+      "meaning": "Hunger, cravings, fullness and meal response",
+      "formula": "ROUND(SUM(answer_points)/SUM(max_points)*100)"
+    },
+    {
+      "domain_id": "SR",
+      "display_name": "Sleep Recovery Index™",
+      "meaning": "Sleep duration, continuity and restoration",
+      "formula": "ROUND(SUM(answer_points)/SUM(max_points)*100)"
+    },
+    {
+      "domain_id": "CH",
+      "display_name": "Circadian Health Score™",
+      "meaning": "Timing of light, screens, meals and sleep",
+      "formula": "ROUND(SUM(answer_points)/SUM(max_points)*100)"
+    },
+    {
+      "domain_id": "SL",
+      "display_name": "Stress Load™",
+      "meaning": "Perceived tension, stress-eating and cognitive activation",
+      "formula": "ROUND(SUM(answer_points)/SUM(max_points)*100)"
+    },
+    {
+      "domain_id": "IB",
+      "display_name": "Inflammation Burden Index™",
+      "meaning": "Non-specific self-reported symptom burden; not a biomarker",
+      "formula": "ROUND(SUM(answer_points)/SUM(max_points)*100)"
+    },
+    {
+      "domain_id": "BS",
+      "display_name": "Biological Safety Signals™",
+      "meaning": "Perceived resistance, appetite drive and low energy",
+      "formula": "ROUND(SUM(answer_points)/SUM(max_points)*100)"
+    }
+  ],
+  "question_mapping": [
+    {
+      "question_id": "Q9",
+      "domain_id": "MR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "GAIN_PATTERN",
+      "question_reference": "How did the weight change that concerns you begin?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q10",
+      "domain_id": "MR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often have well-planned diet or activity efforts produced less change than you expected?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q11",
+      "domain_id": "MR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "After an intentional weight loss, how often has some or all of the weight returned?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q12",
+      "domain_id": "MR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "WEIGHT_CYCLES",
+      "question_reference": "How many meaningful cycles of weight loss and regain have you experienced?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q46",
+      "domain_id": "MR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "ACTIVITY_DAYS",
+      "question_reference": "On how many days per week do you complete intentional physical activity?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q47",
+      "domain_id": "MR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "ACTIVITY_DURATION",
+      "question_reference": "On active days, what is the usual duration of your intentional activity?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q48",
+      "domain_id": "MR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "ACTIVITY_TYPE",
+      "question_reference": "Which option best describes your usual physical activity pattern?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q16",
+      "domain_id": "SR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "SLEEP_HOURS",
+      "question_reference": "How many hours of sleep do you typically get in a 24-hour period?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q17",
+      "domain_id": "SR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you feel tired even after what seemed like enough time in bed?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q18",
+      "domain_id": "SR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you wake during the night and struggle to return to sleep?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q19",
+      "domain_id": "SR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often is your bedtime after midnight?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q20",
+      "domain_id": "SR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you remain awake until 2:00 AM or later because you cannot settle to sleep?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q21",
+      "domain_id": "SR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you snore loudly, wake gasping, or receive feedback that your breathing pauses during sleep?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q22",
+      "domain_id": "SR",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you experience a marked afternoon energy crash?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q23",
+      "domain_id": "HS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you feel physically hungry within two hours after a full meal?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q24",
+      "domain_id": "HS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you experience food cravings when you are not physically hungry?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q25",
+      "domain_id": "HS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you eat enough but still fail to feel comfortably full?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q26",
+      "domain_id": "HS",
+      "weight": 1,
+      "reverse_scored": true,
+      "points_map": "FREQ",
+      "question_reference": "How often do you feel comfortably full after a normal meal?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q27",
+      "domain_id": "HS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often are you hungry again three to four hours after a protein-rich meal?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q28",
+      "domain_id": "HS",
+      "weight": 1,
+      "reverse_scored": true,
+      "points_map": "FREQ",
+      "question_reference": "How often does a protein-rich meal keep you satisfied for four hours or longer?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q29",
+      "domain_id": "HS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you feel sleepy, foggy or low in energy after a main meal?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q30",
+      "domain_id": "HS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "When you start eating sweets or snack foods, how often is it difficult to stop at the amount you intended?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q31",
+      "domain_id": "SL",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you feel persistent physical tension or stress?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q32",
+      "domain_id": "SL",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often does stress increase your desire to eat?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q33",
+      "domain_id": "SL",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often does your mind race when you are trying to sleep?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q34",
+      "domain_id": "SL",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often are cravings noticeably stronger in the evening?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q35",
+      "domain_id": "IB",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you experience bloating, gas or digestive discomfort?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q36",
+      "domain_id": "IB",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you experience brain fog after meals?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q37",
+      "domain_id": "IB",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you experience unexplained joint pain or stiffness?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q38",
+      "domain_id": "IB",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often does fat around your waist seem resistant to your usual efforts?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q39",
+      "domain_id": "IB",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you experience unusual thirst or a dry mouth?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q40",
+      "domain_id": "IB",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often have reducing calories and increasing activity produced little sustained change?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q41",
+      "domain_id": "CH",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you spend the first hour after waking indoors without natural daylight exposure?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q42",
+      "domain_id": "CH",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you use a phone, tablet or computer during the final hour before sleep?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q43",
+      "domain_id": "CH",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you eat within three hours of bedtime?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q44",
+      "domain_id": "CH",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often does your sleep schedule vary by more than two hours across the week?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q45",
+      "domain_id": "CH",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often do you feel more alert late at night than during the morning?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q49",
+      "domain_id": "BS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often does your body seem to resist weight loss despite consistent effort?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q50",
+      "domain_id": "BS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often does hunger feel stronger than your ability to regulate it?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q51",
+      "domain_id": "BS",
+      "weight": 1,
+      "reverse_scored": false,
+      "points_map": "FREQ",
+      "question_reference": "How often are your energy levels lower than you believe they should be?",
+      "normalized_range": "0-4 burden points",
+      "status": "APPROVED"
+    }
+  ],
+  "option_points": [
+    {
+      "question_id": "Q9",
+      "domain_id": "MR",
+      "option_set_id": "GAIN_PATTERN",
+      "option_id": "STABLE",
+      "display_label": "No concerning change or mostly stable",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q9",
+      "domain_id": "MR",
+      "option_set_id": "GAIN_PATTERN",
+      "option_id": "IDENTIFIABLE",
+      "display_label": "After an identifiable life period or event",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q9",
+      "domain_id": "MR",
+      "option_set_id": "GAIN_PATTERN",
+      "option_id": "GRADUAL",
+      "display_label": "Gradually with no single clear reason",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q9",
+      "domain_id": "MR",
+      "option_set_id": "GAIN_PATTERN",
+      "option_id": "CYCLING",
+      "display_label": "In repeated cycles of loss and regain",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q9",
+      "domain_id": "MR",
+      "option_set_id": "GAIN_PATTERN",
+      "option_id": "RAPID",
+      "display_label": "Rapidly or unexpectedly",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q9",
+      "domain_id": "MR",
+      "option_set_id": "GAIN_PATTERN",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q10",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q10",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q10",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q10",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q10",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q10",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q11",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q11",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q11",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q11",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q11",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q11",
+      "domain_id": "MR",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q12",
+      "domain_id": "MR",
+      "option_set_id": "WEIGHT_CYCLES",
+      "option_id": "NONE",
+      "display_label": "None",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q12",
+      "domain_id": "MR",
+      "option_set_id": "WEIGHT_CYCLES",
+      "option_id": "ONE",
+      "display_label": "One",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q12",
+      "domain_id": "MR",
+      "option_set_id": "WEIGHT_CYCLES",
+      "option_id": "TWO",
+      "display_label": "Two",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q12",
+      "domain_id": "MR",
+      "option_set_id": "WEIGHT_CYCLES",
+      "option_id": "THREE_FOUR",
+      "display_label": "Three or four",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q12",
+      "domain_id": "MR",
+      "option_set_id": "WEIGHT_CYCLES",
+      "option_id": "FIVE_PLUS",
+      "display_label": "Five or more",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q12",
+      "domain_id": "MR",
+      "option_set_id": "WEIGHT_CYCLES",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q46",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DAYS",
+      "option_id": "D0",
+      "display_label": "0 days",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q46",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DAYS",
+      "option_id": "D1_2",
+      "display_label": "1-2 days",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q46",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DAYS",
+      "option_id": "D3_4",
+      "display_label": "3-4 days",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q46",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DAYS",
+      "option_id": "D5_7",
+      "display_label": "5-7 days",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q46",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DAYS",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q47",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DURATION",
+      "option_id": "LT10",
+      "display_label": "Less than 10 minutes",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q47",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DURATION",
+      "option_id": "M10_29",
+      "display_label": "10-29 minutes",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q47",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DURATION",
+      "option_id": "M30_59",
+      "display_label": "30-59 minutes",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q47",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DURATION",
+      "option_id": "M60_PLUS",
+      "display_label": "60 minutes or more",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q47",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_DURATION",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q48",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_TYPE",
+      "option_id": "NONE",
+      "display_label": "No intentional activity",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q48",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_TYPE",
+      "option_id": "LIGHT",
+      "display_label": "Light movement or daily activities",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q48",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_TYPE",
+      "option_id": "AEROBIC",
+      "display_label": "Mostly aerobic activity",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q48",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_TYPE",
+      "option_id": "RESISTANCE",
+      "display_label": "Mostly resistance training",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q48",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_TYPE",
+      "option_id": "MIXED",
+      "display_label": "A mix of aerobic and resistance activity",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q48",
+      "domain_id": "MR",
+      "option_set_id": "ACTIVITY_TYPE",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q16",
+      "domain_id": "SR",
+      "option_set_id": "SLEEP_HOURS",
+      "option_id": "LT5",
+      "display_label": "Less than 5 hours",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q16",
+      "domain_id": "SR",
+      "option_set_id": "SLEEP_HOURS",
+      "option_id": "H5_6",
+      "display_label": "5 to less than 6 hours",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q16",
+      "domain_id": "SR",
+      "option_set_id": "SLEEP_HOURS",
+      "option_id": "H6_7",
+      "display_label": "6 to less than 7 hours",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q16",
+      "domain_id": "SR",
+      "option_set_id": "SLEEP_HOURS",
+      "option_id": "H7_9",
+      "display_label": "7 to 9 hours",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q16",
+      "domain_id": "SR",
+      "option_set_id": "SLEEP_HOURS",
+      "option_id": "GT9",
+      "display_label": "More than 9 hours",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q16",
+      "domain_id": "SR",
+      "option_set_id": "SLEEP_HOURS",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q17",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q17",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q17",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q17",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q17",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q17",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q18",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q18",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q18",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q18",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q18",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q18",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q19",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q19",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q19",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q19",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q19",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q19",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q20",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q20",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q20",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q20",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q20",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q20",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q21",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q21",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q21",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q21",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q21",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q21",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q22",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q22",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q22",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q22",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q22",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q22",
+      "domain_id": "SR",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q23",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q23",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q23",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q23",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q23",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q23",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q24",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q24",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q24",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q24",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q24",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q24",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q25",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q25",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q25",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q25",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q25",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q25",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q26",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q26",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q26",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q26",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q26",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q26",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q27",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q27",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q27",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q27",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q27",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q27",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q28",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q28",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q28",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q28",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q28",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q28",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q29",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q29",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q29",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q29",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q29",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q29",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q30",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q30",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q30",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q30",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q30",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q30",
+      "domain_id": "HS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q31",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q31",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q31",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q31",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q31",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q31",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q32",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q32",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q32",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q32",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q32",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q32",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q33",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q33",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q33",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q33",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q33",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q33",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q34",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q34",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q34",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q34",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q34",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q34",
+      "domain_id": "SL",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q35",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q35",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q35",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q35",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q35",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q35",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q36",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q36",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q36",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q36",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q36",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q36",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q37",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q37",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q37",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q37",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q37",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q37",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q38",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q38",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q38",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q38",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q38",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q38",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q39",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q39",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q39",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q39",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q39",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q39",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q40",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q40",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q40",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q40",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q40",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q40",
+      "domain_id": "IB",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q41",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q41",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q41",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q41",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q41",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q41",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q42",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q42",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q42",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q42",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q42",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q42",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q43",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q43",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q43",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q43",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q43",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q43",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q44",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q44",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q44",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q44",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q44",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q44",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q45",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q45",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q45",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q45",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q45",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q45",
+      "domain_id": "CH",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q49",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q49",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q49",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q49",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q49",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q49",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q50",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q50",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q50",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q50",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q50",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q50",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    },
+    {
+      "question_id": "Q51",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "NVR",
+      "display_label": "Never",
+      "burden_points": 0,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q51",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "RLY",
+      "display_label": "Rarely",
+      "burden_points": 1,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q51",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "SMT",
+      "display_label": "Sometimes",
+      "burden_points": 2,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q51",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "OFT",
+      "display_label": "Often",
+      "burden_points": 3,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q51",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "ALW",
+      "display_label": "Almost always",
+      "burden_points": 4,
+      "excluded_as_na": false
+    },
+    {
+      "question_id": "Q51",
+      "domain_id": "BS",
+      "option_set_id": "FREQ",
+      "option_id": "NA",
+      "display_label": "Not applicable",
+      "burden_points": null,
+      "excluded_as_na": true
+    }
+  ],
+  "formulas": [
+    {
+      "rule_id": "SC-001",
+      "output": "Domain score",
+      "normative_formula": "100 × Σ(points × weight) ÷ Σ(4 × weight), answered eligible items only",
+      "null_or_boundary_rule": "N/A/missing excluded; null if answered/eligible < 0.50",
+      "rounding": "Half away from zero to integer",
+      "audit_fields": "question IDs, raw option IDs, points, weights, numerator, denominator"
+    },
+    {
+      "rule_id": "SC-002",
+      "output": "Biological State™",
+      "normative_formula": "Mean of available seven domain scores",
+      "null_or_boundary_rule": "Null if fewer than 5 domains available",
+      "rounding": "Half away from zero to integer",
+      "audit_fields": "available/null domains and mean"
+    },
+    {
+      "rule_id": "SC-003",
+      "output": "Opportunity Score™",
+      "normative_formula": "100 - (Biological State × 0.5)",
+      "null_or_boundary_rule": "Null when Biological State is null; clamp 0-100",
+      "rounding": "One decimal",
+      "audit_fields": "Biological State and constant 0.5"
+    },
+    {
+      "rule_id": "SC-004",
+      "output": "Protective Factor Score",
+      "normative_formula": "20 × count of active P1-P5",
+      "null_or_boundary_rule": "Count 0-5; no imputation",
+      "rounding": "Half away from zero to integer",
+      "audit_fields": "factor IDs and booleans"
+    },
+    {
+      "rule_id": "SC-005",
+      "output": "Recovery Potential™",
+      "normative_formula": "0.30×(100-BIO_STATE)+0.25×Protective+0.20×Age+0.15×Condition+0.10×Medication",
+      "null_or_boundary_rule": "Null when Biological State is null; clamp 0-100",
+      "rounding": "One decimal",
+      "audit_fields": "BIO_STATE, all factor values and contributions"
+    },
+    {
+      "rule_id": "SC-006",
+      "output": "Coverage",
+      "normative_formula": "Answered scored items ÷ eligible scored items × 100",
+      "null_or_boundary_rule": "N/A and missing count as not answered for confidence coverage",
+      "rounding": "Half away from zero to integer",
+      "audit_fields": "answered/eligible counts"
+    },
+    {
+      "rule_id": "SC-007",
+      "output": "Consistency by domain",
+      "normative_formula": "max(0,1-populationSD(points)/2) × 100",
+      "null_or_boundary_rule": "Null when domain is null",
+      "rounding": "Half away from zero to integer",
+      "audit_fields": "points, mean, SD"
+    },
+    {
+      "rule_id": "SC-008",
+      "output": "ROOTS Confidence™",
+      "normative_formula": "0.50×overall coverage + 0.30×Q72 value + 0.20×mean available-domain consistency",
+      "null_or_boundary_rule": "0 when no consistency; never changes scores",
+      "rounding": "Half away from zero to integer",
+      "audit_fields": "three components"
+    }
+  ],
+  "protective_factors": [
+    {
+      "factor_id": "P1",
+      "source": "Q46/Q47",
+      "activation/value rule": "Activity ≥3 days/week AND usual duration ≥30 minutes",
+      "output_value": 20,
+      "purpose": "Protective score",
+      "notes": "Use option IDs D3_4/D5_7 and M30_59/M60_PLUS"
+    },
+    {
+      "factor_id": "P2",
+      "source": "Q64",
+      "activation/value rule": "Often or Almost always",
+      "output_value": 20,
+      "purpose": "Protective score",
+      "notes": "Meal timing consistency"
+    },
+    {
+      "factor_id": "P3",
+      "source": "Q65",
+      "activation/value rule": "Supportive or Very supportive",
+      "output_value": 20,
+      "purpose": "Protective score",
+      "notes": "Home environment"
+    },
+    {
+      "factor_id": "P4",
+      "source": "Q61",
+      "activation/value rule": "Never or Former use",
+      "output_value": 20,
+      "purpose": "Protective score",
+      "notes": "Nicotine context"
+    },
+    {
+      "factor_id": "P5",
+      "source": "Q69",
+      "activation/value rule": "Readiness 7-10",
+      "output_value": 20,
+      "purpose": "Protective score",
+      "notes": "Readiness"
+    },
+    {
+      "factor_id": "AGE",
+      "source": "Q1",
+      "activation/value rule": "16-30=100; 31-45=80; 46-60=60; 61-75=40; 76-110=20",
+      "output_value": "Band value",
+      "purpose": "Recovery Potential",
+      "notes": "16-17 uses 18-30 band if participation is enabled"
+    },
+    {
+      "factor_id": "CONDITION",
+      "source": "Q13",
+      "activation/value rule": "None=100; one category=75; two=50; three or more=25",
+      "output_value": "Band value",
+      "purpose": "Recovery Potential",
+      "notes": "PREFER_NOT/NA treated as unavailable and sets Recovery Potential limitation flag"
+    },
+    {
+      "factor_id": "MEDICATION",
+      "source": "Q14",
+      "activation/value rule": "None=100; one category=75; two or more=50",
+      "output_value": "Band value",
+      "purpose": "Recovery Potential",
+      "notes": "UNSURE/PREFER_NOT/NA sets limitation flag; no medication advice"
+    }
+  ],
+  "classifications": [
+    {
+      "scale": "DOMAIN",
+      "minimum": 0,
+      "maximum": 24,
+      "label": "Optimized",
+      "color_hex": "#27AE60",
+      "approved_interpretation": "Lower reported burden"
+    },
+    {
+      "scale": "DOMAIN",
+      "minimum": 25,
+      "maximum": 49,
+      "label": "Compensating",
+      "color_hex": "#F39C12",
+      "approved_interpretation": "Signals present; compensation appears active"
+    },
+    {
+      "scale": "DOMAIN",
+      "minimum": 50,
+      "maximum": 74,
+      "label": "Strained",
+      "color_hex": "#E67E22",
+      "approved_interpretation": "Multiple or frequent signals"
+    },
+    {
+      "scale": "DOMAIN",
+      "minimum": 75,
+      "maximum": 100,
+      "label": "Dysregulated",
+      "color_hex": "#C0392B",
+      "approved_interpretation": "High reported burden; educational prompt to seek appropriate support"
+    },
+    {
+      "scale": "CONFIDENCE",
+      "minimum": 80,
+      "maximum": 100,
+      "label": "High",
+      "color_hex": "#27AE60",
+      "approved_interpretation": "Strong data completeness and consistency"
+    },
+    {
+      "scale": "CONFIDENCE",
+      "minimum": 60,
+      "maximum": 79,
+      "label": "Moderate-High",
+      "color_hex": "#F39C12",
+      "approved_interpretation": "Good data with some limitations"
+    },
+    {
+      "scale": "CONFIDENCE",
+      "minimum": 40,
+      "maximum": 59,
+      "label": "Moderate",
+      "color_hex": "#E67E22",
+      "approved_interpretation": "Interpret cautiously"
+    },
+    {
+      "scale": "CONFIDENCE",
+      "minimum": 0,
+      "maximum": 39,
+      "label": "Low",
+      "color_hex": "#C0392B",
+      "approved_interpretation": "Substantial limitations"
+    },
+    {
+      "scale": "RECOVERY",
+      "minimum": 75,
+      "maximum": 100,
+      "label": "High",
+      "color_hex": "#27AE60",
+      "approved_interpretation": "Many modifiable/protective features"
+    },
+    {
+      "scale": "RECOVERY",
+      "minimum": 50,
+      "maximum": 74,
+      "label": "Moderate",
+      "color_hex": "#F39C12",
+      "approved_interpretation": "Meaningful recovery opportunities"
+    },
+    {
+      "scale": "RECOVERY",
+      "minimum": 25,
+      "maximum": 49,
+      "label": "Limited",
+      "color_hex": "#E67E22",
+      "approved_interpretation": "Progress may require more support"
+    },
+    {
+      "scale": "RECOVERY",
+      "minimum": 0,
+      "maximum": 24,
+      "label": "Low",
+      "color_hex": "#C0392B",
+      "approved_interpretation": "Educational prompt for professional support"
+    }
+  ],
+  "drivers_evidence": [
+    {
+      "rule_id": "DRV-001",
+      "subject": "Driver eligibility",
+      "deterministic rule": "Available domain score ≥25",
+      "output": "Eligible",
+      "tie_or_fallback": "Scores <25 are not drivers",
+      "audit requirement": "Record all candidates"
+    },
+    {
+      "rule_id": "DRV-002",
+      "subject": "Ranking",
+      "deterministic rule": "Sort eligible domains by score descending; exact ties use fixed order MR,HS,SR,CH,SL,IB,BS",
+      "output": "Primary/secondary/tertiary",
+      "tie_or_fallback": "No LLM selection; null/<25 domains excluded",
+      "audit requirement": "Record ordered list"
+    },
+    {
+      "rule_id": "DRV-003",
+      "subject": "Co-primary",
+      "deterministic rule": "If top two eligible scores differ by ≤3, report them once as one co-primary pair",
+      "output": "Co-primary pair, then next highest-ranked distinct eligible domain if one exists",
+      "tie_or_fallback": "No duplication; no ineligible fallback; preserve canonical tie order",
+      "audit requirement": "Record tie delta"
+    },
+    {
+      "rule_id": "DRV-004",
+      "subject": "No dominant burden",
+      "deterministic rule": "No domain ≥25",
+      "output": "No primary driver",
+      "tie_or_fallback": "Display strengths-focused copy",
+      "audit requirement": "Record reason"
+    },
+    {
+      "rule_id": "EVD-001",
+      "subject": "Evidence score",
+      "deterministic rule": "0.45×domain coverage + 0.35×domain consistency + 0.20×high-signal proportion",
+      "output": "0-100",
+      "tie_or_fallback": "High-signal means points ≥3",
+      "audit requirement": "Trace components"
+    },
+    {
+      "rule_id": "EVD-002",
+      "subject": "Evidence label",
+      "deterministic rule": "80-100 Strong; 60-79 Moderate; 40-59 Limited; 0-39 Weak",
+      "output": "Label",
+      "tie_or_fallback": "Not clinical evidence grade",
+      "audit requirement": "Record boundary"
+    },
+    {
+      "rule_id": "CNF-001",
+      "subject": "Confidence",
+      "deterministic rule": "Formula SC-008",
+      "output": "High/Moderate-High/Moderate/Low",
+      "tie_or_fallback": "Never modifies scores",
+      "audit requirement": "Trace components"
+    }
+  ],
+  "qa_checks": [
+    {
+      "Check": "Domain count",
+      "Formula": 7,
+      "Expected": 7,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Mapping count",
+      "Formula": 40,
+      "Expected": 40,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Reverse-scored count",
+      "Formula": 2,
+      "Expected": 2,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Golden tests",
+      "Formula": 30,
+      "Expected": 30,
+      "Result": "PASS"
+    },
+    {
+      "Check": "MR items",
+      "Formula": 7,
+      "Expected": 7,
+      "Result": "PASS"
+    },
+    {
+      "Check": "HS items",
+      "Formula": 8,
+      "Expected": 8,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Classification rows",
+      "Formula": 12,
+      "Expected": 12,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Driver outputs conform to DRV-001/002/003",
+      "Formula": 30,
+      "Expected": 30,
+      "Result": "PASS"
+    },
+    {
+      "Check": "No driver duplicates / ineligible fallback",
+      "Formula": 30,
+      "Expected": 30,
+      "Result": "PASS"
+    },
+    {
+      "Check": "BIO_STATE identifier unambiguous",
+      "Formula": 1,
+      "Expected": 1,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Rounding rule unified",
+      "Formula": 1,
+      "Expected": 1,
+      "Result": "PASS"
+    }
+  ]
+}

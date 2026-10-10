@@ -1,4 +1,5 @@
 
+import Image from "next/image";
 import Link from "next/link";
 
 const COOKIE_COPY = "We use essential technologies to keep ROOTS-AI™ secure. With your permission, we may use limited analytics on public pages. We do not use advertising pixels or session replay on assessment, report, sign-in or admin pages.";
@@ -8,7 +9,7 @@ export default function Footer() {
     <footer className="site-footer">
       <div className="footer-inner">
         <Link href="/" className="footer-logo" aria-label="ROOTS-AI home">
-          <span>ROOTS-AI<sup>™</sup></span>
+          <Image src="/brand/roots-logo.svg" alt="ROOTS-AI Biological Intelligence" width={603} height={792} unoptimized />
         </Link>
         <div className="footer-grid">
           <div><strong>Product</strong><Link href="/assessment">Assessment</Link><Link href="/example-report">Example Report</Link><Link href="/how-it-works">How It Works</Link><Link href="/platform">Platform</Link></div>

@@ -1,0 +1,399 @@
+/*
+ * PUB-04 Example Report (C-05).
+ *
+ * The example must read as a report, not as a page about one: the sample values carry the
+ * hierarchy, and every figure states its number, unit and classification in text. Depth comes
+ * from surface and rule (File 14 §6 "avoid excessive outlined boxes"), so sections are separated
+ * by hairlines rather than each being boxed.
+ *
+ * Two governed rules drive the data presentation:
+ *   C-03 §2  "All charts require a text label and numeric value; color alone never conveys state."
+ *   C-03 §4.8  domains and contextual/protective factors must not read as equivalent constructs.
+ *
+ * Every value is a token from zd-tokens.css.
+ */
+
+.clone-page .example-badge {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2) var(--zd-space-3);
+  align-items: center;
+  margin-top: var(--zd-space-4) !important;
+  padding: var(--zd-space-2) var(--zd-space-4);
+  border: 1px solid var(--zd-gold);
+  border-radius: var(--zd-radius-pill);
+  background: var(--zd-white);
+  color: var(--zd-charcoal) !important;
+  font-size: var(--zd-small-size) !important;
+  line-height: var(--zd-small-line) !important;
+}
+
+.clone-page .example-badge span:first-child {
+  padding: 2px var(--zd-space-2);
+  border-radius: var(--zd-radius-pill);
+  background: var(--zd-navy);
+  color: var(--zd-white);
+  font-size: var(--zd-xsmall-size);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.clone-page .example-body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--zd-space-8);
+  align-items: start;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--zd-space-8) 24px var(--zd-space-12);
+}
+
+/* ---------------------------------------------------------------- z3 sticky contents */
+
+.clone-page .example-contents {
+  position: sticky;
+  top: calc(var(--zd-header-height) + var(--zd-space-4));
+  grid-column: span 3;
+  max-height: calc(100vh - var(--zd-header-height) - var(--zd-space-8));
+  overflow-y: auto;
+  padding-right: var(--zd-space-3);
+}
+
+.clone-page .example-contents p {
+  margin: 0 0 var(--zd-space-3);
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.clone-page .example-contents ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: example-section;
+}
+
+.clone-page .example-contents li {
+  counter-increment: example-section;
+}
+
+.clone-page .example-contents a {
+  display: flex;
+  gap: var(--zd-space-2);
+  align-items: baseline;
+  min-height: 36px;
+  padding: var(--zd-space-1) var(--zd-space-2);
+  border-radius: var(--zd-radius-button);
+  color: var(--zd-soft-navy);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  text-decoration: none;
+}
+
+.clone-page .example-contents a::before {
+  content: counter(example-section);
+  min-width: 1.6em;
+  color: var(--zd-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.clone-page .example-contents a:hover {
+  background: var(--zd-gray-100);
+  color: var(--zd-navy);
+}
+
+/* ---------------------------------------------------------------- z2 report viewer */
+
+.clone-page .example-viewer {
+  grid-column: span 9;
+}
+
+.clone-page .example-section {
+  padding: var(--zd-space-8) 0;
+  border-top: 1px solid var(--zd-border);
+  scroll-margin-top: calc(var(--zd-header-height) + var(--zd-space-4));
+}
+
+.clone-page .example-section:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.clone-page .example-number {
+  margin: 0 0 var(--zd-space-2);
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.clone-page .example-viewer h2 {
+  margin: 0 0 var(--zd-space-4);
+  color: #000;
+  font-size: var(--zd-h3-size);
+  line-height: var(--zd-h3-line);
+  font-weight: var(--zd-w-bold);
+}
+
+.clone-page .example-copy,
+.clone-page .example-note {
+  max-width: var(--zd-reading-max);
+  margin: 0 0 var(--zd-space-3);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .example-note {
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+}
+
+/* A figure always states its number, unit and classification — never a number alone. */
+.clone-page .example-figure {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2) var(--zd-space-3);
+  align-items: baseline;
+  margin: 0 0 var(--zd-space-4);
+}
+
+.clone-page .example-figure strong {
+  color: var(--zd-navy);
+  font-size: 44px;
+  line-height: 48px;
+  font-weight: var(--zd-w-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.clone-page .example-unit {
+  color: var(--zd-muted);
+  font-size: var(--zd-h4-size);
+}
+
+.clone-page .example-class {
+  padding: var(--zd-space-1) var(--zd-space-3);
+  border-radius: var(--zd-radius-pill);
+  background: var(--zd-gray-100);
+  color: var(--zd-navy);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-semibold);
+}
+
+/* ---------------------------------------------------------------- seven domains */
+
+.clone-page .example-bars {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clone-page .example-bars li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 160px auto;
+  gap: var(--zd-space-4);
+  align-items: center;
+  padding-block: var(--zd-space-3);
+  border-top: 1px solid var(--zd-border);
+}
+
+.clone-page .example-bars li:first-child {
+  border-top: 0;
+}
+
+.clone-page .example-bar-label strong {
+  display: block;
+  color: var(--zd-navy);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .example-bar-label span {
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+.clone-page .example-bar-track {
+  height: 8px;
+  border-radius: var(--zd-radius-pill);
+  background: var(--zd-gray-100);
+}
+
+.clone-page .example-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: var(--zd-radius-pill);
+  background: var(--zd-soft-navy);
+}
+
+.clone-page .example-bar-fill[data-class="Optimized"] {
+  background: var(--zd-optimized);
+}
+
+.clone-page .example-bar-fill[data-class="Compensating"] {
+  background: var(--zd-compensating);
+}
+
+.clone-page .example-bar-fill[data-class="Strained"] {
+  background: var(--zd-strained);
+}
+
+.clone-page .example-bar-fill[data-class="Dysregulated"] {
+  background: var(--zd-dysregulated);
+}
+
+.clone-page .example-bar-value {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.clone-page .example-bar-value strong {
+  color: var(--zd-navy);
+  font-size: var(--zd-body-size);
+  font-variant-numeric: tabular-nums;
+}
+
+.clone-page .example-bar-value span {
+  display: block;
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+/* ---------------------------------------------------------------- triad */
+
+/* Domains and protective factors are labelled and coloured differently, never as equivalents. */
+.clone-page .example-triad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--zd-space-4);
+  margin: 0 0 var(--zd-space-4);
+  padding: 0;
+  list-style: none;
+}
+
+.clone-page .example-triad li {
+  padding: var(--zd-space-4);
+  border-top: 3px solid var(--zd-soft-navy);
+  background: var(--zd-white);
+}
+
+.clone-page .example-triad li[data-kind="protective"] {
+  border-top-color: var(--zd-teal);
+}
+
+.clone-page .example-triad span {
+  display: block;
+  margin-bottom: var(--zd-space-1);
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.clone-page .example-triad strong {
+  color: var(--zd-navy);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+/* ---------------------------------------------------------------- answers, disclaimer */
+
+.clone-page .example-modules {
+  margin: 0;
+  padding-left: var(--zd-space-6);
+  columns: 2;
+  column-gap: var(--zd-space-8);
+}
+
+.clone-page .example-modules li {
+  margin-bottom: var(--zd-space-2);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-body-line);
+  break-inside: avoid;
+}
+
+.clone-page .example-disclaimer,
+.clone-page .example-footer-boundary p:last-child {
+  max-width: var(--zd-reading-max);
+  margin: 0;
+  color: var(--zd-charcoal);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .example-footer-boundary {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--zd-space-8) 24px var(--zd-space-16);
+  border-top: 1px solid var(--zd-border);
+}
+
+.clone-page .example-footer-boundary .example-badge {
+  margin-bottom: var(--zd-space-4) !important;
+}
+
+/* ---------------------------------------------------------------- 1023 and below */
+
+@media (max-width: 1023px) {
+  .clone-page .example-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .clone-page .example-contents {
+    position: static;
+    grid-column: span 1;
+    max-height: none;
+  }
+
+  .clone-page .example-viewer {
+    grid-column: span 1;
+  }
+
+  .clone-page .example-triad {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .clone-page .example-body,
+  .clone-page .example-footer-boundary {
+    padding-inline: var(--zd-container-pad-mobile);
+  }
+
+  /* The bar row stacks: a 160 px track plus a right-hand column does not fit at 360 px. */
+  .clone-page .example-bars li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--zd-space-2);
+  }
+
+  .clone-page .example-bar-value {
+    text-align: left;
+  }
+
+  .clone-page .example-bar-value span {
+    display: inline;
+  }
+
+  .clone-page .example-modules {
+    columns: 1;
+  }
+
+  .clone-page .example-figure strong {
+    font-size: 36px;
+    line-height: 40px;
+  }
+}

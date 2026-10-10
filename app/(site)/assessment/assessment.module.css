@@ -1,0 +1,639 @@
+/* Assessment shell (C-05 §3, ASM-01..ASM-10). Approved tokens only (app/zd-tokens.css).
+   Desktop question column max 760 px; 44 px touch targets; body 16/26; visible focus. */
+
+.page {
+  min-height: 100vh;
+  background: var(--zd-warm-white);
+  color: var(--zd-charcoal);
+  font-family: var(--zd-font);
+}
+
+/* ---------------------------------------------------------------- shell header */
+.shellHeader {
+  position: sticky;
+  top: 0;
+  z-index: var(--zd-z-header);
+  background: var(--zd-navy);
+  color: var(--zd-white);
+}
+
+.shellHeaderInner {
+  display: flex;
+  align-items: center;
+  gap: var(--zd-space-4);
+  max-width: var(--zd-max-content);
+  min-height: var(--zd-header-height);
+  margin: 0 auto;
+  padding: var(--zd-space-3) var(--zd-container-pad-mobile);
+}
+
+.logoLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--zd-touch-target);
+  border-radius: var(--zd-radius-button);
+  position: relative;
+}
+
+/*
+ * C-05 §5 touch target. The logo artwork is 37 px wide, so the hit area is widened by a
+ * centred overlay rather than by padding or a min-width, which would move the approved mark.
+ * Matches the treatment applied to the shared header and footer brands.
+ */
+.logoLink::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, var(--zd-touch-target));
+  height: max(100%, var(--zd-touch-target));
+  transform: translate(-50%, -50%);
+}
+
+.logo {
+  display: block;
+  width: 37px;
+  height: 48px;
+}
+
+.shellStatus {
+  display: flex;
+  flex: 1;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--zd-space-3);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+/* ---------------------------------------------------------------- content column */
+.main {
+  max-width: calc(760px + 2 * var(--zd-container-pad-mobile));
+  margin: 0 auto;
+  padding: var(--zd-space-8) var(--zd-container-pad-mobile) var(--zd-space-16);
+}
+
+.eyebrow {
+  color: var(--zd-soft-navy);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin-top: var(--zd-space-2);
+  color: #000;
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: var(--zd-w-bold);
+}
+
+/*
+ * C-05 ASM-01 caps the desktop question column at 760 px, and C-05 §5 caps reading text at
+ * 720 px. Both bind, and they are not in conflict: the column stays 760 px for the question
+ * controls, while running prose inside it is held to the reading measure.
+ */
+.lede {
+  margin-top: var(--zd-space-4);
+  max-width: var(--zd-reading-max);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.body {
+  margin-top: var(--zd-space-4);
+  max-width: var(--zd-reading-max);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.muted {
+  color: var(--zd-muted);
+}
+
+.list {
+  display: grid;
+  gap: var(--zd-space-3);
+  margin-top: var(--zd-space-6);
+  padding-left: var(--zd-space-6);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.card {
+  margin-top: var(--zd-space-6);
+  padding: var(--zd-space-6);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+  box-shadow: var(--zd-shadow-card);
+}
+
+.legalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2) var(--zd-space-4);
+  margin-top: var(--zd-space-6);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+/* ---------------------------------------------------------------- forms */
+.form {
+  display: grid;
+  gap: var(--zd-space-4);
+}
+
+.label {
+  display: block;
+  color: var(--zd-navy);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.input,
+.textarea,
+.select {
+  width: 100%;
+  min-height: var(--zd-control-height);
+  padding: 0 var(--zd-space-3);
+  border: 1px solid var(--zd-muted);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  color: var(--zd-charcoal);
+  font: inherit;
+  font-size: var(--zd-body-size);
+}
+
+.textarea {
+  min-height: 132px;
+  padding: var(--zd-space-3);
+  resize: vertical;
+}
+
+.input[aria-invalid='true'],
+.textarea[aria-invalid='true'] {
+  border-color: var(--zd-error);
+}
+
+.help {
+  margin-top: var(--zd-space-1);
+  color: var(--zd-muted);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.error {
+  margin-top: var(--zd-space-2);
+  color: var(--zd-error);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.safety {
+  margin-top: var(--zd-space-3);
+  padding: var(--zd-space-3) var(--zd-space-4);
+  border-left: 4px solid var(--zd-strained);
+  background: var(--zd-gray-100);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--zd-space-3);
+  min-height: var(--zd-touch-target);
+  padding: var(--zd-space-2) 0;
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  cursor: pointer;
+}
+
+.check input {
+  flex-shrink: 0;
+  width: 22px;
+  height: 22px;
+  margin-top: 2px;
+  accent-color: var(--zd-navy);
+}
+
+/* ---------------------------------------------------------------- buttons */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--zd-space-3);
+  margin-top: var(--zd-space-8);
+}
+
+.btn,
+.btnSecondary,
+.btnGhost,
+.btnDanger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--zd-button-min-width);
+  min-height: var(--zd-control-height);
+  padding: var(--zd-button-pad);
+  border: 1px solid transparent;
+  border-radius: var(--zd-radius-button);
+  font: inherit;
+  font-size: var(--zd-button-size);
+  line-height: 24px;
+  font-weight: var(--zd-button-weight);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn {
+  background: var(--zd-navy);
+  color: var(--zd-white);
+}
+
+.btnSecondary {
+  border-color: var(--zd-navy);
+  background: var(--zd-white);
+  color: var(--zd-navy);
+}
+
+.btnGhost {
+  min-width: 0;
+  border-color: var(--zd-white);
+  background: transparent;
+  color: var(--zd-white);
+}
+
+.btnDanger {
+  background: var(--zd-error);
+  color: var(--zd-white);
+}
+
+.btn:disabled,
+.btnSecondary:disabled,
+.btnDanger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.link {
+  color: var(--zd-navy);
+  font-weight: var(--zd-w-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/*
+ * The ASM-01 legal links are a discrete navigation row, not links inside running text, so
+ * C-05 §5's 44 x 44 px minimum touch target applies to them. The row keeps its visual
+ * spacing; only the hit area grows.
+ */
+.legalLinks .link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--zd-touch-target);
+}
+
+.page :focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+/* ---------------------------------------------------------------- module shell */
+.progressBar {
+  height: 8px;
+  margin-top: var(--zd-space-4);
+  overflow: hidden;
+  border-radius: var(--zd-radius-pill);
+  background: var(--zd-border);
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--zd-teal);
+  transition: width var(--zd-motion-slow) ease-out;
+}
+
+.saveStatus {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--zd-touch-target);
+}
+
+.questions {
+  display: grid;
+  gap: var(--zd-space-6);
+  margin-top: var(--zd-space-8);
+}
+
+.question {
+  padding: var(--zd-space-6) var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+  scroll-margin-top: calc(var(--zd-header-height) + var(--zd-space-4));
+}
+
+/* Questions answered by picking from a list sit on the warm surface, so a group of choices
+   reads as one block and is distinguishable from the white cards that take a typed answer
+   (ROOTS direction, 17 Sep 2026). The option chips themselves stay white. */
+.question[data-choice='true'] {
+  background: #fffdf8;
+}
+
+.question[data-invalid='true'] {
+  border-color: var(--zd-error);
+}
+
+.fieldset {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  color: var(--zd-navy);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: var(--zd-w-semibold);
+}
+
+.requiredTag {
+  display: inline-block;
+  margin-left: var(--zd-space-2);
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  font-weight: var(--zd-w-medium);
+}
+
+.options {
+  display: grid;
+  gap: var(--zd-space-2);
+  margin-top: var(--zd-space-4);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: var(--zd-space-3);
+  min-height: var(--zd-touch-target);
+  padding: var(--zd-space-2) var(--zd-space-3);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  /* Transparent, so each choice takes the colour of the card it sits on rather than
+     showing as a white block on the warm surface. The border keeps each one separate. */
+  background: transparent;
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  cursor: pointer;
+}
+
+.option:has(input:checked) {
+  border-color: var(--zd-navy);
+  background: var(--zd-gray-100);
+  font-weight: var(--zd-w-semibold);
+}
+
+.option:has(input:focus-visible) {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+.option input {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  accent-color: var(--zd-navy);
+}
+
+.scale {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(44px, 1fr));
+  gap: var(--zd-space-2);
+  margin-top: var(--zd-space-4);
+}
+
+.scale .option {
+  justify-content: center;
+  padding: var(--zd-space-2);
+}
+
+.numberRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--zd-space-3);
+  margin-top: var(--zd-space-4);
+}
+
+.numberRow .input {
+  max-width: 200px;
+}
+
+.moduleNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--zd-space-3);
+  margin-top: var(--zd-space-8);
+}
+
+.banner {
+  margin-top: var(--zd-space-4);
+  padding: var(--zd-space-3) var(--zd-space-4);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-gray-100);
+  border-left: 4px solid var(--zd-info);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.bannerError {
+  border-left-color: var(--zd-error);
+}
+
+/* ---------------------------------------------------------------- dialog */
+.dialog {
+  width: min(520px, calc(100vw - 32px));
+  /* A modal dialog is centred by the browser's own `margin: auto`, which the global
+     `* { margin: 0 }` reset in globals.css overrides — without this it pins to the
+     top-left corner of its inset: 0 box. */
+  margin: auto;
+  padding: var(--zd-space-6);
+  border: 0;
+  border-radius: var(--zd-radius-card);
+  box-shadow: var(--zd-shadow-dropdown);
+  color: var(--zd-charcoal);
+  font-family: var(--zd-font);
+}
+
+.dialog::backdrop {
+  background: rgba(10, 122, 144, 0.6);
+}
+
+.dialogTitle {
+  color: #000;
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+  font-weight: var(--zd-w-bold);
+}
+
+/* ---------------------------------------------------------------- review / progress lists */
+.moduleList {
+  display: grid;
+  gap: var(--zd-space-2);
+  margin-top: var(--zd-space-6);
+  list-style: none;
+}
+
+.moduleItem {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--zd-space-2) var(--zd-space-4);
+  min-height: var(--zd-touch-target);
+  padding: var(--zd-space-3) var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.state {
+  font-weight: var(--zd-w-semibold);
+}
+
+.stateComplete {
+  color: var(--zd-success);
+}
+
+.stateAttention {
+  color: var(--zd-error);
+}
+
+.steps {
+  display: grid;
+  gap: var(--zd-space-3);
+  margin-top: var(--zd-space-6);
+  list-style: none;
+}
+
+.step {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--zd-space-4);
+  padding: var(--zd-space-3) var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .shellHeaderInner,
+  .main {
+    padding-left: var(--zd-container-pad);
+    padding-right: var(--zd-container-pad);
+  }
+
+  .main {
+    max-width: calc(760px + 2 * var(--zd-container-pad));
+    padding-top: var(--zd-space-12);
+  }
+
+  .title {
+    font-size: var(--zd-h2-size);
+    line-height: var(--zd-h2-line);
+  }
+
+  .question {
+    padding: var(--zd-space-6);
+  }
+
+  .scale {
+    grid-template-columns: repeat(11, minmax(44px, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progressFill {
+    transition: none;
+  }
+}
+
+/* ======================================================================
+   ULTRA-LUXURY SKIN (presentation only) — white shell header, glass cards,
+   neon progress / options. Tokens mirror app/(site)/luxury.css.
+   ====================================================================== */
+.page { background: transparent; position: relative; z-index: 1; --lx-teal: #055564; --lx-mid: #0A7385; --lx-accent: #19A7B8; --lx-glow: #8FE6EA; --lx-ink: #06323B; --lx-ease: cubic-bezier(.2,.8,.2,1); }
+.shellHeader { background: rgba(255,255,255,.9); color: var(--lx-ink); border-bottom: 1px solid rgba(5,85,100,.14); -webkit-backdrop-filter: blur(20px) saturate(1.4); backdrop-filter: blur(20px) saturate(1.4); box-shadow: 0 18px 40px -28px rgba(5,85,100,.5); }
+.shellHeaderInner { min-height: 84px; max-width: 1160px; }
+.logo { height: 66px; width: auto; background: none; border-radius: 0; box-shadow: none; transition: transform .45s var(--lx-ease), filter .45s; }
+.logoLink:hover .logo { transform: scale(1.06); filter: drop-shadow(0 8px 16px rgba(25,167,184,.55)); }
+.shellStatus { color: var(--lx-ink); }
+
+.main { position: relative; }
+.eyebrow { font-family: var(--font-geist-mono), monospace; letter-spacing: .16em; color: var(--lx-mid); }
+.title { font-size: clamp(34px, 4.6vw, 56px); line-height: 1.06; letter-spacing: -.03em; background: linear-gradient(100deg, #021F26 20%, var(--lx-mid) 70%, var(--lx-accent)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.lede { color: #2C5963; font-size: 18px; }
+.list { list-style: none; padding: 0; display: grid; gap: 10px; }
+.list li { position: relative; padding: 14px 18px 14px 50px; border-radius: 16px; background: rgba(255,255,255,.75); box-shadow: inset 0 0 0 1px rgba(5,85,100,.12); transition: transform .4s var(--lx-ease), box-shadow .4s; }
+.list li::before { content: ""; position: absolute; left: 18px; top: 19px; width: 16px; height: 16px; border-radius: 50%; background: radial-gradient(circle at 35% 30%, var(--lx-glow), var(--lx-accent) 55%, var(--lx-teal)); box-shadow: 0 0 14px rgba(25,167,184,.7); }
+.list li:hover { transform: translateX(6px); box-shadow: inset 0 0 0 1px rgba(25,167,184,.5), 0 14px 28px -18px rgba(5,85,100,.5); }
+
+.card, .question, .moduleItem, .dialog { background: linear-gradient(155deg, rgba(255,255,255,.94), rgba(236,249,250,.7)) !important; border: 1px solid rgba(255,255,255,.95) !important; border-radius: 26px !important;
+  -webkit-backdrop-filter: blur(20px) saturate(1.4); backdrop-filter: blur(20px) saturate(1.4);
+  box-shadow: 0 0 0 1px rgba(25,167,184,.14), inset 0 1px 0 #fff, 0 28px 56px -32px rgba(5,85,100,.45), 0 70px 110px -76px rgba(5,85,100,.55) !important; }
+.card, .question, .moduleItem { transition: transform .18s ease-out, box-shadow .5s var(--lx-ease); }
+.card { padding: clamp(24px, 3.4vw, 40px); }
+
+.input, .textarea, .select { background: rgba(255,255,255,.92); border-radius: 14px; transition: box-shadow .3s, border-color .3s; }
+.input:focus, .textarea:focus, .select:focus { outline: none; border-color: var(--lx-accent); box-shadow: 0 0 0 4px rgba(25,167,184,.2), 0 0 30px -6px rgba(25,167,184,.6); }
+
+.btn { position: relative; overflow: hidden; border-radius: 999px; border: 0; background: linear-gradient(135deg, var(--lx-mid), var(--lx-teal) 55%, #03404B); color: #fff;
+  box-shadow: inset 0 1px rgba(255,255,255,.3), 0 16px 30px -14px rgba(5,85,100,.75), 0 0 36px -8px rgba(25,167,184,.55); transition: transform .4s var(--lx-ease), box-shadow .4s; }
+.btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: inset 0 1px rgba(255,255,255,.34), 0 22px 38px -14px rgba(5,85,100,.8), 0 0 60px -4px rgba(25,167,184,.8); }
+.btnSecondary { border-radius: 999px; background: rgba(255,255,255,.85); box-shadow: inset 0 0 0 1px rgba(5,85,100,.45), 0 14px 26px -18px rgba(5,85,100,.6); transition: transform .4s var(--lx-ease), background .3s; }
+.btnSecondary:hover:not(:disabled) { transform: translateY(-2px); background: #fff; }
+
+.progressBar { height: 10px; border-radius: 999px; background: rgba(5,85,100,.12); overflow: hidden; box-shadow: inset 0 1px 3px rgba(5,85,100,.2); }
+.progressFill { border-radius: 999px; background: linear-gradient(90deg, var(--lx-teal), var(--lx-accent), var(--lx-glow)); box-shadow: 0 0 18px rgba(25,167,184,.85); transition: width .7s var(--lx-ease); }
+
+.option { border-radius: 16px; background: rgba(255,255,255,.8); transition: transform .35s var(--lx-ease), box-shadow .35s, background .3s; }
+.option:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -18px rgba(5,85,100,.55), inset 0 0 0 1px rgba(25,167,184,.45); }
+.option:has(input:checked) { background: linear-gradient(135deg, rgba(25,167,184,.16), rgba(143,230,234,.22)); box-shadow: inset 0 0 0 2px var(--lx-accent), 0 0 32px -8px rgba(25,167,184,.65); }
+.step, .stateComplete { transition: transform .3s var(--lx-ease); }
+.legalLinks .link, .link { transition: color .25s; }
+.banner { border-radius: 16px; }
+
+/* scroll reveal / tilt parity for module-scoped cards (driven by LuxuryEffects via [data-lx]) */
+@media (prefers-reduced-motion: reduce) { .btn, .btnSecondary, .option, .list li { transition: none; } }
+
+/* ---- clean pass: calmer, tidier ---- */
+.title { background: none; -webkit-text-fill-color: #0B2F37; color: #0B2F37; font-size: clamp(30px, 3.6vw, 44px); font-weight: 650; letter-spacing: -.025em; line-height: 1.12; text-wrap: balance; }
+.list li { background: none; box-shadow: none; border-radius: 0; border-bottom: 1px solid rgba(5,85,100,.14); padding: 12px 0 12px 30px; }
+.list li::before { left: 2px; top: 19px; width: 9px; height: 9px; box-shadow: 0 0 0 4px rgba(25,167,184,.16); background: #19A7B8; }
+.list li:hover { transform: none; box-shadow: none; }
+.card, .question, .moduleItem, .dialog { border-radius: 20px !important; }

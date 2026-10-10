@@ -1,0 +1,389 @@
+/* app/contact/page.module.css */
+.main {
+  background-color: #F6FAFB;
+}
+
+.sectionContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .sectionContainer {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionContainer {
+    padding: 0 40px;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #075464;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionTitle {
+    font-size: 30px;
+  }
+}
+
+/* Buttons */
+.btnPrimary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #055564;
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Intro */
+.intro {
+  background: #F6FAFB;
+  padding: 48px 16px 56px;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    padding: 56px 24px 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    padding: 64px 40px 72px;
+  }
+}
+
+.introInner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.introTitle {
+  font-size: 28px;
+  font-weight: 750;
+  color: #000;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .introTitle {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .introTitle {
+    font-size: 48px;
+  }
+}
+
+.introDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.radioCircle {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #075464;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.radioSelected {
+  border-color: #055564;
+}
+
+.radioDot {
+  width: 8px;
+  height: 8px;
+  background: #055564;
+  border-radius: 50%;
+}
+
+/* Form Section */
+.formSection {
+  padding: 32px 0 48px;
+  background: #EAF3F5;
+}
+
+.contactForm {
+  max-width: 1024px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .formRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.formGroup {
+  margin-bottom: 16px;
+}
+
+.formLabel {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #055564;
+  margin-bottom: 6px;
+}
+
+.required {
+  color: #C0392B;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: #FFFFFF;
+  border: 1px solid #D8DEE8;
+  border-radius: 9px;
+  font-size: 16px;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #1A1A1A;
+  transition: border-color 0.2s;
+}
+
+.formInput:focus,
+.formTextarea:focus {
+  outline: none;
+  border-color: #055564;
+}
+
+.formTextarea {
+  min-height: 155px;
+  resize: vertical;
+}
+
+.inputError {
+  border-color: #C0392B;
+}
+
+.inputError:focus {
+  border-color: #C0392B;
+}
+
+.errorText {
+  display: block;
+  font-size: 13px;
+  color: #C0392B;
+  margin-top: 4px;
+}
+
+.charCounter {
+  text-align: right;
+  font-size: 14px;
+  color: #075464;
+  margin-top: 4px;
+}
+
+/* Checkbox */
+.checkboxLabel {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #1A1A1A;
+  font-family: 'Inter', Arial, sans-serif;
+}
+
+.checkboxInput {
+  display: none;
+}
+
+.checkboxCustom {
+  width: 24px;
+  height: 24px;
+  border: 2px solid #075464;
+  border-radius: 4px;
+  background: #FFFFFF;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.checkboxInput:checked + .checkboxCustom {
+  background: #055564;
+  border-color: #055564;
+}
+
+.checkboxInput:checked + .checkboxCustom::after {
+  content: '✓';
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.checkboxText {
+  padding-top: 2px;
+}
+
+.privacyLink {
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #055564;
+  text-decoration: underline;
+  margin-top: 4px;
+  margin-left: 36px;
+  transition: opacity 0.2s;
+}
+
+.privacyLink:hover {
+  opacity: 0.8;
+}
+
+/* Submit Section */
+.submitSection {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.protectedNote {
+  font-size: 14px;
+  color: #075464;
+}
+
+/* Success Message */
+.successMessage {
+  max-width: 1024px;
+  padding: 40px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.successMessage h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #055564;
+  margin-bottom: 8px;
+}
+
+.successMessage p {
+  font-size: 16px;
+  color: #1A1A1A;
+  margin-bottom: 24px;
+}
+
+/* Safety Note */
+.safetyNote {
+  padding: 48px 0;
+  background: #F7F5F0;
+}
+
+.safetyDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Alternative Contact */
+.alternativeContact {
+  padding: 48px 0;
+  background: #F6FAFB;
+}
+
+.alternativeDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 639px) {
+  .introTitle {
+    font-size: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 22px;
+  }
+
+  .formInput,
+  .formTextarea {
+    font-size: 15px;
+    padding: 10px 14px;
+  }
+
+  .btnPrimary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .successMessage {
+    padding: 24px 16px;
+  }
+
+  .successMessage h3 {
+    font-size: 20px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .formRow {
+    grid-template-columns: 1fr 1fr;
+  }
+}

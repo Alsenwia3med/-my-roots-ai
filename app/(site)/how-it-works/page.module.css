@@ -1,0 +1,330 @@
+/* app/how-it-works/page.module.css */
+.main {
+  background-color: var(--background);
+}
+
+.sectionContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .sectionContainer {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionContainer {
+    padding: 0 40px;
+  }
+}
+
+.sectionTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 30px;
+  }
+}
+
+/* Intro */
+.intro {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  padding: 40px 16px 48px;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    padding: 48px 24px 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    padding: 56px 40px 64px;
+  }
+}
+
+.introInner {
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.introTitle {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .introTitle {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .introTitle {
+    font-size: 48px;
+  }
+}
+
+.introSubtitle {
+  font-size: 16px;
+  color: var(--white);
+  line-height: 1.6;
+}
+
+/* Process */
+.process {
+  padding: 48px 0;
+}
+
+.stepGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .stepGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stepGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stepCard {
+  padding: 24px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.stepNumber {
+  display: inline-block;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+@media (min-width: 768px) {
+  .stepNumber {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stepNumber {
+    font-size: 24px;
+  }
+}
+
+.stepTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.stepDesc {
+  font-size: 16px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* AI Section */
+.aiSection {
+  padding: 8px 0 16px;
+}
+
+.aiGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .aiGrid {
+    flex-direction: row;
+  }
+}
+
+.aiDoes {
+  flex: 1;
+  padding: 16px 20px;
+  background: var(--gray-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .aiDoes {
+    justify-content: flex-start;
+  }
+}
+
+.checkmark {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 18px;
+}
+
+.aiDoes p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .aiDoes p {
+    text-align: left;
+  }
+}
+
+.aiDoesNot {
+  flex: 1;
+  padding: 16px 20px;
+  background: var(--gray-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .aiDoesNot {
+    justify-content: flex-start;
+  }
+}
+
+.aiDoesNot p {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--primary);
+  text-align: center;
+  line-height: 1.4;
+}
+
+@media (min-width: 768px) {
+  .aiDoesNot p {
+    text-align: left;
+  }
+}
+
+/* Privacy */
+.privacy {
+  padding: 16px 0 24px;
+}
+
+.privacyCard {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 16px 20px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .privacyCard {
+    justify-content: flex-start;
+    padding: 16px 24px;
+  }
+}
+
+.lockIcon {
+  font-size: 18px;
+}
+
+.privacyCard p {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+/* CTA */
+.cta {
+  padding: 24px 0 48px;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 1024px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .ctaButtons {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.btnPrimary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  transition: opacity 0.2s;
+  text-align: center;
+  min-width: 200px;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnSecondary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: transparent;
+  color: var(--primary);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  border: 2px solid var(--primary);
+  transition: background 0.2s;
+  text-align: center;
+  min-width: 200px;
+}
+
+.btnSecondary:hover {
+  background: rgba(10, 122, 144, 0.05);
+}

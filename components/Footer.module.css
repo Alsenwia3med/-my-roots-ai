@@ -1,0 +1,178 @@
+/* components/Footer.module.css
+ *
+ * PUB01-Z09, light layout: white band under a teal top rule, wordmark left and version right,
+ * four link groups, a hairline divider, the boundary statement, then copyright (left) and the
+ * colour line (right) in monospace. Links keep the approved 44 x 44 minimum target.
+ * Colours: app/zd-tokens.css only.
+ */
+
+.footer {
+  border-top: 3px solid var(--zd-navy);
+  background: var(--zd-white);
+  color: #000;
+}
+
+.inner {
+  --pad: 16px;
+  max-width: calc(1200px + 2 * var(--pad));
+  margin-inline: auto;
+  padding: 48px var(--pad) 40px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: inline-flex;
+  border-radius: var(--zd-radius-button);
+}
+
+.wordmark {
+  display: block;
+  color: #000;
+  font-size: 22px;
+  line-height: 30px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.version,
+.copyright,
+.tagline,
+.linkMono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.version {
+  color: var(--zd-muted);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px 24px;
+  margin-top: 40px;
+}
+
+.columnTitle {
+  color: #000;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 700;
+}
+
+.list {
+  margin-top: 8px;
+  list-style: none;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--zd-touch-target);
+  color: var(--zd-muted);
+  font-size: 14px;
+  line-height: 20px;
+  text-decoration: none;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+
+a.link:hover,
+.link[aria-current='page'] {
+  color: #000;
+  text-decoration-line: underline;
+}
+
+.link[aria-current='page'] {
+  font-weight: 700;
+}
+
+.linkMono {
+  color: var(--zd-navy);
+  font-size: 13px;
+}
+
+/* Divider, boundary statement, copyright and colour line. */
+.legal {
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--zd-border);
+}
+
+/* Legal text: 16/26 minimum (typography spec). */
+.disclaimer {
+  color: var(--zd-muted);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-top: 24px;
+}
+
+.copyright {
+  color: var(--zd-muted);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.tagline {
+  color: var(--zd-navy);
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.brand:focus-visible,
+.link:focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+@media (min-width: 768px) {
+  .inner {
+    --pad: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    --pad: 48px;
+    padding-top: 56px;
+  }
+
+  .columns {
+    grid-template-columns: repeat(4, 160px);
+    gap: 32px 27px;
+  }
+}
+
+/*
+ * C-05 §5 touch target (44 x 44 px): a centred, absolutely positioned pseudo-element grows the
+ * wordmark's pointer area without changing its visible box or the footer's spacing.
+ */
+.brand {
+  position: relative;
+}
+
+.brand::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, var(--zd-touch-target));
+  height: max(100%, var(--zd-touch-target));
+  transform: translate(-50%, -50%);
+}

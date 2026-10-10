@@ -1,0 +1,109 @@
+/* app/globals.css
+ * Inter is self-hosted by next/font in app/layout.tsx (typography spec: self-hosted WOFF2).
+ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #158297; /* OLD COLOR #1A2A4A */
+  --primary-light: #075464;
+  --background: #F6FAFB;
+  --white: #FFFFFF;
+  --gray: #6B7280;
+  --gray-light: #F3F4F6;
+  --border: #D8DEE8;
+  --font-family: 'Inter', Arial, sans-serif;
+  
+  /* Platform page specific colors */
+  --hero-bg: #158297; /* OLD COLOR #F3F5F8 */
+  --muted: #5F6B7A;
+  --muted-card: #FAFDFD;
+  --architecture-bg: #EAF3F5;
+  --status-available: #245D42;
+  --status-soon: #5F6B7A;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keeps the sticky 72px header from covering the top of a page after navigation
+     (Next.js scrolls the new page into view with scrollIntoView, which honours this). */
+  scroll-padding-top: var(--zd-header-height, 72px);
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background);
+  color: var(--primary);
+  line-height: 1.5;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  font-family: var(--font-family);
+}
+
+/* Skip Link */
+.skip-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 12px 20px;
+  background: var(--primary);
+  color: var(--white);
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 1000;
+  transform: translateY(-150%);
+  transition: transform 0.2s ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/*
+ * C-05 §13: "visible focus on every interactive element" and "non-text UI/focus >= 3:1".
+ * The skip link is the first thing a keyboard user reaches, and it was falling back to the
+ * browser's default ring; this gives it the same ring as every other control.
+ * --zd-focus (#2563eb) is 5.17:1 on white.
+ */
+.skip-link:focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+/* Container utility */
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 40px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 60px;
+  }
+}

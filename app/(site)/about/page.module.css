@@ -1,0 +1,312 @@
+/* app/about/page.module.css */
+.main {
+  background-color: #F6FAFB;
+}
+
+.sectionContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+@media (min-width: 768px) {
+  .sectionContainer {
+    padding: 0 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionContainer {
+    padding: 0 40px;
+  }
+}
+
+.eyebrow {
+  display: inline-block;
+  color: #075464;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 28px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .sectionTitle {
+    font-size: 30px;
+  }
+}
+
+/* Buttons */
+.btnPrimary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #055564;
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+  text-align: center;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnOutline {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #FFFFFF;
+  color: #055564;
+  border: 2px solid #055564;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.2s;
+  text-align: center;
+}
+
+.btnOutline:hover {
+  background: #F6FAFB;
+}
+
+/* Hero */
+.hero {
+  background: #F6FAFB;
+  padding: 48px 16px 56px;
+}
+
+@media (min-width: 768px) {
+  .hero {
+    padding: 56px 24px 64px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    padding: 64px 40px 72px;
+  }
+}
+
+.heroInner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.heroTitle {
+  font-size: 28px;
+  font-weight: 750;
+  color: #000;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .heroTitle {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .heroTitle {
+    font-size: 48px;
+  }
+}
+
+.heroDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  max-width: 800px;
+}
+
+/* Problem */
+.problem {
+  padding: 48px 0;
+  background: #F6FAFB;
+}
+
+.problemDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* Framework */
+.framework {
+  padding: 48px 0;
+  background: #EAF3F5;
+}
+
+.frameworkDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 800px;
+}
+
+.frameworkGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  max-width: 1024px;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 640px) {
+  .frameworkGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .frameworkGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.frameworkCard {
+  padding: 20px 16px;
+  background: #FFFFFF;
+  border: 1px solid #D8DEE8;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 105px;
+}
+
+.frameworkTitle {
+  font-size: 17px;
+  font-weight: 700;
+  color: #000;
+  text-align: center;
+}
+
+.frameworkNote {
+  font-size: 14px;
+  color: #075464;
+  line-height: 1.5;
+  max-width: 800px;
+}
+
+/* Company */
+.company {
+  padding: 48px 0;
+  background: #F6FAFB;
+}
+
+/* Safety */
+.safety {
+  padding: 48px 0;
+  background: #F7F5F0;
+}
+
+.safetyDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+/* CTA Section */
+.ctaSection {
+  padding: 48px 0;
+  background: #F6FAFB;
+}
+
+.ctaButtons {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 1024px;
+}
+
+@media (min-width: 640px) {
+  .ctaButtons {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 639px) {
+  .heroTitle {
+    font-size: 24px;
+  }
+
+  .sectionTitle {
+    font-size: 22px;
+  }
+
+  .frameworkCard {
+    min-height: 78px;
+    padding: 16px;
+  }
+
+  .frameworkTitle {
+    font-size: 15px;
+  }
+
+  .btnPrimary,
+  .btnOutline {
+    width: 100%;
+    text-align: center;
+  }
+
+  .heroDescription {
+    font-size: 15px;
+  }
+
+  .problemDescription {
+    font-size: 15px;
+  }
+
+  .frameworkDescription {
+    font-size: 15px;
+  }
+
+  .safetyDescription {
+    font-size: 15px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .frameworkGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .frameworkCard {
+    min-height: 90px;
+  }
+}
+
+/* Small screen adjustments for framework cards */
+@media (max-width: 399px) {
+  .frameworkCard {
+    min-height: 70px;
+    padding: 12px;
+  }
+
+  .frameworkTitle {
+    font-size: 14px;
+  }
+}

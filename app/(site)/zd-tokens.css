@@ -1,0 +1,164 @@
+/*
+ * ROOTS-AI approved design tokens.
+ *
+ * Transcribed unchanged from
+ *   importantdocs/ROOTS_AI_ZERO_DISCRETION_VENDOR_MASTER_v1.0/
+ *   ROOTS_AI_ZERO_DISCRETION_VENDOR_MASTER_v1.0/
+ *   03_APPROVED_FOUNDATION/ROOTS_AI_PHASE_0B/tokens/design_tokens.json
+ *
+ * Phase 0B rule: import the approved tokens without alteration. No value below
+ * is an implementation choice. The --zd- prefix keeps these clear of the older
+ * ad-hoc variables in globals.css.
+ */
+
+:root {
+  /* ---- colors.primary ---- */
+  --zd-navy: #055564;
+  --zd-soft-navy: #075464;
+  --zd-charcoal: #1a1a1a;
+
+  /* ---- colors.secondary ---- */
+  --zd-warm-white: #F6FAFB;
+  --zd-white: #ffffff;
+  --zd-muted: #6b7280;
+  --zd-border: #d8dee8;
+  --zd-gray-300: #d1d5db;
+  --zd-gray-100: #f3f4f6;
+
+  /* ---- colors.status ---- */
+  --zd-optimized: #27ae60;
+  --zd-compensating: #f39c12;
+  --zd-strained: #e67e22;
+  --zd-dysregulated: #c0392b;
+  --zd-error: #b42318;
+  --zd-success: #16794b;
+  --zd-warning: #f39c12;
+  --zd-info: #3b82f6;
+
+  /* ---- colors.accent ---- */
+  --zd-teal: #0E9093;
+  /*
+   * Text-safe variants of the two accent colours, added for C-05 §13 ("Contrast: normal text
+   * >= 4.5:1"). The approved accents reach only 3.75:1 (teal) and 2.36:1 (gold) on white, which
+   * is fine for large text, borders and graphics but fails as small text.
+   *
+   * Each variant keeps the approved colour's exact hue and saturation and lowers only its
+   * lightness until it clears 4.5:1 with margin, so no new colour direction is introduced:
+   *   teal #0E9093 3.75:1 -> #055564 5.01:1 (hue 171.6deg, saturation 0.288, unchanged)
+   *   gold #22C7DB 2.36:1 -> #055564 5.04:1 (hue  40.6deg, saturation 0.491, unchanged)
+   *
+   * Use these for text below 18.66px bold / 24px regular. Keep --zd-teal and --zd-gold for
+   * borders, rules, icons and large display text, where they already pass.
+   * Derivation is recorded in the M3 decision log for ROOTS approval, since File 14 and the
+   * Golden Screen govern final visual tokens.
+   */
+  --zd-teal-ink: #055564;
+  --zd-gold-ink: #055564;
+  --zd-gold: #22C7DB;
+  --zd-focus: #2563eb;
+
+  /* ---- typography ---- */
+  --zd-font: Inter, Arial, sans-serif;
+
+  --zd-h1-size: 48px;
+  --zd-h1-line: 56px;
+  --zd-h2-size: 32px;
+  --zd-h2-line: 40px;
+  --zd-h3-size: 24px;
+  --zd-h3-line: 32px;
+  --zd-h4-size: 20px;
+  --zd-h4-line: 28px;
+  --zd-body-size: 16px;
+  --zd-body-line: 26px;
+  --zd-small-size: 14px;
+  --zd-small-line: 20px;
+  --zd-xsmall-size: 12px;
+  --zd-xsmall-line: 16px;
+  /* typography.sizes.legalMinimum — legal and consent copy never below this. */
+  --zd-legal-min-size: 16px;
+
+  --zd-w-regular: 400;
+  --zd-w-medium: 500;
+  --zd-w-semibold: 600;
+  --zd-w-bold: 700;
+
+  /* ---- spacing.values ---- */
+  --zd-space-1: 4px;
+  --zd-space-2: 8px;
+  --zd-space-3: 12px;
+  --zd-space-4: 16px;
+  --zd-space-6: 24px;
+  --zd-space-8: 32px;
+  --zd-space-12: 48px;
+  --zd-space-16: 64px;
+  --zd-space-24: 96px;
+
+  /* ---- grid / containers ---- */
+  --zd-max-content: 1200px;
+  --zd-reading-max: 720px;
+  --zd-container-pad: 24px;
+  --zd-container-pad-mobile: 16px;
+
+  /* ---- radius ---- */
+  --zd-radius-card: 12px;
+  --zd-radius-button: 8px;
+  --zd-radius-pill: 999px;
+
+  /* ---- shadows ---- */
+  --zd-shadow-card: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --zd-shadow-dropdown: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+  /* ---- zIndex ---- */
+  --zd-z-header: 100;
+  --zd-z-drawer: 200;
+  --zd-z-modal: 300;
+  --zd-z-skip: 999;
+
+  /* ---- buttons / inputs ---- */
+  --zd-control-height: 44px;
+  --zd-touch-target: 44px;
+  --zd-button-min-width: 120px;
+  --zd-button-pad: 0 24px;
+  --zd-button-size: 16px;
+  --zd-button-weight: 600;
+
+  /* ---- header / footer ---- */
+  --zd-header-height: 72px;
+  --zd-header-sticky-trigger: 80px;
+
+  /* ---- accessibility ---- */
+  --zd-focus-ring: 3px solid #2563eb;
+  --zd-focus-offset: 2px;
+
+  /* ---- interaction.motion: 150-250ms ---- */
+  --zd-motion-fast: 150ms;
+  --zd-motion-slow: 250ms;
+
+  /*
+   * Accessible text pairings.
+   *
+   * design_tokens.json requires WCAG 2.2 AA (4.5:1 normal text) and notes that
+   * status colours are for indicators and charts, not body text. Measured
+   * against the approved surfaces:
+   *   gold  #22C7DB on warm white = 2.26:1  -> not usable for small text
+   *   teal  #0E9093 on warm white = 3.58:1  -> not usable for small text
+   *   gold  #22C7DB on navy       = 6.03:1  -> usable
+   *   navy  #075464 on white      = 10.5:1  -> usable
+   * So small eyebrow text on light surfaces uses soft navy, and gold/teal are
+   * kept for dark surfaces and for non-text UI where 3:1 applies.
+   * Resolves reservations R-16 and R-17.
+   */
+  --zd-eyebrow-on-light: var(--zd-soft-navy);
+  --zd-eyebrow-on-dark: var(--zd-gold);
+}
+
+@media (max-width: 767px) {
+  :root {
+    /* typography.sizes.h1.mobile / lineHeights.h1.mobile */
+    --zd-h1-size: 34px;
+    --zd-h1-line: 42px;
+    --zd-h2-size: 24px;
+    --zd-h2-line: 32px;
+    --zd-container-pad: 16px;
+  }
+}

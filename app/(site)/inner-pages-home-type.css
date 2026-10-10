@@ -1,0 +1,500 @@
+/* app/inner-pages-home-type.css
+ *
+ * Gives the inner pages (everything inside .clone-page) the home page's type system:
+ * font, eyebrows, headings, font sizes, card borders and buttons. Values mirror
+ * app/page.module.css and design_tokens.json (app/zd-tokens.css). Loaded after
+ * app/clone-pages.css, so equal-specificity rules here win. Layout from the clone
+ * (grids, spacing, page structure) is left as it is.
+ */
+
+/* ---------------------------------------------------------------- base */
+.clone-page {
+  --navy: var(--zd-navy);
+  --ink: var(--zd-charcoal);
+  --muted: var(--zd-muted);
+  --line: var(--zd-border);
+  --paper: var(--zd-warm-white);
+  --font-geist-sans: Inter, 'Inter Fallback', Arial, sans-serif;
+  background: var(--zd-warm-white);
+  color: var(--zd-charcoal);
+  font-family: var(--font-geist-sans);
+}
+
+.clone-page .marketing-page,
+.clone-page .privacy-page {
+  background: var(--zd-warm-white);
+}
+
+/* ------------------------------------------ eyebrows (home: "WHAT CHANGES") */
+.clone-page .marketing-kicker,
+.clone-page .phase-label,
+.clone-page .eyebrow {
+  /* 12px bold: teal-ink, since --zd-teal is 3.75:1 (C-05 §13 needs 4.5:1). */
+  color: var(--zd-teal-ink);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------ page titles (home hero scale) */
+.clone-page .page-heading h1,
+.clone-page .route-shell h1,
+.clone-page .privacy-heading h1 {
+  max-width: 900px;
+  margin: 16px 0 0;
+  color: #000;
+  font-size: 34px;
+  line-height: 43px;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.clone-page .privacy-heading h1 {
+  margin-top: 0;
+}
+
+/* ------------------------------------------ section titles (home h2) */
+.clone-page .platform-heading h2,
+.clone-page .architecture h2,
+.clone-page .report-features h2 {
+  margin: 16px 0 0;
+  color: #000;
+  font-size: 26px;
+  line-height: 36px;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+/* ------------------------------------------ intro / lede (home body 16/26) */
+.clone-page .page-heading > p:not(.marketing-kicker):not(.phase-label),
+.clone-page .route-lede {
+  max-width: var(--zd-reading-max);
+  margin-top: 16px;
+  color: var(--zd-muted);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.clone-page .architecture p,
+.clone-page .report-features p {
+  max-width: var(--zd-reading-max);
+  margin-top: 12px;
+  color: var(--zd-muted);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.clone-page .privacy-heading p {
+  margin-top: 8px;
+  color: var(--zd-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* ------------------------------------------ cards (home feature cards) */
+.clone-page .info-section-grid,
+.clone-page .platform-grid,
+.clone-page .domain-grid,
+.clone-page .steps-grid {
+  gap: 24px;
+}
+
+.clone-page .steps-grid {
+  background: transparent;
+}
+
+.clone-page .info-section-grid article,
+.clone-page .steps-grid article,
+.clone-page .platform-grid article,
+.clone-page .domain-grid article,
+.clone-page .privacy-layout article,
+.clone-page .privacy-layout aside,
+.clone-page .article-body,
+.clone-page .report-summary {
+  padding: 22px;
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+  box-shadow: none;
+}
+
+.clone-page .info-section-grid article {
+  min-height: 0;
+}
+
+.clone-page .principle-strip strong {
+  padding: 22px;
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+  color: var(--zd-navy);
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 600;
+}
+
+/* Card titles: home feature title (16/22, 17/24 from 1024). */
+.clone-page .info-section-grid h2,
+.clone-page .steps-grid h2,
+.clone-page .platform-grid h2,
+.clone-page .domain-grid h2,
+.clone-page .privacy-layout h2,
+.clone-page .article-body h2,
+.clone-page .success-message h2 {
+  margin: 0 0 8px;
+  color: var(--zd-navy);
+  font-size: 16px;
+  line-height: 22px;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.clone-page .steps-grid h2 {
+  margin-top: 16px;
+}
+
+.clone-page .platform-grid h2 {
+  margin-top: 12px;
+}
+
+/* Card text: home feature body (13/18.2, 14/19.6 from 1024). */
+.clone-page .info-section-grid p,
+.clone-page .steps-grid p,
+.clone-page .platform-grid p,
+.clone-page .domain-grid p,
+.clone-page .article-body p {
+  color: var(--zd-muted);
+  font-size: 13px;
+  line-height: 18.2px;
+}
+
+/* Step numbers: home "01" (12/16, 700, gold). */
+.clone-page .steps-grid span {
+  /* 12px bold: gold-ink, since --zd-gold is 2.36:1 on a light surface. */
+  color: var(--zd-gold-ink);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+.clone-page .status {
+  padding: 4px 10px;
+  border-radius: var(--zd-radius-pill);
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 700;
+}
+
+/* ------------------------------------------ privacy */
+.clone-page .privacy-heading {
+  border-bottom: 1px solid var(--zd-border);
+  background: var(--zd-gray-100);
+}
+
+.clone-page .privacy-layout aside strong {
+  color: var(--zd-navy);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+}
+
+.clone-page .privacy-layout aside a {
+  color: var(--zd-soft-navy);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* Legal copy: never below 16/26. */
+.clone-page .privacy-layout p {
+  color: var(--zd-charcoal);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.clone-page .print-button {
+  min-height: var(--zd-touch-target);
+  padding: 0 16px;
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  color: var(--zd-navy);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* ------------------------------------------ buttons (home navy button) */
+.clone-page .primary-button,
+.clone-page .secondary-button,
+.clone-page .continue-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--zd-control-height);
+  min-height: var(--zd-control-height);
+  min-width: var(--zd-button-min-width);
+  padding: 0 24px;
+  border-radius: var(--zd-radius-button);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--zd-motion-fast) ease-out,
+    box-shadow var(--zd-motion-fast) ease-out,
+    transform var(--zd-motion-fast) ease-out;
+}
+
+.clone-page .primary-button,
+.clone-page .continue-button {
+  border: 0;
+  background: var(--zd-navy);
+  color: var(--zd-white);
+}
+
+.clone-page .primary-button:hover,
+.clone-page .continue-button:hover {
+  background: var(--zd-soft-navy);
+  color: var(--zd-white);
+}
+
+.clone-page .secondary-button {
+  border: 1px solid var(--zd-navy);
+  background: transparent;
+  color: var(--zd-navy);
+  font-weight: 600;
+}
+
+.clone-page .secondary-button:hover {
+  background: var(--zd-gray-100);
+}
+
+.clone-page .continue-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.clone-page :focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+/* ------------------------------------------ forms (tokens: inputs) */
+.clone-page .route-form label,
+.clone-page .contact-form label {
+  color: var(--zd-navy);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.clone-page .route-form input,
+.clone-page .contact-form input,
+.clone-page .contact-form textarea {
+  min-height: var(--zd-control-height);
+  padding: 0 12px;
+  border: 1px solid var(--zd-muted);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  color: var(--zd-charcoal);
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.clone-page .contact-form textarea {
+  padding: 12px;
+}
+
+.clone-page .route-form input:focus,
+.clone-page .contact-form input:focus,
+.clone-page .contact-form textarea:focus {
+  border-color: var(--zd-navy);
+}
+
+.clone-page .success-message {
+  border: 1px solid var(--zd-success);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+}
+
+.clone-page .success-message h2 {
+  color: var(--zd-success);
+}
+
+.clone-page .success-message p {
+  color: var(--zd-charcoal);
+  font-size: 16px;
+  line-height: 26px;
+}
+
+/* ------------------------------------------ assessment questions */
+.clone-page .route-progress > div:first-child {
+  color: var(--zd-muted);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.clone-page .route-progress > div:last-child {
+  height: 8px;
+  background: var(--zd-gray-100);
+}
+
+.clone-page .route-progress > div:last-child > div {
+  background: var(--zd-navy);
+}
+
+.clone-page .question-form fieldset {
+  padding: 22px;
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+}
+
+.clone-page .question-form legend {
+  margin-bottom: 12px;
+  color: var(--zd-navy);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.clone-page .question-form label {
+  justify-content: center;
+  min-width: var(--zd-touch-target);
+  min-height: var(--zd-touch-target);
+  padding: 0 16px;
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  color: var(--zd-navy);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.clone-page .question-form label:has(:checked) {
+  border-color: var(--zd-navy);
+  background: var(--zd-navy);
+  color: var(--zd-white);
+}
+
+.clone-page .question-form label:has(:focus-visible) {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+/* ------------------------------------------ report */
+.clone-page .report-summary {
+  padding: 32px;
+}
+
+.clone-page .report-score {
+  color: var(--zd-navy);
+  font-size: 64px;
+  line-height: 64px;
+  font-weight: 700;
+  letter-spacing: normal;
+}
+
+.clone-page .report-denom {
+  margin-left: 8px;
+  color: var(--zd-muted);
+  font-size: 18px;
+}
+
+.clone-page .report-summary h2 {
+  margin-top: 16px;
+  color: #000;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+
+.clone-page .category-list div {
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.clone-page .report-note {
+  color: var(--zd-muted);
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* ------------------------------------------ larger screens (home breakpoints) */
+@media (min-width: 768px) {
+  .clone-page .marketing-kicker,
+  .clone-page .phase-label,
+  .clone-page .eyebrow {
+    font-size: 13px;
+  }
+
+  .clone-page .page-heading h1,
+  .clone-page .route-shell h1,
+  .clone-page .privacy-heading h1 {
+    font-size: 46px;
+    line-height: 54px;
+  }
+
+  .clone-page .platform-heading h2,
+  .clone-page .architecture h2,
+  .clone-page .report-features h2 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .clone-page .report-score {
+    font-size: 72px;
+    line-height: 72px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .clone-page .info-section-grid h2,
+  .clone-page .steps-grid h2,
+  .clone-page .platform-grid h2,
+  .clone-page .domain-grid h2,
+  .clone-page .privacy-layout h2,
+  .clone-page .article-body h2,
+  .clone-page .success-message h2 {
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .clone-page .info-section-grid p,
+  .clone-page .steps-grid p,
+  .clone-page .platform-grid p,
+  .clone-page .domain-grid p,
+  .clone-page .article-body p {
+    font-size: 14px;
+    line-height: 19.6px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .clone-page .page-heading h1,
+  .clone-page .route-shell h1,
+  .clone-page .privacy-heading h1 {
+    font-size: 52px;
+    line-height: 60px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clone-page .primary-button,
+  .clone-page .secondary-button,
+  .clone-page .continue-button {
+    transition: none;
+  }
+}

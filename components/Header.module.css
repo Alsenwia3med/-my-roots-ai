@@ -1,0 +1,399 @@
+/* components/Header.module.css
+ *
+ * PUB01-Z01. Sizes from PUB-01_1440_MASTER_CORRECTED_FINAL.svg /
+ * PUB-01_360_MASTER_CORRECTED_FINAL.svg (v1.2.1); colours,
+ * radius, shadow, focus ring, z-index and motion from app/zd-tokens.css.
+ * Breakpoints: menu control below 1024 (responsive rules, 768: "wordmark left,
+ * approved menu control right"), desktop navigation from 1024.
+ */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--zd-z-header);
+  height: var(--zd-header-height);
+  background: var(--zd-navy);
+  transition:
+    height 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow var(--zd-motion-fast) ease-out;
+}
+
+/* Past the sticky trigger the bar and the logo tab both shrink. */
+.header[data-stuck='true'] {
+  height: 56px;
+  box-shadow: var(--zd-shadow-dropdown);
+}
+
+/* Same content column as the page: 328 / 704 / 928 / 1200. */
+.inner {
+  --pad: 16px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  max-width: calc(1200px + 2 * var(--pad));
+  margin-inline: auto;
+  padding-inline: var(--pad);
+}
+
+.brand {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  /* White tab hanging from the top of the bar; the negative margin keeps the logo itself
+     at its original left edge. */
+  align-self: flex-start;
+  margin-left: -12px;
+  padding: 12px;
+  border-radius: 0 0 14px 14px;
+  background: var(--zd-white);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+  transition:
+    padding 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    margin-left 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 300ms ease-out;
+}
+
+.header[data-stuck='true'] .brand {
+  margin-left: -8px;
+  padding: 8px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Client-selected logo (11 Sep 2026), cropped to its artwork: 63 x 83 at every width. */
+.wordmark {
+  display: block;
+  width: 63px;
+  height: 83px;
+  transition:
+    width 300ms cubic-bezier(0.4, 0, 0.2, 1),
+    height 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.header[data-stuck='true'] .wordmark {
+  width: 40px;
+  height: 53px;
+}
+
+.nav,
+.cta {
+  display: none;
+}
+
+/* 360 corrected master: 44 x 44, radius 8, white at 5% fill, no outline. */
+.menuButton {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  padding: 0;
+  border: 0;
+  border-radius: var(--zd-radius-button);
+  background: color-mix(in srgb, var(--zd-white) 5%, transparent);
+  color: var(--zd-white);
+  cursor: pointer;
+  transition: background-color var(--zd-motion-fast) ease-out;
+}
+
+.menuButton:hover {
+  background: var(--zd-soft-navy);
+}
+
+.brand:focus-visible,
+.navLink:focus-visible,
+.moreButton:focus-visible,
+.moreLink:focus-visible,
+.cta:focus-visible,
+.menuButton:focus-visible,
+.drawerLink:focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+@media (min-width: 768px) {
+  .inner {
+    --pad: 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    --pad: 48px;
+  }
+}
+
+/* ------------------------------------------------ desktop navigation (>= 1440)
+   Responsive rules, 1024: keep desktop navigation only while every item fits at the
+   approved size, otherwise use the 768 menu treatment. At 14px navigation and a 16px
+   action the items do not fit at 1024, so the menu control continues until 1440. */
+@media (min-width: 1440px) {
+  /* Each item sits in a slot centred on the master's text-anchor="middle" x
+     (365 / 465 / 575 / 690 / 775 / 850). Slots start at 315; the logo ends at 157. */
+  .nav {
+    display: flex;
+    align-items: center;
+    margin-left: 158px;
+  }
+
+  .nav > :nth-child(1) { width: 100px; }
+  .nav > :nth-child(2) { width: 100px; }
+  .nav > :nth-child(3) { width: 120px; }
+  .nav > :nth-child(4) { width: 110px; }
+  .nav > :nth-child(5) { width: 60px; }
+  .nav > :nth-child(6) { width: 90px; }
+
+  .more {
+    display: flex;
+    justify-content: center;
+  }
+
+  .navLink,
+  .moreButton {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-height: var(--zd-touch-target);
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--zd-white);
+    font-family: inherit;
+    /* Navigation: 14/20, weight 500 (typography spec). */
+    font-size: 14px;
+    line-height: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+    text-decoration: none;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 6px;
+    cursor: pointer;
+  }
+
+  .navLink:hover,
+  .navLink[aria-current='page'],
+  .moreButton:hover,
+  .moreButton[aria-expanded='true'],
+  .moreButton[data-active='true'] {
+    text-decoration-line: underline;
+  }
+
+  .cta {
+    display: inline-flex;
+    margin-left: auto;
+  }
+
+  .menuButton {
+    display: none;
+  }
+}
+
+/* More menu: header surface, dropdown shadow token, 44px targets. */
+.more {
+  position: relative;
+}
+
+.moreMenu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 0;
+  z-index: var(--zd-z-header);
+  display: flex;
+  flex-direction: column;
+  min-width: 240px;
+  padding: 8px;
+  border: 1px solid var(--zd-soft-navy);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-navy);
+  box-shadow: var(--zd-shadow-dropdown);
+}
+
+.moreLink {
+  display: flex;
+  align-items: center;
+  min-height: var(--zd-touch-target);
+  padding: 0 12px;
+  border-radius: var(--zd-radius-button);
+  color: var(--zd-white);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--zd-motion-fast) ease-out;
+}
+
+.moreLink:hover,
+.moreLink[aria-current='page'] {
+  background: var(--zd-soft-navy);
+}
+
+/* 1440 corrected master action: 220 x 44, radius 8, #FFFFFF, 14px / 600 #055564 label. */
+.cta {
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 220px;
+  height: var(--zd-control-height);
+  padding: 0;
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  color: var(--zd-navy);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  transition:
+    box-shadow var(--zd-motion-fast) ease-out,
+    transform var(--zd-motion-fast) ease-out;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--zd-shadow-dropdown);
+}
+
+.cta:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+/* ----------------------------------------------------------- drawer (< 1024) */
+.drawer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--zd-z-drawer);
+}
+
+.backdrop {
+  position: absolute;
+  inset: 0;
+  padding: 0;
+  border: 0;
+  background: rgba(10, 122, 144, 0.6);
+  cursor: pointer;
+}
+
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  width: min(100%, 360px);
+  padding: 0 16px 24px;
+  overflow-y: auto;
+  background: var(--zd-navy);
+  color: var(--zd-white);
+}
+
+.panelHead {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  height: var(--zd-header-height);
+}
+
+.drawerNav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.drawerLink {
+  display: flex;
+  align-items: center;
+  min-height: var(--zd-touch-target);
+  border-bottom: 1px solid var(--zd-soft-navy);
+  color: var(--zd-white);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  text-decoration: none;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+}
+
+.drawerLink:hover,
+.drawerLink[aria-current='page'] {
+  text-decoration-line: underline;
+}
+
+.drawerCta {
+  display: inline-flex;
+  width: 100%;
+  margin-top: 24px;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .drawer:not([hidden]) .panel {
+    animation: drawerIn var(--zd-motion-slow) ease-out both;
+  }
+
+  .drawer:not([hidden]) .backdrop {
+    animation: backdropIn var(--zd-motion-slow) ease-out both;
+  }
+}
+
+@keyframes drawerIn {
+  from {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes backdropIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .cta,
+  .moreLink,
+  .menuButton {
+    transition: none;
+  }
+
+  .cta:hover {
+    transform: none;
+  }
+}
+
+/*
+ * C-05 §5 touch target (44 x 44 px), per ROOTS decision of 29 September 2026: "First enlarge
+ * the effective interactive area without changing the approved visible dimensions, alignment,
+ * spacing, or hierarchy where technically possible."
+ *
+ * A centred pseudo-element does exactly that. It is absolutely positioned, so it contributes
+ * nothing to layout: the logo keeps its exact 37 x 48 artwork box and the nav keeps its
+ * spacing, while the area that responds to a pointer grows to at least 44 x 44. Padding or a
+ * min-width would have moved the approved mark instead.
+ */
+.brand,
+.moreButton {
+  position: relative;
+}
+
+.brand::after,
+.moreButton::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, var(--zd-touch-target));
+  height: max(100%, var(--zd-touch-target));
+  transform: translate(-50%, -50%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .brand,
+  .wordmark {
+    transition: none;
+  }
+}

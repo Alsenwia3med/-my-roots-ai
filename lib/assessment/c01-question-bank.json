@@ -1,0 +1,2578 @@
+{
+  "dataset_id": "ROOTS-C01-QBANK-001",
+  "questionnaire_version": "1.0.1",
+  "language": "en",
+  "source": {
+    "document": "02_ROOTS_AI_C01_Canonical_Question_Bank_v1.0.1_CORRECTED.xlsx",
+    "document_version": "1.0.1 CORRECTED",
+    "sha256": "b5bb50ded8a21ec957d17f55c9b2b03c4845ad56d850549cb997bff4bfdd354b"
+  },
+  "clinical_boundary": "This proprietary beta wellness assessment is educational and non-diagnostic; it is not represented as a clinically validated diagnostic instrument.",
+  "required_response_rule": "Required = valid response or explicit approved N/A",
+  "modules": [
+    {
+      "module_id": "M01",
+      "module_order": 1,
+      "module_title": "Body Foundations",
+      "purpose": "Profile and physical measurements",
+      "question_range": "Q1-Q8"
+    },
+    {
+      "module_id": "M02",
+      "module_order": 2,
+      "module_title": "Weight & Metabolic History",
+      "purpose": "Weight trajectory and metabolic context",
+      "question_range": "Q9-Q15"
+    },
+    {
+      "module_id": "M03",
+      "module_order": 3,
+      "module_title": "Sleep Recovery Index",
+      "purpose": "Sleep duration, continuity and restoration",
+      "question_range": "Q16-Q22"
+    },
+    {
+      "module_id": "M04",
+      "module_order": 4,
+      "module_title": "Hunger & Satiety Signals",
+      "purpose": "Hunger, fullness, cravings and meal response",
+      "question_range": "Q23-Q30"
+    },
+    {
+      "module_id": "M05",
+      "module_order": 5,
+      "module_title": "Stress Load & Inflammation Signals",
+      "purpose": "Stress activation and self-reported symptom burden",
+      "question_range": "Q31-Q40"
+    },
+    {
+      "module_id": "M06",
+      "module_order": 6,
+      "module_title": "Circadian Health",
+      "purpose": "Light, screen, meal and sleep timing",
+      "question_range": "Q41-Q45"
+    },
+    {
+      "module_id": "M07",
+      "module_order": 7,
+      "module_title": "Physical Activity Mapping",
+      "purpose": "Frequency, duration and activity pattern",
+      "question_range": "Q46-Q48"
+    },
+    {
+      "module_id": "M08",
+      "module_order": 8,
+      "module_title": "Biological Safety Signals",
+      "purpose": "Perceived resistance, appetite control and energy",
+      "question_range": "Q49-Q51"
+    },
+    {
+      "module_id": "M09",
+      "module_order": 9,
+      "module_title": "Root Cause Discovery",
+      "purpose": "Participant-perceived drivers and caffeine context",
+      "question_range": "Q52-Q55"
+    },
+    {
+      "module_id": "M10",
+      "module_order": 10,
+      "module_title": "Hormonal & Reproductive Context",
+      "purpose": "Optional hormonal and reproductive context",
+      "question_range": "Q56-Q60"
+    },
+    {
+      "module_id": "M11",
+      "module_order": 11,
+      "module_title": "Lifestyle & Environment",
+      "purpose": "Tobacco, alcohol, eating environment and support",
+      "question_range": "Q61-Q66"
+    },
+    {
+      "module_id": "M12",
+      "module_order": 12,
+      "module_title": "Goals & Readiness",
+      "purpose": "Goals, priorities and readiness for change",
+      "question_range": "Q67-Q71"
+    },
+    {
+      "module_id": "M13",
+      "module_order": 13,
+      "module_title": "Confidence & Additional Context",
+      "purpose": "Response confidence and optional participant context",
+      "question_range": "Q72-Q73"
+    }
+  ],
+  "option_sets": {
+    "FREQ": [
+      {
+        "option_order": 1,
+        "option_id": "NVR",
+        "display_label": "Never",
+        "stored_value": 0,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "RLY",
+        "display_label": "Rarely",
+        "stored_value": 1,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "SMT",
+        "display_label": "Sometimes",
+        "stored_value": 2,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "OFT",
+        "display_label": "Often",
+        "stored_value": 3,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "ALW",
+        "display_label": "Almost always",
+        "stored_value": 4,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "YES_NO_UNSURE": [
+      {
+        "option_order": 1,
+        "option_id": "NO",
+        "display_label": "No",
+        "stored_value": 0,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "YES",
+        "display_label": "Yes",
+        "stored_value": 4,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "UNSURE",
+        "display_label": "Not sure",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "SEX": [
+      {
+        "option_order": 1,
+        "option_id": "FEMALE",
+        "display_label": "Female",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "MALE",
+        "display_label": "Male",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "INTERSEX",
+        "display_label": "Intersex",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "PREFER_NOT",
+        "display_label": "Prefer not to say",
+        "stored_value": null,
+        "is_na": false
+      }
+    ],
+    "WAIST_UNIT": [
+      {
+        "option_order": 1,
+        "option_id": "CM",
+        "display_label": "Centimetres",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "IN",
+        "display_label": "Inches",
+        "stored_value": null,
+        "is_na": false
+      }
+    ],
+    "WEIGHT_DURATION": [
+      {
+        "option_order": 1,
+        "option_id": "LT6M",
+        "display_label": "Less than 6 months",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "6_12M",
+        "display_label": "6-12 months",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "1_3Y",
+        "display_label": "1-3 years",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "3_5Y",
+        "display_label": "3-5 years",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "GT5Y",
+        "display_label": "More than 5 years",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "WEIGHT_PATTERN": [
+      {
+        "option_order": 1,
+        "option_id": "STABLE",
+        "display_label": "Mostly stable",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "GRADUAL",
+        "display_label": "Gradual increase",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "CYCLING",
+        "display_label": "Repeated loss and regain",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "RECENT",
+        "display_label": "Recent marked change",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "OTHER",
+        "display_label": "Other or unsure",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "GAIN_PATTERN": [
+      {
+        "option_order": 1,
+        "option_id": "STABLE",
+        "display_label": "No concerning change or mostly stable",
+        "stored_value": 0,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "IDENTIFIABLE",
+        "display_label": "After an identifiable life period or event",
+        "stored_value": 1,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "GRADUAL",
+        "display_label": "Gradually with no single clear reason",
+        "stored_value": 2,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "CYCLING",
+        "display_label": "In repeated cycles of loss and regain",
+        "stored_value": 3,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "RAPID",
+        "display_label": "Rapidly or unexpectedly",
+        "stored_value": 4,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "WEIGHT_CYCLES": [
+      {
+        "option_order": 1,
+        "option_id": "NONE",
+        "display_label": "None",
+        "stored_value": 0,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "ONE",
+        "display_label": "One",
+        "stored_value": 1,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "TWO",
+        "display_label": "Two",
+        "stored_value": 2,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "THREE_FOUR",
+        "display_label": "Three or four",
+        "stored_value": 3,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "FIVE_PLUS",
+        "display_label": "Five or more",
+        "stored_value": 4,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "CONDITIONS": [
+      {
+        "option_order": 1,
+        "option_id": "NONE",
+        "display_label": "None of these",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "T2D",
+        "display_label": "Type 2 diabetes",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "PREDIABETES",
+        "display_label": "Prediabetes",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "HTN",
+        "display_label": "High blood pressure",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "DYSLIPID",
+        "display_label": "High cholesterol or triglycerides",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "THYROID",
+        "display_label": "Thyroid condition",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "PCOS",
+        "display_label": "Polycystic ovary syndrome",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 8,
+        "option_id": "SLEEP_APNEA",
+        "display_label": "Sleep apnoea",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 9,
+        "option_id": "OTHER",
+        "display_label": "Other",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 10,
+        "option_id": "PREFER_NOT",
+        "display_label": "Prefer not to say",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 11,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "MEDICATION_CONTEXT": [
+      {
+        "option_order": 1,
+        "option_id": "NONE",
+        "display_label": "No",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "GLUCOSE",
+        "display_label": "Glucose-lowering medicine",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "WEIGHT",
+        "display_label": "Weight-management medicine",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "STEROID",
+        "display_label": "Long-term corticosteroid",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "HORMONAL",
+        "display_label": "Hormonal medicine",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "OTHER",
+        "display_label": "Other relevant medicine",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "UNSURE",
+        "display_label": "Not sure",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 8,
+        "option_id": "PREFER_NOT",
+        "display_label": "Prefer not to say",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 9,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "SLEEP_HOURS": [
+      {
+        "option_order": 1,
+        "option_id": "LT5",
+        "display_label": "Less than 5 hours",
+        "stored_value": 4,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "H5_6",
+        "display_label": "5 to less than 6 hours",
+        "stored_value": 3,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "H6_7",
+        "display_label": "6 to less than 7 hours",
+        "stored_value": 1,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "H7_9",
+        "display_label": "7 to 9 hours",
+        "stored_value": 0,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "GT9",
+        "display_label": "More than 9 hours",
+        "stored_value": 2,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "ACTIVITY_DAYS": [
+      {
+        "option_order": 1,
+        "option_id": "D0",
+        "display_label": "0 days",
+        "stored_value": 4,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "D1_2",
+        "display_label": "1-2 days",
+        "stored_value": 3,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "D3_4",
+        "display_label": "3-4 days",
+        "stored_value": 1,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "D5_7",
+        "display_label": "5-7 days",
+        "stored_value": 0,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "ACTIVITY_DURATION": [
+      {
+        "option_order": 1,
+        "option_id": "LT10",
+        "display_label": "Less than 10 minutes",
+        "stored_value": 4,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "M10_29",
+        "display_label": "10-29 minutes",
+        "stored_value": 3,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "M30_59",
+        "display_label": "30-59 minutes",
+        "stored_value": 1,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "M60_PLUS",
+        "display_label": "60 minutes or more",
+        "stored_value": 0,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "ACTIVITY_TYPE": [
+      {
+        "option_order": 1,
+        "option_id": "NONE",
+        "display_label": "No intentional activity",
+        "stored_value": 4,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "LIGHT",
+        "display_label": "Light movement or daily activities",
+        "stored_value": 3,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "AEROBIC",
+        "display_label": "Mostly aerobic activity",
+        "stored_value": 2,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "RESISTANCE",
+        "display_label": "Mostly resistance training",
+        "stored_value": 1,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "MIXED",
+        "display_label": "A mix of aerobic and resistance activity",
+        "stored_value": 0,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "STRESS_RESPONSE": [
+      {
+        "option_order": 1,
+        "option_id": "EAT",
+        "display_label": "Eat or seek snack foods",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "WITHDRAW",
+        "display_label": "Withdraw or avoid people",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "WALK",
+        "display_label": "Walk or move",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "BREATHE",
+        "display_label": "Use breathing or relaxation",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "TALK",
+        "display_label": "Talk with someone",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "WORK_MORE",
+        "display_label": "Work more or stay busy",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "OTHER",
+        "display_label": "Other",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 8,
+        "option_id": "UNSURE",
+        "display_label": "Not sure",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 9,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "HUNGER_CAUSE": [
+      {
+        "option_order": 1,
+        "option_id": "MEAL_COMPOSITION",
+        "display_label": "Low protein, fibre or meal size",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "STRESS",
+        "display_label": "Stress or emotion",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "SLEEP",
+        "display_label": "Poor sleep",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "HABIT",
+        "display_label": "Habit or availability",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "MEDICATION",
+        "display_label": "Medicine-related",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "UNSURE",
+        "display_label": "Not sure",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "OTHER",
+        "display_label": "Other",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 8,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "ENERGY_CAUSE": [
+      {
+        "option_order": 1,
+        "option_id": "SLEEP",
+        "display_label": "Sleep or recovery",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "STRESS",
+        "display_label": "Stress",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "INACTIVITY",
+        "display_label": "Low activity",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "MEALS",
+        "display_label": "Meal pattern",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "MEDICATION",
+        "display_label": "Medicine-related",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "HEALTH",
+        "display_label": "A known health concern",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "UNSURE",
+        "display_label": "Not sure",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 8,
+        "option_id": "OTHER",
+        "display_label": "Other",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 9,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "CAFFEINE": [
+      {
+        "option_order": 1,
+        "option_id": "ZERO",
+        "display_label": "0 drinks",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "ONE",
+        "display_label": "1 drink",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "TWO",
+        "display_label": "2 drinks",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "THREE",
+        "display_label": "3 drinks",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "FOUR_PLUS",
+        "display_label": "4 or more drinks",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "HORMONAL_STAGE": [
+      {
+        "option_order": 1,
+        "option_id": "NOT_APPLICABLE",
+        "display_label": "Not applicable to me",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "REGULAR_CYCLES",
+        "display_label": "Regular menstrual cycles",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "IRREGULAR_CYCLES",
+        "display_label": "Irregular menstrual cycles",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "PERIMENOPAUSE",
+        "display_label": "Perimenopause",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "POSTMENOPAUSE",
+        "display_label": "Postmenopause",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "PREGNANT_POSTPARTUM",
+        "display_label": "Pregnant or within one year after birth",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "MALE_CONTEXT",
+        "display_label": "Male hormonal context",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 8,
+        "option_id": "OTHER_UNSURE",
+        "display_label": "Other or unsure",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 9,
+        "option_id": "PREFER_NOT",
+        "display_label": "Prefer not to say",
+        "stored_value": null,
+        "is_na": false
+      }
+    ],
+    "TOBACCO": [
+      {
+        "option_order": 1,
+        "option_id": "NEVER",
+        "display_label": "Never",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "FORMER",
+        "display_label": "Former use",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "OCCASIONAL",
+        "display_label": "Occasional",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "DAILY",
+        "display_label": "Daily",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "PREFER_NOT",
+        "display_label": "Prefer not to say",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "ALCOHOL": [
+      {
+        "option_order": 1,
+        "option_id": "NEVER",
+        "display_label": "Never",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "MONTHLY",
+        "display_label": "Monthly or less",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "WEEKLY",
+        "display_label": "1-2 days per week",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "FREQUENT",
+        "display_label": "3 or more days per week",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "PREFER_NOT",
+        "display_label": "Prefer not to say",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "EATING_PATTERN": [
+      {
+        "option_order": 1,
+        "option_id": "REGULAR_BALANCED",
+        "display_label": "Regular meals with varied foods",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "IRREGULAR",
+        "display_label": "Irregular meals",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "FREQUENT_SNACKING",
+        "display_label": "Frequent grazing or snacking",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "RESTRICT_BINGE",
+        "display_label": "Alternating restriction and overeating",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "SPECIAL_DIET",
+        "display_label": "A specific dietary pattern",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "OTHER",
+        "display_label": "Other",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "SUPPORT_LEVEL": [
+      {
+        "option_order": 1,
+        "option_id": "NONE",
+        "display_label": "Not at all supportive",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "LOW",
+        "display_label": "A little supportive",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "MIXED",
+        "display_label": "Mixed or inconsistent",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "GOOD",
+        "display_label": "Supportive",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "STRONG",
+        "display_label": "Very supportive",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "NA",
+        "display_label": "Not applicable",
+        "stored_value": null,
+        "is_na": true
+      }
+    ],
+    "PRIMARY_GOAL": [
+      {
+        "option_order": 1,
+        "option_id": "WEIGHT",
+        "display_label": "Understand weight resistance",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "ENERGY",
+        "display_label": "Improve energy",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "SLEEP",
+        "display_label": "Improve sleep and recovery",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "CRAVINGS",
+        "display_label": "Understand hunger or cravings",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "STRESS",
+        "display_label": "Understand stress patterns",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "PREVENTION",
+        "display_label": "Support long-term prevention and healthy ageing",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "OTHER",
+        "display_label": "Other",
+        "stored_value": null,
+        "is_na": false
+      }
+    ],
+    "PRIORITY_AREA": [
+      {
+        "option_order": 1,
+        "option_id": "MR",
+        "display_label": "Metabolic resistance",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "HS",
+        "display_label": "Hunger and satiety",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "SR",
+        "display_label": "Sleep recovery",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "CH",
+        "display_label": "Circadian health",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 5,
+        "option_id": "SL",
+        "display_label": "Stress load",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 6,
+        "option_id": "IB",
+        "display_label": "Inflammation burden",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 7,
+        "option_id": "BS",
+        "display_label": "Biological safety",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 8,
+        "option_id": "UNSURE",
+        "display_label": "Not sure",
+        "stored_value": null,
+        "is_na": false
+      }
+    ],
+    "CHANGE_PACE": [
+      {
+        "option_order": 1,
+        "option_id": "ONE_STEP",
+        "display_label": "One small step at a time",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "TWO_THREE",
+        "display_label": "Two or three coordinated changes",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "STRUCTURED",
+        "display_label": "A structured 90-day plan",
+        "stored_value": null,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "UNDERSTAND_FIRST",
+        "display_label": "I want to understand first",
+        "stored_value": null,
+        "is_na": false
+      }
+    ],
+    "ANSWER_CONFIDENCE": [
+      {
+        "option_order": 1,
+        "option_id": "LOW",
+        "display_label": "Not very confident",
+        "stored_value": 25,
+        "is_na": false
+      },
+      {
+        "option_order": 2,
+        "option_id": "MODERATE",
+        "display_label": "Moderately confident",
+        "stored_value": 50,
+        "is_na": false
+      },
+      {
+        "option_order": 3,
+        "option_id": "HIGH",
+        "display_label": "Confident",
+        "stored_value": 75,
+        "is_na": false
+      },
+      {
+        "option_order": 4,
+        "option_id": "VERY_HIGH",
+        "display_label": "Very confident",
+        "stored_value": 100,
+        "is_na": false
+      }
+    ]
+  },
+  "questions": [
+    {
+      "question_id": "Q1",
+      "question_order": 1,
+      "module_id": "M01",
+      "question_text": "What is your age?",
+      "question_type": "integer",
+      "option_set_id": null,
+      "required": true,
+      "allow_na": false,
+      "validation": "16-110 years; launch eligibility defaults to 18+",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Enter your age in completed years.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q2",
+      "question_order": 2,
+      "module_id": "M01",
+      "question_text": "What sex were you assigned at birth?",
+      "question_type": "single_select",
+      "option_set_id": "SEX",
+      "required": true,
+      "allow_na": false,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Used for context only; it does not change scores.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q3",
+      "question_order": 3,
+      "module_id": "M01",
+      "question_text": "What is your height?",
+      "question_type": "decimal",
+      "option_set_id": null,
+      "required": true,
+      "allow_na": false,
+      "validation": "100-250 cm",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Enter height in centimetres.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q4",
+      "question_order": 4,
+      "module_id": "M01",
+      "question_text": "What is your current weight?",
+      "question_type": "decimal",
+      "option_set_id": null,
+      "required": true,
+      "allow_na": false,
+      "validation": "25-350 kg",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Enter weight in kilograms.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q5",
+      "question_order": 5,
+      "module_id": "M01",
+      "question_text": "What is your target weight, if you have one?",
+      "question_type": "decimal",
+      "option_set_id": null,
+      "required": false,
+      "allow_na": true,
+      "validation": "25-350 kg or N/A",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Optional; this does not affect scoring.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q6",
+      "question_order": 6,
+      "module_id": "M01",
+      "question_text": "What is your waist circumference?",
+      "question_type": "decimal_with_unit",
+      "option_set_id": "WAIST_UNIT",
+      "required": true,
+      "allow_na": false,
+      "validation": "40-200 cm after conversion; inches x 2.54",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Measure around the midpoint between the lowest rib and top of the hip bone.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q7",
+      "question_order": 7,
+      "module_id": "M01",
+      "question_text": "How long have you been near your current weight?",
+      "question_type": "single_select",
+      "option_set_id": "WEIGHT_DURATION",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q8",
+      "question_order": 8,
+      "module_id": "M01",
+      "question_text": "How would you describe your weight pattern over the last five years?",
+      "question_type": "single_select",
+      "option_set_id": "WEIGHT_PATTERN",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q9",
+      "question_order": 9,
+      "module_id": "M02",
+      "question_text": "How did the weight change that concerns you begin?",
+      "question_type": "single_select",
+      "option_set_id": "GAIN_PATTERN",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q10",
+      "question_order": 10,
+      "module_id": "M02",
+      "question_text": "How often have well-planned diet or activity efforts produced less change than you expected?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q11",
+      "question_order": 11,
+      "module_id": "M02",
+      "question_text": "After an intentional weight loss, how often has some or all of the weight returned?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q12",
+      "question_order": 12,
+      "module_id": "M02",
+      "question_text": "How many meaningful cycles of weight loss and regain have you experienced?",
+      "question_type": "single_select",
+      "option_set_id": "WEIGHT_CYCLES",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q13",
+      "question_order": 13,
+      "module_id": "M02",
+      "question_text": "Have you been told by a clinician that you have any of the following?",
+      "question_type": "multi_select",
+      "option_set_id": "CONDITIONS",
+      "required": true,
+      "allow_na": true,
+      "validation": "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Select all that apply. This is contextual and does not diagnose or score a condition.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q14",
+      "question_order": 14,
+      "module_id": "M02",
+      "question_text": "Are you currently using medicines that may relate to metabolism, appetite, weight or hormones?",
+      "question_type": "multi_select",
+      "option_set_id": "MEDICATION_CONTEXT",
+      "required": true,
+      "allow_na": true,
+      "validation": "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Select categories only; do not enter doses here.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q15",
+      "question_order": 15,
+      "module_id": "M02",
+      "question_text": "Does a first-degree relative have a history of type 2 diabetes or substantial weight-related metabolic difficulty?",
+      "question_type": "single_select",
+      "option_set_id": "YES_NO_UNSURE",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q16",
+      "question_order": 16,
+      "module_id": "M03",
+      "question_text": "How many hours of sleep do you typically get in a 24-hour period?",
+      "question_type": "single_select",
+      "option_set_id": "SLEEP_HOURS",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q17",
+      "question_order": 17,
+      "module_id": "M03",
+      "question_text": "How often do you feel tired even after what seemed like enough time in bed?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q18",
+      "question_order": 18,
+      "module_id": "M03",
+      "question_text": "How often do you wake during the night and struggle to return to sleep?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q19",
+      "question_order": 19,
+      "module_id": "M03",
+      "question_text": "How often is your bedtime after midnight?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q20",
+      "question_order": 20,
+      "module_id": "M03",
+      "question_text": "How often do you remain awake until 2:00 AM or later because you cannot settle to sleep?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q21",
+      "question_order": 21,
+      "module_id": "M03",
+      "question_text": "How often do you snore loudly, wake gasping, or receive feedback that your breathing pauses during sleep?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": "This is not a diagnosis. Seek professional assessment if this occurs often.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q22",
+      "question_order": 22,
+      "module_id": "M03",
+      "question_text": "How often do you experience a marked afternoon energy crash?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q23",
+      "question_order": 23,
+      "module_id": "M04",
+      "question_text": "How often do you feel physically hungry within two hours after a full meal?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q24",
+      "question_order": 24,
+      "module_id": "M04",
+      "question_text": "How often do you experience food cravings when you are not physically hungry?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q25",
+      "question_order": 25,
+      "module_id": "M04",
+      "question_text": "How often do you eat enough but still fail to feel comfortably full?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q26",
+      "question_order": 26,
+      "module_id": "M04",
+      "question_text": "How often do you feel comfortably full after a normal meal?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": "Protective wording; reverse-scored.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q27",
+      "question_order": 27,
+      "module_id": "M04",
+      "question_text": "How often are you hungry again three to four hours after a protein-rich meal?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q28",
+      "question_order": 28,
+      "module_id": "M04",
+      "question_text": "How often does a protein-rich meal keep you satisfied for four hours or longer?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": "Protective wording; reverse-scored.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q29",
+      "question_order": 29,
+      "module_id": "M04",
+      "question_text": "How often do you feel sleepy, foggy or low in energy after a main meal?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q30",
+      "question_order": 30,
+      "module_id": "M04",
+      "question_text": "When you start eating sweets or snack foods, how often is it difficult to stop at the amount you intended?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q31",
+      "question_order": 31,
+      "module_id": "M05",
+      "question_text": "How often do you feel persistent physical tension or stress?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q32",
+      "question_order": 32,
+      "module_id": "M05",
+      "question_text": "How often does stress increase your desire to eat?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q33",
+      "question_order": 33,
+      "module_id": "M05",
+      "question_text": "How often does your mind race when you are trying to sleep?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q34",
+      "question_order": 34,
+      "module_id": "M05",
+      "question_text": "How often are cravings noticeably stronger in the evening?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q35",
+      "question_order": 35,
+      "module_id": "M05",
+      "question_text": "How often do you experience bloating, gas or digestive discomfort?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q36",
+      "question_order": 36,
+      "module_id": "M05",
+      "question_text": "How often do you experience brain fog after meals?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q37",
+      "question_order": 37,
+      "module_id": "M05",
+      "question_text": "How often do you experience unexplained joint pain or stiffness?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q38",
+      "question_order": 38,
+      "module_id": "M05",
+      "question_text": "How often does fat around your waist seem resistant to your usual efforts?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q39",
+      "question_order": 39,
+      "module_id": "M05",
+      "question_text": "How often do you experience unusual thirst or a dry mouth?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": "Persistent excessive thirst should be discussed with a clinician.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q40",
+      "question_order": 40,
+      "module_id": "M05",
+      "question_text": "How often have reducing calories and increasing activity produced little sustained change?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q41",
+      "question_order": 41,
+      "module_id": "M06",
+      "question_text": "How often do you spend the first hour after waking indoors without natural daylight exposure?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q42",
+      "question_order": 42,
+      "module_id": "M06",
+      "question_text": "How often do you use a phone, tablet or computer during the final hour before sleep?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q43",
+      "question_order": 43,
+      "module_id": "M06",
+      "question_text": "How often do you eat within three hours of bedtime?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q44",
+      "question_order": 44,
+      "module_id": "M06",
+      "question_text": "How often does your sleep schedule vary by more than two hours across the week?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q45",
+      "question_order": 45,
+      "module_id": "M06",
+      "question_text": "How often do you feel more alert late at night than during the morning?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q46",
+      "question_order": 46,
+      "module_id": "M07",
+      "question_text": "On how many days per week do you complete intentional physical activity?",
+      "question_type": "single_select",
+      "option_set_id": "ACTIVITY_DAYS",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q47",
+      "question_order": 47,
+      "module_id": "M07",
+      "question_text": "On active days, what is the usual duration of your intentional activity?",
+      "question_type": "single_select",
+      "option_set_id": "ACTIVITY_DURATION",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q48",
+      "question_order": 48,
+      "module_id": "M07",
+      "question_text": "Which option best describes your usual physical activity pattern?",
+      "question_type": "single_select",
+      "option_set_id": "ACTIVITY_TYPE",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q49",
+      "question_order": 49,
+      "module_id": "M08",
+      "question_text": "How often does your body seem to resist weight loss despite consistent effort?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q50",
+      "question_order": 50,
+      "module_id": "M08",
+      "question_text": "How often does hunger feel stronger than your ability to regulate it?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q51",
+      "question_order": 51,
+      "module_id": "M08",
+      "question_text": "How often are your energy levels lower than you believe they should be?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": true,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q52",
+      "question_order": 52,
+      "module_id": "M09",
+      "question_text": "When stressed, what responses are most typical for you?",
+      "question_type": "multi_select",
+      "option_set_id": "STRESS_RESPONSE",
+      "required": true,
+      "allow_na": true,
+      "validation": "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q53",
+      "question_order": 53,
+      "module_id": "M09",
+      "question_text": "What do you believe most often contributes to your hunger or cravings?",
+      "question_type": "multi_select",
+      "option_set_id": "HUNGER_CAUSE",
+      "required": true,
+      "allow_na": true,
+      "validation": "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q54",
+      "question_order": 54,
+      "module_id": "M09",
+      "question_text": "What do you believe most often contributes to low energy?",
+      "question_type": "multi_select",
+      "option_set_id": "ENERGY_CAUSE",
+      "required": true,
+      "allow_na": true,
+      "validation": "One or more approved option IDs required; empty array invalid; NONE/NA exclusive where provided",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q55",
+      "question_order": 55,
+      "module_id": "M09",
+      "question_text": "How many caffeinated drinks do you usually consume per day?",
+      "question_type": "single_select",
+      "option_set_id": "CAFFEINE",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q56",
+      "question_order": 56,
+      "module_id": "M10",
+      "question_text": "Which hormonal or reproductive stage best describes your current situation?",
+      "question_type": "single_select",
+      "option_set_id": "HORMONAL_STAGE",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q57",
+      "question_order": 57,
+      "module_id": "M10",
+      "question_text": "How often have hormonal or reproductive changes affected sleep, appetite, energy or weight?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q58",
+      "question_order": 58,
+      "module_id": "M10",
+      "question_text": "Are you currently using hormonal medication, contraception or hormone therapy?",
+      "question_type": "single_select",
+      "option_set_id": "YES_NO_UNSURE",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q59",
+      "question_order": 59,
+      "module_id": "M10",
+      "question_text": "How often do appetite or weight patterns change alongside hormonal or reproductive symptoms?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q60",
+      "question_order": 60,
+      "module_id": "M10",
+      "question_text": "Have you been told by a clinician that you have a thyroid, reproductive or other hormonal concern?",
+      "question_type": "single_select",
+      "option_set_id": "YES_NO_UNSURE",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q61",
+      "question_order": 61,
+      "module_id": "M11",
+      "question_text": "How often do you smoke, vape or use nicotine?",
+      "question_type": "single_select",
+      "option_set_id": "TOBACCO",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q62",
+      "question_order": 62,
+      "module_id": "M11",
+      "question_text": "How often do you consume alcohol?",
+      "question_type": "single_select",
+      "option_set_id": "ALCOHOL",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q63",
+      "question_order": 63,
+      "module_id": "M11",
+      "question_text": "Which description best matches your usual eating pattern?",
+      "question_type": "single_select",
+      "option_set_id": "EATING_PATTERN",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q64",
+      "question_order": 64,
+      "module_id": "M11",
+      "question_text": "How often are your meals reasonably consistent in timing from day to day?",
+      "question_type": "likert",
+      "option_set_id": "FREQ",
+      "required": true,
+      "allow_na": true,
+      "validation": "0-4 or N/A",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Used only as a protective factor.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q65",
+      "question_order": 65,
+      "module_id": "M11",
+      "question_text": "How supportive is your home food environment of the choices you want to make?",
+      "question_type": "single_select",
+      "option_set_id": "SUPPORT_LEVEL",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Used only as a protective factor.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q66",
+      "question_order": 66,
+      "module_id": "M11",
+      "question_text": "How much practical or emotional support do you have for making health-related changes?",
+      "question_type": "single_select",
+      "option_set_id": "SUPPORT_LEVEL",
+      "required": true,
+      "allow_na": true,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q67",
+      "question_order": 67,
+      "module_id": "M12",
+      "question_text": "What is your primary goal for completing this assessment?",
+      "question_type": "single_select",
+      "option_set_id": "PRIMARY_GOAL",
+      "required": true,
+      "allow_na": false,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q68",
+      "question_order": 68,
+      "module_id": "M12",
+      "question_text": "Which area would you most like to understand first?",
+      "question_type": "single_select",
+      "option_set_id": "PRIORITY_AREA",
+      "required": true,
+      "allow_na": false,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q69",
+      "question_order": 69,
+      "module_id": "M12",
+      "question_text": "How ready do you feel to try one small, realistic change during the next two weeks?",
+      "question_type": "integer_scale",
+      "option_set_id": null,
+      "required": true,
+      "allow_na": false,
+      "validation": "0-10 inclusive",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Used only as a protective factor.",
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q70",
+      "question_order": 70,
+      "module_id": "M12",
+      "question_text": "How confident are you that you can maintain one small change for two weeks?",
+      "question_type": "integer_scale",
+      "option_set_id": null,
+      "required": true,
+      "allow_na": false,
+      "validation": "0-10 inclusive",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q71",
+      "question_order": 71,
+      "module_id": "M12",
+      "question_text": "What pace of change feels most realistic for you?",
+      "question_type": "single_select",
+      "option_set_id": "CHANGE_PACE",
+      "required": true,
+      "allow_na": false,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q72",
+      "question_order": 72,
+      "module_id": "M13",
+      "question_text": "How confident are you that your answers reflect your usual experience during the last four weeks?",
+      "question_type": "single_select",
+      "option_set_id": "ANSWER_CONFIDENCE",
+      "required": true,
+      "allow_na": false,
+      "validation": "Approved option ID only",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": null,
+      "status": "APPROVED"
+    },
+    {
+      "question_id": "Q73",
+      "question_order": 73,
+      "module_id": "M13",
+      "question_text": "Is there anything else you would like the report to acknowledge?",
+      "question_type": "free_text",
+      "option_set_id": null,
+      "required": false,
+      "allow_na": false,
+      "validation": "0-1000 characters; sanitize; never concatenate directly into model instructions",
+      "scoring_eligible": false,
+      "conditional_logic": "NONE",
+      "help_text": "Optional. Do not enter urgent or emergency information here.",
+      "status": "APPROVED"
+    }
+  ],
+  "validation_rules": [
+    {
+      "rule_id": "VAL-001",
+      "applies_to": "Q1",
+      "rule": "Integer 16-110",
+      "approved_error_or_behavior": "Enter an age between 16 and 110.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-002",
+      "applies_to": "Q3",
+      "rule": "Decimal 100-250 cm",
+      "approved_error_or_behavior": "Enter a height between 100 and 250 cm.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-003",
+      "applies_to": "Q4/Q5",
+      "rule": "Decimal 25-350 kg; Q5 may be N/A",
+      "approved_error_or_behavior": "Enter a weight between 25 and 350 kg.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-004",
+      "applies_to": "Q6",
+      "rule": "40-200 cm after inch conversion",
+      "approved_error_or_behavior": "Please verify the waist measurement.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-005",
+      "applies_to": "Likert",
+      "rule": "Approved option ID only",
+      "approved_error_or_behavior": "Select one of the available answers.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-006",
+      "applies_to": "Multi-select",
+      "rule": "One or more approved option IDs for required multi-select; empty array invalid; NONE/NA exclusive where provided",
+      "approved_error_or_behavior": "Choose at least one valid option; None/Not applicable cannot be combined with other options.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-007",
+      "applies_to": "Q69/Q70",
+      "rule": "Integer 0-10",
+      "approved_error_or_behavior": "Select a number from 0 to 10.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-008",
+      "applies_to": "Q73",
+      "rule": "0-1000 characters; sanitized",
+      "approved_error_or_behavior": "Keep the response within 1,000 characters.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-009",
+      "applies_to": "Submission",
+      "rule": "All required questions answered or explicit N/A where allowed",
+      "approved_error_or_behavior": "Complete the highlighted questions before submitting.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-010",
+      "applies_to": "Age eligibility",
+      "rule": "Launch defaults to 18+",
+      "approved_error_or_behavior": "This version is currently available to adults aged 18 or older.",
+      "severity": "Block"
+    },
+    {
+      "rule_id": "VAL-011",
+      "applies_to": "Emergency text",
+      "rule": "Do not treat Q73 as monitored emergency channel",
+      "approved_error_or_behavior": "If you may be in immediate danger, contact local emergency services now.",
+      "severity": "Safety"
+    }
+  ],
+  "qa_checks": [
+    {
+      "Check": "Question records",
+      "Formula": 73,
+      "Expected": 73,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Module records",
+      "Formula": 13,
+      "Expected": 13,
+      "Result": "PASS"
+    },
+    {
+      "Check": "First question",
+      "Formula": "Q1",
+      "Expected": "Q1",
+      "Result": "PASS"
+    },
+    {
+      "Check": "Last question",
+      "Formula": "Q73",
+      "Expected": "Q73",
+      "Result": "PASS"
+    },
+    {
+      "Check": "Scoring eligible count",
+      "Formula": 40,
+      "Expected": 40,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Required question count",
+      "Formula": 71,
+      "Expected": 71,
+      "Result": "PASS"
+    },
+    {
+      "Check": "Optional question count",
+      "Formula": 2,
+      "Expected": 2,
+      "Result": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+/* app/example-report/page.module.css */
+.main {
+  background-color: #F6FAFB;
+}
+
+/* Intro Section */
+.intro {
+  background: #F6FAFB;
+  padding: 40px 16px 48px;
+}
+
+@media (min-width: 768px) {
+  .intro {
+    padding: 48px 24px 56px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .intro {
+    padding: 56px 40px 64px;
+  }
+}
+
+.introInner {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.badge {
+  display: inline-block;
+  background: #E8EEF5;
+  color: #075464;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  border-radius: 15px;
+  margin-bottom: 16px;
+}
+
+.introTitle {
+  font-size: 28px;
+  font-weight: 750;
+  color: #000;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .introTitle {
+    font-size: 34px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .introTitle {
+    font-size: 48px;
+  }
+}
+
+.introDescription {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+}
+
+/* Report Layout */
+.reportLayout {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+@media (min-width: 768px) {
+  .reportLayout {
+    padding: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .reportLayout {
+    padding: 32px 40px;
+  }
+}
+
+/* Contents Sidebar */
+.contentsSidebar {
+  display: none;
+  flex-shrink: 0;
+  width: 240px;
+  position: sticky;
+  top: 100px;
+}
+
+@media (min-width: 1024px) {
+  .contentsSidebar {
+    display: block;
+  }
+}
+
+.contentsCard {
+  background: #FFFFFF;
+  border: 1px solid #D8DEE8;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.contentsTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 16px;
+}
+
+.contentsNav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.contentsLink {
+  font-size: 14px;
+  color: #075464;
+  padding: 6px 0;
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.contentsLink:hover {
+  color: #055564;
+}
+
+.contentsLinkActive {
+  font-weight: 700;
+  color: #055564;
+}
+
+/* Report Viewer */
+.reportViewer {
+  flex: 1;
+  min-width: 0;
+}
+
+.reportSection {
+  background: #FFFFFF;
+  border: 1px solid #D8DEE8;
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 768px) {
+  .reportSection {
+    padding: 28px 32px;
+    margin-bottom: 20px;
+  }
+}
+
+.sectionNum {
+  display: inline-block;
+  color: #6B7280;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.sectionTitle {
+  font-size: 19px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+@media (min-width: 768px) {
+  .sectionTitle {
+    font-size: 21px;
+  }
+}
+
+.sectionContent {
+  font-size: 16px;
+  color: #1A1A1A;
+  line-height: 1.6;
+}
+
+.sectionContent p {
+  margin-bottom: 8px;
+}
+
+.sectionContent p:last-child {
+  margin-bottom: 0;
+}
+
+.notDiagnosis {
+  font-weight: 600;
+  color: #055564;
+}
+
+/* Domain Bars */
+.domainSummary {
+  margin-bottom: 16px !important;
+}
+
+.domainBars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.domainBar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.barLabel {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1A1A1A;
+}
+
+.barTrack {
+  width: 100%;
+  height: 10px;
+  background: #E8EDF2;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.6s ease;
+}
+
+/* CTA Section */
+.ctaSection {
+  background: #EAF3F5;
+  padding: 48px 16px;
+  margin-top: 16px;
+}
+
+@media (min-width: 768px) {
+  .ctaSection {
+    padding: 56px 24px;
+  }
+}
+
+.ctaInner {
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 24px;
+}
+
+@media (min-width: 768px) {
+  .ctaTitle {
+    font-size: 30px;
+  }
+}
+
+.btnPrimary {
+  display: inline-block;
+  padding: 12px 32px;
+  background: #055564;
+  color: #FFFFFF;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  transition: opacity 0.2s;
+  text-align: center;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+/* Footer Disclaimer */
+.footerDisclaimer {
+  background: #FFFFFF;
+  padding: 32px 16px;
+}
+
+@media (min-width: 768px) {
+  .footerDisclaimer {
+    padding: 40px 24px;
+  }
+}
+
+.disclaimerInner {
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.disclaimerInner p {
+  font-size: 14px;
+  color: #6B7280;
+  line-height: 1.6;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .introTitle {
+    font-size: 24px;
+  }
+
+  .reportSection {
+    padding: 16px;
+  }
+
+  .sectionTitle {
+    font-size: 17px;
+  }
+
+  .barTrack {
+    height: 8px;
+  }
+}
+
+/* Animation for bars */
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--fill-width);
+  }
+}
+
+.barFill {
+  animation: fillBar 0.8s ease forwards;
+}

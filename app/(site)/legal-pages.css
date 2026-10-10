@@ -1,0 +1,704 @@
+/*
+ * Legal notices (C-04 §§4-8) — /privacy, /terms, /cookies, /medical-disclaimer, /ai-disclaimer.
+ *
+ * These pages use the inner-page shell (.marketing-page .inner-page, .page-heading,
+ * .center-actions), so container width, gutters, eyebrow, title and button already match About,
+ * Platform and the rest. This file adds only what a long governed document needs:
+ *
+ *   - a contents list, because a fourteen-section notice is not navigable without one;
+ *   - a reading measure, because legal prose at full container width is hard to track;
+ *   - a category table that survives 360px;
+ *   - a print stylesheet, because these are the pages people print.
+ *
+ * House values repeated rather than reinvented:
+ *   container 1120px, padding 10px 24px 55px ............ app/clone-pages.css
+ *   card: 1px --zd-border, --zd-radius-card, white, no shadow ... inner-pages-home-type.css
+ *
+ * Everything else is a token from app/zd-tokens.css. Two of those drive the layout:
+ * --zd-legal-min-size ("legal and consent copy never below this") and --zd-reading-max.
+ *
+ * Loaded last so these rules win over the shared inner-page styles.
+ */
+
+/* ---------------------------------------------------------------- heading */
+
+.clone-page .print-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zd-space-2);
+  min-height: var(--zd-touch-target);
+  margin-top: var(--zd-space-4);
+  padding: 0 var(--zd-space-6);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  color: var(--zd-navy);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-semibold);
+  cursor: pointer;
+  transition: background var(--zd-motion-fast) ease, border-color var(--zd-motion-fast) ease;
+}
+
+.clone-page .print-button:hover {
+  border-color: var(--zd-soft-navy);
+  background: var(--zd-gray-100);
+}
+
+/* ---------------------------------------------------------------- body layout */
+
+/*
+ * C-05: "Desktop follows 12-column grid; mobile zones stack in listed order". Twelve equal
+ * columns with the standard gutter: contents take 3, the notice takes 9. Same container width
+ * and padding as .page-heading and .info-section-grid above it.
+ */
+.clone-page .legal-body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--zd-space-6);
+  align-items: start;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 10px 24px 55px;
+}
+
+.clone-page .legal-contents {
+  grid-column: span 3;
+}
+
+.clone-page .legal-article {
+  grid-column: span 9;
+}
+
+/* A notice with no contents list spans the full twelve. */
+.clone-page .legal-body-single .legal-article {
+  grid-column: span 12;
+}
+
+/* Card treatment taken from the inner-page cards: same border, radius, surface, no shadow. */
+.clone-page .legal-article,
+.clone-page .legal-contents {
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+}
+
+.clone-page .legal-article {
+  max-width: var(--zd-reading-max);
+  padding: var(--zd-space-8);
+}
+
+.clone-page .legal-article > section {
+  margin-bottom: var(--zd-space-8);
+  scroll-margin-top: calc(var(--zd-header-height) + var(--zd-space-4));
+}
+
+.clone-page .legal-article > section:last-child {
+  margin-bottom: 0;
+}
+
+/*
+ * Section headings sit between the page title (34/43) and the body (16/26). The inner-page card
+ * title is 16/22 — the same size as this body copy — which gives a fourteen-section notice no
+ * structure at all, so these take the next step up the approved scale instead.
+ */
+.clone-page .legal-article h2 {
+  margin: 0 0 var(--zd-space-3);
+  color: #000;
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+  font-weight: var(--zd-w-bold);
+}
+
+/* Legal and consent copy is never below the approved legal minimum. */
+.clone-page .legal-article p {
+  margin: 0 0 var(--zd-space-4);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-legal-min-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .legal-article p:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------------------------------------------------------------- contents */
+
+.clone-page .legal-contents {
+  position: sticky;
+  top: calc(var(--zd-header-height) + var(--zd-space-4));
+  max-height: calc(100vh - var(--zd-header-height) - var(--zd-space-8));
+  overflow-y: auto;
+  padding: var(--zd-space-6);
+}
+
+.clone-page .legal-contents > summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--zd-touch-target);
+  color: var(--zd-navy);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  font-weight: var(--zd-w-bold);
+  cursor: pointer;
+  list-style: none;
+}
+
+@media (min-width: 1024px) {
+  .clone-page .legal-contents > summary {
+    display: block;
+    margin-bottom: var(--zd-space-3);
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .clone-page .legal-contents > summary::marker,
+  .clone-page .legal-contents > summary::-webkit-details-marker {
+    display: none;
+    content: '';
+  }
+
+  /* The list shows whether or not the disclosure is open: at this width it is a sidebar. */
+  .clone-page .legal-contents > ol {
+    display: block;
+  }
+}
+
+.clone-page .legal-contents ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: legal-section;
+}
+
+.clone-page .legal-contents li {
+  counter-increment: legal-section;
+}
+
+.clone-page .legal-contents a {
+  display: flex;
+  gap: var(--zd-space-2);
+  align-items: center;
+  min-height: var(--zd-touch-target);
+  padding: var(--zd-space-2);
+  border-radius: var(--zd-radius-button);
+  color: var(--zd-soft-navy);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  text-decoration: none;
+}
+
+.clone-page .legal-contents a::before {
+  content: counter(legal-section) '.';
+  color: var(--zd-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.clone-page .legal-contents a:hover {
+  background: var(--zd-gray-100);
+  color: var(--zd-navy);
+}
+
+/* ---------------------------------------------------------------- table */
+
+.clone-page .legal-table {
+  width: 100%;
+  margin: var(--zd-space-4) 0 0;
+  border-collapse: collapse;
+}
+
+.clone-page .legal-table th,
+.clone-page .legal-table td {
+  padding: var(--zd-space-3) var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-legal-min-size);
+  line-height: var(--zd-body-line);
+  text-align: left;
+  vertical-align: top;
+}
+
+/* Column labels are part of the governed table, so they take the legal minimum as well. */
+.clone-page .legal-table thead th {
+  background: var(--zd-gray-100);
+  color: var(--zd-navy);
+  font-size: var(--zd-legal-min-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .legal-table tbody th {
+  width: 26%;
+  color: var(--zd-navy);
+  font-weight: var(--zd-w-semibold);
+}
+
+/* ---------------------------------------------------------------- references, effective date */
+
+.clone-page .legal-references {
+  margin: 0;
+  padding-left: var(--zd-space-6);
+}
+
+.clone-page .legal-references li {
+  margin-bottom: var(--zd-space-3);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-legal-min-size);
+  line-height: var(--zd-body-line);
+}
+
+/*
+ * These are links in a list rather than links inside a sentence, so they do not get the inline
+ * exception to target size. Vertical padding brings each to the touch target while still
+ * allowing a long title to wrap.
+ */
+.clone-page .legal-references a {
+  display: inline-block;
+  padding-block: var(--zd-space-3);
+}
+
+.clone-page .legal-references a,
+.clone-page .legal-article p a {
+  color: var(--zd-soft-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+
+/*
+ * Not metadata: this block carries the controlled note that ends "...does not represent
+ * certification of compliance", which is legal copy and therefore subject to the legal minimum.
+ */
+.clone-page .legal-article .legal-effective {
+  padding-top: var(--zd-space-6);
+  border-top: 1px solid var(--zd-border);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-legal-min-size);
+  line-height: var(--zd-body-line);
+}
+
+/* ---------------------------------------------------------------- focus */
+
+.clone-page .inner-page a:focus-visible,
+.clone-page .inner-page button:focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+/* ---------------------------------------------------------------- 1023 and below */
+
+@media (max-width: 1023px) {
+  /* "Mobile zones stack in listed order" — one column, source order preserved. */
+  .clone-page .legal-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .clone-page .legal-contents,
+  .clone-page .legal-article,
+  .clone-page .legal-body-single .legal-article {
+    grid-column: span 1;
+  }
+
+  .clone-page .legal-article {
+    max-width: none;
+  }
+
+  /* The contents collapse rather than disappear. */
+  .clone-page .legal-contents {
+    position: static;
+    max-height: none;
+    padding: var(--zd-space-3) var(--zd-space-6);
+  }
+
+  .clone-page .legal-contents > summary {
+    display: flex;
+    align-items: center;
+    min-height: var(--zd-touch-target);
+  }
+
+  .clone-page .legal-contents ol {
+    margin-top: var(--zd-space-3);
+  }
+}
+
+/* ---------------------------------------------------------------- 767 and below */
+
+@media (max-width: 767px) {
+  .clone-page .legal-body {
+    padding-inline: var(--zd-container-pad-mobile);
+  }
+
+  .clone-page .legal-article {
+    padding: var(--zd-space-6) var(--zd-space-4);
+  }
+
+  /*
+   * The category table becomes a stacked list: three columns of prose cannot hold their meaning
+   * at 360px, and a horizontally scrolling table hides the control column, which is the part
+   * that matters. Each cell carries its column name.
+   */
+  .clone-page .legal-table,
+  .clone-page .legal-table tbody,
+  .clone-page .legal-table tr,
+  .clone-page .legal-table td,
+  .clone-page .legal-table tbody th {
+    display: block;
+    width: auto;
+  }
+
+  .clone-page .legal-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .clone-page .legal-table tr {
+    margin-bottom: var(--zd-space-4);
+    border: 1px solid var(--zd-border);
+    border-radius: var(--zd-radius-card);
+    overflow: hidden;
+  }
+
+  .clone-page .legal-table tbody th {
+    border: 0;
+    border-bottom: 1px solid var(--zd-border);
+    background: var(--zd-gray-100);
+  }
+
+  .clone-page .legal-table td {
+    border: 0;
+    border-bottom: 1px solid var(--zd-border);
+  }
+
+  .clone-page .legal-table tr td:last-child {
+    border-bottom: 0;
+  }
+
+  .clone-page .legal-table td::before {
+    content: attr(data-label);
+    display: block;
+    margin-bottom: var(--zd-space-1);
+    color: var(--zd-muted);
+    font-size: var(--zd-xsmall-size);
+    line-height: var(--zd-xsmall-line);
+    font-weight: var(--zd-w-bold);
+    text-transform: uppercase;
+  }
+}
+
+/* ---------------------------------------------------------------- print */
+
+@media print {
+  .clone-page .print-button,
+  .clone-page .legal-contents,
+  .clone-page .center-actions {
+    display: none;
+  }
+
+  .clone-page .legal-body {
+    display: block;
+    padding: 0;
+  }
+
+  .clone-page .legal-article {
+    max-width: none;
+    padding: 0;
+    border: 0;
+  }
+}
+
+/* ---------------------------------------------------------------- C-05 zones */
+
+/*
+ * LEG-04 z2 "Callout" and LEG-05 z2 "Summary": the governed boundary sentence, set apart from
+ * the body so it is read before the full notice rather than found inside it.
+ */
+.clone-page .legal-article .legal-callout {
+  margin-bottom: var(--zd-space-6);
+  padding: var(--zd-space-4) var(--zd-space-6);
+  border-left: 3px solid var(--zd-navy);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-gray-100);
+  color: var(--zd-navy);
+  font-size: var(--zd-legal-min-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+/* LEG-04 z4 "Emergency": the one instruction on the page that must not be scanned past. */
+.clone-page .legal-article .legal-emergency {
+  padding: var(--zd-space-4) var(--zd-space-6);
+  border-left: 3px solid var(--zd-dysregulated);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-gray-100);
+  font-weight: var(--zd-w-semibold);
+}
+
+/* LEG-01 z4 Rights CTA, LEG-03 z3 Preferences. */
+.clone-page .legal-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--zd-control-height);
+  min-width: var(--zd-button-min-width);
+  margin-top: var(--zd-space-4);
+  padding: var(--zd-button-pad);
+  border: 1px solid var(--zd-navy);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-navy);
+  color: var(--zd-white);
+  font-size: var(--zd-button-size);
+  font-weight: var(--zd-button-weight);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.clone-page .legal-cta:hover {
+  background: var(--zd-soft-navy);
+  border-color: var(--zd-soft-navy);
+}
+
+/* LEG-02 z4, LEG-04 z5, LEG-05 z5 "Related". */
+.clone-page .legal-related {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clone-page .legal-related a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--zd-touch-target);
+  padding: 0 var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-pill);
+  color: var(--zd-soft-navy);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-semibold);
+  text-decoration: none;
+}
+
+.clone-page .legal-related a:hover {
+  border-color: var(--zd-soft-navy);
+  background: var(--zd-gray-100);
+  color: var(--zd-navy);
+}
+
+/* ---------------------------------------------------------------- SYS-01 cookie consent */
+
+/*
+ * "Usable at 320 px minimum without clipped primary action": the bar is a column on narrow
+ * screens and the buttons stretch, so nothing is cut off or pushed out of reach.
+ */
+.cookie-bar {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  z-index: var(--zd-z-modal);
+  border-top: 1px solid var(--zd-border);
+  background: var(--zd-white);
+  box-shadow: var(--zd-shadow-dropdown);
+}
+
+.cookie-bar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-4) var(--zd-space-8);
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--zd-space-4) var(--zd-container-pad);
+}
+
+.cookie-bar p {
+  flex: 1 1 320px;
+  margin: 0;
+  color: var(--zd-charcoal);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+.cookie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2);
+}
+
+.cookie-button {
+  min-height: var(--zd-control-height);
+  padding: 0 var(--zd-space-6);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  color: var(--zd-navy);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-semibold);
+  cursor: pointer;
+}
+
+.cookie-button-primary {
+  border-color: var(--zd-navy);
+  background: var(--zd-navy);
+  color: var(--zd-white);
+}
+
+.cookie-button-quiet {
+  border-color: transparent;
+  color: var(--zd-soft-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-button:hover {
+  border-color: var(--zd-soft-navy);
+}
+
+.cookie-button-primary:hover {
+  background: var(--zd-soft-navy);
+}
+
+.cookie-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--zd-z-modal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--zd-space-4);
+  background: rgba(10, 122, 144, 0.45);
+  overflow-y: auto;
+}
+
+.cookie-panel {
+  width: min(640px, 100%);
+  max-height: calc(100vh - var(--zd-space-8));
+  overflow-y: auto;
+  padding: var(--zd-space-8);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-white);
+}
+
+.cookie-panel h2 {
+  margin: 0 0 var(--zd-space-3);
+  color: #000;
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+  font-weight: var(--zd-w-bold);
+}
+
+.cookie-panel > p {
+  margin: 0 0 var(--zd-space-6);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-legal-min-size);
+  line-height: var(--zd-body-line);
+}
+
+.cookie-categories {
+  margin: 0 0 var(--zd-space-6);
+  padding: 0;
+  list-style: none;
+}
+
+.cookie-categories li {
+  padding: var(--zd-space-4) 0;
+  border-top: 1px solid var(--zd-border);
+}
+
+.cookie-categories p {
+  margin: var(--zd-space-1) 0 0;
+  color: var(--zd-charcoal);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+.cookie-categories .cookie-control {
+  color: var(--zd-muted);
+}
+
+.cookie-category-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2) var(--zd-space-4);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookie-category-name {
+  color: var(--zd-navy);
+  font-size: var(--zd-legal-min-size);
+  font-weight: var(--zd-w-semibold);
+}
+
+.cookie-state {
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.cookie-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--zd-space-2);
+  min-height: var(--zd-touch-target);
+  color: var(--zd-navy);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-semibold);
+  cursor: pointer;
+}
+
+.cookie-toggle input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--zd-navy);
+}
+
+.cookie-bar button:focus-visible,
+.cookie-panel button:focus-visible,
+.cookie-panel input:focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+@media (max-width: 767px) {
+  .cookie-bar-inner {
+    flex-direction: column;
+    align-items: stretch;
+    padding-inline: var(--zd-container-pad-mobile);
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+  }
+
+  .cookie-button {
+    width: 100%;
+  }
+
+  .cookie-panel {
+    padding: var(--zd-space-6) var(--zd-space-4);
+  }
+}
+
+@media print {
+  .cookie-bar,
+  .cookie-overlay {
+    display: none;
+  }
+}
+
+/* Why a column C-05 asks for has nothing to report (C-04 supplies no provider or duration). */
+.clone-page .legal-article .legal-table-note {
+  margin-top: var(--zd-space-3);
+  color: var(--zd-muted);
+  font-size: var(--zd-legal-min-size);
+  line-height: var(--zd-body-line);
+}
+

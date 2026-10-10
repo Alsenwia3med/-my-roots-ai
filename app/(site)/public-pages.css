@@ -1,0 +1,874 @@
+/*
+ * Public pages (C-05 PUB-02 … PUB-11).
+ *
+ * C-05 fixes the structure: 12-column desktop grid, zones stacking in listed order on mobile,
+ * no horizontal body scrolling. File 14 fixes the quality target, and two of its rules decide
+ * how this looks:
+ *
+ *   §6   "Depth: subtle layering, elevation and visual grouping; avoid excessive outlined boxes."
+ *        "Rhythm: generous but purposeful whitespace; sections should feel paced, not empty."
+ *   §6.1 "repeated generic cards", and work that is "overly safe, repetitive", fails the gate.
+ *
+ * So there is no single card style here. Each zone gets the treatment its content asks for: a
+ * sequence is paced with its own numerals and a spine; a boundary is a statement carrying a
+ * semantic accent edge; capabilities carry an explicit availability status; supporting points
+ * are separated by a hairline rather than enclosed. Depth comes from surface and rule, not from
+ * outlining everything.
+ *
+ * Every value is a token from zd-tokens.css.
+ */
+
+/* ---------------------------------------------------------------- page rhythm */
+
+.clone-page .public-page .page-heading {
+  padding-bottom: var(--zd-space-8);
+}
+
+/* The intro is the lead paragraph, not body copy: editorial hierarchy (File 14 §6 Typography). */
+.clone-page .public-page .page-heading > p:not(.marketing-kicker) {
+  max-width: var(--zd-reading-max);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+}
+
+.clone-page .public-body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--zd-space-12) var(--zd-space-8);
+  align-items: start;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--zd-space-8) 24px var(--zd-space-16);
+}
+
+.clone-page .pz[data-span='12'] {
+  grid-column: span 12;
+}
+
+.clone-page .pz[data-span='8'] {
+  grid-column: span 8;
+}
+
+.clone-page .pz[data-span='6'] {
+  grid-column: span 6;
+}
+
+.clone-page .pz[data-span='4'] {
+  grid-column: span 4;
+}
+
+.clone-page .pz-eyebrow {
+  margin: 0 0 var(--zd-space-2);
+  color: var(--zd-eyebrow-on-light);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.clone-page .public-body h2 {
+  margin: 0 0 var(--zd-space-6);
+  color: #000;
+  font-size: var(--zd-h3-size);
+  line-height: var(--zd-h3-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: -0.01em;
+}
+
+/* ---------------------------------------------------------------- sequence */
+
+/*
+ * A flow, not a list: one spine runs behind the numerals so the six steps read as a single
+ * controlled sequence. The numerals are large but quiet — there for pacing, not emphasis.
+ */
+.clone-page .pz-sequence {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clone-page .pz-sequence::before {
+  content: '';
+  position: absolute;
+  top: var(--zd-space-3);
+  bottom: var(--zd-space-3);
+  left: 27px;
+  width: 1px;
+  background: var(--zd-border);
+}
+
+.clone-page .pz-sequence li {
+  position: relative;
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  gap: var(--zd-space-6);
+  align-items: baseline;
+  padding-block: var(--zd-space-4);
+}
+
+.clone-page .pz-sequence li span {
+  position: relative;
+  z-index: 1;
+  padding-block: var(--zd-space-1);
+  background: var(--zd-warm-white);
+  color: var(--zd-teal);
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+  font-weight: var(--zd-w-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.clone-page .pz-sequence li p {
+  max-width: var(--zd-reading-max);
+  margin: 0;
+  color: var(--zd-charcoal);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+/* ---------------------------------------------------------------- statement */
+
+/*
+ * Depth by surface and one accent edge rather than a four-sided outline. The accent is
+ * semantic: teal where the system states what it does, and the dysregulated red where it states
+ * a limit it never crosses.
+ */
+.clone-page .pz-statement {
+  padding: var(--zd-space-6) var(--zd-space-8);
+  border-left: 3px solid var(--zd-border);
+  border-radius: 0 var(--zd-radius-card) var(--zd-radius-card) 0;
+  background: var(--zd-white);
+}
+
+.clone-page .pz[data-tone='affirm'] .pz-statement {
+  border-left-color: var(--zd-teal);
+}
+
+.clone-page .pz[data-tone='limit'] .pz-statement {
+  border-left-color: var(--zd-dysregulated);
+}
+
+.clone-page .pz-statement p {
+  max-width: var(--zd-reading-max);
+  margin: 0 0 var(--zd-space-4);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .pz-statement p:last-child {
+  margin-bottom: 0;
+}
+
+/* A statement spanning half the grid is one side of a pair, so it fills its column. */
+.clone-page .pz[data-span='6'] .pz-statement {
+  height: 100%;
+}
+
+/* ---------------------------------------------------------------- status */
+
+/*
+ * C-04 §1: future capabilities are labelled "Coming Soon" and never represented as available.
+ * The two states differ by pill, by weight and by colour, so the distinction survives for a
+ * reader who cannot use the colour (C-03 RPT-04).
+ */
+.clone-page .pz-status {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clone-page .pz-status li {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2) var(--zd-space-6);
+  align-items: baseline;
+  padding-block: var(--zd-space-4);
+  border-top: 1px solid var(--zd-border);
+}
+
+.clone-page .pz-status li:first-child {
+  border-top: 0;
+}
+
+.clone-page .pz-pill {
+  flex: 0 0 auto;
+  min-width: 124px;
+  padding: var(--zd-space-1) var(--zd-space-3);
+  border-radius: var(--zd-radius-pill);
+  background: var(--zd-gray-100);
+  /* Muted on gray-100 is 4.39:1; C-05 §13 requires 4.5:1, so the pill uses soft navy. */
+  color: var(--zd-soft-navy);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.clone-page .pz-status li[data-available='true'] .pz-pill {
+  background: var(--zd-navy);
+  color: var(--zd-white);
+}
+
+.clone-page .pz-capability {
+  color: var(--zd-muted);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .pz-status li[data-available='true'] .pz-capability {
+  color: var(--zd-navy);
+  font-weight: var(--zd-w-semibold);
+}
+
+/* ---------------------------------------------------------------- points */
+
+/* Grouped by rule, not by box: the hairline does the work an outline would have done. */
+.clone-page .pz-points {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.clone-page .pz-points li {
+  max-width: var(--zd-reading-max);
+  padding-block: var(--zd-space-4);
+  border-top: 1px solid var(--zd-border);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .pz-points li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+/* ---------------------------------------------------------------- 1023 and below */
+
+@media (max-width: 1023px) {
+  .clone-page .public-body {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--zd-space-8);
+  }
+
+  .clone-page .pz[data-span] {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 767px) {
+  .clone-page .public-body {
+    padding-inline: var(--zd-container-pad-mobile);
+  }
+
+  .clone-page .public-page .page-heading > p:not(.marketing-kicker) {
+    font-size: var(--zd-body-size);
+    line-height: var(--zd-body-line);
+  }
+
+  .clone-page .pz-sequence::before {
+    left: 19px;
+  }
+
+  .clone-page .pz-sequence li {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: var(--zd-space-4);
+  }
+
+  .clone-page .pz-statement {
+    padding: var(--zd-space-4) var(--zd-space-6);
+  }
+
+  .clone-page .pz-status li {
+    flex-direction: column;
+    gap: var(--zd-space-2);
+  }
+}
+
+/* ---------------------------------------------------------------- PUB-09 / PUB-10 contact */
+
+.clone-page .contact-body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--zd-space-8) 24px var(--zd-space-16);
+}
+
+.clone-page .contact-form,
+.clone-page .contact-confirmation {
+  grid-column: span 7;
+  max-width: var(--zd-reading-max);
+}
+
+.clone-page .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zd-space-6);
+}
+
+/* ---- the field list (C-05 PUB-09 z3)
+
+   The enquiry type (z2) and its styles were removed at ROOTS' instruction, along with the rule
+   that separated the two zones - with z2 gone there is no boundary left to draw. */
+
+.clone-page .cf-fields {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zd-space-6);
+}
+
+.clone-page .cf-field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zd-space-2);
+}
+
+.clone-page .cf-field label {
+  color: var(--zd-navy);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .cf-field input,
+.clone-page .cf-field textarea {
+  width: 100%;
+  min-height: var(--zd-control-height);
+  padding: var(--zd-space-3) var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  background: var(--zd-white);
+  color: var(--zd-charcoal);
+  font-family: inherit;
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .cf-field textarea {
+  resize: vertical;
+}
+
+.clone-page .cf-field input:focus-visible,
+.clone-page .cf-field textarea:focus-visible,
+.clone-page .contact-form button:focus-visible,
+.clone-page .cf-consent input:focus-visible {
+  outline: var(--zd-focus-ring);
+  outline-offset: var(--zd-focus-offset);
+}
+
+.clone-page .cf-counter {
+  margin: 0;
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+/* ---- consent (C-04 field list) */
+
+.clone-page .cf-consent {
+  display: flex;
+  gap: var(--zd-space-3);
+  align-items: flex-start;
+  padding: var(--zd-space-4) 0;
+  color: var(--zd-charcoal);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-body-line);
+  cursor: pointer;
+}
+
+.clone-page .cf-consent input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  accent-color: var(--zd-navy);
+}
+
+.clone-page .cf-consent a {
+  color: var(--zd-soft-navy);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/*
+ * C-05 §5 touch target for the consent link, per the ROOTS decision of 29 September 2026
+ * (item 10): the 44 x 44 px minimum stands, so this is raised rather than excepted under
+ * WCAG 2.2 2.5.8.
+ *
+ * Vertical padding on an inline element expands the pointer target without entering layout, so
+ * the approved sentence keeps its wording, its wrapping and its visible position: 20px inline
+ * box + 12px above + 12px below = 44px exactly.
+ *
+ * The line-height goes with it. A 44px target reaches 22px from the centre of its own line; an
+ * adjacent line of text reaches 10px back from the centre of its; below 32px the two overlap and
+ * a click meant for the checkbox label would follow the link instead. 32px is the smallest value
+ * that does not.
+ *
+ * Both selectors carry `.contact-form label` because the rule that sets this sentence's type
+ * (app/inner-pages-home-type.css) is more specific than `.cf-consent` alone and would otherwise
+ * win. Nothing else in that rule is touched: the sentence keeps its 16px size and its colour.
+ */
+.clone-page .contact-form label.cf-consent {
+  line-height: 32px;
+}
+
+.clone-page .contact-form label.cf-consent a {
+  padding-block: 12px;
+}
+
+/* ---- safety note: the one line on the page that must not be missed (C-05 z4) */
+
+.clone-page .cf-safety {
+  margin: 0;
+  padding: var(--zd-space-4) var(--zd-space-6);
+  border-left: 3px solid var(--zd-dysregulated);
+  border-radius: 0 var(--zd-radius-button) var(--zd-radius-button) 0;
+  background: var(--zd-gray-100);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .cf-error {
+  margin: 0;
+  color: var(--zd-error);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .contact-form button {
+  align-self: flex-start;
+}
+
+/* ---- PUB-10 confirmation */
+
+.clone-page .contact-confirmation {
+  padding-left: var(--zd-space-8);
+  border-left: 3px solid var(--zd-teal);
+}
+
+.clone-page .cf-eyebrow {
+  margin: 0 0 var(--zd-space-2);
+  /* 12px bold — see zd-tokens.css. */
+  color: var(--zd-teal-ink);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.clone-page .contact-confirmation h2 {
+  margin: 0 0 var(--zd-space-6);
+  color: #000;
+  font-size: var(--zd-h3-size);
+  line-height: var(--zd-h3-line);
+  font-weight: var(--zd-w-bold);
+}
+
+/* The reference is the one thing worth copying off this screen, so it is set apart. */
+.clone-page .cf-reference {
+  display: flex;
+  flex-direction: column;
+  gap: var(--zd-space-1);
+  margin: 0 0 var(--zd-space-6);
+  padding: var(--zd-space-4) var(--zd-space-6);
+  border-radius: var(--zd-radius-card);
+  background: var(--zd-gray-100);
+}
+
+.clone-page .cf-reference span {
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.clone-page .cf-reference strong {
+  color: var(--zd-navy);
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.clone-page .cf-next h3 {
+  margin: 0 0 var(--zd-space-2);
+  color: #000;
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .cf-next p {
+  margin: 0 0 var(--zd-space-8);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .cf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-3);
+}
+
+@media (max-width: 1023px) {
+  .clone-page .contact-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .clone-page .contact-form,
+  .clone-page .contact-confirmation {
+    grid-column: span 1;
+    max-width: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .clone-page .contact-body {
+    padding-inline: var(--zd-container-pad-mobile);
+  }
+
+  .clone-page .contact-confirmation {
+    padding-left: var(--zd-space-6);
+  }
+
+  .clone-page .contact-form button,
+  .clone-page .cf-actions a {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ---------------------------------------------------------------- PUB-11 / PUB-12 insights */
+
+.clone-page .blog-body,
+.clone-page .article-body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--zd-space-8);
+  align-items: start;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: var(--zd-space-8) 24px var(--zd-space-16);
+}
+
+.clone-page .blog-boundary,
+.clone-page .blog-empty,
+.clone-page .blog-featured,
+.clone-page .blog-filters {
+  grid-column: span 12;
+}
+
+.clone-page .blog-boundary .pz-points li {
+  max-width: none;
+}
+
+/*
+ * The launch state is a statement, not an apology: it reads as deliberate editorial pacing
+ * rather than a broken grid with empty cards in it (C-05 PUB-11 z5 "no broken placeholders").
+ */
+.clone-page .blog-empty {
+  padding: var(--zd-space-12) var(--zd-space-8);
+  border-top: 1px solid var(--zd-border);
+  text-align: center;
+}
+
+.clone-page .blog-empty p {
+  max-width: 44ch;
+  margin: 0 auto;
+  color: var(--zd-navy);
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+}
+
+.clone-page .blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2);
+}
+
+.clone-page .blog-chip {
+  padding: var(--zd-space-1) var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-pill);
+  color: var(--zd-soft-navy);
+  font-size: var(--zd-small-size);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .blog-meta {
+  margin: 0 0 var(--zd-space-2);
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.clone-page .blog-featured a {
+  display: block;
+  padding: var(--zd-space-8) 0;
+  border-top: 1px solid var(--zd-border);
+  border-bottom: 1px solid var(--zd-border);
+  text-decoration: none;
+}
+
+.clone-page .blog-featured h2 {
+  max-width: 24ch;
+  margin: 0 0 var(--zd-space-3);
+  color: #000;
+  font-size: var(--zd-h2-size);
+  line-height: var(--zd-h2-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: -0.02em;
+}
+
+.clone-page .blog-excerpt {
+  max-width: var(--zd-reading-max);
+  margin: 0;
+  color: var(--zd-charcoal);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .blog-grid {
+  display: grid;
+  grid-column: span 12;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--zd-space-8);
+}
+
+.clone-page .blog-grid a {
+  display: block;
+  padding-top: var(--zd-space-4);
+  border-top: 1px solid var(--zd-border);
+  text-decoration: none;
+}
+
+.clone-page .blog-grid h3 {
+  margin: 0 0 var(--zd-space-2);
+  color: #000;
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+/* ---- PUB-12 article */
+
+.clone-page .article-crumbs {
+  display: flex;
+  grid-column: span 12;
+  flex-wrap: wrap;
+  gap: var(--zd-space-2);
+  color: var(--zd-muted);
+  font-size: var(--zd-small-size);
+}
+
+.clone-page .article-crumbs a {
+  color: var(--zd-soft-navy);
+}
+
+.clone-page .article-header,
+.clone-page .article-prose,
+.clone-page .article-related,
+.clone-page .article-disclaimer,
+.clone-page .article-body .center-actions {
+  grid-column: span 8;
+  max-width: var(--zd-reading-max);
+}
+
+.clone-page .article-header h1 {
+  margin: 0 0 var(--zd-space-3);
+  color: #000;
+  font-size: var(--zd-h1-size);
+  line-height: var(--zd-h1-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: -0.02em;
+}
+
+.clone-page .article-subtitle {
+  margin: 0 0 var(--zd-space-6);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-h4-size);
+  line-height: var(--zd-h4-line);
+}
+
+/* The editorial controls C-04 requires, shown together rather than buried in a byline. */
+.clone-page .article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-6);
+  margin: 0;
+  padding: var(--zd-space-4) 0;
+  border-top: 1px solid var(--zd-border);
+  border-bottom: 1px solid var(--zd-border);
+}
+
+.clone-page .article-meta dt {
+  color: var(--zd-muted);
+  font-size: var(--zd-xsmall-size);
+  line-height: var(--zd-xsmall-line);
+  font-weight: var(--zd-w-bold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.clone-page .article-meta dd {
+  margin: var(--zd-space-1) 0 0;
+  color: var(--zd-navy);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .article-prose h2 {
+  margin: var(--zd-space-8) 0 var(--zd-space-3);
+  color: #000;
+  font-size: var(--zd-h3-size);
+  line-height: var(--zd-h3-line);
+  font-weight: var(--zd-w-bold);
+}
+
+.clone-page .article-prose p {
+  margin: 0 0 var(--zd-space-4);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .article-sources ul,
+.clone-page .article-related ul {
+  margin: 0;
+  padding-left: var(--zd-space-6);
+}
+
+.clone-page .article-sources li,
+.clone-page .article-related li {
+  margin-bottom: var(--zd-space-2);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .article-disclaimer {
+  padding: var(--zd-space-6) var(--zd-space-8);
+  border-left: 3px solid var(--zd-dysregulated);
+  border-radius: 0 var(--zd-radius-card) var(--zd-radius-card) 0;
+  background: var(--zd-white);
+}
+
+.clone-page .article-disclaimer p {
+  margin: 0 0 var(--zd-space-3);
+  color: var(--zd-charcoal);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-body-line);
+}
+
+.clone-page .article-disclaimer p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 1023px) {
+  .clone-page .blog-body,
+  .clone-page .article-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .clone-page .blog-boundary,
+  .clone-page .blog-empty,
+  .clone-page .blog-featured,
+  .clone-page .blog-filters,
+  .clone-page .blog-grid,
+  .clone-page .article-crumbs,
+  .clone-page .article-header,
+  .clone-page .article-prose,
+  .clone-page .article-related,
+  .clone-page .article-disclaimer,
+  .clone-page .article-body .center-actions {
+    grid-column: span 1;
+    max-width: none;
+  }
+
+  .clone-page .blog-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--zd-space-6);
+  }
+}
+
+@media (max-width: 767px) {
+  .clone-page .blog-body,
+  .clone-page .article-body {
+    padding-inline: var(--zd-container-pad-mobile);
+  }
+
+  .clone-page .blog-empty {
+    padding: var(--zd-space-8) 0;
+  }
+
+  .clone-page .article-disclaimer {
+    padding: var(--zd-space-4) var(--zd-space-6);
+  }
+}
+
+/* PUB-12 z4 — share by link only; no third-party share widgets. */
+.clone-page .article-share {
+  grid-column: span 8;
+  max-width: var(--zd-reading-max);
+}
+
+.clone-page .article-share h2 {
+  margin: 0 0 var(--zd-space-3);
+  color: #000;
+  font-size: var(--zd-body-size);
+  line-height: var(--zd-body-line);
+  font-weight: var(--zd-w-semibold);
+}
+
+.clone-page .article-share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--zd-space-3);
+}
+
+.clone-page .article-share-row input {
+  flex: 1 1 260px;
+  min-height: var(--zd-control-height);
+  padding: 0 var(--zd-space-4);
+  border: 1px solid var(--zd-border);
+  border-radius: var(--zd-radius-button);
+  /* A field: white surface and charcoal value text, so the URL is legible (C-05 §13). */
+  background: var(--zd-white);
+  color: var(--zd-charcoal);
+  font-family: inherit;
+  font-size: var(--zd-small-size);
+}
+
+.clone-page .article-share-status {
+  margin: var(--zd-space-2) 0 0;
+  min-height: var(--zd-small-line);
+  color: var(--zd-success);
+  font-size: var(--zd-small-size);
+  line-height: var(--zd-small-line);
+}
+
+@media (max-width: 1023px) {
+  .clone-page .article-share {
+    grid-column: span 1;
+    max-width: none;
+  }
+}

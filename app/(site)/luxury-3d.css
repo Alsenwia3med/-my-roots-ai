@@ -1,0 +1,89 @@
+/* ==========================================================================
+   BILLIONAIRE-GRADE LAYER — aurora canvas, 3D grid floor, holograms, tilt, reveal.
+   Presentation only. Inner pages only (the locked homepage never loads this file).
+   ========================================================================== */
+:root { --gx: 0; --gy: 0; --sy: 0; }
+
+/* ---- Logo without the card wrapper (header + footer) ---- */
+body.lux-body .site-header .site-logo, body.lux-body .site-footer .footer-logo {
+  background: none !important; box-shadow: none !important; border-radius: 0 !important; padding: 0 !important; border: 0 !important; margin: 4px 0;
+  transition: transform .5s var(--lx-ease), filter .5s;
+}
+body.lux-body .site-header .site-logo:hover { transform: translateY(-2px) scale(1.05); filter: drop-shadow(0 8px 18px rgba(25,167,184,.55)); box-shadow: none !important; }
+body.lux-body .site-header .site-logo img { height: 70px !important; background: none; }
+body.lux-body .site-footer .footer-logo img { background: none; box-shadow: none; border-radius: 0; }
+
+/* ---- Fixed aurora canvas behind every inner page ---- */
+body.lux-body { background: #EAF4F6; position: relative; }
+body.lux-body::before, body.lux-body::after { content: ""; position: fixed; z-index: 0; pointer-events: none; }
+body.lux-body::before { inset: -10%;
+  background:
+    radial-gradient(38vw 38vw at calc(78% + var(--gx) * 40px) calc(12% + var(--gy) * 30px), rgba(25,167,184,.30), transparent 68%),
+    radial-gradient(34vw 34vw at calc(8% - var(--gx) * 30px) calc(48% - var(--gy) * 24px), rgba(5,85,100,.22), transparent 70%),
+    radial-gradient(30vw 30vw at calc(60% + var(--gx) * 24px) calc(95% + var(--gy) * 20px), rgba(143,230,234,.34), transparent 70%);
+  filter: blur(28px); animation: lx-aurora 22s ease-in-out infinite alternate; }
+body.lux-body::after { inset: 0; opacity: .55;
+  background-image: radial-gradient(rgba(5,85,100,.22) 1px, transparent 1.4px); background-size: 34px 34px;
+  background-position: calc(var(--gx) * -10px) calc(var(--sy) * -.06px);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 78%); mask-image: radial-gradient(ellipse at 50% 30%, #000 0%, transparent 78%); }
+@keyframes lx-aurora { from { transform: translate3d(-2%, -1%, 0) scale(1); } to { transform: translate3d(3%, 2%, 0) scale(1.14); } }
+body.lux-body .clone-page, body.lux-body .site-footer { position: relative; z-index: 1; }
+body.lux-body .site-header { position: sticky; z-index: 100; }
+.lux-body .clone-page { background: none !important; }
+
+/* ---- Hero: perspective 3D grid floor + hologram halo ---- */
+@keyframes lx-floor { from { background-position: 0 0, 0 0; } to { background-position: 0 64px, 64px 0; } }
+@keyframes lx-halo {
+  0%,100% { box-shadow: 0 0 0 46px rgba(143,230,234,.05), 0 0 0 96px rgba(143,230,234,.035), 0 0 0 150px rgba(143,230,234,.02), 0 0 120px 30px rgba(25,167,184,.35); }
+  50% { box-shadow: 0 0 0 62px rgba(143,230,234,.07), 0 0 0 120px rgba(143,230,234,.04), 0 0 0 176px rgba(143,230,234,.02), 0 0 160px 50px rgba(25,167,184,.5); } }
+.lux-body .clone-page .page-heading, .lux-body .legal-page-hero { perspective: 900px; }
+.lux-body .clone-page .page-heading::before {
+  content: ""; position: absolute; z-index: -1; left: -30%; right: -30%; top: auto; bottom: -4%; height: 110%; opacity: 1;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 78%); mask-image: linear-gradient(to top, #000 0%, transparent 78%);
+  transform-origin: 50% 100%; transform: rotateX(72deg) translateX(calc(var(--gx) * 24px));
+  background-image: linear-gradient(rgba(143,230,234,.55) 1.5px, transparent 1.5px), linear-gradient(90deg, rgba(143,230,234,.4) 1.5px, transparent 1.5px);
+  background-size: 64px 64px, 64px 64px; animation: lx-floor 4s linear infinite; }
+.lux-body .clone-page .page-heading::after {
+  right: 6%; top: 50%; margin-top: -170px; width: 340px; height: 340px; max-width: none; filter: none; aspect-ratio: auto;
+  translate: calc(var(--gx) * -22px) calc(var(--gy) * -16px);
+  background: radial-gradient(circle at 36% 30%, rgba(255,255,255,.9), rgba(143,230,234,.75) 18%, rgba(25,167,184,.4) 48%, rgba(5,85,100,.1) 72%, transparent 74%);
+  animation: lx-halo 6s ease-in-out infinite; }
+@media (max-width: 900px) { .lux-body .clone-page .page-heading::after { width: 180px; height: 180px; margin-top: -90px; right: -2%; opacity: .6; } }
+
+/* ---- Cards: ultra-glass with neon rim + 3D tilt + glare ---- */
+.lux-body .lx-tilt { position: relative; transform: perspective(1100px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)); transform-style: preserve-3d;
+  transition: transform .18s ease-out, box-shadow .5s var(--lx-ease), border-color .4s; will-change: transform; }
+.lux-body .legal-contents.lx-tilt { position: sticky; }
+.lux-body .lx-tilt.lx-hot { transition: transform .08s linear, box-shadow .5s var(--lx-ease);
+  box-shadow: 0 0 0 1px rgba(25,167,184,.55), 0 0 40px -4px rgba(25,167,184,.55), 0 36px 70px -26px rgba(5,85,100,.6), 0 90px 140px -70px rgba(25,167,184,.65) !important; }
+.lux-body .public-body .pz::after, .lux-body .lx-tilt::after, .lux-body .info-section-grid article::before {
+  content: ""; position: absolute; inset: 0; right: auto; bottom: auto; width: auto; height: auto; border-radius: inherit; pointer-events: none; opacity: 0; transition: opacity .35s;
+  background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 0%), rgba(255,255,255,.8), rgba(143,230,234,.3) 32%, transparent 62%); mix-blend-mode: soft-light; }
+.lux-body .lx-tilt.lx-hot::after, .lux-body .info-section-grid article.lx-hot::before { opacity: 1; }
+.lux-body .pz, .lux-body .info-section-grid article, .lux-body .legal-article, .lux-body .legal-contents, .lux-body .contact-form, .lux-body .example-section, .lux-body .blog-featured, .lux-body .legal-callout {
+  background: linear-gradient(155deg, rgba(255,255,255,.92) 0%, rgba(236,249,250,.66) 55%, rgba(220,244,246,.6) 100%) !important;
+  border: 1px solid rgba(255,255,255,.95) !important; backdrop-filter: blur(22px) saturate(1.5); -webkit-backdrop-filter: blur(22px) saturate(1.5);
+  box-shadow: 0 0 0 1px rgba(25,167,184,.14), inset 0 1px 0 #fff, inset 0 -40px 80px -50px rgba(25,167,184,.18), 0 30px 60px -34px rgba(5,85,100,.45), 0 80px 120px -80px rgba(5,85,100,.55); border-radius: 28px; }
+
+/* ---- Scroll reveal ---- */
+html.lx-js [data-lx] { opacity: 0; filter: blur(8px);
+  transition: opacity .9s var(--lx-ease) var(--lx-d, 0ms), translate .95s var(--lx-ease) var(--lx-d, 0ms), scale .95s var(--lx-ease) var(--lx-d, 0ms), filter .9s var(--lx-ease) var(--lx-d, 0ms); }
+html.lx-js [data-lx="up"] { translate: 0 54px; scale: .985; }
+html.lx-js [data-lx="left"] { translate: -64px 18px; }
+html.lx-js [data-lx="right"] { translate: 64px 18px; }
+html.lx-js [data-lx="zoom"] { translate: 0 30px; scale: .93; }
+html.lx-js [data-lx].lx-in { opacity: 1; translate: 0 0; scale: 1; filter: none; }
+
+/* ---- Buttons ---- */
+.lux-body main .primary-button, .lux-body main .secondary-button { transition: translate .25s ease-out, transform .4s var(--lx-ease), box-shadow .4s; }
+
+@media (max-width: 860px) { html.lx-js [data-lx="left"], html.lx-js [data-lx="right"] { translate: 0 36px; } }
+@media (prefers-reduced-motion: reduce) { html.lx-js [data-lx] { opacity: 1 !important; translate: none !important; scale: none !important; filter: none !important; } }
+
+/* ---- Contact form: generous glass panel ---- */
+.lux-body .contact-body { width: min(1160px, calc(100% - 48px)); margin: clamp(-48px, -4vw, -28px) auto 0; position: relative; z-index: 2; display: grid; gap: 24px; }
+.lux-body .contact-form { max-width: 760px; padding: clamp(28px, 4vw, 52px) !important; margin-inline: auto; }
+.lux-body .contact-form input, .lux-body .contact-form textarea, .lux-body .contact-form select { background: rgba(255,255,255,.9); border: 1px solid rgba(5,85,100,.18); border-radius: 14px; transition: box-shadow .3s, border-color .3s; }
+.lux-body .contact-form input:focus, .lux-body .contact-form textarea:focus { outline: none; border-color: var(--lx-accent); box-shadow: 0 0 0 4px rgba(25,167,184,.2), 0 0 30px -6px rgba(25,167,184,.6); }
+.lux-body .cookie-bar { position: fixed; z-index: 300; }
+.lux-body .contact-body { justify-items: center; }

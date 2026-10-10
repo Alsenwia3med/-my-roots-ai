@@ -35,6 +35,10 @@ export default function Header() {
     ["AI Disclaimer", "/ai-disclaimer"],
   ];
 
+  const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const openMore = () => { if (hoverTimer.current) clearTimeout(hoverTimer.current); setMoreOpen(true); };
+  const closeMore = () => { if (hoverTimer.current) clearTimeout(hoverTimer.current); hoverTimer.current = setTimeout(() => setMoreOpen(false), 140); };
+
   const closeMenu = () => {
     setMenuOpen(false);
     window.requestAnimationFrame(() => menuButtonRef.current?.focus());
@@ -83,16 +87,18 @@ export default function Header() {
   return (
     <header className="site-header">
       <div className="site-header-inner">
-        <Link href="/" className="site-logo" aria-label="ROOTS-AI home" onClick={closeMenu}><Image src="/brand/roots-logo.png" alt="ROOTS-AI" width={214} height={34} priority /></Link>
+        <Link href="/" className="site-logo" aria-label="ROOTS-AI home" onClick={closeMenu}><Image src="/brand/roots-logo.svg" alt="ROOTS-AI Biological Intelligence" width={603} height={792} priority unoptimized /></Link>
         <nav className="site-nav" aria-label="Main navigation">
           {links.map(([label, href]) => <Link key={href} href={href} className={pathname === href ? "active" : ""} aria-current={pathname === href ? "page" : undefined}>{label}</Link>)}
-          <button type="button" className="more-nav-button" aria-expanded={moreOpen} aria-controls="more-menu" onClick={() => setMoreOpen((open) => !open)}>More</button>
-          {moreOpen && <div id="more-menu" className="more-menu">{moreLinks.map(([label, href]) => <Link key={href} href={href} onClick={() => setMoreOpen(false)}>{label}</Link>)}</div>}
+          <div className="more-wrap" data-open={moreOpen} onMouseEnter={openMore} onMouseLeave={closeMore} onFocus={openMore} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) closeMore(); }}>
+            <button type="button" className="more-nav-button" aria-expanded={moreOpen} aria-controls="more-menu" aria-haspopup="true" onClick={() => setMoreOpen((open) => !open)}>More<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6" /></svg></button>
+            <div id="more-menu" className="more-menu" data-open={moreOpen}>{moreLinks.map(([label, href]) => <Link key={href} href={href} tabIndex={moreOpen ? 0 : -1} onClick={() => setMoreOpen(false)}>{label}</Link>)}</div>
+          </div>
         </nav>
         <Link href="/assessment" className="header-cta">Start Your Assessment</Link>
         <button ref={menuButtonRef} className="mobile-menu-button" type="button" aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen} aria-controls="mobile-navigation" onClick={() => setMenuOpen((open) => !open)}>{menuOpen ? "×" : "☰"}</button>
       </div>
-      {menuOpen && <div id="mobile-navigation" className="mobile-navigation" role="dialog" aria-modal="true" aria-label="Mobile navigation"><div className="mobile-navigation-panel"><div className="mobile-navigation-head"><strong>ROOTS-AI™</strong><button ref={closeButtonRef} type="button" aria-label="Close navigation" onClick={closeMenu}>×</button></div><nav aria-label="Mobile main navigation">{mobileLinks.map(([label, href]) => <Link key={href} href={href} onClick={closeMenu}>{label}</Link>)}<Link href="/assessment" className="mobile-navigation-cta" onClick={closeMenu}>Start Your Assessment</Link></nav></div><button className="mobile-navigation-scrim" type="button" aria-label="Close navigation" onClick={closeMenu} /></div>}
+      {menuOpen && <div id="mobile-navigation" className="mobile-navigation" role="dialog" aria-modal="true" aria-label="Mobile navigation"><div className="mobile-navigation-panel"><div className="mobile-navigation-head"><Image src="/brand/roots-logo.svg" alt="ROOTS-AI" width={603} height={792} unoptimized /><button ref={closeButtonRef} type="button" aria-label="Close navigation" onClick={closeMenu}>×</button></div><nav aria-label="Mobile main navigation">{mobileLinks.map(([label, href]) => <Link key={href} href={href} onClick={closeMenu}>{label}</Link>)}<Link href="/assessment" className="mobile-navigation-cta" onClick={closeMenu}>Start Your Assessment</Link></nav></div><button className="mobile-navigation-scrim" type="button" aria-label="Close navigation" onClick={closeMenu} /></div>}
     </header>
   );
 }
