@@ -1,0 +1,6 @@
+/* ROOTS-AI™ Lux design system — entry point (imported by both root layouts). */
+@import "./styles/base.css";
+@import "./styles/chrome.css";
+@import "./styles/pages.css";
+@import "./styles/documents.css";
+@import "./styles/home.css";

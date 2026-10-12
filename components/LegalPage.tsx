@@ -6,18 +6,19 @@
  * by reading five files. C-04 §1 forbids replacing governed legal content with shortened
  * summaries, so nothing here truncates, collapses or reflows a section away.
  *
- * Structure follows the other inner pages — `marketing-page inner-page`, a `page-heading` block
- * and `center-actions` — so a legal notice sits in the same container, on the same left edge,
- * with the same eyebrow, title and card treatment as About or Platform. What it adds is only
- * what a long governed document needs and a three-card page does not: a contents list, a
- * reading measure, and a category table.
+ * Lux presentation: a white opening section with the governance shield, then a calm reading
+ * column beside a contents list that follows the reader.
  *
- * Server component; only the print control is client-side.
+ * Server component; only the print control and the contents highlight are client-side.
  */
 
 import Link from 'next/link';
+import { ArrowRight, ArrowUpRight, Siren } from 'lucide-react';
 import CookiePreferencesButton from './CookiePreferencesButton';
 import PrintButton from './PrintButton';
+import LegalToc from './lux/LegalToc';
+import PageHero from './lux/PageHero';
+import { IconTile } from './lux/Icon';
 import type { LegalDocument } from '@/lib/content/c04-legal';
 
 const slug = (heading: string) =>
@@ -30,45 +31,35 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
   const numbered = doc.blocks.length > 1;
 
   return (
-    <div className="clone-page">
-      <main id="main" className="marketing-page inner-page">
-        <section className="page-heading">
-          <p className="marketing-kicker">{doc.kicker}</p>
-          <h1>{doc.title}</h1>
-          {doc.effective ? <p>{doc.effective.line}</p> : null}
+    <div className="lx lxl">
+      <main id="main">
+        <PageHero kicker={doc.kicker} title={doc.title} scene="shield">
+          {doc.effective ? <p className="lxl-effective-top">{doc.effective.line}</p> : null}
           <PrintButton />
-        </section>
+        </PageHero>
 
-        <div className={`legal-body${numbered ? '' : ' legal-body-single'}`}>
+        <div className={`lxl-body lx-wrap${numbered ? '' : ' lxl-body--single'}`}>
           {numbered ? (
-            // A disclosure rather than a sidebar that vanishes: below 1024px it collapses, so a
-            // fourteen-section notice is still navigable on a phone. From 1024px the CSS shows
-            // the list whatever its open state, so the sidebar is always there.
-            <details className="legal-contents">
-              <summary>Contents</summary>
-              <ol>
-                {doc.blocks.map((block) => (
-                  <li key={block.heading}>
-                    <a href={`#${slug(block.heading)}`}>{block.heading}</a>
-                  </li>
-                ))}
-              </ol>
-            </details>
+            <aside className="lxl-aside">
+              <LegalToc items={doc.blocks.map((block) => ({ id: slug(block.heading), label: block.heading }))} />
+            </aside>
           ) : null}
 
-          <article className="legal-article">
+          <article className="lxl-article">
             {/* LEG-04 z2 "Callout", LEG-05 z2 "Summary" — the boundary before the full text. */}
             {doc.callout ? (
-              <p className="legal-callout">{doc.callout}</p>
+              <p className="lxl-callout" data-reveal="">
+                {doc.callout}
+              </p>
             ) : null}
 
             {doc.blocks.map((block, i) => (
-              <section key={block.heading} id={slug(block.heading)}>
+              <section key={block.heading} id={slug(block.heading)} className="lxl-section" data-reveal="">
                 {/* A single-block notice whose only heading repeats the page title would give
                     the page two headings saying the same thing. */}
                 {numbered || block.heading !== doc.title ? (
-                  <h2>
-                    {numbered ? `${i + 1}. ` : ''}
+                  <h2 className="lxl-h2">
+                    {numbered ? <span className="lxl-num">{`${i + 1}. `}</span> : null}
                     {block.heading}
                   </h2>
                 ) : null}
@@ -80,28 +71,29 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
 
             {/* LEG-04 z4 "Emergency: fixed local-emergency direction", as its own zone. */}
             {doc.emergency ? (
-              <section id="emergency">
-                <h2>In an emergency</h2>
-                <p className="legal-emergency">{doc.emergency}</p>
+              <section id="emergency" className="lxl-section lxl-emergency" data-reveal="">
+                <IconTile icon={Siren} tone="glass" />
+                <div>
+                  <h2 className="lxl-h2">In an emergency</h2>
+                  <p>{doc.emergency}</p>
+                </div>
               </section>
             ) : null}
 
-            {/* LEG-03 z3 "Preferences: open consent panel". */}
-            {/* C-05 LEG-03 z3 is "open consent panel"; the banner wording is already the body
-                above it (z2), so this zone is the control, not a second copy of the text. */}
+            {/* LEG-03 z3 "Preferences: open consent panel". The banner wording is already the
+                body above it (z2), so this zone is the control, not a second copy of the text. */}
             {doc.preferences ? (
-              <section id="preferences">
-                <h2>Your choices</h2>
+              <section id="preferences" className="lxl-section" data-reveal="">
+                <h2 className="lxl-h2">Your choices</h2>
                 <CookiePreferencesButton />
               </section>
             ) : null}
 
             {/* Vendor-authored disclosures C-04 does not supply, kept visibly apart from the
-                controlled text above rather than mixed into it. ROOTS directed these on
-                1 October 2026; each is registered in the vendor copy register with its support. */}
+                controlled text above rather than mixed into it. */}
             {doc.vendorNotes ? (
-              <section id="additional-disclosures">
-                <h2>{doc.vendorNotes.heading}</h2>
+              <section id="additional-disclosures" className="lxl-section lxl-vendor" data-reveal="">
+                <h2 className="lxl-h2">{doc.vendorNotes.heading}</h2>
                 {doc.vendorNotes.paragraphs.map((p) => (
                   <p key={p}>{p}</p>
                 ))}
@@ -109,46 +101,48 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
             ) : null}
 
             {doc.table ? (
-              <section id="categories">
-                <h2>{doc.table.caption}</h2>
-                <table className="legal-table">
-                  <thead>
-                    <tr>
-                      {doc.table.columns.map((c) => (
-                        <th key={c} scope="col">
-                          {c}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {doc.table.rows.map((row) => (
-                      <tr key={row[0]}>
-                        <th scope="row">{row[0]}</th>
-                        {row.slice(1).map((cell, i) => (
-                          // data-label carries the column name into the stacked mobile layout,
-                          // where the header row is visually hidden.
-                          <td key={cell} data-label={doc.table!.columns[i + 1]}>
-                            {cell}
-                          </td>
+              <section id="categories" className="lxl-section" data-reveal="">
+                <h2 className="lxl-h2">{doc.table.caption}</h2>
+                <div className="lxl-table-wrap">
+                  <table className="lxl-table">
+                    <thead>
+                      <tr>
+                        {doc.table.columns.map((c) => (
+                          <th key={c} scope="col">
+                            {c}
+                          </th>
                         ))}
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
-                {doc.table.note ? <p className="legal-table-note">{doc.table.note}</p> : null}
+                    </thead>
+                    <tbody>
+                      {doc.table.rows.map((row) => (
+                        <tr key={row[0]}>
+                          <th scope="row">{row[0]}</th>
+                          {row.slice(1).map((cell, i) => (
+                            // data-label carries the column name into the stacked mobile layout.
+                            <td key={cell} data-label={doc.table!.columns[i + 1]}>
+                              {cell}
+                            </td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+                {doc.table.note ? <p className="lxl-table-note">{doc.table.note}</p> : null}
               </section>
             ) : null}
 
             {doc.references?.length ? (
-              <section id="references">
-                <h2>Official legal reference links</h2>
-                <ul className="legal-references">
+              <section id="references" className="lxl-section" data-reveal="">
+                <h2 className="lxl-h2">Official legal reference links</h2>
+                <ul className="lxl-references">
                   {doc.references.map((r) => (
                     <li key={r.label}>
                       {r.href ? (
                         <a href={r.href} rel="noreferrer noopener" target="_blank">
-                          {r.label}
+                          <span>{r.label}</span>
+                          <ArrowUpRight size={15} strokeWidth={1.8} aria-hidden="true" />
                         </a>
                       ) : (
                         r.label
@@ -161,19 +155,20 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
 
             {/* LEG-01 z4 "Rights CTA: contact / data-rights request channel". */}
             {doc.rightsCta ? (
-              <section id="rights">
-                <h2>Requesting your rights</h2>
+              <section id="rights" className="lxl-section lxl-rights" data-reveal="">
+                <h2 className="lxl-h2">Requesting your rights</h2>
                 <p>{doc.rightsCta.text}</p>
-                <Link className="legal-cta" href={doc.rightsCta.href}>
-                  {doc.rightsCta.label}
+                <Link className="lx-btn lx-btn--secondary" href={doc.rightsCta.href}>
+                  <span>{doc.rightsCta.label}</span>
+                  <ArrowRight className="lx-arrow" size={16} strokeWidth={2} aria-hidden="true" />
                 </Link>
               </section>
             ) : null}
 
             {/* LEG-05 z4 "Versioning: current disclaimer/version identifier". */}
             {doc.effective ? (
-              <section id="effective">
-                <p className="legal-effective">
+              <section id="effective" className="lxl-section">
+                <p className="lxl-effective">
                   {doc.effective.line}
                   {doc.effective.note ? ` ${doc.effective.note}` : ''}
                 </p>
@@ -182,12 +177,15 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
 
             {/* LEG-02 z4, LEG-04 z5, LEG-05 z5 "Related". */}
             {doc.related?.length ? (
-              <section id="related">
-                <h2>Related notices</h2>
-                <ul className="legal-related">
+              <section id="related" className="lxl-section" data-reveal="">
+                <h2 className="lxl-h2">Related notices</h2>
+                <ul className="lxl-related">
                   {doc.related.map((link) => (
                     <li key={link.href}>
-                      <Link href={link.href}>{link.label}</Link>
+                      <Link href={link.href} className="lx-card" data-tilt="4">
+                        <span>{link.label}</span>
+                        <ArrowRight size={16} strokeWidth={1.8} aria-hidden="true" />
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -196,9 +194,10 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
           </article>
         </div>
 
-        <div className="center-actions">
-          <Link className="primary-button" href="/assessment">
-            Start Your Assessment
+        <div className="lxl-actions lx-wrap">
+          <Link className="lx-btn lx-btn--primary" href="/assessment" data-magnetic="">
+            <span>Start Your Assessment</span>
+            <ArrowRight className="lx-arrow" size={17} strokeWidth={2} aria-hidden="true" />
           </Link>
         </div>
       </main>

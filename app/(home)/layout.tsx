@@ -1,21 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "../globals.css";
 import "../design-system.css";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+// Lux design system: shared header (with the fixed news ticker), footer and homepage sections.
+import "@/components/lux/lux.css";
+import LuxHeader from "@/components/lux/LuxHeader";
+import LuxMotion from "@/components/lux/LuxMotion";
 import CookieBanner from "@/components/layout/CookieBanner";
-import DesignEffects from "@/components/layout/DesignEffects";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 const siteUrl = new URL("https://roots-ai-learning.vercel.app");
 
@@ -58,19 +50,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased lx-motion`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col lx-body">
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
-        <Header />
+        <LuxHeader ticker />
         <div id="main-content" className="site-content" tabIndex={-1}>
           {children}
         </div>
-        <Footer />
+        {/* The homepage renders its own footer copy (components/RootsV1.tsx). */}
         <CookieBanner />
-        <DesignEffects />
+        <LuxMotion />
       </body>
     </html>
   );

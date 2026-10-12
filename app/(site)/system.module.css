@@ -1,95 +1,127 @@
-/* SYS-02..03 recovery screens. Site tokens only; shown inside the site header and footer. */
+/* SYS-02..03 recovery screens — Lux presentation; shown inside the site header and footer. */
 
 .wrap {
+  position: relative;
+  isolation: isolate;
   display: flex;
   justify-content: center;
-  padding: var(--zd-space-16) var(--zd-space-4);
-  background: var(--zd-warm-white);
+  padding: clamp(64px, 10vw, 140px) 20px;
+  background:
+    radial-gradient(40% 60% at 50% 0%, rgba(143, 230, 234, 0.3) 0%, transparent 70%),
+    #ffffff;
+  font-family: var(--font-geist-sans), "Helvetica Neue", Arial, sans-serif;
 }
 
 .card {
   width: 100%;
-  max-width: 560px;
-  padding: var(--zd-space-8) var(--zd-space-6);
-  border: 1px solid var(--zd-border);
-  border-radius: var(--zd-radius-card);
-  background: var(--zd-white);
+  max-width: 580px;
+  padding: clamp(32px, 5vw, 56px) clamp(24px, 4vw, 48px);
+  border-radius: 30px;
+  background: linear-gradient(180deg, #ffffff 0%, #f5fafb 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(25, 167, 184, 0.18),
+    0 40px 80px -44px rgba(3, 42, 51, 0.5);
   text-align: center;
+  animation: sys-rise 0.9s cubic-bezier(0.22, 0.8, 0.22, 1) both;
 }
 
 .code {
-  /* 14px bold — see zd-tokens.css. */
-  color: var(--zd-teal-ink);
-  font-size: var(--zd-small-size);
-  font-weight: var(--zd-w-bold);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  display: inline-block;
+  font-size: clamp(64px, 10vw, 104px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  background: linear-gradient(112deg, #032a33 0%, #055564 40%, #19a7b8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .title {
-  margin-top: var(--zd-space-2);
-  color: #000;
-  font-size: 30px;
-  line-height: 38px;
-  font-weight: var(--zd-w-bold);
+  margin: 14px 0 0;
+  color: #06323b;
+  font-size: clamp(24px, 3vw, 32px);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.025em;
 }
 
 .body {
-  margin-top: var(--zd-space-3);
-  color: var(--zd-muted);
-  font-size: var(--zd-body-size);
-  line-height: var(--zd-body-line);
+  margin: 12px 0 0;
+  color: #2c5963;
+  font-size: 16px;
+  line-height: 1.65;
 }
 
 .reference {
   display: inline-block;
-  margin-top: var(--zd-space-4);
-  padding: var(--zd-space-1) var(--zd-space-3);
-  border-radius: var(--zd-radius-button);
-  background: var(--zd-gray-100);
-  font-family: ui-monospace, 'Cascadia Mono', Consolas, monospace;
-  font-size: var(--zd-small-size);
+  margin-top: 18px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #eef7f8;
+  color: #055564;
+  font-family: var(--font-geist-mono), ui-monospace, Consolas, monospace;
+  font-size: 13px;
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: var(--zd-space-3);
-  margin-top: var(--zd-space-6);
+  gap: 12px;
+  margin-top: 30px;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: var(--zd-control-height);
-  padding: 0 var(--zd-space-6);
-  border: 1px solid var(--zd-navy);
-  border-radius: var(--zd-radius-button);
-  background: var(--zd-navy);
-  color: var(--zd-white);
+  min-height: 50px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #0b8193 0%, #055564 52%, #033a44 100%);
+  color: #ffffff;
   font: inherit;
-  font-weight: var(--zd-w-semibold);
+  font-weight: 600;
   text-decoration: none;
   cursor: pointer;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 14px 28px -14px rgba(5, 85, 100, 0.8);
+  transition:
+    transform 0.45s cubic-bezier(0.3, 1.35, 0.4, 1),
+    box-shadow 0.4s;
 }
 
 .btn:hover {
-  background: var(--zd-soft-navy);
+  transform: translateY(-2px);
 }
 
 .btnSecondary {
-  border-color: var(--zd-border);
-  background: var(--zd-white);
-  color: var(--zd-navy);
+  background: #ffffff;
+  color: #055564;
+  box-shadow: inset 0 0 0 1px rgba(5, 85, 100, 0.24);
 }
 
 .btnSecondary:hover {
-  background: var(--zd-gray-100);
+  box-shadow: inset 0 0 0 1px rgba(25, 167, 184, 0.6);
 }
 
 .btn:focus-visible {
-  outline: var(--zd-focus-ring);
-  outline-offset: var(--zd-focus-offset);
+  outline: 2px solid #19a7b8;
+  outline-offset: 3px;
+}
+
+@keyframes sys-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation: none;
+  }
 }

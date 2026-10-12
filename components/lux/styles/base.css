@@ -1,0 +1,621 @@
+/* ==========================================================================
+   ROOTS-AI™ — Lux design system · base
+   Clinical luxury: white canvases, deep teal ink, neon-teal light, pearl glass.
+   Presentation only — no copy lives in CSS.
+   ========================================================================== */
+
+:root {
+  /* palette */
+  --lx-deep: #032a33;
+  --lx-deep-2: #04404b;
+  --lx-teal: #055564;
+  --lx-teal-2: #0a7385;
+  --lx-cyan: #19a7b8;
+  --lx-neon: #8fe6ea;
+  --lx-white: #ffffff;
+  --lx-pearl: #f7fbfb;
+  --lx-ivory: #f3f8f9;
+  --lx-mist: #e6f1f3;
+  --lx-ink: #06323b;
+  --lx-body: #2c5963;
+  --lx-soft: #5b7c83;
+  --lx-line: rgba(5, 85, 100, 0.11);
+  --lx-line-2: rgba(5, 85, 100, 0.2);
+  --lx-glow: rgba(25, 167, 184, 0.35);
+
+  /* signature gradients */
+  --lx-grad-text: linear-gradient(112deg, #032a33 0%, #055564 34%, #0b7f90 62%, #19a7b8 84%, #4fc9d4 100%);
+  --lx-grad-deep: linear-gradient(140deg, #032a33 0%, #04404b 42%, #055564 100%);
+  --lx-grad-icon: linear-gradient(162deg, #2bc0cf 0%, #0d8496 38%, #055564 72%, #043945 100%);
+
+  /* elevation */
+  --lx-sh-1: 0 1px 2px rgba(3, 42, 51, 0.05), 0 10px 26px -14px rgba(3, 42, 51, 0.2);
+  --lx-sh-2: 0 2px 6px rgba(3, 42, 51, 0.04), 0 26px 50px -26px rgba(3, 42, 51, 0.3);
+  --lx-sh-3: 0 4px 12px rgba(3, 42, 51, 0.05), 0 40px 80px -36px rgba(3, 42, 51, 0.38);
+  --lx-sh-hover: 0 6px 14px rgba(3, 42, 51, 0.05), 0 38px 74px -30px rgba(5, 85, 100, 0.42),
+    0 0 0 1px rgba(25, 167, 184, 0.3);
+
+  /* type */
+  --lx-sans: var(--font-geist-sans), "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --lx-mono: var(--font-geist-mono), ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* rhythm */
+  --lx-wrap: 1320px;
+  --lx-pad-x: clamp(20px, 4.4vw, 64px);
+  --lx-sec-y: clamp(64px, 8vw, 120px);
+  --lx-r-sm: 12px;
+  --lx-r: 20px;
+  --lx-r-lg: 28px;
+  --lx-r-xl: 36px;
+
+  /* motion */
+  --lx-ease: cubic-bezier(0.22, 0.8, 0.22, 1);
+  --lx-spring: cubic-bezier(0.3, 1.35, 0.4, 1);
+  --lx-ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  /* header geometry (the header itself animates these down when compact) */
+  --lxh-bar: 78px;
+  --lxh-ticker: 40px;
+  --lxh-total: calc(var(--lxh-bar) + var(--lxh-ticker));
+}
+
+html:has(body.lx-body),
+html:has(.v1) {
+  scroll-padding-top: calc(var(--lxh-total) + 16px);
+}
+
+body.lx-body {
+  margin: 0;
+  background: var(--lx-white);
+  color: var(--lx-ink);
+  font-family: var(--lx-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+.lx-body ::selection,
+.v1 ::selection {
+  background: rgba(143, 230, 234, 0.55);
+  color: var(--lx-deep);
+}
+
+.lx :focus-visible,
+.lxh :focus-visible,
+.lxf :focus-visible {
+  outline: 2px solid var(--lx-cyan);
+  outline-offset: 3px;
+  border-radius: 10px;
+}
+
+.lx,
+.lx *,
+.lx *::before,
+.lx *::after {
+  box-sizing: border-box;
+}
+
+.lx-wrap {
+  position: relative;
+  width: 100%;
+  max-width: calc(var(--lx-wrap) + 2 * var(--lx-pad-x));
+  margin: 0 auto;
+  padding: 0 var(--lx-pad-x);
+}
+
+.lx-sr {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- type ---------- */
+.lx-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-family: var(--lx-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--lx-teal);
+}
+.lx-kicker::before {
+  content: "";
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lx-cyan);
+  box-shadow: 0 0 0 4px rgba(25, 167, 184, 0.16), 0 0 12px rgba(25, 167, 184, 0.6);
+  animation: lx-breathe 3.2s ease-in-out infinite;
+}
+.lx-kicker--plain::before {
+  display: none;
+}
+.lx-on-deep .lx-kicker {
+  color: var(--lx-neon);
+}
+.lx-on-deep .lx-kicker::before {
+  background: var(--lx-neon);
+  box-shadow: 0 0 0 4px rgba(143, 230, 234, 0.14), 0 0 12px rgba(143, 230, 234, 0.7);
+}
+
+.lx-h1 {
+  margin: 18px 0 0;
+  font-size: clamp(38px, 5vw, 72px);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.038em;
+  text-wrap: balance;
+  color: var(--lx-ink);
+}
+.lx-h2 {
+  margin: 14px 0 0;
+  font-size: clamp(26px, 2.8vw, 38px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+  color: var(--lx-ink);
+}
+.lx-h3 {
+  margin: 0;
+  font-size: 17.5px;
+  font-weight: 600;
+  line-height: 1.32;
+  letter-spacing: -0.014em;
+  color: var(--lx-ink);
+  text-wrap: balance;
+}
+.lx-lede {
+  margin: 18px 0 0;
+  max-width: 60ch;
+  font-size: clamp(16px, 1.25vw, 18.5px);
+  line-height: 1.65;
+  color: var(--lx-body);
+  text-wrap: pretty;
+}
+.lx-text {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.68;
+  color: var(--lx-body);
+  text-wrap: pretty;
+}
+
+/* signature gradient title — slow, almost imperceptible sheen */
+.lx-grad {
+  background-image: var(--lx-grad-text);
+  background-size: 180% 100%;
+  background-position: 0% 50%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--lx-teal);
+  padding-bottom: 0.08em;
+  animation: lx-sheen 12s ease-in-out infinite;
+}
+.lx-grad-light {
+  background-image: linear-gradient(112deg, #ffffff 0%, #e4f6f8 40%, #8fe6ea 72%, #ffffff 100%);
+  background-size: 180% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+  padding-bottom: 0.08em;
+  animation: lx-sheen 12s ease-in-out infinite;
+}
+
+/* ---------- buttons ---------- */
+.lx-btn,
+body.lx-body .primary-button,
+body.lx-body .secondary-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 54px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 999px;
+  font-family: var(--lx-sans);
+  font-size: 15.5px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.5s var(--lx-spring),
+    box-shadow 0.45s var(--lx-ease),
+    background-color 0.35s,
+    color 0.35s;
+  will-change: transform;
+}
+.lx-btn--primary,
+body.lx-body .primary-button {
+  background: linear-gradient(135deg, #0b8193 0%, #055564 52%, #033a44 100%);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 14px 28px -14px rgba(5, 85, 100, 0.8),
+    0 0 36px -10px rgba(25, 167, 184, 0.55);
+}
+.lx-btn--primary::after,
+body.lx-body .primary-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(100deg, transparent 28%, rgba(255, 255, 255, 0.32) 50%, transparent 72%);
+  background-size: 220% 100%;
+  background-position: 130% 0;
+  transition: background-position 0.9s var(--lx-ease);
+}
+.lx-btn--primary:hover::after,
+body.lx-body .primary-button:hover::after {
+  background-position: -40% 0;
+}
+.lx-btn--primary:hover,
+body.lx-body .primary-button:hover:not(:disabled) {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.32),
+    0 22px 40px -16px rgba(5, 85, 100, 0.85),
+    0 0 56px -8px rgba(25, 167, 184, 0.7);
+}
+.lx-btn--secondary,
+body.lx-body .secondary-button {
+  background: rgba(255, 255, 255, 0.86);
+  color: var(--lx-teal);
+  box-shadow:
+    inset 0 0 0 1px rgba(5, 85, 100, 0.26),
+    0 12px 26px -18px rgba(5, 85, 100, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.lx-btn--secondary:hover,
+body.lx-body .secondary-button:hover {
+  background: #fff;
+  color: var(--lx-deep);
+  transform: translateY(-2px);
+  box-shadow:
+    inset 0 0 0 1px rgba(25, 167, 184, 0.55),
+    0 20px 36px -18px rgba(5, 85, 100, 0.55);
+}
+.lx-btn--light {
+  background: #fff;
+  color: var(--lx-teal);
+  box-shadow:
+    0 16px 32px -16px rgba(1, 24, 29, 0.7),
+    0 0 50px -10px rgba(143, 230, 234, 0.55);
+}
+.lx-btn--light:hover {
+  color: var(--lx-deep);
+  transform: translateY(-2px);
+}
+.lx-btn:active,
+body.lx-body .primary-button:active,
+body.lx-body .secondary-button:active {
+  transform: translateY(0) scale(0.975);
+  transition-duration: 0.12s;
+}
+.lx-btn:disabled,
+body.lx-body .primary-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+.lx-btn .lx-arrow {
+  transition: transform 0.5s var(--lx-spring);
+}
+.lx-btn:hover .lx-arrow {
+  transform: translateX(4px);
+}
+.lx-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+/* ---------- iOS-style icon tile ---------- */
+.lx-ico {
+  --s: 46px;
+  position: relative;
+  flex: none;
+  display: inline-grid;
+  place-items: center;
+  width: var(--s);
+  height: var(--s);
+  border-radius: calc(var(--s) * 0.29);
+  background: var(--lx-grad-icon);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    0 10px 22px -10px rgba(5, 85, 100, 0.75);
+  transition:
+    transform 0.6s var(--lx-spring),
+    box-shadow 0.5s var(--lx-ease);
+}
+.lx-ico::before {
+  /* glassy top sheen, like an app icon */
+  content: "";
+  position: absolute;
+  inset: 1px 1px 48% 1px;
+  border-radius: inherit;
+  border-bottom-left-radius: 40% 30%;
+  border-bottom-right-radius: 40% 30%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.32), rgba(255, 255, 255, 0));
+  pointer-events: none;
+}
+.lx-ico svg {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  stroke-width: 1.7;
+  filter: drop-shadow(0 1px 1px rgba(1, 30, 36, 0.35));
+}
+.lx-ico--light {
+  background: linear-gradient(180deg, #ffffff 0%, #eaf5f7 100%);
+  color: var(--lx-teal);
+  box-shadow:
+    inset 0 0 0 1px rgba(5, 85, 100, 0.12),
+    inset 0 1px 0 #fff,
+    0 10px 22px -12px rgba(5, 85, 100, 0.45);
+}
+.lx-ico--light svg {
+  filter: none;
+}
+.lx-ico--glass {
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.06));
+  color: var(--lx-neon);
+  box-shadow:
+    inset 0 0 0 1px rgba(143, 230, 234, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    0 12px 24px -12px rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+.lx-ico--glass svg {
+  filter: drop-shadow(0 0 6px rgba(143, 230, 234, 0.6));
+}
+.lx-ico--sm {
+  --s: 38px;
+}
+.lx-ico--lg {
+  --s: 58px;
+}
+[data-tilt]:hover .lx-ico,
+.lx-ico-host:hover .lx-ico {
+  transform: translateY(-2px) scale(1.06) rotate(-3deg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 16px 30px -12px rgba(5, 85, 100, 0.85),
+    0 0 26px -6px rgba(25, 167, 184, 0.7);
+}
+
+/* ---------- glass card + pointer spotlight + tilt ---------- */
+.lx-card {
+  --rx: 0deg;
+  --ry: 0deg;
+  --mx: 50%;
+  --my: 0%;
+  --lift: 0px;
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  border-radius: var(--lx-r);
+  border: 1px solid rgba(25, 167, 184, 0.16);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(243, 248, 249, 0.86) 100%);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  box-shadow: var(--lx-sh-2);
+  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(var(--lift));
+  transition:
+    transform 0.6s var(--lx-ease),
+    box-shadow 0.6s var(--lx-ease),
+    border-color 0.5s;
+  transform-style: preserve-3d;
+}
+.lx-card::after {
+  /* the light that follows the pointer */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(143, 230, 234, 0.32), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.5s var(--lx-ease);
+  pointer-events: none;
+}
+.lx-card[data-tilt]:hover,
+.lx-card[data-tilt]:focus-within {
+  --lift: -6px;
+  border-color: rgba(25, 167, 184, 0.42);
+  box-shadow: var(--lx-sh-hover);
+}
+.lx-card[data-tilt]:hover::after {
+  opacity: 1;
+}
+.lx-card[data-tilt]:active {
+  --lift: -2px;
+  transition-duration: 0.15s;
+}
+
+.lx-card--deep {
+  border-color: rgba(143, 230, 234, 0.18);
+  background: linear-gradient(160deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.03) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 20px 45px -20px rgba(1, 20, 25, 0.55);
+}
+.lx-card--deep::after {
+  background: radial-gradient(380px circle at var(--mx) var(--my), rgba(143, 230, 234, 0.2), transparent 62%);
+}
+.lx-card--deep[data-tilt]:hover {
+  border-color: rgba(143, 230, 234, 0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 34px 60px -26px rgba(1, 20, 25, 0.75),
+    0 0 46px -12px rgba(143, 230, 234, 0.45);
+}
+
+/* ---------- deep panel (dark cinematic surface) ---------- */
+.lx-deep {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: var(--lx-r-xl);
+  background: var(--lx-grad-deep);
+  color: #fff;
+}
+.lx-deep::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(48% 62% at 4% 0%, rgba(25, 167, 184, 0.34) 0%, transparent 70%),
+    radial-gradient(42% 58% at 100% 100%, rgba(143, 230, 234, 0.14) 0%, transparent 72%);
+  pointer-events: none;
+}
+.lx-deep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.45;
+  background-image: radial-gradient(rgba(143, 230, 234, 0.22) 1px, transparent 1.4px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+  mask-image: radial-gradient(70% 60% at 50% 40%, #000 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ---------- reveal on scroll ---------- */
+html.lx-motion [data-reveal] {
+  opacity: 0;
+  translate: 0 22px;
+  filter: blur(6px);
+  transition:
+    opacity 1s var(--lx-ease) var(--d, 0ms),
+    translate 1.1s var(--lx-ease) var(--d, 0ms),
+    filter 1s var(--lx-ease) var(--d, 0ms);
+}
+html.lx-motion [data-reveal="scale"] {
+  translate: 0 0;
+  scale: 0.96;
+  transition:
+    opacity 1s var(--lx-ease) var(--d, 0ms),
+    scale 1.2s var(--lx-ease) var(--d, 0ms),
+    filter 1s var(--lx-ease) var(--d, 0ms);
+}
+html.lx-motion [data-reveal].is-in {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+  filter: none;
+}
+
+/* ---------- keyframes ---------- */
+@keyframes lx-sheen {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes lx-breathe {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+}
+@keyframes lx-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+@keyframes lx-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+@keyframes lx-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes lx-pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lx *,
+  .lxh *,
+  .lxf *,
+  .lx-grad,
+  .lx-grad-light,
+  .lx-kicker::before {
+    animation: none !important;
+  }
+  html.lx-motion [data-reveal] {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    filter: none;
+  }
+  .lx-card {
+    transform: none !important;
+  }
+}
+
+/* legacy sticky offsets (report contents, mobile report nav) follow the taller Lux header */
+body.lx-body {
+  --zd-header-height: var(--lxh-total);
+}
+@media (scripting: none) {
+  html.lx-motion [data-reveal] {
+    opacity: 1;
+    translate: none;
+    scale: none;
+    filter: none;
+  }
+}

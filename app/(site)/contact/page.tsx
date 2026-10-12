@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import ContactForm from './ContactForm';
 import { CONTACT } from '@/lib/content/c04-pages';
+import PageHero from '@/components/lux/PageHero';
 
 export const metadata: Metadata = {
   title: `${CONTACT.headline} — ROOTS-AI™`,
@@ -12,19 +13,17 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="clone-page">
-      <main className="marketing-page inner-page public-page" id="main">
+    <div className="lx lxc">
+      <main id="main">
         {/* PUB-09 zone 1 — intro */}
-        <section className="page-heading">
-          <p className="marketing-kicker">ROOTS / CONTACT</p>
-          <h1>{CONTACT.headline}</h1>
-          <p>{CONTACT.intro}</p>
-        </section>
+        <PageHero kicker="ROOTS / CONTACT" title={CONTACT.headline} intro={CONTACT.intro} scene="dialog" />
 
-        <div className="contact-body">
-          <Suspense fallback={null}>
-            <ContactForm />
-          </Suspense>
+        <div className="lxc-body lx-wrap" id="contact-form">
+          <div className="lxc-card" data-reveal="scale">
+            <Suspense fallback={null}>
+              <ContactForm />
+            </Suspense>
+          </div>
         </div>
       </main>
     </div>

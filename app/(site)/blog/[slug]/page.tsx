@@ -42,9 +42,9 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
   const related = ARTICLES.filter((a) => a.slug !== article.slug).slice(0, 3);
 
   return (
-    <div className="clone-page">
-      <main className="marketing-page inner-page public-page" id="main">
-        <div className="article-body">
+    <div className="lx lxa">
+      <main id="main">
+        <div className="article-body lx-wrap">
           {/* z1 — breadcrumb */}
           <nav aria-label="Breadcrumb" className="article-crumbs">
             <Link href="/blog">Insights</Link>
@@ -54,7 +54,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
           {/* z2 — header, carrying the editorial controls C-04 requires */}
           <header className="article-header">
-            <h1>{article.title}</h1>
+            <h1 className="lx-h1"><span className="lx-grad">{article.title}</span></h1>
             <p className="article-subtitle">{article.subtitle}</p>
             <dl className="article-meta">
               <div>
@@ -130,7 +130,7 @@ export default async function BlogArticlePage({ params }: { params: Promise<{ sl
 
           {/* z7 — CTA */}
           <div className="center-actions">
-            <Link className="primary-button" href="/assessment">
+            <Link className="lx-btn lx-btn--primary" href="/assessment">
               Start Your Assessment
             </Link>
           </div>

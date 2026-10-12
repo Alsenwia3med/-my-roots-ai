@@ -691,3 +691,94 @@
   border-left: 3px solid var(--zd-teal);
   font-weight: var(--zd-w-regular);
 }
+
+/* ======================================================================
+   Lux presentation layer (matches the redesigned site; presentation only).
+   ====================================================================== */
+.wrap {
+  font-family: var(--font-geist-sans), "Helvetica Neue", Arial, sans-serif;
+  color: #06323b;
+  -webkit-font-smoothing: antialiased;
+}
+.toolbar {
+  border: 0;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.86);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    inset 0 0 0 1px rgba(5, 85, 100, 0.12),
+    0 18px 40px -28px rgba(3, 42, 51, 0.45);
+}
+.btn,
+.btnSecondary {
+  border: 0;
+  border-radius: 999px;
+  transition:
+    transform 0.45s cubic-bezier(0.3, 1.35, 0.4, 1),
+    box-shadow 0.4s;
+}
+.btn {
+  background: linear-gradient(135deg, #0b8193 0%, #055564 52%, #033a44 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 12px 24px -14px rgba(5, 85, 100, 0.8);
+}
+.btn:hover {
+  background: linear-gradient(135deg, #0b8193 0%, #055564 52%, #033a44 100%);
+  transform: translateY(-2px);
+}
+.btnSecondary {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(5, 85, 100, 0.24);
+}
+.btnSecondary:hover {
+  background: #fff;
+  box-shadow: inset 0 0 0 1px rgba(25, 167, 184, 0.6);
+}
+.cover {
+  position: relative;
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    radial-gradient(48% 62% at 4% 0%, rgba(25, 167, 184, 0.34) 0%, transparent 70%),
+    linear-gradient(140deg, #032a33 0%, #04404b 42%, #055564 100%);
+  box-shadow: 0 40px 80px -44px rgba(3, 42, 51, 0.6);
+}
+.metric,
+.section {
+  border: 0;
+  border-radius: 22px;
+  background: linear-gradient(180deg, #ffffff 0%, #f6fbfb 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(25, 167, 184, 0.14),
+    0 22px 48px -34px rgba(3, 42, 51, 0.45);
+}
+.sectionTitle {
+  color: #06323b;
+  letter-spacing: -0.02em;
+}
+.barTrack {
+  background: #e2eff1;
+}
+.toc {
+  border-radius: 20px;
+}
+.tocLink {
+  border-radius: 10px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+}
+.tocLink:hover {
+  background: rgba(25, 167, 184, 0.08);
+}
+.drawer {
+  border: 0;
+  box-shadow: -30px 0 80px -30px rgba(3, 42, 51, 0.45);
+}
+.drawer::backdrop {
+  background: rgba(3, 42, 51, 0.38);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}

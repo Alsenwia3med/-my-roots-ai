@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './assessment.module.css';
 import ClearPendingEmail from './_components/ClearPendingEmail';
+import Scene3D from '@/components/lux/Scene3D';
 import { getParticipant } from '@/lib/supabase/server';
 
 // C-04 §10 SEO and Metadata for /assessment. Protected routes are not indexed (proxy.ts).
@@ -40,6 +41,10 @@ export default async function AssessmentLayout({ children }: { children: React.R
           <div id="assessment-shell-status" className={styles.shellStatus} />
         </div>
       </header>
+      {/* A calm companion orb beside the questions (decorative, desktop only). */}
+      <div className={styles.ambient} aria-hidden="true">
+        <Scene3D variant="orb" fps={30} />
+      </div>
       {user && <ClearPendingEmail />}
       {children}
     </div>

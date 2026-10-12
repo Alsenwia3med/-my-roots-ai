@@ -8,9 +8,10 @@
 
 import { usePathname } from 'next/navigation';
 import CookieConsent from './CookieConsent';
-import LuxuryEffects from './LuxuryEffects';
-import Header from './SiteHeader';
-import Footer from './layout/Footer';
+import LuxHeader from './lux/LuxHeader';
+import LuxFooter from './lux/LuxFooter';
+import LuxMotion from './lux/LuxMotion';
+import { INNER_FOOTER } from './lux/chrome-data';
 
 /**
  * C-05 SYS-01 is a "Global public overlay" for "eligible public visitors", and C-04 §1 keeps
@@ -20,17 +21,17 @@ const PROTECTED = ['/assessment', '/report', '/admin', '/account', '/auth'];
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  if (pathname === '/assessment' || pathname?.startsWith('/assessment/')) return <>{children}<LuxuryEffects /></>;
+  if (pathname === '/assessment' || pathname?.startsWith('/assessment/')) return <>{children}<LuxMotion /></>;
 
   const isPublic = !PROTECTED.some((route) => pathname === route || pathname?.startsWith(`${route}/`));
 
   return (
     <>
-      <Header />
+      <LuxHeader hoverNavigate />
       {children}
-      <Footer />
+      <LuxFooter data={INNER_FOOTER} />
       {isPublic ? <CookieConsent /> : null}
-      <LuxuryEffects />
+      <LuxMotion />
     </>
   );
 }

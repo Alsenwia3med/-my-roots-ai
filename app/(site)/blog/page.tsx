@@ -4,6 +4,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ARTICLES, categories } from '@/lib/content/blog';
 import { BLOG, BLOG_EMPTY_STATE } from '@/lib/content/c04-pages';
+import { BadgeCheck, ShieldCheck } from 'lucide-react';
+import PageHero from '@/components/lux/PageHero';
+import { IconTile } from '@/components/lux/Icon';
 
 export const metadata: Metadata = {
   title: `${BLOG.headline} — ROOTS-AI™`,
@@ -16,31 +19,31 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'lo
 export default function BlogPage() {
   const [featured, ...rest] = ARTICLES;
   const filters = categories();
+  const boundaryIcons = [BadgeCheck, ShieldCheck];
 
   return (
-    <div className="clone-page">
-      <main className="marketing-page inner-page public-page" id="main">
+    <div className="lx lxb">
+      <main id="main">
         {/* z1 — hero and editorial boundary */}
-        <section className="page-heading">
-          <p className="marketing-kicker">ROOTS / INSIGHTS</p>
-          <h1>{BLOG.headline}</h1>
-          <p>{BLOG.intro}</p>
-        </section>
+        <PageHero kicker="ROOTS / INSIGHTS" title={BLOG.headline} intro={BLOG.intro} scene="wave" />
 
-        <div className="blog-body">
-          <section className="blog-boundary">
-            <ul className="pz-points">
-              {BLOG.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
+        <div className="lxb-body lx-wrap">
+          <section className="lxb-boundary" data-stagger="90">
+            <ul className="lxz-points">
+              {BLOG.bullets.map((bullet, i) => (
+                <li key={bullet} className="lx-card lxz-point" data-tilt="5" data-reveal="">
+                  <IconTile icon={boundaryIcons[i] ?? BadgeCheck} />
+                  <p className="lx-text">{bullet}</p>
+                </li>
               ))}
             </ul>
           </section>
 
           {/* z4 — filters only where there is something to filter */}
           {filters.length > 1 ? (
-            <nav aria-label="Categories" className="blog-filters">
+            <nav aria-label="Categories" className="lxb-filters">
               {filters.map((category) => (
-                <span className="blog-chip" key={category}>
+                <span className="lxz-pill" key={category}>
                   {category}
                 </span>
               ))}
@@ -49,33 +52,36 @@ export default function BlogPage() {
 
           {ARTICLES.length === 0 || !featured ? (
             /* z5 — approved launch state; no placeholder cards stand in for articles */
-            <section className="blog-empty" id="articles">
+            <section className="lxb-empty" id="articles" data-reveal="scale">
+              <span className="lxb-empty-orb" aria-hidden="true">
+                <span />
+              </span>
               <p>{BLOG_EMPTY_STATE}</p>
             </section>
           ) : (
             <>
               {/* z2 — featured */}
-              <section className="blog-featured" id="articles">
-                <Link href={`/blog/${featured.slug}`}>
-                  <p className="blog-meta">
+              <section className="lxb-featured" id="articles" data-reveal="">
+                <Link href={`/blog/${featured.slug}`} className="lx-card" data-tilt="3">
+                  <p className="lxb-meta">
                     {featured.category} · {dateFormat.format(new Date(featured.published))}
                   </p>
-                  <h2>{featured.title}</h2>
-                  <p className="blog-excerpt">{featured.excerpt}</p>
+                  <h2 className="lx-h2">{featured.title}</h2>
+                  <p className="lx-text">{featured.excerpt}</p>
                 </Link>
               </section>
 
               {/* z3 — grid */}
               {rest.length ? (
-                <section className="blog-grid">
+                <section className="lxb-grid" data-stagger="90">
                   {rest.map((article) => (
-                    <article key={article.slug}>
-                      <Link href={`/blog/${article.slug}`}>
-                        <p className="blog-meta">
+                    <article key={article.slug} data-reveal="">
+                      <Link href={`/blog/${article.slug}`} className="lx-card" data-tilt="5">
+                        <p className="lxb-meta">
                           {article.category} · {dateFormat.format(new Date(article.published))}
                         </p>
-                        <h3>{article.title}</h3>
-                        <p className="blog-excerpt">{article.excerpt}</p>
+                        <h3 className="lx-h3">{article.title}</h3>
+                        <p className="lx-text">{article.excerpt}</p>
                       </Link>
                     </article>
                   ))}

@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&display=swap');
 :where(.v1) a{color:inherit;text-decoration:none}
 :where(.v1) a:hover{color:inherit}
 :where(.v1) button{font:inherit;color:inherit;cursor:pointer}
