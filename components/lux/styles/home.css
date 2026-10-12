@@ -748,26 +748,151 @@
     opacity 1.4s var(--lx-ease) 0.35s,
     scale 2s cubic-bezier(0.16, 1, 0.3, 1) 0.35s;
 }
+.v1 .stage .dc {
+  /* smaller, quieter cards around the core */
+  padding: clamp(12px, 1.25cqw, 20px) clamp(14px, 1.4cqw, 22px);
+  border-radius: clamp(14px, 1.4cqw, 22px);
+}
+.v1 .stage .dc .f28 {
+  font-size: clamp(15px, 1.45cqw, 23px);
+  letter-spacing: -0.02em;
+}
+.v1 .stage .dc .f15 {
+  font-size: clamp(11.5px, 0.86cqw, 14px);
+  line-height: 1.5 !important;
+}
+.v1 .stage .dc .f12 {
+  font-size: clamp(9.5px, 0.7cqw, 11.5px);
+  letter-spacing: 0.04em;
+}
+.v1 .stage .dc .f13 {
+  font-size: clamp(10px, 0.78cqw, 12.5px);
+}
+
+/* the emergence: each domain is born from the core as a point of light, travels out along its
+   ray, opens into a card with a slight overshoot, then its contents rise in and a sheen crosses it */
 .v1.js .stage .dc {
   opacity: 0;
-  scale: 0.2;
-  filter: blur(10px);
-  translate: var(--fx) var(--fy);
 }
 .v1.js .stage.seen .dc {
+  --at: calc(0.75s + var(--i) * 130ms);
   opacity: 1;
-  scale: 1;
-  filter: none;
+  animation:
+    lx-dc-emerge 1.7s cubic-bezier(0.16, 1, 0.3, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.9s) backwards;
+}
+.v1.js .stage.seen .dc.fl {
+  animation:
+    lx-dc-emerge 1.7s cubic-bezier(0.16, 1, 0.3, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.9s) backwards,
+    fl 7s ease-in-out calc(var(--at) + 1.7s) infinite;
+}
+.v1.js .stage.seen .dc.fl2 {
+  animation:
+    lx-dc-emerge 1.7s cubic-bezier(0.16, 1, 0.3, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.9s) backwards,
+    fl2 9s ease-in-out calc(var(--at) + 1.7s) infinite;
+}
+.v1.js .stage.seen .dc.fl3 {
+  animation:
+    lx-dc-emerge 1.7s cubic-bezier(0.16, 1, 0.3, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.9s) backwards,
+    fl 11s ease-in-out calc(var(--at) + 1.7s) infinite;
+}
+.v1.js .stage.seen .dc.fl4 {
+  animation:
+    lx-dc-emerge 1.7s cubic-bezier(0.16, 1, 0.3, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.9s) backwards,
+    fl2 8s ease-in-out calc(var(--at) + 1.7s) infinite;
+}
+@keyframes lx-dc-emerge {
+  0% {
+    opacity: 0;
+    translate: var(--fx) var(--fy);
+    scale: 0.08;
+    filter: blur(14px) brightness(1.6);
+    border-radius: 50%;
+  }
+  18% {
+    opacity: 1;
+  }
+  62% {
+    translate: 0 0;
+    scale: 1.05;
+    filter: blur(0) brightness(1.08);
+    border-radius: clamp(14px, 1.4cqw, 22px);
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    filter: none;
+  }
+}
+@keyframes lx-dc-glint {
+  0% {
+    box-shadow:
+      0 0 0 1px rgba(5, 85, 100, 0.1),
+      0 0 0 0 rgba(143, 230, 234, 0.7),
+      0 22px 44px -24px rgba(5, 85, 100, 0.36);
+  }
+  40% {
+    box-shadow:
+      0 0 0 1.5px rgba(25, 167, 184, 0.8),
+      0 0 0 10px rgba(143, 230, 234, 0),
+      0 0 50px -6px rgba(25, 167, 184, 0.55);
+  }
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(5, 85, 100, 0.1),
+      0 22px 44px -24px rgba(5, 85, 100, 0.36),
+      0 60px 110px -64px rgba(5, 85, 100, 0.5);
+  }
+}
+.v1.js .stage .dc > * {
+  opacity: 0;
+  translate: 0 8px;
+}
+.v1.js .stage.seen .dc > * {
+  opacity: 1;
   translate: 0 0;
   transition:
-    box-shadow 0.5s,
-    border-color 0.5s,
-    opacity 0.9s var(--lx-ease),
-    scale 1.25s cubic-bezier(0.16, 1, 0.3, 1),
-    translate 1.25s cubic-bezier(0.16, 1, 0.3, 1),
-    filter 0.9s var(--lx-ease);
-  transition-delay: 0s, 0s, calc(0.6s + var(--i) * 110ms), calc(0.6s + var(--i) * 110ms),
-    calc(0.6s + var(--i) * 110ms), calc(0.6s + var(--i) * 110ms);
+    opacity 0.7s var(--lx-ease),
+    translate 0.8s var(--lx-ease);
+}
+.v1.js .stage.seen .dc > :nth-child(1) {
+  transition-delay: calc(0.75s + var(--i) * 130ms + 0.75s);
+}
+.v1.js .stage.seen .dc > :nth-child(2) {
+  transition-delay: calc(0.75s + var(--i) * 130ms + 0.88s);
+}
+.v1.js .stage.seen .dc > :nth-child(3) {
+  transition-delay: calc(0.75s + var(--i) * 130ms + 1s);
+}
+.v1 .stage .dc::after {
+  /* a single sheen crossing the card as it settles */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(105deg, transparent 30%, rgba(255, 255, 255, 0.85) 50%, transparent 70%);
+  background-size: 250% 100%;
+  background-position: 160% 0;
+  pointer-events: none;
+  opacity: 0;
+}
+.v1.js .stage.seen .dc::after {
+  animation: lx-dc-sheen 1.3s var(--lx-ease) calc(0.75s + var(--i) * 130ms + 1.05s) both;
+}
+@keyframes lx-dc-sheen {
+  0% {
+    opacity: 1;
+    background-position: 160% 0;
+  }
+  100% {
+    opacity: 0;
+    background-position: -60% 0;
+  }
 }
 .v1.js .stage .ray {
   opacity: 0;
@@ -785,12 +910,21 @@
   .v1.js .stage .dc {
     translate: 0 0 !important;
   }
+  .v1.js .stage.seen .dc,
+  .v1.js .stage.seen .dc.fl,
+  .v1.js .stage.seen .dc.fl2,
+  .v1.js .stage.seen .dc.fl3,
+  .v1.js .stage.seen .dc.fl4 {
+    --at: calc(0.2s + var(--i) * 90ms);
+  }
 }
 @media (prefers-reduced-motion: reduce) {
   .v1.js .stage .core,
   .v1.js .stage .deco,
   .v1.js .stage .dc,
-  .v1.js .stage .ray {
+  .v1.js .stage .ray,
+  .v1.js .stage .dc > * {
+    animation: none !important;
     opacity: 1 !important;
     scale: 1 !important;
     filter: none !important;

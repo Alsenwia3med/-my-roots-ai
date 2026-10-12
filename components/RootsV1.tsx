@@ -87,8 +87,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
   const C = { x: 720, y: 486 };
   const CORE = 330,
     RING = 640;
-  const CW = 344,
-    CH = 224;
+  const CW = 300,
+    CH = 192;
 
   /* cx / cy: where each node's card sits around the core */
   const domainData = [
