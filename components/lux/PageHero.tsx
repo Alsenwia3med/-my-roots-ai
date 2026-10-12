@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import type { ReactNode } from "react";
 import Scene3D from "./Scene3D";
+import { Biosignal, HudLens } from "./Instruments";
 import type { SceneVariant } from "./three/scenes";
 
 export interface HeroCta {
@@ -65,9 +66,12 @@ export default function PageHero({
           ) : null}
         </div>
         <div className="lxp-hero-visual" data-reveal="scale" style={{ ["--d" as string]: "120ms" }}>
+          <span className="lxp-aura" aria-hidden="true" />
+          <HudLens />
           <Scene3D variant={scene} />
         </div>
       </div>
+      <Biosignal className="lxp-signal" />
     </section>
   );
 }

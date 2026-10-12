@@ -808,3 +808,186 @@
 .v1 > .skip:focus {
   top: 12px;
 }
+
+/* ==========================================================================
+   "What changes" — a clinical daylight: aurora ribbon, a receding grid floor and
+   a heartbeat running quietly behind the three cards.
+   ========================================================================== */
+.v1 .lxwc {
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 60% at 50% 0%, #ffffff 0%, rgba(255, 255, 255, 0) 70%),
+    linear-gradient(180deg, #fbfdfd 0%, #eef6f7 62%, #e4f0f2 100%) !important;
+}
+.lxwc-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.lxwc-aurora {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  top: 8%;
+  height: 62%;
+  background:
+    radial-gradient(40% 46% at 22% 50%, rgba(143, 230, 234, 0.55), transparent 70%),
+    radial-gradient(36% 40% at 58% 40%, rgba(25, 167, 184, 0.22), transparent 70%),
+    radial-gradient(34% 44% at 84% 60%, rgba(111, 208, 242, 0.32), transparent 70%);
+  filter: blur(30px);
+  opacity: 0.85;
+  animation: lxwc-drift 22s var(--lx-ease-in-out) infinite alternate;
+}
+@keyframes lxwc-drift {
+  from {
+    transform: translate3d(-4%, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(4%, 3%, 0) scale(1.06);
+  }
+}
+.lxwc-floor {
+  /* a fine measurement grid laid out like a floor receding into the light */
+  position: absolute;
+  left: -30%;
+  right: -30%;
+  bottom: -6%;
+  height: 58%;
+  background-image:
+    linear-gradient(rgba(5, 85, 100, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(5, 85, 100, 0.1) 1px, transparent 1px);
+  background-size: 64px 64px;
+  transform: perspective(700px) rotateX(62deg);
+  transform-origin: 50% 100%;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 55%, #000 80%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 55%, #000 80%, transparent 100%);
+}
+.lxwc .lx-signal.lxwc-signal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 46%;
+  height: 90px;
+  margin: 0;
+  opacity: 0.75;
+}
+
+/* ==========================================================================
+   "A clearer start" — dawn over a living horizon: aurora curtains, a field of quiet
+   stars and the curved rim of light the next step rises from.
+   ========================================================================== */
+.v1 .lxcta {
+  isolation: isolate;
+  background:
+    radial-gradient(90% 70% at 50% 120%, #0d7f90 0%, rgba(13, 127, 144, 0) 60%),
+    linear-gradient(180deg, #021f26 0%, #032a33 40%, #04404b 100%) !important;
+}
+.lxcta-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.lxcta-aurora {
+  position: absolute;
+  left: -10%;
+  right: -10%;
+  top: -30%;
+  height: 90%;
+  background:
+    conic-gradient(from 200deg at 30% 60%, transparent 0deg, rgba(143, 230, 234, 0.32) 40deg, transparent 90deg),
+    conic-gradient(from 150deg at 72% 50%, transparent 0deg, rgba(25, 167, 184, 0.34) 50deg, transparent 110deg);
+  filter: blur(48px);
+  opacity: 0.8;
+  animation: lxcta-aurora 18s var(--lx-ease-in-out) infinite alternate;
+}
+@keyframes lxcta-aurora {
+  from {
+    transform: translateX(-3%) skewX(-4deg);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateX(3%) skewX(4deg);
+    opacity: 0.95;
+  }
+}
+.lxcta-stars {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(1.2px 1.2px at 12% 22%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1px 1px at 28% 64%, rgba(143, 230, 234, 0.8), transparent),
+    radial-gradient(1.4px 1.4px at 44% 14%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1px 1px at 61% 38%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(1.3px 1.3px at 76% 18%, rgba(143, 230, 234, 0.9), transparent),
+    radial-gradient(1px 1px at 88% 52%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(1.1px 1.1px at 6% 70%, rgba(255, 255, 255, 0.5), transparent),
+    radial-gradient(1px 1px at 94% 30%, rgba(255, 255, 255, 0.6), transparent);
+  animation: lxcta-twinkle 6s ease-in-out infinite alternate;
+}
+@keyframes lxcta-twinkle {
+  from {
+    opacity: 0.45;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.lxcta-horizon {
+  position: absolute;
+  left: 50%;
+  bottom: -138vw;
+  width: 150vw;
+  aspect-ratio: 1;
+  translate: -50% 0;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, #04404b 92%, rgba(4, 64, 75, 0) 100%);
+  box-shadow:
+    0 0 0 1px rgba(143, 230, 234, 0.55),
+    0 -10px 40px -6px rgba(143, 230, 234, 0.55),
+    0 -60px 140px -20px rgba(25, 167, 184, 0.55),
+    inset 0 20px 60px -20px rgba(143, 230, 234, 0.5);
+  animation: lxcta-rise 9s var(--lx-ease-in-out) infinite alternate;
+}
+@keyframes lxcta-rise {
+  from {
+    translate: -50% 6px;
+  }
+  to {
+    translate: -50% -6px;
+  }
+}
+.lxcta .lx-signal.lxcta-signal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 18%;
+  height: 70px;
+  margin: 0;
+  opacity: 0.5;
+}
+.lxcta .lx-signal-pulse {
+  stroke: #8fe6ea;
+}
+@media (max-width: 760px) {
+  .lxcta-horizon {
+    bottom: -150vw;
+    width: 170vw;
+  }
+  .lxwc-floor {
+    height: 40%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lxwc-aurora,
+  .lxwc-floor,
+  .lxcta-aurora,
+  .lxcta-stars,
+  .lxcta-horizon {
+    animation: none !important;
+  }
+}

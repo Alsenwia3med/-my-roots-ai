@@ -10,6 +10,7 @@ import GovernedAI from "./lux/home/GovernedAI";
 import Roadmap from "./lux/home/Roadmap";
 import LuxFooter from "./lux/LuxFooter";
 import { HOME_FOOTER } from "./lux/chrome-data";
+import { Biosignal } from "@/components/lux/Instruments";
 
 type Props = { motion?: boolean; autoPlay?: boolean };
 
@@ -1543,13 +1544,18 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
           </div>
         </section>{" "}
         <section
-          className={"lite"}
+          className={"lite lxwc"}
           style={{
             position: "relative",
             padding: "clamp(72px, 8.4vw, 120px) 0 clamp(76px, 9vw, 130px)",
             background: "linear-gradient(180deg, #FFFFFF 0%, #EFF3F4 100%)",
           }}
         >
+          <div className={"lxwc-bg"} aria-hidden={"true"}>
+            <div className={"lxwc-aurora"}></div>
+            <div className={"lxwc-floor"}></div>
+            <Biosignal className={"lxwc-signal"} />
+          </div>
           <div className={"mesh"} aria-hidden={"true"}>
             <div
               className={"blob b1"}
@@ -2132,7 +2138,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
           </div>
         </section>{" "}
         <section
-          className={"deep"}
+          className={"deep lxcta"}
           style={{
             position: "relative",
             overflow: "hidden",
@@ -2142,6 +2148,12 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
             color: "#FFFFFF",
           }}
         >
+          <div className={"lxcta-bg"} aria-hidden={"true"}>
+            <div className={"lxcta-aurora"}></div>
+            <div className={"lxcta-stars"}></div>
+            <div className={"lxcta-horizon"}></div>
+            <Biosignal className={"lxcta-signal"} />
+          </div>
           <div className={"mesh"} aria-hidden={"true"}>
             <div
               className={"blob b1"}

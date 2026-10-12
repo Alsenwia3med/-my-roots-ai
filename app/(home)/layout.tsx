@@ -56,7 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a className="skip-link" href="#main-content">
           Skip to main content
         </a>
-        <LuxHeader ticker />
+        <LuxHeader />
         <div id="main-content" className="site-content" tabIndex={-1}>
           {children}
         </div>

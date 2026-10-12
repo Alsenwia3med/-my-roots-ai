@@ -11,10 +11,11 @@
  */
 
 import Link from 'next/link';
-import { ArrowRight, Ban, Check, Quote, type LucideIcon } from 'lucide-react';
+import { ArrowRight, Ban, Check, Lock, Quote, type LucideIcon } from 'lucide-react';
 import type { CSSProperties } from 'react';
 import type { PageContent, PageZone } from '@/lib/content/c04-pages';
-import { IconTile } from '@/components/lux/Icon';
+import { IconTile, LogoTile, TONES } from '@/components/lux/Icon';
+import { Spark } from '@/components/lux/Instruments';
 import { iconFor } from '@/components/lux/iconMap';
 import PageHero from '@/components/lux/PageHero';
 import type { SceneVariant } from '@/components/lux/three/scenes';
@@ -35,6 +36,7 @@ function Sequence({ zone }: { zone: PageZone }) {
     <ol className="lxz-sequence" data-progress="">
       <span className="lxz-sequence-rail" aria-hidden="true">
         <span />
+        <i className="lxz-sequence-pulse" />
       </span>
       {zone.items.map((item, i) => (
         <li key={item} className="lxz-step" data-reveal="" style={delay(i)}>
@@ -42,7 +44,7 @@ function Sequence({ zone }: { zone: PageZone }) {
             {String(i + 1).padStart(2, '0')}
           </span>
           <div className="lx-card lxz-step-card" data-tilt="4">
-            <IconTile icon={iconFor(item)} />
+            <IconTile icon={iconFor(item)} tone={TONES[i % TONES.length]} size="sm" />
             {/* The governed step text already begins with its own number; the numeral above is
                 presentation, so the duplicate prefix is dropped from the reading order. */}
             <p className="lx-text">{item.replace(/^\d+\.\s*/, '')}</p>
@@ -65,7 +67,11 @@ function Statement({ zone }: { zone: PageZone }) {
           data-tilt="3"
           data-reveal=""
         >
-          <IconTile icon={iconFor(item, fallback)} tone={tone === 'limit' ? 'glass' : 'teal'} size="lg" />
+          {item.startsWith('Company:') ? (
+            <LogoTile />
+          ) : (
+            <IconTile icon={iconFor(item, fallback)} tone={tone === 'limit' ? 'glass' : tone === 'affirm' ? 'mint' : 'teal'} />
+          )}
           <p className="lxz-statement-text">{item}</p>
         </div>
       ))}
@@ -76,7 +82,7 @@ function Statement({ zone }: { zone: PageZone }) {
 function Status({ zone }: { zone: PageZone }) {
   return (
     <ul className="lxz-status" data-stagger="90">
-      {zone.items.map((item) => {
+      {zone.items.map((item, i) => {
         // C-04 §1: future capabilities are labelled "Coming Soon" and never presented as
         // available. The label is part of the governed sentence, so it is read from it.
         const [label, ...rest] = item.split(': ');
@@ -86,15 +92,34 @@ function Status({ zone }: { zone: PageZone }) {
             key={item}
             className="lx-card lxz-capability"
             data-available={available}
-            data-tilt="5"
+            data-tilt={available ? '3' : '4'}
             data-reveal=""
+            style={delay(i)}
           >
-            <IconTile icon={iconFor(item)} tone={available ? 'teal' : 'light'} size="lg" />
-            <span className="lxz-pill">
-              {available ? <span className="lxz-live" aria-hidden="true" /> : null}
-              {label}
+            <span className="lxz-cap-icon">
+              <IconTile icon={iconFor(item)} tone={available ? 'teal' : 'light'} size={available ? 'lg' : 'md'} />
+              {available ? null : (
+                <span className="lxz-lock" aria-hidden="true">
+                  <Lock size={10} strokeWidth={2.4} />
+                </span>
+              )}
             </span>
-            <span className="lxz-capability-name">{rest.join(': ')}</span>
+            <span className="lxz-cap-body">
+              <span className="lxz-pill">
+                {available ? <span className="lxz-live" aria-hidden="true" /> : null}
+                {label}
+              </span>
+              <span className="lxz-capability-name">{rest.join(': ')}</span>
+            </span>
+            {available ? (
+              <span className="lxz-cap-signal" aria-hidden="true">
+                <Spark seed={2} />
+              </span>
+            ) : (
+              <span className="lxz-build" aria-hidden="true">
+                <span />
+              </span>
+            )}
           </li>
         );
       })}
@@ -105,9 +130,9 @@ function Status({ zone }: { zone: PageZone }) {
 function Points({ zone }: { zone: PageZone }) {
   return (
     <ul className="lxz-points" data-count={zone.items.length} data-stagger="90">
-      {zone.items.map((item) => (
-        <li key={item} className="lx-card lxz-point" data-tilt="5" data-reveal="">
-          <IconTile icon={iconFor(item)} />
+      {zone.items.map((item, i) => (
+        <li key={item} className="lx-card lxz-point" data-tilt="5" data-reveal="" style={delay(i)}>
+          <IconTile icon={iconFor(item)} tone={TONES[i % TONES.length]} />
           <p className="lx-text">{item}</p>
         </li>
       ))}
@@ -115,7 +140,7 @@ function Points({ zone }: { zone: PageZone }) {
   );
 }
 
-function Zone({ zone }: { zone: PageZone }) {
+function Zone({ zone, index }: { zone: PageZone; index: number }) {
   const kind = zone.kind ?? 'points';
 
   return (
@@ -124,6 +149,9 @@ function Zone({ zone }: { zone: PageZone }) {
     <section className="lxz" data-kind={kind} data-span={zone.span ?? 12} data-tone={zone.tone}>
       {zone.eyebrow || zone.heading ? (
         <header className="lxz-head" data-reveal="">
+          <span className="lxz-index" aria-hidden="true">
+            <span>{String(index + 1).padStart(2, '0')}</span>
+          </span>
           {zone.eyebrow ? <p className="lx-kicker">{zone.eyebrow}</p> : null}
           {zone.heading ? <h2 className="lxz-title">{zone.heading}</h2> : null}
         </header>
@@ -148,7 +176,7 @@ export default function PublicPage({ page, kicker, children }: { page: PageConte
         <div className="lxp-body lx-wrap">
           <div className="lxp-zones">
             {zones.map((zone, i) => (
-              <Zone key={zone.heading || `zone-${i}`} zone={zone} />
+              <Zone key={zone.heading || `zone-${i}`} zone={zone} index={i} />
             ))}
           </div>
           {children}

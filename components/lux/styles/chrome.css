@@ -97,19 +97,20 @@ body:has(.lxh[data-ticker="false"]) {
   margin-left: auto;
 }
 .lxh-pill {
+  /* a fine line of light that glides beneath the hovered link */
   position: absolute;
-  top: 50%;
   left: 0;
-  height: 40px;
+  bottom: 9px;
+  height: 2px;
   width: var(--pill-w);
-  translate: var(--pill-x) -50%;
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(232, 246, 248, 0.95), rgba(220, 240, 243, 0.9));
-  box-shadow: inset 0 0 0 1px rgba(25, 167, 184, 0.22);
+  translate: var(--pill-x) 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, rgba(25, 167, 184, 0) 0%, #19a7b8 30%, #8fe6ea 50%, #19a7b8 70%, rgba(25, 167, 184, 0) 100%);
+  box-shadow: 0 0 10px rgba(25, 167, 184, 0.55);
   opacity: var(--pill-o);
   transition:
-    translate 0.45s var(--lx-ease),
-    width 0.45s var(--lx-ease),
+    translate 0.5s var(--lx-ease),
+    width 0.5s var(--lx-ease),
     opacity 0.35s var(--lx-ease);
   pointer-events: none;
 }
@@ -143,14 +144,12 @@ body:has(.lxh[data-ticker="false"]) {
 .lxh-link[data-active="true"]::after {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: 3px;
-  width: 4px;
-  height: 4px;
-  margin-left: -2px;
-  border-radius: 50%;
-  background: var(--lx-cyan);
-  box-shadow: 0 0 8px var(--lx-cyan);
+  left: 14px;
+  right: 14px;
+  bottom: 9px;
+  height: 1px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, transparent, rgba(5, 85, 100, 0.55), transparent);
 }
 .lxh-more {
   position: relative;
@@ -302,60 +301,78 @@ body:has(.lxh[data-ticker="false"]) {
   display: block;
 }
 
-/* ---------- ticker (attached to the bar, fixed with it) ---------- */
+/* ---------- ticker: a deep, quiet band of light under the bar ---------- */
 .lxh-ticker {
   position: relative;
   z-index: 1;
+  overflow: hidden;
   height: var(--lxh-ticker-now);
-  border-top: 1px solid var(--lx-line);
+  background: linear-gradient(100deg, #032a33 0%, #04404b 46%, #055564 100%);
   transition: height 0.55s var(--lx-ease);
 }
+.lxh-ticker::before {
+  /* a slow sweep of light travelling along the band */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 0%, rgba(143, 230, 234, 0.14) 48%, transparent 56%);
+  background-size: 260% 100%;
+  animation: lxh-sweep 9s linear infinite;
+  pointer-events: none;
+}
+.lxh-ticker::after {
+  /* hairlines of light top and bottom */
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow:
+    inset 0 1px 0 rgba(143, 230, 234, 0.18),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
 .lxh-ticker-inner {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   height: 100%;
   width: 100%;
   max-width: calc(var(--lx-wrap) + 2 * var(--lx-pad-x));
   margin: 0 auto;
   padding: 0 var(--lx-pad-x);
 }
-.lxh-latest {
+.lxh-live {
+  position: relative;
   flex: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 24px;
-  padding: 0 11px 0 9px;
-  border-radius: 999px;
-  background: linear-gradient(135deg, #0a7385, #055564);
-  box-shadow: 0 6px 14px -8px rgba(5, 85, 100, 0.8);
-  font-family: var(--lx-mono);
-  font-size: 10.5px;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  color: #fff;
+  width: 8px;
+  height: 8px;
 }
-.lxh-latest-dot {
-  width: 6px;
-  height: 6px;
+.lxh-live span,
+.lxh-live::after {
+  position: absolute;
+  inset: 0;
   border-radius: 50%;
   background: var(--lx-neon);
-  box-shadow: 0 0 8px var(--lx-neon);
-  animation: lx-breathe 2.4s ease-in-out infinite;
+}
+.lxh-live span {
+  box-shadow: 0 0 10px rgba(143, 230, 234, 0.9);
+}
+.lxh-live::after {
+  content: "";
+  animation: lx-pulse-ring 2.4s var(--lx-ease) infinite;
 }
 .lxh-marquee {
   position: relative;
   flex: 1;
   min-width: 0;
   overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
-  mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 7%, #000 93%, transparent 100%);
 }
 .lxh-track {
   display: flex;
   width: max-content;
-  animation: lx-marquee 60s linear infinite;
+  animation: lx-marquee 70s linear infinite;
 }
 .lxh-marquee:hover .lxh-track {
   animation-play-state: paused;
@@ -367,29 +384,39 @@ body:has(.lxh[data-ticker="false"]) {
 .lxh-news {
   display: inline-flex;
   align-items: center;
-  gap: 22px;
-  padding-right: 22px;
+  gap: 26px;
+  padding-right: 26px;
   white-space: nowrap;
-  font-size: 13.5px;
+  font-size: 12.5px;
   font-weight: 500;
-  color: var(--lx-ink);
+  letter-spacing: 0.015em;
+  color: rgba(236, 249, 250, 0.9);
 }
 .lxh-sep {
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--lx-cyan);
-  box-shadow: 0 0 6px rgba(25, 167, 184, 0.8);
+  width: 5px;
+  height: 5px;
+  rotate: 45deg;
+  border-radius: 1px;
+  background: linear-gradient(135deg, #ffffff, var(--lx-neon));
+  box-shadow: 0 0 8px rgba(143, 230, 234, 0.85);
+}
+@keyframes lxh-sweep {
+  from {
+    background-position: 130% 0;
+  }
+  to {
+    background-position: -130% 0;
+  }
 }
 
-/* ---------- scroll progress line ---------- */
+/* ---------- scroll progress line: a slim, soft thread of light ---------- */
 .lxh-progress {
   position: absolute;
   left: 0;
   right: 0;
   bottom: -1px;
   height: 2px;
-  overflow: visible;
+  overflow: hidden;
   pointer-events: none;
 }
 .lxh-progress span {
@@ -397,26 +424,10 @@ body:has(.lxh[data-ticker="false"]) {
   inset: 0;
   transform-origin: 0 50%;
   transform: scaleX(var(--p));
-  background: linear-gradient(90deg, #055564 0%, #19a7b8 55%, #8fe6ea 100%);
-  box-shadow: 0 0 12px rgba(25, 167, 184, 0.7);
+  background: linear-gradient(90deg, rgba(25, 167, 184, 0.15) 0%, #19a7b8 60%, #8fe6ea 100%);
+  box-shadow: 0 0 8px rgba(25, 167, 184, 0.45);
+  transition: transform 0.18s linear;
   will-change: transform;
-}
-.lxh-progress span::after {
-  /* a soft spark riding the leading edge */
-  content: "";
-  position: absolute;
-  right: -4px;
-  top: 50%;
-  width: 8px;
-  height: 8px;
-  margin-top: -4px;
-  border-radius: 50%;
-  background: #fff;
-  box-shadow:
-    0 0 0 2px rgba(143, 230, 234, 0.9),
-    0 0 14px 4px rgba(25, 167, 184, 0.8);
-  transform: scaleX(calc(1 / max(var(--p), 0.001)));
-  opacity: min(1, calc(var(--p) * 40));
 }
 
 /* ---------- mobile sheet ---------- */
@@ -523,14 +534,14 @@ body:has(.lxh[data-ticker="false"]) {
   }
 }
 @media (max-width: 560px) {
+  .lxh-news {
+    font-size: 12px;
+  }
   .lxh-cta {
     display: none;
   }
   .lxh-burger {
     margin-left: auto;
-  }
-  .lxh-news {
-    font-size: 12.5px;
   }
 }
 

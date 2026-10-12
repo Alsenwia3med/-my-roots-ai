@@ -55,10 +55,10 @@ const ICONS: Record<string, LucideIcon> = {
  */
 export default function LuxHeader({
   hoverNavigate = false,
-  ticker = false,
+  ticker = true,
 }: {
   hoverNavigate?: boolean;
-  /** The news ticker belongs to the homepage, where its copy lives; inner pages keep the bar alone. */
+  /** The news ticker travels with the header on every page. */
   ticker?: boolean;
 }) {
   const pathname = usePathname();
@@ -96,7 +96,7 @@ export default function LuxHeader({
     };
   }, []);
 
-  /* the light pill that glides between nav links */
+  /* the fine line of light that glides beneath the hovered nav link */
   const glide = useCallback((target: HTMLElement | null) => {
     const nav = navRef.current;
     if (!nav) return;
@@ -106,8 +106,8 @@ export default function LuxHeader({
     }
     const n = nav.getBoundingClientRect();
     const r = target.getBoundingClientRect();
-    nav.style.setProperty("--pill-x", `${r.left - n.left}px`);
-    nav.style.setProperty("--pill-w", `${r.width}px`);
+    nav.style.setProperty("--pill-x", `${r.left - n.left + 14}px`);
+    nav.style.setProperty("--pill-w", `${Math.max(0, r.width - 28)}px`);
     nav.style.setProperty("--pill-o", "1");
   }, []);
 
@@ -276,9 +276,8 @@ export default function LuxHeader({
         {ticker ? (
           <div className="lxh-ticker" role="region" aria-label="News and announcements">
             <div className="lxh-ticker-inner">
-              <span className="lxh-latest">
-                <span className="lxh-latest-dot" aria-hidden="true" />
-                LATEST
+              <span className="lxh-live" aria-hidden="true">
+                <span />
               </span>
               <div className="lxh-marquee">
                 <div className="lxh-track">

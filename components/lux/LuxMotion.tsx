@@ -111,6 +111,34 @@ export default function LuxMotion() {
       });
     }
 
+    /* ---------- touch: the whole card answers the finger, wherever it lands ---------- */
+    const PRESSABLE = "[data-tilt], [data-press]";
+    let pressed: HTMLElement | null = null;
+    const release = () => {
+      const el = pressed;
+      pressed = null;
+      if (el) window.setTimeout(() => el.classList.remove("is-pressed"), 140);
+    };
+    const onDown = (event: PointerEvent) => {
+      if (event.pointerType === "mouse") return;
+      const el = (event.target as Element | null)?.closest<HTMLElement>(PRESSABLE) ?? null;
+      if (!el) return;
+      pressed = el;
+      el.classList.add("is-pressed");
+    };
+    if (!reduce) {
+      document.addEventListener("pointerdown", onDown, { passive: true });
+      document.addEventListener("pointerup", release, { passive: true });
+      document.addEventListener("pointercancel", release, { passive: true });
+      window.addEventListener("scroll", release, { passive: true });
+      cleanups.push(() => {
+        document.removeEventListener("pointerdown", onDown);
+        document.removeEventListener("pointerup", release);
+        document.removeEventListener("pointercancel", release);
+        window.removeEventListener("scroll", release);
+      });
+    }
+
     /* ---------- scroll-linked progress ---------- */
     let frame = 0;
     const tracks = () => Array.from(document.querySelectorAll<HTMLElement>("[data-progress]"));

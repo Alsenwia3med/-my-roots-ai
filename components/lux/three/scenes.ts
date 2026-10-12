@@ -199,24 +199,86 @@ type Built = { update: (t: number, dt: number) => void; anchors?: () => THREE.Ve
 
 /* ================================================================== scenes */
 
-/** Home — a biological core: pearl glass shell, glowing nucleus, seven domains in orbit. */
+/** A soft fresnel rim of light — makes glass read as glass on a white page. */
+function rimMaterial(color = C.neon, power = 2.6, strength = 0.9) {
+  return new THREE.ShaderMaterial({
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    uniforms: { uColor: { value: color.clone() }, uPower: { value: power }, uStrength: { value: strength } },
+    vertexShader: `
+      varying vec3 vN; varying vec3 vV;
+      void main(){
+        vec4 mv = modelViewMatrix * vec4(position,1.0);
+        vN = normalize(normalMatrix * normal);
+        vV = normalize(-mv.xyz);
+        gl_Position = projectionMatrix * mv;
+      }`,
+    fragmentShader: `
+      uniform vec3 uColor; uniform float uPower; uniform float uStrength;
+      varying vec3 vN; varying vec3 vV;
+      void main(){
+        float f = pow(1.0 - max(dot(normalize(vN), normalize(vV)), 0.0), uPower);
+        gl_FragColor = vec4(uColor * f * uStrength, f * uStrength);
+      }`,
+  });
+}
+
+/** A heartbeat envelope: a strong beat, a softer echo, then rest (≈ 66 bpm). */
+function heartbeat(t: number) {
+  const p = (t % 0.9) / 0.9;
+  const beat = (c: number, w: number) => Math.exp(-((p - c) * (p - c)) / w);
+  return beat(0.08, 0.0012) + beat(0.24, 0.0018) * 0.55;
+}
+
+/**
+ * Home — a living biological intelligence: a breathing nucleus that beats like a heart inside a
+ * glass cell, a diagnostic scan sweeping through it, and seven domains in orbit that keep sending
+ * signals inward along fine synapses — many sources, one connected reading.
+ */
 function core(ctx: Ctx): Built {
   const { root, m } = ctx;
   ctx.camera.position.set(0, 0.2, 9.6);
 
-  const nucleus = new THREE.Mesh(new THREE.SphereGeometry(0.72, 64, 64), m.teal);
+  /* the nucleus: an organic surface that breathes (vertex displacement) */
+  const nGeo = new THREE.IcosahedronGeometry(0.7, ctx.small ? 3 : 4);
+  const base = (nGeo.attributes.position.array as Float32Array).slice();
+  const nucleus = new THREE.Mesh(nGeo, m.teal);
   root.add(nucleus);
-  const halo = glowSprite(ctx, 3.4, "rgba(25,167,184,0.5)");
-  root.add(halo);
+  const heart = glowSprite(ctx, 3.2, "rgba(25,167,184,0.55)");
+  root.add(heart);
 
+  /* an inner lattice of thought and a cloud of signal inside the cell */
   const lattice = new THREE.Mesh(
     new THREE.IcosahedronGeometry(1.02, 1),
-    new THREE.MeshBasicMaterial({ color: C.cyan, wireframe: true, transparent: true, opacity: 0.2 }),
+    new THREE.MeshBasicMaterial({ color: C.cyan, wireframe: true, transparent: true, opacity: 0.16 }),
   );
   root.add(lattice);
+  const inner = motes(ctx, 260, 0.82, 1.25, C.cyan, 0.04, 0.7);
+  root.add(inner);
 
+  /* the glass cell, with a rim of light so it reads on white */
   const shell = new THREE.Mesh(new THREE.SphereGeometry(1.34, 72, 72), m.glass);
   root.add(shell);
+  const rim = new THREE.Mesh(new THREE.SphereGeometry(1.36, 64, 64), rimMaterial(C.cyan, 2.4, 0.75));
+  root.add(rim);
+
+  /* a diagnostic scan: a thin ring of light travelling up and down through the cell */
+  const scanMat = new THREE.MeshBasicMaterial({ color: C.neon, transparent: true, opacity: 0.85, depthWrite: false });
+  const scan = ring(1, 0.008, scanMat, Math.PI * 2, 120);
+  scan.rotation.x = Math.PI / 2;
+  root.add(scan);
+  const scanGlow = new THREE.Mesh(
+    new THREE.CircleGeometry(1, 64),
+    new THREE.MeshBasicMaterial({
+      map: radialTexture("rgba(143,230,234,0)", "rgba(143,230,234,0.28)", 128),
+      transparent: true,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+    }),
+  );
+  scanGlow.rotation.x = Math.PI / 2;
+  root.add(scanGlow);
 
   /* three orbital planes, each tilted so it reads as an open ellipse rather than a line */
   const orbits = new THREE.Group();
@@ -251,22 +313,100 @@ function core(ctx: Ctx): Built {
     return { mesh: s, r: planes[ri].r, phase, speed: 0.13 * planes[ri].dir };
   });
 
-  const dust = motes(ctx, 900, 2.9, 4.2, C.teal2, 0.045, 0.42);
+  /* synapses: a fine curved line from every domain to the nucleus, with a pulse running inward */
+  const SEG = 28;
+  const synapseMat = new THREE.LineBasicMaterial({ color: C.cyan, transparent: true, opacity: 0.32, depthWrite: false });
+  const synapses = sats.map((_, i) => {
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(new Float32Array((SEG + 1) * 3), 3));
+    const line = new THREE.Line(geo, synapseMat);
+    root.add(line);
+    const pulse = glowSprite(ctx, 0.34, "rgba(143,230,234,1)");
+    root.add(pulse);
+    return { geo, pulse, offset: i / sats.length + i * 0.13 };
+  });
+
+  const dust = motes(ctx, 700, 2.9, 4.2, C.teal2, 0.04, 0.38);
   root.add(dust);
-  contactShadow(ctx, -2.75, 5.6, 0.26);
+  contactShadow(ctx, -2.75, 5.6, 0.24);
 
   const tmp = new THREE.Vector3();
+  const a = new THREE.Vector3();
+  const ctrl = new THREE.Vector3();
+  const pt = new THREE.Vector3();
+  const pos = nGeo.attributes.position as THREE.BufferAttribute;
+  const arr = pos.array as Float32Array;
+  let frame = 0;
+
   return {
     update(t) {
-      nucleus.scale.setScalar(1 + Math.sin(t * 1.6) * 0.02);
-      halo.material.opacity = 0.75 + Math.sin(t * 1.6) * 0.2;
+      const hb = heartbeat(t);
+
+      /* breathing nucleus: three slow waves across the surface, lifted by each heartbeat */
+      if (frame++ % (ctx.small ? 2 : 1) === 0) {
+        for (let i = 0; i < arr.length; i += 3) {
+          const x = base[i], y = base[i + 1], z = base[i + 2];
+          const n =
+            Math.sin(x * 4.2 + t * 1.3) * 0.5 + Math.sin(y * 5.1 - t * 1.1) * 0.35 + Math.sin(z * 4.6 + t * 0.9) * 0.4;
+          const k = 1 + n * 0.035 + hb * 0.05;
+          arr[i] = x * k;
+          arr[i + 1] = y * k;
+          arr[i + 2] = z * k;
+        }
+        pos.needsUpdate = true;
+        nGeo.computeVertexNormals();
+      }
+      heart.material.opacity = 0.55 + hb * 0.45;
+      heart.scale.setScalar(3.0 + hb * 0.5);
+      (m.teal as THREE.MeshPhysicalMaterial).emissiveIntensity = 0.12 + hb * 0.35;
+
       lattice.rotation.set(t * 0.1, -t * 0.15, 0);
+      inner.rotation.set(t * 0.08, t * 0.22, 0);
       shell.rotation.y = t * 0.05;
       dust.rotation.y = -t * 0.02;
+
+      /* scan sweeps from pole to pole (ease in-out), its radius following the sphere */
+      const sy = Math.sin(t * 0.55) * 1.16;
+      const sr = Math.sqrt(Math.max(0.0001, 1.34 * 1.34 - sy * sy));
+      scan.position.y = sy;
+      scan.scale.setScalar(sr);
+      scanGlow.position.y = sy;
+      scanGlow.scale.setScalar(sr);
+      scanMat.opacity = 0.35 + (1 - Math.abs(sy) / 1.16) * 0.5;
+
       for (const s of sats) {
-        const a = s.phase + t * s.speed;
-        s.mesh.position.set(Math.cos(a) * s.r, Math.sin(a) * s.r, 0);
+        const ang = s.phase + t * s.speed;
+        s.mesh.position.set(Math.cos(ang) * s.r, Math.sin(ang) * s.r, 0);
       }
+
+      /* synapses follow their domain; the pulse travels from the domain into the nucleus */
+      root.updateMatrixWorld();
+      sats.forEach((s, i) => {
+        s.mesh.getWorldPosition(a);
+        root.worldToLocal(a);
+        ctrl.copy(a).multiplyScalar(0.45);
+        ctrl.y += 0.35;
+        const attr = synapses[i].geo.attributes.position as THREE.BufferAttribute;
+        const la = attr.array as Float32Array;
+        for (let k = 0; k <= SEG; k++) {
+          const u = k / SEG;
+          const iu = 1 - u;
+          /* quadratic bezier: domain → control → the centre of the nucleus */
+          la[k * 3] = iu * iu * a.x + 2 * iu * u * ctrl.x;
+          la[k * 3 + 1] = iu * iu * a.y + 2 * iu * u * ctrl.y;
+          la[k * 3 + 2] = iu * iu * a.z + 2 * iu * u * ctrl.z;
+        }
+        attr.needsUpdate = true;
+        const u = (t * 0.32 + synapses[i].offset) % 1;
+        const iu = 1 - u;
+        pt.set(
+          iu * iu * a.x + 2 * iu * u * ctrl.x,
+          iu * iu * a.y + 2 * iu * u * ctrl.y,
+          iu * iu * a.z + 2 * iu * u * ctrl.z,
+        );
+        synapses[i].pulse.position.copy(pt);
+        synapses[i].pulse.material.opacity = Math.sin(u * Math.PI) * 0.95;
+      });
     },
     anchors() {
       /* seven satellites, then the nucleus (for the readout) */
