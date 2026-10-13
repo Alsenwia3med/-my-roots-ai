@@ -1,0 +1,1042 @@
+/* ==========================================================================
+   Example report — turned over. A white page; the report window wears the colour the section
+   used to have: deep teal with light type, a soft ring, neon drivers. Reach for a cell and it
+   brightens; a light follows the pointer across the page and the window. Presentation only.
+   ========================================================================== */
+
+/* the page */
+.v1 .sx.sx-rep.deep {
+  background: #fff !important;
+  color: var(--px-ink) !important;
+}
+.sx-rep .mesh {
+  display: none !important;
+}
+.sx-rep::before {
+  display: none !important;
+}
+.sx-rep::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(520px circle at var(--sx, 78%) var(--sy, 40%), rgba(25, 167, 184, 0.12), transparent 70%),
+    radial-gradient(44% 56% at 4% 100%, rgba(5, 85, 100, 0.06), transparent 70%);
+  pointer-events: none;
+}
+.sx-rep .rp-wrap {
+  z-index: 1;
+}
+
+/* the words on the left */
+.sx-rep .ebd {
+  background: #f1f8f9;
+  box-shadow: inset 0 0 0 1px rgba(5, 85, 100, 0.18);
+  color: var(--px-teal);
+}
+.sx-rep .ebd .dot {
+  background: var(--px-cyan) !important;
+}
+.v1 .sx.sx-rep .rp-wrap > .g2 .gw {
+  background-image: linear-gradient(112deg, #032a33 0%, #055564 40%, #0b7f90 70%, #19a7b8 100%) !important;
+  background-color: transparent !important;
+  background-size: 100% 100%;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  color: var(--px-teal);
+  animation: none;
+}
+.sx-rep .rp-wrap > .g2 p {
+  color: #2c5963 !important;
+}
+.sx-rep .rp-wrap > .g2 .btn.bw {
+  background: var(--px-teal);
+  color: #fff;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 22px 36px -18px rgba(5, 85, 100, 0.75);
+}
+.sx-rep .rp-wrap > .g2 .btn.bw:hover {
+  color: #fff;
+  background: #066477;
+}
+.sx-rep .rp-wrap > p {
+  color: #2c5963 !important;
+}
+.sx-rep .rp-wrap > p .dot {
+  background: var(--px-cyan) !important;
+}
+
+/* the window */
+.sx-rep .rp-frame {
+  position: relative;
+  background: linear-gradient(140deg, #03313b 0%, #055564 50%, #0a6b7c 100%);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 60px 90px -52px rgba(3, 42, 51, 0.8),
+    0 0 0 8px rgba(5, 85, 100, 0.07);
+  --soft: #8fe6ea;
+  --track: rgba(255, 255, 255, 0.14);
+}
+.sx-rep .rp-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(60% 50% at 6% 0%, rgba(255, 255, 255, 0.2), transparent 62%),
+    radial-gradient(50% 60% at 100% 100%, rgba(143, 230, 234, 0.2), transparent 66%);
+  pointer-events: none;
+}
+.sx-rep .rp-frame .gb,
+.sx-rep .rp-frame .rp-segs {
+  position: relative;
+}
+
+/* every word and figure in the window is light */
+.sx-rep .rp-frame .gb .gl,
+.sx-rep .rp-frame .gb .dp {
+  color: #fff !important;
+}
+.sx-rep .rp-frame .gb :where(span, p, div, li, b) {
+  color: inherit !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) p,
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li > div:first-child span:last-child,
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="D6EEF0"] {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="14.5px"],
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="14.5px"] {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+.sx-rep .rp-frame .gt,
+.sx-rep .rp-frame .gw {
+  background-image: linear-gradient(135deg, #ffffff 0%, #8fe6ea 100%) !important;
+  background-color: transparent !important;
+  background-size: 100% 100%;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  color: #fff;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(4) .sf.gw {
+  color: #fff;
+}
+
+/* the chip, the pill, the hairlines between the cells */
+.sx-rep .rp-frame .eb.ebl {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+  color: #fff !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div,
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) > div {
+  border-right-color: rgba(255, 255, 255, 0.16) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) > div {
+  border-bottom-color: rgba(255, 255, 255, 0.16) !important;
+}
+.sx-rep .rp-frame .gb .rvi > div:hover,
+.sx-rep .rp-frame .gb .rvi > div:active {
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+.sx-rep .rp-frame .rp-segs {
+  border-top-color: rgba(255, 255, 255, 0.16);
+}
+.sx-rep .rp-frame .rp-segs span {
+  background: rgba(255, 255, 255, 0.14);
+}
+.sx-rep .rp-frame .rp-segs span:nth-child(-n + 7) {
+  background: rgba(143, 230, 234, 0.9);
+}
+
+/* the ring */
+.sx-rep .rp-frame .arc61,
+.sx-rep .rp-frame .arc94 {
+  stroke: #8fe6ea !important;
+  opacity: 1;
+  filter: drop-shadow(0 0 8px rgba(143, 230, 234, 0.55)) !important;
+}
+.sx-rep .rp-frame circle[stroke="#DCE8EA"] {
+  stroke: rgba(255, 255, 255, 0.16);
+}
+.sx-rep .rp-frame svg .spin {
+  stroke: rgba(255, 255, 255, 0.3);
+}
+.sx-rep .rp-frame div[style*="aspect-ratio"]::before {
+  background: repeating-conic-gradient(from 0deg, rgba(255, 255, 255, 0.3) 0 0.6deg, transparent 0.6deg 6deg);
+}
+.sx-rep .rp-frame .halo {
+  border-color: rgba(143, 230, 234, 0.32) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) circle[stroke="#055564"] {
+  stroke: #8fe6ea;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="92px"] > span[aria-hidden]:last-child {
+  background: #fff !important;
+}
+
+/* the drivers */
+.sx-rep .rp-frame .trk {
+  background-color: rgba(255, 255, 255, 0.14);
+}
+.sx-rep .rp-frame .bar {
+  background-color: #8fe6ea !important;
+  background-image: linear-gradient(90deg, #19a7b8, #8fe6ea) !important;
+  opacity: 1;
+}
+.sx-rep .rp-frame .trk > span {
+  background: #fff !important;
+  box-shadow: 0 0 0 2px #8fe6ea, 0 4px 12px -2px rgba(1, 20, 25, 0.5) !important;
+}
+.sx-rep .rp-frame .trk > span::before {
+  background: rgba(143, 230, 234, 0.18);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+.sx-rep .rp-frame .trk::after {
+  background: repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.28) 0 1px, transparent 1px 10%);
+}
+
+/* the ruleset mark */
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] > span[aria-hidden="true"]:last-child {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #fff !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] > span:first-child {
+  border-color: rgba(143, 230, 234, 0.6) !important;
+}
+
+/* the cells carry no white of their own (one of them was painted white inline) */
+.sx-rep .rp-frame .gb > .rvi {
+  background: transparent !important;
+}
+
+/* ==========================================================================
+   The window's type: all of it pure white, a little heavier, with a soft lift so it stands off
+   the teal — nothing is dimmed.
+   ========================================================================== */
+.sx-rep .rp-frame .gb {
+  text-shadow: 0 1px 14px rgba(1, 20, 25, 0.35);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) p,
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li > div:first-child span:last-child,
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="D6EEF0"],
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="14.5px"],
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="14.5px"] {
+  color: #fff !important;
+  font-weight: 500;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) p {
+  font-size: 14.5px !important;
+  line-height: 1.6 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li > div:first-child span:first-child {
+  font-size: 15.5px !important;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li > div:first-child span:last-child {
+  font-size: 13px !important;
+}
+.sx-rep .rp-frame .gb .eb.ebl,
+.sx-rep .rp-frame .gb span.mn {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* the big figures: solid white, bold, with a soft glow of their own */
+.sx-rep .rp-frame .gt,
+.sx-rep .rp-frame .gw,
+.sx-rep .rp-frame .gb .rvi:nth-child(4) .sf.gw {
+  background: none !important;
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+  font-weight: 700 !important;
+  text-shadow: 0 0 28px rgba(143, 230, 234, 0.55), 0 2px 16px rgba(1, 20, 25, 0.35);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt {
+  font-size: clamp(40px, 3.8vw, 54px) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="14.5px"],
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="14.5px"] {
+  font-size: 13px !important;
+}
+
+/* ==========================================================================
+   The drivers — three clear readings. Each is a name, a large figure that runs up from zero,
+   and a slim bar that grows from the left as the window comes into view, its marker travelling
+   with it and the uncertainty band settling in last.
+   ========================================================================== */
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) > div {
+  align-items: center !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul {
+  width: 100%;
+  max-width: 330px;
+  gap: 28px !important;
+}
+.sx-rep .rp-frame .drv-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-head .drv-label {
+  max-width: 62%;
+  font-size: 14.5px !important;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-head .drv-stat {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  font-size: 12px !important;
+  color: #fff !important;
+}
+.sx-rep .rp-frame .drv-stat b {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+.sx-rep .rp-frame .drv-stat i {
+  margin-top: 5px;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.sx-rep .rp-frame .gb .trk {
+  height: 10px !important;
+  margin-top: 14px !important;
+  border-radius: 6px !important;
+}
+.sx-rep .rp-frame .gb .trk .bar {
+  border-radius: 6px !important;
+}
+.sx-rep .rp-frame .gb .trk > span {
+  width: 20px !important;
+  height: 20px !important;
+  margin: -10px 0 0 -10px !important;
+}
+
+/* from zero: the bar, its marker and its figure start together */
+.js .sx-rep .gb:not(.seen) .gx {
+  scale: 0 1;
+}
+.js .sx-rep .gb.seen .gx {
+  scale: 1 1;
+  transition: scale 1.7s cubic-bezier(0.6, 0, 0.2, 1) 0.3s;
+}
+.js .sx-rep .gb:not(.seen) .trk > span {
+  left: 0 !important;
+}
+.js .sx-rep .gb.seen .trk > span {
+  animation: drvThumb 1.7s cubic-bezier(0.6, 0, 0.2, 1) 0.3s backwards;
+}
+@keyframes drvThumb {
+  from {
+    left: 0;
+  }
+}
+.js .sx-rep .gb:not(.seen) .trk > span::before {
+  opacity: 0;
+}
+.js .sx-rep .gb.seen .trk > span::before {
+  opacity: 1;
+  transition: opacity 0.8s ease 1.9s;
+}
+.js .sx-rep .gb.seen li.drv:nth-child(2) .gx {
+  transition-delay: 0.46s;
+}
+.js .sx-rep .gb.seen li.drv:nth-child(2) .trk > span {
+  animation-delay: 0.46s;
+}
+.js .sx-rep .gb.seen li.drv:nth-child(3) .gx {
+  transition-delay: 0.62s;
+}
+.js .sx-rep .gb.seen li.drv:nth-child(3) .trk > span {
+  animation-delay: 0.62s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js .sx-rep .gb.seen .gx {
+    transition: none;
+  }
+  .js .sx-rep .gb.seen .trk > span {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   Room to breathe — fewer things per square inch. The drivers are slimmer and narrower, each with
+   its name and note stacked on one side and one figure on the other; the ring loses its extra
+   circles; every cell gets more air. Presentation only.
+   ========================================================================== */
+.sx-rep .rp-frame .gb .rvi > div,
+.sx-rep .rp-frame .gb .rvi > .gl,
+.sx-rep .rp-frame .gb .rvi > .dp {
+  padding: clamp(28px, 3vw, 42px) !important;
+}
+
+/* the drivers */
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul {
+  max-width: 290px;
+  gap: 36px !important;
+}
+.sx-rep .rp-frame .drv-head {
+  align-items: flex-start;
+  gap: 14px;
+}
+.sx-rep .rp-frame .drv-id {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-head .drv-id .drv-label {
+  max-width: none;
+  font-size: 14px !important;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.sx-rep .rp-frame .drv-note {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.sx-rep .rp-frame .drv-stat b {
+  font-size: 26px;
+}
+.sx-rep .rp-frame .gb .trk {
+  height: 6px !important;
+  margin-top: 16px !important;
+  border-radius: 4px !important;
+}
+.sx-rep .rp-frame .gb .trk .bar {
+  border-radius: 4px !important;
+}
+.sx-rep .rp-frame .gb .trk > span {
+  width: 16px !important;
+  height: 16px !important;
+  margin: -8px 0 0 -8px !important;
+}
+.sx-rep .rp-frame .gb .trk > span::before {
+  height: 14px;
+  top: -4px;
+}
+
+/* the score: one ring, one number, one line of words */
+.sx-rep .rp-frame .halo,
+.sx-rep .rp-frame svg .spin,
+.sx-rep .rp-frame div[style*="aspect-ratio"]::before {
+  display: none !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  max-width: 210px !important;
+  margin: 26px auto 0 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div > span.mn {
+  margin-top: 26px !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) p {
+  max-width: 250px !important;
+  margin: 18px auto 0 !important;
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+}
+
+/* the two figures */
+.sx-rep .rp-frame .gb .rvi:nth-child(3) .sf.gt,
+.sx-rep .rp-frame .gb .rvi:nth-child(4) .sf.gw {
+  font-size: clamp(26px, 2.4vw, 32px) !important;
+}
+
+/* ---------- the drivers: narrower bars, smaller type ---------- */
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul {
+  max-width: 240px;
+  gap: 30px !important;
+}
+.sx-rep .rp-frame .drv-head {
+  gap: 10px;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-head .drv-id .drv-label {
+  font-size: 12.5px !important;
+}
+.sx-rep .rp-frame .drv-note {
+  font-size: 11px;
+}
+.sx-rep .rp-frame .drv-stat b {
+  font-size: 20px;
+}
+.sx-rep .rp-frame .gb .trk {
+  height: 4px !important;
+  margin-top: 12px !important;
+}
+.sx-rep .rp-frame .gb .trk > span {
+  width: 13px !important;
+  height: 13px !important;
+  margin: -6.5px 0 0 -6.5px !important;
+}
+.sx-rep .rp-frame .gb .trk > span::before {
+  height: 11px;
+  top: -3px;
+}
+
+/* ==========================================================================
+   One line each. The driver's name sits on a single line; its note, its bar and its figure are
+   laid out beneath it on one small grid. The dashed band around each marker is gone. The two
+   figures keep their words on a single line.
+   ========================================================================== */
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) > div {
+  padding: 0 clamp(20px, 2vw, 30px) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul {
+  max-width: 300px;
+  gap: 28px !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "label label"
+    "note note"
+    "bar stat";
+  column-gap: 14px;
+  row-gap: 4px;
+  align-items: center;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-head,
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-id {
+  display: contents;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-head .drv-id .drv-label {
+  grid-area: label;
+  white-space: nowrap;
+  font-size: 11.5px !important;
+  letter-spacing: -0.005em;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-note {
+  grid-area: note;
+  font-size: 11px;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .trk {
+  grid-area: bar;
+  margin-top: 10px !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li.drv .drv-stat {
+  grid-area: stat;
+  align-self: end;
+  margin-top: 10px;
+}
+.sx-rep .rp-frame .drv-stat b {
+  font-size: 19px;
+}
+
+/* no dashed band around the marker */
+.sx-rep .rp-frame .gb .trk > span::before {
+  display: none !important;
+}
+
+/* the two figures: smaller, their words on one line */
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) > div,
+.sx-rep .rp-frame .gb > .rvi:nth-child(4) > div {
+  padding-left: clamp(18px, 1.8vw, 24px) !important;
+  padding-right: clamp(14px, 1.4vw, 18px) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) .sf.gt,
+.sx-rep .rp-frame .gb .rvi:nth-child(4) .sf.gw {
+  font-size: clamp(24px, 2.2vw, 28px) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="14.5px"],
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="14.5px"] {
+  white-space: nowrap;
+  font-size: 11px !important;
+  letter-spacing: 0;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="92px"],
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] {
+  width: 46px !important;
+  height: 46px !important;
+}
+
+/* ==========================================================================
+   Harmony. One rhythm for the whole window: a score on the left, the three drivers on the right,
+   and two equal figures beneath them; the same inner margin in every cell, the same hairline
+   between them, everything centred on its own cell, and a single soft light behind the ring.
+   ========================================================================== */
+.sx-rep .rp-frame .gb {
+  grid-template-columns: repeat(16, minmax(0, 1fr)) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) {
+  grid-column: 1 / 7 !important;
+  grid-row: 1 / 3 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) {
+  grid-column: 7 / 17 !important;
+  grid-row: 1 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) {
+  grid-column: 7 / 12 !important;
+  grid-row: 2 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(4) {
+  grid-column: 12 / 17 !important;
+  grid-row: 2 !important;
+}
+
+/* the same inner margin everywhere, and every cell centres its own content */
+.sx-rep .rp-frame .gb .rvi > div,
+.sx-rep .rp-frame .gb .rvi > .gl,
+.sx-rep .rp-frame .gb .rvi > .dp {
+  padding: clamp(24px, 2.4vw, 34px) clamp(22px, 2.2vw, 32px) !important;
+  justify-content: center !important;
+}
+
+/* the score: a soft light behind the ring, even steps down the column */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div {
+  position: relative;
+  align-items: center !important;
+  text-align: center !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 42%;
+  width: 78%;
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(143, 230, 234, 0.2), transparent);
+  pointer-events: none;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div > * {
+  position: relative;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div > .eb {
+  align-self: center !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  max-width: 220px !important;
+  margin: 24px auto 0 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div > span.mn {
+  margin-top: 24px !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) p {
+  max-width: 250px !important;
+  margin: 16px auto 0 !important;
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+}
+
+/* the drivers: the same measure as the label above them, evenly spaced */
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) > div {
+  padding: clamp(24px, 2.4vw, 34px) clamp(22px, 2.2vw, 32px) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul {
+  max-width: 320px;
+  margin: 0 auto;
+  gap: 26px !important;
+}
+
+/* the two figures: identical tiles, mark above, number, one line of words */
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) > div,
+.sx-rep .rp-frame .gb > .rvi:nth-child(4) > div {
+  align-items: flex-start !important;
+  gap: 12px !important;
+  padding-left: clamp(22px, 2.2vw, 32px) !important;
+  padding-right: clamp(14px, 1.4vw, 18px) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="92px"],
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] {
+  width: 44px !important;
+  height: 44px !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) .sf.gt,
+.sx-rep .rp-frame .gb .rvi:nth-child(4) .sf.gw {
+  font-size: clamp(26px, 2.4vw, 30px) !important;
+  line-height: 1 !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="14.5px"],
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="14.5px"] {
+  margin-top: 8px;
+}
+
+/* the same hairline between every cell, at the same strength */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div,
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) > div {
+  border-right: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) > div {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14) !important;
+}
+.sx-rep .rp-frame .rp-segs {
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 18px clamp(22px, 2.2vw, 32px) 22px;
+}
+
+/* a fine neon line along the very top of the window */
+.sx-rep .rp-frame::after {
+  display: block !important;
+  content: "";
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(143, 230, 234, 0.9), transparent);
+  pointer-events: none;
+}
+
+/* the figures get a little more room for their words, and no stray sheen crosses them */
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) {
+  grid-column: 7 / 11 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(4) {
+  grid-column: 11 / 17 !important;
+}
+.sx-rep .rp-frame .gb .gl::after,
+.sx-rep .rp-frame .gb .dp::after,
+.sx-rep .rp-frame .gb .rvi > div::after {
+  display: none !important;
+}
+
+/* the line along the top of the window stays at the top (an older scan animation was moving it) */
+.sx-rep .rp-frame::after {
+  animation: none !important;
+  top: 0 !important;
+  bottom: auto !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+/* ==========================================================================
+   The score ring on white: a white disc, a green arc on a pale track, the figure in green.
+   ========================================================================== */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  border-radius: 50%;
+  background: #fff;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 0 0 8px rgba(255, 255, 255, 0.1),
+    0 28px 44px -22px rgba(1, 20, 25, 0.65);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle[stroke="#DCE8EA"] {
+  stroke: rgba(5, 85, 100, 0.12);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .arc61 {
+  stroke: #055564 !important;
+  filter: none !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt {
+  background: none !important;
+  -webkit-text-fill-color: #055564 !important;
+  color: #055564 !important;
+  text-shadow: none !important;
+}
+
+/* ==========================================================================
+   The score ring, clean and alive. A soft aqua disc that sits in the teal around it, a green arc
+   that draws itself from zero as the window arrives while the figure counts up with it, a lighter
+   "/100", and a slow breath of light around the edge.
+   ========================================================================== */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  position: relative;
+  background: radial-gradient(circle at 34% 26%, #f6fbfc 0%, #e3f1f3 58%, #cfe6e9 100%);
+  box-shadow:
+    inset 0 -10px 22px rgba(5, 85, 100, 0.1),
+    0 0 0 8px rgba(255, 255, 255, 0.1),
+    0 28px 44px -22px rgba(1, 20, 25, 0.6);
+  animation: rpBreath 5.5s ease-in-out infinite;
+}
+@keyframes rpBreath {
+  0%,
+  100% {
+    box-shadow:
+      inset 0 -10px 22px rgba(5, 85, 100, 0.1),
+      0 0 0 8px rgba(255, 255, 255, 0.1),
+      0 28px 44px -22px rgba(1, 20, 25, 0.6);
+  }
+  50% {
+    box-shadow:
+      inset 0 -10px 22px rgba(5, 85, 100, 0.1),
+      0 0 0 15px rgba(143, 230, 234, 0.07),
+      0 28px 44px -22px rgba(1, 20, 25, 0.6),
+      0 0 46px rgba(143, 230, 234, 0.22);
+  }
+}
+/* a hair-thin dashed ring turning slowly just outside the disc */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"]::after {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  border: 1px dashed rgba(143, 230, 234, 0.45);
+  animation: rpTurn 36s linear infinite;
+  pointer-events: none;
+}
+@keyframes rpTurn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle[stroke="#DCE8EA"] {
+  stroke: rgba(5, 85, 100, 0.11);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .arc61 {
+  stroke: #055564 !important;
+}
+
+/* the figure: smooth, sized to sit well inside the ring */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt {
+  font-size: clamp(32px, 3vw, 42px) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.035em !important;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt .rp-of {
+  margin-left: 3px;
+  font-style: normal;
+  font-size: 0.5em;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: rgba(5, 85, 100, 0.62);
+  -webkit-text-fill-color: rgba(5, 85, 100, 0.62);
+}
+
+/* the arcs draw when the window comes into view, not at page load */
+.js .sx-rep .gb:not(.seen) .arc61,
+.js .sx-rep .gb:not(.seen) .arc94 {
+  animation: none;
+  stroke-dashoffset: 100;
+}
+.js .sx-rep .gb.seen .arc61 {
+  animation: arc61 2.4s cubic-bezier(0.6, 0, 0.2, 1) 0.3s both;
+}
+.js .sx-rep .gb.seen .arc94 {
+  animation: arc94 2.6s cubic-bezier(0.6, 0, 0.2, 1) 0.45s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"],
+  .sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"]::after {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   The note, set as a box. A deep teal rectangle with a glass mark and white type, sitting right
+   under the title and the button, level with the window beside it.
+   ========================================================================== */
+@media (min-width: 1041px) {
+  .sx-rep .rp-wrap > .g2 {
+    grid-column: 1;
+    grid-row: 1;
+    align-self: end;
+  }
+  .sx-rep .rp-wrap > p {
+    grid-column: 1;
+    grid-row: 2;
+    align-self: start;
+  }
+  .sx-rep .rp-wrap > .rp-frame {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: center;
+  }
+}
+.sx-rep .rp-wrap > p {
+  position: relative;
+  justify-content: flex-start !important;
+  gap: 16px !important;
+  max-width: 420px;
+  margin: 26px 0 0 !important;
+  padding: 18px 22px !important;
+  border-radius: 20px;
+  background: linear-gradient(140deg, #03313b 0%, #055564 55%, #0a6b7c 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    0 2px 4px rgba(3, 42, 51, 0.08),
+    0 28px 44px -26px rgba(3, 42, 51, 0.7);
+  font-size: 14.5px !important;
+  font-weight: 500;
+  line-height: 1.5 !important;
+  text-align: left !important;
+  color: #fff !important;
+  transition: translate 0.6s var(--px-spring), box-shadow 0.5s;
+}
+.sx-rep .rp-wrap > p::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(90% 120% at 0% 0%, rgba(255, 255, 255, 0.2), transparent 60%);
+  pointer-events: none;
+}
+.sx-rep .rp-wrap > p:hover {
+  translate: 0 -4px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 2px 4px rgba(3, 42, 51, 0.08),
+    0 40px 56px -26px rgba(3, 42, 51, 0.75);
+}
+.sx-rep .rp-wrap > p > * {
+  position: relative;
+}
+.sx-rep .rp-wrap > p .dot {
+  display: grid;
+  flex: none;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14) !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+.sx-rep .rp-wrap > p .dot::after {
+  display: none;
+}
+.sx-rep .rp-wrap > p .dot::before {
+  content: "i";
+  font: 600 16px/1 Georgia, "Times New Roman", serif;
+  font-style: italic;
+  color: #fff;
+}
+
+/* the left column as one calm stack: title, button, note — centred beside the window */
+@media (min-width: 1041px) {
+  .sx-rep .rp-wrap {
+    grid-template-rows: 1fr auto auto auto 1fr !important;
+    align-items: start !important;
+  }
+  .sx-rep .rp-wrap > .g2 > div:first-child {
+    grid-column: 1;
+    grid-row: 2;
+  }
+  .sx-rep .rp-wrap > .g2 > a {
+    grid-column: 1;
+    grid-row: 3;
+    justify-self: start;
+    margin-top: 28px;
+  }
+  .sx-rep .rp-wrap > p {
+    grid-column: 1;
+    grid-row: 4;
+    align-self: start;
+    margin-top: 24px !important;
+  }
+  .sx-rep .rp-wrap > .rp-frame {
+    grid-column: 2;
+    grid-row: 1 / -1;
+    align-self: center;
+  }
+}
+
+/* the note: one line, in its box, centred under the window */
+@media (min-width: 1041px) {
+  .sx-rep .rp-wrap > p {
+    grid-column: 2;
+    grid-row: 6;
+    justify-self: center;
+    align-self: start;
+    width: max-content;
+    max-width: 100%;
+    margin: 28px 0 0 !important;
+    padding: 14px 26px 14px 18px !important;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .sx-rep .rp-wrap > p > span:last-child {
+    white-space: nowrap;
+  }
+}
+
+/* the note joins the window as its footer strip: one object, one line, nothing floating below */
+@media (min-width: 1041px) {
+  .sx-rep .rp-wrap {
+    row-gap: 0 !important;
+  }
+  .sx-rep .rp-wrap > .rp-frame {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .sx-rep .rp-wrap > p {
+    grid-column: 2;
+    grid-row: 6;
+    justify-self: stretch;
+    align-self: start;
+    width: auto;
+    max-width: none;
+    margin: 0 !important;
+    padding: 15px 26px !important;
+    justify-content: center !important;
+    gap: 14px !important;
+    border-radius: 0 0 26px 26px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    background: linear-gradient(140deg, #02262e 0%, #04404b 55%, #07586a 100%);
+    box-shadow:
+      0 36px 50px -34px rgba(3, 42, 51, 0.7),
+      0 0 0 8px rgba(5, 85, 100, 0.07);
+    font-size: 13.5px !important;
+    letter-spacing: 0.01em;
+    text-align: center !important;
+  }
+  .sx-rep .rp-wrap > p:hover {
+    translate: 0 0;
+    box-shadow:
+      0 36px 50px -34px rgba(3, 42, 51, 0.7),
+      0 0 0 8px rgba(5, 85, 100, 0.07);
+  }
+  .sx-rep .rp-wrap > p .dot {
+    width: 24px;
+    height: 24px;
+  }
+  .sx-rep .rp-wrap > p .dot::before {
+    font-size: 13px;
+  }
+}
+
+/* a clean seam between the window and its strip: no ring around either */
+@media (min-width: 1041px) {
+  .sx-rep .rp-wrap > .rp-frame {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.24),
+      0 40px 60px -48px rgba(3, 42, 51, 0.8);
+  }
+  .sx-rep .rp-wrap > p,
+  .sx-rep .rp-wrap > p:hover {
+    box-shadow: 0 46px 56px -40px rgba(3, 42, 51, 0.75);
+  }
+}
+
+/* ==========================================================================
+   The score ring, pure: one soft disc, one green arc, one figure. No dashed ring around it, no
+   rings of light, no inner shading — only a quiet shadow to lift it off the teal.
+   ========================================================================== */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  background: radial-gradient(circle at 36% 26%, #ffffff 0%, #f1f8f9 72%, #e6f2f4 100%);
+  box-shadow: 0 26px 40px -24px rgba(1, 20, 25, 0.6);
+  animation: none;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"]::after {
+  display: none;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle[stroke="#DCE8EA"] {
+  stroke: rgba(5, 85, 100, 0.09);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt {
+  font-weight: 600 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt .rp-of {
+  font-weight: 400;
+  color: rgba(5, 85, 100, 0.5);
+  -webkit-text-fill-color: rgba(5, 85, 100, 0.5);
+}

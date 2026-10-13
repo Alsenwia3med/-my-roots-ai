@@ -1,0 +1,401 @@
+/* ==========================================================================
+   Homepage · premium pass, round four — tidy domains, a report you can read at a glance,
+   an editorial "what changes" list and a stage ladder. Presentation only.
+   ========================================================================== */
+
+/* ---------- seven domains: one tidy card, the name on one line ---------- */
+.sx-dom .dc {
+  justify-content: flex-start;
+  gap: 0;
+}
+.sx-dom .dc > div:first-child {
+  gap: 0.7em !important;
+}
+.sx-dom .dc h3 {
+  font-size: clamp(14px, 1.2cqw, 18px) !important;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+}
+.sx-dom .dc .mn.f12 {
+  margin-top: 0.8em !important;
+  padding-top: 0.8em;
+  border-top: 1px solid var(--px-edge);
+  font-size: clamp(9.5px, 0.7cqw, 11.5px);
+  line-height: 1.5;
+  letter-spacing: 0.01em;
+}
+.sx-dom .dc p {
+  margin-top: 0.55em !important;
+  font-size: clamp(11px, 0.84cqw, 13.5px) !important;
+  line-height: 1.55 !important;
+}
+.sx-dom .code {
+  min-width: 2.9em;
+  min-height: 2.1em;
+  border-radius: 0.55em;
+}
+
+/* ---------- example report: the words on the left, the report window on the right ---------- */
+.sx-rep .rp-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.5fr);
+  grid-template-rows: auto auto 1fr;
+  column-gap: clamp(28px, 4.4vw, 72px);
+  align-items: start;
+}
+.sx-rep .rp-wrap > .g2 {
+  display: contents !important;
+}
+.sx-rep .rp-wrap > .g2 > div:first-child {
+  grid-column: 1;
+  grid-row: 1;
+}
+.sx-rep .rp-wrap > .g2 > a {
+  grid-column: 1;
+  grid-row: 2;
+  justify-self: start;
+  margin-top: clamp(22px, 2.4vw, 34px);
+}
+.sx-rep .rp-wrap > .rp-frame {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  margin-top: 0;
+}
+.sx-rep .rp-wrap > p {
+  grid-column: 1;
+  grid-row: 3;
+  align-self: end;
+  justify-content: flex-start !important;
+  text-align: left !important;
+  margin-top: clamp(26px, 3vw, 44px) !important;
+}
+.sx-rep .rp-wrap > .g2 h2 {
+  font-size: clamp(26px, 3vw, 42px) !important;
+}
+.rp-frame .gb {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+.rp-frame .gb > .rvi:nth-child(1) {
+  grid-column: 1 / 4 !important;
+  grid-row: 1 / 3 !important;
+}
+.rp-frame .gb > .rvi:nth-child(2) {
+  grid-column: 4 / 7 !important;
+  grid-row: 1 !important;
+}
+.rp-frame .gb > .rvi:nth-child(3) {
+  grid-column: 4 / 7 !important;
+  grid-row: 2 !important;
+}
+.rp-frame .gb > .rvi:nth-child(4) {
+  grid-column: 1 / 7 !important;
+  grid-row: 3 !important;
+}
+.rp-frame .gb .gl ul {
+  gap: 20px !important;
+}
+.rp-frame .gb .gl ul span:first-child {
+  font-size: 14.5px !important;
+}
+@media (max-width: 1040px) {
+  .sx-rep .rp-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+  }
+  .sx-rep .rp-wrap > .g2 > div:first-child,
+  .sx-rep .rp-wrap > .g2 > a,
+  .sx-rep .rp-wrap > .rp-frame,
+  .sx-rep .rp-wrap > p {
+    grid-column: 1;
+    grid-row: auto;
+  }
+  .sx-rep .rp-wrap > .rp-frame {
+    margin-top: 32px;
+  }
+}
+@media (max-width: 640px) {
+  .rp-frame .gb {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .rp-frame .gb > .rvi:nth-child(n) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+}
+
+/* ---------- what changes: an editorial list, one connected thread ---------- */
+.sx-wc .g3 {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 14px !important;
+  max-width: 1040px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+.sx-wc .g3::before {
+  content: "";
+  position: absolute;
+  left: calc(clamp(20px, 2vw, 28px) + 28px - 1px);
+  top: 36px;
+  bottom: 36px;
+  width: 2px;
+  background: repeating-linear-gradient(180deg, rgba(5, 85, 100, 0.3) 0 6px, transparent 6px 12px);
+}
+.sx-wc .g3::after {
+  content: "";
+  position: absolute;
+  left: calc(clamp(20px, 2vw, 28px) + 28px - 2px);
+  top: 36px;
+  width: 4px;
+  height: 56px;
+  border-radius: 2px;
+  background: var(--px-cyan);
+  box-shadow: 0 0 14px 2px rgba(25, 167, 184, 0.6);
+  animation: pxDrop 6s ease-in-out infinite;
+}
+@keyframes pxDrop {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10%,
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(540px);
+    opacity: 0;
+  }
+}
+.sx-wc .g3 > div {
+  position: relative;
+  z-index: 1;
+  margin-top: 0 !important;
+  grid-column: auto !important;
+}
+.sx-wc .g3 > div:nth-child(n) .gl.lift {
+  display: grid !important;
+  grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  column-gap: clamp(18px, 2.6vw, 40px);
+  min-height: 0 !important;
+  padding: 18px clamp(20px, 2vw, 28px) !important;
+  border-radius: 20px !important;
+  background: #fff;
+  border: 1px solid var(--px-edge);
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.04), 0 16px 30px -24px rgba(3, 42, 51, 0.3);
+}
+.sx-wc .g3 > div:nth-child(n) .gl.lift::after {
+  display: none;
+}
+.sx-wc .g3 .gl > div[aria-hidden] {
+  width: 56px !important;
+  height: 56px !important;
+  margin: 0;
+}
+.sx-wc .g3 .gl > div[aria-hidden]:not([style*="width"]) {
+  height: 56px !important;
+}
+.sx-wc .g3 .gl h3 {
+  margin: 0 !important;
+  font-size: clamp(20px, 1.9vw, 26px) !important;
+  line-height: 1.1 !important;
+  transition: color 0.4s;
+}
+.sx-wc .g3 .gl p {
+  margin: 0 !important;
+  font-size: 15px !important;
+  line-height: 1.55 !important;
+  transition: color 0.4s;
+}
+.sx-wc .g3 > div:nth-child(n) .gl.lift:hover,
+.sx-wc .g3 > div:nth-child(n) .gl.lift:active {
+  background: var(--px-teal);
+  border-color: var(--px-teal);
+  box-shadow: 0 30px 46px -26px rgba(5, 85, 100, 0.85);
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.025);
+}
+.sx-wc .g3 .gl.lift:hover h3,
+.sx-wc .g3 .gl.lift:active h3 {
+  color: #fff !important;
+}
+.sx-wc .g3 .gl.lift:hover p,
+.sx-wc .g3 .gl.lift:active p {
+  color: rgba(243, 248, 249, 0.86) !important;
+}
+.sx-wc .g3 > div:nth-child(n) .gl.lift:hover > div[aria-hidden] {
+  background: var(--px-neon) !important;
+}
+.sx-wc .g3 .gl.lift:hover > div[aria-hidden] svg {
+  stroke: var(--px-teal);
+}
+.sx-wc .g3 .gl.lift:hover > div[aria-hidden] svg[fill="#FFFFFF"] {
+  fill: var(--px-teal);
+}
+.sx-wc .g3 .gl.lift:hover .bar {
+  background-color: var(--px-teal) !important;
+}
+.sx-wc .g3 > div:nth-child(n) .gl.lift::before {
+  background: var(--px-neon);
+}
+@media (max-width: 760px) {
+  .sx-wc .g3 > div:nth-child(n) .gl.lift {
+    grid-template-columns: 48px minmax(0, 1fr);
+    row-gap: 8px;
+  }
+  .sx-wc .g3 .gl p {
+    grid-column: 2;
+  }
+  .sx-wc .g3::before,
+  .sx-wc .g3::after {
+    display: none;
+  }
+}
+
+/* ---------- the seven stages: a ladder. Down the middle a line, one lit point, six waiting ---------- */
+.lxrm-track {
+  display: none !important;
+}
+.lxrm .lxrm-stages {
+  position: relative;
+  grid-template-columns: minmax(0, 1fr) 56px minmax(0, 1fr);
+  grid-template-rows: none;
+  grid-auto-rows: minmax(64px, auto);
+  gap: 0 clamp(14px, 2vw, 28px);
+  margin-top: clamp(28px, 3.4vw, 46px);
+}
+.lxrm .lxrm-stages::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  margin-left: -1px;
+  background: repeating-linear-gradient(180deg, rgba(143, 230, 234, 0.34) 0 6px, transparent 6px 12px);
+  -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.35) 100%);
+  mask-image: linear-gradient(180deg, #000 0%, #000 55%, rgba(0, 0, 0, 0.35) 100%);
+}
+.lxrm .lxrm-stages::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  width: 2px;
+  height: calc((100% - 40px) * 0.12);
+  margin-left: -1px;
+  background: var(--px-neon);
+  box-shadow: 0 0 14px rgba(143, 230, 234, 0.8);
+}
+.lxrm .lxrm-stages > .lxrm-stage {
+  margin: 0 0 18px;
+}
+.lxrm .lxrm-stages > .lxrm-s1,
+.lxrm .lxrm-stages > .lxrm-s3,
+.lxrm .lxrm-stages > .lxrm-s5,
+.lxrm .lxrm-stages > .lxrm-s7 {
+  grid-column: 1;
+}
+.lxrm .lxrm-stages > .lxrm-s2,
+.lxrm .lxrm-stages > .lxrm-s4,
+.lxrm .lxrm-stages > .lxrm-s6 {
+  grid-column: 3;
+}
+.lxrm .lxrm-stages > .lxrm-s2 {
+  grid-column: 3;
+}
+.lxrm .lxrm-stages > .lxrm-s7 {
+  border-color: rgba(143, 230, 234, 0.75) !important;
+  box-shadow: 0 0 0 1px rgba(143, 230, 234, 0.12), 0 0 46px -12px rgba(143, 230, 234, 0.4) !important;
+}
+.lxrm .lxrm-stages > .lxrm-s3 {
+  --k: 1;
+}
+.lxrm .lxrm-stages > .lxrm-s4 {
+  --k: 2;
+}
+.lxrm .lxrm-stages > .lxrm-s5 {
+  --k: 3;
+}
+.lxrm .lxrm-stages > .lxrm-s6 {
+  --k: 4;
+}
+.lxrm .lxrm-stages > .lxrm-s7 {
+  --k: 5;
+}
+.lxrm .lxrm-stages > .lxrm-s2 {
+  --k: 0;
+}
+.lxrm-node {
+  position: relative;
+  grid-column: 2;
+  z-index: 2;
+  align-self: center;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(143, 230, 234, 0.7);
+  background: var(--px-teal);
+  color: rgba(143, 230, 234, 0.85);
+}
+.lxrm-node svg {
+  width: 12px;
+  height: 12px;
+}
+.lxrm-node::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 1px;
+  width: clamp(14px, 2vw, 28px);
+  background: rgba(143, 230, 234, 0.4);
+}
+.lxrm-node--l::before {
+  right: 100%;
+}
+.lxrm-node--r::before {
+  left: 100%;
+}
+.lxrm-node--live {
+  width: 38px;
+  height: 38px;
+  border: 2px solid #fff;
+  background: #fff;
+  box-shadow: 0 0 0 7px rgba(143, 230, 234, 0.2);
+}
+.lxrm-node--live::before {
+  background: #fff;
+}
+.lxrm .lx-card.lxrm-stage--live {
+  padding: clamp(22px, 2.2vw, 30px);
+}
+.lxrm-stage--live .lx-h3,
+.lxrm-stage--live .lx-text {
+  max-width: 100%;
+}
+.lxrm-stage--live .lx-h3 {
+  font-size: clamp(20px, 1.8vw, 25px);
+}
+.lxrm-stage--live .lxrm-ghost {
+  font-size: 96px;
+  top: -26px;
+}
+@media (max-width: 860px) {
+  .lxrm .lxrm-stages {
+    grid-template-columns: 34px minmax(0, 1fr);
+  }
+  .lxrm .lxrm-stages::before,
+  .lxrm .lxrm-stages::after {
+    left: 17px;
+  }
+  .lxrm .lxrm-stages > .lxrm-stage:nth-child(n) {
+    grid-column: 2 !important;
+    grid-row: auto !important;
+  }
+  .lxrm-node {
+    display: none;
+  }
+}

@@ -1,0 +1,176 @@
+/* ==========================================================================
+   Seven connected domains — calmer. The side rails and the pulsing rings are gone; what remains is
+   the hairline rays that leave the core for each domain, and one still ring around it. The domains
+   keep the slow drift they are born with, and the whole field holds still the moment the pointer
+   is on it, so the box you reach for is steady under your hand. Presentation only.
+   ========================================================================== */
+
+/* no rails to either side of the core */
+.sx-dom .stage::before,
+.sx-dom .stage::after {
+  display: none !important;
+}
+
+/* no pulsing or turning rings — only the one still ring stays */
+.sx-dom .stage .deco > div {
+  display: none !important;
+}
+.sx-dom .stage .deco > div:not([class]) {
+  display: block !important;
+  border-color: rgba(5, 85, 100, 0.22) !important;
+}
+
+/* the slow drift, moved onto `translate` so a box can still grow on top of it when it is reached */
+@keyframes dcDrift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -11px;
+  }
+}
+@keyframes dcDrift2 {
+  0%,
+  100% {
+    translate: 0 -6px;
+  }
+  50% {
+    translate: 0 7px;
+  }
+}
+.v1.js .stage.seen .dc.fl {
+  animation:
+    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards,
+    dcDrift 7s ease-in-out calc(var(--at) + 0.8s) infinite;
+}
+.v1.js .stage.seen .dc.fl2 {
+  animation:
+    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards,
+    dcDrift2 9s ease-in-out calc(var(--at) + 0.8s) infinite;
+}
+.v1.js .stage.seen .dc.fl3 {
+  animation:
+    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards,
+    dcDrift 11s ease-in-out calc(var(--at) + 0.8s) infinite;
+}
+.v1.js .stage.seen .dc.fl4 {
+  animation:
+    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards,
+    dcDrift2 8s ease-in-out calc(var(--at) + 0.8s) infinite;
+}
+
+/* the pointer is on the field: only the slow drift holds still. The birth of a box is never paused,
+   so a box can never be caught half-born under the pointer. */
+.sx-dom .stage:hover .dc.fl,
+.sx-dom .stage:hover .dc.fl2,
+.sx-dom .stage:hover .dc.fl3,
+.sx-dom .stage:hover .dc.fl4,
+.sx-dom .stage:focus-within .dc.fl,
+.sx-dom .stage:focus-within .dc.fl2,
+.sx-dom .stage:focus-within .dc.fl3,
+.sx-dom .stage:focus-within .dc.fl4 {
+  animation-play-state: running, running, paused !important;
+}
+
+/* born sooner: the boxes leave the core almost as soon as the field is in view */
+.v1.js .stage.seen .dc {
+  --at: calc(0s + var(--i) * 55ms);
+}
+.js .sx-dom .stage.seen .dc {
+  transition-delay: 0s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .v1.js .stage.seen .dc.fl,
+  .v1.js .stage.seen .dc.fl2,
+  .v1.js .stage.seen .dc.fl3,
+  .v1.js .stage.seen .dc.fl4 {
+    animation: none !important;
+  }
+}
+
+/* the hairlines that leave the core for each domain (wide layout) */
+.sx-dom .dlines {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: visible;
+}
+.sx-dom .dline {
+  stroke: rgba(5, 85, 100, 0.5);
+  stroke-width: 1.4;
+  stroke-linecap: round;
+  stroke-dasharray: 1.5 8;
+  animation: dlFlow 2.6s linear infinite;
+}
+@keyframes dlFlow {
+  to {
+    stroke-dashoffset: -19;
+  }
+}
+.v1.js .stage .dline {
+  opacity: 0;
+}
+.v1.js .stage.seen .dline {
+  opacity: 1;
+  transition: opacity 0.9s ease;
+  transition-delay: calc(0.45s + var(--i) * 110ms);
+}
+.sx-dom .stage:hover .dline {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-dom .dline {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   A quicker, cleaner birth: each domain leaves the core as a point of light, swells a little
+   past its size and settles — the whole field is open in under a second and a half.
+   ========================================================================== */
+@keyframes dcEmerge {
+  0% {
+    opacity: 0;
+    translate: var(--fx) var(--fy);
+    scale: 0.12;
+    filter: blur(9px) brightness(1.5);
+    border-radius: 50%;
+  }
+  22% {
+    opacity: 1;
+  }
+  58% {
+    translate: 0 0;
+    scale: 1.045;
+    filter: blur(0) brightness(1.06);
+    border-radius: clamp(14px, 1.4cqw, 22px);
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    filter: none;
+  }
+}
+.v1.js .stage.seen .dline {
+  transition: opacity 0.5s ease;
+  transition-delay: calc(0.05s + var(--i) * 55ms);
+}
+.v1.js .stage.seen .ray {
+  transition-delay: calc(0.05s + var(--i) * 55ms);
+}
+
+/* the domain without a drift class is born the same way */
+.v1.js .stage.seen .dc {
+  animation:
+    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards;
+}

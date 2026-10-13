@@ -1,0 +1,185 @@
+/* ==========================================================================
+   Three finishing touches: the beta's conditions with proper app-style icons, the closing
+   principle that lights its edge when pressed, and the call to action turned to white with
+   its words set with more care. Presentation only.
+   ========================================================================== */
+
+/* ---------- the beta conditions: an app icon for each, in place of the tick ---------- */
+.pw .erow {
+  gap: 16px !important;
+}
+.pw .erow > .erow-ico {
+  display: flex;
+  flex: none;
+  transition: scale 0.5s var(--px-spring);
+}
+.pw .erow > .erow-ico .lx-ico {
+  --s: 40px;
+  transition: transform 0.6s var(--px-spring);
+}
+.pw .erow:hover > .erow-ico {
+  scale: 1.06;
+  box-shadow: none !important;
+}
+.pw .erow:hover > .erow-ico .lx-ico {
+  transform: rotate(-6deg) translateY(-1px);
+}
+
+/* ---------- the closing principle: press it and the green runs along its edge ---------- */
+.lxrm .lxrm-close {
+  position: relative;
+  isolation: isolate;
+  cursor: pointer;
+  transition: translate 0.6s var(--px-spring), box-shadow 0.5s, background-color 0.5s;
+}
+.lxrm .lxrm-close::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  padding: 2.5px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--lxg-ang, 0deg),
+    transparent 0%,
+    transparent 50%,
+    rgba(5, 85, 100, 0.25) 64%,
+    #055564 78%,
+    #19a7b8 91%,
+    #8fe6ea 98%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0;
+  transition: opacity 0.5s;
+  animation: lxgSpin 2.6s linear infinite;
+  pointer-events: none;
+}
+.lxrm .lxrm-close[data-lit]::before {
+  opacity: 1;
+}
+.lxrm .lxrm-close[data-lit] {
+  box-shadow: 0 30px 50px -28px rgba(5, 85, 100, 0.55);
+}
+.lxrm .lxrm-close:hover {
+  translate: 0 -3px;
+}
+.lxrm .lxrm-close:active {
+  translate: 0 0;
+}
+.lxrm .lxrm-close:focus-visible {
+  outline: 2px solid var(--px-cyan);
+  outline-offset: 4px;
+}
+
+/* ---------- A clearer start, on white ---------- */
+.v1 .sx.sx-cta.deep {
+  background: #fff !important;
+  color: var(--px-ink) !important;
+  border-radius: 0 !important;
+}
+.sx-cta .lxcta-bg {
+  display: none !important;
+}
+.sx-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(52% 70% at 50% 46%, rgba(25, 167, 184, 0.13), transparent 72%);
+  pointer-events: none;
+}
+.sx-cta .halo {
+  border-color: rgba(25, 167, 184, 0.3) !important;
+}
+.sx-cta .spin {
+  border-color: rgba(5, 85, 100, 0.22) !important;
+}
+.sx-cta .ebd {
+  background: #f1f8f9;
+  box-shadow: inset 0 0 0 1px rgba(5, 85, 100, 0.18);
+  color: var(--px-teal);
+}
+.sx-cta .ebd .dot {
+  background: var(--px-cyan) !important;
+}
+
+/* the words: a firm first line, a lighter second, a fine line beneath */
+.v1 .sx-cta h2 {
+  text-shadow: none;
+}
+.v1 .sx-cta h2 .cta-l1,
+.v1 .sx-cta h2 .cta-l2 {
+  display: block;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: var(--px-teal);
+  padding-bottom: 0.06em;
+}
+.v1 .sx-cta h2 .cta-l1 {
+  background-image: linear-gradient(105deg, #032a33 0%, #055564 70%, #0b7f90 100%);
+  font-weight: 650;
+}
+.v1 .sx-cta h2 .cta-l2 {
+  background-image: linear-gradient(105deg, #0b7f90 0%, #19a7b8 55%, #5fd0d8 100%);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+.v1 .sx-cta h2::after {
+  content: "";
+  display: block;
+  width: 64px;
+  height: 2px;
+  margin: 24px auto 0;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, #19a7b8, transparent);
+}
+.v1 .sx-cta .btn.bw {
+  background: linear-gradient(140deg, #03313b 0%, #055564 55%, #0a6b7c 100%);
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 0 0 5px rgba(25, 167, 184, 0.12),
+    0 22px 36px -16px rgba(5, 85, 100, 0.7) !important;
+}
+.v1 .sx-cta .btn.bw:hover {
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 8px rgba(25, 167, 184, 0.16),
+    0 30px 46px -16px rgba(5, 85, 100, 0.8) !important;
+}
+.v1 .sx-cta .btn.bw .arr {
+  background: #fff;
+  color: var(--px-teal);
+}
+.v1 .sx-cta .btn.bw:hover .arr {
+  background: var(--px-neon);
+}
+.v1 .sx-cta .h2 {
+  margin-top: 22px !important;
+}
+
+/* no rings around the closing call to action */
+.sx-cta .mesh,
+.sx-cta .halo,
+.sx-cta .spin {
+  display: none !important;
+}
+
+/* the conditions: nothing glows or fills behind the icon when it is reached */
+.pw .erow::before,
+.pw .erow:hover::before {
+  display: none !important;
+}
+.pw .erow:hover > span:first-child,
+.pw .erow:hover > .erow-ico {
+  box-shadow: none !important;
+  background: transparent !important;
+}
+.pw .erow > .erow-ico {
+  box-shadow: none !important;
+  background: transparent !important;
+}

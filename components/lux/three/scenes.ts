@@ -135,6 +135,8 @@ interface Ctx {
   m: Mats;
   small: boolean;
   sprite: THREE.Texture;
+  /** 1 = orbits drifting, 0 = paused (eased while the pointer is over the scene) */
+  pace: { v: number };
 }
 
 function contactShadow(ctx: Ctx, y: number, size: number, strength = 0.32) {
@@ -310,7 +312,7 @@ function core(ctx: Ctx): Built {
     const s = new THREE.Mesh(new THREE.SphereGeometry(i === 0 ? 0.16 : 0.125, 32, 32), i % 3 === 0 ? m.deep : m.pearl);
     s.add(glowSprite(ctx, 0.66));
     ringGroups[ri].add(s);
-    return { mesh: s, r: planes[ri].r, phase, speed: 0.13 * planes[ri].dir };
+    return { mesh: s, r: planes[ri].r, phase, speed: 0.07 * planes[ri].dir };
   });
 
   /* synapses: a fine curved line from every domain to the nucleus, with a pulse running inward */
@@ -337,10 +339,12 @@ function core(ctx: Ctx): Built {
   const pos = nGeo.attributes.position as THREE.BufferAttribute;
   const arr = pos.array as Float32Array;
   let frame = 0;
+  let orbitT = 0;
 
   return {
-    update(t) {
+    update(t, dt) {
       const hb = heartbeat(t);
+      orbitT += dt * ctx.pace.v;
 
       /* breathing nucleus: three slow waves across the surface, lifted by each heartbeat */
       if (frame++ % (ctx.small ? 2 : 1) === 0) {
@@ -375,7 +379,7 @@ function core(ctx: Ctx): Built {
       scanMat.opacity = 0.35 + (1 - Math.abs(sy) / 1.16) * 0.5;
 
       for (const s of sats) {
-        const ang = s.phase + t * s.speed;
+        const ang = s.phase + orbitT * s.speed;
         s.mesh.position.set(Math.cos(ang) * s.r, Math.sin(ang) * s.r, 0);
       }
 
@@ -904,7 +908,8 @@ export function mountScene(host: HTMLElement, canvas: HTMLCanvasElement, variant
   const sprite = radialTexture("rgba(255,255,255,1)", "rgba(255,255,255,0)", 64);
   const m = materials();
   const small = host.clientWidth < 420;
-  const ctx: Ctx = { scene, root, camera, m, small, sprite };
+  const pace = { v: 1 };
+  const ctx: Ctx = { scene, root, camera, m, small, sprite, pace };
   const built = BUILDERS[variant](ctx);
 
   /* sizing */
@@ -931,6 +936,17 @@ export function mountScene(host: HTMLElement, canvas: HTMLCanvasElement, variant
   };
   window.addEventListener("pointermove", onPointer, { passive: true });
 
+  /* hovering the scene eases the orbits to a stop; leaving lets them drift again */
+  let paceTarget = 1;
+  const onEnter = () => {
+    paceTarget = 0;
+  };
+  const onLeave = () => {
+    paceTarget = 1;
+  };
+  host.addEventListener("pointerenter", onEnter);
+  host.addEventListener("pointerleave", onLeave);
+
   /* run only while visible */
   let visible = false;
   let raf = 0;
@@ -948,6 +964,7 @@ export function mountScene(host: HTMLElement, canvas: HTMLCanvasElement, variant
     const dt = Math.min(0.05, (now - last) / 1000);
     last = now;
     if (!opts.reduced) t += dt;
+    pace.v += (paceTarget - pace.v) * Math.min(1, dt * 5);
     lean.x += (target.x - lean.x) * 0.04;
     lean.y += (target.y - lean.y) * 0.04;
     root.rotation.y = lean.x * 0.32;
@@ -997,6 +1014,8 @@ export function mountScene(host: HTMLElement, canvas: HTMLCanvasElement, variant
     io.disconnect();
     ro.disconnect();
     window.removeEventListener("pointermove", onPointer);
+    host.removeEventListener("pointerenter", onEnter);
+    host.removeEventListener("pointerleave", onLeave);
     document.removeEventListener("visibilitychange", onVis);
     scene.traverse((obj) => {
       const mesh = obj as THREE.Mesh;

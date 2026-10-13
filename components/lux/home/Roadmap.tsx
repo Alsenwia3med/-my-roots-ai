@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { Fragment, type CSSProperties } from "react";
 import {
   BrainCircuit,
   ClipboardList,
@@ -7,9 +7,12 @@ import {
   Pill,
   Stethoscope,
   Activity,
+  Lock,
+  LockOpen,
   type LucideIcon,
 } from "lucide-react";
 import { IconTile } from "../Icon";
+import RoadmapClose from "./RoadmapClose";
 
 type Stage = { n: string; title: string; text: string; icon: LucideIcon };
 
@@ -59,8 +62,6 @@ const STAGES: Stage[] = [
   },
 ];
 
-const d = (i: number) => ({ "--d": `${(i % 3) * 110}ms` }) as CSSProperties;
-
 /* keeps the brand name on one line wherever the copy wraps */
 const BRAND = "ROOTS-AI™";
 const withBrand = (text: string) =>
@@ -75,7 +76,10 @@ const withBrand = (text: string) =>
         ],
   );
 
-/** Homepage · The Seven Stages of ROOTS-AI™ — a deep cinematic panel with a lit path through the stages. */
+/**
+ * Homepage · The Seven Stages of ROOTS-AI™ — seven boxes, in order. Stage 01 is open and lit;
+ * stages 02–07 are locked blueprints that unlock under the pointer; the last is the destination.
+ */
 export default function Roadmap() {
   return (
     <section className="lx lxrm" aria-labelledby="lxrm-title">
@@ -95,38 +99,46 @@ export default function Roadmap() {
             </p>
           </header>
 
-          <ol className="lxrm-stages" data-progress="">
-            <span className="lxrm-path" aria-hidden="true">
-              <span />
-            </span>
-            {STAGES.map((s, i) => (
+          <ol className="st-grid">
+            {STAGES.map((st, i) => (
               <li
-                key={s.n}
-                className={`lx-card lx-card--deep lxrm-stage${i === STAGES.length - 1 ? " lxrm-stage--wide" : ""}`}
-                data-tilt="6"
+                key={st.n}
+                className={`st ${i === 0 ? "st--live" : "st--next"}${i === STAGES.length - 1 ? " st--end" : ""} st-${i + 1}`}
                 data-reveal=""
-                style={d(i)}
+                style={{ "--d": `${(i % 3) * 90}ms` } as CSSProperties}
+                tabIndex={0}
               >
-                <div className="lxrm-step">
-                  <IconTile icon={s.icon} tone="glass" />
-                  <span className="lxrm-label">STAGE {s.n}</span>
-                  <span className="lxrm-rule" aria-hidden="true" />
-                  <span className="lxrm-ghost" aria-hidden="true">
-                    {s.n}
-                  </span>
+                <span className="st-sheen" aria-hidden="true" />
+                <span className="st-ghost" aria-hidden="true">
+                  {st.n}
+                </span>
+                <div className="st-top">
+                  <IconTile icon={st.icon} tone="glass" size={i === 0 || i === STAGES.length - 1 ? 46 : 40} />
+                  <span className="st-label">STAGE {st.n}</span>
+                  <span className="st-rule" aria-hidden="true" />
+                  {i === 0 ? (
+                    <span className="st-live" aria-hidden="true" />
+                  ) : (
+                    <span className="st-lock" aria-hidden="true">
+                      <Lock className="st-lock-c" strokeWidth={2} />
+                      <LockOpen className="st-lock-o" strokeWidth={2} />
+                    </span>
+                  )}
                 </div>
-                <h3 className="lx-h3">{s.title}</h3>
-                <p className="lx-text">{withBrand(s.text)}</p>
+                <h3 className="st-h3">{st.title}</h3>
+                <p className="st-p">{withBrand(st.text)}</p>
+                <div className="st-prog" aria-hidden="true">
+                  {STAGES.map((p, k) => (
+                    <Fragment key={p.n}>
+                      <i className={`${k === 0 ? "done" : ""}${k === i ? " here" : ""}`} />
+                    </Fragment>
+                  ))}
+                </div>
               </li>
             ))}
           </ol>
 
-          <div className="lxrm-close" data-reveal="">
-            <h3 className="lxrm-close-title">One Principle Across Every Stage: Governance Is Built Into the Foundation.</h3>
-            <p className="lxrm-close-text">
-              <span>Assessment Is the Entry Point.</span> <span>Human Systems Intelligence Is the Destination.</span>
-            </p>
-          </div>
+          <RoadmapClose />
         </div>
       </div>
     </section>

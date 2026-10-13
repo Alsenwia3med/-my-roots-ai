@@ -1,0 +1,443 @@
+/* ==========================================================================
+   What changes — a showcase. One picture on the left that changes with the idea you
+   are on; the six ideas on the right, as a quiet list. Reach for one (mouse, finger or keys)
+   and the picture follows; left alone, it turns on its own. Presentation only.
+   ========================================================================== */
+
+.sx-wc .wc-show {
+  --soft: #4a9ca8;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  gap: clamp(24px, 4vw, 60px);
+  align-items: center;
+  max-width: 1120px;
+  margin: clamp(30px, 3.6vw, 48px) auto 0;
+}
+
+/* ---------- the stage ---------- */
+.wc-stage {
+  position: relative;
+  aspect-ratio: 420 / 340;
+  border: 1px solid var(--px-edge);
+  border-radius: 28px;
+  background: #f4f9fa;
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.04), 0 40px 70px -48px rgba(3, 42, 51, 0.45);
+  overflow: hidden;
+}
+.wc-stage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(5, 85, 100, 0.13) 1px, transparent 1.3px);
+  background-size: 22px 22px;
+  -webkit-mask-image: radial-gradient(70% 70% at 50% 50%, #000 30%, transparent 100%);
+  mask-image: radial-gradient(70% 70% at 50% 50%, #000 30%, transparent 100%);
+}
+.wc-vis-wrap {
+  position: absolute;
+  inset: 5% 6% 9%;
+}
+.wc-vis {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(14px) scale(0.97);
+  transition: opacity 0.6s ease, transform 0.9s var(--px-ease);
+  pointer-events: none;
+}
+.wc-vis.on {
+  opacity: 1;
+  transform: none;
+}
+.wc-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 16px;
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+}
+.wc-dots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 3px;
+  background: rgba(5, 85, 100, 0.2);
+  transition: width 0.5s var(--px-ease), background-color 0.4s;
+}
+.wc-dots i.on {
+  width: 22px;
+  background: var(--px-teal);
+}
+
+/* the drawings */
+.wc-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.wc-svg * {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+.wc-body {
+  fill: #fff;
+  stroke: var(--px-teal);
+  stroke-width: 2;
+}
+.wc-core {
+  fill: var(--px-teal);
+}
+.wc-node {
+  fill: #fff;
+  stroke: var(--px-teal);
+  stroke-width: 2;
+}
+.wc-link {
+  stroke: rgba(5, 85, 100, 0.28);
+  stroke-width: 1.5;
+}
+.wc-fill {
+  fill: var(--px-teal);
+}
+.wc-track {
+  fill: #e3edef;
+}
+.wc-track-c {
+  stroke: #e3edef;
+  stroke-width: 6;
+}
+.wc-arc {
+  stroke: var(--soft);
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+.wc-dash {
+  stroke: rgba(5, 85, 100, 0.35);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 7;
+}
+.wc-faint {
+  stroke: rgba(5, 85, 100, 0.12);
+  stroke-width: 1.2;
+}
+.wc-dial {
+  stroke: var(--px-teal);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+.wc-needle {
+  stroke: var(--px-teal);
+  stroke-width: 3;
+  stroke-linecap: round;
+  transform-origin: 50% 100%;
+}
+.wc-lines {
+  stroke: rgba(5, 85, 100, 0.3);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.wc-lines-w {
+  stroke: rgba(255, 255, 255, 0.75);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.wc-knob {
+  fill: #fff;
+  stroke: var(--px-teal);
+  stroke-width: 2;
+}
+.wc-dash-line {
+  stroke: var(--px-teal);
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+  stroke-linecap: round;
+}
+.wc-arrow {
+  stroke: var(--px-teal);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.wc-spark {
+  fill: var(--px-cyan);
+}
+.wc-shackle {
+  stroke: var(--px-teal);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.wc-keyhole {
+  fill: #fff;
+}
+.wc-tail {
+  stroke-linejoin: round;
+}
+.wc-wave {
+  fill: none;
+  stroke: var(--px-cyan);
+  stroke-width: 1.5;
+}
+
+/* motion — only the picture that is showing moves */
+.wc-vis.on .wc-pop {
+  animation: wcPop 0.8s var(--px-spring) both;
+}
+@keyframes wcPop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.wc-vis.on .wc-needle {
+  animation: wcNeedle 4.4s ease-in-out infinite;
+}
+@keyframes wcNeedle {
+  0%,
+  100% {
+    transform: rotate(-52deg);
+  }
+  50% {
+    transform: rotate(48deg);
+  }
+}
+.wc-vis.on .wc-lit {
+  animation: wcLit 4.6s ease-in-out infinite;
+}
+@keyframes wcLit {
+  0%,
+  30%,
+  100% {
+    fill: #fff;
+  }
+  12% {
+    fill: var(--px-teal);
+  }
+}
+.wc-vis.on .wc-wave {
+  animation: wcWave 3.2s ease-out infinite;
+}
+@keyframes wcWave {
+  from {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  to {
+    transform: scale(2.6);
+    opacity: 0;
+  }
+}
+.wc-vis.on .wc-grow {
+  transform-origin: 0 50%;
+  animation: wcGrow 1.2s var(--px-ease) both;
+}
+@keyframes wcGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+.wc-vis.on .wc-p2 {
+  animation: wcFan2 1.1s var(--px-ease) both;
+}
+.wc-vis.on .wc-p3 {
+  animation: wcFan3 1.1s var(--px-ease) both;
+}
+@keyframes wcFan2 {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translate(10px, 2px) rotate(3.5deg);
+  }
+}
+@keyframes wcFan3 {
+  from {
+    transform: none;
+  }
+  to {
+    transform: translate(22px, 4px) rotate(7deg);
+  }
+}
+.wc-vis.on .wc-tick {
+  animation: wcPop 0.5s var(--px-ease) both;
+}
+
+/* ---------- the list ---------- */
+.sx-wc .wc-show .g3 {
+  display: flex !important;
+  flex-direction: column;
+  gap: 6px !important;
+  max-width: none;
+  margin: 0 !important;
+}
+.sx-wc .wc-show .g3::before,
+.sx-wc .wc-show .g3::after {
+  display: none !important;
+}
+.sx-wc .wc-show .g3 > div {
+  margin: 0 !important;
+}
+.sx-wc .wc-show .g3 > div .gl.lift {
+  display: grid !important;
+  grid-template-columns: 48px minmax(0, 1fr);
+  grid-template-rows: auto auto;
+  align-content: center;
+  column-gap: 18px;
+  row-gap: 3px;
+  align-items: center;
+  min-height: 0 !important;
+  padding: 14px 20px !important;
+  border: 1px solid transparent !important;
+  border-radius: 20px !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  cursor: pointer;
+  transform: none !important;
+  transition: scale 0.55s var(--px-spring), background-color 0.4s, border-color 0.4s, box-shadow 0.5s !important;
+}
+.sx-wc .wc-show .g3 > div .gl.lift::before,
+.sx-wc .wc-show .g3 > div .gl.lift::after {
+  display: none !important;
+}
+.sx-wc .wc-show .g3 .gl > div[aria-hidden] {
+  grid-row: 1 / 3;
+  grid-column: 1;
+  width: 48px !important;
+  height: 48px !important;
+  margin: 0;
+  gap: 1px !important;
+  padding: 0 9px !important;
+  border-radius: 14px !important;
+  background: #e8f1f3 !important;
+  box-shadow: none !important;
+  transition: background-color 0.4s !important;
+}
+.sx-wc .wc-show .g3 .gl > div[aria-hidden] svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--px-teal);
+}
+.sx-wc .wc-show .g3 .gl > div[aria-hidden] svg[fill="#FFFFFF"] {
+  fill: var(--px-teal);
+}
+.sx-wc .wc-show .g3 .gl > div[aria-hidden] .bar {
+  background-color: var(--px-teal) !important;
+  animation: none;
+}
+.sx-wc .wc-show .g3 .gl h3 {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  font-size: clamp(17px, 1.5vw, 20px) !important;
+  letter-spacing: -0.012em;
+  color: var(--px-teal) !important;
+}
+.sx-wc .wc-show .g3 .gl p {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+  font-size: 13.5px !important;
+  line-height: 1.5 !important;
+  color: var(--px-body) !important;
+}
+.sx-wc .wc-show .g3 > div .gl.lift.act,
+.sx-wc .wc-show .g3 > div .gl.lift:focus-visible {
+  background: #fff !important;
+  border-color: var(--px-edge) !important;
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.05), 0 26px 44px -26px rgba(3, 42, 51, 0.4) !important;
+}
+.sx-wc .wc-show .g3 > div .gl.lift.act > div[aria-hidden] {
+  background: var(--px-teal) !important;
+}
+.sx-wc .wc-show .g3 > div .gl.lift.act > div[aria-hidden] svg {
+  stroke: #fff;
+}
+.sx-wc .wc-show .g3 > div .gl.lift.act > div[aria-hidden] svg[fill="#FFFFFF"] {
+  fill: #fff;
+}
+.sx-wc .wc-show .g3 > div .gl.lift.act .bar {
+  background-color: #fff !important;
+}
+.sx-wc .wc-show .g3 > div .gl.lift:hover,
+.sx-wc .wc-show .g3 > div .gl.lift:active {
+  scale: 1.035;
+  z-index: 3;
+}
+.sx-wc .wc-show .g3 > div .gl.lift:focus-visible {
+  outline: 2px solid var(--px-cyan);
+  outline-offset: 2px;
+}
+
+@media (max-width: 900px) {
+  .sx-wc .wc-show {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+  .wc-stage {
+    max-width: 520px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wc-vis * {
+    animation: none !important;
+  }
+}
+
+/* the report tile: nineteen hairlines are too faint at this size — draw a page of lines instead */
+.sx-wc .wc-show .g3 .gl > div[aria-hidden]:has(.bar) {
+  display: grid !important;
+  place-items: center;
+}
+.sx-wc .wc-show .g3 .gl > div[aria-hidden]:has(.bar) .bar {
+  display: none;
+}
+.sx-wc .wc-show .g3 .gl > div[aria-hidden]:has(.bar)::before {
+  content: "";
+  width: 22px;
+  height: 22px;
+  background:
+    linear-gradient(var(--px-teal), var(--px-teal)) 0 2px / 100% 2.5px no-repeat,
+    linear-gradient(var(--px-teal), var(--px-teal)) 0 9px / 80% 2.5px no-repeat,
+    linear-gradient(var(--px-teal), var(--px-teal)) 0 16px / 62% 2.5px no-repeat;
+  border-radius: 2px;
+}
+.sx-wc .wc-show .g3 > div .gl.lift.act > div[aria-hidden]:has(.bar)::before {
+  background:
+    linear-gradient(#fff, #fff) 0 2px / 100% 2.5px no-repeat,
+    linear-gradient(#fff, #fff) 0 9px / 80% 2.5px no-repeat,
+    linear-gradient(#fff, #fff) 0 16px / 62% 2.5px no-repeat;
+}
+/* an icon is never lost on a hovered row */
+.sx-wc .wc-show .g3 > div .gl.lift:hover > div[aria-hidden] {
+  background: #e8f1f3 !important;
+}
+.sx-wc .wc-show .g3 > div .gl.lift.act:hover > div[aria-hidden] {
+  background: var(--px-teal) !important;
+}
+
+/* words stay readable whatever the pointer does (older hover floods are switched off here) */
+.sx-wc .wc-show .g3 .gl.lift:hover h3,
+.sx-wc .wc-show .g3 .gl.lift:active h3,
+.sx-wc .wc-show .g3 .gl.lift.act h3 {
+  color: var(--px-teal) !important;
+}
+.sx-wc .wc-show .g3 .gl.lift:hover p,
+.sx-wc .wc-show .g3 .gl.lift:active p,
+.sx-wc .wc-show .g3 .gl.lift.act p {
+  color: var(--px-body) !important;
+}
+.sx-wc .wc-show .g3 > div:nth-child(n) .gl.lift:hover,
+.sx-wc .wc-show .g3 > div:nth-child(n) .gl.lift:active {
+  background: #fff !important;
+  border-color: var(--px-edge) !important;
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.05), 0 26px 44px -26px rgba(3, 42, 51, 0.4) !important;
+}

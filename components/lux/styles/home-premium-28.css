@@ -1,0 +1,280 @@
+/* ==========================================================================
+   The closing run of the page — the call to action (smaller, finer), the pilot (alive), and the
+   footer (light, and moving only as you scroll to it). Presentation only.
+   ========================================================================== */
+
+/* ---------- A clearer start: a smaller band, a smaller, finer button ---------- */
+.v1 .sx-cta {
+  padding: clamp(52px, 5.6vw, 84px) 0 clamp(56px, 6vw, 90px) !important;
+}
+.v1 .sx-cta h2 {
+  max-width: 760px !important;
+  margin-top: 20px !important;
+  font-size: clamp(30px, 4.1vw, 58px) !important;
+  line-height: 1.06 !important;
+  letter-spacing: -0.025em !important;
+}
+.v1 .sx-cta .btn.bw {
+  gap: 16px !important;
+  min-height: 50px !important;
+  margin-top: 26px !important;
+  padding: 0 7px 0 26px !important;
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  background: #fff;
+  color: var(--px-teal);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 0 0 5px rgba(143, 230, 234, 0.18),
+    0 20px 34px -16px rgba(1, 20, 25, 0.7) !important;
+  transition: translate 0.6s var(--px-spring), box-shadow 0.5s !important;
+}
+.v1 .sx-cta .btn.bw .arr {
+  box-sizing: content-box;
+  width: 16px;
+  height: 16px;
+  padding: 9px;
+  border-radius: 50%;
+  background: var(--px-teal);
+  color: #fff;
+  transition: translate 0.5s var(--px-spring), background-color 0.4s;
+}
+.v1 .sx-cta .btn.bw:hover {
+  translate: 0 -3px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+    0 0 0 8px rgba(143, 230, 234, 0.24),
+    0 28px 44px -16px rgba(1, 20, 25, 0.8) !important;
+}
+.v1 .sx-cta .btn.bw:hover .arr {
+  translate: 3px 0;
+  background: var(--px-cyan);
+}
+.v1 .sx-cta .eb {
+  transform: scale(0.94);
+}
+
+/* ---------- The pilot: a card with a pulse ---------- */
+.pw::before,
+.pw::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(54px);
+  pointer-events: none;
+}
+.pw::before {
+  left: 4%;
+  top: 8%;
+  width: 28%;
+  aspect-ratio: 1;
+  background: rgba(25, 167, 184, 0.16);
+  animation: plDrift 15s ease-in-out infinite alternate;
+}
+.pw::after {
+  right: 2%;
+  bottom: 4%;
+  width: 32%;
+  aspect-ratio: 1;
+  background: rgba(5, 85, 100, 0.1);
+  animation: plDrift 19s ease-in-out infinite alternate-reverse;
+}
+@keyframes plDrift {
+  to {
+    transform: translate(7%, 9%) scale(1.14);
+  }
+}
+.pw .wrap {
+  z-index: 1;
+}
+
+/* the teal card: light that follows the pointer, a slow sheen, a lift under the hand */
+.pw .pl-card {
+  isolation: isolate;
+  transition: translate 0.7s var(--px-spring), box-shadow 0.6s;
+}
+.pw .pl-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(340px circle at var(--mx, 74%) var(--my, 6%), rgba(255, 255, 255, 0.2), transparent 62%);
+  pointer-events: none;
+}
+.pw .pl-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  z-index: 0;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  transform: skewX(-18deg);
+  pointer-events: none;
+  animation: plSheen 9s ease-in-out 2s infinite;
+}
+@keyframes plSheen {
+  0%,
+  60% {
+    left: -60%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+.pw .pl-card > *:not(.mesh) {
+  position: relative;
+  z-index: 1;
+}
+.pw .pl-card:hover {
+  translate: 0 -4px;
+}
+
+/* the five conditions arrive one by one, and each answers the pointer */
+.js .pw .g2.seen .erow {
+  animation: plRow 0.8s var(--px-ease) backwards;
+}
+.js .pw .g2.seen .erow:nth-child(1) {
+  animation-delay: 0.35s;
+}
+.js .pw .g2.seen .erow:nth-child(2) {
+  animation-delay: 0.5s;
+}
+.js .pw .g2.seen .erow:nth-child(3) {
+  animation-delay: 0.65s;
+}
+.js .pw .g2.seen .erow:nth-child(4) {
+  animation-delay: 0.8s;
+}
+.js .pw .g2.seen .erow:nth-child(5) {
+  animation-delay: 0.95s;
+}
+@keyframes plRow {
+  from {
+    opacity: 0;
+    translate: 22px 0;
+  }
+}
+.pw .erow {
+  position: relative;
+  border-radius: 14px;
+  transition: translate 0.55s var(--px-spring), background-color 0.4s;
+}
+.pw .erow::before {
+  content: "";
+  position: absolute;
+  inset: 0 -12px;
+  z-index: -1;
+  border-radius: 14px;
+  background: linear-gradient(90deg, rgba(25, 167, 184, 0.1), transparent 85%);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.pw .erow:hover {
+  translate: 8px 0;
+}
+.pw .erow:hover::before {
+  opacity: 1;
+}
+.pw .erow > span:first-child {
+  transition: scale 0.5s var(--px-spring), box-shadow 0.4s;
+}
+.pw .erow:hover > span:first-child {
+  scale: 1.18;
+  box-shadow: 0 0 26px rgba(25, 167, 184, 0.85) !important;
+}
+.pw .btn.bw .arr,
+.pw .btn .arr {
+  transition: translate 0.5s var(--px-spring);
+}
+.pw .btn:hover .arr {
+  translate: 4px 0;
+}
+
+/* ---------- The footer: smaller, tidier, and light — it settles in as you scroll to it ---------- */
+.lxf {
+  padding: clamp(40px, 4.4vw, 62px) 0 0;
+}
+.lxf::after {
+  background: linear-gradient(90deg, transparent 0%, rgba(25, 167, 184, 0.8) 50%, transparent 100%);
+  background-size: 60% 100%;
+  background-repeat: no-repeat;
+  animation: lxfLine 9s ease-in-out infinite;
+}
+@keyframes lxfLine {
+  0%,
+  100% {
+    background-position: -20% 0;
+  }
+  50% {
+    background-position: 120% 0;
+  }
+}
+.lxf-grid {
+  gap: 30px clamp(28px, 5vw, 72px);
+}
+.lxf-logo {
+  padding: 12px 14px;
+  border-radius: 20px;
+  animation: lxfFloat 8s ease-in-out infinite;
+}
+.lxf-logo:hover {
+  animation-play-state: paused;
+}
+.lxf-logo img {
+  height: 80px;
+}
+@keyframes lxfFloat {
+  50% {
+    translate: 0 -4px;
+  }
+}
+.lxf-col h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 11px;
+}
+.lxf-col h3::before {
+  content: "";
+  width: 14px;
+  height: 1px;
+  background: var(--lx-cyan);
+  transition: width 0.5s var(--lx-ease);
+}
+.lxf-col:hover h3::before {
+  width: 28px;
+}
+.lxf-link {
+  min-height: 34px;
+  font-size: 14px;
+}
+.lxf-link span {
+  background: linear-gradient(var(--lx-cyan), var(--lx-cyan)) 0 100% / 0 1px no-repeat;
+  padding-bottom: 2px;
+  transition: background-size 0.5s var(--lx-ease);
+}
+.lxf-link:hover span {
+  background-size: 100% 1px;
+}
+.lxf-bottom {
+  margin-top: clamp(28px, 3.4vw, 44px);
+  padding: 20px 0 26px;
+}
+.lxf-note {
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pw::before,
+  .pw::after,
+  .pw .pl-card::after,
+  .lxf::after,
+  .lxf-logo {
+    animation: none;
+  }
+}

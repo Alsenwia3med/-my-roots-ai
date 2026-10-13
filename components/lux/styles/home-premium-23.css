@@ -1,0 +1,486 @@
+/* ==========================================================================
+   How it works — turned over. A white page; the four steps wear the colour the section used to
+   have, so they stand out as solid teal boxes with white type. Reach for one and the whole box
+   rises and grows. Presentation only.
+   ========================================================================== */
+
+/* the page */
+.sx.sx-how.deep {
+  background: #fff !important;
+  color: var(--px-ink) !important;
+}
+.sx-how .mesh {
+  display: none !important;
+}
+.sx-how::before {
+  display: none;
+}
+.sx-how .ebd {
+  background: #f1f8f9;
+  box-shadow: inset 0 0 0 1px rgba(5, 85, 100, 0.18);
+  color: var(--px-teal);
+}
+.sx-how .ebd .dot {
+  background: var(--px-cyan) !important;
+}
+.v1 .sx.sx-how .gw {
+  background-image: linear-gradient(112deg, #032a33 0%, #055564 40%, #0b7f90 70%, #19a7b8 100%) !important;
+  background-color: transparent !important;
+  background-size: 100% 100%;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  color: var(--px-teal);
+  animation: none;
+  text-shadow: none;
+}
+
+/* the thread and its pulses */
+.sx-how .rail {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(5, 85, 100, 0.5) 0px,
+    rgba(5, 85, 100, 0.5) 8px,
+    rgba(5, 85, 100, 0) 8px,
+    rgba(5, 85, 100, 0) 28px
+  );
+}
+.sx-how .pk {
+  background: var(--px-cyan);
+  box-shadow: 0 0 16px 5px rgba(25, 167, 184, 0.55);
+}
+
+/* the step numbers */
+.sx-how .orb {
+  background: var(--px-teal);
+  border: 1px solid transparent;
+  box-shadow: 0 0 0 8px rgba(5, 85, 100, 0.08), 0 14px 24px -12px rgba(5, 85, 100, 0.6);
+  color: #fff;
+}
+.sx-how .stp.on .orb {
+  background: #fff;
+  border-color: var(--px-teal);
+  color: var(--px-teal);
+  box-shadow: 0 0 0 6px rgba(25, 167, 184, 0.2), 0 0 34px rgba(25, 167, 184, 0.5);
+}
+.sx-how .stp:hover .orb,
+.sx-how .stp:focus-within .orb,
+.sx-how .stp.sel .orb {
+  background: var(--px-cyan);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 0 6px rgba(25, 167, 184, 0.22), 0 0 30px rgba(25, 167, 184, 0.55);
+}
+.sx-how .orb .hl {
+  border-color: var(--px-cyan) !important;
+}
+
+/* the boxes: the section's own colour, with a little light on top */
+.sx-how .stp .pc,
+.sx-how .stp .pc.gd {
+  min-height: 190px !important;
+  border: 0 !important;
+  background: linear-gradient(140deg, #03313b 0%, #055564 50%, #0a6b7c 100%) !important;
+  color: #fff;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 2px 4px rgba(3, 42, 51, 0.08),
+    0 26px 40px -24px rgba(3, 42, 51, 0.6) !important;
+  transition: scale 0.7s var(--px-spring), translate 0.7s var(--px-spring), box-shadow 0.6s ease !important;
+}
+.sx-how .stp .pc::before {
+  content: "" !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: auto;
+  background:
+    radial-gradient(120% 80% at 10% 0%, rgba(255, 255, 255, 0.2), transparent 60%),
+    radial-gradient(70% 60% at 100% 100%, rgba(143, 230, 234, 0.2), transparent 66%) !important;
+  opacity: 1;
+  pointer-events: none;
+}
+.sx-how .stp .pc h3 {
+  color: #fff !important;
+}
+.sx-how .stp .pc p {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+.sx-how .stp .pc > div[aria-hidden] {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+}
+.sx-how .stp .pc .mk {
+  background: rgba(255, 255, 255, 0.6);
+}
+.sx-how .stp .pc svg {
+  stroke: var(--px-neon);
+}
+.sx-how .stp .pc .soft {
+  box-shadow: inset 0 0 0 2px var(--px-neon) !important;
+}
+
+/* reach: the whole box rises and grows, and its edge lights */
+.sx-how .stp .pc:hover,
+.sx-how .stp.on .pc:hover,
+.sx-how .stp .pc:focus-visible,
+.sx-how .stp .pc:active {
+  scale: 1.07;
+  translate: 0 -8px;
+  background: linear-gradient(140deg, #04404b 0%, #066477 50%, #0d8496 100%) !important;
+  border-color: transparent !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1.5px rgba(143, 230, 234, 0.85),
+    0 44px 64px -28px rgba(3, 42, 51, 0.75) !important;
+}
+.sx-how .pc:hover h3,
+.sx-how .pc:focus-visible h3,
+.sx-how .pc:active h3 {
+  color: #fff !important;
+}
+.sx-how .pc:hover p,
+.sx-how .pc:focus-visible p,
+.sx-how .pc:active p {
+  color: rgba(255, 255, 255, 0.94) !important;
+}
+.sx-how .pc:hover > div[aria-hidden],
+.sx-how .pc:focus-visible > div[aria-hidden],
+.sx-how .pc:active > div[aria-hidden] {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(143, 230, 234, 0.4);
+}
+.sx-how .pc:hover .mk,
+.sx-how .pc:focus-visible .mk,
+.sx-how .pc:active .mk {
+  background: var(--px-neon);
+}
+.sx-how .pc:hover svg,
+.sx-how .pc:focus-visible svg,
+.sx-how .pc:active svg {
+  stroke: #fff;
+}
+
+/* the step the pipeline is on */
+.sx-how .stp.on .pc:not(.sel):not(:hover) {
+  border-color: transparent !important;
+  background: linear-gradient(140deg, #04404b 0%, #066477 50%, #0d8496 100%) !important;
+  translate: 0 -6px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.34),
+    0 0 0 1.5px rgba(143, 230, 234, 0.7),
+    0 40px 60px -28px rgba(3, 42, 51, 0.7) !important;
+}
+
+/* clicked: kept open, brighter, with a white ring */
+.sx-how .stp .pc.sel,
+.sx-how .stp.on .pc.sel,
+.sx-how .stp .pc.sel:hover {
+  scale: 1.07;
+  translate: 0 -8px;
+  background: linear-gradient(140deg, #066477 0%, #0a7a8e 50%, #19a7b8 100%) !important;
+  border-color: transparent !important;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.75),
+    0 44px 64px -28px rgba(3, 42, 51, 0.7) !important;
+}
+.sx-how .stp .pc::after,
+.sx-how .stp.on .pc::after {
+  display: none;
+}
+.sx-how .pc.sel .mk {
+  background: #fff;
+}
+
+@media (hover: none) {
+  .sx-how .stp .pc:hover {
+    scale: 1;
+    translate: 0 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-how .stp .pc,
+  .sx-how .stp .pc.gd {
+    transition: none !important;
+  }
+}
+
+/* ==========================================================================
+   The steps, finished: each box opens with a glossy app-style icon, says its piece, and closes
+   with what it delivers. A light follows the pointer inside the box, a sheen crosses it, and the
+   icon leans in. Presentation only.
+   ========================================================================== */
+.sx-how .stp .pc,
+.sx-how .stp .pc.gd {
+  min-height: 250px !important;
+  padding: 24px 24px 22px !important;
+  border-radius: 24px !important;
+}
+.sx-how .hw-ico {
+  position: relative;
+  width: max-content;
+  margin-bottom: 18px;
+}
+.sx-how .hw-ico::before {
+  content: "";
+  position: absolute;
+  inset: -14px;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(143, 230, 234, 0.45), transparent);
+  opacity: 0.55;
+  transition: opacity 0.5s, transform 0.7s var(--px-ease);
+}
+.sx-how .hw-ico .lx-ico {
+  position: relative;
+  transition: transform 0.7s var(--px-spring), box-shadow 0.5s;
+}
+.sx-how .pc:hover .hw-ico::before,
+.sx-how .pc.sel .hw-ico::before {
+  opacity: 1;
+  transform: scale(1.25);
+}
+.sx-how .pc:hover .hw-ico .lx-ico,
+.sx-how .pc.sel .hw-ico .lx-ico {
+  transform: translateY(-4px) rotate(-6deg) scale(1.1);
+}
+.sx-how .stp .pc h3 {
+  font-size: 21px !important;
+  letter-spacing: -0.02em;
+}
+.sx-how .stp .pc p {
+  margin-top: 8px !important;
+  font-size: 13.5px !important;
+  line-height: 1.62 !important;
+}
+.sx-how .hw-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: auto 0 0;
+  padding: 18px 0 0;
+  list-style: none;
+}
+.sx-how .hw-tags li {
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: rgba(255, 255, 255, 0.92);
+  transition: background-color 0.4s, box-shadow 0.4s;
+}
+.sx-how .pc:hover .hw-tags li,
+.sx-how .pc.sel .hw-tags li {
+  background: rgba(143, 230, 234, 0.2);
+  box-shadow: inset 0 0 0 1px rgba(143, 230, 234, 0.55);
+}
+
+/* light that follows the pointer inside the box */
+.sx-how .stp .pc::before {
+  background:
+    radial-gradient(260px circle at var(--mx, 12%) var(--my, 0%), rgba(255, 255, 255, 0.24), transparent 62%),
+    radial-gradient(70% 60% at 100% 100%, rgba(143, 230, 234, 0.2), transparent 66%) !important;
+  transition: opacity 0.4s;
+}
+/* a sheen that crosses the box when it is reached */
+.sx-how .stp .pc::after,
+.sx-how .stp.on .pc::after {
+  display: block;
+  content: "";
+  position: absolute;
+  inset: auto;
+  top: 0;
+  bottom: 0;
+  left: -70%;
+  width: 45%;
+  height: auto;
+  border-radius: 0;
+  background: linear-gradient(100deg, transparent, rgba(255, 255, 255, 0.22), transparent);
+  clip-path: none;
+  transform: skewX(-18deg);
+  opacity: 0;
+  z-index: 0;
+  transition: left 0s 0.5s, opacity 0.3s;
+}
+.sx-how .stp .pc:hover::after,
+.sx-how .stp .pc:focus-visible::after {
+  left: 130%;
+  opacity: 1;
+  transition: left 1.2s var(--px-ease), opacity 0.2s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-how .hw-ico .lx-ico,
+  .sx-how .hw-ico::before {
+    transition: none;
+  }
+}
+
+/* the glyph inside the light app-icon always stays teal, rest or reached */
+.sx-how .stp .pc .hw-ico svg,
+.sx-how .pc:hover .hw-ico svg,
+.sx-how .pc:focus-visible .hw-ico svg,
+.sx-how .pc:active .hw-ico svg {
+  stroke: var(--px-teal);
+}
+
+/* ==========================================================================
+   Pure white, no numbers, no thread — and alive. A light follows the pointer across the page,
+   the icons breathe, a sheen walks across the four boxes, the step the pipeline is on lifts in
+   turn, and the box you reach for grows and lights its edge with a thread of light.
+   ========================================================================== */
+.sx-how .orb,
+.sx-how .rails {
+  display: none !important;
+}
+.sx-how .stp .pc,
+.sx-how .stp .pc.gd {
+  margin-top: 0 !important;
+  min-height: 250px !important;
+}
+.sx-how .g4 {
+  align-items: stretch !important;
+  gap: 18px clamp(14px, 1.6vw, 22px) !important;
+}
+
+/* the light that follows the pointer, across the whole page of the section */
+.sx-how::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: radial-gradient(480px circle at var(--sx, 74%) var(--sy, 30%), rgba(25, 167, 184, 0.12), transparent 70%);
+  pointer-events: none;
+}
+.sx-how .wrap {
+  z-index: 1;
+}
+
+/* the thread of light around the box you reach for */
+.sx-how .stp {
+  position: relative;
+}
+.sx-how .stp::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  padding: 2px;
+  border-radius: 24px;
+  background: conic-gradient(
+    from var(--lxg-ang, 0deg),
+    transparent 0%,
+    transparent 56%,
+    rgba(25, 167, 184, 0.25) 70%,
+    #19a7b8 86%,
+    #8fe6ea 94%,
+    #fff 98%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 0;
+  transform: none;
+  transition: opacity 0.5s, transform 0.7s var(--px-spring);
+  animation: lxgSpin 3.2s linear infinite;
+  pointer-events: none;
+}
+.sx-how .stp:hover::before,
+.sx-how .stp:focus-within::before {
+  opacity: 1;
+  transform: translateY(-8px) scale(1.07);
+}
+
+/* idle life: the icons breathe, one after another */
+@keyframes hwFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+.sx-how .hw-ico {
+  animation: hwFloat 4.6s ease-in-out infinite;
+}
+.sx-how .stp:nth-child(2) .hw-ico {
+  animation-delay: -1.1s;
+}
+.sx-how .stp:nth-child(3) .hw-ico {
+  animation-delay: -2.2s;
+}
+.sx-how .stp:nth-child(4) .hw-ico {
+  animation-delay: -3.3s;
+}
+.sx-how .pc:hover .hw-ico {
+  animation-play-state: paused;
+}
+
+/* a sheen walks across the four boxes in turn, even when nobody is touching them */
+@keyframes hwSheen {
+  0%,
+  62% {
+    left: -70%;
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    left: 135%;
+    opacity: 0;
+  }
+}
+.sx-how .stp .pc:not(:hover)::after {
+  animation: hwSheen 8s ease-in-out infinite !important;
+  transition: none;
+}
+.sx-how .stp:nth-child(2) .pc:not(:hover)::after {
+  animation-delay: 0.8s !important;
+}
+.sx-how .stp:nth-child(3) .pc:not(:hover)::after {
+  animation-delay: 1.6s !important;
+}
+.sx-how .stp:nth-child(4) .pc:not(:hover)::after {
+  animation-delay: 2.4s !important;
+}
+
+/* the step the pipeline is on lifts a little, then hands over to the next */
+.sx-how .stp.on .pc:not(.sel):not(:hover) {
+  translate: 0 -6px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-how .hw-ico,
+  .sx-how .stp::before,
+  .sx-how .stp .pc::after {
+    animation: none !important;
+  }
+}
+
+/* ---------- smaller boxes: the tag pills are gone ---------- */
+.sx-how .hw-tags {
+  display: none;
+}
+.sx-how .stp .pc,
+.sx-how .stp .pc.gd {
+  min-height: 0 !important;
+  padding: 20px 22px 22px !important;
+  border-radius: 20px !important;
+}
+.sx-how .stp::before {
+  border-radius: 20px;
+}
+.sx-how .hw-ico {
+  margin-bottom: 14px;
+}
+.sx-how .stp .pc h3 {
+  font-size: 19px !important;
+}
+.sx-how .stp .pc p {
+  margin-top: 6px !important;
+  font-size: 13px !important;
+  line-height: 1.58 !important;
+}

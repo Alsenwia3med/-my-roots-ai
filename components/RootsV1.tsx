@@ -8,9 +8,15 @@ import "./roots-v1.css";
 import HeroCore from "./lux/home/HeroCore";
 import GovernedAI from "./lux/home/GovernedAI";
 import Roadmap from "./lux/home/Roadmap";
+import DomainLines from "./lux/home/DomainLines";
+import CountStat from "./lux/home/CountStat";
 import LuxFooter from "./lux/LuxFooter";
 import { HOME_FOOTER } from "./lux/chrome-data";
 import { Biosignal } from "@/components/lux/Instruments";
+import { IconTile } from "@/components/lux/Icon";
+import ChangeStage from "@/components/lux/home/ChangeStage";
+import { Utensils, Zap, ShieldPlus, Flame, Moon, SunMoon, HeartPulse, ClipboardList, ShieldCheck, Activity, FileText, UserRound, Hand, BookOpen, FileSignature, Wallet } from "lucide-react";
+const ELIGIBILITY_ICONS = [UserRound, Hand, BookOpen, FileSignature, Wallet];
 
 type Props = { motion?: boolean; autoPlay?: boolean };
 
@@ -20,6 +26,23 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
   const [menuOpen, setMenu] = useState(false);
   const [tick, setTick] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
+  const [sel, setSel] = useState<number | null>(null);
+  const [how, setHow] = useState<number | null>(null);
+  const howGlow = (e: React.PointerEvent<HTMLElement>) => {
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    el.style.setProperty("--my", `${e.clientY - r.top}px`);
+  };
+  const [wc, setWc] = useState(0);
+  const wcHold = useRef(false);
+  useEffect(() => {
+    if (!motion) return;
+    const id = setInterval(() => {
+      if (!wcHold.current) setWc((n) => (n + 1) % 6);
+    }, 5200);
+    return () => clearInterval(id);
+  }, [motion]);
   const seenRef = useRef(seen);
   seenRef.current = seen;
   const ioRef = useRef<IntersectionObserver | null>(null);
@@ -41,12 +64,39 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
         });
         if (Object.keys(add).length) setSeen((s) => ({ ...s, ...add }));
       },
-      { rootMargin: "0px 0px -8% 0px", threshold: 0.06 },
+      { rootMargin: "0px 0px 14% 0px", threshold: 0.01 },
     );
     ioRef.current = io;
     document.querySelectorAll("[data-rv]").forEach((el) => {
       if (!seenRef.current[el.getAttribute("data-rv") as string]) io.observe(el);
     });
+  }, [motion]);
+
+  /* safety net: if the observer is ever late or silent, anything already on screen is revealed on the next scroll or tick */
+  useEffect(() => {
+    if (!motion) return;
+    let raf = 0;
+    const sweep = () => {
+      raf = 0;
+      const add: Record<string, string> = {};
+      document.querySelectorAll<HTMLElement>("[data-rv]").forEach((el) => {
+        const k = el.getAttribute("data-rv") as string;
+        if (seenRef.current[k]) return;
+        const r = el.getBoundingClientRect();
+        if (r.bottom > 0 && r.top < window.innerHeight * 1.04) add[k] = "seen";
+      });
+      if (Object.keys(add).length) setSeen((s) => ({ ...s, ...add }));
+    };
+    const queue = () => {
+      if (!raf) raf = requestAnimationFrame(sweep);
+    };
+    window.addEventListener("scroll", queue, { passive: true });
+    const iv = setInterval(queue, 1200);
+    return () => {
+      window.removeEventListener("scroll", queue);
+      clearInterval(iv);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, [motion]);
 
   useEffect(() => {
@@ -80,15 +130,15 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
 
   /* ---- constellation sheet, in sheet units (1440 × 1030): one core, seven nodes ---- */
   const W = 1440,
-    H = 1030;
+    H = 980;
   const px = (v) => ((v / W) * 100).toFixed(4) + "%";
   const py = (v) => ((v / H) * 100).toFixed(4) + "%";
   const R = (x, y, w, h) => ({ l: px(x), t: py(y), w: px(w), h: h == null ? "auto" : py(h) });
-  const C = { x: 720, y: 486 };
-  const CORE = 330,
-    RING = 640;
+  const C = { x: 720, y: 480 };
+  const CORE = 300,
+    RING = 560;
   const CW = 300,
-    CH = 192;
+    CH = 200;
 
   /* cx / cy: where each node's card sits around the core */
   const domainData = [
@@ -97,24 +147,24 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       name: "Hunger & Appetite",
       tags: "Signals · Reward · Eating behaviour",
       desc: "Hypothalamic arcuate nucleus signaling, leptin sensitivity, and evening reward compulsions.",
-      cx: 292,
-      cy: 196,
+      cx: 330,
+      cy: 170,
     },
     {
       code: "ME",
       name: "Metabolism",
       tags: "Energy · Insulin · Storage",
       desc: "Mitochondrial substrate switching between glucose and free fatty acids, preventing energy crashes.",
-      cx: 216,
-      cy: 486,
+      cx: 265,
+      cy: 480,
     },
     {
       code: "SA",
       name: "Safety & Immunity",
       tags: "Inflammation · Defense · Repair",
       desc: "Evolutionary survival defense: down-regulating basal metabolic rate under perceived biological stress.",
-      cx: 292,
-      cy: 776,
+      cx: 330,
+      cy: 790,
     },
     {
       code: "IN",
@@ -122,33 +172,34 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       tags: "Microbiome · Gut Barrier · Signals",
       desc: "Epithelial tight junctions, endotoxin clearance, and low-grade inflammatory signaling.",
       cx: 720,
-      cy: 908,
+      cy: 870,
     },
     {
       code: "SL",
       name: "Sleep & Recovery",
       tags: "Rhythms · Hormones · Restoration",
       desc: "Slow-wave delta sleep continuity and nocturnal core body temperature cooling cycles.",
-      cx: 1148,
-      cy: 196,
+      cx: 1110,
+      cy: 170,
     },
     {
       code: "CI",
       name: "Circadian Timing",
       tags: "Biological Clock · Hormonal Rhythm",
       desc: "Suprachiasmatic nucleus alignment with solar light cues, cortisol awakening response, and melatonin secretion.",
-      cx: 1224,
-      cy: 486,
+      cx: 1175,
+      cy: 480,
     },
     {
       code: "ST",
       name: "Stress Response",
       tags: "Autonomic Balance · Glucocorticoids",
       desc: "Sympathetic vs parasympathetic vagal tone, chronic nocturnal cortisol spillover, and allostatic load.",
-      cx: 1148,
-      cy: 776,
+      cx: 1110,
+      cy: 790,
     },
   ];
+  const domainIcons = [Utensils, Zap, ShieldPlus, Flame, Moon, SunMoon, HeartPulse];
   const floats = ["fl", "fl2", "fl3", "fl4", "fl2", "fl", "fl3"];
   const rays = [];
   const domains = domainData.map((d, i) => {
@@ -165,6 +216,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
     });
     return {
       code: d.code,
+      Icon: domainIcons[i],
       name: d.name,
       tags: d.tags,
       desc: d.desc,
@@ -343,7 +395,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       </a>{" "}
       <main id={"main"} style={{ backgroundColor: "#ffffff" }}>
         <header
-          className={"lite"}
+          className={"lite sx sx-hero"}
           style={{ position: "relative", padding: "clamp(44px, 5.2vw, 76px) 0 clamp(64px, 7.6vw, 110px)", backgroundColor: "#ffffff" }}
         >
           <div className={"mesh"} aria-hidden={"true"} style={{ backgroundColor: "#ffffff" }}>
@@ -495,7 +547,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                   </a>
                 </div>{" "}
                 <ul
-                  className={"in e5"}
+                  className={"in e5 hks"}
                   style={{ listStyle: "none", margin: "34px 0 0", padding: "0", display: "flex", flexWrap: "wrap", gap: "10px" }}
                 >
                   {checks.map((c, $index) => (
@@ -516,24 +568,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                           height: "13px",
                         }}
                       >
-                        <span
-                          className={"mn"}
-                          aria-hidden={"true"}
-                          style={{
-                            flex: "none",
-                            display: "inline-flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            width: "22px",
-                            height: "22px",
-                            borderRadius: "50%",
-                            background: "#055564",
-                            fontSize: "11px",
-                            color: "#FFFFFF",
-                          }}
-                        >
-                          ✓
-                        </span>{" "}
+                        <span className={"hk"} aria-hidden={"true"}></span>
                         <span>{c.text}</span>
                       </li>
                     </React.Fragment>
@@ -548,7 +583,13 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
         </header>{" "}
         <GovernedAI />
         <section
-          className={"deep"}
+          className={"deep sx sx-how"}
+          onPointerMove={(e) => {
+            const el = e.currentTarget;
+            const r = el.getBoundingClientRect();
+            el.style.setProperty("--sx", `${e.clientX - r.left}px`);
+            el.style.setProperty("--sy", `${e.clientY - r.top}px`);
+          }}
           style={{
             position: "relative",
             marginTop: "-40px",
@@ -637,7 +678,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                   alignItems: "stretch",
                 }}
               >
-                <div className={`stp rvi ${sc.s0}`} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <div className={`stp rvi ${sc.s0}${how === 0 ? " sel" : ""}`} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                   <div className={"orb mn"} style={{ fontSize: "16px", fontWeight: "500", letterSpacing: "0.06em" }}>
                     <span
                       className={"hl halo"}
@@ -647,7 +688,18 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     <span>01</span>
                   </div>{" "}
                   <div
-                    className={"pc gd"}
+                    className={"pc gd" + (how === 0 ? " sel" : "")}
+                    role={"button"}
+                    tabIndex={0}
+                    aria-pressed={how === 0}
+                    onPointerMove={howGlow}
+                    onClick={() => setHow(how === 0 ? null : 0)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setHow(how === 0 ? null : 0);
+                      }
+                    }}
                     style={{
                       boxSizing: "border-box",
                       width: "100%",
@@ -660,6 +712,9 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                       flexDirection: "column",
                     }}
                   >
+                    <div className={"hw-ico"}>
+                      <IconTile icon={ClipboardList} tone={"light"} size={58} />
+                    </div>{" "}
                     <h3
                       className={"sf"}
                       style={{ margin: "0", fontSize: "clamp(28px, 2.3vw, 34px)", fontWeight: "600", lineHeight: "1.05", color: "#FFFFFF" }}
@@ -669,20 +724,14 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     <p style={{ margin: "14px 0 0", fontSize: "16px", lineHeight: "1.6", color: "#D6EEF0" }}>
                       Complete the structured 73-question assessment.
                     </p>{" "}
-                    <div
-                      aria-hidden={"true"}
-                      style={{ display: "flex", flexWrap: "wrap", gap: "4px", marginTop: "auto", paddingTop: "22px" }}
-                    >
-                      {n73.map((u, $index) => (
-                        <React.Fragment key={$index}>
-                          <span className={"mk"} style={{ width: "9px", height: "9px", borderRadius: "2px" }}></span>
-                        </React.Fragment>
-                      ))}
-                    </div>
+                    <ul className={"hw-tags"}>
+                      <li>73 questions</li>
+                      <li>7 domains</li>
+                    </ul>
                   </div>
                 </div>{" "}
                 <div
-                  className={`stp rvi ${sc.s1}`}
+                  className={`stp rvi ${sc.s1}${how === 1 ? " sel" : ""}`}
                   style={{ display: "flex", flexDirection: "column", alignItems: "center", transitionDelay: "110ms" }}
                 >
                   <div className={"orb mn"} style={{ fontSize: "16px", fontWeight: "500", letterSpacing: "0.06em" }}>
@@ -694,7 +743,18 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     <span>02</span>
                   </div>{" "}
                   <div
-                    className={"pc gd"}
+                    className={"pc gd" + (how === 1 ? " sel" : "")}
+                    role={"button"}
+                    tabIndex={0}
+                    aria-pressed={how === 1}
+                    onPointerMove={howGlow}
+                    onClick={() => setHow(how === 1 ? null : 1)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setHow(how === 1 ? null : 1);
+                      }
+                    }}
                     style={{
                       boxSizing: "border-box",
                       width: "100%",
@@ -707,6 +767,9 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                       flexDirection: "column",
                     }}
                   >
+                    <div className={"hw-ico"}>
+                      <IconTile icon={ShieldCheck} tone={"light"} size={58} />
+                    </div>{" "}
                     <h3
                       className={"sf"}
                       style={{ margin: "0", fontSize: "clamp(28px, 2.3vw, 34px)", fontWeight: "600", lineHeight: "1.05", color: "#FFFFFF" }}
@@ -716,49 +779,14 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     <p style={{ margin: "14px 0 0", fontSize: "16px", lineHeight: "1.6", color: "#D6EEF0" }}>
                       Approved responses are normalized and Not Applicable answers remain preserved.
                     </p>{" "}
-                    <div
-                      aria-hidden={"true"}
-                      style={{ display: "flex", alignItems: "flex-end", gap: "5px", height: "34px", marginTop: "auto", paddingTop: "22px" }}
-                    >
-                      <span className={"mk beat"} style={{ width: "6px", height: "100%", borderRadius: "3px" }}></span>
-                      <span
-                        className={"mk beat"}
-                        style={{ width: "6px", height: "100%", borderRadius: "3px", animationDelay: "-0.2s" }}
-                      ></span>
-                      <span
-                        className={"mk beat"}
-                        style={{ width: "6px", height: "100%", borderRadius: "3px", animationDelay: "-0.4s" }}
-                      ></span>
-                      <span
-                        className={"mk beat"}
-                        style={{ width: "6px", height: "100%", borderRadius: "3px", animationDelay: "-0.6s" }}
-                      ></span>
-                      <span
-                        className={"mk beat"}
-                        style={{ width: "6px", height: "100%", borderRadius: "3px", animationDelay: "-0.8s" }}
-                      ></span>
-                      <span
-                        className={"mk beat"}
-                        style={{ width: "6px", height: "100%", borderRadius: "3px", animationDelay: "-1s" }}
-                      ></span>{" "}
-                      <svg
-                        width={"26"}
-                        height={"26"}
-                        viewBox={"0 0 24 24"}
-                        fill={"none"}
-                        stroke={"#8FE6EA"}
-                        strokeWidth={"2"}
-                        strokeLinecap={"round"}
-                        strokeLinejoin={"round"}
-                        style={{ marginLeft: "10px" }}
-                      >
-                        <path d={"M5 12.5l4.5 4.5L19 7"}></path>
-                      </svg>
-                    </div>
+                    <ul className={"hw-tags"}>
+                      <li>Normalized</li>
+                      <li>Not Applicable preserved</li>
+                    </ul>
                   </div>
                 </div>{" "}
                 <div
-                  className={`stp rvi ${sc.s2}`}
+                  className={`stp rvi ${sc.s2}${how === 2 ? " sel" : ""}`}
                   style={{ display: "flex", flexDirection: "column", alignItems: "center", transitionDelay: "220ms" }}
                 >
                   <div className={"orb mn"} style={{ fontSize: "16px", fontWeight: "500", letterSpacing: "0.06em" }}>
@@ -770,7 +798,18 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     <span>03</span>
                   </div>{" "}
                   <div
-                    className={"pc gd"}
+                    className={"pc gd" + (how === 2 ? " sel" : "")}
+                    role={"button"}
+                    tabIndex={0}
+                    aria-pressed={how === 2}
+                    onPointerMove={howGlow}
+                    onClick={() => setHow(how === 2 ? null : 2)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setHow(how === 2 ? null : 2);
+                      }
+                    }}
                     style={{
                       boxSizing: "border-box",
                       width: "100%",
@@ -783,6 +822,9 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                       flexDirection: "column",
                     }}
                   >
+                    <div className={"hw-ico"}>
+                      <IconTile icon={Activity} tone={"light"} size={58} />
+                    </div>{" "}
                     <h3
                       className={"sf"}
                       style={{ margin: "0", fontSize: "clamp(28px, 2.3vw, 34px)", fontWeight: "600", lineHeight: "1.05", color: "#FFFFFF" }}
@@ -793,20 +835,14 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                       Deterministic rules calculate seven domains and derived indicators, then select drivers, confidence and eligible
                       content.
                     </p>{" "}
-                    <div aria-hidden={"true"} style={{ display: "flex", gap: "8px", marginTop: "auto", paddingTop: "22px" }}>
-                      {n7.map((u, $index) => (
-                        <React.Fragment key={$index}>
-                          <span
-                            className={"soft"}
-                            style={{ width: "22px", height: "22px", borderRadius: "50%", boxShadow: "inset 0 0 0 2px #8FE6EA" }}
-                          ></span>
-                        </React.Fragment>
-                      ))}
-                    </div>
+                    <ul className={"hw-tags"}>
+                      <li>Deterministic rules</li>
+                      <li>Drivers and confidence</li>
+                    </ul>
                   </div>
                 </div>{" "}
                 <div
-                  className={`stp rvi ${sc.s3}`}
+                  className={`stp rvi ${sc.s3}${how === 3 ? " sel" : ""}`}
                   style={{ display: "flex", flexDirection: "column", alignItems: "center", transitionDelay: "330ms" }}
                 >
                   <div className={"orb mn"} style={{ fontSize: "16px", fontWeight: "500", letterSpacing: "0.06em" }}>
@@ -818,7 +854,18 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     <span>04</span>
                   </div>{" "}
                   <div
-                    className={"pc gd"}
+                    className={"pc gd" + (how === 3 ? " sel" : "")}
+                    role={"button"}
+                    tabIndex={0}
+                    aria-pressed={how === 3}
+                    onPointerMove={howGlow}
+                    onClick={() => setHow(how === 3 ? null : 3)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setHow(how === 3 ? null : 3);
+                      }
+                    }}
                     style={{
                       boxSizing: "border-box",
                       width: "100%",
@@ -831,6 +878,9 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                       flexDirection: "column",
                     }}
                   >
+                    <div className={"hw-ico"}>
+                      <IconTile icon={FileText} tone={"light"} size={58} />
+                    </div>{" "}
                     <h3
                       className={"sf"}
                       style={{ margin: "0", fontSize: "clamp(28px, 2.3vw, 34px)", fontWeight: "600", lineHeight: "1.05", color: "#FFFFFF" }}
@@ -841,44 +891,17 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                       Governed AI turns approved explanation objects into clear language; web and PDF reports are produced from the same
                       immutable report.
                     </p>{" "}
-                    <div
-                      aria-hidden={"true"}
-                      style={{ display: "flex", alignItems: "flex-end", gap: "10px", marginTop: "auto", paddingTop: "22px" }}
-                    >
-                      <svg
-                        width={"30"}
-                        height={"34"}
-                        viewBox={"0 0 30 34"}
-                        fill={"none"}
-                        stroke={"#8FE6EA"}
-                        strokeWidth={"1.6"}
-                        strokeLinecap={"round"}
-                        strokeLinejoin={"round"}
-                      >
-                        <rect x={"2"} y={"2"} width={"26"} height={"30"} rx={"4"}></rect>
-                        <path d={"M2 10h26M8 17h14M8 22h14M8 27h8"}></path>
-                      </svg>{" "}
-                      <svg
-                        width={"26"}
-                        height={"34"}
-                        viewBox={"0 0 26 34"}
-                        fill={"none"}
-                        stroke={"#8FE6EA"}
-                        strokeWidth={"1.6"}
-                        strokeLinecap={"round"}
-                        strokeLinejoin={"round"}
-                      >
-                        <path d={"M2 2h14l8 8v22H2z"}></path>
-                        <path d={"M16 2v8h8M7 18h12M7 23h12M7 28h7"}></path>
-                      </svg>
-                    </div>
+                    <ul className={"hw-tags"}>
+                      <li>Web report</li>
+                      <li>PDF report</li>
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </section>{" "}
-        <section className={"lite"} style={{ position: "relative", padding: "clamp(68px, 7.8vw, 112px) 0 clamp(48px, 5vw, 72px)" }}>
+        <section className={"lite sx sx-dom"} style={{ position: "relative", padding: "clamp(68px, 7.8vw, 112px) 0 clamp(48px, 5vw, 72px)" }}>
           <div className={"mesh"} aria-hidden={"true"} style={{ height: "1449px", top: "41px" }}>
             <div
               className={"blob b2"}
@@ -946,7 +969,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
           >
             <div
               className={`stage ${rv.fw}`}
-              style={{ position: "relative", maxWidth: "1760px", margin: "0 auto", aspectRatio: "1440 / 1030", backgroundColor: "#ffffff" }}
+              data-rv={"fw"}
+              style={{ position: "relative", maxWidth: "1760px", margin: "0 auto", aspectRatio: "1440 / 980", backgroundColor: "#ffffff" }}
             >
               <div
                 className={"ab deco"}
@@ -992,6 +1016,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                   </div>
                 </React.Fragment>
               ))}{" "}
+              <DomainLines />
               <div
                 className={"ab core dp"}
                 data-rv={"fw"}
@@ -1041,7 +1066,17 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               {domains.map((d, $index) => (
                 <React.Fragment key={$index}>
                   <article
-                    className={`ab dc gl cpad ${d.fl} ${d.cls}`}
+                    className={`ab dc gl cpad dm-${d.i} ${d.cls}${sel === $index ? " sel" : ""}`}
+                    role={"button"}
+                    tabIndex={0}
+                    aria-pressed={sel === $index}
+                    onClick={() => setSel(sel === $index ? null : $index)}
+                    onKeyDown={(e) => {
+                      if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        setSel(sel === $index ? null : $index);
+                      }
+                    }}
                     onMouseMove={d.hover}
                     style={{
                       "--i": `${d.i}`,
@@ -1055,8 +1090,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     }}
                   >
                     <div style={{ display: "flex", alignItems: "center", gap: "0.8em" }}>
-                      <button type={"button"} className={"code mn f13"} aria-pressed={d.pressed} onClick={d.pick}>
-                        {d.code}
+                      <button type={"button"} className={"code mn f13 dcicon"} aria-pressed={d.pressed} aria-label={d.name} onClick={d.pick}>
+                        <IconTile icon={d.Icon} size={44} />
                       </button>{" "}
                       <h3 className={"sf f28"} style={{ margin: "0", fontWeight: "600", lineHeight: "1.02", color: "#055564" }}>
                         {d.name}
@@ -1075,7 +1110,13 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
           </div>
         </section>{" "}
         <section
-          className={"deep"}
+          className={"deep sx sx-rep"}
+          onPointerMove={(e) => {
+            const el = e.currentTarget;
+            const r = el.getBoundingClientRect();
+            el.style.setProperty("--sx", `${e.clientX - r.left}px`);
+            el.style.setProperty("--sy", `${e.clientY - r.top}px`);
+          }}
           style={{
             position: "relative",
             borderRadius: "40px",
@@ -1134,7 +1175,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               }}
             ></div>
           </div>{" "}
-          <div className={"wrap"} style={{ position: "relative" }}>
+          <div className={"wrap rp-wrap"} style={{ position: "relative" }}>
             <div
               className={`g2 rv ${rv.er}`}
               data-rv={"er"}
@@ -1194,6 +1235,23 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                 </svg>
               </a>
             </div>{" "}
+            <div className={"rp-frame"}>
+              <div className={"rp-bar"} aria-hidden={"true"}>
+                <span className={"rp-dots"}>
+                  <i></i>
+                  <i></i>
+                  <i></i>
+                </span>
+                <span className={"rp-pill"}>
+                  <b></b>
+                </span>
+                <span className={"rp-live"}></span>
+              </div>
+              <div className={"rp-segs"} aria-hidden={"true"}>
+                {n19.map((u, $index) => (
+                  <span key={$index} style={{ "--i": $index }}></span>
+                ))}
+              </div>
             <div
               className={`gb rvg ${rv.ec}`}
               data-rv={"ec"}
@@ -1282,7 +1340,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                           paddingBottom: "0.06em",
                         }}
                       >
-                        61/100
+                        <CountStat to={61} play={!!seen.ec} delay={300} duration={2400} />
+                        <i className={"rp-of"}>/100</i>
                       </span>
                     </div>
                   </div>{" "}
@@ -1344,21 +1403,27 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                   >
                     {frictions.map((f, $index) => (
                       <React.Fragment key={$index}>
-                        <li>
-                          <div
-                            style={{
-                              display: "flex",
-                              flexWrap: "wrap",
-                              alignItems: "baseline",
-                              justifyContent: "space-between",
-                              gap: "4px 20px",
-                            }}
-                          >
-                            <span style={{ fontSize: "17px", fontWeight: "600", lineHeight: "1.35", color: "#06323B" }}>{f.label}</span>{" "}
-                            <span className={"mn"} style={{ fontSize: "14px", fontWeight: "500", color: "#055564" }}>
-                              {f.stat}
-                            </span>
-                          </div>{" "}
+                        <li className={"drv"}>
+                          {(() => {
+                            const m = /^(\d+)%\s*(.*)$/.exec(f.stat);
+                            return (
+                              <div className={"drv-head"}>
+                                <span className={"drv-id"}>
+                                  <span className={"drv-label"}>{f.label}</span>
+                                  {m && <span className={"drv-note"}>{m[2]}</span>}
+                                </span>
+                                <span className={"drv-stat"}>
+                                  {m ? (
+                                    <b>
+                                      <CountStat to={Number(m[1])} play={!!seen.ec} delay={300 + $index * 160} />%
+                                    </b>
+                                  ) : (
+                                    f.stat
+                                  )}
+                                </span>
+                              </div>
+                            );
+                          })()}{" "}
                           <div
                             className={"trk"}
                             aria-hidden={"true"}
@@ -1522,6 +1587,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                   </div>
                 </div>
               </div>
+            </div>
             </div>{" "}
             <p
               className={`rv ${rv.ed}`}
@@ -1544,7 +1610,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
           </div>
         </section>{" "}
         <section
-          className={"lite lxwc"}
+          className={"lite lxwc sx sx-wc"}
           style={{
             position: "relative",
             padding: "clamp(72px, 8.4vw, 120px) 0 clamp(76px, 9vw, 130px)",
@@ -1606,6 +1672,23 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               </h2>
             </div>{" "}
             <div
+              className={"wc-show"}
+              onMouseEnter={() => {
+                wcHold.current = true;
+              }}
+              onMouseLeave={() => {
+                wcHold.current = false;
+              }}
+            >
+            <div className={"wc-stage"} aria-hidden={"true"}>
+              <ChangeStage active={wc} />
+              <div className={"wc-dots"}>
+                {[0, 1, 2, 3, 4, 5].map((k) => (
+                  <i key={k} className={wc === k ? "on" : ""}></i>
+                ))}
+              </div>
+            </div>
+            <div
               className={`g3 rvg ${rv.fc}`}
               data-rv={"fc"}
               style={{
@@ -1618,7 +1701,11 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
             >
               <div className={"rvi"}>
                 <div
-                  className={"gl lift fl"}
+                  className={"gl lift" + (wc === 0 ? " act" : "")}
+                  tabIndex={0}
+                  onMouseEnter={() => setWc(0)}
+                  onFocus={() => setWc(0)}
+                  onClick={() => setWc(0)}
                   style={{ boxSizing: "border-box", minHeight: "232px", borderRadius: "28px", padding: "26px clamp(20px, 2vw, 30px) 28px" }}
                 >
                   <div
@@ -1668,7 +1755,11 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               </div>{" "}
               <div className={"rvi"} style={{ marginTop: "clamp(0px, 3vw, 44px)", transitionDelay: "80ms" }}>
                 <div
-                  className={"gl lift fl3"}
+                  className={"gl lift" + (wc === 1 ? " act" : "")}
+                  tabIndex={0}
+                  onMouseEnter={() => setWc(1)}
+                  onFocus={() => setWc(1)}
+                  onClick={() => setWc(1)}
                   style={{ boxSizing: "border-box", minHeight: "232px", borderRadius: "28px", padding: "26px clamp(20px, 2vw, 30px) 28px" }}
                 >
                   <div
@@ -1721,7 +1812,11 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               </div>{" "}
               <div className={"rvi"} style={{ transitionDelay: "160ms" }}>
                 <div
-                  className={"gl lift fl2"}
+                  className={"gl lift" + (wc === 2 ? " act" : "")}
+                  tabIndex={0}
+                  onMouseEnter={() => setWc(2)}
+                  onFocus={() => setWc(2)}
+                  onClick={() => setWc(2)}
                   style={{ boxSizing: "border-box", minHeight: "232px", borderRadius: "28px", padding: "26px clamp(20px, 2vw, 30px) 28px" }}
                 >
                   <div
@@ -1771,7 +1866,11 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               </div>{" "}
               <div className={"rvi"} style={{ transitionDelay: "240ms" }}>
                 <div
-                  className={"gl lift fl4"}
+                  className={"gl lift" + (wc === 3 ? " act" : "")}
+                  tabIndex={0}
+                  onMouseEnter={() => setWc(3)}
+                  onFocus={() => setWc(3)}
+                  onClick={() => setWc(3)}
                   style={{ boxSizing: "border-box", minHeight: "232px", borderRadius: "28px", padding: "26px clamp(20px, 2vw, 30px) 28px" }}
                 >
                   <div aria-hidden={"true"} style={{ display: "flex", alignItems: "flex-end", gap: "3px", height: "56px" }}>
@@ -1809,7 +1908,11 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               </div>{" "}
               <div className={"rvi"} style={{ marginTop: "clamp(0px, 3vw, 44px)", transitionDelay: "320ms" }}>
                 <div
-                  className={"gl lift fl"}
+                  className={"gl lift" + (wc === 4 ? " act" : "")}
+                  tabIndex={0}
+                  onMouseEnter={() => setWc(4)}
+                  onFocus={() => setWc(4)}
+                  onClick={() => setWc(4)}
                   style={{ boxSizing: "border-box", minHeight: "232px", borderRadius: "28px", padding: "26px clamp(20px, 2vw, 30px) 28px" }}
                 >
                   <div
@@ -1863,7 +1966,11 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               </div>{" "}
               <div className={"rvi"} style={{ transitionDelay: "400ms" }}>
                 <div
-                  className={"gl lift fl3"}
+                  className={"gl lift" + (wc === 5 ? " act" : "")}
+                  tabIndex={0}
+                  onMouseEnter={() => setWc(5)}
+                  onFocus={() => setWc(5)}
+                  onClick={() => setWc(5)}
                   style={{ boxSizing: "border-box", minHeight: "232px", borderRadius: "28px", padding: "26px clamp(20px, 2vw, 30px) 28px" }}
                 >
                   <div
@@ -1912,6 +2019,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                 </div>
               </div>
             </div>
+            </div>
           </div>
         </section>{" "}
         <Roadmap />
@@ -1954,7 +2062,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
               }}
             >
               <div
-                className={"dp"}
+                className={"dp pl-card"}
+                onPointerMove={howGlow}
                 style={{
                   position: "relative",
                   overflow: "hidden",
@@ -2090,44 +2199,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                         color: "#06323B",
                       }}
                     >
-                      <span
-                        aria-hidden={"true"}
-                        style={{
-                          position: "relative",
-                          flex: "none",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          width: "30px",
-                          height: "30px",
-                          borderRadius: "50%",
-                          background: "#055564",
-                          color: "#FFFFFF",
-                          boxShadow: "0 0 20px rgba(25,167,184,0.6)",
-                        }}
-                      >
-                        <span
-                          className={"halo"}
-                          style={{
-                            position: "absolute",
-                            inset: "0",
-                            borderRadius: "50%",
-                            border: "1.5px solid #19A7B8",
-                            animationDelay: `${e.dl}`,
-                          }}
-                        ></span>
-                        <svg
-                          width={"13"}
-                          height={"13"}
-                          viewBox={"0 0 24 24"}
-                          fill={"none"}
-                          stroke={"currentColor"}
-                          strokeWidth={"2.8"}
-                          strokeLinecap={"round"}
-                          strokeLinejoin={"round"}
-                        >
-                          <path d={"M6 12.5l4 4 8-9"}></path>
-                        </svg>
+                      <span className={"erow-ico"} aria-hidden={"true"}>
+                        <IconTile icon={ELIGIBILITY_ICONS[$index]} size={40} />
                       </span>{" "}
                       <span>{e.text}</span>
                     </li>
@@ -2138,7 +2211,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
           </div>
         </section>{" "}
         <section
-          className={"deep lxcta"}
+          className={"deep lxcta sx sx-cta"}
           style={{
             position: "relative",
             overflow: "hidden",
@@ -2230,7 +2303,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                 textWrap: "balance",
               }}
             >
-              Understand your signals. Choose your next step.
+              <span className={"cta-l1"}>Understand your signals.</span> <span className={"cta-l2"}>Choose your next step.</span>
             </h2>{" "}
             <a
               className={"btn bw"}

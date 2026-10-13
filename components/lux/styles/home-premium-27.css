@@ -1,0 +1,109 @@
+/* ==========================================================================
+   The seven stages — turned over. A white page; the seven boxes wear the teal the band used to
+   have, with white type. Stage 01 is the open one: a brighter teal with a lit edge. Reach for a
+   locked stage and it lifts, brightens and its padlock opens. Presentation only.
+   ========================================================================== */
+
+.lxrm .lxrm-panel.lx-deep {
+  background: #fff !important;
+  color: var(--px-ink);
+  box-shadow: none;
+}
+.lxrm .lxrm-panel .lx-kicker {
+  color: var(--px-teal);
+}
+.lxrm .lxrm-panel h2.lx-h2 .lx-grad-light {
+  background-image: linear-gradient(112deg, #032a33 0%, #055564 40%, #0b7f90 70%, #19a7b8 100%) !important;
+  background-color: transparent !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent;
+  color: var(--px-teal);
+}
+.lxrm .lxrm-panel .lx-lede {
+  color: #2c5963;
+}
+
+/* the boxes */
+.lxrm .st-grid .st {
+  position: relative;
+  border: 0 !important;
+  background: linear-gradient(140deg, #03313b 0%, #055564 52%, #0a6b7c 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.24),
+    0 2px 4px rgba(3, 42, 51, 0.08),
+    0 30px 46px -28px rgba(3, 42, 51, 0.65) !important;
+  color: #fff;
+  transition: translate 0.7s var(--px-spring), scale 0.7s var(--px-spring), box-shadow 0.6s, background-color 0.5s;
+}
+.lxrm .st-grid .st::before {
+  background-image:
+    radial-gradient(120% 80% at 8% 0%, rgba(255, 255, 255, 0.2), transparent 60%),
+    radial-gradient(70% 60% at 100% 100%, rgba(143, 230, 234, 0.18), transparent 66%) !important;
+}
+.lxrm .st-grid .st .st-h3 {
+  color: #fff !important;
+}
+.lxrm .st-grid .st .st-p {
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+.lxrm .st-grid .st .st-label {
+  color: rgba(255, 255, 255, 0.82) !important;
+}
+.lxrm .st-grid .st .st-rule {
+  background: rgba(255, 255, 255, 0.28) !important;
+}
+.lxrm .st-grid .st .st-ghost {
+  color: rgba(255, 255, 255, 0.07) !important;
+}
+.lxrm .st-grid .st .lx-ico {
+  background: rgba(255, 255, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+.lxrm .st-grid .st .st-lock {
+  background: rgba(255, 255, 255, 0.14) !important;
+  color: #fff !important;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+.lxrm .st-grid .st .st-prog i {
+  background: rgba(255, 255, 255, 0.18) !important;
+}
+.lxrm .st-grid .st .st-prog i.done {
+  background: var(--px-neon) !important;
+}
+.lxrm .st-grid .st .st-prog i.here {
+  box-shadow: 0 0 0 1.5px rgba(255, 255, 255, 0.85);
+}
+
+/* stage 01: the open one */
+.lxrm .st-grid .st.st--live {
+  background: linear-gradient(140deg, #04404b 0%, #066477 50%, #0d8496 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1.5px rgba(143, 230, 234, 0.85),
+    0 44px 66px -30px rgba(3, 42, 51, 0.75) !important;
+}
+.lxrm .st-grid .st.st--live .st-live {
+  background: var(--px-neon) !important;
+  box-shadow: 0 0 0 5px rgba(143, 230, 234, 0.25), 0 0 20px rgba(143, 230, 234, 0.8);
+}
+.lxrm .st-grid .st.st--live .st-prog i.done {
+  background: #fff !important;
+}
+
+/* the locked ones: they lift and brighten under the pointer, and the padlock opens */
+.lxrm .st-grid .st.st--next:hover,
+.lxrm .st-grid .st.st--next:focus-visible,
+.lxrm .st-grid .st.st--next:active {
+  translate: 0 -6px;
+  background: linear-gradient(140deg, #04404b 0%, #066477 50%, #0d8496 100%) !important;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1.5px rgba(143, 230, 234, 0.7),
+    0 44px 66px -30px rgba(3, 42, 51, 0.75) !important;
+}
+
+/* the closing line sits quietly on the white page */
+.lxrm .lxrm-close {
+  color: var(--px-ink);
+}

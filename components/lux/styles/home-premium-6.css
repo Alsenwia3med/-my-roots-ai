@@ -1,0 +1,48 @@
+/* Seven domains — the type always fits its box: boxes grow to their words, type scales with the field. */
+.sx-dom .stage {
+  max-width: 1240px !important;
+}
+.sx-dom .dc,
+.sx-dom .dc.gl {
+  height: auto !important;
+  min-height: 13.9cqw;
+  justify-content: center;
+}
+.sx-dom .cpad {
+  padding: clamp(12px, 1.25cqw, 18px) clamp(14px, 1.45cqw, 20px);
+}
+.sx-dom .dc h3 {
+  font-size: clamp(13px, 1.15cqw, 17px) !important;
+}
+.sx-dom .code {
+  font-size: clamp(9.5px, 0.72cqw, 12px) !important;
+}
+.sx-dom .dc .mn.f12 {
+  font-size: clamp(9.5px, 0.68cqw, 11.5px);
+  margin-top: 0.7em !important;
+  padding-top: 0.7em;
+}
+.sx-dom .dc p {
+  font-size: clamp(10.5px, 0.84cqw, 13px) !important;
+  line-height: 1.55 !important;
+  margin-top: 0.5em !important;
+}
+.sx-dom .core {
+  padding: 0 2cqw;
+}
+.sx-dom .core .f32 {
+  font-size: clamp(15px, 1.55cqw, 24px);
+  line-height: 1.08;
+}
+.sx-dom .core .f12 {
+  font-size: clamp(9px, 0.7cqw, 11px);
+  margin-top: 0.8em;
+}
+.sx-dom .core .f17 {
+  font-size: clamp(10.5px, 0.88cqw, 14px);
+  margin-top: 0.8em;
+}
+.sx-dom .core .f13 {
+  font-size: clamp(9.5px, 0.74cqw, 12px);
+  line-height: 1.4;
+}

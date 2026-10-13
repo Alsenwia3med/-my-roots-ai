@@ -1,0 +1,229 @@
+/* ==========================================================================
+   Example report — one clean sheet of paper, not a dashboard of boxes.
+   The score on the left, the drivers on the right, the confidence and the ruleset underneath,
+   and a quiet row of nineteen ticks for the nineteen sections. Presentation only.
+   ========================================================================== */
+
+.sx-rep .rp-wrap {
+  grid-template-columns: minmax(0, 0.62fr) minmax(0, 1.5fr);
+  align-items: center;
+}
+.sx-rep .rp-wrap > .rp-frame {
+  align-self: center;
+}
+
+/* the sheet */
+.sx-rep .rp-frame {
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 0;
+  border-radius: 26px;
+  box-shadow: 0 60px 90px -52px rgba(1, 20, 25, 0.85), 0 0 0 8px rgba(255, 255, 255, 0.06);
+}
+.sx-rep .rp-frame .rp-bar {
+  display: none;
+}
+.sx-rep .rp-frame .gb {
+  order: 1;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+  gap: 0 !important;
+  padding: 0 !important;
+  background: none;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) {
+  grid-column: 1 / 6 !important;
+  grid-row: 1 / 3 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) {
+  grid-column: 6 / 13 !important;
+  grid-row: 1 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) {
+  grid-column: 6 / 9 !important;
+  grid-row: 2 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(4) {
+  grid-column: 9 / 13 !important;
+  grid-row: 2 !important;
+}
+
+/* cells instead of cards: no boxes, hairlines between */
+.sx-rep .rp-frame .gb .rvi > div,
+.sx-rep .rp-frame .gb .rvi > .gl,
+.sx-rep .rp-frame .gb .rvi > .dp {
+  border-radius: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: clamp(22px, 2.4vw, 32px) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div {
+  border-right: 1px solid var(--px-edge) !important;
+  border-radius: 26px 0 0 0 !important;
+  align-items: flex-start !important;
+  text-align: left !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) > div {
+  border-bottom: 1px solid var(--px-edge) !important;
+  border-radius: 0 26px 0 0 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) > div {
+  border-right: 1px solid var(--px-edge) !important;
+}
+.sx-rep .rp-frame .gb .rvi > div:hover,
+.sx-rep .rp-frame .gb .rvi > div:active {
+  transform: none;
+  background: #f6fafa !important;
+  box-shadow: none !important;
+}
+
+/* the score: the largest thing on the sheet */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  max-width: 230px !important;
+  margin: 18px auto 0 !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt {
+  font-size: clamp(36px, 3.4vw, 48px) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) p {
+  align-self: stretch;
+  max-width: none !important;
+  margin-top: 16px !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+  text-align: center;
+  color: var(--px-body) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) > div > span.mn {
+  align-self: center;
+}
+
+/* the drivers */
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul {
+  gap: 24px !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li > div:first-child span:first-child {
+  font-size: 14px !important;
+  font-weight: 600;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li > div:first-child span:last-child {
+  font-size: 12px !important;
+  color: var(--px-body) !important;
+}
+
+/* confidence and ruleset: two quiet figures */
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) > div,
+.sx-rep .rp-frame .gb > .rvi:nth-child(4) > div {
+  gap: 14px !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) div[style*="92px"] {
+  width: 64px !important;
+  height: 64px !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) .sf.gt,
+.sx-rep .rp-frame .gb .rvi:nth-child(4) .sf.gw {
+  font-size: clamp(26px, 2.4vw, 34px) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="14.5px"],
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="14.5px"] {
+  font-size: 12px !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(4) .sf.gw {
+  color: var(--px-teal);
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="D6EEF0"] {
+  color: var(--px-body) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] > span[aria-hidden="true"]:last-child {
+  background: var(--px-teal) !important;
+  color: #fff !important;
+  box-shadow: none !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] > span:first-child {
+  border-color: var(--px-cyan) !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(4) > div > div:first-child::after {
+  display: none;
+}
+
+/* nineteen ticks, one for each section of the report */
+.sx-rep .rp-frame .rp-segs {
+  order: 2;
+  grid-column: auto;
+  grid-row: auto;
+  display: grid;
+  grid-template-columns: repeat(19, minmax(0, 1fr));
+  gap: 6px;
+  padding: 16px clamp(22px, 2.4vw, 32px) 20px;
+  border-top: 1px solid var(--px-edge);
+  border-right: 0;
+}
+.sx-rep .rp-frame .rp-segs span {
+  width: auto;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(5, 85, 100, 0.14);
+}
+.sx-rep .rp-frame .rp-segs span:nth-child(-n + 7) {
+  background: var(--px-cyan);
+}
+.sx-rep .rp-frame::after {
+  display: none;
+}
+.sx-rep .rp-frame .trk {
+  height: 8px !important;
+}
+
+@media (max-width: 1040px) {
+  .sx-rep .rp-wrap {
+    align-items: start;
+  }
+}
+@media (max-width: 760px) {
+  .sx-rep .rp-frame .gb {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .sx-rep .rp-frame .gb > .rvi:nth-child(n) {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+  .sx-rep .rp-frame .gb > .rvi:nth-child(n) > div {
+    border-right: 0 !important;
+    border-bottom: 1px solid var(--px-edge) !important;
+    border-radius: 0 !important;
+  }
+}
+
+/* the two figures stack: mark above, number and caption below — nothing is cramped */
+.sx-rep .rp-frame .gb > .rvi:nth-child(3) > div,
+.sx-rep .rp-frame .gb > .rvi:nth-child(4) > div {
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: center !important;
+  gap: 12px !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="92px"] {
+  width: 54px !important;
+  height: 54px !important;
+}
+.sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] {
+  width: 54px !important;
+  height: 54px !important;
+}
+
+@media (max-width: 1040px) {
+  .sx-rep .rp-wrap {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto;
+    row-gap: 0;
+  }
+  .sx-rep .rp-wrap > .g2 > div:first-child,
+  .sx-rep .rp-wrap > .g2 > a,
+  .sx-rep .rp-wrap > .rp-frame,
+  .sx-rep .rp-wrap > p {
+    grid-column: 1;
+    grid-row: auto;
+  }
+}

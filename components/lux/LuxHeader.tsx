@@ -76,11 +76,23 @@ export default function LuxHeader({
   /* scroll: compact state + reading progress, written straight to CSS (no re-render per frame) */
   useEffect(() => {
     let frame = 0;
+    let glideFrame = 0;
+    let target = 0;
+    let shown = 0;
+    /* the reading line eases toward the page position every frame, so it flows instead of stepping */
+    const glideTo = () => {
+      glideFrame = 0;
+      shown += (target - shown) * 0.12;
+      if (Math.abs(target - shown) < 0.0004) shown = target;
+      shellRef.current?.style.setProperty("--p", shown.toFixed(4));
+      if (shown !== target) glideFrame = requestAnimationFrame(glideTo);
+    };
     const update = () => {
       frame = 0;
       const y = window.scrollY;
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      shellRef.current?.style.setProperty("--p", max > 0 ? Math.min(1, Math.max(0, y / max)).toFixed(4) : "0");
+      target = max > 0 ? Math.min(1, Math.max(0, y / max)) : 0;
+      if (!glideFrame) glideFrame = requestAnimationFrame(glideTo);
       setCompact(y > 8);
     };
     const onScroll = () => {
@@ -93,6 +105,7 @@ export default function LuxHeader({
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       if (frame) cancelAnimationFrame(frame);
+      if (glideFrame) cancelAnimationFrame(glideFrame);
     };
   }, []);
 
@@ -255,7 +268,6 @@ export default function LuxHeader({
 
             <Link href={CTA[1]} className="lx-btn lx-btn--primary lxh-cta">
               <span>{CTA[0]}</span>
-              <ArrowRight className="lx-arrow" size={16} strokeWidth={2} aria-hidden="true" />
             </Link>
 
             <button

@@ -1,0 +1,289 @@
+/* ==========================================================================
+   Governed AI Intelligence — one composed section.
+   A strong headline; the three sentences that carry the idea set as a triad; five principles as
+   five tall cards on a single thread (reach for one and it rises, click it and green floods it);
+   and a quiet closing statement. Presentation only.
+   ========================================================================== */
+
+.lxg {
+  padding: clamp(46px, 5.2vw, 72px) 0 clamp(44px, 5vw, 64px);
+}
+.lxg .lxs-head {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+  align-items: center;
+  gap: 22px clamp(32px, 5vw, 80px);
+}
+.lxg .lx-h2 {
+  font-size: clamp(30px, 3.6vw, 50px);
+  line-height: 1.04;
+  letter-spacing: -0.03em;
+}
+
+/* ---------- the idea in three sentences ---------- */
+.lxg-lede .lx-lede {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--px-body);
+}
+.lxg-lede .lx-lede strong {
+  color: var(--px-ink);
+  font-weight: 600;
+}
+.lxg-triad {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.lxg-triad li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px 16px;
+  border: 1px solid var(--px-edge);
+  border-radius: 18px;
+  background: #f4f9fa;
+  font-size: 13.5px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--px-ink);
+  scale: 1;
+  transition: scale 0.55s var(--px-spring), background-color 0.4s, box-shadow 0.5s, border-color 0.4s;
+}
+.lxg-triad li:hover,
+.lxg-triad li:active {
+  scale: 1.06;
+  z-index: 2;
+  background: #fff;
+  border-color: var(--px-cyan);
+  box-shadow: 0 26px 40px -26px rgba(3, 42, 51, 0.4);
+}
+.lxg-triad .lx-ico {
+  --s: 34px;
+  background: var(--px-teal);
+  box-shadow: none;
+}
+.lxg-triad .lx-ico-gloss {
+  display: none;
+}
+
+/* ---------- the five pillars ---------- */
+.lxg-rowlabel {
+  margin-top: clamp(30px, 3.4vw, 46px);
+}
+.lxg-pillars {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+  margin: 12px 0 0;
+  padding: 34px 0 0;
+  list-style: none;
+  background:
+    radial-gradient(circle at 10% 12px, var(--px-teal) 4.5px, transparent 5.5px),
+    radial-gradient(circle at 30% 12px, var(--px-teal) 4.5px, transparent 5.5px),
+    radial-gradient(circle at 50% 12px, var(--px-teal) 4.5px, transparent 5.5px),
+    radial-gradient(circle at 70% 12px, var(--px-teal) 4.5px, transparent 5.5px),
+    radial-gradient(circle at 90% 12px, var(--px-teal) 4.5px, transparent 5.5px);
+  background-repeat: no-repeat;
+}
+.lxg-pillars::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 11px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(5, 85, 100, 0.28) 0 6px, transparent 6px 12px);
+}
+.lxg-pillar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  padding: 22px 20px 26px;
+  border: 1px solid var(--px-edge);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.04), 0 18px 34px -26px rgba(3, 42, 51, 0.34);
+  overflow: hidden;
+  cursor: pointer;
+  scale: 1;
+  transition: scale 0.6s var(--px-spring), border-color 0.4s, box-shadow 0.5s;
+  -webkit-tap-highlight-color: transparent;
+}
+.lxg-pillar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--px-teal);
+  clip-path: circle(0% at 44px 44px);
+  transition: clip-path 0.85s var(--px-ease);
+  pointer-events: none;
+}
+.lxg-pillar > * {
+  position: relative;
+  z-index: 1;
+}
+.lxg-pillar:hover,
+.lxg-pillar:focus-visible,
+.lxg-pillar:active {
+  scale: 1.06;
+  z-index: 4;
+  border-color: var(--px-cyan);
+  box-shadow: 0 0 0 1.5px var(--px-cyan), 0 34px 50px -26px rgba(5, 85, 100, 0.55);
+}
+.lxg-pillar:active {
+  scale: 1.08;
+}
+.lxg-pillar:focus-visible {
+  outline: 2px solid var(--px-cyan);
+  outline-offset: 3px;
+}
+.lxg-pn {
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: rgba(5, 85, 100, 0.13);
+  transition: color 0.5s;
+}
+.lxg-pillar:hover .lxg-pn {
+  color: var(--px-cyan);
+}
+.lxg-viz {
+  display: block;
+  height: 64px;
+  margin: 2px 0 6px;
+}
+.lxg-svg {
+  width: 112px;
+}
+.lxg-ph {
+  margin: 0;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
+  color: var(--px-teal);
+  transition: color 0.5s ease 0.1s;
+}
+.lxg-pp {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.62;
+  color: var(--px-body);
+  transition: color 0.5s ease 0.1s;
+}
+.lxg-pbar {
+  position: absolute !important;
+  left: 20px;
+  right: 20px;
+  bottom: 0;
+  height: 3px;
+  border-radius: 3px 3px 0 0;
+  background: var(--px-cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.7s var(--px-ease);
+}
+.lxg-pillar:hover .lxg-pbar,
+.lxg-pillar:focus-visible .lxg-pbar {
+  transform: scaleX(1);
+}
+.lxg-pillar:hover .lxg-svg *,
+.lxg-pillar:focus-visible .lxg-svg *,
+.lxg-pillar.sel .lxg-svg * {
+  animation-play-state: running;
+}
+
+/* clicked: the whole box is green, the words are white */
+.lxg-pillar.sel::after {
+  clip-path: circle(150% at 44px 44px);
+}
+.lxg-pillar.sel,
+.lxg-pillar.sel:hover {
+  border-color: var(--px-teal);
+  box-shadow: 0 34px 50px -26px rgba(5, 85, 100, 0.85);
+}
+.lxg-pillar.sel .lxg-pn {
+  color: rgba(143, 230, 234, 0.55);
+}
+.lxg-pillar.sel .lxg-ph {
+  color: #fff;
+}
+.lxg-pillar.sel .lxg-pp {
+  color: rgba(243, 248, 249, 0.9);
+}
+.lxg-pillar.sel .lxg-svg {
+  stroke: var(--px-neon);
+}
+.lxg-pillar.sel .v-doc rect,
+.lxg-pillar.sel .v-band {
+  fill: rgba(143, 230, 234, 0.28);
+}
+.lxg-pillar.sel .v-lens {
+  fill: rgba(255, 255, 255, 0.12);
+}
+.lxg-pillar.sel .v-pt,
+.lxg-pillar.sel .v-top,
+.lxg-pillar.sel .v-ball,
+.lxg-pillar.sel .v-spin {
+  fill: var(--px-neon);
+}
+.lxg-pillar.sel .v-leaf,
+.lxg-pillar.sel .v-head {
+  fill: var(--px-teal);
+}
+.lxg-pillar.sel .v-run {
+  fill: #fff;
+}
+
+/* ---------- the closing statement: richer type ---------- */
+.lxg .lxg-frame {
+  margin-top: clamp(26px, 3vw, 40px);
+  padding: clamp(30px, 3.6vw, 52px) clamp(26px, 4vw, 60px) clamp(22px, 2.6vw, 32px);
+  border-radius: 26px;
+}
+.lxg-frame-title span:last-child {
+  font-size: clamp(25px, 2.8vw, 40px);
+}
+
+@media (max-width: 1180px) {
+  .lxg-pillars {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-top: 0;
+    background: none;
+  }
+  .lxg-pillars::before {
+    display: none;
+  }
+  .lxg-pillar:last-child {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 860px) {
+  .lxg .lxs-head {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .lxg-triad {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .lxg-triad li {
+    flex-direction: row;
+    align-items: center;
+  }
+  .lxg-pillars {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

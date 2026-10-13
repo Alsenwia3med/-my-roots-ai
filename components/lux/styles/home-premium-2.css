@@ -1,0 +1,408 @@
+/* ==========================================================================
+   Homepage · premium pass, round two — hero, buttons, report window, bento, roadmap track.
+   Presentation only: no copy is added, removed or changed, and no typeface is touched.
+   ========================================================================== */
+
+/* ---------- buttons: straight, rectangular, no gradient ---------- */
+.v1 .btn {
+  border-radius: 3px !important;
+  min-height: 52px !important;
+  padding: 0 26px !important;
+  font-size: 15px !important;
+  letter-spacing: 0.01em;
+}
+.v1 .btn::after {
+  display: none;
+}
+.v1 .btn.bp {
+  background: var(--px-teal);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 14px 26px -16px rgba(5, 85, 100, 0.8);
+}
+.v1 .btn.bp:hover {
+  background: var(--px-teal-deep);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 18px 30px -16px rgba(5, 85, 100, 0.9);
+}
+.v1 .btn.bs {
+  background: transparent;
+  color: var(--px-teal);
+  box-shadow: inset 0 0 0 1px rgba(5, 85, 100, 0.55);
+}
+.v1 .btn.bs:hover {
+  background: var(--px-teal);
+  color: #fff;
+}
+.v1 .btn.bw {
+  background: #fff;
+  color: var(--px-teal);
+  box-shadow: 0 18px 30px -18px rgba(1, 24, 29, 0.8);
+}
+.v1 .sx-cta .btn,
+.v1 .sx-cta .btn.bw {
+  padding: 0 8px 0 26px !important;
+  box-shadow: 0 0 0 1px rgba(143, 230, 234, 0.55), 0 0 0 6px rgba(255, 255, 255, 0.07), 0 22px 40px -18px rgba(1, 24, 29, 0.8);
+}
+.v1 .sx-cta .btn svg {
+  border-radius: 2px;
+  padding: 9px;
+}
+
+/* ---------- hero: calmer, more air ---------- */
+.v1 .sx-hero {
+  padding: clamp(40px, 4.6vw, 64px) 0 clamp(56px, 6vw, 84px) !important;
+}
+.sx-hero h1 {
+  font-size: clamp(38px, 4.9vw, 72px) !important;
+  line-height: 1 !important;
+  margin-top: clamp(18px, 2vw, 28px) !important;
+}
+.sx-hero .g2 {
+  gap: 40px clamp(32px, 5vw, 76px) !important;
+}
+.sx-hero .g2 > div:first-child > p {
+  max-width: 520px !important;
+  margin-top: clamp(18px, 1.8vw, 26px) !important;
+  font-size: clamp(15px, 1.12vw, 17px) !important;
+  line-height: 1.7 !important;
+}
+.sx-hero .g2 > div:first-child > div.in.e4 {
+  margin-top: clamp(26px, 2.6vw, 36px) !important;
+  gap: 12px !important;
+}
+.hks {
+  display: grid !important;
+  grid-template-columns: repeat(2, max-content);
+  gap: 10px 30px !important;
+  margin-top: clamp(26px, 2.8vw, 38px) !important;
+  padding-top: 20px !important;
+  border-top: 1px solid var(--px-edge);
+}
+.hks li,
+.hks li.gl {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  -webkit-backdrop-filter: none !important;
+  backdrop-filter: none !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  color: var(--px-body) !important;
+}
+.hk {
+  flex: none;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--px-cyan);
+  transform: rotate(45deg);
+}
+
+/* ---------- hero object: the orb first, the three cards in order beneath it ---------- */
+.lxhc {
+  aspect-ratio: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  align-content: start;
+}
+.lxhc .lxhc-scene {
+  position: relative;
+  inset: auto;
+  grid-column: 1 / -1;
+  aspect-ratio: 1 / 0.86;
+  width: 100%;
+}
+.lxhc .lx3d-halo {
+  background: radial-gradient(circle at 50% 48%, rgba(143, 230, 234, 0.3) 0%, rgba(143, 230, 234, 0) 60%);
+}
+.lxhc-top {
+  top: 14px;
+  left: 4px;
+  right: 4px;
+}
+.lxhc-label {
+  font-size: 11px;
+  color: var(--px-body);
+}
+.lxhc-pill {
+  height: 26px;
+  font-size: 11px;
+  background: #fff;
+}
+.lxhc-chip {
+  height: 22px;
+  padding: 0 8px 0 3px;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(5, 85, 100, 0.14), 0 8px 14px -10px rgba(3, 42, 51, 0.5);
+}
+.lxhc-chip-code {
+  background: var(--px-teal);
+  font-size: 9px;
+}
+.lxhc-chip-name {
+  font-size: 10.5px;
+}
+.lxhc-card,
+.lxhc-card--rules,
+.lxhc-card--mr,
+.lxhc-card--stats {
+  position: relative;
+  inset: auto;
+  width: auto;
+  animation: none;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--px-edge);
+  background: #fff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.04), 0 16px 28px -22px rgba(3, 42, 51, 0.35);
+}
+.lxhc-card--rules {
+  gap: 12px;
+}
+.lxhc-card--mr {
+  grid-column: 1 / -1;
+  order: 3;
+}
+.lxhc-card--stats {
+  gap: 14px;
+}
+.lxhc-engine {
+  width: 30px;
+  height: 30px;
+  background: var(--px-teal);
+  box-shadow: 0 0 0 4px rgba(25, 167, 184, 0.15);
+}
+.lxhc-card-title {
+  font-size: 13.5px;
+}
+.lxhc-code {
+  background: var(--px-teal);
+}
+.lxhc-mr-title {
+  font-size: 15px;
+}
+.lxhc-card--mr p {
+  margin-top: 6px;
+  font-size: 12.5px;
+}
+.lxhc-big {
+  font-size: 28px;
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--px-teal);
+}
+.lxhc-small {
+  font-size: 11px;
+}
+.lxhc-units span {
+  width: 5px;
+  height: 5px;
+}
+.lxhc-units--grid {
+  grid-template-columns: repeat(7, 5px);
+  gap: 3px;
+}
+.lxhc-units {
+  gap: 3px;
+  margin-top: 8px;
+}
+.lxhc-split {
+  padding-left: 12px;
+}
+
+/* ---------- example report: a real report window with its 19-section rail ---------- */
+.rp-frame {
+  display: grid;
+  grid-template-columns: clamp(42px, 4.4vw, 60px) minmax(0, 1fr);
+  grid-template-rows: auto 1fr;
+}
+.rp-bar {
+  grid-column: 1 / -1;
+}
+.rp-frame .rp-segs {
+  grid-column: 1;
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0;
+  padding: clamp(16px, 1.8vw, 24px) 0;
+  border-right: 1px solid rgba(143, 230, 234, 0.14);
+}
+.rp-frame .rp-segs span {
+  width: clamp(16px, 1.8vw, 24px);
+  height: 4px;
+  border-radius: 2px;
+}
+.rp-frame .gb {
+  grid-column: 2;
+  grid-row: 2;
+  padding-bottom: clamp(14px, 1.8vw, 24px);
+}
+.rp-frame::after {
+  content: "";
+  position: absolute;
+  left: clamp(42px, 4.4vw, 60px);
+  right: 0;
+  top: 46px;
+  height: 2px;
+  background: var(--px-neon);
+  box-shadow: 0 0 18px 3px rgba(143, 230, 234, 0.55);
+  opacity: 0;
+  animation: pxScan 7s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes pxScan {
+  0%,
+  8% {
+    top: 46px;
+    opacity: 0;
+  }
+  14% {
+    opacity: 0.8;
+  }
+  58% {
+    opacity: 0.8;
+  }
+  66%,
+  100% {
+    top: calc(100% - 2px);
+    opacity: 0;
+  }
+}
+.sx-rep .gl div[style*="aspect-ratio"]::before {
+  content: "";
+  position: absolute;
+  inset: -2%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(from 0deg, rgba(5, 85, 100, 0.4) 0 0.7deg, transparent 0.7deg 6deg);
+  -webkit-mask: radial-gradient(circle, transparent 62%, #000 63%, #000 69%, transparent 70%);
+  mask: radial-gradient(circle, transparent 62%, #000 63%, #000 69%, transparent 70%);
+  animation: pxSpin 60s linear infinite;
+  pointer-events: none;
+}
+@keyframes pxSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- stages: a track above the cards — one point lit, six waiting ---------- */
+.lxrm-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  align-items: center;
+  margin: clamp(26px, 3vw, 40px) 0 clamp(18px, 2vw, 26px);
+}
+.lxrm-track::before,
+.lxrm-track::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  margin-top: -1px;
+  border-radius: 2px;
+}
+.lxrm-track::before {
+  left: calc(100% / 14);
+  right: calc(100% / 14);
+  background: repeating-linear-gradient(90deg, rgba(143, 230, 234, 0.32) 0 6px, transparent 6px 12px);
+}
+.lxrm-track::after {
+  left: calc(100% / 14);
+  width: 0;
+  background: var(--px-neon);
+  box-shadow: 0 0 14px rgba(143, 230, 234, 0.8);
+  animation: pxTrack 4.8s ease-in-out infinite;
+}
+@keyframes pxTrack {
+  0% {
+    width: 0;
+    opacity: 1;
+  }
+  55% {
+    width: calc(100% / 7);
+    opacity: 1;
+  }
+  100% {
+    width: calc(100% / 7);
+    opacity: 0;
+  }
+}
+.lxrm-tn {
+  position: relative;
+  z-index: 1;
+  justify-self: center;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(143, 230, 234, 0.7);
+  background: var(--px-teal);
+  color: rgba(143, 230, 234, 0.8);
+  transition: transform 0.5s var(--px-spring), color 0.3s, border-color 0.3s;
+}
+.lxrm-tn svg {
+  width: 12px;
+  height: 12px;
+}
+.lxrm-tn--live {
+  width: 34px;
+  height: 34px;
+  border: 2px solid #fff;
+  background: #fff;
+  box-shadow: 0 0 0 6px rgba(143, 230, 234, 0.2);
+}
+.lxrm-tn-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--px-cyan);
+  box-shadow: 0 0 0 0 rgba(25, 167, 184, 0.7);
+  animation: pxLive 2s ease-out infinite;
+}
+.lxrm-track:has(+ .lxrm-stages > li:nth-child(2):hover) .lxrm-tn:nth-child(1),
+.lxrm-track:has(+ .lxrm-stages > li:nth-child(3):hover) .lxrm-tn:nth-child(2),
+.lxrm-track:has(+ .lxrm-stages > li:nth-child(4):hover) .lxrm-tn:nth-child(3),
+.lxrm-track:has(+ .lxrm-stages > li:nth-child(5):hover) .lxrm-tn:nth-child(4),
+.lxrm-track:has(+ .lxrm-stages > li:nth-child(6):hover) .lxrm-tn:nth-child(5),
+.lxrm-track:has(+ .lxrm-stages > li:nth-child(7):hover) .lxrm-tn:nth-child(6),
+.lxrm-track:has(+ .lxrm-stages > li:nth-child(8):hover) .lxrm-tn:nth-child(7) {
+  transform: scale(1.25);
+  border-style: solid;
+  border-color: var(--px-neon);
+  color: var(--px-neon);
+}
+.lxrm-path {
+  display: none;
+}
+@media (max-width: 640px) {
+  .lxrm-track {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lxg-p,
+  .lxg-ring,
+  .rp-frame::after,
+  .sx-rep .gl div[style*="aspect-ratio"]::before,
+  .lxrm-track::after,
+  .lxrm-tn-dot {
+    animation: none !important;
+  }
+  .lxg-p {
+    opacity: 0.8;
+  }
+}

@@ -1,0 +1,153 @@
+/* ==========================================================================
+   How it works — the steps become the same white boxes as "Seven connected domains":
+   white, hairline border, teal name, quiet body. Reach for one and it grows with a cyan edge;
+   click it and green floods the whole box. Presentation only.
+   ========================================================================== */
+
+.sx-how .stp .pc::before {
+  content: none !important;
+}
+.sx-how .stp .pc,
+.sx-how .stp .pc.gd {
+  min-height: 178px !important;
+  padding: 20px 22px 18px !important;
+  border-radius: 20px !important;
+  background: #fff !important;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  border: 1px solid rgba(5, 85, 100, 0.14) !important;
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.05), 0 16px 32px -20px rgba(3, 42, 51, 0.4) !important;
+  transition: scale 0.6s var(--px-spring), border-color 0.4s ease, box-shadow 0.5s ease !important;
+  position: relative;
+  overflow: hidden;
+}
+.sx-how .stp .pc > * {
+  position: relative;
+  z-index: 1;
+}
+.sx-how .stp .pc h3 {
+  font-size: 17px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.01em;
+  color: var(--px-teal) !important;
+}
+.sx-how .stp .pc p {
+  margin-top: 6px !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: var(--px-body) !important;
+}
+.sx-how .stp .pc > div[aria-hidden] {
+  background: #f1f7f8;
+  border: 1px solid rgba(5, 85, 100, 0.1);
+}
+.sx-how .stp .pc .mk {
+  background: rgba(5, 85, 100, 0.42);
+}
+.sx-how .stp .pc svg {
+  stroke: var(--px-teal);
+}
+.sx-how .stp .pc .soft {
+  box-shadow: inset 0 0 0 2px var(--px-teal) !important;
+}
+
+/* the green flood (same gesture as the domain boxes) */
+.sx-how .stp .pc::after,
+.sx-how .stp.on .pc::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: auto;
+  border-radius: inherit;
+  background: var(--px-teal);
+  clip-path: circle(0% at 44px 44px);
+  transform: none;
+  animation: none !important;
+  transition: clip-path 0.8s var(--px-ease);
+  pointer-events: none;
+}
+.sx-how .stp .pc.sel::after,
+.sx-how .stp.on .pc.sel::after {
+  clip-path: circle(150% at 44px 44px);
+}
+
+/* reach: it grows and takes a cyan edge — no colour flip */
+.sx-how .stp .pc:hover,
+.sx-how .stp.on .pc:hover,
+.sx-how .stp .pc:focus-visible,
+.sx-how .stp .pc:active {
+  scale: 1.07;
+  z-index: 6;
+  background: #fff !important;
+  border-color: var(--px-cyan) !important;
+  box-shadow: 0 0 0 1.5px var(--px-cyan), 0 34px 52px -26px rgba(5, 85, 100, 0.6) !important;
+}
+.sx-how .stp .pc:active {
+  scale: 1.1;
+}
+.sx-how .pc:hover h3,
+.sx-how .pc:focus-visible h3,
+.sx-how .pc:active h3 {
+  color: var(--px-teal) !important;
+}
+.sx-how .pc:hover p,
+.sx-how .pc:focus-visible p,
+.sx-how .pc:active p {
+  color: var(--px-body) !important;
+}
+.sx-how .pc:hover > div[aria-hidden],
+.sx-how .pc:focus-visible > div[aria-hidden],
+.sx-how .pc:active > div[aria-hidden] {
+  background: #f1f7f8;
+  border-color: rgba(5, 85, 100, 0.1);
+}
+.sx-how .stp.on .pc:not(.sel):not(:hover) {
+  border-color: rgba(25, 167, 184, 0.7) !important;
+  background: #fff !important;
+}
+
+/* clicked: the whole box is green, the words are white */
+.sx-how .stp .pc.sel,
+.sx-how .stp.on .pc.sel,
+.sx-how .stp .pc.sel:hover {
+  scale: 1.07;
+  background: #fff !important;
+  border-color: var(--px-teal) !important;
+  box-shadow: 0 34px 52px -26px rgba(5, 85, 100, 0.85) !important;
+}
+.sx-how .pc.sel h3,
+.sx-how .pc.sel:hover h3 {
+  color: #fff !important;
+}
+.sx-how .pc.sel p,
+.sx-how .pc.sel:hover p {
+  color: rgba(243, 248, 249, 0.9) !important;
+}
+.sx-how .pc.sel > div[aria-hidden],
+.sx-how .pc.sel:hover > div[aria-hidden] {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(143, 230, 234, 0.3);
+}
+.sx-how .pc.sel .mk {
+  background: var(--px-neon);
+}
+.sx-how .pc.sel svg {
+  stroke: var(--px-neon);
+}
+.sx-how .pc.sel .soft {
+  box-shadow: inset 0 0 0 2px var(--px-neon) !important;
+}
+.sx-how .stp .pc h3,
+.sx-how .stp .pc p {
+  transition: color 0.5s ease 0.1s;
+}
+@media (hover: none) {
+  .sx-how .stp .pc:hover {
+    scale: 1;
+  }
+  .sx-how .stp .pc.sel,
+  .sx-how .stp .pc:active {
+    scale: 1.07;
+  }
+}

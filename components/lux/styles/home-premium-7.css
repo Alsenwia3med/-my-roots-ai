@@ -1,0 +1,248 @@
+/* ==========================================================================
+   Seven connected domains — an ordered field: three columns, a core, nothing can overlap.
+   Click a box and it floods green. Presentation only.
+   ========================================================================== */
+
+.sx-dom .dc::before {
+  content: none !important;
+}
+.sx-dom .dcicon,
+.sx-dom .dcicon:hover,
+.sx-dom .dc.on .dcicon {
+  display: inline-grid;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border-radius: 0;
+  background: none;
+  box-shadow: none;
+}
+.sx-dom .dcicon .lx-ico {
+  --s: 44px;
+  transition: transform 0.5s var(--px-spring), background-color 0.4s;
+}
+.sx-dom .dc:hover .lx-ico {
+  transform: scale(1.08) rotate(-4deg);
+}
+
+/* ---------- the click: green floods the whole box from its icon ---------- */
+.sx-dom .dc {
+  position: relative;
+  cursor: pointer;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+}
+.v1 .sx-dom .stage .dc::after {
+  opacity: 1;
+  animation: none !important;
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  background: var(--px-teal);
+  clip-path: circle(0% at 40px 40px);
+  transition: clip-path 0.8s var(--px-ease);
+  pointer-events: none;
+}
+.v1 .sx-dom .stage .dc.sel::after {
+  clip-path: circle(150% at 40px 40px);
+}
+.sx-dom .dc > * {
+  position: relative;
+  z-index: 1;
+}
+.sx-dom .dc h3,
+.sx-dom .dc .mn,
+.sx-dom .dc p {
+  transition: color 0.5s ease 0.1s, border-color 0.5s;
+}
+.sx-dom .dc.sel {
+  border-color: var(--px-teal);
+  box-shadow: 0 30px 50px -26px rgba(5, 85, 100, 0.8);
+}
+.sx-dom .dc.sel h3 {
+  color: #fff !important;
+}
+.sx-dom .dc.sel .mn {
+  color: var(--px-neon) !important;
+  border-top-color: rgba(143, 230, 234, 0.3) !important;
+}
+.sx-dom .dc.sel p {
+  color: rgba(243, 248, 249, 0.88) !important;
+}
+.sx-dom .dc.sel .lx-ico {
+  background: #fff !important;
+  color: var(--px-teal);
+  box-shadow: 0 0 0 5px rgba(143, 230, 234, 0.25) !important;
+}
+.sx-dom .dc.sel .lx-ico svg {
+  color: var(--px-teal);
+}
+.sx-dom .dc:active {
+  transform: scale(0.985);
+}
+.sx-dom .dc:focus-visible {
+  outline: 2px solid var(--px-cyan);
+  outline-offset: 3px;
+}
+
+/* ---------- desktop: a real grid, so boxes can never overlap ---------- */
+@container (min-width: 1100px) {
+  .sx-dom .stage {
+    aspect-ratio: auto !important;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 300px minmax(0, 1fr);
+    grid-template-rows: repeat(4, 190px);
+    gap: 18px 84px;
+    align-items: stretch;
+    padding: 6px clamp(16px, 3vw, 40px) 0;
+  }
+  .sx-dom .stage > .ab {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  .sx-dom .stage > .deco,
+  .sx-dom .stage > .ray {
+    display: none !important;
+  }
+  .sx-dom .stage > .core {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    align-self: center;
+    justify-self: center;
+    width: 300px !important;
+    height: 300px !important;
+    box-shadow: 0 0 0 22px rgba(5, 85, 100, 0.05), 0 0 0 48px rgba(5, 85, 100, 0.03), 0 30px 60px -28px rgba(3, 42, 51, 0.7);
+  }
+  .sx-dom .stage > .dc {
+    min-height: 190px;
+    padding: 20px 22px !important;
+    justify-content: center;
+  }
+  .sx-dom .dm-0 { grid-column: 1; grid-row: 1; }
+  .sx-dom .dm-1 { grid-column: 1; grid-row: 2; }
+  .sx-dom .dm-2 { grid-column: 1; grid-row: 3; }
+  .sx-dom .dm-3 { grid-column: 2; grid-row: 4; }
+  .sx-dom .dm-4 { grid-column: 3; grid-row: 1; }
+  .sx-dom .dm-5 { grid-column: 3; grid-row: 2; }
+  .sx-dom .dm-6 { grid-column: 3; grid-row: 3; }
+  .sx-dom .dc h3 {
+    font-size: 17px !important;
+  }
+  .sx-dom .dc .mn.f12 {
+    font-size: 11.5px;
+  }
+  .sx-dom .dc p {
+    font-size: 13.5px !important;
+  }
+  .sx-dom .core .f32 {
+    font-size: 24px;
+  }
+  .sx-dom .core .f12 {
+    font-size: 11px;
+  }
+  .sx-dom .core .f17 {
+    font-size: 14px;
+  }
+  .sx-dom .core .f13 {
+    font-size: 12px;
+  }
+
+  /* hairline connectors: cards → a rail on each side → the core */
+  .sx-dom .stage::before,
+  .sx-dom .stage::after {
+    content: "";
+    position: absolute;
+    top: 101px;
+    bottom: 303px;
+    width: 1px;
+    background: rgba(5, 85, 100, 0.28);
+  }
+  .sx-dom .stage::before {
+    left: calc((100% - 468px - 2 * clamp(16px, 3vw, 40px)) / 2 + clamp(16px, 3vw, 40px) + 42px);
+  }
+  .sx-dom .stage::after {
+    right: calc((100% - 468px - 2 * clamp(16px, 3vw, 40px)) / 2 + clamp(16px, 3vw, 40px) + 42px);
+  }
+  .sx-dom .dm-0,
+  .sx-dom .dm-1,
+  .sx-dom .dm-2,
+  .sx-dom .dm-4,
+  .sx-dom .dm-5,
+  .sx-dom .dm-6,
+  .sx-dom .dm-3 {
+    --tick: 42px;
+  }
+  .sx-dom .dm-1,
+  .sx-dom .dm-5 {
+    --tick: 84px;
+  }
+  .sx-dom .dm-0 > :first-child::after,
+  .sx-dom .dm-1 > :first-child::after,
+  .sx-dom .dm-2 > :first-child::after,
+  .sx-dom .dm-4 > :first-child::after,
+  .sx-dom .dm-5 > :first-child::after,
+  .sx-dom .dm-6 > :first-child::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: var(--tick);
+    height: 1px;
+    background: rgba(5, 85, 100, 0.28);
+  }
+  .sx-dom .dm-0 > :first-child,
+  .sx-dom .dm-1 > :first-child,
+  .sx-dom .dm-2 > :first-child,
+  .sx-dom .dm-4 > :first-child,
+  .sx-dom .dm-5 > :first-child,
+  .sx-dom .dm-6 > :first-child,
+  .sx-dom .dm-3 > :first-child {
+    position: static;
+  }
+  .sx-dom .dm-0 > :first-child::after,
+  .sx-dom .dm-1 > :first-child::after,
+  .sx-dom .dm-2 > :first-child::after {
+    right: calc(var(--tick) * -1);
+  }
+  .sx-dom .dm-4 > :first-child::after,
+  .sx-dom .dm-5 > :first-child::after,
+  .sx-dom .dm-6 > :first-child::after {
+    left: calc(var(--tick) * -1);
+  }
+  .sx-dom .dm-3 > :first-child::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    width: 1px;
+    height: 171px;
+    background: rgba(5, 85, 100, 0.28);
+  }
+}
+@container (max-width: 1099px) {
+  .sx-dom .stage {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px !important;
+    padding: 0 20px !important;
+  }
+  .sx-dom .stage > .core {
+    grid-column: 1 / -1;
+    width: 230px !important;
+    height: 230px !important;
+    margin: 4px auto 14px !important;
+  }
+  .sx-dom .stage > .dc {
+    padding: 18px 20px !important;
+    min-height: 0;
+  }
+}
+@container (max-width: 640px) {
+  .sx-dom .stage {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

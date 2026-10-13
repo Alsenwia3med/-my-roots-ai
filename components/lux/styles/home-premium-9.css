@@ -1,0 +1,131 @@
+/* ==========================================================================
+   How it works — four steps on one line of light. Press a step and it rises, turns white and takes the stage.
+   Presentation only.
+   ========================================================================== */
+
+.sx-how::before {
+  content: "";
+  position: absolute;
+  right: -160px;
+  top: -120px;
+  width: 520px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(143, 230, 234, 0.1);
+  box-shadow: 0 0 0 70px rgba(143, 230, 234, 0.02);
+  pointer-events: none;
+}
+.sx-how .rails {
+  top: 21px !important;
+}
+.sx-how .rail {
+  height: 1px;
+  background: rgba(143, 230, 234, 0.32);
+}
+.sx-how .pk {
+  display: block;
+  width: 7px;
+  height: 7px;
+  margin: -3.5px 0 0 -3.5px;
+  background: var(--px-neon);
+  box-shadow: 0 0 12px 3px rgba(143, 230, 234, 0.7);
+  animation-duration: 6s;
+}
+.sx-how .stp {
+  cursor: pointer;
+}
+.sx-how .stp .pc,
+.sx-how .stp .pc.gd {
+  min-height: 206px !important;
+  padding: 22px 22px 18px !important;
+  border-radius: 20px !important;
+  background: rgba(255, 255, 255, 0.055);
+  border: 1px solid rgba(143, 230, 234, 0.2);
+  transform-origin: 50% 40%;
+  outline-offset: 4px;
+}
+.sx-how .stp .pc h3 {
+  font-size: clamp(19px, 1.65vw, 23px) !important;
+  transition: color 0.4s;
+}
+.sx-how .stp .pc p {
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+  transition: color 0.4s;
+}
+/* the drawing of each step sits in its own quiet inset */
+.sx-how .stp .pc > div[aria-hidden] {
+  margin-top: auto !important;
+  padding: 12px 14px !important;
+  min-height: 52px;
+  border-radius: 12px;
+  background: rgba(1, 24, 29, 0.22);
+  border: 1px solid rgba(143, 230, 234, 0.14);
+  opacity: 1;
+  transition: background-color 0.4s, border-color 0.4s;
+}
+.sx-how .stp .pc > div[aria-hidden]:first-of-type {
+  align-items: center;
+}
+.sx-how .stp .pc .mk {
+  width: 6px !important;
+  height: 6px !important;
+  border-radius: 1.5px !important;
+}
+.sx-how .stp .pc > div[aria-hidden][style*="flex-wrap"] {
+  gap: 3px !important;
+}
+.sx-how .stp .pc .soft {
+  width: 16px !important;
+  height: 16px !important;
+}
+.sx-how .stp .pc svg {
+  max-height: 26px;
+}
+.sx-how .stp:active .pc,
+.sx-how .stp .pc:active {
+  scale: 1.1;
+}
+
+/* ---------- pressed: the step grows, turns white, and its drawing turns green ---------- */
+.sx-how .stp .pc.sel,
+.sx-how .stp.on .pc.sel,
+.sx-how .stp .pc.sel:hover {
+  scale: 1.09;
+  z-index: 6;
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 44px 64px -30px rgba(1, 20, 25, 0.95), 0 0 0 6px rgba(143, 230, 234, 0.18);
+}
+.sx-how .pc.sel h3 {
+  color: var(--px-ink) !important;
+}
+.sx-how .pc.sel p {
+  color: var(--px-body) !important;
+}
+.sx-how .pc.sel > div[aria-hidden] {
+  background: #f1f7f8;
+  border-color: rgba(5, 85, 100, 0.12);
+}
+.sx-how .pc.sel .mk {
+  background: var(--px-teal);
+}
+.sx-how .pc.sel svg {
+  stroke: var(--px-teal);
+}
+.sx-how .pc.sel .soft {
+  box-shadow: inset 0 0 0 2px var(--px-teal) !important;
+}
+.sx-how .stp.sel .orb {
+  background: #fff;
+  color: var(--px-teal);
+  box-shadow: 0 0 0 5px var(--px-teal), 0 0 0 7px rgba(143, 230, 234, 0.55);
+}
+.sx-how .pc:focus-visible {
+  outline: 2px solid var(--px-neon);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-how .pk {
+    animation: none !important;
+  }
+}

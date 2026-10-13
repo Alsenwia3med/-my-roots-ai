@@ -1,0 +1,463 @@
+/* ==========================================================================
+   Homepage · premium pass, round five — quiet luxury.
+   Smaller, calmer, easier on the eye: narrower columns, fewer moving parts, a single idea per section.
+   Presentation only: no copy is added, removed or changed, and no typeface is touched.
+   ========================================================================== */
+
+/* ---------- one narrower measure, smaller headlines ---------- */
+.lxg,
+.lxrm {
+  --lx-wrap: 1160px;
+}
+.v1 .sx .wrap {
+  max-width: 1200px;
+}
+.v1 .sx .h2 {
+  font-size: clamp(25px, 2.7vw, 38px);
+  letter-spacing: -0.012em;
+}
+.lxg .lx-h2,
+.lxrm .lx-h2 {
+  font-size: clamp(24px, 2.6vw, 36px);
+}
+.lxs-head {
+  gap: 14px clamp(28px, 4vw, 56px);
+}
+
+/* ==========================================================================
+   Governed AI Intelligence — one ruled sheet of five principles
+   ========================================================================== */
+.lxg {
+  padding: clamp(40px, 4.6vw, 60px) 0 clamp(36px, 4vw, 52px);
+}
+.lxg-rowlabel {
+  margin-top: clamp(26px, 3vw, 38px);
+}
+.lxg-principles {
+  gap: 0 !important;
+  margin-top: 16px;
+  padding-top: 0 !important;
+  background: #fafcfc !important;
+  border: 1px solid var(--px-edge);
+  border-radius: 24px;
+}
+.lxg-principles::before,
+.lxg-principles::after {
+  display: none !important;
+}
+.lxg .lx-card.lxg-card {
+  gap: 8px;
+  padding: 22px 20px 24px;
+  min-height: 0;
+  border: 0;
+  border-right: 1px solid var(--px-edge);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.lxg .lx-card.lxg-card:first-child {
+  border-radius: 23px 0 0 23px;
+}
+.lxg .lx-card.lxg-card:last-child {
+  border-right: 0;
+  border-radius: 0 23px 23px 0;
+}
+.lxg .lx-card.lxg-card:hover,
+.lxg .lx-card.lxg-card:focus-visible,
+.lxg .lx-card.lxg-card:active {
+  --grow: 1.05;
+  z-index: 3;
+  border-radius: 20px;
+  border-color: transparent;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.04), 0 30px 46px -28px rgba(3, 42, 51, 0.34);
+}
+.lxg .lx-card.lxg-card::after {
+  display: none;
+}
+.lxg-card .lx-ico {
+  display: none;
+}
+.lxg-card-top {
+  order: -1;
+  margin: 0;
+}
+.lxg-num {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--px-cyan);
+}
+.lxg-viz {
+  display: block;
+  height: 58px;
+  margin: 4px 0 6px;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  overflow: visible;
+}
+.lxg-svg {
+  width: 104px;
+  height: auto;
+  stroke-width: 2.2;
+}
+.lxg-svg *,
+.lxg-svg {
+  animation-play-state: paused;
+}
+.lxg-card:hover .lxg-svg *,
+.lxg-card:focus-visible .lxg-svg *,
+.lxg-card:active .lxg-svg * {
+  animation-play-state: running;
+}
+.lxg-card .lx-h3 {
+  font-size: 15.5px;
+  line-height: 1.25;
+}
+.lxg-card .lx-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--px-body);
+}
+.lxg-card-glow {
+  left: 20px;
+  right: 20px;
+  height: 2px;
+}
+.lxg-frame {
+  margin-top: clamp(22px, 2.6vw, 34px);
+  padding: clamp(22px, 2.6vw, 34px) clamp(24px, 3.4vw, 44px);
+  border-radius: 22px;
+}
+.lxg-frame-title {
+  font-size: clamp(16px, 1.45vw, 19px);
+}
+.lxg-sign {
+  margin-top: 20px;
+  padding-top: 14px;
+}
+@media (max-width: 1180px) {
+  .lxg-principles {
+    gap: 14px !important;
+    border: 0;
+    background: none !important;
+  }
+  .lxg .lx-card.lxg-card,
+  .lxg .lx-card.lxg-card:first-child,
+  .lxg .lx-card.lxg-card:last-child {
+    border: 1px solid var(--px-edge);
+    border-radius: 20px;
+    background: #fff;
+  }
+}
+
+/* ==========================================================================
+   How it works — four calm steps, each box grows when you reach for it
+   ========================================================================== */
+.v1 .sx-how {
+  padding: clamp(40px, 4.4vw, 60px) 0 clamp(44px, 4.8vw, 64px) !important;
+}
+.sx-how .rvg {
+  margin-top: clamp(24px, 2.8vw, 38px) !important;
+}
+.sx-how .rails {
+  top: 21px !important;
+  left: 12.5% !important;
+  right: 12.5% !important;
+}
+.sx-how .rail {
+  background: rgba(143, 230, 234, 0.28);
+}
+.sx-how .pk {
+  display: none;
+}
+.sx-how .orb {
+  width: 42px;
+  height: 42px;
+  font-size: 12.5px !important;
+  background: var(--px-teal);
+  border: 1px solid rgba(143, 230, 234, 0.6);
+  box-shadow: 0 0 0 5px var(--px-teal);
+}
+.sx-how .stp.on .orb {
+  box-shadow: 0 0 0 5px var(--px-teal);
+  background: #fff;
+  color: var(--px-teal);
+}
+.sx-how .orb .hl {
+  display: none !important;
+}
+.sx-how .stp .pc,
+.sx-how .stp .pc.gd {
+  min-height: 150px !important;
+  margin-top: 14px !important;
+  padding: 20px 20px 16px !important;
+  border-radius: 16px !important;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(143, 230, 234, 0.2);
+  box-shadow: none;
+  transition: scale 0.5s var(--px-spring), background-color 0.4s, border-color 0.4s, box-shadow 0.5s !important;
+  transform: none !important;
+}
+.sx-how .stp .pc h3 {
+  font-size: clamp(18px, 1.55vw, 21px) !important;
+}
+.sx-how .stp .pc p {
+  margin-top: 8px !important;
+  font-size: 13px !important;
+  line-height: 1.6 !important;
+  color: rgba(214, 238, 240, 0.86) !important;
+}
+.sx-how .stp .pc > div[aria-hidden] {
+  padding-top: 14px !important;
+  opacity: 0.85;
+}
+.sx-how .stp .pc svg {
+  max-height: 28px;
+}
+.sx-how .stp .pc:hover,
+.sx-how .stp .pc:active,
+.sx-how .stp.on .pc:hover {
+  scale: 1.06;
+  z-index: 4;
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(143, 230, 234, 0.6);
+  box-shadow: 0 34px 50px -28px rgba(1, 20, 25, 0.95);
+}
+.sx-how .stp.on .pc {
+  background: rgba(255, 255, 255, 0.075);
+  border-color: rgba(143, 230, 234, 0.45);
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Seven domains — a smaller field
+   ========================================================================== */
+.v1 .sx-dom {
+  padding: clamp(44px, 5vw, 66px) 0 clamp(28px, 3vw, 44px) !important;
+}
+.sx-dom .stage {
+  max-width: 1160px !important;
+}
+.sx-dom .stage.seen .core::after {
+  animation-iteration-count: 1;
+}
+.sx-dom .rk {
+  display: none;
+}
+
+/* ==========================================================================
+   Example report — a light window on a deep field: easy on the eye
+   ========================================================================== */
+.v1 .sx-rep {
+  padding: clamp(42px, 4.6vw, 62px) 0 clamp(42px, 4.6vw, 62px) !important;
+}
+.sx-rep::before {
+  opacity: 0.6;
+}
+.sx-rep .rp-wrap {
+  grid-template-columns: minmax(0, 0.7fr) minmax(0, 1.4fr);
+}
+.sx-rep .rp-wrap > .g2 h2 {
+  font-size: clamp(24px, 2.5vw, 34px) !important;
+}
+.sx-rep .rp-wrap > .g2 p {
+  font-size: 14.5px !important;
+  line-height: 1.7 !important;
+  color: rgba(214, 238, 240, 0.9) !important;
+}
+.rp-frame {
+  transform: none !important;
+  background: #f6fafa;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 26px;
+  box-shadow: 0 50px 80px -44px rgba(1, 20, 25, 0.75), 0 0 0 8px rgba(255, 255, 255, 0.05);
+}
+.rp-frame::after {
+  display: none;
+}
+.rp-bar {
+  height: 40px;
+  border-bottom: 1px solid rgba(5, 85, 100, 0.09);
+}
+.rp-dots i {
+  background: rgba(5, 85, 100, 0.2);
+}
+.rp-pill {
+  background: rgba(5, 85, 100, 0.06);
+}
+.rp-pill b {
+  background: rgba(5, 85, 100, 0.16);
+}
+.rp-live {
+  background: var(--px-cyan);
+  animation: none;
+  box-shadow: none;
+}
+.rp-frame .gb {
+  background-image: none;
+  gap: 12px !important;
+  padding: 16px 16px 16px;
+}
+.rp-frame .rp-segs {
+  border-right: 1px solid rgba(5, 85, 100, 0.09);
+}
+.rp-frame .rp-segs span {
+  animation: none;
+  background: rgba(5, 85, 100, 0.14);
+}
+.rp-frame .rp-segs span:nth-child(-n + 7) {
+  background: var(--px-cyan);
+}
+.sx-rep .gl,
+.sx-rep .glo {
+  border: 1px solid rgba(5, 85, 100, 0.09);
+  border-radius: 18px !important;
+  box-shadow: 0 1px 2px rgba(3, 42, 51, 0.04), 0 14px 26px -22px rgba(3, 42, 51, 0.3);
+}
+.sx-rep .dp {
+  border-radius: 18px !important;
+}
+.sx-rep .gl div[style*="aspect-ratio"] {
+  max-width: 210px !important;
+  margin-top: 14px !important;
+}
+.sx-rep .gl div[style*="aspect-ratio"]::before {
+  animation: none;
+}
+.sx-rep .gl .sf.gt,
+.sx-rep .dp .sf.gw {
+  font-size: clamp(26px, 2.3vw, 32px) !important;
+}
+.sx-rep .gl div[style*="aspect-ratio"] .sf.gt {
+  font-size: clamp(32px, 3vw, 42px) !important;
+}
+.sx-rep .gl p {
+  font-size: 14px !important;
+}
+.sx-rep .gl ul li > div:first-child span:first-child {
+  font-size: 13.5px !important;
+}
+.sx-rep .gl ul li > div:first-child span:last-child {
+  font-size: 12px !important;
+}
+.sx-rep .trk {
+  background-color: #e3edef;
+  height: 10px !important;
+}
+.sx-rep .trk > span {
+  width: 18px !important;
+  height: 18px !important;
+  margin: -9px 0 0 -9px !important;
+  box-shadow: 0 0 0 2px var(--px-teal) !important;
+}
+.sx-rep .dp > div:first-child::after {
+  animation: none;
+}
+.sx-rep .gb .rvi > div:hover,
+.sx-rep .gb .rvi > div:active {
+  transform: scale(1.045);
+  box-shadow: 0 34px 46px -28px rgba(3, 42, 51, 0.5);
+}
+
+/* ==========================================================================
+   What changes / the stages — smaller, stiller
+   ========================================================================== */
+.v1 .sx-wc {
+  padding: clamp(44px, 5vw, 66px) 0 clamp(46px, 5.2vw, 70px) !important;
+}
+.sx-wc .g3 {
+  max-width: 920px;
+  gap: 10px !important;
+}
+.sx-wc .g3::before {
+  left: calc(clamp(18px, 1.8vw, 24px) + 22px - 1px);
+}
+.sx-wc .g3::after {
+  display: none;
+}
+.sx-wc .g3 > div:nth-child(n) .gl.lift {
+  grid-template-columns: 44px minmax(0, 1fr) minmax(0, 1.1fr);
+  column-gap: clamp(16px, 2.2vw, 30px);
+  padding: 14px clamp(18px, 1.8vw, 24px) !important;
+  border-radius: 16px !important;
+}
+.sx-wc .g3 .gl > div[aria-hidden] {
+  width: 44px !important;
+  height: 44px !important;
+  border-radius: 13px !important;
+}
+.sx-wc .g3 .gl > div[aria-hidden] svg {
+  width: 22px;
+  height: 22px;
+}
+.sx-wc .g3 .gl h3 {
+  font-size: clamp(17px, 1.5vw, 20px) !important;
+}
+.sx-wc .g3 .gl p {
+  font-size: 13.5px !important;
+}
+.sx-wc .g3 > div:nth-child(n) .gl.lift:hover,
+.sx-wc .g3 > div:nth-child(n) .gl.lift:active {
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) scale(1.03);
+}
+
+.lxrm {
+  padding: clamp(16px, 2vw, 26px) 0;
+}
+.lxrm-panel {
+  padding: clamp(38px, 4.4vw, 56px) 0;
+}
+.lxrm .lxrm-stages {
+  grid-auto-rows: minmax(44px, auto);
+  margin-top: clamp(22px, 2.6vw, 34px);
+}
+.lxrm .lxrm-stages > .lxrm-stage {
+  margin-bottom: 12px;
+}
+.lxrm .lx-card.lxrm-stage {
+  padding: 16px 18px;
+  gap: 7px;
+  border-radius: 16px;
+}
+.lxrm .lx-card.lxrm-stage--live {
+  padding: 18px 20px;
+}
+.lxrm-stage .lx-h3,
+.lxrm-stage--live .lx-h3 {
+  font-size: 15.5px;
+}
+.lxrm-stage .lx-text,
+.lxrm-stage--live .lx-text {
+  font-size: 13px;
+  line-height: 1.6;
+}
+.lxrm-stage .lx-ico,
+.lxrm-stage--live .lx-ico {
+  --s: 34px;
+}
+.lxrm-ghost,
+.lxrm-stage--live .lxrm-ghost,
+.lxrm-stage--wide .lxrm-ghost {
+  font-size: 56px;
+  top: -14px;
+}
+.lxrm-orb {
+  display: none;
+}
+.lxrm-stage--next .lxrm-shine::after {
+  display: none;
+}
+.lxrm .lxrm-stages::before {
+  top: 12px;
+  bottom: 12px;
+}
+.lxrm-close {
+  padding: 18px 24px;
+}
+
+/* ---------- one quiet rhythm: fewer pulses ---------- */
+.v1 .sx .dot::after {
+  animation: none;
+}

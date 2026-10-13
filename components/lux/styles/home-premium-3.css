@@ -1,0 +1,499 @@
+/* ==========================================================================
+   Homepage · premium pass, round three — calm luxury.
+   Softer light, slower motion, every box answers the pointer by growing a little.
+   Presentation only: no copy is added, removed or changed, and no typeface is touched.
+   ========================================================================== */
+
+/* ---------- the reading line under the header: thin, soft, eased in JS ---------- */
+.lxh-progress {
+  height: 1.5px;
+}
+.lxh-progress span {
+  transition: none;
+  background: linear-gradient(90deg, rgba(25, 167, 184, 0) 0%, rgba(25, 167, 184, 0.55) 22%, #19a7b8 72%, #8fe6ea 100%);
+  box-shadow: 0 0 10px rgba(25, 167, 184, 0.35);
+}
+
+/* ---------- buttons: no arrow, a faint passing light ---------- */
+.v1 .btn svg.arr {
+  display: none;
+}
+.v1 .btn {
+  position: relative;
+  overflow: hidden;
+  padding: 0 30px !important;
+}
+.v1 .btn::after,
+.lxh-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: linear-gradient(105deg, transparent 38%, rgba(255, 255, 255, 0.22) 50%, transparent 62%);
+  transform: translateX(-130%);
+  animation: pxGlint 6.5s ease-in-out infinite;
+  pointer-events: none;
+}
+.v1 .btn.bs::after {
+  background: linear-gradient(105deg, transparent 38%, rgba(25, 167, 184, 0.14) 50%, transparent 62%);
+}
+.v1 .sx-cta .btn,
+.v1 .sx-cta .btn.bw {
+  padding: 0 34px !important;
+}
+@keyframes pxGlint {
+  0%,
+  62% {
+    transform: translateX(-130%);
+  }
+  100% {
+    transform: translateX(130%);
+  }
+}
+.lxh-cta {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px !important;
+  padding-right: 24px !important;
+}
+
+/* ---------- every box answers the pointer: it grows a little, and again when pressed ---------- */
+.lxg .lx-card[data-tilt]:hover,
+.lxg .lx-card[data-tilt]:active {
+  --grow: 1.045;
+}
+.lxrm .lx-card[data-tilt]:hover,
+.lxrm .lx-card[data-tilt]:active {
+  --grow: 1.04;
+}
+.sx-how .stp .pc:hover,
+.sx-how .stp .pc:active {
+  transform: translateY(-4px) scale(1.045);
+  z-index: 3;
+}
+.sx-wc .gl.lift:hover,
+.sx-wc .gl.lift:active {
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg)) translateY(-6px) scale(1.04);
+  z-index: 3;
+}
+.js .sx-dom .stage.seen .dc {
+  transition: box-shadow 0.5s, border-color 0.5s, opacity 0.7s var(--px-ease), filter 1s var(--px-ease),
+    scale 1.5s var(--px-spring), translate 1.5s var(--px-ease), transform 0.5s var(--px-spring);
+  transition-delay: 0s, 0s, calc(var(--i) * 170ms + 350ms), calc(var(--i) * 170ms + 350ms), calc(var(--i) * 170ms + 350ms),
+    calc(var(--i) * 170ms + 350ms), 0s;
+}
+.sx-dom .dc:hover,
+.sx-dom .dc:active {
+  transform: scale(1.06);
+  z-index: 8 !important;
+  border-color: var(--px-cyan);
+  box-shadow: 0 0 0 1.5px var(--px-cyan), 0 30px 50px -24px rgba(5, 85, 100, 0.55);
+}
+.sx-rep .gb .rvi > div {
+  transition: transform 0.5s var(--px-spring), box-shadow 0.5s;
+}
+.sx-rep .gb .rvi > div:hover,
+.sx-rep .gb .rvi > div:active {
+  transform: scale(1.04);
+  position: relative;
+  z-index: 4;
+  box-shadow: 0 34px 50px -26px rgba(0, 0, 0, 0.6);
+}
+.lxhc-card:hover,
+.lxhc-card:active {
+  transform: perspective(900px) rotateX(var(--rx)) rotateY(var(--ry)) scale(1.04);
+  z-index: 6;
+}
+@media (hover: none) {
+  .sx-how .stp .pc:active,
+  .sx-dom .dc:active {
+    transition-duration: 0.2s;
+  }
+}
+
+/* ==========================================================================
+   Governed AI Intelligence — a picture of the idea, then five principles in order
+   ========================================================================== */
+.lxg-flow {
+  border-radius: 30px;
+  background: #fff;
+}
+.lxg-principles {
+  position: relative;
+  margin-top: 6px;
+  padding-top: 34px;
+  gap: 18px;
+  background:
+    radial-gradient(circle at 10% 12px, var(--px-teal) 4.5px, transparent 5.5px),
+    radial-gradient(circle at 30% 12px, var(--px-teal) 4.5px, transparent 5.5px),
+    radial-gradient(circle at 50% 12px, var(--px-teal) 4.5px, transparent 5.5px),
+    radial-gradient(circle at 70% 12px, var(--px-teal) 4.5px, transparent 5.5px),
+    radial-gradient(circle at 90% 12px, var(--px-teal) 4.5px, transparent 5.5px);
+  background-repeat: no-repeat;
+}
+.lxg-principles::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 11px;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(5, 85, 100, 0.28) 0 6px, transparent 6px 12px);
+}
+.lxg-principles::after {
+  content: "";
+  position: absolute;
+  left: 10%;
+  top: 10px;
+  width: 9%;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--px-cyan);
+  box-shadow: 0 0 14px 2px rgba(25, 167, 184, 0.6);
+  animation: pxThread 7s ease-in-out infinite;
+}
+@keyframes pxThread {
+  0% {
+    left: 10%;
+    opacity: 0;
+  }
+  8%,
+  86% {
+    opacity: 1;
+  }
+  100% {
+    left: 81%;
+    opacity: 0;
+  }
+}
+@media (max-width: 1180px) {
+  .lxg-principles {
+    padding-top: 0;
+    background: none;
+  }
+  .lxg-principles::before,
+  .lxg-principles::after {
+    display: none;
+  }
+}
+.lxg .lx-card.lxg-card {
+  gap: 10px;
+  padding: 20px;
+  min-height: 100%;
+}
+.lxg-viz {
+  display: grid;
+  place-items: center;
+  height: 98px;
+  margin: -20px -20px 6px;
+  border-bottom: 1px solid var(--px-edge);
+  background: #f4f9fa;
+  border-radius: 22px 22px 0 0;
+  overflow: hidden;
+}
+.lxg-card .lx-ico--sm {
+  --s: 30px;
+}
+.lxg-svg {
+  width: 84%;
+  height: auto;
+  overflow: visible;
+  stroke: var(--px-teal);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.lxg-svg--0 .v-doc rect {
+  fill: rgba(5, 85, 100, 0.13);
+  stroke: none;
+}
+.lxg-svg--0 .v-lens {
+  fill: rgba(255, 255, 255, 0.7);
+  animation: pxLens 6s ease-in-out infinite;
+}
+@keyframes pxLens {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(82px);
+  }
+}
+.lxg-svg--1 .v-axis {
+  stroke: rgba(5, 85, 100, 0.3);
+}
+.lxg-svg--1 .v-band {
+  fill: rgba(25, 167, 184, 0.2);
+  stroke: none;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: pxBand 4.2s ease-in-out infinite;
+}
+@keyframes pxBand {
+  0%,
+  100% {
+    transform: scaleX(0.72);
+  }
+  50% {
+    transform: scaleX(1.18);
+  }
+}
+.lxg-svg--1 .v-brk {
+  stroke-dasharray: 3 5;
+  stroke: rgba(5, 85, 100, 0.55);
+}
+.lxg-svg--1 .v-pt {
+  fill: var(--px-teal);
+  stroke: none;
+}
+.lxg-svg--2 .v-tree {
+  stroke-dasharray: 3 5;
+  stroke: rgba(5, 85, 100, 0.55);
+  animation: pxFlowDash 2.4s linear infinite;
+}
+@keyframes pxFlowDash {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+.lxg-svg--2 .v-top {
+  fill: var(--px-teal);
+  stroke: none;
+}
+.lxg-svg--2 .v-leaf {
+  fill: #fff;
+}
+.lxg-svg--2 .v-run {
+  fill: var(--px-cyan);
+  stroke: none;
+  animation: pxRise 3.2s ease-in-out infinite;
+}
+@keyframes pxRise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-58px);
+    opacity: 0;
+  }
+}
+.lxg-svg--3 .v-fence {
+  stroke-dasharray: 5 6;
+  animation: pxFlowDash 2s linear infinite;
+}
+.lxg-svg--3 .v-ball {
+  fill: var(--px-cyan);
+  stroke: none;
+  animation: pxBounce 5.4s ease-in-out infinite;
+}
+@keyframes pxBounce {
+  0%,
+  100% {
+    transform: translate(-46px, -14px);
+  }
+  25% {
+    transform: translate(40px, 16px);
+  }
+  50% {
+    transform: translate(52px, -18px);
+  }
+  75% {
+    transform: translate(-30px, 18px);
+  }
+}
+.lxg-svg--4 .v-orbit {
+  stroke: rgba(5, 85, 100, 0.28);
+  stroke-dasharray: 2 6;
+}
+.lxg-svg--4 .v-spin {
+  fill: var(--px-cyan);
+  stroke: none;
+  transform-origin: 100px 46px;
+  animation: pxSpin 14s linear infinite;
+}
+.lxg-svg--4 .v-head {
+  fill: #fff;
+}
+.lxg-svg--4 .v-body {
+  fill: none;
+}
+
+/* ==========================================================================
+   Example report — a lit window with depth
+   ========================================================================== */
+.v1 .sx-rep {
+  background: var(--px-teal) !important;
+}
+.sx-rep::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 56%;
+  width: min(1100px, 92%);
+  aspect-ratio: 1;
+  translate: -50% -50%;
+  border-radius: 50%;
+  border: 1px solid rgba(143, 230, 234, 0.1);
+  box-shadow: 0 0 0 90px rgba(143, 230, 234, 0.015), 0 0 0 180px rgba(143, 230, 234, 0.012);
+  pointer-events: none;
+}
+.rp-frame {
+  --rx: 0deg;
+  --ry: 0deg;
+  background: #04404b;
+  border-radius: 30px;
+  transform: perspective(1800px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition: transform 0.9s var(--px-ease);
+  box-shadow: 0 60px 90px -50px rgba(1, 20, 25, 0.95), 0 0 0 1px rgba(143, 230, 234, 0.08);
+}
+.rp-frame .gb {
+  background-image: radial-gradient(rgba(143, 230, 234, 0.13) 1px, transparent 1.3px);
+  background-size: 24px 24px;
+}
+.sx-rep .trk {
+  overflow: visible !important;
+  background-color: #e7f0f2;
+}
+.sx-rep .trk::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 7px);
+  height: 5px;
+  background: repeating-linear-gradient(90deg, rgba(5, 85, 100, 0.38) 0 1px, transparent 1px 10%);
+}
+.sx-rep .trk > span::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70px;
+  height: 14px;
+  translate: -50% -50%;
+  border-radius: 7px;
+  background: rgba(25, 167, 184, 0.2);
+  border: 1px dashed rgba(5, 85, 100, 0.55);
+}
+.sx-rep .gl ul > li {
+  padding-bottom: 8px;
+}
+.sx-rep .dp > div:first-child::after {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px dashed rgba(143, 230, 234, 0.6);
+  animation: pxSpin 24s linear infinite;
+}
+
+/* ==========================================================================
+   The Seven Stages — one stage open, the rest drawn as blueprints, the last a destination
+   ========================================================================== */
+.lxrm .lx-card.lxrm-stage--wide {
+  display: flex;
+  grid-template-columns: none;
+}
+.lxrm-stage--wide .lxrm-step,
+.lxrm-stage--wide .lx-h3,
+.lxrm-stage--wide .lx-text {
+  grid-column: auto;
+  grid-row: auto;
+}
+.lxrm .lx-card.lxrm-stage--live {
+  padding: clamp(24px, 2.6vw, 36px);
+  gap: 14px;
+  justify-content: flex-start;
+  overflow: hidden;
+}
+.lxrm-stage--live .lx-h3 {
+  max-width: 78%;
+  font-size: clamp(21px, 2vw, 28px);
+  line-height: 1.12;
+}
+.lxrm-stage--live .lx-text {
+  max-width: 78%;
+  font-size: 15px;
+  line-height: 1.65;
+}
+.lxrm-stage--live .lx-ico {
+  --s: 46px;
+}
+.lxrm-stage--live .lxrm-ghost {
+  font-size: 120px;
+  top: -34px;
+}
+.lxrm-orb {
+  position: absolute;
+  right: -46px;
+  bottom: -46px;
+  width: clamp(190px, 20vw, 260px);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+.lxrm-orb i {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(5, 85, 100, 0.16);
+}
+.lxrm-orb i:nth-child(1) {
+  inset: 0;
+}
+.lxrm-orb i:nth-child(2) {
+  inset: 14%;
+  border-style: dashed;
+  animation: pxSpin 40s linear infinite;
+}
+.lxrm-orb i:nth-child(3) {
+  inset: 32%;
+  background: rgba(25, 167, 184, 0.12);
+  border-color: rgba(25, 167, 184, 0.45);
+  animation: pxBreath 4.6s ease-in-out infinite;
+}
+@keyframes pxBreath {
+  0%,
+  100% {
+    transform: scale(0.92);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+.lxrm .lx-card.lxrm-stage--next {
+  background-color: rgba(255, 255, 255, 0.03);
+  background-image: linear-gradient(rgba(143, 230, 234, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(143, 230, 234, 0.055) 1px, transparent 1px);
+  background-size: 22px 22px;
+  justify-content: flex-start;
+}
+.lxrm-stage--wide .lxrm-ghost {
+  font-size: 110px;
+}
+/* ---------- calmer overall: a touch less glow, slower breathing ---------- */
+.v1 .sx .dot::after {
+  animation-duration: 3.4s;
+}
+.lxg-ring {
+  animation-duration: 4.4s;
+}
+.lxg-p {
+  animation-duration: 8s;
+}
+@media (prefers-reduced-motion: reduce) {
+  .v1 .btn::after,
+  .lxh-cta::after,
+  .lxg-principles::after,
+  .lxg-svg *,
+  .lxrm-orb i,
+  .sx-rep .dp > div:first-child::after {
+    animation: none !important;
+  }
+}

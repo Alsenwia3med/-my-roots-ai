@@ -1,0 +1,23 @@
+/* How it works — a plain, straight-edged band, with room above it. */
+.v1 .sx-how {
+  border-radius: 0 !important;
+  margin-top: 0 !important;
+}
+.v1 .lxg {
+  padding-bottom: clamp(44px, 5vw, 64px);
+}
+@media (max-width: 760px) {
+  .v1 .lxg {
+    padding-bottom: 56px;
+  }
+  .v1 .sx-how {
+    margin-top: 24px !important;
+  }
+}
+
+/* Example report — the same plain band, edge to edge. */
+.v1 .sx-rep {
+  border-radius: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}

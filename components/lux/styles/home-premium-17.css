@@ -1,0 +1,367 @@
+/* ==========================================================================
+   What changes — the platform drawn as one living tree, on the brand's deep teal.
+   The idea you are on lights its own part: surface, roots, trunk, canopy, ring, conversation.
+   Presentation only.
+   ========================================================================== */
+
+/* the pulse line behind the section crossed the words — it goes */
+.sx-wc .lxwc-bg {
+  display: none !important;
+}
+
+.wc-stage {
+  background: var(--px-teal);
+  border: 0;
+  box-shadow: 0 50px 80px -50px rgba(3, 42, 51, 0.7);
+}
+.wc-stage::before {
+  background-image: radial-gradient(rgba(143, 230, 234, 0.16) 1px, transparent 1.3px);
+  -webkit-mask-image: radial-gradient(80% 80% at 50% 55%, #000 25%, transparent 100%);
+  mask-image: radial-gradient(80% 80% at 50% 55%, #000 25%, transparent 100%);
+}
+.wc-stage::after {
+  content: "";
+  position: absolute;
+  right: -90px;
+  top: -110px;
+  width: 340px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(143, 230, 234, 0.14);
+  box-shadow: 0 0 0 40px rgba(143, 230, 234, 0.025);
+  pointer-events: none;
+}
+.wc-dots i {
+  background: rgba(255, 255, 255, 0.25);
+}
+.wc-dots i.on {
+  background: var(--px-neon);
+}
+.wc-mark {
+  position: absolute;
+  left: -2%;
+  top: -2%;
+  z-index: 2;
+}
+.wc-mark .lx-ico {
+  --s: 34px;
+  background: #fff;
+  box-shadow: none;
+}
+.wc-vis-wrap {
+  inset: 6% 6% 9%;
+}
+
+/* ---------- the tree: quiet by default ---------- */
+.wc-tree {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.wc-tree * {
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: stroke 0.7s ease, fill 0.7s ease, opacity 0.7s ease, stroke-width 0.5s;
+}
+.t-line {
+  stroke: rgba(255, 255, 255, 0.28);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 7;
+}
+.t-pad {
+  fill: rgba(255, 255, 255, 0.1);
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1.5;
+}
+.t-dial,
+.t-needle {
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.t-root {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.t-tip {
+  fill: var(--px-teal);
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 2;
+}
+.t-body {
+  fill: rgba(255, 255, 255, 0.12);
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 1.5;
+}
+.t-tick,
+.t-brk {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+.t-knob {
+  fill: var(--px-teal);
+  stroke: rgba(255, 255, 255, 0.5);
+  stroke-width: 2;
+}
+.t-leaf {
+  fill: rgba(255, 255, 255, 0.1);
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 1.5;
+}
+.t-ring {
+  stroke: rgba(255, 255, 255, 0.16);
+  stroke-width: 1.5;
+  stroke-dasharray: 3 8;
+}
+.t-badge {
+  fill: var(--px-teal);
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 1.5;
+}
+.t-lock {
+  fill: rgba(255, 255, 255, 0.6);
+}
+.t-shackle {
+  stroke: rgba(255, 255, 255, 0.6);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.t-bubble {
+  fill: rgba(255, 255, 255, 0.06);
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1.5;
+}
+.t-bline,
+.t-bline-w {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+.t-steps {
+  stroke: rgba(255, 255, 255, 0.3);
+  stroke-width: 2;
+  stroke-dasharray: 3 6;
+  stroke-linecap: round;
+}
+.t-step {
+  fill: var(--px-teal);
+  stroke: rgba(255, 255, 255, 0.45);
+  stroke-width: 2;
+}
+
+/* ---------- 0 · beyond a number on the scale: the surface, and what lies beneath it ---------- */
+.wc-tree[data-a="0"] .t-line {
+  stroke: #fff;
+  stroke-dasharray: none;
+}
+.wc-tree[data-a="0"] .t-pad {
+  fill: #fff;
+  stroke: #fff;
+}
+.wc-tree[data-a="0"] .t-dial,
+.wc-tree[data-a="0"] .t-needle {
+  stroke: var(--px-teal);
+}
+.wc-tree[data-a="0"] .t-needle {
+  transform-origin: 50% 100%;
+  animation: tNeedle 3.6s ease-in-out infinite;
+}
+.wc-tree[data-a="0"] .t-root {
+  stroke: rgba(143, 230, 234, 0.75);
+}
+.wc-tree[data-a="0"] .t-tip {
+  fill: var(--px-neon);
+  stroke: var(--px-neon);
+}
+@keyframes tNeedle {
+  0%,
+  100% {
+    transform: rotate(-40deg);
+  }
+  50% {
+    transform: rotate(40deg);
+  }
+}
+
+/* ---------- 1 · seven biological domains: the seven root tips wake one after another ---------- */
+.wc-tree[data-a="1"] .t-root {
+  stroke: rgba(143, 230, 234, 0.55);
+}
+.wc-tree[data-a="1"] .t-tip {
+  stroke: var(--px-neon);
+  animation: tTip 4.2s ease-in-out infinite;
+}
+@keyframes tTip {
+  0%,
+  26%,
+  100% {
+    fill: var(--px-teal);
+    transform: scale(1);
+  }
+  10% {
+    fill: var(--px-neon);
+    transform: scale(1.5);
+  }
+}
+
+/* ---------- 2 · deterministic scores: the trunk, calibrated ---------- */
+.wc-tree[data-a="2"] .t-body {
+  fill: rgba(143, 230, 234, 0.3);
+  stroke: #fff;
+}
+.wc-tree[data-a="2"] .t-tick,
+.wc-tree[data-a="2"] .t-brk {
+  stroke: var(--px-neon);
+}
+.wc-tree[data-a="2"] .t-tick {
+  animation: tTick 0.6s var(--px-ease) both;
+}
+.wc-tree[data-a="2"] .t-knob {
+  fill: var(--px-neon);
+  stroke: #fff;
+  animation: tKnob 4.4s ease-in-out infinite;
+}
+@keyframes tTick {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+@keyframes tKnob {
+  0%,
+  100% {
+    transform: translateY(-14px);
+  }
+  50% {
+    transform: translateY(16px);
+  }
+}
+
+/* ---------- 3 · your report: nineteen leaves ---------- */
+.wc-tree[data-a="3"] .t-leaf {
+  stroke: #fff;
+  animation: tLeaf 4.6s ease-in-out infinite;
+}
+.wc-tree[data-a="3"] .t-body {
+  stroke: rgba(255, 255, 255, 0.8);
+}
+@keyframes tLeaf {
+  0%,
+  34%,
+  100% {
+    fill: rgba(143, 230, 234, 0.35);
+    transform: scale(1);
+  }
+  14% {
+    fill: var(--px-neon);
+    transform: scale(1.35);
+  }
+}
+
+/* ---------- 4 · private by design: a ring closes around the whole tree ---------- */
+.wc-tree[data-a="4"] .t-ring {
+  stroke: rgba(143, 230, 234, 0.8);
+  stroke-width: 2;
+  animation: tTurn 50s linear infinite;
+}
+.wc-tree[data-a="4"] .t-badge {
+  fill: #fff;
+  stroke: #fff;
+}
+.wc-tree[data-a="4"] .t-lock {
+  fill: var(--px-teal);
+}
+.wc-tree[data-a="4"] .t-shackle {
+  stroke: var(--px-teal);
+}
+@keyframes tTurn {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- 5 · educational, not diagnostic: a conversation, and the steps that follow ---------- */
+.wc-tree[data-a="5"] .t-bubble {
+  stroke: #fff;
+  animation: tPop 0.8s var(--px-spring) both;
+}
+.wc-tree[data-a="5"] .t-bubble-fill {
+  fill: var(--px-neon);
+  stroke: var(--px-neon);
+}
+.wc-tree[data-a="5"] .t-bline {
+  stroke: #fff;
+}
+.wc-tree[data-a="5"] .t-bline-w {
+  stroke: var(--px-teal);
+}
+.wc-tree[data-a="5"] .t-steps {
+  stroke: var(--px-neon);
+}
+.wc-tree[data-a="5"] .t-step {
+  stroke: var(--px-neon);
+  animation: tPop 0.6s var(--px-spring) both;
+}
+@keyframes tPop {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wc-tree * {
+    animation: none !important;
+  }
+}
+
+/* only the part being spoken about is fully drawn; the rest of the tree stays quiet */
+.t-talk {
+  opacity: 0;
+}
+.wc-tree[data-a="5"] .t-talk {
+  opacity: 1;
+}
+.t-shield {
+  opacity: 0.4;
+}
+.wc-tree[data-a="4"] .t-shield {
+  opacity: 1;
+}
+.t-tick,
+.t-brk,
+.t-knob {
+  opacity: 0;
+}
+.wc-tree[data-a="2"] .t-tick,
+.wc-tree[data-a="2"] .t-brk,
+.wc-tree[data-a="2"] .t-knob {
+  opacity: 1;
+}
+.t-pad,
+.t-dial,
+.t-needle {
+  opacity: 0.55;
+}
+.wc-tree[data-a="0"] .t-pad,
+.wc-tree[data-a="0"] .t-dial,
+.wc-tree[data-a="0"] .t-needle {
+  opacity: 1;
+}
+.sx-wc .wc-show {
+  max-width: 1200px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+}
+.wc-vis-wrap {
+  inset: 4% 4% 8%;
+}
