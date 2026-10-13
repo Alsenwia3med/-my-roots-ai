@@ -581,6 +581,9 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
             </div>
           </div>
         </header>{" "}
+        <div className={"lxhs"} aria-hidden={"true"}>
+          <Biosignal className={"lxhs-signal"} />
+        </div>
         <GovernedAI />
         <section
           className={"deep sx sx-how"}
