@@ -16,8 +16,7 @@
   display: none !important;
 }
 .sx-dom .stage .deco > div:not([class]) {
-  display: block !important;
-  border-color: rgba(5, 85, 100, 0.22) !important;
+  display: none !important;
 }
 
 /* the slow drift, moved onto `translate` so a box can still grow on top of it when it is reached */
@@ -39,57 +38,51 @@
     translate: 0 7px;
   }
 }
-.v1.js .stage.seen .dc.fl {
+.v1.js .stage[data-in] .dc.fl {
   animation:
-    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
-    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards,
-    dcDrift 7s ease-in-out calc(var(--at) + 0.8s) infinite;
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift 22s ease-in-out calc(var(--at) + 1.15s) infinite;
 }
-.v1.js .stage.seen .dc.fl2 {
+.v1.js .stage[data-in] .dc.fl2 {
   animation:
-    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
-    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards,
-    dcDrift2 9s ease-in-out calc(var(--at) + 0.8s) infinite;
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift2 27s ease-in-out calc(var(--at) + 1.15s) infinite;
 }
-.v1.js .stage.seen .dc.fl3 {
+.v1.js .stage[data-in] .dc.fl3 {
   animation:
-    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
-    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards,
-    dcDrift 11s ease-in-out calc(var(--at) + 0.8s) infinite;
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift 33s ease-in-out calc(var(--at) + 1.15s) infinite;
 }
-.v1.js .stage.seen .dc.fl4 {
+.v1.js .stage[data-in] .dc.fl4 {
   animation:
-    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
-    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards,
-    dcDrift2 8s ease-in-out calc(var(--at) + 0.8s) infinite;
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift2 25s ease-in-out calc(var(--at) + 1.15s) infinite;
 }
 
 /* the pointer is on the field: only the slow drift holds still. The birth of a box is never paused,
    so a box can never be caught half-born under the pointer. */
-.sx-dom .stage:hover .dc.fl,
-.sx-dom .stage:hover .dc.fl2,
-.sx-dom .stage:hover .dc.fl3,
-.sx-dom .stage:hover .dc.fl4,
-.sx-dom .stage:focus-within .dc.fl,
-.sx-dom .stage:focus-within .dc.fl2,
-.sx-dom .stage:focus-within .dc.fl3,
-.sx-dom .stage:focus-within .dc.fl4 {
+.sx-dom .stage .dc:hover,
+.sx-dom .stage .dc:focus-within {
   animation-play-state: running, running, paused !important;
 }
 
 /* born sooner: the boxes leave the core almost as soon as the field is in view */
-.v1.js .stage.seen .dc {
-  --at: calc(0s + var(--i) * 55ms);
+.v1.js .stage[data-in] .dc {
+  --at: 0.45s;
 }
 .js .sx-dom .stage.seen .dc {
   transition-delay: 0s !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .v1.js .stage.seen .dc.fl,
-  .v1.js .stage.seen .dc.fl2,
-  .v1.js .stage.seen .dc.fl3,
-  .v1.js .stage.seen .dc.fl4 {
+  .v1.js .stage[data-in] .dc.fl,
+  .v1.js .stage[data-in] .dc.fl2,
+  .v1.js .stage[data-in] .dc.fl3,
+  .v1.js .stage[data-in] .dc.fl4 {
     animation: none !important;
   }
 }
@@ -118,13 +111,10 @@
 .v1.js .stage .dline {
   opacity: 0;
 }
-.v1.js .stage.seen .dline {
+.v1.js .stage[data-in] .dline {
   opacity: 1;
   transition: opacity 0.9s ease;
   transition-delay: calc(0.45s + var(--i) * 110ms);
-}
-.sx-dom .stage:hover .dline {
-  animation-play-state: paused;
 }
 @media (prefers-reduced-motion: reduce) {
   .sx-dom .dline {
@@ -140,37 +130,223 @@
   0% {
     opacity: 0;
     translate: var(--fx) var(--fy);
-    scale: 0.12;
-    filter: blur(9px) brightness(1.5);
+    scale: 0.1;
+    z-index: 2;
+    filter: brightness(1.4);
     border-radius: 50%;
   }
-  22% {
+  10% {
     opacity: 1;
   }
   58% {
     translate: 0 0;
-    scale: 1.045;
-    filter: blur(0) brightness(1.06);
+    scale: 1.04;
+    z-index: 2;
+    filter: brightness(1.05);
     border-radius: clamp(14px, 1.4cqw, 22px);
   }
   100% {
     opacity: 1;
     translate: 0 0;
     scale: 1;
+    z-index: 4;
     filter: none;
   }
 }
-.v1.js .stage.seen .dline {
-  transition: opacity 0.5s ease;
-  transition-delay: calc(0.05s + var(--i) * 55ms);
+.v1.js .stage[data-in] .dline {
+  transition: opacity 0.6s ease;
+  transition-delay: 0.9s;
 }
-.v1.js .stage.seen .ray {
+.v1.js .stage[data-in] .ray {
   transition-delay: calc(0.05s + var(--i) * 55ms);
 }
 
 /* the domain without a drift class is born the same way */
-.v1.js .stage.seen .dc {
+.v1.js .stage[data-in] .dc {
   animation:
-    dcEmerge 0.8s cubic-bezier(0.2, 0.9, 0.25, 1) var(--at) backwards,
-    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.45s) backwards;
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift 30s ease-in-out calc(var(--at) + 1.15s) infinite;
+}
+
+/* ==========================================================================
+   An order to the birth: the core stands still first; then the domains leave it one at a time,
+   the right column first (top to bottom), then the one below, then the left column from the
+   bottom up. Once out, each drifts slowly; reach for one and it alone holds still and answers.
+   ========================================================================== */
+.sx-dom .dm-4 {
+  --ord: 0;
+}
+.sx-dom .dm-5 {
+  --ord: 1;
+}
+.sx-dom .dm-6 {
+  --ord: 2;
+}
+.sx-dom .dm-3 {
+  --ord: 3;
+}
+.sx-dom .dm-2 {
+  --ord: 4;
+}
+.sx-dom .dm-1 {
+  --ord: 5;
+}
+.sx-dom .dm-0 {
+  --ord: 6;
+}
+
+/* the words come out with the box, as one: nothing waits behind the card */
+.v1.js .stage .dc > *,
+.v1.js .stage[data-in] .dc > *,
+.v1.js .stage[data-in] .dc > :nth-child(1),
+.v1.js .stage[data-in] .dc > :nth-child(2),
+.v1.js .stage[data-in] .dc > :nth-child(3) {
+  opacity: 1;
+  translate: 0 0;
+  transition: none;
+}
+.v1.js .stage[data-in] .dc::after {
+  animation-delay: calc(var(--at) + 0.8s);
+}
+
+/* ==========================================================================
+   A slower, softer drift: a gentle loop with a little sideways breath, so a box never seems to
+   rise and fall — it hangs and floats.
+   ========================================================================== */
+@keyframes dcDrift {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  25% {
+    translate: 3px -6px;
+  }
+  50% {
+    translate: 0 -9px;
+  }
+  75% {
+    translate: -3px -4px;
+  }
+}
+@keyframes dcDrift2 {
+  0%,
+  100% {
+    translate: 0 -4px;
+  }
+  25% {
+    translate: -3px 2px;
+  }
+  50% {
+    translate: 0 6px;
+  }
+  75% {
+    translate: 3px 0;
+  }
+}
+
+/* each domain drifts on its own slow loop, so they never move together */
+.v1.js .stage[data-in] .dc.dm-0 {
+  animation:
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift 30s ease-in-out calc(var(--at) + 1.15s) infinite;
+}
+.v1.js .stage[data-in] .dc.dm-1 {
+  animation:
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift2 25s ease-in-out calc(var(--at) + 1.15s) infinite;
+}
+.v1.js .stage[data-in] .dc.dm-2 {
+  animation:
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift 34s ease-in-out calc(var(--at) + 1.15s) infinite;
+}
+.v1.js .stage[data-in] .dc.dm-3 {
+  animation:
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift2 27s ease-in-out calc(var(--at) + 1.15s) infinite;
+}
+.v1.js .stage[data-in] .dc.dm-4 {
+  animation:
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift 31s ease-in-out calc(var(--at) + 1.15s) infinite;
+}
+.v1.js .stage[data-in] .dc.dm-5 {
+  animation:
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift2 23s ease-in-out calc(var(--at) + 1.15s) infinite;
+}
+.v1.js .stage[data-in] .dc.dm-6 {
+  animation:
+    dcEmerge 1.15s cubic-bezier(0.22, 0.85, 0.25, 1) var(--at) backwards,
+    lx-dc-glint 1.6s var(--lx-ease) calc(var(--at) + 0.7s) backwards,
+    dcDrift 29s ease-in-out calc(var(--at) + 1.15s) infinite;
+}
+
+/* ==========================================================================
+   Every time, not only the first: while the field is in view the boxes are out; when you scroll
+   away they slip back into the circle, and they come out again on your return.
+   ========================================================================== */
+.v1.js .sx-dom .stage:not([data-in]) .dc {
+  opacity: 0 !important;
+  translate: var(--fx, 0px) var(--fy, 0px) !important;
+  scale: 0.1 !important;
+  z-index: 2 !important;
+  animation: none !important;
+  transition:
+    opacity 0.5s ease 0.1s,
+    translate 0.6s cubic-bezier(0.5, 0, 0.2, 1),
+    scale 0.6s cubic-bezier(0.5, 0, 0.2, 1) !important;
+}
+.v1.js .sx-dom .stage[data-in] .dc {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+.v1.js .sx-dom .stage:not([data-in]) .dline {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transition-delay: 0s;
+}
+
+/* ==========================================================================
+   The green wave that used to swell far past the circle is now a quiet ring that stays close
+   around it — a thread of green that goes round and round.
+   ========================================================================== */
+.sx-dom .stage .core::after,
+.sx-dom .stage.seen .core::after {
+  content: "";
+  position: absolute;
+  inset: -13px;
+  padding: 2.5px;
+  border: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from var(--lxg-ang, 0deg),
+    transparent 0%,
+    transparent 50%,
+    rgba(25, 167, 184, 0.22) 66%,
+    #19a7b8 88%,
+    #8fe6ea 97%,
+    transparent 100%
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  opacity: 1;
+  transform: none;
+  animation: lxgSpin 2.4s linear infinite !important;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-dom .stage .core::after,
+  .sx-dom .stage.seen .core::after {
+    animation: none !important;
+  }
 }
