@@ -1301,8 +1301,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     >
                       <defs>
                         <linearGradient id={"v1g"} x1={"0"} y1={"0"} x2={"1"} y2={"1"}>
-                          <stop offset={"0"} stopColor={"#19A7B8"}></stop>
-                          <stop offset={"1"} stopColor={"#03404B"}></stop>
+                          <stop offset={"0"} stopColor={"#C8F8FF"}></stop>
+                          <stop offset={"1"} stopColor={"#13BFD6"}></stop>
                         </linearGradient>
                       </defs>{" "}
                       <circle
@@ -1327,7 +1327,20 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                         pathLength={"100"}
                         transform={"rotate(-90 150 150)"}
                         style={{ filter: "drop-shadow(0 0 10px rgba(25,167,184,0.7))" }}
-                      ></circle>
+                      ></circle>{" "}
+                      <g className={"arc-run"} style={{ transformOrigin: "150px 150px" }}>
+                        <circle
+                          cx={"150"}
+                          cy={"150"}
+                          r={"116"}
+                          stroke={"#ffffff"}
+                          strokeWidth={"6"}
+                          strokeLinecap={"round"}
+                          pathLength={"100"}
+                          strokeDasharray={"7 93"}
+                          transform={"rotate(-90 150 150)"}
+                        ></circle>
+                      </g>
                     </svg>{" "}
                     <div style={{ position: "absolute", inset: "0", display: "flex", alignItems: "center", justifyContent: "center" }}>
                       <span

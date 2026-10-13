@@ -1040,3 +1040,152 @@
   color: rgba(5, 85, 100, 0.5);
   -webkit-text-fill-color: rgba(5, 85, 100, 0.5);
 }
+
+/* ==========================================================================
+   The score ring, as frosted glass: a clear disc with a bright rim, fine ticks, a glowing white
+   arc with a gleam that runs along it, and a white figure.
+   ========================================================================== */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.22), transparent 55%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.38),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 30px 50px -26px rgba(1, 14, 18, 0.8);
+}
+/* fine ticks inside the rim */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"]::after {
+  display: block;
+  content: "";
+  position: absolute;
+  inset: 3.5%;
+  border-radius: 50%;
+  background: repeating-conic-gradient(rgba(255, 255, 255, 0.5) 0 0.6deg, transparent 0.6deg 6deg);
+  -webkit-mask: radial-gradient(circle, transparent calc(100% - 7px), #000 calc(100% - 6px));
+  mask: radial-gradient(circle, transparent calc(100% - 7px), #000 calc(100% - 6px));
+  pointer-events: none;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle[stroke="#DCE8EA"] {
+  stroke: rgba(255, 255, 255, 0.14);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle.arc61 {
+  stroke: #ffffff !important;
+  filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 14px rgba(143, 230, 234, 0.8)) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .arc-run {
+  display: block;
+  opacity: 0;
+  animation: arcRun 3.2s cubic-bezier(0.45, 0, 0.35, 1) 2.8s infinite;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .arc-run circle {
+  stroke: #8fe6ea;
+  filter: drop-shadow(0 0 6px #8fe6ea);
+}
+@keyframes arcRun {
+  0% {
+    rotate: 0deg;
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+  100% {
+    rotate: 188deg;
+    opacity: 0;
+  }
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt {
+  background: none !important;
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  text-shadow: 0 2px 18px rgba(143, 230, 234, 0.45);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt .rp-of {
+  color: rgba(255, 255, 255, 0.6);
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.6);
+}
+@media (prefers-reduced-motion: reduce) {
+  .sx-rep .rp-frame .gb > .rvi:nth-child(1) .arc-run {
+    animation: none;
+  }
+}
+
+/* the arc in luminous green */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle.arc61 {
+  stroke: #3df5c2 !important;
+  filter: drop-shadow(0 0 3px rgba(61, 245, 194, 0.95)) drop-shadow(0 0 14px rgba(25, 230, 170, 0.7)) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .arc-run circle {
+  stroke: #d9fff3;
+  filter: drop-shadow(0 0 6px #7dffd8);
+}
+
+/* ==========================================================================
+   The score ring, recoloured as a whole: an obsidian-emerald disc that stands off the teal,
+   a mint rim, a track of dark glass, and an arc that runs from pale mint into deep emerald.
+   ========================================================================== */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  background:
+    radial-gradient(circle at 50% -6%, rgba(120, 255, 214, 0.2), transparent 58%),
+    radial-gradient(circle at 50% 55%, #06343c 0%, #031f26 62%, #01121a 100%);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(150, 255, 225, 0.32),
+    inset 0 -18px 30px -18px rgba(16, 213, 149, 0.22),
+    0 0 0 8px rgba(3, 31, 38, 0.38),
+    0 34px 54px -24px rgba(0, 8, 11, 0.9);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"]::after {
+  background: repeating-conic-gradient(rgba(150, 255, 225, 0.38) 0 0.6deg, transparent 0.6deg 6deg);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle[stroke="#DCE8EA"] {
+  stroke: rgba(255, 255, 255, 0.07);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle.arc61 {
+  stroke: url(#v1g) !important;
+  filter: drop-shadow(0 0 10px rgba(16, 213, 149, 0.75)) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .arc-run circle {
+  stroke: #ffffff;
+  filter: drop-shadow(0 0 7px #9dffe0);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt {
+  text-shadow: 0 0 24px rgba(61, 245, 194, 0.4);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt .rp-of {
+  color: rgba(160, 255, 230, 0.6);
+  -webkit-text-fill-color: rgba(160, 255, 230, 0.6);
+}
+
+/* turquoise instead of green */
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+  background:
+    radial-gradient(circle at 50% -6%, rgba(110, 232, 245, 0.2), transparent 58%),
+    radial-gradient(circle at 50% 55%, #06323f 0%, #03202b 62%, #011219 100%);
+  box-shadow:
+    inset 0 0 0 1px rgba(140, 235, 248, 0.32),
+    inset 0 -18px 30px -18px rgba(19, 191, 214, 0.22),
+    0 0 0 8px rgba(3, 32, 43, 0.38),
+    0 34px 54px -24px rgba(0, 8, 11, 0.9);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"]::after {
+  background: repeating-conic-gradient(rgba(140, 235, 248, 0.38) 0 0.6deg, transparent 0.6deg 6deg);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) circle.arc61 {
+  filter: drop-shadow(0 0 10px rgba(25, 190, 214, 0.8)) !important;
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .arc-run circle {
+  filter: drop-shadow(0 0 7px #8fe6ea);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt {
+  text-shadow: 0 0 24px rgba(60, 215, 235, 0.4);
+}
+.sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt .rp-of {
+  color: rgba(165, 238, 248, 0.6);
+  -webkit-text-fill-color: rgba(165, 238, 248, 0.6);
+}
