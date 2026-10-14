@@ -1,4 +1,4 @@
-// DESIGN EXPLORATION ONLY — /design. Four alternative designs per page, for ROOTS to choose from.
+// DESIGN EXPLORATION ONLY — /design. Three flagship designs per page, for ROOTS to choose from.
 // Nothing here replaces or changes an existing page; remove this folder (and components/design)
 // before merging to production.
 

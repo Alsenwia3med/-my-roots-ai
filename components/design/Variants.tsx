@@ -1,347 +1,339 @@
 /**
- * The four page designs. Each takes the same page model and sets it differently: its own hero,
- * its own arrangement of sections, its own use of the Lux motion hooks (data-reveal, data-tilt,
- * data-progress, data-magnetic). Copy is never touched here.
+ * The three flagship designs. Each begins with an idea:
+ *
+ *   1 Maison         quiet luxury. A page set like a private atelier journal: serif display
+ *                    type, champagne hairlines, a root that grows down the margin as you read.
+ *   2 Constellation  the seven connected domains as a living observatory. The page turns the
+ *                    orrery to the next node as each chapter comes into view.
+ *   3 Lumière        luminous glass. Light follows the visitor; cards answer the pointer with
+ *                    a glow that traces their edge and a depth that tilts.
+ *
+ * The page model is shared; copy is never touched here.
  */
 
-import { Fragment } from 'react';
-import { Quote } from 'lucide-react';
-import { IconTile, TONES } from '@/components/lux/Icon';
+import { Fragment, type CSSProperties } from 'react';
 import { Biosignal } from '@/components/lux/Instruments';
-import { ExplorationFlag, RailNav, Switcher } from './Interactive';
-import { Closing, HeroCopy, IntroBlock, SceneStage, SectionBody, SectionTitle, Slot, iconAt } from './Parts';
+import { Ambient, DotNav, ExplorationFlag, ParticleField, ScrollyWrap, Switcher } from './Interactive';
+import { Body, Closing, Diamond, Display, Heading, IntroText, Marquee, SceneStage, Slot, hasTitle, numeralFor, rowsOf } from './Parts';
 import type { DDoc, DSection, VariantId } from './types';
 
-const pad = (n: number) => String(n).padStart(2, '0');
+const d = (ms: number) => ({ ['--d' as string]: `${ms}ms` }) as CSSProperties;
 
-/** The big numeral: a stage heading ("01 — …") keeps its own number, anything else its position. */
-function numeralFor(s: DSection) {
-  const m = s.heading?.match(/^(\d{2}) — /);
-  return m ? m[1] : pad(s.num);
-}
+/* ================================================================== 1 · MAISON */
 
-/** Sections the source sets as a pair sit side by side. */
-function rowsOf(sections: DSection[]) {
-  const rows: DSection[][] = [];
-  for (const s of sections) {
-    const last = rows[rows.length - 1];
-    if (s.half && last && last.length === 1 && last[0].half) last.push(s);
-    else rows.push([s]);
-  }
-  return rows;
-}
-
-const hasTitle = (s: DSection) => Boolean(s.heading || s.eyebrow);
-
-/* ================================================================== 1 · Chapter Rail */
-
-function Chapter({ s }: { s: DSection }) {
+function Folio({ s, first }: { s: DSection; first: boolean }) {
   return (
-    <section id={s.id} className="dz-ch" data-tone={s.tone} data-bare={hasTitle(s) ? undefined : 'true'} data-reveal="">
-      <div className="dz-ch-num" aria-hidden="true">
-        {numeralFor(s)}
+    <section id={s.id} className="mz-folio" data-tone={s.tone} data-first={first ? 'true' : undefined} data-bare={hasTitle(s) ? undefined : 'true'}>
+      <div className="mz-folio-side" aria-hidden="true">
+        <span className="mz-numeral" data-progress="">
+          {numeralFor(s)}
+        </span>
+        <span className="mz-node">
+          <Diamond />
+        </span>
       </div>
-      <div className="dz-ch-main">
-        <SectionTitle s={s} />
-        <SectionBody s={s} icons />
+      <div className="mz-folio-main">
+        <Heading s={s} />
+        <Body s={s} />
       </div>
     </section>
   );
 }
 
-function ChapterRail({ doc }: { doc: DDoc }) {
+function Maison({ doc }: { doc: DDoc }) {
   const all = [...doc.sections, ...doc.after];
-  const rail = all.filter(hasTitle).map((s) => ({ id: s.id, label: s.heading ?? s.eyebrow ?? '', num: numeralFor(s) }));
+  const titles = all.map((s) => s.heading).filter(Boolean) as string[];
   return (
-    <div className="lx dz dz-v1">
-      <section className="dz-hero">
-        <div className="dz-hero-grid lx-wrap">
-          <HeroCopy doc={doc} />
-          <SceneStage doc={doc} />
+    <div className="lx mz mz-maison">
+      <Ambient tone="champagne" />
+
+      <section className="mz-hero lx-wrap">
+        <div className="mz-hero-copy">
+          <p className="mz-kicker" data-reveal="">
+            <Diamond />
+            {doc.kicker}
+          </p>
+          <Display text={doc.title} as="h1" className="mz-h1" />
+          {doc.tagline ? (
+            <p className="mz-tagline" data-reveal="" style={d(260)}>
+              {doc.tagline}
+            </p>
+          ) : null}
         </div>
-        <Biosignal className="dz-hero-signal" />
+        <figure className="mz-plate" data-tilt="3" data-reveal="scale" style={d(120)}>
+          <span className="mz-plate-frame" aria-hidden="true" />
+          <span className="mz-plate-frame mz-plate-frame--in" aria-hidden="true" />
+          <span className="mz-plate-orbit" aria-hidden="true" />
+          <SceneStage doc={doc} />
+        </figure>
       </section>
 
-      <div className="dz-layout lx-wrap">
-        {rail.length > 2 ? (
-          <aside className="dz-rail">
-            <RailNav items={rail} />
-          </aside>
-        ) : null}
-        <div className="dz-chapters" data-solo={rail.length > 2 ? undefined : 'true'}>
-          {doc.sections.map((s) => (
-            <Chapter s={s} key={s.id} />
-          ))}
-          <Slot doc={doc} />
-          {doc.after.map((s) => (
-            <Chapter s={s} key={s.id} />
-          ))}
-        </div>
+      <div className="mz-intro-wrap lx-wrap">
+        <IntroText doc={doc} columns />
       </div>
+
+      <Marquee items={titles} />
+
+      <div className="mz-journal lx-wrap" data-progress="">
+        <span className="mz-root" aria-hidden="true">
+          <span className="mz-root-fill" />
+          <span className="mz-bead" />
+        </span>
+        {doc.sections.map((s, i) => (
+          <Folio s={s} first={i === 0} key={s.id} />
+        ))}
+        <Slot doc={doc} />
+        {doc.after.map((s) => (
+          <Folio s={s} first={false} key={s.id} />
+        ))}
+      </div>
+
       <Closing doc={doc} />
     </div>
   );
 }
 
-/* ================================================================== 2 · Glass Lab */
+/* ================================================================== 2 · CONSTELLATION */
 
-function Panel({ s, index }: { s: DSection; index: number }) {
+const CX = 300;
+const CY = 300;
+const NODES = Array.from({ length: 7 }, (_, i) => {
+  const a = (i / 7) * Math.PI * 2 - Math.PI / 2;
+  const r = i % 2 ? 214 : 186;
+  return { n: i + 1, x: CX + Math.cos(a) * r, y: CY + Math.sin(a) * r };
+});
+const FLECKS = Array.from({ length: 16 }, (_, i) => {
+  const a = i * 2.399963;
+  const r = 70 + ((i * 53) % 230);
+  return { x: CX + Math.cos(a) * r, y: CY + Math.sin(a) * r, r: 1 + (i % 3) * 0.7, t: (i * 0.7) % 6 };
+});
+
+/** The observatory: a core, seven nodes, hairline orbits, light running along the lines. */
+function OrbitArt() {
+  const poly = NODES.map((p) => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(' ');
   return (
-    <section id={s.id} className="dz-panel" data-tone={s.tone} data-side={index % 2 ? 'r' : 'l'} data-reveal="">
-      <span className="dz-panel-glow" aria-hidden="true" />
-      <header className="dz-panel-head">
-        <span className="dz-chip" aria-hidden="true">
+    <svg className="cs-art" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+      <defs>
+        <radialGradient id="cs-core" cx="40%" cy="35%" r="70%">
+          <stop offset="0%" stopColor="#ffffff" />
+          <stop offset="38%" stopColor="#bff3f6" />
+          <stop offset="100%" stopColor="#19a7b8" />
+        </radialGradient>
+        <radialGradient id="cs-halo" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#8fe6ea" stopOpacity="0.55" />
+          <stop offset="100%" stopColor="#8fe6ea" stopOpacity="0" />
+        </radialGradient>
+        <filter id="cs-glow" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur stdDeviation="6" />
+        </filter>
+      </defs>
+
+      <circle className="cs-halo" cx={CX} cy={CY} r="290" fill="url(#cs-halo)" />
+
+      <g className="cs-layer cs-layer--far">
+        {FLECKS.map((f, i) => (
+          <circle key={i} className="cs-fleck" cx={f.x} cy={f.y} r={f.r} style={{ animationDelay: `${-f.t}s` }} />
+        ))}
+      </g>
+
+      <g className="cs-ring-spin">
+        <circle className="cs-orbit" cx={CX} cy={CY} r="276" />
+        <circle className="cs-orbit cs-orbit--dash" cx={CX} cy={CY} r="238" />
+        <circle className="cs-orbit" cx={CX} cy={CY} r="150" />
+        <circle className="cs-orbit cs-orbit--dash" cx={CX} cy={CY} r="96" />
+      </g>
+
+      <g className="cs-layer cs-layer--mid">
+        <g className="cs-rot">
+          <polygon className="cs-poly" points={poly} />
+          {NODES.map((p, i) => {
+            const q = NODES[(i + 2) % 7];
+            return <line key={`c${i}`} className="cs-chord" x1={p.x} y1={p.y} x2={q.x} y2={q.y} />;
+          })}
+          {NODES.map((p) => (
+            <Fragment key={p.n}>
+              <line className="cs-spoke" x1={CX} y1={CY} x2={p.x} y2={p.y} data-i={p.n} />
+              <line className="cs-spoke cs-spoke--run" x1={CX} y1={CY} x2={p.x} y2={p.y} data-i={p.n} pathLength={1} />
+            </Fragment>
+          ))}
+          {NODES.map((p) => (
+            <g className="cs-node" data-i={p.n} key={p.n} transform={`translate(${p.x.toFixed(1)} ${p.y.toFixed(1)})`}>
+              <g className="cs-node-in">
+                <circle className="cs-node-ring" r="20" />
+                <circle className="cs-node-pulse" r="14" />
+                <circle className="cs-node-dot" r="7" />
+                <text className="cs-node-n" y="-30" textAnchor="middle">
+                  {p.n}
+                </text>
+              </g>
+            </g>
+          ))}
+        </g>
+      </g>
+
+      <g className="cs-layer cs-layer--near">
+        <circle className="cs-core-glow" cx={CX} cy={CY} r="46" fill="url(#cs-halo)" filter="url(#cs-glow)" />
+        <circle className="cs-core" cx={CX} cy={CY} r="30" fill="url(#cs-core)" />
+        <circle className="cs-core-ring" cx={CX} cy={CY} r="44" />
+      </g>
+    </svg>
+  );
+}
+
+function Panel({ s, index, flat = false }: { s: DSection; index?: number; flat?: boolean }) {
+  return (
+    <section id={s.id} className={`cs-panel${flat ? ' cs-panel--flat' : ''}`} data-panel={index} data-tone={s.tone}>
+      <header className="cs-panel-head">
+        <span className="cs-chip" aria-hidden="true">
           {numeralFor(s)}
         </span>
         <div>
-          <SectionTitle s={s} />
+          <Heading s={s} />
         </div>
       </header>
-      <SectionBody s={s} icons />
+      <Body s={s} />
     </section>
   );
 }
 
-function GlassLab({ doc }: { doc: DDoc }) {
-  const before = rowsOf(doc.sections);
-  const after = rowsOf(doc.after);
-  let k = 0;
-  const render = (rows: DSection[][]) =>
-    rows.map((row) => (
-      <Fragment key={row[0].id}>
-        {k > 0 && k % 3 === 0 ? <Biosignal className="dz-divider" /> : null}
-        <div className="dz-row" data-split={row.length > 1 ? 'true' : undefined}>
-          {row.map((s) => (
-            <Panel s={s} index={k++} key={s.id} />
-          ))}
-        </div>
-      </Fragment>
-    ));
+function Constellation({ doc }: { doc: DDoc }) {
+  const stages = doc.sections;
   return (
-    <div className="lx dz dz-v2">
-      <div className="dz-v2-bg" aria-hidden="true">
-        <span className="dz-grid" />
-        <span className="dz-orb dz-orb--a" />
-        <span className="dz-orb dz-orb--b" />
-      </div>
-      <section className="dz-hero">
-        <div className="dz-hero-center lx-wrap">
-          <div className="dz-hero-scene">
-            <SceneStage doc={doc} />
-          </div>
-          <HeroCopy doc={doc} />
-        </div>
-      </section>
-      <div className="dz-panels lx-wrap">
-        {render(before)}
-        <Slot doc={doc} />
-        {render(after)}
-      </div>
-      <Closing doc={doc} />
-    </div>
-  );
-}
+    <div className="lx mz mz-const">
+      <Ambient />
 
-/* ================================================================== 3 · Editorial Spine */
-
-function SpineSection({ s }: { s: DSection }) {
-  return (
-    <article id={s.id} className="dz-ch" data-tone={s.tone} data-reveal="">
-      <span className="dz-node" aria-hidden="true">
-        <i />
-      </span>
-      <header>
-        <span className="dz-folio" aria-hidden="true">
-          {numeralFor(s)}
+      <section className="cs-hero lx-wrap">
+        <span className="cs-hero-rings" aria-hidden="true">
+          <i />
+          <i />
+          <i />
         </span>
-        <SectionTitle s={s} />
-        {s.sub ? (
-          <p className="dz-pull">
-            <Quote aria-hidden="true" size={26} strokeWidth={1.6} />
-            {s.sub}
+        <p className="mz-kicker" data-reveal="">
+          <Diamond />
+          {doc.kicker}
+        </p>
+        <Display text={doc.title} as="h1" className="mz-h1" />
+        {doc.tagline ? (
+          <p className="mz-tagline" data-reveal="" style={d(240)}>
+            {doc.tagline}
           </p>
         ) : null}
-      </header>
-      <SectionBody s={{ ...s, sub: undefined }} />
-    </article>
-  );
-}
-
-function EditorialSpine({ doc }: { doc: DDoc }) {
-  return (
-    <div className="lx dz dz-v3">
-      <section className="dz-hero">
-        <div className="dz-hero-wrap lx-wrap">
-          <HeroCopy doc={doc} />
-          <div className="dz-orb">
-            <SceneStage doc={doc} />
-          </div>
-        </div>
-        <Biosignal className="dz-hero-signal" />
+        <IntroText doc={doc} columns />
+        <Biosignal className="cs-signal" />
       </section>
 
-      <div className="dz-spine-wrap lx-wrap" data-progress="">
-        <span className="dz-spine" aria-hidden="true">
-          <span className="dz-spine-fill" />
-        </span>
-        <div className="dz-column">
-          {doc.sections.map((s) => (
-            <SpineSection s={s} key={s.id} />
-          ))}
+      <ScrollyWrap count={stages.length}>
+        <div className="cs-grid lx-wrap">
+          <aside className="cs-stagecol" aria-hidden="true">
+            <div className="cs-sticky">
+              <div className="cs-orrery">
+                <OrbitArt />
+              </div>
+              <div className="cs-readout">
+                {stages.map((s, i) => (
+                  <span className="cs-num" data-n={i + 1} key={s.id}>
+                    {numeralFor(s)}
+                  </span>
+                ))}
+              </div>
+              <span className="cs-track">
+                {stages.map((s, i) => (
+                  <i key={s.id} data-n={i + 1} />
+                ))}
+              </span>
+            </div>
+          </aside>
+          <div className="cs-panels">
+            {stages.map((s, i) => (
+              <Panel s={s} index={i + 1} key={s.id} />
+            ))}
+          </div>
+        </div>
+      </ScrollyWrap>
+
+      {doc.slot !== 'none' || doc.after.length ? (
+        <div className="cs-below lx-wrap">
           <Slot doc={doc} />
-          {doc.after.map((s) => (
-            <SpineSection s={s} key={s.id} />
+          {rowsOf(doc.after).map((row) => (
+            <div className="cs-row" data-split={row.length > 1 ? 'true' : undefined} key={row[0].id}>
+              {row.map((s) => (
+                <Panel s={s} flat key={s.id} />
+              ))}
+            </div>
           ))}
         </div>
-      </div>
+      ) : null}
+
       <Closing doc={doc} />
     </div>
   );
 }
 
-/* ================================================================== 4 · Bento Prism */
+/* ================================================================== 3 · LUMIÈRE */
 
-function BentoSection({ s, index }: { s: DSection; index: number }) {
-  const hasCards = s.blocks.length > 0 || s.items.length > 0;
-  const tone = TONES[index % TONES.length];
+function Pane({ s }: { s: DSection }) {
   return (
-    <section id={s.id} className="dz-bsec" data-tone={s.tone} data-reveal="">
-      <div className="dz-bgrid" data-cards={hasCards ? 'true' : undefined}>
-        <div className="dz-tile dz-tile--head" data-tilt="3">
-          <span className="dz-tile-glow" aria-hidden="true" />
-          <IconTile icon={iconAt(`${s.heading ?? ''} ${s.eyebrow ?? ''}`, index)} tone={tone} />
-          <SectionTitle s={s} />
-          {s.sub ? <p className="dz-sub">{s.sub}</p> : null}
-          {s.lead ? <p className="dz-lead">{s.lead}</p> : null}
-        </div>
-
-        {s.paragraphs.length ? (
-          <div className="dz-tile dz-tile--text" data-tilt="2">
-            {s.paragraphs.map((p, i) => (
-              <p className="dz-p" key={i}>
-                {p}
-              </p>
-            ))}
-          </div>
-        ) : null}
-
-        {s.blocks.map((b, i) => (
-          <div className="dz-tile dz-tile--block" data-count={s.blocks.length} data-tilt="5" data-reveal="" key={b.label} style={{ ['--d' as string]: `${Math.min(i, 8) * 60}ms` }}>
-            <span className="dz-tile-glow" aria-hidden="true" />
-            <IconTile icon={iconAt(`${b.label} ${b.paragraphs[0] ?? ''}`, index + i + 1)} tone={TONES[(index + i + 1) % TONES.length]} size="sm" />
-            <h3 className="dz-label">{b.label}</h3>
-            {b.paragraphs.map((p, k) => (
-              <p className="dz-p" key={k}>
-                {p}
-              </p>
-            ))}
-          </div>
-        ))}
-
-        {s.items.length ? (
-          <div className="dz-tile dz-tile--items" data-tilt="2">
-            <ul className="dz-items" data-count={s.items.length} data-tone={s.tone}>
-              {s.items.map((item, i) => (
-                <li key={i} data-reveal="" style={{ ['--d' as string]: `${Math.min(i, 8) * 50}ms` }}>
-                  <span className="dz-tick" aria-hidden="true">
-                    {s.tone === 'limit' ? '✕' : '✓'}
-                  </span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-
-        {s.closing.length ? (
-          <div className="dz-tile dz-tile--closing" data-tilt="2">
-            {s.closing.map((p, i) => (
-              <p className="dz-p dz-closing" key={i}>
-                {p}
-              </p>
-            ))}
-          </div>
-        ) : null}
+    <section id={s.id} className="lm-card" data-tone={s.tone} data-tilt="2" data-reveal="" data-progress="">
+      <span className="lm-edge" aria-hidden="true" />
+      <span className="lm-sheen" aria-hidden="true" />
+      <span className="lm-big" aria-hidden="true">
+        {numeralFor(s)}
+      </span>
+      <div className="lm-card-in">
+        <Heading s={s} />
+        <Body s={s} />
       </div>
     </section>
   );
 }
 
-function BentoPrism({ doc }: { doc: DDoc }) {
-  const before = rowsOf(doc.sections);
-  const after = rowsOf(doc.after);
-  let k = 0;
-  const render = (rows: DSection[][]) =>
-    rows.map((row) => (
-      <div className="dz-row" data-split={row.length > 1 ? 'true' : undefined} key={row[0].id}>
+function Lumiere({ doc }: { doc: DDoc }) {
+  const nav = [...doc.sections, ...doc.after].filter((s) => s.heading).map((s) => ({ id: s.id, label: s.heading as string }));
+  const rows = (list: DSection[]) =>
+    rowsOf(list).map((row) => (
+      <div className="lm-row" data-split={row.length > 1 ? 'true' : undefined} key={row[0].id}>
         {row.map((s) => (
-          <BentoSection s={s} index={k++} key={s.id} />
+          <Pane s={s} key={s.id} />
         ))}
       </div>
     ));
   return (
-    <div className="lx dz dz-v4">
-      <section className="dz-hero">
-        <span className="dz-mesh" aria-hidden="true" />
-        <div className="dz-hero-grid lx-wrap">
-          <HeroCopy doc={doc} />
-          <div className="dz-prism" data-reveal="scale">
-            <span className="dz-prism-edge" aria-hidden="true" />
-            <SceneStage doc={doc} />
-          </div>
-        </div>
-      </section>
-      <div className="dz-bento lx-wrap">
-        {render(before)}
-        <Slot doc={doc} />
-        {render(after)}
+    <div className="lx mz mz-lum">
+      <Ambient />
+      <ParticleField />
+      <div className="lm-bg" aria-hidden="true">
+        <span className="lm-blob lm-blob--a" />
+        <span className="lm-blob lm-blob--b" />
+        <span className="lm-blob lm-blob--c" />
+        <span className="lm-beam" />
       </div>
-      <Closing doc={doc} />
-    </div>
-  );
-}
+      <DotNav items={nav} />
 
-/* ================================================================== 5 · Split Stage */
-
-function StageCard({ s }: { s: DSection }) {
-  return (
-    <section id={s.id} className="dz-card" data-tone={s.tone} data-reveal="" data-tilt="1">
-      <span className="dz-card-num" aria-hidden="true">
-        {numeralFor(s)}
-      </span>
-      <SectionTitle s={s} />
-      <SectionBody s={s} icons />
-    </section>
-  );
-}
-
-function SplitStage({ doc }: { doc: DDoc }) {
-  const hasSlot = doc.slot !== 'none';
-  return (
-    <div className="lx dz dz-v5">
-      <div className="dz-split lx-wrap">
-        <div className="dz-stick">
-          <HeroCopy doc={doc} compact />
+      <section className="lm-hero lx-wrap">
+        <div className="lm-scene">
           <SceneStage doc={doc} />
         </div>
-        <div className="dz-stream">
-          <IntroBlock doc={doc} />
-          {doc.sections.map((s) => (
-            <StageCard s={s} key={s.id} />
-          ))}
-          {!hasSlot ? doc.after.map((s) => <StageCard s={s} key={s.id} />) : null}
+        <div className="lm-hero-copy">
+          <p className="mz-kicker" data-reveal="">
+            <Diamond />
+            {doc.kicker}
+          </p>
+          <Display text={doc.title} as="h1" className="mz-h1" />
+          {doc.tagline ? (
+            <p className="mz-tagline" data-reveal="" style={d(240)}>
+              {doc.tagline}
+            </p>
+          ) : null}
+          <IntroText doc={doc} />
         </div>
+      </section>
+
+      <div className="lm-stack lx-wrap">
+        {rows(doc.sections)}
+        <Slot doc={doc} />
+        {rows(doc.after)}
       </div>
-      {hasSlot ? (
-        <div className="dz-below lx-wrap">
-          <Slot doc={doc} />
-          <div className="dz-stream dz-stream--wide">
-            {doc.after.map((s) => (
-              <StageCard s={s} key={s.id} />
-            ))}
-          </div>
-        </div>
-      ) : null}
+
       <Closing doc={doc} />
     </div>
   );
@@ -353,11 +345,9 @@ export default function DesignPage({ doc, variant }: { doc: DDoc; variant: Varia
   return (
     <>
       <ExplorationFlag />
-      {variant === 1 ? <ChapterRail doc={doc} /> : null}
-      {variant === 2 ? <GlassLab doc={doc} /> : null}
-      {variant === 3 ? <EditorialSpine doc={doc} /> : null}
-      {variant === 4 ? <BentoPrism doc={doc} /> : null}
-      {variant === 5 ? <SplitStage doc={doc} /> : null}
+      {variant === 1 ? <Maison doc={doc} /> : null}
+      {variant === 2 ? <Constellation doc={doc} /> : null}
+      {variant === 3 ? <Lumiere doc={doc} /> : null}
       <Switcher slug={doc.slug} current={variant} label={doc.label} />
     </>
   );

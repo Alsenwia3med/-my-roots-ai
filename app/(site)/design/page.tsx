@@ -1,4 +1,4 @@
-// DESIGN EXPLORATION ONLY — the gallery of every page and its four designs.
+// DESIGN EXPLORATION ONLY — the gallery of every page and its three flagship designs.
 
 import Link from 'next/link';
 import { DOCS } from '@/components/design/adapt';
@@ -8,20 +8,20 @@ const GROUPS = ['Pages', 'Forms and viewers', 'Legal'] as const;
 
 export default function DesignGallery() {
   return (
-    <div className="lx dz dz-gallery">
+    <div className="lx dz-gallery">
       <section className="dz-gallery-hero lx-wrap">
-        <p className="lx-kicker">Design options</p>
-        <h1 className="dz-h1">
-          <span className="dz-h1-in">Five designs for every page</span>
+        <p className="mz-kicker" style={{ color: '#86672d' }}>
+          Design options
+        </p>
+        <h1 className="dz-gallery-title">
+          Three designs for <em>every page</em>
         </h1>
         <ul className="dz-gallery-legend">
           {VARIANTS.map((v) => (
             <li key={v.id}>
               <b>{v.id}</b>
-              <span>
-                {v.name}
-                <small>{v.mood}</small>
-              </span>
+              <strong>{v.name}</strong>
+              <small>{v.mood}</small>
             </li>
           ))}
         </ul>

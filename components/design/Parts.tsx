@@ -1,14 +1,13 @@
 /**
- * Shared building blocks for the four design variants. Markup is the same everywhere; each
- * variant restyles it (and wraps it differently) through its own `.dz-vN` scope in design.css.
+ * Shared pieces of the flagship designs. Markup is common; each design dresses it in its own
+ * scope (.mz-maison, .mz-const, .mz-lum). No wording is created here: every string comes from
+ * the page model, which copies it from the v1.21 content modules.
  */
 
 import Link from 'next/link';
-import { Suspense, type ReactNode } from 'react';
-import { ArrowRight, Ban, Check, Compass, Feather, Gem, Layers, Orbit, Sparkles, Target, Waypoints, X, type LucideIcon } from 'lucide-react';
-import { IconTile, TONES } from '@/components/lux/Icon';
-import { iconFor } from '@/components/lux/iconMap';
-import { Biosignal, HudLens } from '@/components/lux/Instruments';
+import { Fragment, Suspense, type CSSProperties } from 'react';
+import { ArrowRight, ArrowUpRight, Check, X } from 'lucide-react';
+import { HudLens } from '@/components/lux/Instruments';
 import Scene3D from '@/components/lux/Scene3D';
 import ContactForm from '@/app/(site)/contact/ContactForm';
 import EntryForm from '@/app/(site)/assessment/_components/EntryForm';
@@ -19,204 +18,282 @@ import { CLASSIFICATION_EXPLANATIONS, COPY, DOMAIN_MEANINGS } from '@/lib/report
 import { classify } from '@/lib/report/build';
 import type { DDoc, DLink, DSection } from './types';
 
-const pad = (n: number) => String(n).padStart(2, '0');
+export const pad = (n: number) => String(n).padStart(2, '0');
 
-/** An icon for a heading or label: a keyword match where there is one, otherwise a rotating neutral glyph. */
-const FALLBACKS: LucideIcon[] = [Sparkles, Compass, Layers, Gem, Orbit, Waypoints, Target, Feather];
-export const iconAt = (text: string, i: number): LucideIcon => iconFor(text, FALLBACKS[i % FALLBACKS.length]);
-
-const delay = (i: number) => ({ ['--d' as string]: `${Math.min(i, 8) * 70}ms` });
-
-/* ------------------------------------------------------------------ section content */
-
-/** Everything a section says, in the order the document says it. */
-export function SectionBody({ s, icons = false }: { s: DSection; icons?: boolean }) {
-  const toneIcon: LucideIcon = s.tone === 'limit' ? Ban : s.tone === 'affirm' ? Check : Sparkles;
-  return (
-    <div className="dz-body">
-      {s.sub ? <p className="dz-sub">{s.sub}</p> : null}
-      {s.paragraphs.map((text, i) => (
-        <p className="dz-p" key={i}>
-          {text}
-        </p>
-      ))}
-      {s.lead ? <p className="dz-lead">{s.lead}</p> : null}
-      {s.blocks.length ? (
-        <div className="dz-blocks" data-count={s.blocks.length} data-stagger="70">
-          {s.blocks.map((b, i) => (
-            <div className="dz-block" key={b.label} data-reveal="" data-tilt="4" style={delay(i)}>
-              {icons ? <IconTile icon={s.tone ? iconFor(`${b.label} ${b.paragraphs[0] ?? ''}`, toneIcon) : iconAt(`${b.label} ${b.paragraphs[0] ?? ''}`, i + s.num)} tone={TONES[i % TONES.length]} size="sm" /> : null}
-              <div className="dz-block-copy">
-                <h3 className="dz-label">{b.label}</h3>
-                {b.paragraphs.map((text, k) => (
-                  <p className="dz-p" key={k}>
-                    {text}
-                  </p>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      ) : null}
-      {s.items.length ? (
-        <ul className="dz-items" data-count={s.items.length} data-tone={s.tone} data-stagger="55">
-          {s.items.map((item, i) => (
-            <li key={i} data-reveal="" style={delay(i)}>
-              <span className="dz-tick" aria-hidden="true">
-                {s.tone === 'limit' ? <X size={13} strokeWidth={2.8} /> : <Check size={13} strokeWidth={2.6} />}
-              </span>
-              <span>{item}</span>
-            </li>
-          ))}
-        </ul>
-      ) : null}
-      {s.closing.map((text, i) => (
-        <p className="dz-p dz-closing" key={i}>
-          {text}
-        </p>
-      ))}
-    </div>
-  );
+/** A stage heading ("01 — …") keeps its own number; every other section uses its position. */
+export function numeralFor(s: DSection) {
+  const m = s.heading?.match(/^(\d{2}) — /);
+  return m ? m[1] : pad(s.num);
 }
 
-export function SectionTitle({ s, level = 2 }: { s: DSection; level?: 2 | 3 }) {
-  const H = level === 2 ? 'h2' : 'h3';
+export const hasTitle = (s: DSection) => Boolean(s.heading || s.eyebrow);
+
+/** Sections the source sets as a pair. */
+export function rowsOf(sections: DSection[]) {
+  const rows: DSection[][] = [];
+  for (const s of sections) {
+    const last = rows[rows.length - 1];
+    if (s.half && last && last.length === 1 && last[0].half) last.push(s);
+    else rows.push([s]);
+  }
+  return rows;
+}
+
+/* ------------------------------------------------------------------ display type */
+
+/**
+ * Where a heading's italic emphasis begins: the last sentence if there are several, otherwise
+ * the last two words. Presentation only — the words themselves are never touched.
+ */
+export function splitEmphasis(text: string): [string, string] {
+  const sentences = text.match(/[^.!?]+[.!?]+(?=\s|$)|[^.!?]+$/g)?.map((x) => x.trim()).filter(Boolean) ?? [text];
+  if (sentences.length >= 2) return [sentences.slice(0, -1).join(' '), sentences[sentences.length - 1]];
+  const words = text.split(' ');
+  if (words.length >= 4) return [words.slice(0, -2).join(' '), words.slice(-2).join(' ')];
+  return [text, ''];
+}
+
+const wordCount = (s: string) => (s ? s.split(' ').length : 0);
+
+/** Words that rise out of a mask, one after another, when their heading enters the viewport. */
+export function Words({ text, from = 0 }: { text: string; from?: number }) {
   return (
     <>
-      {s.eyebrow ? <p className="dz-eyebrow">{s.eyebrow}</p> : null}
-      {s.heading ? <H className="dz-title">{s.heading}</H> : null}
+      {text.split(' ').map((w, i, all) => (
+        <Fragment key={i}>
+          <span className="mz-w">
+            <i style={{ ['--i' as string]: from + i } as CSSProperties}>{w}</i>
+          </span>
+          {i < all.length - 1 ? ' ' : null}
+        </Fragment>
+      ))}
     </>
   );
 }
 
-/* ------------------------------------------------------------------ hero pieces */
-
-/** The intro paragraphs, version line and badge, for designs that set them apart from the title. */
-export function IntroBlock({ doc }: { doc: DDoc }) {
-  if (!doc.intro && !doc.effective && !doc.badge) return null;
+export function Display({ text, as: Tag = 'h2', className = '', plain = false }: { text: string; as?: 'h1' | 'h2' | 'h3'; className?: string; plain?: boolean }) {
+  const [head, tail] = plain ? [text, ''] : splitEmphasis(text);
   return (
-    <div className="dz-intro-block" data-reveal="">
-      {doc.intro ? (
-        <div className="dz-intro">
-          <p>{doc.intro}</p>
-          {doc.introMore.map((t, i) => (
-            <p key={i}>{t}</p>
-          ))}
-        </div>
-      ) : null}
-      {doc.effective ? <p className="dz-effective">{doc.effective}</p> : null}
-      {doc.badge ? (
-        <p className="dz-badge">
-          <span>{doc.badge.label}</span>
-          {doc.badge.text}
-        </p>
-      ) : null}
+    <Tag className={`mz-display ${className}`.trim()} aria-label={text} data-reveal="words">
+      <span aria-hidden="true">
+        <Words text={head} />
+        {tail ? (
+          <>
+            {' '}
+            <em>
+              <Words text={tail} from={wordCount(head)} />
+            </em>
+          </>
+        ) : null}
+      </span>
+    </Tag>
+  );
+}
+
+export function Diamond({ className = '' }: { className?: string }) {
+  return (
+    <svg className={`mz-diamond ${className}`.trim()} viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 1.5 14.2 9.8 22.5 12 14.2 14.2 12 22.5 9.8 14.2 1.5 12 9.8 9.8Z" />
+    </svg>
+  );
+}
+
+/** A slow strip made of the page's own headings. Decorative: the headings are read in the page. */
+export function Marquee({ items }: { items: string[] }) {
+  if (items.length < 2) return null;
+  const run = [...items, ...items];
+  return (
+    <div className="mz-marquee" aria-hidden="true">
+      <div className="mz-track">
+        {[0, 1].map((k) => (
+          <div className="mz-run" key={k}>
+            {run.map((t, i) => (
+              <Fragment key={`${k}-${i}`}>
+                <span>{t}</span>
+                <Diamond />
+              </Fragment>
+            ))}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
 
-export function HeroCopy({ doc, compact = false }: { doc: DDoc; compact?: boolean }) {
-  return (
-    <div className="dz-hero-copy">
-      <p className="lx-kicker dz-kicker" data-reveal="">
-        {doc.kicker}
-      </p>
-      <h1 className="dz-h1" data-reveal="" style={delay(1)}>
-        <span className="dz-h1-in">{doc.title}</span>
-      </h1>
-      {doc.tagline ? (
-        <p className="dz-tagline" data-reveal="" style={delay(2)}>
-          {doc.tagline}
-        </p>
-      ) : null}
-      {!compact && doc.intro ? (
-        <div className="dz-intro" data-reveal="" style={delay(3)}>
-          <p>{doc.intro}</p>
-          {doc.introMore.map((t, i) => (
-            <p key={i}>{t}</p>
-          ))}
-        </div>
-      ) : null}
-      {!compact && doc.effective ? (
-        <p className="dz-effective" data-reveal="" style={delay(4)}>
-          {doc.effective}
-        </p>
-      ) : null}
-      {!compact && doc.badge ? (
-        <p className="dz-badge" data-reveal="" style={delay(4)}>
-          <span>{doc.badge.label}</span>
-          {doc.badge.text}
-        </p>
-      ) : null}
-      {doc.ctas.length ? <CtaRow ctas={doc.ctas} delayIndex={5} /> : null}
-    </div>
-  );
-}
+/* ------------------------------------------------------------------ calls to action */
 
-export function CtaRow({ ctas, delayIndex = 0, onDark = false }: { ctas: DLink[]; delayIndex?: number; onDark?: boolean }) {
+export function Cta({ ctas, tone = 'light', delay = 0 }: { ctas: DLink[]; tone?: 'light' | 'dark'; delay?: number }) {
+  if (!ctas.length) return null;
   return (
-    <div className="dz-ctas" data-reveal="" style={delay(delayIndex)}>
-      {ctas.map((cta, i) => (
-        <Link
-          key={cta.href + cta.label}
-          href={cta.href}
-          className={`lx-btn ${i === 0 ? (onDark ? 'lx-btn--glow' : 'lx-btn--primary') : onDark ? 'lx-btn--ghost' : 'lx-btn--secondary'}`}
-          data-magnetic=""
-        >
-          <span>{cta.label}</span>
-          {i === 0 ? <ArrowRight className="lx-arrow" size={17} strokeWidth={2} aria-hidden="true" /> : null}
+    <div className="mz-ctas" data-reveal="" style={{ ['--d' as string]: `${delay}ms` } as CSSProperties}>
+      {ctas.map((c, i) => (
+        <Link key={c.href + c.label} href={c.href} className={i === 0 ? 'mz-btn' : 'mz-link'} data-tone={tone} data-magnetic={i === 0 ? '' : undefined}>
+          <span>{c.label}</span>
+          <ArrowRight size={16} strokeWidth={2} aria-hidden="true" />
         </Link>
       ))}
     </div>
   );
 }
 
-export function SceneStage({ doc, children }: { doc: DDoc; children?: ReactNode }) {
+/* ------------------------------------------------------------------ section content */
+
+export function Body({ s, delayBase = 0 }: { s: DSection; delayBase?: number }) {
+  const d = (i: number) => ({ ['--d' as string]: `${delayBase + Math.min(i, 10) * 70}ms` }) as CSSProperties;
   return (
-    <div className="dz-stage" data-reveal="scale">
-      <span className="dz-aura" aria-hidden="true" />
-      <HudLens />
-      <Scene3D variant={doc.scene} />
-      {children}
+    <div className="mz-body">
+      {s.paragraphs.length ? (
+        <div className="mz-prose" data-cols={s.paragraphs.length >= 3 ? 2 : 1}>
+          {s.paragraphs.map((text, i) => (
+            <p key={i} data-reveal="" style={d(i)}>
+              {text}
+            </p>
+          ))}
+        </div>
+      ) : null}
+      {s.lead ? (
+        <p className="mz-lead" data-reveal="">
+          {s.lead}
+        </p>
+      ) : null}
+      {s.blocks.length ? (
+        <div className="mz-blocks" data-count={s.blocks.length}>
+          {s.blocks.map((b, i) => (
+            <div className="mz-block" key={b.label} data-reveal="" data-tilt="5" style={d(i)}>
+              <span className="mz-block-n" aria-hidden="true">
+                {pad(i + 1)}
+              </span>
+              <h3 className="mz-label">{b.label}</h3>
+              {b.paragraphs.map((text, k) => (
+                <p key={k}>{text}</p>
+              ))}
+            </div>
+          ))}
+        </div>
+      ) : null}
+      {s.items.length ? (
+        <ul className="mz-items" data-count={s.items.length} data-tone={s.tone}>
+          {s.items.map((item, i) => (
+            <li key={i} data-reveal="" style={d(i)}>
+              <span className="mz-tick" aria-hidden="true">
+                {s.tone === 'limit' ? <X size={12} strokeWidth={2.8} /> : <Check size={12} strokeWidth={2.8} />}
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      {s.closing.length ? (
+        <div className="mz-closing">
+          {s.closing.map((text, i) => (
+            <p key={i} data-reveal="" style={d(i)}>
+              {text}
+            </p>
+          ))}
+        </div>
+      ) : null}
     </div>
   );
 }
 
-/** Closing statement, calls to action, footnote and identity lines. */
-export function Closing({ doc, onDark = false }: { doc: DDoc; onDark?: boolean }) {
-  const ctas = doc.ctas;
-  const any = doc.outro || ctas.length || doc.footnote || doc.related?.length || doc.corporate?.length;
+/** What sits above a section's content: an eyebrow, the heading, and the line beneath it. */
+export function Heading({ s, level = 2 }: { s: DSection; level?: 2 | 3 }) {
+  return (
+    <>
+      {s.eyebrow ? (
+        <p className="mz-eyebrow" data-reveal="">
+          {s.eyebrow}
+        </p>
+      ) : null}
+      {s.heading ? <Display text={s.heading} as={level === 2 ? 'h2' : 'h3'} /> : null}
+      {s.sub ? (
+        <p className="mz-sub" data-reveal="" style={{ ['--d' as string]: '160ms' } as CSSProperties}>
+          {s.sub}
+        </p>
+      ) : null}
+    </>
+  );
+}
+
+/* ------------------------------------------------------------------ hero pieces */
+
+export function SceneStage({ doc, compact = false }: { doc: DDoc; compact?: boolean }) {
+  return (
+    <div className={`mz-stage${compact ? ' mz-stage--compact' : ''}`}>
+      <span className="mz-aura" aria-hidden="true" />
+      <HudLens />
+      <Scene3D variant={doc.scene} />
+    </div>
+  );
+}
+
+export function IntroText({ doc, columns = false }: { doc: DDoc; columns?: boolean }) {
+  if (!doc.intro && !doc.effective && !doc.badge) return null;
+  return (
+    <div className={`mz-intro${columns ? ' mz-intro--cols' : ''}`}>
+      {doc.intro ? (
+        <div className="mz-intro-text">
+          <p data-reveal="">{doc.intro}</p>
+          {doc.introMore.map((t, i) => (
+            <p key={i} data-reveal="" style={{ ['--d' as string]: `${(i + 1) * 90}ms` } as CSSProperties}>
+              {t}
+            </p>
+          ))}
+        </div>
+      ) : null}
+      {doc.effective ? (
+        <p className="mz-effective" data-reveal="">
+          {doc.effective}
+        </p>
+      ) : null}
+      {doc.badge ? (
+        <p className="mz-badge" data-reveal="">
+          <span>{doc.badge.label}</span>
+          {doc.badge.text}
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ closing */
+
+export function Closing({ doc }: { doc: DDoc }) {
+  const any = doc.outro || doc.ctas.length || doc.footnote || doc.related?.length || doc.corporate?.length;
   if (!any) return null;
   return (
-    <section className="dz-closing-band lx-wrap" aria-label="Next steps">
-      <div className="dz-closing-panel" data-reveal="scale">
-        <span className="dz-closing-aurora" aria-hidden="true" />
-        <Biosignal className="dz-closing-signal" />
+    <section className="mz-end lx-wrap" aria-label="Next steps">
+      <div className="mz-end-panel" data-reveal="scale">
+        <span className="mz-end-aurora" aria-hidden="true" />
+        <span className="mz-end-grid" aria-hidden="true" />
         {doc.outro ? (
-          <div className="dz-outro">
-            {doc.outro.heading ? <h2 className="dz-outro-title">{doc.outro.heading}</h2> : null}
-            <p>{doc.outro.text}</p>
+          <div className="mz-outro">
+            {doc.outro.heading ? <Display text={doc.outro.heading} as="h2" className="mz-outro-title" /> : null}
+            <p data-reveal="">{doc.outro.text}</p>
           </div>
         ) : null}
-        {ctas.length ? <CtaRow ctas={ctas} onDark={!onDark ? true : true} /> : null}
+        <Cta ctas={doc.ctas} tone="light" delay={120} />
         {doc.related?.length ? (
-          <ul className="dz-related">
+          <ul className="mz-related">
             {doc.related.map((l) => (
               <li key={l.href}>
-                <Link href={l.href}>{l.label}</Link>
+                <Link href={l.href}>
+                  {l.label}
+                  <ArrowUpRight size={14} strokeWidth={2} aria-hidden="true" />
+                </Link>
               </li>
             ))}
           </ul>
         ) : null}
         {doc.corporate?.length ? (
-          <div className="dz-corporate">
+          <div className="mz-corporate">
             {doc.corporate.map((line, i) => (
               <p key={i}>{line}</p>
             ))}
           </div>
         ) : null}
       </div>
-      {doc.footnote ? <p className="dz-footnote">{doc.footnote}</p> : null}
+      {doc.footnote ? <p className="mz-footnote">{doc.footnote}</p> : null}
     </section>
   );
 }
@@ -240,9 +317,9 @@ export function Slot({ doc }: { doc: DDoc }) {
 
 function ContactSlot() {
   return (
-    <div className="dz-slot dz-slot--contact lx lxc" id="contact-form">
-      <div className="dz-paper" data-reveal="scale">
-        <h2 className="dz-slot-title">{CONTACT_PAGE.form.heading}</h2>
+    <div className="mz-slot lx lxc" id="contact-form">
+      <div className="mz-paper" data-reveal="scale">
+        <h2 className="mz-slot-title">{CONTACT_PAGE.form.heading}</h2>
         <Suspense fallback={null}>
           <ContactForm />
         </Suspense>
@@ -253,9 +330,9 @@ function ContactSlot() {
 
 function AssessmentSlot() {
   return (
-    <div className="dz-slot dz-slot--assessment dz-asm" id="begin">
-      <div className="dz-paper" data-reveal="scale">
-        <h2 className="dz-slot-title">{ASSESSMENT_PAGE.form.heading}</h2>
+    <div className="mz-slot mz-asm" id="begin">
+      <div className="mz-paper" data-reveal="scale">
+        <h2 className="mz-slot-title">{ASSESSMENT_PAGE.form.heading}</h2>
         <EntryForm />
       </div>
     </div>
@@ -265,29 +342,27 @@ function AssessmentSlot() {
 function BlogSlot() {
   if (ARTICLES.length === 0) {
     return (
-      <div className="dz-slot dz-slot--blog">
-        <div className="dz-paper dz-empty" data-reveal="scale">
-          <span className="dz-empty-orb" aria-hidden="true">
+      <div className="mz-slot">
+        <div className="mz-paper mz-empty" data-reveal="scale">
+          <span className="mz-empty-orb" aria-hidden="true">
             <span />
           </span>
-          <h2 className="dz-slot-title">{INSIGHTS_PAGE.emptyState.heading}</h2>
+          <h2 className="mz-slot-title">{INSIGHTS_PAGE.emptyState.heading}</h2>
           {INSIGHTS_PAGE.emptyState.paragraphs.map((text) => (
-            <p className="dz-p" key={text}>
-              {text}
-            </p>
+            <p key={text}>{text}</p>
           ))}
         </div>
       </div>
     );
   }
   return (
-    <div className="dz-slot dz-slot--blog">
-      <div className="dz-articles">
+    <div className="mz-slot">
+      <div className="mz-articles">
         {ARTICLES.map((article) => (
-          <Link href={`/blog/${article.slug}`} className="lx-card dz-article" data-tilt="4" data-reveal="" key={article.slug}>
-            <p className="dz-eyebrow">{article.category}</p>
-            <h3 className="dz-title">{article.title}</h3>
-            <p className="dz-p">{article.excerpt}</p>
+          <Link href={`/blog/${article.slug}`} className="lx-card mz-article" data-tilt="4" data-reveal="" key={article.slug}>
+            <p className="mz-eyebrow">{article.category}</p>
+            <h3 className="mz-label">{article.title}</h3>
+            <p>{article.excerpt}</p>
           </Link>
         ))}
       </div>
@@ -295,11 +370,11 @@ function BlogSlot() {
   );
 }
 
-/** The 19-section interactive example, set on a white sheet so it reads in every variant. */
+/** The 19-section interactive example, set on a white sheet so it reads in every design. */
 function ExampleViewer() {
   return (
-    <div className="dz-slot dz-slot--viewer lx lxr">
-      <div className="dz-paper dz-paper--wide" data-reveal="">
+    <div className="mz-slot mz-slot--viewer lx lxr">
+      <div className="mz-paper mz-paper--wide" data-reveal="">
         <div className="lxr-body">
           <nav aria-label="Report sections" className="lxr-contents">
             <p>19 sections</p>

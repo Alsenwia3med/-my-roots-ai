@@ -65,12 +65,16 @@ export interface DDoc {
   toc?: boolean;
 }
 
+/**
+ * The three flagship designs. Each starts from an idea, not from a layout:
+ *   Maison         quiet luxury — an atelier journal: serif display, champagne hairlines, a root that grows as you read
+ *   Constellation  the seven connected domains as a living observatory that turns with your reading
+ *   Lumière        luminous glass — light that follows the visitor, depth that answers the pointer
+ */
 export const VARIANTS = [
-  { id: 1, name: 'Chapter Rail', mood: 'Light · sticky chapter rail · oversized numerals' },
-  { id: 2, name: 'Glass Lab', mood: 'Light · frosted glass panels · cursor spotlight' },
-  { id: 3, name: 'Editorial Spine', mood: 'Light · glowing scroll-spine · pull-quote bands' },
-  { id: 4, name: 'Bento Prism', mood: 'Light · modular bento tiles · prism gradients' },
-  { id: 5, name: 'Split Stage', mood: 'Light · sticky story panel beside a stream of cards' },
+  { id: 1, name: 'Maison', mood: 'Quiet luxury · serif display · champagne hairlines · a root that grows as you read' },
+  { id: 2, name: 'Constellation', mood: 'Scroll-driven observatory · seven domains turning with your reading' },
+  { id: 3, name: 'Lumière', mood: 'Luminous glass · light that follows you · depth that answers the pointer' },
 ] as const;
 
 export type VariantId = (typeof VARIANTS)[number]['id'];
