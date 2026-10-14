@@ -183,7 +183,7 @@ export default function ContactForm() {
           <p className="cf-counter">{LABEL.limit}</p>
         </div>
 
-        <p className="cf-counter">{LABEL.consentLabel}</p>
+        <p className="cf-legend">{LABEL.consentLabel}</p>
         <label className="cf-consent">
           <input name="consent" required type="checkbox" />
           <span>

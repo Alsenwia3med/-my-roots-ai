@@ -1355,3 +1355,14 @@ body .cookie-toggle input:checked::after {
 .lxl-list li::marker {
   color: var(--lx-cyan);
 }
+
+body.lx-body .cf-legend {
+  grid-column: 1 / -1;
+  margin: 6px 0 -6px;
+  font-family: var(--lx-mono);
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lx-teal);
+}
