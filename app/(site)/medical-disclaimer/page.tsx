@@ -1,8 +1,8 @@
-// C-04 §§4-8 governed legal copy; the page only lays out lib/content/c04-legal.ts.
+// Legal copy is the v1.21 publication-candidate document; the page only lays out lib/content/legal-v121.ts.
 
 import type { Metadata } from 'next';
 import LegalPage from '@/components/LegalPage';
-import { MEDICAL_DISCLAIMER } from '@/lib/content/c04-legal';
+import { MEDICAL_DISCLAIMER } from '@/lib/content/legal-v121';
 
 export const metadata: Metadata = {
   title: 'Medical Disclaimer — ROOTS-AI™',

@@ -29,7 +29,9 @@ export type ZoneKind =
   /** Capability items carrying an availability status (File 14: no false availability). */
   | 'status'
   /** Supporting points, separated by rule rather than enclosed in a box. */
-  | 'points';
+  | 'points'
+  /** Running text: paragraphs, an optional lead-in and bullet list, and closing paragraphs. */
+  | 'prose';
 
 export interface PageZone {
   heading: string;
@@ -46,6 +48,18 @@ export interface PageZone {
   eyebrow?: string;
   /** Semantic emphasis: 'affirm' for what the system does, 'limit' for what it never does. */
   tone?: 'affirm' | 'limit';
+  /** 'prose' zones: a run-in line printed directly under the heading. */
+  sub?: string;
+  /** 'prose' zones: paragraphs printed before the lead-in and list. */
+  paragraphs?: string[];
+  /** 'prose' zones: labelled sub-blocks printed after the paragraphs. */
+  blocks?: { label: string; paragraphs: string[] }[];
+  /** 'prose' zones: the sentence that introduces `items`. */
+  lead?: string;
+  /** 'prose' zones: paragraphs printed after the list. */
+  closing?: string[];
+  /** Omit the decorative zone number where the heading carries its own numbering. */
+  noIndex?: boolean;
 }
 
 export interface PageContent {
@@ -62,6 +76,16 @@ export interface PageContent {
   meta?: { title: string; description: string };
   /** C-05 screen zones, where the screen specifies more structure than a single bullet list. */
   zones?: PageZone[];
+  /** Printed page label (v1.21 publication-candidate copy); the page template supplies one when absent. */
+  kicker?: string;
+  /** The line printed directly under the title, before the intro. */
+  tagline?: string;
+  /** Intro paragraphs that follow `intro`. */
+  introMore?: string[];
+  /** Closing statement printed above the calls to action. */
+  outro?: { heading?: string; text: string };
+  /** The boundary line printed at the end of the page. */
+  footnote?: string;
 }
 
 /** C-04 §1 — the two approved calls to action, used wherever the pack names them. */

@@ -40,9 +40,15 @@ export default function PageHero({
             <span className="lx-grad">{title}</span>
           </h1>
           {intro ? (
-            <p className="lx-lede" data-reveal="" style={{ ["--d" as string]: "180ms" }}>
-              {intro}
-            </p>
+            typeof intro === "string" ? (
+              <p className="lx-lede" data-reveal="" style={{ ["--d" as string]: "180ms" }}>
+                {intro}
+              </p>
+            ) : (
+              <div className="lx-lede lxp-lede-rich" data-reveal="" style={{ ["--d" as string]: "180ms" }}>
+                {intro}
+              </div>
+            )
           ) : null}
           {children ? (
             <div className="lxp-hero-extra" data-reveal="" style={{ ["--d" as string]: "240ms" }}>

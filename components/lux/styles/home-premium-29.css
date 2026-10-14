@@ -232,3 +232,39 @@
   height: 56px;
   margin: 0;
 }
+
+/* the hero sphere's readout: deep teal type that reads against the pale glass */
+.lxhc-readout {
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.55);
+}
+.lxhc-readout .lxhc-state,
+.lxhc-readout .lxhc-state span {
+  color: #032a33 !important;
+  font-weight: 700;
+}
+.lxhc-readout .lxhc-num {
+  color: #032a33 !important;
+  font-weight: 700;
+}
+.lxhc-readout .lxhc-of {
+  color: #055564 !important;
+  font-weight: 700;
+}
+.lxhc-readout .lxhc-class {
+  color: #055564 !important;
+  font-weight: 700;
+}
+
+/* the orbit chips stay solid and legible, also while they pass in front of the glass sphere */
+.lxhc .lxhc-chip {
+  background: #ffffff;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow:
+    0 0 0 1px rgba(5, 85, 100, 0.28),
+    0 10px 20px -12px rgba(3, 42, 51, 0.7);
+}
+.lxhc .lxhc-chip-name {
+  color: #032a33;
+  font-weight: 700;
+}

@@ -11,7 +11,7 @@ import CookieConsent from './CookieConsent';
 import LuxHeader from './lux/LuxHeader';
 import LuxFooter from './lux/LuxFooter';
 import LuxMotion from './lux/LuxMotion';
-import { INNER_FOOTER } from './lux/chrome-data';
+import { HOME_FOOTER } from './lux/chrome-data';
 
 /**
  * C-05 SYS-01 is a "Global public overlay" for "eligible public visitors", and C-04 §1 keeps
@@ -29,7 +29,7 @@ export default function SiteChrome({ children }: { children: React.ReactNode }) 
     <>
       <LuxHeader hoverNavigate />
       {children}
-      <LuxFooter data={INNER_FOOTER} />
+      <LuxFooter data={HOME_FOOTER} />
       {isPublic ? <CookieConsent /> : null}
       <LuxMotion />
     </>

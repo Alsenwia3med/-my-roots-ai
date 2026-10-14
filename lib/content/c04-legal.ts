@@ -15,6 +15,12 @@
 export interface LegalBlock {
   heading: string;
   paragraphs: string[];
+  /** Labelled sub-sections, printed after the paragraphs. */
+  subs?: { label: string; paragraphs: string[] }[];
+  /** A bullet list, printed after the paragraphs and sub-sections. */
+  list?: string[];
+  /** Paragraphs printed after the list. */
+  closing?: string[];
 }
 
 export interface LegalTable {
@@ -35,6 +41,10 @@ export interface LegalDocument {
   route: string;
   /** Page heading. */
   title: string;
+  /** Paragraphs printed before the first section (v1.21 publication-candidate copy). */
+  intro?: string[];
+  /** An unnumbered closing block, printed after the numbered sections. */
+  corporate?: LegalBlock;
   /** Breadcrumb label above the heading. */
   kicker: string;
   blocks: LegalBlock[];

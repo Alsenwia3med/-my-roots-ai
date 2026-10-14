@@ -3,7 +3,6 @@
  * that rendered it before the Lux redesign:
  *   - NAV / MORE / MOBILE / CTA ........ components/SiteHeader.tsx and components/layout/Header.tsx
  *   - NEWS ............................. components/RootsV1.tsx (homepage ticker)
- *   - INNER_FOOTER ..................... components/layout/Footer.tsx
  *   - HOME_FOOTER ...................... components/RootsV1.tsx (homepage footer)
  * Nothing here is new wording; the redesign only changes how it is presented.
  */
@@ -20,20 +19,22 @@ export const NAV: readonly NavLink[] = [
 
 export const MORE: readonly NavLink[] = [
   ["Healthcare Professionals", "/healthcare-professionals"],
-  ["Pilot Program", "/pilot"],
-  ["Contact", "/contact"],
+  ["Pilot", "/pilot"],
   ["Blog", "/blog"],
+  ["Contact", "/contact"],
 ];
 
 export const MOBILE: readonly NavLink[] = [
   ["Home", "/"],
-  ...NAV,
-  ...MORE,
-  ["Privacy", "/privacy"],
-  ["Terms", "/terms"],
-  ["Cookies", "/cookies"],
-  ["Medical Disclaimer", "/medical-disclaimer"],
-  ["AI Disclaimer", "/ai-disclaimer"],
+  ["How It Works", "/how-it-works"],
+  ["Platform", "/platform"],
+  ["Research", "/research"],
+  ["Healthcare Professionals", "/healthcare-professionals"],
+  ["Example Report", "/example-report"],
+  ["About", "/about"],
+  ["Pilot Program", "/pilot"],
+  ["Contact", "/contact"],
+  ["Blog", "/blog"],
 ];
 
 export const CTA: NavLink = ["Start Your Assessment", "/assessment"];
@@ -58,46 +59,6 @@ export interface FooterData {
   copyright: string;
 }
 
-export const INNER_FOOTER: FooterData = {
-  columns: [
-    {
-      title: "Product",
-      links: [
-        ["Assessment", "/assessment"],
-        ["Example Report", "/example-report"],
-        ["How It Works", "/how-it-works"],
-        ["Platform", "/platform"],
-      ],
-    },
-    {
-      title: "Company",
-      links: [
-        ["About", "/about"],
-        ["Research", "/research"],
-        ["Healthcare Professionals", "/healthcare-professionals"],
-        ["Pilot Program", "/pilot"],
-        ["Contact", "/contact"],
-        ["Blog", "/blog"],
-      ],
-    },
-    {
-      title: "Legal",
-      links: [
-        ["Privacy", "/privacy"],
-        ["Terms", "/terms"],
-        ["Cookies", "/cookies"],
-        ["Medical Disclaimer", "/medical-disclaimer"],
-        ["AI Disclaimer", "/ai-disclaimer"],
-      ],
-    },
-  ],
-  notes: [
-    "ROOTS-AI™ provides educational wellness information and does not diagnose or treat medical conditions.",
-    "We use essential technologies to keep ROOTS-AI™ secure. With your permission, we may use limited analytics on public pages. We do not use advertising pixels or session replay on assessment, report, sign-in or admin pages.",
-  ],
-  copyright: "© 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.",
-};
-
 export const HOME_FOOTER: FooterData = {
   columns: [
     {
@@ -120,8 +81,8 @@ export const HOME_FOOTER: FooterData = {
       title: "Governance",
       links: [
         ["Beta Pilot Program", "/pilot"],
-        ["HIPAA / GDPR Protection", "/privacy"],
-        ["Zero Hallucination Bounds", "/ai-disclaimer"],
+        ["Privacy & Data Protection", "/privacy"],
+        ["Defined AI Safety Boundaries", "/ai-disclaimer"],
       ],
     },
     {
@@ -136,5 +97,5 @@ export const HOME_FOOTER: FooterData = {
   notes: [
     "ROOTS-AI™ is an educational and biological intelligence software platform developed to evaluate self-reported physiological patterns. It does not provide medical diagnoses, clinical treatment plans, or emergency health assessments. Always consult a qualified physician or endocrinologist before making clinical decisions.",
   ],
-  copyright: "© 2026 ROOTS-AI Health Inc. All rights reserved.",
+  copyright: "© 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.",
 };

@@ -36,8 +36,8 @@ const COLUMNS: { title: string; links: FooterLink[] }[] = [
     title: 'Governance',
     links: [
       { label: 'Beta Pilot Program', href: '/pilot' },
-      { label: 'HIPAA / GDPR Protection', href: '/privacy' },
-      { label: 'Zero Hallucination Bounds', href: '/ai-disclaimer' },
+      { label: 'Privacy & Data Protection', href: '/privacy' },
+      { label: 'Defined AI Safety Boundaries', href: '/ai-disclaimer' },
     ],
   },
   {
@@ -93,7 +93,7 @@ export default function Footer() {
             physician or endocrinologist before making clinical decisions.
           </p>
           <div className={styles.bottom}>
-            <p className={styles.copyright}>© 2026 ROOTS-AI Health Inc. All rights reserved.</p>
+            <p className={styles.copyright}>© 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.</p>
           </div>
         </div>
       </div>

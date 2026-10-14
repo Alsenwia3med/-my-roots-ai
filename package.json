@@ -16,7 +16,7 @@
     "test:assessment": "node --import tsx --test tests/assessment/progress.test.ts",
     "test:ai": "node --import tsx --test tests/ai/outcomes.test.ts tests/ai/projection.test.ts tests/ai/boundary.test.ts",
     "check:c04": "python scripts/canonical/check_c04.py",
-    "test:content": "node --import tsx --test tests/content/legal.test.ts tests/content/cookieConsent.test.ts tests/content/pages.test.ts",
+    "test:content": "node --import tsx --test tests/content/legal.test.ts tests/content/cookieConsent.test.ts tests/content/pages.test.ts tests/content/governance-v121.test.ts",
     "evidence:drivers": "node --import tsx scripts/evidence/driver-states.ts",
     "evidence:review-render": "node --import tsx scripts/evidence/review-render.ts",
     "evidence:parity": "node --import tsx scripts/evidence/parity-matrix.ts",

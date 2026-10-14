@@ -1030,3 +1030,88 @@
 .lxb-body .lxz-point .lx-text {
   font-size: 14.5px;
 }
+
+/* ---------- prose zones, hero tagline and closing statement (v1.21 publication-candidate copy) ---------- */
+.lxd-prose {
+  display: grid;
+  gap: 14px;
+  max-width: 72ch;
+}
+.lxd-prose p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--lx-ink);
+  text-wrap: pretty;
+}
+.lxd-prose .lxd-sub {
+  font-weight: 600;
+  color: var(--lx-teal);
+}
+.lxd-prose .lxd-lead {
+  font-weight: 600;
+}
+.lxd-bullets {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0 0 0 20px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--lx-ink);
+}
+.lxd-bullets li::marker {
+  color: var(--lx-cyan);
+}
+.lxp-lede-rich > p {
+  margin: 0 0 10px;
+}
+.lxp-lede-rich > p:last-child {
+  margin-bottom: 0;
+}
+.lxp-lede-rich .lxp-tagline {
+  display: block;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--lx-ink);
+}
+.lxd-cta-copy {
+  display: grid;
+  gap: 8px;
+  max-width: 60ch;
+  margin: 0 auto 22px;
+  text-align: center;
+  color: #e6f7f8;
+}
+.lxd-cta-title {
+  margin: 0;
+  font-size: clamp(20px, 2vw, 26px);
+  font-weight: 600;
+  letter-spacing: -0.018em;
+  color: #fff;
+}
+.lxd-cta-copy p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+.lxd-footnote {
+  max-width: 78ch;
+  margin: 28px auto 8px;
+  font-size: 12.5px;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--lx-body);
+}
+
+.lxd-block {
+  display: grid;
+  gap: 8px;
+}
+.lxd-label {
+  margin: 6px 0 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.012em;
+  color: var(--lx-teal);
+}

@@ -94,6 +94,32 @@ function Statement({ zone }: { zone: PageZone }) {
   );
 }
 
+function Prose({ zone }: { zone: PageZone }) {
+  return (
+    <div className="lxd-prose" data-reveal="">
+      {zone.sub ? <p className="lxd-sub">{zone.sub}</p> : null}
+      {zone.paragraphs?.map((text) => <p key={text}>{text}</p>)}
+      {zone.lead ? <p className="lxd-lead">{zone.lead}</p> : null}
+      {zone.blocks?.map((block) => (
+        <div className="lxd-block" key={block.label}>
+          <h3 className="lxd-label">{block.label}</h3>
+          {block.paragraphs.map((text) => (
+            <p key={text}>{text}</p>
+          ))}
+        </div>
+      ))}
+      {zone.items.length ? (
+        <ul className="lxd-bullets">
+          {zone.items.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      ) : null}
+      {zone.closing?.map((text) => <p key={text}>{text}</p>)}
+    </div>
+  );
+}
+
 function Capabilities({ zone }: { zone: PageZone }) {
   const parsed = zone.items.map((item) => {
     // C-04 §1: future capabilities are labelled "Coming Soon" and never presented as
@@ -160,6 +186,8 @@ function ZoneBody({ zone }: { zone: PageZone }) {
       return <Statement zone={zone} />;
     case 'status':
       return <Capabilities zone={zone} />;
+    case 'prose':
+      return <Prose zone={zone} />;
     default:
       return <List zone={zone} />;
   }
@@ -170,9 +198,11 @@ function Zone({ zone, index }: { zone: PageZone; index: number }) {
     <section className="lxd-zone" data-kind={zone.kind ?? 'points'} data-tone={zone.tone}>
       {zone.eyebrow || zone.heading ? (
         <header className="lxd-head" data-reveal="">
-          <span className="lxd-index" aria-hidden="true">
-            {pad(index + 1)}
-          </span>
+          {zone.noIndex ? null : (
+            <span className="lxd-index" aria-hidden="true">
+              {pad(index + 1)}
+            </span>
+          )}
           <div className="lxd-head-copy">
             {zone.eyebrow ? <p className="lxd-eyebrow">{zone.eyebrow}</p> : null}
             {zone.heading ? <h2 className="lxd-title">{zone.heading}</h2> : null}
@@ -201,29 +231,46 @@ function rows(zones: PageZone[]) {
   return out;
 }
 
+/** The composed sheet of zones, usable on its own where a page sets running copy around its own content. */
+export function ZoneSheet({ zones, children }: { zones: PageZone[]; children?: ReactNode }) {
+  return (
+    <div className="lxd lx-wrap">
+      <div className="lxd-sheet">
+        <span className="lxd-sheet-edge" aria-hidden="true" />
+        {rows(zones).map((row, r) => (
+          <div className="lxd-row" data-split={row.zones.length > 1 ? 'true' : undefined} key={r}>
+            {row.zones.map(({ zone, index }) => (
+              <Zone key={`zone-${index}`} zone={zone} index={index} />
+            ))}
+          </div>
+        ))}
+      </div>
+      {children}
+    </div>
+  );
+}
+
 export default function PublicPage({ page, kicker, children }: { page: PageContent; kicker: string; children?: ReactNode }) {
   const zones = page.zones ?? (page.bullets.length ? [{ heading: '', items: page.bullets } as PageZone] : []);
+  const intro =
+    page.tagline || page.introMore?.length ? (
+      <>
+        {page.tagline ? <strong className="lxp-tagline">{page.tagline}</strong> : null}
+        <p>{page.intro}</p>
+        {page.introMore?.map((text) => <p key={text}>{text}</p>)}
+      </>
+    ) : (
+      page.intro
+    );
 
   return (
     <div className="lx lxp lxd-page">
       <main id="main">
-        <PageHero kicker={kicker} title={page.headline} intro={page.intro} scene={SCENES[page.route] ?? 'orb'} />
+        <PageHero kicker={page.kicker ?? kicker} title={page.headline} intro={intro} scene={SCENES[page.route] ?? 'orb'} />
 
-        <div className="lxd lx-wrap">
-          <div className="lxd-sheet">
-            <span className="lxd-sheet-edge" aria-hidden="true" />
-            {rows(zones).map((row, r) => (
-              <div className="lxd-row" data-split={row.zones.length > 1 ? 'true' : undefined} key={r}>
-                {row.zones.map(({ zone, index }) => (
-                  <Zone key={zone.heading || `zone-${index}`} zone={zone} index={index} />
-                ))}
-              </div>
-            ))}
-          </div>
-          {children}
-        </div>
+        <ZoneSheet zones={zones}>{children}</ZoneSheet>
 
-        {page.ctas.length ? (
+        {page.ctas.length || page.outro ? (
           <section className="lxd-cta lx-wrap" aria-label="Next steps">
             <div className="lxd-cta-panel" data-reveal="scale">
               <span className="lxd-cta-aurora" aria-hidden="true" />
@@ -235,6 +282,12 @@ export default function PublicPage({ page, kicker, children }: { page: PageConte
               <span className="lxd-cta-horizon" aria-hidden="true" />
               <HudLens />
               <Biosignal className="lxd-cta-signal" />
+              {page.outro ? (
+                <div className="lxd-cta-copy">
+                  {page.outro.heading ? <h2 className="lxd-cta-title">{page.outro.heading}</h2> : null}
+                  <p>{page.outro.text}</p>
+                </div>
+              ) : null}
               <div className="lxd-cta-actions">
                 {page.ctas.map((cta, i) => (
                   <Link
@@ -250,6 +303,12 @@ export default function PublicPage({ page, kicker, children }: { page: PageConte
               </div>
             </div>
           </section>
+        ) : null}
+
+        {page.footnote ? (
+          <p className="lxd-footnote lx-wrap" data-reveal="">
+            {page.footnote}
+          </p>
         ) : null}
       </main>
     </div>

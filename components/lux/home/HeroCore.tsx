@@ -34,7 +34,7 @@ export default function HeroCore() {
       if (!el) return;
       const near = Math.min(1, Math.max(0, a.depth));
       el.style.transform = `translate3d(${a.x.toFixed(1)}px, ${a.y.toFixed(1)}px, 0) translate(-50%, -150%) scale(${(0.86 + near * 0.18).toFixed(3)})`;
-      el.style.opacity = (0.55 + near * 0.45).toFixed(3);
+      el.style.opacity = (0.94 + near * 0.06).toFixed(3);
       el.style.zIndex = String(Math.round(near * 10) + 2);
     });
   }, []);
@@ -100,15 +100,6 @@ export default function HeroCore() {
           <div className="lxhc-units" aria-hidden="true">
             {Array.from({ length: 7 }, (_, i) => (
               <span key={i} style={{ animationDelay: `${i * 90}ms` }} />
-            ))}
-          </div>
-        </div>
-        <div className="lxhc-split">
-          <div className="lxhc-big">21</div>
-          <div className="lxhc-small">Governed Tokens</div>
-          <div className="lxhc-units lxhc-units--grid" aria-hidden="true">
-            {Array.from({ length: 21 }, (_, i) => (
-              <span key={i} style={{ animationDelay: `${i * 40}ms` }} />
             ))}
           </div>
         </div>

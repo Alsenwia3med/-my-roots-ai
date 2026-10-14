@@ -1324,3 +1324,34 @@ body .cookie-toggle input:checked {
 body .cookie-toggle input:checked::after {
   transform: translateX(18px);
 }
+
+/* ---------- v1.21 legal copy: intro paragraphs, labelled sub-sections and bullet lists ---------- */
+.lxl-intro {
+  margin: 0 0 14px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: var(--lx-body);
+}
+.lxl-sub {
+  margin: 18px 0 0;
+}
+.lxl-h3 {
+  margin: 0 0 8px;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.012em;
+  color: var(--lx-ink);
+}
+.lxl-list {
+  display: grid;
+  gap: 8px;
+  margin: 4px 0 14px;
+  padding: 0 0 0 22px;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--lx-body);
+}
+.lxl-list li::marker {
+  color: var(--lx-cyan);
+}

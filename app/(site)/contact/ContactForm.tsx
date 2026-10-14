@@ -39,25 +39,22 @@
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState, type FormEvent } from 'react';
-import {
-  CONTACT,
-  CONTACT_CONFIRMATION,
-  CONTACT_EMERGENCY_NOTICE,
-  CONTACT_MESSAGE_LIMIT,
-} from '@/lib/content/c04-pages';
+import { CONTACT_CONFIRMATION, CONTACT_MESSAGE_LIMIT } from '@/lib/content/c04-pages';
+import { CONTACT_PAGE } from '@/lib/content/website-v121-pages';
 
 type Status = 'idle' | 'sending';
 
 /** PENDING — functional labels C-04 does not supply. */
 const LABEL = {
-  name: 'Name',
-  email: 'Email',
-  message: 'Message',
-  consent:
-    'I have read the Privacy Notice and agree to ROOTS-AI™ using these details to respond to my enquiry.',
-  // 'en-GB' is explicit: an unpinned toLocaleString follows the runtime's default locale, so
-  // the server and the browser can disagree about the thousands separator. Review point 34.
-  remaining: (n: number) => `${n.toLocaleString('en-GB')} characters remaining`,
+  // Field labels, helper lines and the acknowledgement are the v1.21 publication-candidate copy.
+  name: CONTACT_PAGE.form.name,
+  email: CONTACT_PAGE.form.email,
+  message: CONTACT_PAGE.form.message,
+  messageHelp: CONTACT_PAGE.form.messageHelp,
+  limit: CONTACT_PAGE.form.limit,
+  consentLabel: CONTACT_PAGE.form.consentLabel,
+  consent: CONTACT_PAGE.form.consent,
+  submit: CONTACT_PAGE.form.submit,
   sending: 'Sending…',
   received: 'Enquiry received',
   reference: 'Your reference',
@@ -72,7 +69,6 @@ export default function ContactForm() {
   const params = useSearchParams();
   const [status, setStatus] = useState<Status>('idle');
   const [error, setError] = useState<string | null>(null);
-  const [remaining, setRemaining] = useState(CONTACT_MESSAGE_LIMIT);
   const confirmationRef = useRef<HTMLDivElement>(null);
 
   const sent = params.get('status') === 'sent';
@@ -178,15 +174,16 @@ export default function ContactForm() {
             maxLength={CONTACT_MESSAGE_LIMIT}
             minLength={10}
             name="message"
-            onChange={(e) => setRemaining(CONTACT_MESSAGE_LIMIT - e.target.value.length)}
             required
             rows={7}
           />
           <p className="cf-counter" id="message-remaining">
-            {LABEL.remaining(remaining)}
+            {LABEL.messageHelp}
           </p>
+          <p className="cf-counter">{LABEL.limit}</p>
         </div>
 
+        <p className="cf-counter">{LABEL.consentLabel}</p>
         <label className="cf-consent">
           <input name="consent" required type="checkbox" />
           <span>
@@ -196,9 +193,6 @@ export default function ContactForm() {
           </span>
         </label>
       </div>
-
-      {/* zone 4 — safety note, in the approved C-04 wording */}
-      <p className="cf-safety">{CONTACT_EMERGENCY_NOTICE}</p>
 
       {/* Honeypot: hidden from people and assistive technology; bots that fill it are dropped. */}
       <div aria-hidden="true" className="sr-only">
@@ -214,7 +208,7 @@ export default function ContactForm() {
 
       {/* zone 5 — submit */}
       <button className="primary-button" disabled={status === 'sending'} type="submit">
-        {status === 'sending' ? LABEL.sending : CONTACT.ctas[0].label}
+        {status === 'sending' ? LABEL.sending : LABEL.submit}
       </button>
     </form>
   );

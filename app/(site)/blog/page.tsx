@@ -1,16 +1,16 @@
-// PUB-11 Blog Landing (C-05). Copy is C-04 §3 "/blog".
+// PUB-11 Blog Landing (C-05). Copy is the v1.21 publication-candidate document ("Insights").
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ARTICLES, categories } from '@/lib/content/blog';
-import { BLOG, BLOG_EMPTY_STATE } from '@/lib/content/c04-pages';
-import { BadgeCheck, ShieldCheck } from 'lucide-react';
+import { INSIGHTS_PAGE as PAGE } from '@/lib/content/website-v121-pages';
+import { ArrowRight } from 'lucide-react';
 import PageHero from '@/components/lux/PageHero';
-import { IconTile } from '@/components/lux/Icon';
+import { ZoneSheet } from '@/components/PublicPage';
 
 export const metadata: Metadata = {
-  title: `${BLOG.headline} — ROOTS-AI™`,
-  description: BLOG.intro,
+  title: `${PAGE.headline} — ROOTS-AI™`,
+  description: PAGE.intro,
 };
 
 // UTC: a post date must not read differently on the server and in the browser (point 34).
@@ -19,25 +19,26 @@ const dateFormat = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'lo
 export default function BlogPage() {
   const [featured, ...rest] = ARTICLES;
   const filters = categories();
-  const boundaryIcons = [BadgeCheck, ShieldCheck];
 
   return (
     <div className="lx lxb">
       <main id="main">
         {/* z1 — hero and editorial boundary */}
-        <PageHero kicker="ROOTS / INSIGHTS" title={BLOG.headline} intro={BLOG.intro} scene="wave" />
+        <PageHero
+          kicker={PAGE.kicker}
+          title={PAGE.headline}
+          intro={
+            <>
+              <strong className="lxp-tagline">{PAGE.tagline}</strong>
+              <p>{PAGE.intro}</p>
+            </>
+          }
+          scene="wave"
+        />
+
+        <ZoneSheet zones={PAGE.before} />
 
         <div className="lxb-body lx-wrap">
-          <section className="lxb-boundary" data-stagger="90">
-            <ul className="lxz-points">
-              {BLOG.bullets.map((bullet, i) => (
-                <li key={bullet} className="lx-card lxz-point" data-tilt="5" data-reveal="">
-                  <IconTile icon={boundaryIcons[i] ?? BadgeCheck} />
-                  <p className="lx-text">{bullet}</p>
-                </li>
-              ))}
-            </ul>
-          </section>
 
           {/* z4 — filters only where there is something to filter */}
           {filters.length > 1 ? (
@@ -56,7 +57,10 @@ export default function BlogPage() {
               <span className="lxb-empty-orb" aria-hidden="true">
                 <span />
               </span>
-              <p>{BLOG_EMPTY_STATE}</p>
+              <h2 className="lx-h2">{PAGE.emptyState.heading}</h2>
+              {PAGE.emptyState.paragraphs.map((text) => (
+                <p key={text}>{text}</p>
+              ))}
             </section>
           ) : (
             <>
@@ -90,6 +94,24 @@ export default function BlogPage() {
             </>
           )}
         </div>
+
+        <ZoneSheet zones={PAGE.after} />
+
+        <div className="lxl-actions lx-wrap">
+          {PAGE.ctas.map((cta, i) => (
+            <Link
+              className={`lx-btn ${i === 0 ? 'lx-btn--primary' : 'lx-btn--secondary'}`}
+              href={cta.href}
+              key={cta.href}
+              data-magnetic=""
+            >
+              <span>{cta.label}</span>
+              {i === 0 ? <ArrowRight className="lx-arrow" size={17} strokeWidth={2} aria-hidden="true" /> : null}
+            </Link>
+          ))}
+        </div>
+
+        <p className="lxd-footnote lx-wrap">{PAGE.footnote}</p>
       </main>
     </div>
   );

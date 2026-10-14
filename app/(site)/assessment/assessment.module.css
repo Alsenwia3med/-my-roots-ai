@@ -1032,3 +1032,39 @@
     transition: none;
   }
 }
+
+/* ---------------------------------------------------------------- v1.21 entry copy */
+.sectionTitle {
+  margin: 32px 0 0;
+  font-size: clamp(20px, 2.2vw, 26px);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--a-ink);
+}
+.card .sectionTitle {
+  margin-top: 0;
+}
+.expectList {
+  display: grid;
+  gap: 14px;
+  margin: 18px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.expectList li {
+  display: grid;
+  gap: 4px;
+  padding-left: 16px;
+  border-left: 2px solid var(--a-cyan);
+}
+.expectList strong {
+  font-size: 16.5px;
+  font-weight: 600;
+  color: var(--a-ink);
+}
+.expectList span {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--a-body);
+}

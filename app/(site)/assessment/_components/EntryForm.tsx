@@ -7,7 +7,8 @@ import { useId, useState, type FormEvent } from 'react';
 import styles from '../assessment.module.css';
 import { storePendingEmail } from './pendingEmail';
 import { apiFetch, ApiRequestError } from './api';
-import { ASSESSMENT_ENTRY, PENDING } from '@/lib/assessment/copy';
+import { PENDING } from '@/lib/assessment/copy';
+import { ASSESSMENT_PAGE } from '@/lib/content/website-v121-pages';
 import { VAL } from '@/lib/assessment/validation';
 
 
@@ -16,6 +17,8 @@ export default function EntryForm({ initialEmail = '' }: { initialEmail?: string
   const id = useId();
   const [email, setEmail] = useState(initialEmail);
   const [ageConfirmed, setAgeConfirmed] = useState(false);
+  const [consentAck, setConsentAck] = useState(false);
+  const [consentError, setConsentError] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [ageError, setAgeError] = useState(false);
@@ -25,6 +28,10 @@ export default function EntryForm({ initialEmail = '' }: { initialEmail?: string
     setError(null);
     if (!ageConfirmed) {
       setAgeError(true);
+      return;
+    }
+    if (!consentAck) {
+      setConsentError(true);
       return;
     }
     setSending(true);
@@ -51,7 +58,7 @@ export default function EntryForm({ initialEmail = '' }: { initialEmail?: string
     <form className={styles.form} onSubmit={onSubmit} noValidate>
       <div>
         <label className={styles.label} htmlFor={`${id}-email`}>
-          {PENDING.emailLabel}
+          {ASSESSMENT_PAGE.form.emailLabel}
         </label>
         <input
           id={`${id}-email`}
@@ -65,11 +72,12 @@ export default function EntryForm({ initialEmail = '' }: { initialEmail?: string
           aria-invalid={error ? true : undefined}
         />
         <p id={`${id}-email-help`} className={styles.help}>
-          {PENDING.emailPrivacyNote}
+          {ASSESSMENT_PAGE.form.emailHelp}
         </p>
       </div>
 
       <div>
+        <p className={styles.label}>{ASSESSMENT_PAGE.form.ageLabel}</p>
         <label className={styles.check}>
           <input
             type="checkbox"
@@ -82,11 +90,34 @@ export default function EntryForm({ initialEmail = '' }: { initialEmail?: string
             aria-invalid={ageError || undefined}
             required
           />
-          <span>{PENDING.ageAcknowledgement}</span>
+          <span>{ASSESSMENT_PAGE.form.age}</span>
         </label>
         {ageError && (
           <p id={`${id}-age-error`} className={styles.error} role="alert">
             {VAL['VAL-010']}
+          </p>
+        )}
+      </div>
+
+      <div>
+        <p className={styles.label}>{ASSESSMENT_PAGE.form.consentLabel}</p>
+        <label className={styles.check}>
+          <input
+            type="checkbox"
+            checked={consentAck}
+            onChange={(e) => {
+              setConsentAck(e.target.checked);
+              setConsentError(false);
+            }}
+            aria-describedby={consentError ? `${id}-consent-error` : undefined}
+            aria-invalid={consentError || undefined}
+            required
+          />
+          <span>{ASSESSMENT_PAGE.form.consent}</span>
+        </label>
+        {consentError && (
+          <p id={`${id}-consent-error`} className={styles.error} role="alert">
+            {PENDING.consentRequired}
           </p>
         )}
       </div>
@@ -99,7 +130,7 @@ export default function EntryForm({ initialEmail = '' }: { initialEmail?: string
 
       <div>
         <button className={styles.btn} type="submit" disabled={sending}>
-          {sending ? PENDING.sendingLink : ASSESSMENT_ENTRY.cta}
+          {sending ? PENDING.sendingLink : ASSESSMENT_PAGE.form.submit}
         </button>
       </div>
     </form>

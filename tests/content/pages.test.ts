@@ -140,7 +140,7 @@ describe('the blog flow is complete, so an approved article is reachable', () =>
   });
 
   test('the landing shows the approved launch state only when there is nothing to list', () => {
-    assert.ok(landing.includes('BLOG_EMPTY_STATE'), 'the approved launch copy must be used');
+    assert.ok(landing.includes('PAGE.emptyState'), 'the approved launch copy must be used');
     assert.ok(landing.includes('ARTICLES.length === 0'), 'the empty state must be conditional, not permanent');
   });
 
@@ -243,7 +243,8 @@ describe('PUB-04 example report (ROOTS review point 6)', () => {
   });
 
   test('the example is labelled as fictional and shows the full disclaimer', () => {
-    assert.ok(page.includes('Example only'), 'the example-only badge is required (PUB-04 z1)');
+    assert.ok(page.includes('PAGE.badge'), 'the fictional-participant badge is required (PUB-04 z1)');
+    assert.ok(page.includes('PAGE.footnote'), 'the example-only footer line is required (PUB-04 z5)');
     assert.ok(page.includes('COPY.disclaimer'), 'the full fixed disclaimer is required (PUB-04 z5)');
   });
 });

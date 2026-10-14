@@ -146,7 +146,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       code: "HU",
       name: "Hunger & Appetite",
       tags: "Signals · Reward · Eating behaviour",
-      desc: "Hypothalamic arcuate nucleus signaling, leptin sensitivity, and evening reward compulsions.",
+      desc: "Self-reported hunger, fullness, cravings, and eating patterns.",
       cx: 330,
       cy: 170,
     },
@@ -154,7 +154,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       code: "ME",
       name: "Metabolism",
       tags: "Energy · Insulin · Storage",
-      desc: "Mitochondrial substrate switching between glucose and free fatty acids, preventing energy crashes.",
+      desc: "Reported weight-regulation experiences, energy patterns, and relevant lifestyle context.",
       cx: 265,
       cy: 480,
     },
@@ -162,7 +162,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       code: "SA",
       name: "Safety & Immunity",
       tags: "Inflammation · Defense · Repair",
-      desc: "Evolutionary survival defense: down-regulating basal metabolic rate under perceived biological stress.",
+      desc: "Self-reported experiences relating to energy, perceived strain, and recovery.",
       cx: 330,
       cy: 790,
     },
@@ -170,7 +170,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       code: "IN",
       name: "Inflammation",
       tags: "Microbiome · Gut Barrier · Signals",
-      desc: "Epithelial tight junctions, endotoxin clearance, and low-grade inflammatory signaling.",
+      desc: "Non-specific symptom patterns and relevant health context; not a direct measure of inflammation.",
       cx: 720,
       cy: 870,
     },
@@ -178,7 +178,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       code: "SL",
       name: "Sleep & Recovery",
       tags: "Rhythms · Hormones · Restoration",
-      desc: "Slow-wave delta sleep continuity and nocturnal core body temperature cooling cycles.",
+      desc: "Reported sleep duration, continuity, quality, and perceived restoration.",
       cx: 1110,
       cy: 170,
     },
@@ -186,7 +186,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       code: "CI",
       name: "Circadian Timing",
       tags: "Biological Clock · Hormonal Rhythm",
-      desc: "Suprachiasmatic nucleus alignment with solar light cues, cortisol awakening response, and melatonin secretion.",
+      desc: "Reported timing of sleep, light exposure, meals, and daily routines.",
       cx: 1175,
       cy: 480,
     },
@@ -194,7 +194,7 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
       code: "ST",
       name: "Stress Response",
       tags: "Autonomic Balance · Glucocorticoids",
-      desc: "Sympathetic vs parasympathetic vagal tone, chronic nocturnal cortisol spillover, and allostatic load.",
+      desc: "Perceived stress, related behaviors, and self-reported recovery patterns.",
       cx: 1110,
       cy: 790,
     },
@@ -349,8 +349,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
         title: "Governance",
         links: [
           { label: "Beta Pilot Program", href: base + "/pilot" },
-          { label: "HIPAA / GDPR Protection", href: base + "/privacy" },
-          { label: "Zero Hallucination Bounds", href: base + "/ai-disclaimer" },
+          { label: "Privacy & Data Protection", href: base + "/privacy" },
+          { label: "Defined AI Safety Boundaries", href: base + "/ai-disclaimer" },
         ],
       },
       {
@@ -962,8 +962,9 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                 color: "#2C5963",
               }}
             >
-              Body weight regulation is governed by seven interconnected physiological systems. ROOTS-AI evaluates each domain independently
-              and models how they amplify or counteract one another.
+              Weight regulation involves interacting biological and behavioral processes. ROOTS-AI™ organizes self-reported information
+              across seven assessment domains to help users explore relevant patterns. Questionnaire results do not directly establish
+              physiological mechanisms or causal relationships.
             </p>
           </div>{" "}
           <div
@@ -1201,8 +1202,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     color: "#D6EEF0",
                   }}
                 >
-                  The preview uses governed clinical sample values and demonstrates the required calibrated score, uncertainty bands and
-                  primary resistance friction.
+                  Explore a fictional, non-diagnostic example of how ROOTS-AI™ presents structured questionnaire findings, scoring summaries,
+                  limitations, and practical educational guidance.
                 </p>
               </div>{" "}
               <a
@@ -1389,7 +1390,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                       color: "#06323B",
                     }}
                   >
-                    Elevated nocturnal glucocorticoids and delayed lipid partitioning indicate an active conservation brake.
+                    This illustrative assessment highlights reported patterns involving stress, sleep, and weight regulation. These
+                    questionnaire findings do not establish hormone levels, metabolic dysfunction, or underlying biological mechanisms.
                   </p>
                 </div>
               </div>{" "}
@@ -1494,18 +1496,6 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                       style={{ position: "absolute", inset: "0", width: "100%", height: "100%", overflow: "visible" }}
                     >
                       <circle cx={"50"} cy={"50"} r={"42"} stroke={"#DCE8EA"} strokeWidth={"9"}></circle>
-                      <circle
-                        className={"arc94"}
-                        cx={"50"}
-                        cy={"50"}
-                        r={"42"}
-                        stroke={"#055564"}
-                        strokeWidth={"9"}
-                        strokeLinecap={"round"}
-                        pathLength={"100"}
-                        transform={"rotate(-90 50 50)"}
-                        style={{ filter: "drop-shadow(0 0 6px rgba(25,167,184,0.7))" }}
-                      ></circle>
                     </svg>{" "}
                     <span
                       className={"ping"}
@@ -1538,11 +1528,13 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                   <div style={{ minWidth: "0" }}>
                     <div
                       className={"sf gt"}
-                      style={{ fontSize: "clamp(38px, 3.5vw, 50px)", fontWeight: "600", lineHeight: "1", letterSpacing: "-0.04em" }}
+                      style={{ fontSize: "clamp(20px, 1.8vw, 24px)", fontWeight: "600", lineHeight: "1.15", letterSpacing: "-0.02em" }}
                     >
-                      94.2%
+                      Structured Assessment Insights
                     </div>{" "}
-                    <div style={{ fontSize: "14.5px", fontWeight: "500", lineHeight: "1.3", color: "#2C5963" }}>Calibrated Confidence:</div>
+                    <div style={{ fontSize: "14.5px", fontWeight: "500", lineHeight: "1.3", color: "#2C5963" }}>
+                      Questionnaire-based patterns interpreted within defined scientific and safety boundaries.
+                    </div>
                   </div>
                 </div>
               </div>{" "}
@@ -1594,11 +1586,8 @@ export default function RootsV1({ motion = true, autoPlay = true }: Props) {
                     </span>
                   </div>{" "}
                   <div style={{ minWidth: "0" }}>
-                    <div className={"sf gw"} style={{ fontSize: "clamp(38px, 3.5vw, 50px)", fontWeight: "600", lineHeight: "1" }}>
-                      v2.4
-                    </div>{" "}
-                    <div style={{ fontSize: "14.5px", fontWeight: "500", lineHeight: "1.3", color: "#D6EEF0" }}>
-                      Validated against ROOTS-AI™ Ruleset
+                    <div className={"sf gw"} style={{ fontSize: "clamp(17px, 1.5vw, 20px)", fontWeight: "600", lineHeight: "1.2" }}>
+                      Internally checked against defined assessment rules
                     </div>
                   </div>
                 </div>

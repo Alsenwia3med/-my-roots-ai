@@ -1,8 +1,8 @@
-// PUB-05 (C-05). Copy is C-04 §3 "/research"; the page only lays out lib/content/c04-pages.ts.
+// PUB-05 (C-05). Copy is the v1.21 publication-candidate document; the page only lays out lib/content/website-v121.ts.
 
 import type { Metadata } from 'next';
 import PublicPage from '@/components/PublicPage';
-import { RESEARCH } from '@/lib/content/c04-pages';
+import { RESEARCH } from '@/lib/content/website-v121';
 
 export const metadata: Metadata = {
   title: RESEARCH.meta!.title,

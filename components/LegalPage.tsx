@@ -19,13 +19,42 @@ import PrintButton from './PrintButton';
 import LegalToc from './lux/LegalToc';
 import PageHero from './lux/PageHero';
 import { IconTile } from './lux/Icon';
-import type { LegalDocument } from '@/lib/content/c04-legal';
+import type { LegalBlock, LegalDocument } from '@/lib/content/c04-legal';
 
 const slug = (heading: string) =>
   heading
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
+
+/** The running text of one legal section: paragraphs, labelled sub-sections, a list, closing paragraphs. */
+function BlockBody({ block }: { block: LegalBlock }) {
+  return (
+    <>
+      {block.paragraphs.map((p) => (
+        <p key={p.slice(0, 40)}>{p}</p>
+      ))}
+      {block.subs?.map((sub) => (
+        <div className="lxl-sub" key={sub.label}>
+          <h3 className="lxl-h3">{sub.label}</h3>
+          {sub.paragraphs.map((p) => (
+            <p key={p.slice(0, 40)}>{p}</p>
+          ))}
+        </div>
+      ))}
+      {block.list?.length ? (
+        <ul className="lxl-list">
+          {block.list.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+      ) : null}
+      {block.closing?.map((p) => (
+        <p key={p.slice(0, 40)}>{p}</p>
+      ))}
+    </>
+  );
+}
 
 export default function LegalPage({ doc }: { doc: LegalDocument }) {
   const numbered = doc.blocks.length > 1;
@@ -53,6 +82,12 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
               </p>
             ) : null}
 
+            {doc.intro?.map((p) => (
+              <p className="lxl-intro" key={p.slice(0, 40)}>
+                {p}
+              </p>
+            ))}
+
             {doc.blocks.map((block, i) => (
               <section key={block.heading} id={slug(block.heading)} className="lxl-section" data-reveal="">
                 {/* A single-block notice whose only heading repeats the page title would give
@@ -63,11 +98,11 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
                     {block.heading}
                   </h2>
                 ) : null}
-                {block.paragraphs.map((p) => (
-                  <p key={p.slice(0, 40)}>{p}</p>
-                ))}
+                <BlockBody block={block} />
               </section>
             ))}
+
+
 
             {/* LEG-04 z4 "Emergency: fixed local-emergency direction", as its own zone. */}
             {doc.emergency ? (
@@ -178,7 +213,7 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
             {/* LEG-02 z4, LEG-04 z5, LEG-05 z5 "Related". */}
             {doc.related?.length ? (
               <section id="related" className="lxl-section" data-reveal="">
-                <h2 className="lxl-h2">Related notices</h2>
+                <h2 className="lxl-h2">Related Notices</h2>
                 <ul className="lxl-related">
                   {doc.related.map((link) => (
                     <li key={link.href}>
@@ -189,6 +224,13 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
                     </li>
                   ))}
                 </ul>
+              </section>
+            ) : null}
+
+            {doc.corporate ? (
+              <section id="corporate-information" className="lxl-section" data-reveal="">
+                <h2 className="lxl-h2">{doc.corporate.heading}</h2>
+                <BlockBody block={doc.corporate} />
               </section>
             ) : null}
           </article>

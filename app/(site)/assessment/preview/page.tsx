@@ -8,11 +8,9 @@
  */
 
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import styles from '../assessment.module.css';
-import EntryForm from '../_components/EntryForm';
+import EntryContent from '../_components/EntryContent';
 import PreviewModule from './PreviewModule';
-import { ASSESSMENT_ENTRY } from '@/lib/assessment/copy';
 import { getModuleByOrder, getModuleQuestions } from '@/lib/assessment/questionBank';
 
 export const metadata: Metadata = { robots: { index: false, follow: false } };
@@ -23,22 +21,7 @@ export default async function AssessmentPreview({ searchParams }: { searchParams
   if (screen === 'entry') {
     return (
       <main id="main" className={styles.main}>
-        <h1 className={styles.title}>{ASSESSMENT_ENTRY.headline}</h1>
-        <p className={styles.lede}>{ASSESSMENT_ENTRY.intro}</p>
-        <ul className={styles.list}>
-          {ASSESSMENT_ENTRY.bullets.map((b) => (
-            <li key={b}>{b}</li>
-          ))}
-        </ul>
-        <div className={styles.card}>
-          <EntryForm />
-        </div>
-        <nav className={styles.legalLinks} aria-label="Legal">
-          <Link className={styles.link} href="/privacy">Privacy</Link>
-          <Link className={styles.link} href="/terms">Terms</Link>
-          <Link className={styles.link} href="/medical-disclaimer">Medical Disclaimer</Link>
-          <Link className={styles.link} href="/ai-disclaimer">AI Disclaimer</Link>
-        </nav>
+        <EntryContent />
       </main>
     );
   }

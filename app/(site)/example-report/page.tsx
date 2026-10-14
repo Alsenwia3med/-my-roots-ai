@@ -15,9 +15,11 @@
 
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CLASSIFICATION_EXPLANATIONS, COPY, DOMAIN_MEANINGS, EDUCATIONAL_BADGE } from '@/lib/report/c03-content';
+import { CLASSIFICATION_EXPLANATIONS, COPY, DOMAIN_MEANINGS } from '@/lib/report/c03-content';
 import { EXAMPLE, EXAMPLE_SECTIONS } from '@/lib/content/example-report';
 import { EXAMPLE_REPORT } from '@/lib/content/c04-pages';
+import { EXAMPLE_REPORT_PAGE as PAGE } from '@/lib/content/website-v121-pages';
+import { ZoneSheet } from '@/components/PublicPage';
 import { classify } from '@/lib/report/build';
 import { ArrowRight } from 'lucide-react';
 import PageHero from '@/components/lux/PageHero';
@@ -32,12 +34,27 @@ export default function ExampleReportPage() {
     <div className="lx lxr">
       <main id="main">
         {/* z1 — intro, with the example-only badge */}
-        <PageHero kicker="ROOTS / EXAMPLE REPORT" title={EXAMPLE_REPORT.headline} intro={EXAMPLE_REPORT.intro} scene="rings">
+        <PageHero
+          kicker={PAGE.kicker}
+          title={PAGE.headline}
+          intro={
+            <>
+              <strong className="lxp-tagline">{PAGE.tagline}</strong>
+              <p>{PAGE.intro}</p>
+              {PAGE.introMore.map((text) => (
+                <p key={text}>{text}</p>
+              ))}
+            </>
+          }
+          scene="rings"
+        >
           <p className="lxr-badge">
-            <span>Example only</span>
-            Fictional sample data. {EXAMPLE_REPORT.bullets[0]}
+            <span>{PAGE.badge.label}</span>
+            {PAGE.badge.text}
           </p>
         </PageHero>
+
+        <ZoneSheet zones={PAGE.before} />
 
         <div className="lxr-body lx-wrap">
           {/* z3 — sticky contents */}
@@ -134,22 +151,27 @@ export default function ExampleReportPage() {
           </div>
         </div>
 
+        <ZoneSheet zones={PAGE.after} />
+
         {/* z4 — CTA */}
         <div className="lxl-actions lx-wrap">
-          <Link className="lx-btn lx-btn--primary" href="/assessment" data-magnetic="">
-            <span>Start Your Assessment</span>
-            <ArrowRight className="lx-arrow" size={17} strokeWidth={2} aria-hidden="true" />
-          </Link>
+          {PAGE.ctas.map((cta, i) => (
+            <Link
+              className={`lx-btn ${i === 0 ? 'lx-btn--primary' : 'lx-btn--secondary'}`}
+              href={cta.href}
+              key={cta.href}
+              data-magnetic=""
+            >
+              <span>{cta.label}</span>
+              {i === 0 ? <ArrowRight className="lx-arrow" size={17} strokeWidth={2} aria-hidden="true" /> : null}
+            </Link>
+          ))}
         </div>
 
         {/* z5 — footer disclaimer: the full educational boundary */}
         <section className="lxr-boundary lx-wrap">
           <div className="lx-deep lxr-boundary-panel lx-on-deep" data-reveal="scale">
-            <p className="lxr-badge lxr-badge--deep">
-              <span>Example only</span>
-              {EDUCATIONAL_BADGE}
-            </p>
-            <p>{COPY.disclaimer}</p>
+            <p>{PAGE.footnote}</p>
           </div>
         </section>
       </main>
