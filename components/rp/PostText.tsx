@@ -1,7 +1,4 @@
-'use client';
-
-import { ChevronDown } from 'lucide-react';
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 
 const TOKEN = /(https:\/\/[^\s<>"']+|#[\p{L}\p{N}_]+)/gu;
 
@@ -27,19 +24,13 @@ function Rich({ text }: { text: string }) {
   );
 }
 
-/** Long posts open and close with an icon-only toggle; short ones show in full. */
+/** Keep long posts as excerpts; the article link opens the full post on its own page. */
 export function PostText({ text, limit }: { text: string; limit: number }) {
-  const [open, setOpen] = useState(false);
   const long = text.length > limit + 60;
-  const shown = open || !long ? text : `${text.slice(0, limit).replace(/\s+\S*$/, '')}…`;
+  const shown = long ? `${text.slice(0, limit).replace(/\s+\S*$/, '')}…` : text;
   return (
     <div className="litext">
       <p><Rich text={shown} /></p>
-      {long ? (
-        <button type="button" className={`rm ${open ? 'open' : ''}`} aria-expanded={open} aria-label={open ? 'Show less' : 'Show more'} onClick={() => setOpen((v) => !v)}>
-          <ChevronDown size="1em" strokeWidth={1.7} aria-hidden="true" className="ic" />
-        </button>
-      ) : null}
     </div>
   );
 }
