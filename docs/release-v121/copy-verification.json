@@ -1,0 +1,167 @@
+{
+  "totalMissing": 34,
+  "totalExtra": 781,
+  "pages": [
+    {
+      "route": "/how-it-works",
+      "pdfPages": "1-3",
+      "pdfWords": 646,
+      "matched": 646,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "route": "/platform",
+      "pdfPages": "4-5",
+      "pdfWords": 438,
+      "matched": 438,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "route": "/example-report",
+      "pdfPages": "6-8",
+      "pdfWords": 506,
+      "matched": 506,
+      "missing": [],
+      "extra": [
+        "19 sections 01 Cover Page 02 Executive Summary 03",
+        "05 ROOTS Confidence™ 06 Key Drivers 07",
+        "08 Biological Triad™ 09 Future Projection 10 90-Day Roadmap 11 Nutrition Priorities 12 Action Priorities 13",
+        "14 Specific Concerns 15",
+        "16 Participant Answers 17 Biological Card 18 Final Word 19",
+        "Section 1 of 19 Cover Page Sample Participant • Report RPT-SAMPLE-001 • 21 July 2026 • v1.0.1 • Educational — Not a Diagnosis Section 2 of 19 Executive Summary Your answers suggest a multi-factor pattern led by Stress Load, Sleep Recovery and Metabolic Resistance. Current strengths include readiness for one small change and a supportive environment. Confidence is High because the assessment was complete and internally consistent. Section 3 of 19",
+        "61 /100 Strained This is a questionnaire summary, not a medical risk probability. Several signals may be placing consistent pressure on this area. Section 4 of 19",
+        "69.5 /100 A proprietary indicator of modifiable capacity suggested by the current pattern. Section 5 of 19 ROOTS Confidence™ 84 /100 High Complete answers, high self-confidence and consistent domain responses. Section 6 of 19 Key Drivers Stress Load 75; Sleep Recovery 68; Metabolic Resistance 62. Section 7 of 19",
+        "MR 62; HS 48; SR 68; CH 55; SL 75; IB 58; BS 61. Metabolic Resistance™ Self-reported resistance to expected weight change and activity-related metabolic context. 62 /100 · Strained Hunger & Satiety Signals™ Hunger, craving, fullness and post-meal response patterns. 48 /100 · Compensating Sleep Recovery Index™ Sleep duration, continuity and perceived restoration. 68 /100 · Strained Circadian Health Score™ Alignment of light, screen, meal and sleep timing. 55 /100 · Strained Stress Load™ Perceived tension, cognitive activation and stress-linked eating. 75 /100 · Dysregulated Inflammation Burden Index™ Non-specific symptom burden; not a laboratory or clinical inflammation measure. 58 /100 · Strained Biological Safety Signals™ Perceived energy, appetite drive and resistance signals. 61 /100 · Strained Section 8 of 19 Biological Triad™ Stress Load + Sleep Recovery + consistent meal timing as the top protective factor. Domain Stress Load™ Domain Sleep Recovery Index™ Protective factor Consistent meal timing The diagram shows possible relationships between these areas, not causes. Section 9 of 19 Future Projection If unchanged, stress and sleep signals may continue to influence energy and eating patterns; this",
+        "prognosis. Section 10 of 19 90-Day Roadmap Month 1: consistent wake time. Month 2: three post-meal walks weekly. Month 3: reinforce the most sustainable routine. Section 11 of 19 Nutrition Priorities Use regular meals; include protein and fibre in one main meal; keep hydration consistent. Section 12 of 19 Action Priorities 1) fixed wake-time window; 2) ten-minute walks; 3) two-minute daily pause; 4) plan one balanced meal. Section 13 of 19",
+        "High readiness, supportive home environment and some regular meal timing. Section 14 of 19 Specific Concerns Persistent fatigue, sleep disruption or unusual thirst should be discussed with a qualified professional. Section 15 of 19",
+        "Ask whether glucose regulation, thyroid or other evaluation is appropriate for your history; ROOTS-AI™ does not order or interpret tests. Section 16 of 19 Participant Answers A real report shows every answer exactly as submitted, organised by the thirteen modules below. Body Foundations Weight & Metabolic History Sleep Recovery Index Hunger & Satiety Signals Stress Load & Inflammation Signals Circadian Health Physical Activity Mapping Biological Safety Signals Root Cause Discovery Hormonal & Reproductive Context Lifestyle & Environment Goals & Readiness Confidence & Additional Context Section 17 of 19 Biological Card State 61 • Opportunity 69.5 • Recovery 63.0 • Confidence High • Rules v1.0.1. Section 18 of 19 Final Word",
+        "a starting point, not a verdict. Begin with one realistic action and observe what changes. Section 19 of 19",
+        "ROOTS-AI™ provides educational",
+        "medical device, diagnostic service, clinical assessment, prognosis or substitute for a qualified healthcare professional.",
+        "provide medical treatment or medication instructions. Scores are proprietary questionnaire indicators and are not validated probabilities",
+        "future outcomes. AI may assist with wording, but all scores and classifications are calculated by deterministic rules. If you have severe, sudden or worsening symptoms, or believe you may be in immediate danger, contact local emergency services or a qualified healthcare professional. 01"
+      ]
+    },
+    {
+      "route": "/research",
+      "pdfPages": "9-10",
+      "pdfWords": 491,
+      "matched": 491,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "route": "/about",
+      "pdfPages": "11-13",
+      "pdfWords": 876,
+      "matched": 876,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "route": "/healthcare-professionals",
+      "pdfPages": "14-15",
+      "pdfWords": 583,
+      "matched": 583,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "route": "/pilot",
+      "pdfPages": "16-17",
+      "pdfWords": 561,
+      "matched": 561,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "route": "/blog",
+      "pdfPages": "18-19",
+      "pdfWords": 398,
+      "matched": 398,
+      "missing": [],
+      "extra": []
+    },
+    {
+      "route": "/contact",
+      "pdfPages": "20-21",
+      "pdfWords": 309,
+      "matched": 297,
+      "missing": [
+        "Enquiry Type Select the topic that best describes your message.",
+        "Send Message"
+      ],
+      "extra": [
+        "Website Send Message 01"
+      ]
+    },
+    {
+      "route": "/assessment",
+      "pdfPages": "22",
+      "pdfWords": 276,
+      "matched": 271,
+      "missing": [
+        "|",
+        "| Medical Disclaimer |"
+      ],
+      "extra": [
+        "Medical Disclaimer"
+      ]
+    },
+    {
+      "route": "/privacy",
+      "pdfPages": "23-28",
+      "pdfWords": 1828,
+      "matched": 1823,
+      "missing": [
+        "[https://www.roots-ai.health/contact](https://www.roots-ai.health/contact)",
+        "[www.roots-ai.health](http://www.roots-ai.health/) Privacy Requests: [https://www.roots-ai.health/contact](https://www.roots-ai.health/contact)"
+      ],
+      "extra": [
+        "Print",
+        "https://www.roots-ai.health/contact"
+      ]
+    },
+    {
+      "route": "/medical-disclaimer",
+      "pdfPages": "29",
+      "pdfWords": 300,
+      "matched": 296,
+      "missing": [
+        "| AI Disclaimer |"
+      ],
+      "extra": [
+        "Print Contents",
+        "AI Disclaimer"
+      ]
+    },
+    {
+      "route": "/terms",
+      "pdfPages": "30-32",
+      "pdfWords": 1114,
+      "matched": 1110,
+      "missing": [
+        "| Medical Disclaimer |"
+      ],
+      "extra": [
+        "Print",
+        "Medical Disclaimer"
+      ]
+    },
+    {
+      "route": "/ai-disclaimer",
+      "pdfPages": "33",
+      "pdfWords": 226,
+      "matched": 222,
+      "missing": [
+        "|",
+        "| Medical Disclaimer"
+      ],
+      "extra": [
+        "Print Contents"
+      ]
+    }
+  ]
+}

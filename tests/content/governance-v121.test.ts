@@ -49,7 +49,7 @@ describe('governance review — homepage corrections (B1–B7)', () => {
       'Explore a fictional, non-diagnostic example of how ROOTS-AI™ presents structured questionnaire findings',
       'Privacy & Data Protection',
       'Defined AI Safety Boundaries',
-      '© 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.',
+      '© ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.',
       'Non-specific symptom patterns and relevant health context; not a direct measure of inflammation.',
     ]) {
       assert.ok(home.replace(/\s+/g, ' ').includes(phrase), `"${phrase}" must appear on the homepage`);

@@ -130,7 +130,10 @@ describe('C-04 /blog editorial controls (PUB-11, PUB-12)', () => {
 });
 
 describe('the blog flow is complete, so an approved article is reachable', () => {
-  const landing = readFileSync(join(__dirname, '../../app/(site)/blog/page.tsx'), 'utf8');
+  const landing =
+    readFileSync(join(__dirname, '../../app/(site)/blog/page.tsx'), 'utf8') +
+    readFileSync(join(__dirname, '../../components/rp/BlogPage.tsx'), 'utf8') +
+    readFileSync(join(__dirname, '../../components/rp/LinkedInPosts.tsx'), 'utf8');
   const template = readFileSync(join(__dirname, '../../app/(site)/blog/[slug]/page.tsx'), 'utf8');
 
   test('the landing links articles to their slug pages (PUB-11 z2, z3)', () => {
@@ -140,8 +143,13 @@ describe('the blog flow is complete, so an approved article is reachable', () =>
   });
 
   test('the landing shows the approved launch state only when there is nothing to list', () => {
-    assert.ok(landing.includes('PAGE.emptyState'), 'the approved launch copy must be used');
-    assert.ok(landing.includes('ARTICLES.length === 0'), 'the empty state must be conditional, not permanent');
+    assert.ok(landing.includes('INSIGHTS_PAGE.emptyState'), 'the approved launch copy must be used');
+    assert.ok(landing.includes('posts.length === 0 && !hasArticles'), 'the empty state must be conditional on both sources being empty');
+  });
+
+  test('the closing callout includes the approved Insights heading and copy', () => {
+    assert.ok(landing.includes("heading: 'Better Questions. More Responsible Understanding.'"));
+    assert.ok(landing.includes("text: 'Good science does not need exaggerated promises to be worth reading.'"));
   });
 
   test('category filters appear only when populated (PUB-11 z4)', () => {
@@ -181,7 +189,9 @@ describe('the blog flow is complete, so an approved article is reachable', () =>
 });
 
 describe('PUB-04 example report (ROOTS review point 6)', () => {
-  const page = readFileSync(join(__dirname, '../../app/(site)/example-report/page.tsx'), 'utf8');
+  const page =
+    readFileSync(join(__dirname, '../../app/(site)/example-report/page.tsx'), 'utf8') +
+    readFileSync(join(__dirname, '../../components/rp/ExampleReport.tsx'), 'utf8');
 
   test('all nineteen C-03 sections are present, in the fixed order', () => {
     assert.equal(EXAMPLE_SECTIONS.length, 19);

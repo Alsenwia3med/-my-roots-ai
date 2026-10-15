@@ -1,7 +1,7 @@
 // PUB-07 (C-05). Copy is the v1.21 publication-candidate document; the page only lays out lib/content/website-v121.ts.
 
 import type { Metadata } from 'next';
-import PublicPage from '@/components/PublicPage';
+import PilotPass from '@/components/rp/PilotPass';
 import { PILOT } from '@/lib/content/website-v121';
 
 // C-04 §10 supplies a metadata row for seven routes; this is not one of them. The page's own
@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function PilotPage() {
-  return <PublicPage page={PILOT} kicker="ROOTS / FREE BETA" />;
+  return <PilotPass page={PILOT} kicker="ROOTS / FREE BETA" />;
 }

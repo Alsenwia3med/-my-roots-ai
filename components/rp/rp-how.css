@@ -1,0 +1,46 @@
+/* Scoped under .rp.rp-how. Generated from the approved design preview; edit freely. */
+/* Design A */
+.rp.rp-how .hgrid{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(24px,4vw,64px);align-items:center}
+.rp.rp-how .con{padding:20px;display:grid;gap:10px;max-width:420px;justify-self:end;width:100%}
+.rp.rp-how .ctop{display:flex;justify-content:space-between;font-size:10.5px;letter-spacing:.16em;font-weight:700;color:var(--mint)}
+.rp.rp-how .clive{display:flex;align-items:center;gap:7px}.rp.rp-how .clive i{position:relative;width:7px;height:7px;border-radius:50%;background:var(--mint)}.rp.rp-how .clive i::after{content:"";position:absolute;inset:0;border-radius:50%;background:var(--mint);animation:ping 2.4s infinite}
+.rp.rp-how .crow{display:grid;grid-template-columns:36px 1fr auto;gap:12px;align-items:center;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.07);box-shadow:inset 0 0 0 1px rgba(255,255,255,.12);transition:transform .4s var(--ease2),background .3s}
+.rp.rp-how .crow:hover{transform:translateX(5px);background:rgba(255,255,255,.14)}
+.rp.rp-how .co{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#0A6677;box-shadow:0 0 0 5px rgba(255,255,255,.06);font-size:16px}
+.rp.rp-how .crow b{display:block;font-size:13px;font-weight:600;line-height:1.25}
+.rp.rp-how .crow small{display:block;margin-top:6px;height:4px;border-radius:2px;background:rgba(255,255,255,.14);overflow:hidden}.rp.rp-how .crow small i{display:block;height:100%;border-radius:2px}
+.rp.rp-how .crow em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--mint)}
+.rp.rp-how .cfoot{display:flex;justify-content:space-between;align-items:center;padding-top:4px;font-size:12px;color:rgba(255,255,255,.7)}
+.rp.rp-how .shead{display:grid;gap:8px;margin-bottom:clamp(22px,3vw,36px);max-width:680px}
+/* Hover/focus pipeline selector and its single detail panel. */
+.rp.rp-how .pbox{position:relative;margin-bottom:clamp(18px,2.2vw,28px)}
+.rp.rp-how .prail{position:absolute;left:calc(50% / var(--n,4));right:calc(50% / var(--n,4));top:22px}
+.rp.rp-how .pbox[data-n="4"] .prail{left:12.5%;right:12.5%}.rp.rp-how .pbox[data-n="7"] .prail{left:7.15%;right:7.15%}
+.rp.rp-how .prail .rail{position:absolute;inset:0;opacity:.9}
+.rp.rp-how .pfill{position:absolute;left:0;top:-1px;height:4px;border-radius:2px;background:linear-gradient(90deg,#055564,#19A7B8);box-shadow:0 0 14px 2px rgba(25,167,184,.5);transition:width .45s var(--ease2)}
+.rp.rp-how .prail .pk{top:50%;animation:none;transition:left .45s var(--ease2)}
+.rp.rp-how .pgrid{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:clamp(8px,1.2vw,16px)}
+.rp.rp-how .stp{display:flex;flex-direction:column;align-items:center}
+.rp.rp-how .orb{position:relative;z-index:2;display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:#0A6677;border:1px solid rgba(255,255,255,.6);box-shadow:0 0 0 6px rgba(5,85,100,.08);color:#fff;font-size:19px;transition:background .35s,box-shadow .35s,transform .35s var(--ease2)}
+.rp.rp-how .orb .hl{display:none;position:absolute;inset:-5px;border-radius:50%;border:1.5px solid var(--cyan)}
+.rp.rp-how .stp.on .orb{background:linear-gradient(135deg,#19A7B8,#055564);box-shadow:0 0 34px 4px rgba(25,167,184,.5);transform:scale(1.1)}.rp.rp-how .stp.on .orb .hl{display:block}
+.rp.rp-how .pc{display:flex;flex-direction:column;gap:8px;width:100%;margin-top:18px;min-height:112px;padding:16px 15px;text-align:left;border-radius:20px;transition:transform .35s var(--ease2),box-shadow .35s,border-color .3s}
+.rp.rp-how .pc:hover,.rp.rp-how .pc:focus-visible{transform:translateY(-5px) scale(1.025);z-index:3;border-color:rgba(143,230,234,.6);box-shadow:0 22px 40px -16px rgba(25,167,184,.4),0 0 44px -10px rgba(143,230,234,.6),inset 0 1px 0 rgba(255,255,255,.4)}
+.rp.rp-how .stp.on .pc{transform:translateY(-4px);border-color:rgba(255,255,255,.7)}
+.rp.rp-how .pn{font-size:11px;letter-spacing:.2em;font-weight:700;color:var(--mint)}
+.rp.rp-how .pc h3{font-size:clamp(13px,1.05vw,15px);font-weight:600;line-height:1.22;letter-spacing:-.01em;color:#fff}
+.rp.rp-how .pm{display:flex;align-items:center;gap:6px;margin-top:auto;font-size:11.5px;font-weight:600;color:var(--mint)}
+.rp.rp-how .pdet{margin-top:0;padding:clamp(20px,3vw,36px);display:grid;grid-template-columns:.7fr 1.3fr;gap:clamp(20px,3.4vw,52px);min-height:240px}
+.rp.rp-how .dleft{align-content:start}
+.rp.rp-how .pdet .it span[aria-hidden="true"]{font-size:15px;line-height:1}
+.rp.rp-how .dbig{font-size:clamp(52px,6vw,84px);font-weight:600;line-height:.9;letter-spacing:-.05em}
+.rp.rp-how .dsub{margin-top:8px;font-size:14px;font-weight:600;color:var(--mint)}
+/* rows */
+.rp.rp-how .rowx{border-top:1px solid var(--line);padding-block:clamp(30px,4vw,52px)}
+.rp.rp-how .rgrid{display:grid;grid-template-columns:.7fr 1.6fr;gap:clamp(20px,4vw,64px);align-items:start}
+.rp.rp-how .rl{position:sticky;top:var(--rp-top)}
+.rp.rp-how .rr.pad{padding:clamp(18px,2.4vw,28px)}
+.rp.rp-how .pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,20px)}
+.rp.rp-how .pair>div{padding:clamp(20px,2.6vw,30px)}
+@media(max-width:1000px){.rp.rp-how .hgrid,.rp.rp-how .rgrid,.rp.rp-how .pdet,.rp.rp-how .pair{grid-template-columns:1fr}.rp.rp-how .con{justify-self:stretch;max-width:none}.rp.rp-how .rl{position:relative;top:0}.rp.rp-how .prail{display:none}.rp.rp-how .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.rp.rp-how .stp{flex-direction:row;align-items:flex-start;gap:10px}.rp.rp-how .pc{margin-top:0}}
+@media(max-width:520px){.rp.rp-how .pgrid{grid-template-columns:1fr}.rp.rp-how .pdet{padding:20px}.rp.rp-how .stp{gap:9px}.rp.rp-how .orb{width:38px;height:38px;flex:none}.rp.rp-how .pc{min-height:96px}}

@@ -19,7 +19,7 @@ export default function Footer() {
       </div>
       <div className="footer-bottom">
         <p>ROOTS-AI™ provides educational wellness information and does not diagnose or treat medical conditions.</p>
-        <p>© 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.</p>
+        <p>© ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.</p>
         <p className="footer-cookie-copy">{COOKIE_COPY}</p>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 // PUB-05 (C-05). Copy is the v1.21 publication-candidate document; the page only lays out lib/content/website-v121.ts.
 
 import type { Metadata } from 'next';
-import PublicPage from '@/components/PublicPage';
+import ResearchManifesto from '@/components/rp/ResearchManifesto';
 import { RESEARCH } from '@/lib/content/website-v121';
 
 export const metadata: Metadata = {
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function ResearchPage() {
-  return <PublicPage page={RESEARCH} kicker="ROOTS / RESEARCH" />;
+  return <ResearchManifesto page={RESEARCH} kicker="ROOTS / RESEARCH" />;
 }

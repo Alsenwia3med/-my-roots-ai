@@ -93,7 +93,7 @@ export default function Footer() {
             physician or endocrinologist before making clinical decisions.
           </p>
           <div className={styles.bottom}>
-            <p className={styles.copyright}>© 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.</p>
+            <p className={styles.copyright}>© ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.</p>
           </div>
         </div>
       </div>

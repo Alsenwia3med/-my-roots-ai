@@ -97,5 +97,5 @@ export const HOME_FOOTER: FooterData = {
   notes: [
     "ROOTS-AI™ is an educational and biological intelligence software platform developed to evaluate self-reported physiological patterns. It does not provide medical diagnoses, clinical treatment plans, or emergency health assessments. Always consult a qualified physician or endocrinologist before making clinical decisions.",
   ],
-  copyright: "© 2026 ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.",
+  copyright: "© ROOTS AI HEALTH SYSTEMS, Inc. All rights reserved.",
 };
