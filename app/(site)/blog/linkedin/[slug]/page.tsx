@@ -60,7 +60,7 @@ export default async function LinkedInArticlePage({ params }: { params: Promise<
               Read the article <ArrowRight size={16} aria-hidden="true" />
             </a>
           </div>
-          <div className={styles.heroArtwork}>
+          <div className={styles.heroArtwork} style={post.imageSrc ? ({ '--art': `url(${post.imageSrc})` } as React.CSSProperties) : undefined}>
             {post.imageSrc ? (
               <Image
                 src={post.imageSrc}

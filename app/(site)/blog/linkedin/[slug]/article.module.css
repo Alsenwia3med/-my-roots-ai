@@ -180,11 +180,11 @@
 
 .heroArtwork {
   position: relative;
-  min-height: 360px;
+  min-height: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, .48);
   border-radius: 24px;
-  aspect-ratio: 1.12;
+  aspect-ratio: 4 / 5;
   background: linear-gradient(140deg, #147f89, #03353f);
   box-shadow: 0 32px 70px -34px rgba(0, 0, 0, .72), 0 0 58px -28px rgba(168, 239, 240, .85);
 }
@@ -198,13 +198,26 @@
   pointer-events: none;
 }
 
+/* the whole picture, never cropped: it sits inside the frame over a soft blur of itself */
+.heroArtwork::before {
+  position: absolute;
+  inset: -24px;
+  background: var(--art) center / cover no-repeat;
+  filter: blur(26px) saturate(1.25);
+  opacity: .6;
+  content: "";
+}
+
 .heroImage {
-  object-fit: cover;
+  z-index: 1;
+  padding: clamp(10px, 1.6vw, 18px);
+  object-fit: contain;
+  filter: drop-shadow(0 18px 30px rgba(0, 0, 0, .38));
   transition: transform 1.1s cubic-bezier(.22, 1, .36, 1);
 }
 
 .heroArtwork:hover .heroImage {
-  transform: scale(1.045);
+  transform: scale(1.02);
 }
 
 .artworkCaption {
@@ -548,7 +561,7 @@
   }
 
   .heroArtwork {
-    min-height: 290px;
+    min-height: 0;
   }
 
   .relatedGrid {
@@ -582,7 +595,7 @@
   .heroArtwork {
     min-height: 0;
     border-radius: 19px;
-    aspect-ratio: 1.18;
+    aspect-ratio: 4 / 5;
   }
 
   .heroIndex {
