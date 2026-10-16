@@ -21,7 +21,19 @@ const PROTECTED = ['/assessment', '/report', '/admin', '/account', '/auth'];
 
 export default function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  if (pathname === '/assessment' || pathname?.startsWith('/assessment/')) return <>{children}<LuxMotion /></>;
+  // The assessment entry page is public and is where "Start Your Assessment" lands, so it keeps the
+  // full site header and footer. The questionnaire screens (everything below it) keep the focused shell.
+  if (pathname === '/assessment') {
+    return (
+      <>
+        <LuxHeader hoverNavigate />
+        <div data-assessment-entry="">{children}</div>
+        <LuxFooter data={HOME_FOOTER} />
+        <LuxMotion />
+      </>
+    );
+  }
+  if (pathname?.startsWith('/assessment/')) return <>{children}<LuxMotion /></>;
 
   const isPublic = !PROTECTED.some((route) => pathname === route || pathname?.startsWith(`${route}/`));
 

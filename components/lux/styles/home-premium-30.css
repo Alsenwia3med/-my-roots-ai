@@ -685,3 +685,8 @@
   .v1 .sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="14.5px"] { font-size: 10.5px !important; }
   .v1 .sx-rep .rp-frame .rp-segs { padding: 10px 20px 14px !important; gap: 4px !important; }
 }
+
+/* the assessment entry page wears the full site header, so the plain logo bar steps aside */
+[data-assessment-entry] [class*="shellHeader"] {
+  display: none;
+}
