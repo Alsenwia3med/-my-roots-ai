@@ -1,0 +1,342 @@
+/* ==========================================================================
+   Site footer ("index" design): brand left, four numbered columns right, one rule, centred copyright.
+   White at rest. When the pointer enters, a turquoise tint glides in from the left with a soft light
+   along its edge; when the pointer leaves it fades back to white. On touch screens the tint plays
+   once as the footer scrolls into view. Classes are .ftx-* so older .lxf rules never reach it.
+   ========================================================================== */
+.ftx {
+  --ftx-ink: #06323b;
+  --ftx-body: #2c5963;
+  --ftx-soft: #5b7f88;
+  --ftx-line: rgba(5, 85, 100, 0.14);
+  --ftx-ac: #19a7b8;
+  --ftx-ac2: #0a7385;
+  --ftx-wash: linear-gradient(118deg, #f2fbfb 0%, #d9f2f4 38%, #bde9ed 72%, #a4e0e6 100%);
+  --ftx-ease: cubic-bezier(0.22, 0.8, 0.22, 1);
+  --ftx-glide: cubic-bezier(0.65, 0, 0.3, 1);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: #fff;
+  border-top: 1px solid var(--ftx-line);
+  color: var(--ftx-ink);
+  font-family: var(--lx-sans);
+}
+.ftx *,
+.ftx *::before,
+.ftx *::after {
+  box-sizing: border-box;
+}
+
+/* tint + light along its leading edge */
+.ftx-wash,
+.ftx-sheen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: -220px;
+  z-index: -1;
+  pointer-events: none;
+  transform: translate3d(-100%, 0, 0);
+  opacity: 0;
+  will-change: transform;
+  transition:
+    opacity 0.3s ease,
+    transform 0s linear 0.3s;
+}
+.ftx-wash {
+  background: var(--ftx-wash);
+  -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 220px), transparent);
+  mask-image: linear-gradient(90deg, #000 calc(100% - 220px), transparent);
+}
+.ftx-sheen {
+  background: linear-gradient(
+    90deg,
+    transparent calc(100% - 300px),
+    rgba(255, 255, 255, 0.85) calc(100% - 190px),
+    transparent calc(100% - 80px)
+  );
+}
+.ftx:hover .ftx-wash,
+.ftx:hover .ftx-sheen,
+.ftx.is-in .ftx-wash,
+.ftx.is-in .ftx-sheen {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+  transition:
+    transform 2s var(--ftx-glide),
+    opacity 0.3s ease;
+}
+
+.ftx-wrap {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 72px clamp(20px, 4.4vw, 56px) 0;
+}
+.ftx-main {
+  display: grid;
+  grid-template-columns: minmax(0, 260px) minmax(0, 1fr);
+  gap: 48px;
+  align-items: start;
+}
+.ftx-brand {
+  padding-top: 6px;
+}
+
+/* brand */
+.ftx-id {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: inherit;
+  text-decoration: none;
+}
+.ftx-mark {
+  flex: none;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--ftx-line);
+  transition: transform 0.7s cubic-bezier(0.3, 1.35, 0.4, 1);
+}
+.ftx-mark i {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url("/brand/roots-logo.svg") -7px 3px / 63px auto no-repeat;
+}
+.ftx-id:hover .ftx-mark {
+  transform: rotate(-8deg) scale(1.06);
+}
+.ftx-name {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ftx-name strong {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+}
+.ftx-name em {
+  font-style: normal;
+  font-family: var(--lx-mono);
+  font-size: 9px;
+  letter-spacing: 0.26em;
+  color: var(--ftx-ac2);
+}
+.ftx-brand p {
+  margin: 20px 0 0;
+  max-width: 280px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 2;
+  color: var(--ftx-soft);
+}
+
+/* columns */
+.ftx-cols {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  justify-content: space-between;
+  gap: 36px 32px;
+}
+.ftx-col::before {
+  content: attr(data-n);
+  display: block;
+  margin-bottom: 14px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 200;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgba(5, 85, 100, 0.2);
+  transition:
+    color 0.5s,
+    transform 0.8s cubic-bezier(0.3, 1.35, 0.4, 1);
+}
+.ftx-col:hover::before {
+  color: var(--ftx-ac);
+  transform: translateY(-2px) scale(1.1);
+}
+.ftx-col h3 {
+  margin: 0 0 16px;
+  white-space: nowrap;
+  text-align: center;
+  font-family: var(--lx-mono);
+  font-size: 10.5px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ftx-ac2);
+}
+.ftx-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.ftx-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 0;
+  color: var(--ftx-body);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.4;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color 0.35s;
+}
+/* small dash before each line; it lengthens and turns cyan under the pointer */
+.ftx-link::before {
+  content: "";
+  flex: none;
+  width: 16px;
+  height: 1px;
+  background: linear-gradient(rgba(5, 85, 100, 0.32), rgba(5, 85, 100, 0.32)) 0 50% / 6px 1px no-repeat;
+  transition: background-size 0.55s var(--ftx-ease);
+}
+/* half-width line under the words */
+.ftx-link span {
+  padding-bottom: 3px;
+  background: linear-gradient(var(--ftx-ac), var(--ftx-ac)) 0 100% / 0 1px no-repeat;
+  transition: background-size 0.6s var(--ftx-ease);
+}
+.ftx-link:hover,
+.ftx-link:focus-visible {
+  color: var(--ftx-ink);
+}
+.ftx-link:hover::before,
+.ftx-link:focus-visible::before {
+  background: linear-gradient(var(--ftx-ac), var(--ftx-ac)) 0 50% / 16px 1px no-repeat;
+}
+.ftx-link:hover span,
+.ftx-link:focus-visible span {
+  background-size: 50% 1px;
+}
+.ftx-link:focus-visible,
+.ftx-id:focus-visible {
+  outline: 2px solid var(--ftx-ac);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.ftx-bottom {
+  margin-top: 52px;
+  padding: 22px 0 28px;
+  border-top: 1px solid var(--ftx-line);
+  text-align: center;
+  font-family: var(--lx-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ftx-soft);
+}
+
+@media (max-width: 1240px) {
+  .ftx-main {
+    grid-template-columns: 1fr;
+  }
+  .ftx-brand p {
+    max-width: 460px;
+  }
+  .ftx-cols {
+    justify-content: start;
+    gap: 36px 56px;
+  }
+}
+@media (max-width: 900px) {
+  .ftx-wrap {
+    padding-top: 48px;
+  }
+  .ftx-cols {
+    grid-template-columns: repeat(2, max-content);
+    gap: 32px 40px;
+  }
+}
+/* phone: everything visible, two columns per row */
+@media (max-width: 700px) {
+  .ftx-wrap {
+    padding: 32px 22px 0;
+  }
+  .ftx-main {
+    gap: 26px;
+  }
+  .ftx-brand {
+    padding-top: 0;
+  }
+  .ftx-mark {
+    width: 40px;
+    height: 40px;
+  }
+  .ftx-mark i {
+    background-size: 52px auto;
+    background-position: -6px 2px;
+  }
+  .ftx-id {
+    gap: 12px;
+  }
+  .ftx-name strong {
+    font-size: 15px;
+  }
+  .ftx-name em {
+    font-size: 8px;
+    letter-spacing: 0.22em;
+  }
+  .ftx-brand p {
+    margin-top: 14px;
+    max-width: none;
+    font-size: 11px;
+    line-height: 1.85;
+  }
+  .ftx-cols {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: stretch;
+    gap: 26px 18px;
+  }
+  .ftx-col::before {
+    margin-bottom: 8px;
+    font-size: 22px;
+  }
+  .ftx-col h3 {
+    margin-bottom: 10px;
+    font-size: 9.5px;
+    letter-spacing: 0.18em;
+  }
+  .ftx-col ul {
+    gap: 0;
+  }
+  .ftx-link {
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 11.5px;
+    white-space: normal;
+  }
+  .ftx-link::before {
+    width: 12px;
+    margin-top: 0.7em;
+    background-size: 5px 1px;
+  }
+  .ftx-link:hover::before,
+  .ftx-link:focus-visible::before {
+    background-size: 12px 1px;
+  }
+  .ftx-bottom {
+    margin-top: 28px;
+    padding: 18px 0 22px;
+    font-size: 9.5px;
+    letter-spacing: 0.1em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ftx *,
+  .ftx *::before {
+    transition: none !important;
+  }
+}
