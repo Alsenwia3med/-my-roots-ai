@@ -17,7 +17,7 @@
   50% { box-shadow: 0 0 0 8px rgba(143, 230, 234, 0); }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1040px) {
   /* ---- example report: score and drivers full width, the two figures side by side ---- */
   .v1 .sx-rep .rp-frame .gb {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
@@ -181,7 +181,7 @@
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1040px) {
   .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(3) > div > div:last-child,
   .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(4) > div > div:last-child {
     width: 100%;
