@@ -288,9 +288,6 @@ export default function LuxHeader({
         {ticker ? (
           <div className="lxh-ticker" role="region" aria-label="News and announcements">
             <div className="lxh-ticker-inner">
-              <span className="lxh-live" aria-hidden="true">
-                <span />
-              </span>
               <div className="lxh-marquee">
                 <div className="lxh-track">
                   {[0, 1].map((copy) => (
