@@ -627,3 +627,61 @@
   .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(3),
   .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(4) { grid-column: auto !important; grid-row: auto !important; }
 }
+
+/* ==========================================================================
+   Example report on larger screens: a quieter, smaller window — everything one step down in size,
+   even margins, nothing crowding anything else.
+   ========================================================================== */
+@media (min-width: 1041px) {
+  .v1 .sx-rep .rp-wrap { grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr) !important; }
+  .v1 .sx-rep .rp-frame { max-width: 760px; margin-inline: auto; }
+  .v1 .sx-rep .rp-frame .gb .rvi > div,
+  .v1 .sx-rep .rp-frame .gb .rvi > .gl,
+  .v1 .sx-rep .rp-frame .gb .rvi > .dp {
+    padding: 18px 20px !important;
+  }
+  /* score */
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(1) div[style*="aspect-ratio"] {
+    max-width: 150px !important;
+    margin: 14px auto 0 !important;
+  }
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(1) > div > span.mn {
+    margin-top: 14px !important;
+    min-height: 30px !important;
+    font-size: 12px !important;
+  }
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(1) .sf.gt { font-size: 32px !important; }
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(1) p {
+    max-width: 34ch !important;
+    margin: 12px auto 0 !important;
+    font-size: 11.5px !important;
+    line-height: 1.55 !important;
+    color: rgba(214, 238, 240, 0.86) !important;
+  }
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(1) > div > .eb { font-size: 11px !important; padding: 5px 12px !important; }
+  /* drivers */
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(2) ul { gap: 14px !important; }
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li > div:first-child span:first-child { font-size: 12px !important; }
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(2) ul li > div:first-child span:last-child { font-size: 11px !important; }
+  .v1 .sx-rep .rp-frame .drv-stat b,
+  .v1 .sx-rep .rp-frame .drv-stat { font-size: 17px !important; }
+  .v1 .sx-rep .rp-frame .trk { margin-top: 8px !important; }
+  /* the two figures */
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(3) > div,
+  .v1 .sx-rep .rp-frame .gb > .rvi:nth-child(4) > div {
+    padding: 12px 10px 14px !important;
+    gap: 6px !important;
+    border-radius: 14px !important;
+  }
+  .v1 .sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="92px"],
+  .v1 .sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] {
+    width: 30px !important;
+    height: 30px !important;
+  }
+  .v1 .sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="64px"] svg { width: 14px; height: 14px; }
+  .v1 .sx-rep .rp-frame .gb .rvi:nth-child(3) .sf.gt,
+  .v1 .sx-rep .rp-frame .gb .rvi:nth-child(4) .sf.gw { font-size: 12.5px !important; }
+  .v1 .sx-rep .rp-frame .gb .rvi:nth-child(3) div[style*="14.5px"],
+  .v1 .sx-rep .rp-frame .gb .rvi:nth-child(4) div[style*="14.5px"] { font-size: 10.5px !important; }
+  .v1 .sx-rep .rp-frame .rp-segs { padding: 10px 20px 14px !important; gap: 4px !important; }
+}
