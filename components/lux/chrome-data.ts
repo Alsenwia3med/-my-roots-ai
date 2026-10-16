@@ -40,11 +40,14 @@ export const MOBILE: readonly NavLink[] = [
 export const CTA: NavLink = ["Start Your Assessment", "/assessment"];
 
 export const NEWS = [
-  "ROOTS-AI™ Free Beta now open — check eligibility",
-  "Phase 1 available: assessment and governed report engine",
-  "Sample 19-section report ready to view",
-  "Seven biological domains · 73 questions · one connected view",
-  "Educational, not diagnostic",
+  "Seven Stages. One Connected Vision of Human Health.",
+  "Stage 01 · Mini Version Assessment Intelligence",
+  "Stage 02 · Human Systems + Biological Measurement Foundation",
+  "Stage 03 · Human System Reconciliation™ v1",
+  "Stage 04 · Therapeutic & Multimorbidity Intelligence",
+  "Stage 05 · Cross-Specialty & Clinical Continuity",
+  "Stage 06 · Hospital-Wide Human System Intelligence",
+  "Stage 07 · Advanced Human System Intelligence",
 ] as const;
 
 export interface FooterColumn {
