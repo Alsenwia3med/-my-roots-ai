@@ -44,12 +44,12 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      <Rows zones={PAGE.after} />
       <section className="sec">
         <div className="wrap corp rv">
           <CompanyOffices />
         </div>
       </section>
+      <Rows zones={PAGE.after} />
     </RpRoot>
   );
 }

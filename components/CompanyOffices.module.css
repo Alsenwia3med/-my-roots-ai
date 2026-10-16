@@ -1,9 +1,9 @@
 .offices {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 14px;
+  gap: 18px;
   width: 100%;
-  max-width: 1040px;
+  max-width: 1120px;
   margin: 0 auto;
   text-align: left;
 }
@@ -12,11 +12,11 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 22px 22px 24px;
+  gap: 12px;
+  padding: 30px 28px 32px;
   overflow: hidden;
   border: 1px solid rgba(5, 85, 100, 0.16);
-  border-radius: 22px;
+  border-radius: 26px;
   background: linear-gradient(160deg, #ffffff 0%, #f1f8f9 100%);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9) inset, 0 24px 40px -30px rgba(3, 42, 51, 0.45);
   color: #06323b;
@@ -125,13 +125,13 @@
   height: 14px !important;
 }
 .name {
-  font-size: 17px !important;
+  font-size: 20px !important;
   line-height: 1.25 !important;
   margin: 0 !important;
 }
 .address,
 .address span {
-  font-size: 14px !important;
+  font-size: 15.5px !important;
   line-height: 1.55 !important;
 }
 .mail {
