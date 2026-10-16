@@ -5,6 +5,8 @@ export interface LinkedInFeedPost extends Omit<LinkedInPost, 'publishedAt'> {
   publishedAt: string | null;
   title?: string;
   imageSrc?: string | null;
+  imageWidth?: number;
+  imageHeight?: number;
   slug?: string;
 }
 

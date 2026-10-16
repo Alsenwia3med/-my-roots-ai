@@ -340,7 +340,19 @@ export default function LuxHeader({
                 <span aria-hidden="true" />
               </button>
             </div>
-            <nav aria-label="Mobile main navigation" className="lxh-sheet-nav">
+            <nav
+              aria-label="Mobile main navigation"
+              className="lxh-sheet-nav"
+              onPointerMove={(e) => {
+                const r = e.currentTarget.getBoundingClientRect();
+                e.currentTarget.style.setProperty("--gx", `${e.clientX - r.left}px`);
+                e.currentTarget.style.setProperty("--gy", `${e.clientY - r.top}px`);
+                e.currentTarget.dataset.touch = "true";
+              }}
+              onPointerLeave={(e) => {
+                delete e.currentTarget.dataset.touch;
+              }}
+            >
               {MOBILE.map(([label, href], i) => (
                 <Link
                   key={href}

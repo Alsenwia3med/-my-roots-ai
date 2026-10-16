@@ -163,3 +163,43 @@
 .rp .swap{animation:rp-rise .6s var(--ease) both}
 .rp .pad{padding:clamp(18px,2.4vw,26px)}
 @media(max-width:1000px){.rp .hg{grid-template-columns:1fr}}
+
+/* ---------- hero: white canvas, picture first on small screens, a softly moving gradient headline ---------- */
+.rp .hero{background:#fff!important}
+.rp .hero .mesh{display:none!important}
+.rp .hero .h1.gt{background-image:linear-gradient(100deg,#02282F 0%,#055564 28%,#19A7B8 52%,#0B7F90 74%,#02282F 100%);background-size:260% 100%;animation:rp-sheen 8s ease-in-out infinite}
+@media(max-width:1000px){.rp .hero .hg>.hr{order:-1;width:100%;max-width:520px;margin-inline:auto}.rp .hero .hg.c>.hr{order:-1}}
+
+/* phones: kicker first, then the picture, then the headline and the words in order */
+@media(max-width:1000px){
+.rp .hero .hg{display:flex;flex-direction:column;gap:14px}
+.rp .hero .hg>div:first-child{display:contents}
+.rp .hero .hg .kick{order:0;align-self:flex-start}
+.rp .hero .hg>.hr{order:1;margin-block:2px 6px}
+.rp .hero .hg>div:first-child>:not(.kick){order:2;width:100%}
+.rp .hero .hg.c>div:first-child>:not(.kick){text-align:center}
+}
+
+/* closing panel: no arrow badge; small, dark and fine, with a hairline of light */
+.rp .outro .halos{display:none!important}
+.rp .outro{border:1px solid rgba(143,230,234,.28);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 30px 50px -30px rgba(3,42,51,.7)}
+.rp .outro::after{content:"";position:absolute;left:12%;right:12%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(143,230,234,.9),transparent);z-index:3}
+@media(max-width:760px){
+.rp .outro{padding:26px 18px 24px;border-radius:22px}
+.rp .outro>.in2{gap:10px}
+.rp .outro .h2{font-size:19px;letter-spacing:-.015em}
+.rp .outro .lede{font-size:13px;line-height:1.5}
+}
+
+/* closing section: no box — white page, centred headline with a short teal rule, as on the home page */
+.rp .outro{background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important;overflow:visible;padding:clamp(28px,4vw,56px) 0 6px}
+.rp .outro::after{display:none}
+.rp .outro .mesh,.rp .outro .halos{display:none!important}
+.rp .outro .h2{font-size:clamp(24px,3vw,36px);color:var(--ink)}
+.rp .outro .gw{background-image:linear-gradient(100deg,#02282F 0%,#055564 38%,#19A7B8 66%,#0B7F90 100%);background-size:220% 100%;color:var(--teal)}
+.rp .outro .lede{color:#2C5963!important}
+.rp .outro .h2::after{content:"";display:block;width:84px;height:2px;margin:16px auto 0;border-radius:2px;background:linear-gradient(90deg,transparent,#19A7B8,transparent)}
+.rp .outro .btn.bw{background:linear-gradient(135deg,#0A7385 0%,#055564 55%,#03404B 100%);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 16px 30px -14px rgba(5,85,100,.7),0 0 0 4px rgba(143,230,234,.22)}
+.rp .outro .btn.bo{background:#fff;color:var(--teal);box-shadow:inset 0 0 0 1px rgba(5,85,100,.35),0 10px 22px -14px rgba(5,85,100,.4)}
+.rp .outro .btn.bo:hover{background:#F2FAFB}
+@media(max-width:760px){.rp .outro{padding:22px 0 4px}.rp .outro .h2{font-size:21px}}

@@ -20,17 +20,25 @@ function LinkedInMark({ className }: { className?: string }) {
   );
 }
 
-function Cover({ post }: { post: LinkedInFeedPost }) {
+function Cover({ post, first }: { post: LinkedInFeedPost; first?: boolean }) {
   return post.hasImage ? (
     // eslint-disable-next-line @next/next/no-img-element
-    <img src={post.imageSrc ?? `/api/v1/linkedin/media/${post.id}`} alt={post.title ?? ''} loading="lazy" decoding="async" />
+    <img
+      src={post.imageSrc ?? `/api/v1/linkedin/media/${post.id}`}
+      alt={post.title ?? ''}
+      width={post.imageWidth}
+      height={post.imageHeight}
+      loading={first ? 'eager' : 'lazy'}
+      fetchPriority={first ? 'high' : 'low'}
+      decoding="async"
+    />
   ) : (
     <span className="lino" aria-hidden="true"><i className="spin" /><i className="unspin" /><LinkedInMark /></span>
   );
 }
 
-function CoverLink({ post }: { post: LinkedInFeedPost }) {
-  const cover = <Cover post={post} />;
+function CoverLink({ post, first }: { post: LinkedInFeedPost; first?: boolean }) {
+  const cover = <Cover post={post} first={first} />;
   return post.slug ? (
     <Link href={`/blog/linkedin/${post.slug}`} className="li-cover-link" aria-label={`Read ${post.title}`}>
       {cover}
@@ -75,7 +83,7 @@ export default function LinkedInFeed({ posts }: { posts: LinkedInFeedPost[] }) {
     <div className="lif">
       <article className="lifeat blog-post-feature dp r28" data-glow="">
         <div className="lifr" data-tilt="">
-          <div className="liframe"><div className="liimg"><CoverLink post={latest} /><i className="lishine" aria-hidden="true" /></div></div>
+          <div className="liframe"><div className="liimg"><CoverLink post={latest} first /><i className="lishine" aria-hidden="true" /></div></div>
         </div>
         <div className="lifc">
           <Meta post={latest} />

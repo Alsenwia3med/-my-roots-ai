@@ -44,3 +44,13 @@
 .rp.rp-how .pair>div{padding:clamp(20px,2.6vw,30px)}
 @media(max-width:1000px){.rp.rp-how .hgrid,.rp.rp-how .rgrid,.rp.rp-how .pdet,.rp.rp-how .pair{grid-template-columns:1fr}.rp.rp-how .con{justify-self:stretch;max-width:none}.rp.rp-how .rl{position:relative;top:0}.rp.rp-how .prail{display:none}.rp.rp-how .pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.rp.rp-how .stp{flex-direction:row;align-items:flex-start;gap:10px}.rp.rp-how .pc{margin-top:0}}
 @media(max-width:520px){.rp.rp-how .pgrid{grid-template-columns:1fr}.rp.rp-how .pdet{padding:20px}.rp.rp-how .stp{gap:9px}.rp.rp-how .orb{width:38px;height:38px;flex:none}.rp.rp-how .pc{min-height:96px}}
+
+/* phones: the stage cards and console rows, smaller */
+@media(max-width:600px){
+.rp.rp-how .pc{min-height:0;margin-top:12px;padding:10px 12px;gap:4px;border-radius:15px}
+.rp.rp-how .pc h3{font-size:13.5px}
+.rp.rp-how .orb{width:32px;height:32px}
+.rp.rp-how .crow{grid-template-columns:28px 1fr auto;gap:9px;padding:7px 10px;border-radius:12px}
+.rp.rp-how .crow b{font-size:12px}
+.rp.rp-how .crow small{margin-top:4px}
+}
