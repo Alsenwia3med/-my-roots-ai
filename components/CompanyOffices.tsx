@@ -20,20 +20,21 @@ export default function CompanyOffices() {
       </article>
 
       <article className={styles.card}>
+        <p className={styles.label}><MapPin size={14} strokeWidth={1.8} aria-hidden="true" /> Kuala Lumpur · Malaysia</p>
+        <h3 className={styles.name}>Holly7x Sdn Bhd</h3>
+        <address className={styles.address}>
+          <span>50-1, Block A, KL Traders Square,</span>
+          <span>Jalan Gombak, 53000 Kuala Lumpur,</span>
+          <span>Malaysia</span>
+        </address>
+      </article>
+
+      <article className={styles.card}>
         <p className={styles.label}><MapPin size={14} strokeWidth={1.8} aria-hidden="true" /> Dubai · UAE</p>
         <h3 className={styles.name}>Care Tec Medical Trading FZE</h3>
         <address className={styles.address}>
           <span>Dubai</span>
           <span>United Arab Emirates</span>
-        </address>
-      </article>
-
-      <article className={styles.card}>
-        <p className={styles.label}><MapPin size={14} strokeWidth={1.8} aria-hidden="true" /> Kuala Lumpur · Malaysia</p>
-        <address className={styles.address}>
-          <span>50-1, Block A, KL Traders Square,</span>
-          <span>Jalan Gombak, 53000 Kuala Lumpur,</span>
-          <span>Malaysia</span>
         </address>
       </article>
     </section>

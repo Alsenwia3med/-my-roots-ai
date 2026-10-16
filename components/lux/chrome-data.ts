@@ -40,6 +40,7 @@ export const MOBILE: readonly NavLink[] = [
 export const CTA: NavLink = ["Start Your Assessment", "/assessment"];
 
 export const NEWS = [
+  "Governed AI Intelligence",
   "Seven Stages. One Connected Vision of Human Health.",
   "Stage 01 · Mini Version Assessment Intelligence",
   "Stage 02 · Human Systems + Biological Measurement Foundation",
