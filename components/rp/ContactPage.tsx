@@ -5,6 +5,7 @@
  */
 
 import { Suspense } from 'react';
+import CompanyOffices from '../CompanyOffices';
 import type { PageContent } from '@/lib/content/c04-pages';
 import { CONTACT_PAGE as PAGE } from '@/lib/content/website-v121-pages';
 import ContactForm from '@/app/(site)/contact/ContactForm';
@@ -46,7 +47,7 @@ export default function ContactPage() {
       <Rows zones={PAGE.after} />
       <section className="sec">
         <div className="wrap corp rv">
-          {PAGE.corporate.map((line) => <p key={line}>{line}</p>)}
+          <CompanyOffices />
         </div>
       </section>
     </RpRoot>

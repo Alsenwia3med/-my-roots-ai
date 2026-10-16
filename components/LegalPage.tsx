@@ -13,6 +13,7 @@
  */
 
 import Link from 'next/link';
+import CompanyOffices from './CompanyOffices';
 import { ArrowRight, ArrowUpRight, Siren } from 'lucide-react';
 import CookiePreferencesButton from './CookiePreferencesButton';
 import PrintButton from './PrintButton';
@@ -229,8 +230,14 @@ export default function LegalPage({ doc }: { doc: LegalDocument }) {
 
             {doc.corporate ? (
               <section id="corporate-information" className="lxl-section" data-reveal="">
-                <h2 className="lxl-h2">{doc.corporate.heading}</h2>
-                <BlockBody block={doc.corporate} />
+                {doc.corporate.heading === 'ROOTS-AI™' ? (
+                  <CompanyOffices />
+                ) : (
+                  <>
+                    <h2 className="lxl-h2">{doc.corporate.heading}</h2>
+                    <BlockBody block={doc.corporate} />
+                  </>
+                )}
               </section>
             ) : null}
           </article>
